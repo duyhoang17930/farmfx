@@ -1,17 +1,17 @@
 import { fit, hex, mix, clamp, lerp, seg, ease, bump, rand, TAU } from "../../core/index.js";
 import { Grid } from "../_kit/creature.js";
-import { shadow } from "../_kit/sprite.js";
+import { groundShadow } from "../_kit/sprite.js";
 
 export const meta = {
   name: "Chicken",
-  desc: "A hen watches three grains land, pecks them up one by one, fluffs and flaps her wings, drops a feather, then stands jerking her head about and blinking.",
+  desc: "A hen, side-facing (flip for left), top-down 3/4: three grains land around her feet, she pecks each up, flaps, drops a feather, jerks her head about and blinks.",
   tags: ["animal", "chicken", "hen", "bird", "peck", "farm", "loop"],
-  size: [64, 48],
-  origin: [28, 40],
+  size: [48, 48],
+  origin: [20, 36],
   duration: 3.2,
   loop: true,
   fps: 30,
-  bg: "ground",
+  bg: "field",
   options: {
     palette: ["#2a2230", "#5c5266", "#9c92a4", "#cdc6d2", "#ece8f0", "#ffffff"],
     comb: ["#5a0e14", "#b0202a", "#e8423c", "#ff7a66"],
@@ -23,7 +23,8 @@ export const meta = {
 
 const D = meta.duration;
 const PECKS = [0.7, 1.05, 1.4], PECK = 0.24, T_FLAP = 1.85, FLAP = 0.5;
-const GRAINS = [[11, 0.05], [14, 0.18], [17, 0.3]];
+// grains: where each lands (x, and its own depth y on the ground) and when it's thrown in
+const GRAINS = [[11, -2, 0.05], [14, 1, 0.18], [16, -4, 0.3]];
 const G = new Grid(-24, -32, 48, 40);
 const step = (t) => Math.floor(t * 12) / 12; // the head moves in 12 fps jerks, the way a hen's does
 
@@ -47,7 +48,7 @@ function pose(t) {
   const ts = step(t), look = [[0, 0], [1, -1], [1, 0], [-1, 0], [0, -1]];
   const [lx, ly] = t > 2.3 || t < 0.6 ? look[Math.floor(ts * 2.5) % look.length] : [0, 0];
   const blink = (t > 2.72 && t < 2.8) || (t > 0.4 && t < 0.47);
-  return { tilt: 0.42 * pk.k, peck: pk.k, wing, puff, hx: lx, hy: ly, blink, lift: flapping ? -Math.round(2 * wing) : 0 };
+  return { tilt: 0.42 * pk.k, peck: pk.k, pi: pk.i, wing, puff, hx: lx, hy: ly, blink, lift: flapping ? -Math.round(2 * wing) : 0 };
 }
 
 function hen(g, C, Cm, Bk, P) {
@@ -105,7 +106,8 @@ function hen(g, C, Cm, Bk, P) {
   if (P.wing > 0.2) g.set(wx, wy, C[3]);
   // neck and head: the head reaches down to the ground in a peck
   const [nx, ny] = world(4, -13);
-  const hx = lerp(nx + 1 + P.hx, 12.5, P.peck), hy = lerp(ny - 4 + P.hy + P.lift, -3, P.peck);
+  const [gx, gy] = GRAINS[Math.max(0, P.pi)];
+  const hx = lerp(nx + 1 + P.hx, gx - 2.5, P.peck), hy = lerp(ny - 4 + P.hy + P.lift, gy - 2, P.peck);
   g.tube([[nx, ny], [lerp(nx + 1, hx, 0.5), lerp(ny - 1, hy, 0.5)], [hx, hy]], (u) => lerp(2.4, 2.6, u), (u, v) => (v > 0.6 ? C[3] : C[4]));
   g.ellipse(hx, hy, 2.8, 2.6, (nx2, ny2) => (nx2 + ny2 < -0.6 ? C[5] : ny2 > 0.55 ? C[3] : C[4]));
   // comb on top, wattle under the beak, then the beak
@@ -127,18 +129,18 @@ function hen(g, C, Cm, Bk, P) {
 }
 
 export function drawBack(p, t, o) {
-  shadow(p, 0, 9);
+  groundShadow(p, -1, 0, 9, 2.6);
 }
 
 export function draw(p, t, o) {
   const C = fit(o.palette, 6), Cm = fit(o.comb, 4), Bk = fit(o.beak, 4), Gr = fit(o.grain, 3), P = pose(t);
 
   // grains: tossed in from the top right, bounce once, then wait to be pecked up
-  GRAINS.forEach(([gx, t0], i) => {
+  GRAINS.forEach(([gx, gy, t0], i) => {
     const eaten = t > PECKS[i] + 0.07, age = t - t0;
     if (age < 0 || eaten) return;
-    const fall = 0.28, y = age < fall ? -26 * (1 - ease.inQuad(age / fall)) : -Math.round(3 * bump(age, fall, fall + 0.16));
-    const x = age < fall ? lerp(gx + 12, gx, ease.outQuad(age / fall)) : gx;
+    const fall = 0.28, y = gy + (age < fall ? -26 * (1 - ease.inQuad(age / fall)) : -Math.round(3 * bump(age, fall, fall + 0.16)));
+    const x = age < fall ? lerp(gx + 6, gx, ease.outQuad(age / fall)) : gx;
     p.px(x, y - 1, Gr[2]);
     p.px(x + 1, y - 1, Gr[1]);
     p.px(x, y, Gr[0]);
@@ -150,19 +152,20 @@ export function draw(p, t, o) {
   // a feather shaken loose in the flap drifts down, rocking, and fades as it lands
   const fa = t - (T_FLAP + 0.2);
   if (fa > 0 && fa < D - T_FLAP - 0.25) {
-    const L = D - T_FLAP - 0.25, u = fa / L, x = -6 - 10 * u + 3 * Math.sin(fa * 7), y = -20 + 19 * ease.outQuad(u);
+    const L = D - T_FLAP - 0.25, u = fa / L, x = -6 - 10 * u + 3 * Math.sin(fa * 7), y = -20 + 22 * ease.outQuad(u);
     const tip = Math.sin(fa * 7) > 0 ? 1 : -1;
     const a = u < 0.75 ? 1 : 1 - (u - 0.75) / 0.25;
     p.dot(x, y, C[5], a), p.dot(x + tip, y - 1, C[4], a), p.dot(x - tip, y + 1, C[3], a);
   }
 
   // a puff of dust off the ground on each peck
-  for (const t0 of PECKS) {
+  PECKS.forEach((t0, j) => {
+    const [gx, gy] = GRAINS[j];
     const a = t - t0 - 0.06;
-    if (a < 0 || a > 0.3) continue;
+    if (a < 0 || a > 0.3) return;
     for (let i = 0; i < 3; i++) {
       const s = i - 1, k = a / 0.3;
-      p.dot(13 + s * (2 + 4 * k), -1 - 2 * k * (1 + (i % 2)), hex("#8a7a64"), 1 - k);
+      p.dot(gx + s * (2 + 4 * k), gy - 2 * k * (1 + (i % 2)), hex("#8a7a64"), 1 - k);
     }
-  }
+  });
 }
