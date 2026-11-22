@@ -3,10 +3,10 @@ import { groundShadow } from "../_kit/sprite.js";
 
 export const meta = {
   name: "Farmer",
-  desc: "A farmer in a straw hat and overalls, top-down 3/4, about 16 x 28 px. Walks or stands in four facings; facing 'all' shows them side by side.",
+  desc: "A farmer in a straw hat and denim overalls over a cream shirt. Top-down 3/4 chibi, about 16 x 24 px, walking or idle in four facings ('all' shows them side by side).",
   tags: ["character", "person", "farmer", "walk", "idle", "four-way", "loop"],
-  size: [112, 48],
-  origin: [56, 40],
+  size: [112, 56],
+  origin: [56, 48],
   duration: 1.6,
   loop: true,
   fps: 30,
