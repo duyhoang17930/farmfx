@@ -1,7 +1,8 @@
 // The categories, in gallery order, with a line for each.
 
 export const categories = [
-  { id: "farming", name: "farming", blurb: "hoeing, watering, sowing, harvesting, acted out start to finish" },
+  { id: "characters", name: "characters", blurb: "farmers and villagers, walking and idle in four facings" },
+  { id: "farming", name: "farming", blurb: "hoeing, watering, sowing, harvesting, done by a farmer in four facings" },
   { id: "crops", name: "crops", blurb: "seed to sprout to ripe, swaying in the wind" },
   { id: "trees", name: "trees", blurb: "fruit trees, swaying leaves, chopping and falling" },
   { id: "animals", name: "animals", blurb: "chickens, cows, sheep, pigs, ducks going about their day" },

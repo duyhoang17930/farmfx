@@ -13,8 +13,8 @@ system, with a library made for farms instead of fights.
 
 <!-- previews -->
 <table>
-<tr><td align="center"><img src="docs/preview/farming-hoe.gif" width="180" alt="Hoe"><br><code>farming/hoe</code></td><td align="center"><img src="docs/preview/farming-water.gif" width="180" alt="Water"><br><code>farming/water</code></td><td align="center"><img src="docs/preview/crops-carrot.gif" width="180" alt="Carrot"><br><code>crops/carrot</code></td><td align="center"><img src="docs/preview/animals-chicken.gif" width="180" alt="Chicken"><br><code>animals/chicken</code></td></tr>
 <tr><td align="center"><img src="docs/preview/characters-elder.gif" width="180" alt="Elder"><br><code>characters/elder</code></td><td align="center"><img src="docs/preview/characters-farmer.gif" width="180" alt="Farmer"><br><code>characters/farmer</code></td><td align="center"><img src="docs/preview/characters-kid.gif" width="180" alt="Kid"><br><code>characters/kid</code></td><td align="center"><img src="docs/preview/characters-villager.gif" width="180" alt="Villager"><br><code>characters/villager</code></td></tr>
+<tr><td align="center"><img src="docs/preview/farming-hoe.gif" width="180" alt="Hoe"><br><code>farming/hoe</code></td><td align="center"><img src="docs/preview/farming-water.gif" width="180" alt="Water"><br><code>farming/water</code></td><td align="center"><img src="docs/preview/crops-carrot.gif" width="180" alt="Carrot"><br><code>crops/carrot</code></td><td align="center"><img src="docs/preview/animals-chicken.gif" width="180" alt="Chicken"><br><code>animals/chicken</code></td></tr>
 </table>
 <!-- /previews -->
 
@@ -23,6 +23,7 @@ system, with a library made for farms instead of fights.
 <!-- catalog -->
 | category | effects | some of them |
 |---|---|---|
+| **characters** | 4 | elder, farmer, kid, villager |
 | **farming** | 2 | hoe, water |
 | **crops** | 1 | carrot |
 | **animals** | 1 | chicken |

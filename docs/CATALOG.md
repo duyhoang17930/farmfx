@@ -1,11 +1,22 @@
 # Catalog
 
-8 effects in 3 categories. Every one is a file in
+8 effects in 4 categories. Every one is a file in
 `src/fx/<category>/<name>.js`; render any of them with `node tools/render.mjs <id> --gif`.
+
+## characters
+
+farmers and villagers, walking and idle in four facings.
+
+| effect | id | | size | what it does |
+|---|---|---|---|---|
+| Elder | `characters/elder` | loop 1.6s | 112×48 | An old man with a white beard and a flat cap, top-down 3/4, about 16 x 28 px. Walks or stands in four facings; facing 'all' shows them side by side. |
+| Farmer | `characters/farmer` | loop 1.6s | 112×48 | A farmer in a straw hat and overalls, top-down 3/4, about 16 x 28 px. Walks or stands in four facings; facing 'all' shows them side by side. |
+| Kid | `characters/kid` | loop 1.6s | 112×48 | A small kid in a red cap and a yellow tee, top-down 3/4, about 16 x 28 px. Walks or stands in four facings; facing 'all' shows them side by side. |
+| Villager | `characters/villager` | loop 1.6s | 112×48 | A villager with long red hair and a green dress, top-down 3/4, about 16 x 28 px. Walks or stands in four facings; facing 'all' shows them side by side. |
 
 ## farming
 
-hoeing, watering, sowing, harvesting, acted out start to finish.
+hoeing, watering, sowing, harvesting, done by a farmer in four facings.
 
 | effect | id | | size | what it does |
 |---|---|---|---|---|
