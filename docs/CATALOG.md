@@ -1,6 +1,6 @@
 # Catalog
 
-3 effects in 3 categories. Every one is a file in
+4 effects in 3 categories. Every one is a file in
 `src/fx/<category>/<name>.js`; render any of them with `node tools/render.mjs <id> --gif`.
 
 ## farming
@@ -10,6 +10,7 @@ hoeing, watering, sowing, harvesting, acted out start to finish.
 | effect | id | | size | what it does |
 |---|---|---|---|---|
 | Hoe | `farming/hoe` | one-shot 1.8s | 120×80 | The farmer heaves a hoe overhead and chops it into the ground: clods fly and bounce, dust rolls, and a dark furrow opens as he drags the blade back. |
+| Water | `farming/water` | one-shot 2.2s | 120×80 | The farmer tips a watering can over the soil: a fan of drops arcs from the rose, splashes and rings, and a dark wet patch spreads and glistens. |
 
 ## crops
 

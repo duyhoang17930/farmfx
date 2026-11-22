@@ -1,6 +1,6 @@
 # farmfx.
 
-**<!-- count -->3<!-- /count --> pixel art assets and animations for farming games, every one a small piece of
+**<!-- count -->4<!-- /count --> pixel art assets and animations for farming games, every one a small piece of
 code.** Crops that grow from seed to harvest, animals going about their day, tilled and watered soil, weather and
 seasons, and a farmer who hoes, waters, sows and harvests. Play them live, recolor them for another season, drop
 them into a browser game, or export sprite sheets for any engine.
@@ -13,7 +13,7 @@ system, with a library made for farms instead of fights.
 
 <!-- previews -->
 <table>
-<tr><td align="center"><img src="docs/preview/farming-hoe.gif" width="180" alt="Hoe"><br><code>farming/hoe</code></td><td align="center"><img src="docs/preview/crops-carrot.gif" width="180" alt="Carrot"><br><code>crops/carrot</code></td><td align="center"><img src="docs/preview/animals-chicken.gif" width="180" alt="Chicken"><br><code>animals/chicken</code></td></tr>
+<tr><td align="center"><img src="docs/preview/farming-hoe.gif" width="180" alt="Hoe"><br><code>farming/hoe</code></td><td align="center"><img src="docs/preview/farming-water.gif" width="180" alt="Water"><br><code>farming/water</code></td><td align="center"><img src="docs/preview/crops-carrot.gif" width="180" alt="Carrot"><br><code>crops/carrot</code></td><td align="center"><img src="docs/preview/animals-chicken.gif" width="180" alt="Chicken"><br><code>animals/chicken</code></td></tr>
 </table>
 <!-- /previews -->
 
@@ -22,7 +22,7 @@ system, with a library made for farms instead of fights.
 <!-- catalog -->
 | category | effects | some of them |
 |---|---|---|
-| **farming** | 1 | hoe |
+| **farming** | 2 | hoe, water |
 | **crops** | 1 | carrot |
 | **animals** | 1 | chicken |
 <!-- /catalog -->

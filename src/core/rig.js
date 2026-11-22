@@ -354,6 +354,24 @@ export const WEAPONS = {
       for (let i = 23 - w; i <= 23 + w; i += 0.4) T(i, j, j > 6.8 ? STEEL.hi : i < 23 - w * 0.3 ? STEEL.a : i > 23 + w * 0.4 ? STEEL.dark : STEEL.b);
     }
   } },
+  // a watering can carried by its top handle: the fist on the handle, the body hanging under it, the spout reaching
+  // forward and up to a rose at CAN_TIP; tip it forward (sa > 0) to pour
+  can: { draw(T0) {
+    const T = (i, k, c) => T0(i * 0.72, k * 0.72, c); // drawn at 0.72 scale, so it sits right next to a 24 px farmer
+    const G = { a: hex("#8fb0b8") >>> 0, b: hex("#5f8590") >>> 0, d: hex("#3c5a66") >>> 0, hi: hex("#d8eef0") >>> 0 };
+    for (let i = -3; i <= 3; i += 0.4) (T(i, -0.8, G.d), T(i, 0.6, G.b));          // the handle, under the fist
+    for (const i of [-3.2, 3.2]) for (let k = -0.8; k <= 2; k += 0.4) T(i, k, G.d);
+    for (let i = -5; i <= 5; i += 0.4)
+      for (let k = 2; k <= 10; k += 0.4) {
+        const edge = Math.abs(i) > 4.4 || k > 9.4, top = k < 2.8;
+        T(i, k, top ? G.hi : edge ? G.d : i < -2.5 ? G.a : i > 2.6 ? G.b : (k > 5 && k < 6.2) ? G.d : G.a);
+      }
+    for (let u = 0; u <= 1.001; u += 0.04) {                                         // the spout, thinning to the rose
+      const i = 5 + u * 8, k = 8 - u * 7, r = 1.1 - u * 0.5;
+      for (let s = -r; s <= r; s += 0.4) T(i + s * 0.6, k + s, s < 0 ? G.a : G.b);
+    }
+    for (let s = -2; s <= 2; s += 0.4) T(13.6 + s * 0.5, 1 + s * 0.6, s < -1.2 ? G.hi : G.d);
+  } },
   handle: { draw(T) {
     haft(T, -2.6, 6, STEEL.grip, STEEL.gripD);
     for (let k = -1.6; k <= 1.6; k += 0.4) (T(-3, k, STEEL.gold), T(6.4, k, STEEL.gold));
