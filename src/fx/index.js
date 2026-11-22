@@ -4,6 +4,10 @@ import * as farming_hoe from "./farming/hoe.js";
 import * as farming_water from "./farming/water.js";
 import * as crops_carrot from "./crops/carrot.js";
 import * as animals_chicken from "./animals/chicken.js";
+import * as characters_elder from "./characters/elder.js";
+import * as characters_farmer from "./characters/farmer.js";
+import * as characters_kid from "./characters/kid.js";
+import * as characters_villager from "./characters/villager.js";
 
 export { categories } from "./categories.js";
 
@@ -12,4 +16,8 @@ export const effects = {
   "farming/water": farming_water,
   "crops/carrot": crops_carrot,
   "animals/chicken": animals_chicken,
+  "characters/elder": characters_elder,
+  "characters/farmer": characters_farmer,
+  "characters/kid": characters_kid,
+  "characters/villager": characters_villager,
 };

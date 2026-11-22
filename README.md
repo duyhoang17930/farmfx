@@ -1,6 +1,6 @@
 # farmfx.
 
-**<!-- count -->4<!-- /count --> pixel art assets and animations for farming games, every one a small piece of
+**<!-- count -->8<!-- /count --> pixel art assets and animations for farming games, every one a small piece of
 code.** Crops that grow from seed to harvest, animals going about their day, tilled and watered soil, weather and
 seasons, and a farmer who hoes, waters, sows and harvests. Play them live, recolor them for another season, drop
 them into a browser game, or export sprite sheets for any engine.
@@ -14,6 +14,7 @@ system, with a library made for farms instead of fights.
 <!-- previews -->
 <table>
 <tr><td align="center"><img src="docs/preview/farming-hoe.gif" width="180" alt="Hoe"><br><code>farming/hoe</code></td><td align="center"><img src="docs/preview/farming-water.gif" width="180" alt="Water"><br><code>farming/water</code></td><td align="center"><img src="docs/preview/crops-carrot.gif" width="180" alt="Carrot"><br><code>crops/carrot</code></td><td align="center"><img src="docs/preview/animals-chicken.gif" width="180" alt="Chicken"><br><code>animals/chicken</code></td></tr>
+<tr><td align="center"><img src="docs/preview/characters-elder.gif" width="180" alt="Elder"><br><code>characters/elder</code></td><td align="center"><img src="docs/preview/characters-farmer.gif" width="180" alt="Farmer"><br><code>characters/farmer</code></td><td align="center"><img src="docs/preview/characters-kid.gif" width="180" alt="Kid"><br><code>characters/kid</code></td><td align="center"><img src="docs/preview/characters-villager.gif" width="180" alt="Villager"><br><code>characters/villager</code></td></tr>
 </table>
 <!-- /previews -->
 
