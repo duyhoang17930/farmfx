@@ -56,7 +56,7 @@ export function renderFrames(fx, opts = {}) {
   const n = Math.max(1, Math.round(meta.duration * fps) + (meta.loop ? 0 : 1));
   const shown = createFrame(w, h, -m, -m), bare = createFrame(w, h, -m, -m);
   const bgKind = opts.bg ?? meta.bg;
-  const bg = bgKind === "none" ? null : backdrop(bgKind, w, h, OY + m);
+  const bg = bgKind === "none" ? null : backdrop(bgKind, w, h, OY + m, OX + m);
   const inst = createFx(fx.mod, { x: OX, y: OY, ...(opts.seed !== undefined ? { seed: opts.seed } : {}), ...(opts.options ?? {}) });
   const actor = meta.actor && opts.actor !== false ? inst.options.actor ?? stockActor() : null;
   const fade = m === 0 && !isScreen(meta);
@@ -89,7 +89,7 @@ export function renderFrames(fx, opts = {}) {
 export function renderAct(fx, opts = {}) {
   const { meta } = fx, fps = opts.fps ?? 60, b = actBounds(fx.mod), pad = opts.pad ?? 6;
   const w = b.x1 - b.x0 + pad * 2, h = b.y1 - b.y0 + pad * 2, X = pad - b.x0, Y = pad - b.y0;
-  const frame = createFrame(w, h), bgKind = opts.bg ?? meta.bg, bg = bgKind === "none" ? null : backdrop(bgKind, w, h, Y);
+  const frame = createFrame(w, h), bgKind = opts.bg ?? meta.bg, bg = bgKind === "none" ? null : backdrop(bgKind, w, h, Y, X);
   const act = createAct(fx.mod, { x: X, y: Y, ...(opts.seed !== undefined ? { seed: opts.seed } : {}), ...(opts.options ?? {}) });
   const frames = [], max = Math.round((opts.seconds ?? (meta.loop ? meta.duration * 2 - act.t : 8)) * fps);
   const show = () => {

@@ -51,7 +51,7 @@ class Player {
   }
   setBg(kind) {
     this.bg = kind;
-    this.bgBuf = kind === "none" ? null : backdrop(kind, this.W, this.H, this.y);
+    this.bgBuf = kind === "none" ? null : backdrop(kind, this.W, this.H, this.y, this.x);
     this.dirty = true;
   }
   // an effect with an act plays it, unless the character is switched off

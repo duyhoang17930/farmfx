@@ -1,13 +1,13 @@
 ---
 name: farmfx
-description: Make pixel art assets and animations for farming games in code with the farmfx library (built on pixelfx) - crops that grow from seed to harvest, farm animals, tilled and watered soil tiles, buildings, weather and seasons, farm effects and UI, and farmer actions (hoe, water, sow, harvest) acted out by a character. Drop them into a game, recolor them per season, export sprite sheets, or draft, render, look and refine new ones until they look hand-animated. Use when someone wants farming or cozy-game pixel art, crop growth stages, animal sprite animations, farm tiles, or wants to use or export a farmfx asset in Godot, Unity, Phaser or a canvas game.
+description: Make 2D top-down 3/4-perspective pixel art assets and animations for farming games (the cozy farming-sim look: 16 px tiles, things seen from above and in front) in code with the farmfx library (built on pixelfx) - crops that grow from seed to harvest, farm animals, tilled and watered soil tiles, buildings, weather and seasons, farm effects and UI, and farmer actions (hoe, water, sow, harvest) acted out by a character. Drop them into a game, recolor them per season, export sprite sheets, or draft, render, look and refine new ones until they look hand-animated. Use when someone wants farming or cozy-game pixel art, crop growth stages, animal sprite animations, farm tiles, or wants to use or export a farmfx asset in Godot, Unity, Phaser or a canvas game.
 license: MIT
 compatibility: Node 18 or newer. ffmpeg is optional (GIF and MP4 previews).
 ---
 
 # farmfx
 
-Pixel art for farming games as code, built on pixelfx. Each effect is one file, `src/fx/<category>/<name>.js`, that draws into two buffers:
+Pixel art for 2D top-down farming games, seen at a 3/4 angle, as code, built on pixelfx. Each effect is one file, `src/fx/<category>/<name>.js`, that draws into two buffers:
 **color** (pixels: opaque, dithered or truly translucent) and **light** (additive glow). No images, so an effect
 can be played live, recolored, mirrored, reseeded and rendered to a sprite sheet for any engine.
 
@@ -86,13 +86,26 @@ up, when to freeze, how the target reacts. Use it whichever way the game is buil
 
 ## 3. Make a new one
 
-Read `docs/AUTHORING.md` first: it is the contract (meta, `draw(p, t, o)` for pure effects or `create(o)` for
+**Read `docs/STYLE.md` first.** Every asset is drawn for a 2D top-down game at a 3/4 angle, the cozy farming-sim
+look: a 16 x 16 px tile grid, the ground as a flat plan, standing things showing their front and their top, soft
+contact shadows instead of a floor line, light from the top-left, warm hue-shifted colors with colored (never black)
+outlines. The short version:
+
+- **Size in tiles.** A crop is one tile, a tree 2 x 3, a chicken about one, a cow 2 x 2, a person 16 x 32. Canvases
+  are whole tiles. The origin is the middle of the footprint's bottom edge, where it meets the ground.
+- **No floor line, no sky.** Ground things (soil, water, furrows, puddles, splashes) are flat shapes seen from above;
+  circles on the ground are ellipses twice as wide as tall. Particles land at their own depth, not on one line.
+- **Shadows** are soft dark ellipses under whatever stands; they stay on the ground when it jumps.
+- **Four facings** for animals and people: down, up, side (right; flip for left). Say in `desc` which ones it does.
+- **Render previews on `bg: "field"`** (grass from above with a faint 16 px grid) to judge size and footing.
+
+Then read `docs/AUTHORING.md`: it is the contract (meta, `draw(p, t, o)` for pure effects or `create(o)` for
 simulated ones, local coordinates, seamless loops, ending empty), the toolkit, the painter API and the quality bar.
 Then:
 
-1. **Say it in one line** with art direction: what it is, how it moves, its palette, its timing. "A carrot growing:
-   a seed in tilled soil, a sprout pops up with a squash, leaves unfurl, the orange top swells and peeks out,
-   a sparkle says it's ready."
+1. **Say it in one line** with art direction: what it is, its size in tiles, how it moves, its palette, its timing.
+   "A carrot growing on one tile of tilled soil, seen from above and in front: a sprout pops up with a squash,
+   feathery leaves unfurl, the orange shoulder swells out of the soil, a sparkle says it's ready."
 2. **Find references** in the library: `node tools/list.mjs <words>`, then read the two or three closest effect
    files and borrow their techniques (`Particles` and `Bits` in `src/core/sim.js` for sparks, smoke and debris,
    `p.disc` for translucent volumes, `cycle` for seamless particles, `tileFbm` scrolls for flames and water). Look at
@@ -116,6 +129,9 @@ What to look for, and the usual fix:
 
 | you see | fix |
 |---|---|
+| it looks side-on, like a platformer | lose the floor line; show the top as well as the front; flatten ground circles to 2:1 ellipses; a contact shadow under it |
+| it doesn't sit on its tile | size it in whole tiles, put the origin at the middle of the footprint's bottom edge, check it on `bg: "field"` |
+| outlines look harsh | color the outline one or two steps darker than what it wraps, break it where a highlight touches |
 | it reads as mush at 1x | fewer colors, a clear silhouette, one focal point, bigger shapes |
 | speckle: lone noise pixels inside shapes | threshold noise less, quantize with `at()`, no noise on small shapes |
 | floaty, no punch | fast in, slow out (`ease.outQuart`/`outExpo`), a 1 to 2 frame white hero frame, shorter total time |
@@ -132,9 +148,9 @@ What to look for, and the usual fix:
 | he holds the weapon badly | keep a bend in the elbow, shafts in front of the chest; on a swing the blade lags the hand; arms reach about 15 px and don't stretch, so step the body in |
 | his arms cross or the pose looks flat | he faces three-quarters towards us: for open arms the near hand goes left (`fx < 0`), far hand right, with `turn: 1`; `yaw` really turns him |
 
-Directional effects face right, ground effects stand on y = 0, actor effects wrap `o.actor` (a 24 x 38 stock
-character's mask and pixels), and nothing uses `Math.random`. Generic farm motifs are fine; never recreate a specific
-game's sprites, characters or logos (no Stardew Valley, Harvest Moon or other look-alikes).
+Side-facing things face right, standing things meet the ground at y = 0, actor effects wrap `o.actor` (a 24 x 38 stock
+character's mask and pixels), and nothing uses `Math.random`. The genre's conventions (the 3/4 view, the tile grid,
+the cozy palette) are fine to follow; never copy a specific game's sprites, characters, palettes, UI or logos.
 
 Shared helpers live in `src/fx/_kit/` (`creature.js` for outlined animals, `sprite.js` for outlined props,
 `weather.js`, `water.js`, `nature.js`, `ui.js`). Import them with `../_kit/<name>.js`.

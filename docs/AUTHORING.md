@@ -1,6 +1,8 @@
 # Writing an effect
 
 An effect is one file, `src/fx/<category>/<name>.js` (kebab-case), drawing pixel art over time into two buffers.
+Everything in farmfx is drawn for a 2D top-down game at a 3/4 angle on a 16 px tile grid: read
+[STYLE.md](STYLE.md) first. Where this file talks about "the floor", read "the ground under the thing", at y = 0.
 It has no images and no dependencies beyond `src/core`. It can be played live, recolored, mirrored and rendered
 to a sprite sheet for any engine.
 

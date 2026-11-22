@@ -43,12 +43,12 @@ export const meta = {
   name: "${name}",
   desc: "One line: what it is, how it moves.",
   tags: ["${id.split("/")[0]}"],
-  size: [48, 48],
-  origin: [24, 32],
+  size: [32, 32],
+  origin: [16, 24],
   duration: ${loop ? 1.2 : 0.7},
   loop: ${loop},
   fps: 30,
-  bg: "dark",
+  bg: "field",
   options: { palette: PAL.arcane, seed: 1 },
 };
 
