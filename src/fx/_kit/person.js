@@ -199,3 +199,32 @@ export function showcase(p, t, o, look, shadow) {
     drawPerson(p, x, 0, f, look, pose);
   });
 }
+
+/**
+ * Keyframed poses for chores: keys [[t, { name: [x, y] | number, ... }, ease?], ...], sampled on 12 fps steps the way
+ * a hand-animated sprite holds its frames. Between keys every number (and every [x, y]) moves with the next key's
+ * ease: "snap" jumps on the key, "out" arrives fast and settles, default eases in and out.
+ */
+export function keyed(keys, t, fps = 12) {
+  const q = Math.floor(t * fps + 1e-6) / fps;
+  if (q <= keys[0][0]) return keys[0][1];
+  for (let i = 1; i < keys.length; i++) {
+    const [t0, a] = keys[i - 1], [t1, b, kind] = keys[i];
+    if (q > t1) continue;
+    let u = (q - t0) / (t1 - t0 || 1);
+    u = kind === "snap" ? (u >= 1 ? 1 : 0) : kind === "out" ? 1 - (1 - u) ** 3 : u * u * (3 - 2 * u);
+    const out = {};
+    for (const k in b) {
+      const A = a[k] ?? b[k], B = b[k];
+      out[k] = Array.isArray(B) ? [lerp(A[0], B[0], u), lerp(A[1], B[1], u)] : typeof B === "number" ? lerp(A, B, u) : u < 0.5 ? A : B;
+    }
+    return out;
+  }
+  return keys[keys.length - 1][1];
+}
+
+/** Where a chore's figures stand: one at the origin, or the four facings in a row `gap` px apart (facing "all"). */
+export const spots = (facing, gap) => {
+  const list = facing === "all" ? FACINGS : [facing];
+  return list.map((f, i) => ({ f, x: list.length > 1 ? Math.round((i - (list.length - 1) / 2) * gap) : 0 }));
+};
