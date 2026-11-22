@@ -74,7 +74,8 @@ export class Particles {
           p.vx -= p.vx * 0.8 * dt;
           const g = this.ground(p.x), ny = p.y + p.vy * dt;
           p.x += p.vx * dt;
-          if (p.vy > 0 && p.y <= g && ny >= g) {
+          // falling and at or under the ground here lands, even if it drifted over from a lower patch (top-down ground has depth)
+          if (p.vy > 0 && ny >= g) {
             p.y = g - 0.25;
             if (p.vy > 130 && R.chance(0.4)) (p.vy = -p.vy * 0.25), (p.vx = p.vx * 0.5 + R.range(-10, 10));
             else (p.vx = p.vy = 0), (p.life = Math.min(p.life, 0.5));
