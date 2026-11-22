@@ -14,3 +14,10 @@ License.
 
 **Fonts.** The gallery loads Pixelify Sans, Funnel Sans and Red Hat Mono from Google Fonts (SIL Open Font
 License). No font files are shipped in this repository. pixelfx's Patch Pixel font is not included.
+
+**Character reference art.** The indexed pixels in `src/fx/characters/_art.js` and
+`src/fx/portraits/_art.js` were adapted from the supplied FarmFX reference sheet
+(`image.png`). The file was supplied without an author, generation history, or
+license. Its redistribution rights have not been verified. This repository does
+not assert an MIT license for those pixels or the sheets and previews derived from
+them. Verify permission before publishing or distributing those assets.

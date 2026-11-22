@@ -154,12 +154,18 @@ the cozy palette) are fine to follow; never copy a specific game's sprites, char
 
 ### People
 
-Characters are put together from **hand-drawn pixel parts**, not drawn shape by shape: `src/fx/_kit/parts.js` (sprites,
-1.5 tiles tall, facing down, up and side) and `src/fx/_kit/portrait-parts.js` (40 x 48 chibi busts). Each part is rows of
-characters; the legend at the top of each file maps them to the look's ramps (skin, hair, top, top2, pants, shoes, hat,
-beard, scarf...), so one drawing serves every color. A new villager is a new look in `src/fx/_kit/cast.js` plus
-`characters/<name>.js` and `portraits/<name>.js` (copy an existing pair). A new hair style, hat or garment is a new
-part: draw it in the same legend, facing down, up and side, render the cast and look at it next to the others.
+Each villager has four indexed 24 × 26 sprite frames in `src/fx/characters/_art.js`,
+ordered down, left, right, up, and a 40 × 48 bust in `src/fx/portraits/_art.js`.
+Use up to 16 colors per palette. A period marks transparency. Pass `colors` as a
+map from a palette symbol to a replacement color to recolor a character or portrait.
+Set `season` to `spring`, `summer`, `autumn`, or `winter` on character, portrait, and
+farming effects. Individual `colors` replacements take precedence over the seasonal tint.
+The portrait data locates the near eye, far eye, and mouth for dialogue animation.
+
+Add the villager's information in `src/fx/_kit/cast.js` and register the two assets
+by following an existing pair of effect modules. The farming effects reuse the
+indexed body with the hand and tool poses from `src/fx/_kit/person.js`. The parts in
+`src/fx/_kit/parts.js` support custom procedural looks in that rig.
 
 Shared helpers live in `src/fx/_kit/` (`creature.js` for outlined animals, `sprite.js` for outlined props,
 `weather.js`, `water.js`, `nature.js`, `ui.js`). Import them with `../_kit/<name>.js`.

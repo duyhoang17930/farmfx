@@ -1,6 +1,7 @@
 import { fit, hex, clamp, lerp, seg, ease, rand, wrap } from "../../core/index.js";
 import { groundShadow } from "../_kit/sprite.js";
-import { drawPerson, keyed, spots } from "../_kit/person.js";
+import { keyed, spots } from "../_kit/person.js";
+import { drawWorkingCharacter } from "../characters/_draw.js";
 
 export const meta = {
   name: "Water",
@@ -15,6 +16,8 @@ export const meta = {
   options: {
     facing: "all",
     look: "farmer",
+    season: "original",
+    colors: null,
     palette: ["#0a1a30", "#16406a", "#2a72a8", "#4ea4d8", "#8cd2f4", "#d4f2ff", "#ffffff"],
     soil: ["#1a1008", "#2e1c10"],
     seed: 5,
@@ -114,11 +117,11 @@ export function draw(p, t, o) {
     groundShadow(p, ox, 0, 6, 2);
     if (plan.behind) shower();
     const tool = (g, fl) => can(g, fl, k.grip, k.a);
-    drawPerson(p, ox, 0, f, o.look, {
+    drawWorkingCharacter(p, ox, 0, f, o.look, {
       hands: [k.grip, f === "up" || f === "down" ? [-7, -5] : [k.grip[0] - 2, k.grip[1] + 2]],
       lean: k.lean ?? 0,
       behind: plan.behind ? tool : null, front: plan.behind ? null : tool,
-    });
+    }, o);
     if (!plan.behind) shower();
     // after he tips it back up, the rose drips a couple of times
     for (let j = 0; j < 2; j++) {

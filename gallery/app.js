@@ -2,7 +2,10 @@
 // opens one effect with its options, a sprite sheet and the code to use it.
 
 import { effects, categories } from "../src/fx/index.js";
-import { createFrame, clearFrame, createFx, createAct, actBounds, composite, backdrop, drawActor, painterFor, stockActor, actorAlphaOf, PAL, BACKDROPS } from "../src/core/index.js";
+import { characterArt } from "../src/fx/characters/_art.js";
+import { portraitArt } from "../src/fx/portraits/_art.js";
+import { FIGURE_SEASONS, figurePalette } from "../src/fx/_kit/figure-colors.js";
+import { createFrame, clearFrame, createFx, createAct, actBounds, composite, backdrop, drawActor, painterFor, stockActor, actorAlphaOf, hex, toHex, PAL, BACKDROPS } from "../src/core/index.js";
 
 const REPO = "https://github.com/duyhoang17930/farmfx";
 const FX = Object.entries(effects).map(([id, mod]) => {
@@ -204,6 +207,7 @@ function openDetail(fx) {
   const pal = $("#d-pal");
   pal.replaceChildren(el("option", { value: "", textContent: "its own" }), ...Object.keys(PAL).map((k) => el("option", { value: k, textContent: k })));
   pal.value = "";
+  openFigureColors(fx);
   $("#d-actor").hidden = !m.actor;
   $("#d-actor").setAttribute("aria-pressed", "true");
   $("#d-flip").setAttribute("aria-pressed", "false");
@@ -232,9 +236,43 @@ function btn(label, fn, on, group) {
   });
   return b;
 }
+function openFigureColors(fx) {
+  const options = fx.meta.options;
+  const [group, name] = fx.id.split("/");
+  detail.figureColors = {
+    characters: characterArt[name],
+    portraits: portraitArt[name],
+    farming: characterArt[options.look],
+  }[group]?.palette;
+  $("#d-season-row").hidden = !Object.hasOwn(options, "season");
+  $("#d-colors-row").hidden = !Object.hasOwn(options, "colors") || !detail.figureColors;
+  const season = $("#d-season");
+  season.replaceChildren(...FIGURE_SEASONS.map((value) => el("option", { value, textContent: value })));
+  season.value = options.season ?? "original";
+  const slots = Object.keys(detail.figureColors ?? {});
+  $("#d-color-slot").replaceChildren(...slots.map((value) => el("option", { value, textContent: `slot ${value}` })));
+  showFigureColor();
+}
+
+function showFigureColor() {
+  if (!detail.figureColors) return;
+  const colors = figurePalette(detail.figureColors, detail.opts);
+  $("#d-color").value = toHex(hex(colors[$("#d-color-slot").value]));
+  $("#d-colors-reset").disabled = !detail.opts.colors;
+}
+
+function applyFigureColor() {
+  showFigureColor();
+  detail.restart();
+  $("#d-sheet").replaceChildren();
+  code(detail.fx);
+}
+
 function code(fx) {
   const v = fx.id.split("/")[1].replace(/-(\w)/g, (_, c) => c.toUpperCase());
   const opts = { x: 160, y: 120, ...(detail.opts.palette ? { palette: "[…]" } : {}), ...(detail.flip ? { flip: true } : {}) };
+  if (detail.opts.season) opts.season = detail.opts.season;
+  if (detail.opts.colors) opts.colors = detail.opts.colors;
   const acted = !!fx.mod.act, make = acted ? "createAct" : "createFx";
   $("#d-code").textContent = [
     `import { createFrame, ${make}, composite } from "farmfx";`,
@@ -300,6 +338,19 @@ function wireDetail() {
     else delete detail.opts.palette;
     detail.restart();
     code(detail.fx);
+  });
+  $("#d-season").addEventListener("change", (e) => {
+    detail.opts.season = e.target.value;
+    applyFigureColor();
+  });
+  $("#d-color-slot").addEventListener("change", showFigureColor);
+  $("#d-color").addEventListener("change", (e) => {
+    detail.opts.colors = { ...detail.opts.colors, [$("#d-color-slot").value]: e.target.value };
+    applyFigureColor();
+  });
+  $("#d-colors-reset").addEventListener("click", () => {
+    delete detail.opts.colors;
+    applyFigureColor();
   });
   $("#d-make").addEventListener("click", sheet);
   $("#d-copy").addEventListener("click", async (e) => {

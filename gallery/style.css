@@ -153,6 +153,7 @@ main { max-width: 1240px; margin: 0 auto; }
 .facts dd { margin: 0; font-variant-numeric: tabular-nums; }
 .controls { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
 .row { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.row[hidden] { display: none; }
 .row label { font: 400 11px/1 var(--mono); color: var(--quiet); width: 64px; letter-spacing: 0.04em; }
 .btn {
   border: 1px solid var(--line);

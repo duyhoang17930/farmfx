@@ -1,7 +1,8 @@
 import { fit, hex, clamp, lerp, seg, ease, rand } from "../../core/index.js";
 import { toss } from "../_kit/creature.js";
 import { groundShadow } from "../_kit/sprite.js";
-import { drawPerson, keyed, spots } from "../_kit/person.js";
+import { keyed, spots } from "../_kit/person.js";
+import { drawWorkingCharacter } from "../characters/_draw.js";
 
 export const meta = {
   name: "Hoe",
@@ -16,6 +17,8 @@ export const meta = {
   options: {
     facing: "all",
     look: "farmer",
+    season: "original",
+    colors: null,
     soil: ["#1e120a", "#3a2414", "#5a3820", "#7a4e2c", "#9a683a", "#ba8a54"],
     seed: 3,
   },
@@ -49,10 +52,10 @@ const PLAN = {
       [0, REST_D],
       [0.3, { grip: [1, -25], head: [1, -38], bob: -1 }],
       [0.42, { grip: [0, -27], head: [0, -40], bob: -1 }],
-      [0.46, { grip: [0, -16], head: [0, -2], bob: 0 }, "snap"],
-      [HIT, { grip: [0, -5], head: [0, 10], bob: 1 }, "snap"],
-      [0.62, { grip: [0, -5], head: [0, 10], bob: 1 }],
-      [OPEN, { grip: [0, -5], head: [0, 7], bob: 1 }],
+      [0.46, { grip: [4, -14], head: [0, -2], bob: 0 }, "snap"],
+      [HIT, { grip: [4, -5], head: [0, 10], bob: 1 }, "snap"],
+      [0.62, { grip: [4, -5], head: [0, 10], bob: 1 }],
+      [OPEN, { grip: [4, -5], head: [0, 7], bob: 1 }],
       [1.05, REST_D],
       [1.8, REST_D],
     ],
@@ -75,10 +78,14 @@ const PLAN = {
 PLAN.left = PLAN.right;
 
 /** The hoe in the person's grid: a wooden shaft from just behind the hands to the head, and the iron blade. */
-function hoe(g, flip, grip, head, flat) {
+function hoe(g, flip, grip, head, flat, faceBottom) {
   const set = (x, y, c) => g.set(x * flip, y, c);
   const dx = head[0] - grip[0], dy = head[1] - grip[1], L = Math.hypot(dx, dy) || 1, ux = dx / L, uy = dy / L;
-  for (let s = -3; s <= L; s += 0.5) set(grip[0] + ux * s, grip[1] + uy * s, s > L - 1 ? WOOD[0] : ux > 0.3 || uy < -0.3 ? WOOD[2] : WOOD[1]);
+  for (let s = -3; s <= L; s += 0.5) {
+    const x = grip[0] + ux * s, y = grip[1] + uy * s;
+    if (y < faceBottom && g.get(x * flip, y)) continue;
+    set(x, y, s > L - 1 ? WOOD[0] : ux > 0.3 || uy < -0.3 ? WOOD[2] : WOOD[1]);
+  }
   if (flat && Math.abs(uy) > 0.6) {
     // seen end-on (facing down or up): the blade is a short bar across the end of the shaft
     for (let x = -2; x <= 2; x++) (set(head[0] + x, head[1], x < 0 ? IRON[2] : IRON[1]), set(head[0] + x, head[1] + 1, IRON[0]));
@@ -117,12 +124,13 @@ export function draw(p, t, o) {
     groundShadow(p, ox, 0, 6, 2);
     // raised over his head, the hoe is behind it (unless he faces away); lowered, it's in front (unless he faces away)
     const raised = k.head[1] < -26, inFront = raised ? f === "up" : f !== "up";
-    const tool = (g, fl) => hoe(g, fl, k.grip, k.head, plan.flat);
+    const faceBottom = f === "down" && inFront ? -8 + Math.round(k.bob ?? 0) : -Infinity;
+    const tool = (g, fl) => hoe(g, fl, k.grip, k.head, plan.flat, faceBottom);
     const far = [k.grip[0] - (k.head[0] - k.grip[0]) * 0.18, k.grip[1] - (k.head[1] - k.grip[1]) * 0.18];
-    drawPerson(p, ox, 0, f, o.look, {
+    drawWorkingCharacter(p, ox, 0, f, o.look, {
       hands: [k.grip, far], lean: k.lean ?? 0, bob: Math.round(k.bob ?? 0),
       behind: inFront ? null : tool, front: inFront ? tool : null,
-    });
+    }, o);
 
     // the bite: clods thrown up from the tile, landing at their own depths, and a puff of dust
     const age = t - HIT;

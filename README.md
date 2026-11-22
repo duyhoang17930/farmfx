@@ -118,5 +118,5 @@ Copy it into `~/.claude/skills/`, or add this repo as a plugin marketplace.
 
 ## license.
 
-MIT, code and assets. Use them in anything, commercial included. farmfx is built on pixelfx (MIT, Patch and Hugo
-Duprez) and parts adapt Hugo Duprez's MIT effects and Hollow Crown's MIT source: see [NOTICE.md](NOTICE.md).
+The MIT license covers the code and assets, except for the character reference art and its derivatives. See
+[NOTICE.md](NOTICE.md) for the character art's status and the notices for pixelfx, Hugo Duprez's effects, and Hollow Crown.

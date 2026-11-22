@@ -34,9 +34,9 @@ export const CAST = {
   // a farm girl: red bandana, long brown hair, overalls
   rosa: { skin: SKIN.fair, hair: HAIR.chestnut, hairStyle: "long", wear: "overalls", top: ["#c8b490", "#f0e4c8", "#fff8ea"], top2: DENIM, pants: DENIM, shoes: BOOT, hat: "bandana", hatColor: ["#7a1818", "#c42e2a", "#f05a48"] },
   // an old farmer: straw hat, a white beard
-  grandpa: { skin: SKIN.light, hair: HAIR.white, hairStyle: "short", beard: "full", beardColor: HAIR.white, wear: "overalls", top: ["#7a3a24", "#a85a34", "#d08048"], top2: DENIM, pants: DENIM, shoes: BOOT, hat: "straw", hatColor: STRAW, bandColor: ["#4a2a14", "#6a3a1e", "#8a4e24"] },
+  grandpa: { portraitEyes: "closed", skin: SKIN.light, hair: HAIR.white, hairStyle: "short", beard: "full", beardColor: HAIR.white, wear: "overalls", top: ["#7a3a24", "#a85a34", "#d08048"], top2: DENIM, pants: DENIM, shoes: BOOT, hat: "straw", hatColor: STRAW, bandColor: ["#4a2a14", "#6a3a1e", "#8a4e24"] },
   // a grandma: grey bun, round glasses, an apron over a brown dress
-  nana: { skin: SKIN.fair, hair: HAIR.grey, hairStyle: "bun", glasses: true, glassesColor: "#6a4a2a", wear: "apron", skirt: true, top: ["#4a2416", "#7a3e24", "#a45a34"], top2: ["#c8b490", "#f0e4c8", "#fffaf0"], pants: ["#4a2416", "#7a3e24", "#a45a34"], shoes: BOOT },
+  nana: { portraitEyes: "closed", skin: SKIN.fair, hair: HAIR.grey, hairStyle: "bun", glasses: true, glassesColor: "#6a4a2a", wear: "apron", skirt: true, top: ["#4a2416", "#7a3e24", "#a45a34"], top2: ["#c8b490", "#f0e4c8", "#fffaf0"], pants: ["#4a2416", "#7a3e24", "#a45a34"], shoes: BOOT },
   // a bookish lad: black messy hair, glasses, a brown vest
   theo: { skin: SKIN.light, hair: HAIR.black, hairStyle: "messy", glasses: true, wear: "vest", top: ["#b4a684", "#e8dcbc", "#fff6e0"], top2: ["#2e1e16", "#4a3022", "#6a4630"], pants: ["#2a2430", "#3e3646", "#5a5064"], shoes: BOOT },
   // a florist: ginger braid with a flower, a green dress
@@ -52,7 +52,7 @@ export const CAST = {
   // a wanderer: a green flat cap, a scarf, a brown jacket
   rowan: { eyes: ["#1e3a1e", "#3a6a3a", "#6a9a5a"], skin: SKIN.light, hair: HAIR.brown, hairStyle: "short", wear: "jacket", top: ["#6a5a2a", "#a08a40", "#c8b060"], top2: ["#4a2a18", "#6e4026", "#946038"], pants: ["#2a3020", "#3e4630", "#5a6444"], shoes: BOOT, hat: "flatcap", hatColor: ["#2a4a1e", "#3e6e2a", "#62983e"], scarf: ["#3a6a1e", "#5a9a2a", "#8acc4a"] },
   // a pink-haired girl with a bow, a blouse under denim
-  pip: { eyes: ["#5a1a3a", "#a03a6a", "#e070a0"], skin: SKIN.fair, hair: HAIR.pink, hairStyle: "wavy", wear: "overalls", top: ["#c8a0a8", "#f4dce0", "#ffffff"], top2: ["#2a4a8a", "#4070c0", "#6a9ae8"], pants: ["#2a4a8a", "#4070c0", "#6a9ae8"], shoes: ["#5a1a2a", "#a03040", "#d05060"], hat: "bow", hatColor: ["#8a1a2a", "#d83a4a", "#ff6a70"] },
+  pip: { portraitEyes: "closed", eyes: ["#5a1a3a", "#a03a6a", "#e070a0"], skin: SKIN.fair, hair: HAIR.pink, hairStyle: "wavy", wear: "overalls", top: ["#c8a0a8", "#f4dce0", "#ffffff"], top2: ["#2a4a8a", "#4070c0", "#6a9ae8"], pants: ["#2a4a8a", "#4070c0", "#6a9ae8"], shoes: ["#5a1a2a", "#a03040", "#d05060"], hat: "bow", hatColor: ["#8a1a2a", "#d83a4a", "#ff6a70"] },
   // a tinkerer: goggles up, an orange scarf, olive overalls
   cog: { eyes: ["#3a2a10", "#7a5a20", "#b08a3a"], skin: SKIN.light, hair: HAIR.chestnut, hairStyle: "spiky", wear: "overalls", top: ["#8a4a10", "#d07a20", "#f4a040"], top2: ["#3a4220", "#56602e", "#768444"], pants: ["#3a4220", "#56602e", "#768444"], shoes: BOOT, hat: "goggles", hatColor: ["#4a3020", "#6a4630", "#8a6040"], scarf: ["#9a3a10", "#e0621e", "#ff9a4a"] },
   // a fisher girl: long blue hair, a flower, a white blouse and blue skirt

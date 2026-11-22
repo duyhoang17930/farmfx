@@ -48,6 +48,26 @@ export function drawPerson(p, X, Y, facing, look, pose = {}, fade = 1) {
   const hs = hands(pose, side, step, lean, bob), shN = side ? [-1 + lean, -8 + bob] : [-6, -8 + bob], shF = side ? shN : [5, -8 + bob];
   pose.behind?.(g, flip);
 
+  if (pose.body) {
+    // a body supplied as art: the arms take that art's colors (pose.armColors: { skin, top, top2 } ramps) when given
+    const LA = pose.armColors ? { ...L, ...pose.armColors } : L;
+    const [near, far] = !side && hs[0][0] > hs[1][0] ? [shF, shN] : [shN, shF];
+    if (side || f === "u") arm(set, LA, far, hs[1], true);
+    pose.body(g, lean * flip, bob);
+    if (f === "d") arm(set, LA, far, hs[1]);
+    arm(set, LA, near, hs[0]);
+    pose.front?.(g, flip);
+    g.outline((x, y) => {
+      for (const [dx, dy] of [[-1, 0], [1, 0], [0, -1], [0, 1]]) {
+        const neighbor = g.get(x + dx, y + dy);
+        if (neighbor && g.tagAt(x + dx, y + dy) !== pose.bodyTag) return mix(neighbor, INK, 0.88);
+      }
+      return 0;
+    });
+    g.draw(p, fade, X, Y);
+    return;
+  }
+
   // back to front: hair hanging behind, far arm, legs, torso, skirt, arms, head, hair, beard, glasses, hat, extras
   if (hair.back?.[f]) up(hair.back[f]);
   if (side) arm(set, L, shF, hs[1], true);

@@ -9,26 +9,26 @@ farmers and villagers, walking and idle in four facings.
 
 | effect | id | | size | what it does |
 |---|---|---|---|---|
-| Arlo | `characters/arlo` | loop 1.6s | 112×56 | A fair-haired lad in a brown vest. Top-down 3/4 chibi, about 16 x 24 px, walking or idle in four facings ('all' shows them side by side). |
-| Ash | `characters/ash` | loop 1.6s | 112×56 | A quiet mage with silver hair, a purple scarf and a robe. Top-down 3/4 chibi, about 16 x 24 px, walking or idle in four facings ('all' shows them side by side). |
-| Bram | `characters/bram` | loop 1.6s | 112×56 | A bearded woodsman in a tank top and dark overalls. Top-down 3/4 chibi, about 16 x 24 px, walking or idle in four facings ('all' shows them side by side). |
-| Clove | `characters/clove` | loop 1.6s | 112×56 | A baker in a chef's hat and a red apron. Top-down 3/4 chibi, about 16 x 24 px, walking or idle in four facings ('all' shows them side by side). |
-| Cog | `characters/cog` | loop 1.6s | 112×56 | A tinkerer with goggles up, an orange scarf and olive overalls. Top-down 3/4 chibi, about 16 x 24 px, walking or idle in four facings ('all' shows them side by side). |
-| Farmer | `characters/farmer` | loop 1.6s | 112×56 | A farmer in a straw hat and denim overalls over a cream shirt. Top-down 3/4 chibi, about 16 x 24 px, walking or idle in four facings ('all' shows them side by side). |
-| Fern | `characters/fern` | loop 1.6s | 112×56 | A florist with a ginger braid, a flower in her hair and a green dress. Top-down 3/4 chibi, about 16 x 24 px, walking or idle in four facings ('all' shows them side by side). |
-| Grandpa | `characters/grandpa` | loop 1.6s | 112×56 | An old farmer with a white beard and a straw hat. Top-down 3/4 chibi, about 16 x 24 px, walking or idle in four facings ('all' shows them side by side). |
-| Ivy | `characters/ivy` | loop 1.6s | 112×56 | A botanist in a white bucket hat and glasses, with a braid. Top-down 3/4 chibi, about 16 x 24 px, walking or idle in four facings ('all' shows them side by side). |
-| Kofi | `characters/kofi` | loop 1.6s | 112×56 | A runner with curly hair, a headband and a tank top. Top-down 3/4 chibi, about 16 x 24 px, walking or idle in four facings ('all' shows them side by side). |
-| Marina | `characters/marina` | loop 1.6s | 112×56 | A fisher girl with long blue hair, a flower and a white dress. Top-down 3/4 chibi, about 16 x 24 px, walking or idle in four facings ('all' shows them side by side). |
-| Nana | `characters/nana` | loop 1.6s | 112×56 | A grandma with a grey bun, round glasses and an apron. Top-down 3/4 chibi, about 16 x 24 px, walking or idle in four facings ('all' shows them side by side). |
-| Pip | `characters/pip` | loop 1.6s | 112×56 | A pink-haired girl with a bow, in a blouse and denim. Top-down 3/4 chibi, about 16 x 24 px, walking or idle in four facings ('all' shows them side by side). |
-| Rosa | `characters/rosa` | loop 1.6s | 112×56 | A farm girl in a red bandana, long brown hair and overalls. Top-down 3/4 chibi, about 16 x 24 px, walking or idle in four facings ('all' shows them side by side). |
-| Rowan | `characters/rowan` | loop 1.6s | 112×56 | A wanderer in a green flat cap, a scarf and a brown jacket. Top-down 3/4 chibi, about 16 x 24 px, walking or idle in four facings ('all' shows them side by side). |
-| Suki | `characters/suki` | loop 1.6s | 112×56 | A girl with a black ponytail and a red vest. Top-down 3/4 chibi, about 16 x 24 px, walking or idle in four facings ('all' shows them side by side). |
-| Sunny | `characters/sunny` | loop 1.6s | 112×56 | A gardener in a sunhat with a sunflower and green overalls. Top-down 3/4 chibi, about 16 x 24 px, walking or idle in four facings ('all' shows them side by side). |
-| Theo | `characters/theo` | loop 1.6s | 112×56 | A bookish lad with messy black hair, glasses and a brown vest. Top-down 3/4 chibi, about 16 x 24 px, walking or idle in four facings ('all' shows them side by side). |
-| Wade | `characters/wade` | loop 1.6s | 112×56 | A rancher in a cowboy hat and a leather jacket, with stubble. Top-down 3/4 chibi, about 16 x 24 px, walking or idle in four facings ('all' shows them side by side). |
-| Wisteria | `characters/wisteria` | loop 1.6s | 112×56 | A witch with wavy purple hair, a pointed hat and a dark robe. Top-down 3/4 chibi, about 16 x 24 px, walking or idle in four facings ('all' shows them side by side). |
+| Arlo | `characters/arlo` | loop 1.6s | 112×56 | A fair-haired lad in a brown vest. Top-down 3/4 chibi, 24 x 26 px frames, walking or idle in four facings ('all' shows them side by side). |
+| Ash | `characters/ash` | loop 1.6s | 112×56 | A quiet mage with silver hair, a purple scarf and a robe. Top-down 3/4 chibi, 24 x 26 px frames, walking or idle in four facings ('all' shows them side by side). |
+| Bram | `characters/bram` | loop 1.6s | 112×56 | A bearded woodsman in a tank top and dark overalls. Top-down 3/4 chibi, 24 x 26 px frames, walking or idle in four facings ('all' shows them side by side). |
+| Clove | `characters/clove` | loop 1.6s | 112×56 | A baker in a chef's hat and a red apron. Top-down 3/4 chibi, 24 x 26 px frames, walking or idle in four facings ('all' shows them side by side). |
+| Cog | `characters/cog` | loop 1.6s | 112×56 | A tinkerer with goggles up, an orange scarf and olive overalls. Top-down 3/4 chibi, 24 x 26 px frames, walking or idle in four facings ('all' shows them side by side). |
+| Farmer | `characters/farmer` | loop 1.6s | 112×56 | A farmer in a straw hat and denim overalls over a cream shirt. Top-down 3/4 chibi, 24 x 26 px frames, walking or idle in four facings ('all' shows them side by side). |
+| Fern | `characters/fern` | loop 1.6s | 112×56 | A florist with a ginger braid, a flower in her hair and a green dress. Top-down 3/4 chibi, 24 x 26 px frames, walking or idle in four facings ('all' shows them side by side). |
+| Grandpa | `characters/grandpa` | loop 1.6s | 112×56 | An old farmer with a white beard and a straw hat. Top-down 3/4 chibi, 24 x 26 px frames, walking or idle in four facings ('all' shows them side by side). |
+| Ivy | `characters/ivy` | loop 1.6s | 112×56 | A botanist in a white bucket hat and glasses, with a braid. Top-down 3/4 chibi, 24 x 26 px frames, walking or idle in four facings ('all' shows them side by side). |
+| Kofi | `characters/kofi` | loop 1.6s | 112×56 | A runner with curly hair, a headband and a tank top. Top-down 3/4 chibi, 24 x 26 px frames, walking or idle in four facings ('all' shows them side by side). |
+| Marina | `characters/marina` | loop 1.6s | 112×56 | A fisher girl with long blue hair, a flower and a white dress. Top-down 3/4 chibi, 24 x 26 px frames, walking or idle in four facings ('all' shows them side by side). |
+| Nana | `characters/nana` | loop 1.6s | 112×56 | A grandma with a grey bun, round glasses and an apron. Top-down 3/4 chibi, 24 x 26 px frames, walking or idle in four facings ('all' shows them side by side). |
+| Pip | `characters/pip` | loop 1.6s | 112×56 | A pink-haired girl with a bow, in a blouse and denim. Top-down 3/4 chibi, 24 x 26 px frames, walking or idle in four facings ('all' shows them side by side). |
+| Rosa | `characters/rosa` | loop 1.6s | 112×56 | A farm girl in a red bandana, long brown hair and overalls. Top-down 3/4 chibi, 24 x 26 px frames, walking or idle in four facings ('all' shows them side by side). |
+| Rowan | `characters/rowan` | loop 1.6s | 112×56 | A wanderer in a green flat cap, a scarf and a brown jacket. Top-down 3/4 chibi, 24 x 26 px frames, walking or idle in four facings ('all' shows them side by side). |
+| Suki | `characters/suki` | loop 1.6s | 112×56 | A girl with a black ponytail and a red vest. Top-down 3/4 chibi, 24 x 26 px frames, walking or idle in four facings ('all' shows them side by side). |
+| Sunny | `characters/sunny` | loop 1.6s | 112×56 | A gardener in a sunhat with a sunflower and green overalls. Top-down 3/4 chibi, 24 x 26 px frames, walking or idle in four facings ('all' shows them side by side). |
+| Theo | `characters/theo` | loop 1.6s | 112×56 | A bookish lad with messy black hair, glasses and a brown vest. Top-down 3/4 chibi, 24 x 26 px frames, walking or idle in four facings ('all' shows them side by side). |
+| Wade | `characters/wade` | loop 1.6s | 112×56 | A rancher in a cowboy hat and a leather jacket, with stubble. Top-down 3/4 chibi, 24 x 26 px frames, walking or idle in four facings ('all' shows them side by side). |
+| Wisteria | `characters/wisteria` | loop 1.6s | 112×56 | A witch with wavy purple hair, a pointed hat and a dark robe. Top-down 3/4 chibi, 24 x 26 px frames, walking or idle in four facings ('all' shows them side by side). |
 
 ## portraits
 
