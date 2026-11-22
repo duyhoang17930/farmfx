@@ -2,6 +2,7 @@
 
 export const categories = [
   { id: "characters", name: "characters", blurb: "farmers and villagers, walking and idle in four facings" },
+  { id: "portraits", name: "portraits", blurb: "48 x 64 busts for dialogue boxes, one for every character" },
   { id: "farming", name: "farming", blurb: "hoeing, watering, sowing, harvesting, done by a farmer in four facings" },
   { id: "crops", name: "crops", blurb: "seed to sprout to ripe, swaying in the wind" },
   { id: "trees", name: "trees", blurb: "fruit trees, swaying leaves, chopping and falling" },
