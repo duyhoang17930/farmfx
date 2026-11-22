@@ -1,0 +1,17 @@
+{
+  "name": "farmfx",
+  "description": "farmfx: pixel art assets and animations for farming games, as code.",
+  "owner": {
+    "name": "duyhoang17930",
+    "url": "https://github.com/duyhoang17930"
+  },
+  "plugins": [
+    {
+      "name": "farmfx",
+      "source": "./",
+      "description": "A skill for farming-game pixel art: crops, animals, farm tiles and farmer actions. Use, recolor and export the library's assets, or draft, render, look at and refine new ones.",
+      "category": "gamedev",
+      "tags": ["pixel-art", "farming", "animation", "sprite-sheet", "gamedev"]
+    }
+  ]
+}

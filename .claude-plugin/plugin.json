@@ -1,0 +1,14 @@
+{
+  "name": "farmfx",
+  "displayName": "farmfx",
+  "version": "0.1.0",
+  "description": "Pixel art assets and animations for farming games as code: crops, animals, tiles, weather and farmer actions, sprite sheet export for any engine, and a skill that makes new ones by drafting, rendering, looking and refining.",
+  "author": {
+    "name": "duyhoang17930",
+    "url": "https://github.com/duyhoang17930"
+  },
+  "homepage": "https://github.com/duyhoang17930/farmfx",
+  "repository": "https://github.com/duyhoang17930/farmfx",
+  "license": "MIT",
+  "keywords": ["pixel-art", "farming", "crops", "animals", "animation", "sprite-sheet", "gamedev", "canvas", "godot", "unity", "phaser"]
+}
