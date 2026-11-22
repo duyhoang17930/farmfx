@@ -345,6 +345,15 @@ export const WEAPONS = {
     for (let i = -14; i <= 22; i += 0.4) for (let k = -6; k <= -1; k += 0.4) T(i, k, k < -4.8 ? STEEL.oliveA : k > -2.2 ? STEEL.oliveD : Math.abs(i - 3) < 1.4 ? STEEL.gold : STEEL.olive);
     for (let k = -6.8; k <= -0.2; k += 0.4) (T(22.4, k, STEEL.b), T(-14.4, k, STEEL.d));
   } },
+  // farm tools: a long wooden haft, and an iron blade bent off it at a right angle (on the same side a scythe's blade hangs)
+  hoe: { two: -10, draw(T) {
+    haft(T, -14, 22, STEEL.wood, STEEL.woodD, 0.5);
+    for (let k = -0.4; k <= 1.2; k += 0.4) T(22.4, k, STEEL.woodD);
+    for (let j = 0.8; j <= 7.6; j += 0.4) {
+      const w = j < 2 ? 1 : 2.2 - (j - 2) * 0.08;
+      for (let i = 23 - w; i <= 23 + w; i += 0.4) T(i, j, j > 6.8 ? STEEL.hi : i < 23 - w * 0.3 ? STEEL.a : i > 23 + w * 0.4 ? STEEL.dark : STEEL.b);
+    }
+  } },
   handle: { draw(T) {
     haft(T, -2.6, 6, STEEL.grip, STEEL.gripD);
     for (let k = -1.6; k <= 1.6; k += 0.4) (T(-3, k, STEEL.gold), T(6.4, k, STEEL.gold));

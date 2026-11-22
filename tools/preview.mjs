@@ -9,7 +9,7 @@
 
 import { readdirSync, readFileSync, writeFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
-import { ROOT, resolveIds, allIds, loadEffect, renderFrames, writeVideo } from "./lib/fxlib.mjs";
+import { ROOT, resolveIds, allIds, loadEffect, renderFrames, renderAct, writeVideo } from "./lib/fxlib.mjs";
 import { categories } from "../src/fx/categories.js";
 
 const DIR = join(ROOT, "docs", "preview"), args = process.argv.slice(2);
@@ -17,7 +17,8 @@ const ids = args.length ? resolveIds(args) : allIds();
 let failed = 0;
 for (const id of ids) {
   try {
-    const fx = await loadEffect(id), r = renderFrames(fx);
+    // an asset with an act plays acted out, the farmer and all
+    const fx = await loadEffect(id), r = fx.mod.act ? renderAct(fx, { fps: fx.meta.fps }) : renderFrames(fx);
     const k = Math.max(2, Math.min(4, Math.floor(240 / Math.max(r.w, r.h))));
     const file = join(DIR, id.replace("/", "-") + ".gif");
     if (!writeVideo(file, r, k, { loops: 1 })) throw new Error("ffmpeg not found");
