@@ -2,10 +2,10 @@ import { drawPortrait } from "../_kit/portrait.js";
 
 export const meta = {
   name: "Rowan portrait",
-  desc: "Rowan's 48 x 64 bust for dialogue boxes, matching characters/rowan: breathes and blinks; anim 'talk' moves the mouth, expression smile | happy | neutral | surprised.",
+  desc: "Rowan's 40 x 48 chibi bust for dialogue boxes, matching characters/rowan: breathes and blinks; anim 'talk' moves the mouth, expression smile | happy | neutral | surprised.",
   tags: ["portrait", "dialogue", "face", "character", "rowan", "loop"],
-  size: [48, 64],
-  origin: [24, 64],
+  size: [40, 48],
+  origin: [20, 48],
   duration: 3,
   loop: true,
   fps: 30,

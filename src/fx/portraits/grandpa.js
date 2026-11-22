@@ -2,10 +2,10 @@ import { drawPortrait } from "../_kit/portrait.js";
 
 export const meta = {
   name: "Grandpa portrait",
-  desc: "Grandpa's 48 x 64 bust for dialogue boxes, matching characters/grandpa: breathes and blinks; anim 'talk' moves the mouth, expression smile | happy | neutral | surprised.",
+  desc: "Grandpa's 40 x 48 chibi bust for dialogue boxes, matching characters/grandpa: breathes and blinks; anim 'talk' moves the mouth, expression smile | happy | neutral | surprised.",
   tags: ["portrait", "dialogue", "face", "character", "grandpa", "loop"],
-  size: [48, 64],
-  origin: [24, 64],
+  size: [40, 48],
+  origin: [20, 48],
   duration: 3,
   loop: true,
   fps: 30,

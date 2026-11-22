@@ -2,10 +2,10 @@ import { drawPortrait } from "../_kit/portrait.js";
 
 export const meta = {
   name: "Nana portrait",
-  desc: "Nana's 48 x 64 bust for dialogue boxes, matching characters/nana: breathes and blinks; anim 'talk' moves the mouth, expression smile | happy | neutral | surprised.",
+  desc: "Nana's 40 x 48 chibi bust for dialogue boxes, matching characters/nana: breathes and blinks; anim 'talk' moves the mouth, expression smile | happy | neutral | surprised.",
   tags: ["portrait", "dialogue", "face", "character", "nana", "loop"],
-  size: [48, 64],
-  origin: [24, 64],
+  size: [40, 48],
+  origin: [20, 48],
   duration: 3,
   loop: true,
   fps: 30,

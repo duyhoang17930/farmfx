@@ -32,30 +32,30 @@ farmers and villagers, walking and idle in four facings.
 
 ## portraits
 
-48 x 64 busts for dialogue boxes, one for every character.
+40 x 48 chibi busts for dialogue boxes, one for every character.
 
 | effect | id | | size | what it does |
 |---|---|---|---|---|
-| Arlo portrait | `portraits/arlo` | loop 3s | 48×64 | Arlo's 48 x 64 bust for dialogue boxes, matching characters/arlo: breathes and blinks; anim 'talk' moves the mouth, expression smile \| happy \| neutral \| surprised. |
-| Ash portrait | `portraits/ash` | loop 3s | 48×64 | Ash's 48 x 64 bust for dialogue boxes, matching characters/ash: breathes and blinks; anim 'talk' moves the mouth, expression smile \| happy \| neutral \| surprised. |
-| Bram portrait | `portraits/bram` | loop 3s | 48×64 | Bram's 48 x 64 bust for dialogue boxes, matching characters/bram: breathes and blinks; anim 'talk' moves the mouth, expression smile \| happy \| neutral \| surprised. |
-| Clove portrait | `portraits/clove` | loop 3s | 48×64 | Clove's 48 x 64 bust for dialogue boxes, matching characters/clove: breathes and blinks; anim 'talk' moves the mouth, expression smile \| happy \| neutral \| surprised. |
-| Cog portrait | `portraits/cog` | loop 3s | 48×64 | Cog's 48 x 64 bust for dialogue boxes, matching characters/cog: breathes and blinks; anim 'talk' moves the mouth, expression smile \| happy \| neutral \| surprised. |
-| Farmer portrait | `portraits/farmer` | loop 3s | 48×64 | Farmer's 48 x 64 bust for dialogue boxes, matching characters/farmer: breathes and blinks; anim 'talk' moves the mouth, expression smile \| happy \| neutral \| surprised. |
-| Fern portrait | `portraits/fern` | loop 3s | 48×64 | Fern's 48 x 64 bust for dialogue boxes, matching characters/fern: breathes and blinks; anim 'talk' moves the mouth, expression smile \| happy \| neutral \| surprised. |
-| Grandpa portrait | `portraits/grandpa` | loop 3s | 48×64 | Grandpa's 48 x 64 bust for dialogue boxes, matching characters/grandpa: breathes and blinks; anim 'talk' moves the mouth, expression smile \| happy \| neutral \| surprised. |
-| Ivy portrait | `portraits/ivy` | loop 3s | 48×64 | Ivy's 48 x 64 bust for dialogue boxes, matching characters/ivy: breathes and blinks; anim 'talk' moves the mouth, expression smile \| happy \| neutral \| surprised. |
-| Kofi portrait | `portraits/kofi` | loop 3s | 48×64 | Kofi's 48 x 64 bust for dialogue boxes, matching characters/kofi: breathes and blinks; anim 'talk' moves the mouth, expression smile \| happy \| neutral \| surprised. |
-| Marina portrait | `portraits/marina` | loop 3s | 48×64 | Marina's 48 x 64 bust for dialogue boxes, matching characters/marina: breathes and blinks; anim 'talk' moves the mouth, expression smile \| happy \| neutral \| surprised. |
-| Nana portrait | `portraits/nana` | loop 3s | 48×64 | Nana's 48 x 64 bust for dialogue boxes, matching characters/nana: breathes and blinks; anim 'talk' moves the mouth, expression smile \| happy \| neutral \| surprised. |
-| Pip portrait | `portraits/pip` | loop 3s | 48×64 | Pip's 48 x 64 bust for dialogue boxes, matching characters/pip: breathes and blinks; anim 'talk' moves the mouth, expression smile \| happy \| neutral \| surprised. |
-| Rosa portrait | `portraits/rosa` | loop 3s | 48×64 | Rosa's 48 x 64 bust for dialogue boxes, matching characters/rosa: breathes and blinks; anim 'talk' moves the mouth, expression smile \| happy \| neutral \| surprised. |
-| Rowan portrait | `portraits/rowan` | loop 3s | 48×64 | Rowan's 48 x 64 bust for dialogue boxes, matching characters/rowan: breathes and blinks; anim 'talk' moves the mouth, expression smile \| happy \| neutral \| surprised. |
-| Suki portrait | `portraits/suki` | loop 3s | 48×64 | Suki's 48 x 64 bust for dialogue boxes, matching characters/suki: breathes and blinks; anim 'talk' moves the mouth, expression smile \| happy \| neutral \| surprised. |
-| Sunny portrait | `portraits/sunny` | loop 3s | 48×64 | Sunny's 48 x 64 bust for dialogue boxes, matching characters/sunny: breathes and blinks; anim 'talk' moves the mouth, expression smile \| happy \| neutral \| surprised. |
-| Theo portrait | `portraits/theo` | loop 3s | 48×64 | Theo's 48 x 64 bust for dialogue boxes, matching characters/theo: breathes and blinks; anim 'talk' moves the mouth, expression smile \| happy \| neutral \| surprised. |
-| Wade portrait | `portraits/wade` | loop 3s | 48×64 | Wade's 48 x 64 bust for dialogue boxes, matching characters/wade: breathes and blinks; anim 'talk' moves the mouth, expression smile \| happy \| neutral \| surprised. |
-| Wisteria portrait | `portraits/wisteria` | loop 3s | 48×64 | Wisteria's 48 x 64 bust for dialogue boxes, matching characters/wisteria: breathes and blinks; anim 'talk' moves the mouth, expression smile \| happy \| neutral \| surprised. |
+| Arlo portrait | `portraits/arlo` | loop 3s | 40×48 | Arlo's 40 x 48 chibi bust for dialogue boxes, matching characters/arlo: breathes and blinks; anim 'talk' moves the mouth, expression smile \| happy \| neutral \| surprised. |
+| Ash portrait | `portraits/ash` | loop 3s | 40×48 | Ash's 40 x 48 chibi bust for dialogue boxes, matching characters/ash: breathes and blinks; anim 'talk' moves the mouth, expression smile \| happy \| neutral \| surprised. |
+| Bram portrait | `portraits/bram` | loop 3s | 40×48 | Bram's 40 x 48 chibi bust for dialogue boxes, matching characters/bram: breathes and blinks; anim 'talk' moves the mouth, expression smile \| happy \| neutral \| surprised. |
+| Clove portrait | `portraits/clove` | loop 3s | 40×48 | Clove's 40 x 48 chibi bust for dialogue boxes, matching characters/clove: breathes and blinks; anim 'talk' moves the mouth, expression smile \| happy \| neutral \| surprised. |
+| Cog portrait | `portraits/cog` | loop 3s | 40×48 | Cog's 40 x 48 chibi bust for dialogue boxes, matching characters/cog: breathes and blinks; anim 'talk' moves the mouth, expression smile \| happy \| neutral \| surprised. |
+| Farmer portrait | `portraits/farmer` | loop 3s | 40×48 | Farmer's 40 x 48 chibi bust for dialogue boxes, matching characters/farmer: breathes and blinks; anim 'talk' moves the mouth, expression smile \| happy \| neutral \| surprised. |
+| Fern portrait | `portraits/fern` | loop 3s | 40×48 | Fern's 40 x 48 chibi bust for dialogue boxes, matching characters/fern: breathes and blinks; anim 'talk' moves the mouth, expression smile \| happy \| neutral \| surprised. |
+| Grandpa portrait | `portraits/grandpa` | loop 3s | 40×48 | Grandpa's 40 x 48 chibi bust for dialogue boxes, matching characters/grandpa: breathes and blinks; anim 'talk' moves the mouth, expression smile \| happy \| neutral \| surprised. |
+| Ivy portrait | `portraits/ivy` | loop 3s | 40×48 | Ivy's 40 x 48 chibi bust for dialogue boxes, matching characters/ivy: breathes and blinks; anim 'talk' moves the mouth, expression smile \| happy \| neutral \| surprised. |
+| Kofi portrait | `portraits/kofi` | loop 3s | 40×48 | Kofi's 40 x 48 chibi bust for dialogue boxes, matching characters/kofi: breathes and blinks; anim 'talk' moves the mouth, expression smile \| happy \| neutral \| surprised. |
+| Marina portrait | `portraits/marina` | loop 3s | 40×48 | Marina's 40 x 48 chibi bust for dialogue boxes, matching characters/marina: breathes and blinks; anim 'talk' moves the mouth, expression smile \| happy \| neutral \| surprised. |
+| Nana portrait | `portraits/nana` | loop 3s | 40×48 | Nana's 40 x 48 chibi bust for dialogue boxes, matching characters/nana: breathes and blinks; anim 'talk' moves the mouth, expression smile \| happy \| neutral \| surprised. |
+| Pip portrait | `portraits/pip` | loop 3s | 40×48 | Pip's 40 x 48 chibi bust for dialogue boxes, matching characters/pip: breathes and blinks; anim 'talk' moves the mouth, expression smile \| happy \| neutral \| surprised. |
+| Rosa portrait | `portraits/rosa` | loop 3s | 40×48 | Rosa's 40 x 48 chibi bust for dialogue boxes, matching characters/rosa: breathes and blinks; anim 'talk' moves the mouth, expression smile \| happy \| neutral \| surprised. |
+| Rowan portrait | `portraits/rowan` | loop 3s | 40×48 | Rowan's 40 x 48 chibi bust for dialogue boxes, matching characters/rowan: breathes and blinks; anim 'talk' moves the mouth, expression smile \| happy \| neutral \| surprised. |
+| Suki portrait | `portraits/suki` | loop 3s | 40×48 | Suki's 40 x 48 chibi bust for dialogue boxes, matching characters/suki: breathes and blinks; anim 'talk' moves the mouth, expression smile \| happy \| neutral \| surprised. |
+| Sunny portrait | `portraits/sunny` | loop 3s | 40×48 | Sunny's 40 x 48 chibi bust for dialogue boxes, matching characters/sunny: breathes and blinks; anim 'talk' moves the mouth, expression smile \| happy \| neutral \| surprised. |
+| Theo portrait | `portraits/theo` | loop 3s | 40×48 | Theo's 40 x 48 chibi bust for dialogue boxes, matching characters/theo: breathes and blinks; anim 'talk' moves the mouth, expression smile \| happy \| neutral \| surprised. |
+| Wade portrait | `portraits/wade` | loop 3s | 40×48 | Wade's 40 x 48 chibi bust for dialogue boxes, matching characters/wade: breathes and blinks; anim 'talk' moves the mouth, expression smile \| happy \| neutral \| surprised. |
+| Wisteria portrait | `portraits/wisteria` | loop 3s | 40×48 | Wisteria's 40 x 48 chibi bust for dialogue boxes, matching characters/wisteria: breathes and blinks; anim 'talk' moves the mouth, expression smile \| happy \| neutral \| surprised. |
 
 ## farming
 

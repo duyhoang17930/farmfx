@@ -152,6 +152,15 @@ Side-facing things face right, standing things meet the ground at y = 0, actor e
 character's mask and pixels), and nothing uses `Math.random`. The genre's conventions (the 3/4 view, the tile grid,
 the cozy palette) are fine to follow; never copy a specific game's sprites, characters, palettes, UI or logos.
 
+### People
+
+Characters are put together from **hand-drawn pixel parts**, not drawn shape by shape: `src/fx/_kit/parts.js` (sprites,
+1.5 tiles tall, facing down, up and side) and `src/fx/_kit/portrait-parts.js` (40 x 48 chibi busts). Each part is rows of
+characters; the legend at the top of each file maps them to the look's ramps (skin, hair, top, top2, pants, shoes, hat,
+beard, scarf...), so one drawing serves every color. A new villager is a new look in `src/fx/_kit/cast.js` plus
+`characters/<name>.js` and `portraits/<name>.js` (copy an existing pair). A new hair style, hat or garment is a new
+part: draw it in the same legend, facing down, up and side, render the cast and look at it next to the others.
+
 Shared helpers live in `src/fx/_kit/` (`creature.js` for outlined animals, `sprite.js` for outlined props,
 `weather.js`, `water.js`, `nature.js`, `ui.js`). Import them with `../_kit/<name>.js`.
 
