@@ -12,10 +12,10 @@ genre conventions are fine; never copy a specific game's sprites, characters, pa
   (about 16 x 32), a small building 3 x 3 to 5 x 4.
 - **Canvases are whole tiles**: 16, 32, 48, 64... wide and tall, with room for what pokes out of the footprint (a
   canopy, a raised wing, flying soil).
-- **The origin is the middle of the bottom edge of the footprint**: the point where the thing meets the ground, at its
-  front. For a one-tile crop on a 16 x 32 canvas, that's `origin: [8, 28]` with the tile's ground from y = -12 to
-  y = +4 (the tile's front edge 4 px below the origin, its back edge 12 px above). Engines line that point up with
-  the tile.
+- **The origin is where the thing stands on the ground**: x in the middle of its footprint, y = 0 where its base meets
+  the ground, which sits 4 px above the footprint's front edge. So a one-tile footprint spans x -8..+8 and y -12..+4
+  around the origin. For a one-tile crop on a 32 x 48 canvas, `origin: [16, 40]`. Engines line that point up with
+  the tile (tile's left edge + 8, top edge + 12).
 - **Depth sorts by y.** Anything that stands is drawn so its ground contact is at y = 0 and taller parts go up from
   there; a game draws things in order of their y.
 

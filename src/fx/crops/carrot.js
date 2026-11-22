@@ -4,14 +4,14 @@ import { twinkle } from "../_kit/sprite.js";
 
 export const meta = {
   name: "Carrot",
-  desc: "Seed, sprout, feathery fronds, an orange shoulder swelling out of a tilled mound, a ripe twinkle, then pulled up in a spray of soil. stage 0..4 holds one stage.",
+  desc: "One tile of tilled soil, top-down 3/4: seed, sprout, feathery fronds, an orange shoulder swelling out, a ripe twinkle, pulled up in a spray of soil. stage 0..4 holds one.",
   tags: ["crop", "carrot", "plant", "grow", "harvest", "vegetable", "loop"],
-  size: [56, 64],
-  origin: [28, 52],
+  size: [32, 48],
+  origin: [16, 40],
   duration: 4.8,
   loop: true,
   fps: 30,
-  bg: "ground",
+  bg: "field",
   options: {
     palette: ["#0c1a0e", "#1a3a16", "#2a5c1e", "#3f8226", "#62a832", "#97cf4a", "#d4f08a"],
     root: ["#3a1406", "#7a2a08", "#c4500e", "#ee7a1a", "#ffa640", "#ffd08a"],
@@ -24,8 +24,8 @@ export const meta = {
 const D = meta.duration;
 // the cycle: sprout pops, fronds unfurl, the root swells, it ripens, it's pulled
 const T_SPROUT = 0.45, T_LEAF = 0.75, T_ROOT = 1.75, T_RIPE = 2.75, T_PULL = 3.55, T_GONE = 4.15, T_REFILL = 4.4;
-const PULL_UP = 0.28, RISE = 30;
-const G = new Grid(-28, -52, 56, 64), SOIL = new Grid(-28, -52, 56, 64);
+const PULL_UP = 0.28, RISE = 18;
+const G = new Grid(-16, -40, 32, 48), SOIL = new Grid(-10, -14, 20, 20);
 
 /** The plant's state at loop time t: sprout height, frond growth, root swell, ripe glow, lift out of the ground. */
 function state(t, o) {
@@ -48,25 +48,28 @@ function state(t, o) {
   return { sprout, leaf, root, ripe, lift, pop: t - T_SPROUT, pa, hole, gone: t >= T_GONE && t < T_REFILL + 0.2 };
 }
 
-/** The tilled mound: lumpy soil, lit from the top-left, a planting hole that opens when the carrot comes out. */
-function mound(p, S, hole) {
+/**
+ * The tilled tile, seen from above: a 16 x 16 square of dug soil (x -8..8, y -12..4) with soft corners, ploughed in
+ * ridges that catch the light on their far side, a lit back lip and a darker front face where it drops to the grass.
+ * A planting hole opens at the middle when the carrot comes out.
+ */
+function tile(p, S, hole) {
   const g = SOIL.clear();
-  g.shade(-13, -5, 13, 4, (x, y) => {
-    const nx = x / 12.5, ny = (y + 0.3) / 3.9, d = nx * nx + ny * ny;
-    const bump = (rand(Math.floor(x / 2), Math.floor(y), 11) - 0.5) * 0.25;
-    if (d > 1 + bump) return 0;
-    let k = 3 - ny * 1.6 - nx * 0.5 + (rand(Math.floor(x), Math.floor(y), 5) - 0.5) * 1.2;
-    if (y > 2) k -= 1;
+  g.shade(-8, -12, 7, 3, (x, y) => {
+    const ax = Math.abs(x), corner = (ax > 7 && (y < -11 || y > 2.5)) ? 1 : 0;
+    if (corner) return 0;
+    const r = rand(Math.floor(x), Math.floor(y), 5);
+    if (y > 2) return S[1];                       // the front face
+    if (y < -11) return S[4];                     // the lit back lip
+    const ridge = ((Math.floor(y) + 12 + (rand(Math.floor(x / 3), 9) > 0.7 ? 1 : 0)) % 4 + 4) % 4; // ridges across the tile, broken up a little: lit, mid, mid, shade
+    let k = ridge === 0 ? 4 : ridge === 3 ? 2 : 3;
+    if (r > 0.88) k += 1;
+    else if (r < 0.1) k -= 1;
+    if (x > 5) k -= 0.5;
     return S[clamp(Math.round(k), 1, 5)];
   });
-  // clods: little lit lumps on the mound
-  for (let i = 0; i < 7; i++) {
-    const x = Math.round(lerp(-10, 9, rand(i, 3))), y = Math.round(lerp(-3, 1, rand(i, 4)));
-    g.set(x, y, S[5]);
-    g.set(x + 1, y + 1, S[2]);
-  }
-  if (hole > 0) g.ellipse(0, -0.5, 3.2 * hole + 0.4, 1.4 * hole + 0.3, (nx, ny) => (ny < -0.2 ? S[0] : S[1]));
-  g.outline(S[0]);
+  if (hole > 0) g.ellipse(0, -0.5, 2.2 * hole + 0.4, 1.1 * hole + 0.3, (nx, ny) => (ny < -0.2 ? S[0] : S[1]));
+  g.outline((x, y, nx, ny) => (ny < 0 ? S[0] : mix(S[0], S[1], 0.5)));
   g.draw(p);
 }
 
@@ -82,7 +85,7 @@ function frond(g, C, x, y, a, L, bend) {
     g.set(px, py, c);
     // leaflets on alternating sides, sticking out sideways and up a little
     if (i > 1 && i % 2 === 0) {
-      const side = (i / 2) % 2 ? 1 : -1, w = u < 0.85 ? 2 : 1;
+      const side = (i / 2) % 2 ? 1 : -1, w = u < 0.6 && n > 6 ? 2 : 1;
       for (let k = 1; k <= w; k++) g.set(px + side * k * Math.cos(ang) - sx * 0.3, py - (k === 2 ? 1 : 0), C[clamp(3 + Math.floor(u * 3), 3, 6)]);
     }
   }
@@ -95,21 +98,20 @@ function fronds(g, C, leaf, sway, dy, squash) {
   const fan = [[-0.62, 0.78], [-0.22, 1], [0.18, 0.95], [0.58, 0.74]];
   if (leaf < 0.25) {
     // the sprout: a stem and two seed leaves
-    const h = Math.max(1, Math.round((leaf / 0.18) * 4 * (1 + squash)));
+    const h = Math.max(1, Math.round((leaf / 0.18) * 3 * (1 + squash)));
     for (let i = 0; i < h; i++) g.set(0, dy - 1 - i, C[3]);
     const top = dy - h;
     g.set(-1, top, C[4]), g.set(-2, top - 1, C[5]), g.set(1, top, C[4]), g.set(2, top - 1, C[5]);
-    g.set(-3, top - 1, C[4]), g.set(3, top - 1, C[4]);
     return;
   }
-  const L = 4 + 12 * ease.outCubic(clamp((leaf - 0.18) / 0.82));
+  const L = 3 + 8 * ease.outCubic(clamp((leaf - 0.18) / 0.82));
   fan.forEach(([a, k], i) => frond(g, C, i < 2 ? -0.5 : 0.5, dy - 1, a + sway * (0.6 + 0.4 * k), L * k, sway * 0.5 + (i - 1.5) * 0.08));
 }
 
 /** The root: just its shoulder above the soil while it grows; the whole tapered carrot when it's out. */
 function rootShape(g, R, swell, whole, dy) {
   if (swell <= 0) return;
-  const w = 1.5 + 2.6 * swell, len = whole ? 13 : 2 + 1.6 * swell;
+  const w = 1 + 2 * swell, len = whole ? 9 : 1.5 + 1.2 * swell;
   g.shade(-w - 1, dy - 3, w + 1, dy + len, (x, y) => {
     const v = (y - (dy - 2)) / (len + 2);
     const half = v < 0.2 ? w * Math.sqrt(clamp(v / 0.2 + 0.1)) : w * (1 - ((v - 0.2) / 0.8) ** 1.25);
@@ -123,7 +125,7 @@ function rootShape(g, R, swell, whole, dy) {
 export function draw(p, t, o) {
   const C = fit(o.palette, 7), R = fit(o.root, 6), S = fit(o.soil, 6), ph = t / D;
   const s = state(t, o), sway = 0.12 * Math.sin(ph * TAU * 3) + 0.05 * Math.sin(ph * TAU * 5 + 1);
-  mound(p, S, s.hole);
+  tile(p, S, s.hole);
 
   // the plant, in its own grid so it gets one outline
   const g = G.clear();
@@ -140,27 +142,27 @@ export function draw(p, t, o) {
     }
     g.outline((x, y, nx, ny) => (ny < 0 && s.root > 0 && y >= dy - 2 && Math.abs(x) < 5 ? R[0] : C[0]));
     // still in the ground: the soil in front of the mound's crown hides the rest of the root
-    if (whole && s.lift < 20) g.recolor((x, y, c) => (y > -1 + (Math.abs(x) > 3 ? 1 : 0) ? 0 : c));
+    if (whole && s.lift < 12) g.recolor((x, y, c) => (y > -1 ? 0 : c));
     g.draw(p);
   }
 
   // ripe: a twinkle hops round the top of the fronds
   if (s.ripe) {
     const k = wrap(t, 0.8) / 0.8, i = Math.floor((o.stage >= 0 ? t : t - T_RIPE) / 0.8);
-    const x = Math.round(lerp(-7, 7, rand(i, 7, o.seed))), y = Math.round(lerp(-17, -9, rand(i, 8, o.seed)));
-    const size = Math.round(3 * Math.sin(Math.PI * k));
+    const x = Math.round(lerp(-5, 5, rand(i, 7, o.seed))), y = Math.round(lerp(-13, -7, rand(i, 8, o.seed)));
+    const size = Math.round(2.4 * Math.sin(Math.PI * k));
     if (size > 0) twinkle(p, x, y, size, hex("#ffe27a"), hex("#fff6c4"));
     if (size > 0) p.light(x, y, hex("#ffd84a"), 0.4 * Math.sin(Math.PI * k));
   }
 
   // soil: a puff when the sprout pops, a spray when it's pulled
-  for (const [t0, n, sp, seedOff] of [[T_SPROUT, 5, 40, 1], [T_PULL + PULL_UP * 0.5, 12, 75, 2]]) {
+  for (const [t0, n, sp, seedOff] of [[T_SPROUT, 4, 26, 1], [T_PULL + PULL_UP * 0.5, 10, 50, 2]]) {
     if (o.stage >= 0) break;
     const age = t - t0;
     if (age < 0 || age > 0.9) continue;
     for (let i = 0; i < n; i++) {
       const a = lerp(-2.6, -0.5, rand(i, seedOff, o.seed)), v = sp * lerp(0.5, 1, rand(i, seedOff + 9, o.seed));
-      const b = toss(lerp(-2, 2, rand(i, 4)), -1, Math.cos(a) * v, Math.sin(a) * v, age, 420, lerp(-1, 2, rand(i, 6)));
+      const b = toss(lerp(-2, 2, rand(i, 4)), -1, Math.cos(a) * v, Math.sin(a) * v, age, 420, lerp(-9, 3, rand(i, 6)));
       if (b.landed && age - b.at > 0.25) continue;
       const c = S[rand(i, 12) > 0.5 ? 4 : 3];
       p.px(b.x, b.y, c);
@@ -170,12 +172,12 @@ export function draw(p, t, o) {
 
   // harvested: the carrot pops into a sparkle at the top of its hop
   if (o.stage < 0 && t >= T_GONE - 0.02 && t < T_GONE + 0.3) {
-    const k = seg(t, T_GONE - 0.02, T_GONE + 0.3), y = -Math.round(6 + RISE) + 5;
-    twinkle(p, 0, y, Math.round(6 * (1 - k)), R[3], R[5]);
+    const k = seg(t, T_GONE - 0.02, T_GONE + 0.3), y = -Math.round(6 + RISE) + 3;
+    twinkle(p, 0, y, Math.round(5 * (1 - k)), R[3], R[5]);
     for (let i = 0; i < 6; i++) {
-      const a = (i / 6) * TAU + 0.3, r = 3 + 9 * ease.outCubic(k);
+      const a = (i / 6) * TAU + 0.3, r = 2 + 6 * ease.outCubic(k);
       if (k < 0.85) p.px(Math.cos(a) * r, y + Math.sin(a) * r * 0.8, i % 2 ? WHITE : R[4]);
     }
-    p.glow(0, y, 10, R[4], 0.5 * (1 - k));
+    p.glow(0, y, 8, R[4], 0.4 * (1 - k));
   }
 }
