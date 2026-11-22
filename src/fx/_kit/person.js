@@ -130,28 +130,31 @@ export function drawPerson(p, X, Y, facing, look, pose = {}, fade = 1) {
     for (let y = headTop; y <= headBot; y++)
       for (let x = hx0; x < hx0 + W; x++) if (inHead(x, y)) set(x, y, x >= hx0 + W - 3 || y >= headBot - 1 ? K[1] : K[2]);
     const eyeY = headTop + (kid ? 8 : 9);
-    const ex = side ? [hx0 + 10] : [hx0 + 3, hx0 + W - 4];
+    const ex = side ? [hx0 + 9] : [hx0 + 3, hx0 + W - 5]; // the left column of each 2 px eye
     // hair, then the face over it
     hair(eyeY);
     if (!up) {
+      // eyes 2 x 3: a dark lid line, a white shine top-left, the iris under it
+      const E0 = L.eyes ? L.eyes[0] : EYE, E1 = L.eyes ? L.eyes[1] : hex("#4a2a24");
       for (const x of ex) {
-        if (!pose.blink) set(x, eyeY - 1, L.eyes ? L.eyes[0] : EYE);
-        set(x, eyeY, pose.blink ? K[0] : EYE);
-        if (!pose.blink && L.eyes) set(x, eyeY - 1, L.eyes[0]);
+        if (pose.blink) {
+          set(x, eyeY, K[0]), set(x + 1, eyeY, K[0]);
+          continue;
+        }
+        set(x, eyeY - 2, EYE), set(x + 1, eyeY - 2, EYE);
+        set(x, eyeY - 1, WHITE_), set(x + 1, eyeY - 1, E0);
+        set(x, eyeY, E1), set(x + 1, eyeY, E0);
       }
       const mx = side ? hx0 + 12 : hx0 + Math.floor(W / 2) - 1;
       set(mx, eyeY + 2, MOUTH);
-      for (const x of side ? [hx0 + 9] : [hx0 + 2, hx0 + W - 3]) set(x, eyeY + 1, mix(K[2], BLUSH, 0.55));
+      for (const x of side ? [hx0 + 8] : [hx0 + 2, hx0 + W - 3]) set(x, eyeY + 1, mix(K[2], BLUSH, 0.55));
       if (side) set(hx0 + W, eyeY + 1, K[1]); // the nose, just past the cheek
       if (L.glasses) {
         // thin round frames round each eye, a glint on the lens, a bridge between
         const R = L.glassesColor ?? hex("#5a4048");
-        for (const x of ex) {
-          for (const [dx, dy] of [[0, -2], [-1, -1], [-1, 0], [0, 1], [1, 0]]) set(x + dx, eyeY + dy, R);
-          set(x + 1, eyeY - 1, hex("#e8f4ff"));
-        }
-        if (!side) for (let x = ex[0] + 2; x < ex[1] - 1; x++) set(x, eyeY - 1, R);
-        else set(hx0 + 8, eyeY - 1, R);
+        for (const x of ex) for (const [dx, dy] of [[-1, -3], [0, -3], [1, -3], [2, -3], [-1, -2], [-1, -1], [-1, 0], [2, -1], [2, 0], [0, 1], [1, 1]]) set(x + dx, eyeY + dy, R);
+        if (!side) for (let x = ex[0] + 3; x < ex[1] - 1; x++) set(x, eyeY - 2, R);
+        else set(hx0 + 7, eyeY - 2, R);
       }
       beard(eyeY);
     }
@@ -276,7 +279,14 @@ export function drawPerson(p, X, Y, facing, look, pose = {}, fade = 1) {
     if (kind === "straw" || kind === "sunhat" || kind === "cowboy") {
       const by = headTop + 3, rx = kind === "sunhat" ? 10.5 : 9.5;
       dome(headTop - 2, by, 5.5, (x, y) => (y === by - 1 ? (L.bandColor ?? C)[1] : shade(x, y, by - 3)));
-      ellipse(by + 0.5, rx, kind === "cowboy" ? 1.4 : 1.7, (x, y) => (y > by + 1 ? C[0] : y > by ? C[1] : C[2]));
+      for (let x = Math.floor(cx - rx); x <= Math.ceil(cx + rx); x++) {
+        const u = (x - cx) / rx;
+        if (Math.abs(u) > 1) continue;
+        // the brim: curving down at the ends (up for a cowboy), lit on top, shaded under
+        const droop = kind === "cowboy" ? -Math.round(u ** 4 * 2) : Math.round(u * u * 1.6), y0 = by + droop;
+        set(x, y0, C[2]), set(x, y0 + 1, Math.abs(u) > 0.85 ? C[0] : C[1]);
+        if (Math.abs(u) < 0.75) set(x, y0 + 2, C[0]);
+      }
       if (kind === "cowboy") (set(cx - rx, by - 1, C[1]), set(cx + rx, by - 1, C[0]), set(cx, headTop - 2, C[0]));
       if (kind === "straw") for (const dx of [-3, 2]) set(cx + dx, headTop, C[0]);
       if (kind === "sunhat" && !up) {

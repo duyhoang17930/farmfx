@@ -20,6 +20,26 @@ import * as characters_sunny from "./characters/sunny.js";
 import * as characters_theo from "./characters/theo.js";
 import * as characters_wade from "./characters/wade.js";
 import * as characters_wisteria from "./characters/wisteria.js";
+import * as portraits_arlo from "./portraits/arlo.js";
+import * as portraits_ash from "./portraits/ash.js";
+import * as portraits_bram from "./portraits/bram.js";
+import * as portraits_clove from "./portraits/clove.js";
+import * as portraits_cog from "./portraits/cog.js";
+import * as portraits_farmer from "./portraits/farmer.js";
+import * as portraits_fern from "./portraits/fern.js";
+import * as portraits_grandpa from "./portraits/grandpa.js";
+import * as portraits_ivy from "./portraits/ivy.js";
+import * as portraits_kofi from "./portraits/kofi.js";
+import * as portraits_marina from "./portraits/marina.js";
+import * as portraits_nana from "./portraits/nana.js";
+import * as portraits_pip from "./portraits/pip.js";
+import * as portraits_rosa from "./portraits/rosa.js";
+import * as portraits_rowan from "./portraits/rowan.js";
+import * as portraits_suki from "./portraits/suki.js";
+import * as portraits_sunny from "./portraits/sunny.js";
+import * as portraits_theo from "./portraits/theo.js";
+import * as portraits_wade from "./portraits/wade.js";
+import * as portraits_wisteria from "./portraits/wisteria.js";
 import * as farming_hoe from "./farming/hoe.js";
 import * as farming_water from "./farming/water.js";
 import * as crops_carrot from "./crops/carrot.js";
@@ -48,6 +68,26 @@ export const effects = {
   "characters/theo": characters_theo,
   "characters/wade": characters_wade,
   "characters/wisteria": characters_wisteria,
+  "portraits/arlo": portraits_arlo,
+  "portraits/ash": portraits_ash,
+  "portraits/bram": portraits_bram,
+  "portraits/clove": portraits_clove,
+  "portraits/cog": portraits_cog,
+  "portraits/farmer": portraits_farmer,
+  "portraits/fern": portraits_fern,
+  "portraits/grandpa": portraits_grandpa,
+  "portraits/ivy": portraits_ivy,
+  "portraits/kofi": portraits_kofi,
+  "portraits/marina": portraits_marina,
+  "portraits/nana": portraits_nana,
+  "portraits/pip": portraits_pip,
+  "portraits/rosa": portraits_rosa,
+  "portraits/rowan": portraits_rowan,
+  "portraits/suki": portraits_suki,
+  "portraits/sunny": portraits_sunny,
+  "portraits/theo": portraits_theo,
+  "portraits/wade": portraits_wade,
+  "portraits/wisteria": portraits_wisteria,
   "farming/hoe": farming_hoe,
   "farming/water": farming_water,
   "crops/carrot": crops_carrot,
