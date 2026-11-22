@@ -55,11 +55,12 @@ export function drawPortrait(p, look, pose = {}) {
 
   face(set, L, pose, expr);
   hair(shade, L);
-  beard(shade, L);
+  beard(shade, L, set);
   if (L.glasses) glasses(set, L);
   hat(shade, set, L);
   if (L.flower && L.hat !== "sunhat") flower(set, L.F, -10, -50);
 
+  castShadow(g, L.K[1]);
   inkLines(g);
   g.outline((x, y, nx, ny) => {
     const inner = g.get(x - Math.sign(nx), y - Math.sign(ny)) || g.get(x - Math.sign(nx), y) || g.get(x, y - Math.sign(ny));
@@ -69,6 +70,16 @@ export function drawPortrait(p, look, pose = {}) {
 }
 
 const isLong = (st) => st === "long" || st === "wavy";
+
+/** The fringe and the hat brim shade the skin just under them by a step. */
+function castShadow(g, shadowSkin) {
+  const { w, h, c, tag } = g;
+  for (let i = w * 2; i < w * h; i++) {
+    if (tag[i] !== M.head || !c[i]) continue;
+    const a = tag[i - w], b = tag[i - w * 2];
+    if (a === M.hair || a === M.hat || b === M.hair || b === M.hat) c[i] = mix(c[i], shadowSkin, 0.65);
+  }
+}
 
 /** Inner line art: a pixel of a later material touching an earlier one (4-neighbour) goes dark, like an inked edge. */
 function inkLines(g) {
@@ -84,9 +95,11 @@ function inkLines(g) {
 /** Hair in pointed locks: a dark strand line every few px, a lit band near the top, darker to the right and below. */
 function lock(H, x, y, lean = 0.45) {
   const v = (x + y * lean + 40) / 4.5, s = Math.floor(v), f = v - s;
-  if (f < 0.16) return H[1];
-  if (y < -48 && y > -55 && x < 0 && x > -13 && f > 0.4 && f < 0.85) return H[4];
-  return x > 10 || y > -33 ? H[2] : x < -6 && y < -45 ? H[3] : H[3 - (s & 1)];
+  if (f < 0.14) return H[1]; // the dark split between locks
+  if (y < -49 && y > -55 && x < -1 && x > -13 && f > 0.35 && f < 0.7) return H[4]; // the shine
+  // each lock lit along its left edge and deeper on its right; the whole head lighter towards the top left
+  const light = 0.55 - (Math.min(y, -30) + 52) / 45 - x / 40 + (f < 0.45 ? 0.25 : f > 0.8 ? -0.2 : 0) + ((s * 7) % 3) * 0.05;
+  return light > 0.45 ? H[3] : light > 0.05 ? H[2] : H[1];
 }
 
 function face(set, L, pose, expr) {
@@ -139,7 +152,8 @@ function hair(shade, L) {
     return -44 + point * (st === "spiky" ? 3 : 4.5) + Math.max(0, Math.abs(x - 2) - 9) * 1.1;
   };
   shade(-21, -60, 21, -24, (x, y) => {
-    if ((x / (18 + big)) ** 2 + ((y + 42) / (16 + big)) ** 2 > 1) return 0;
+    const a = Math.atan2(y + 42, x), lump = 1 + (big ? 0.06 : 0.035) * Math.sin(a * 9 + 0.5);
+    if ((x / ((18 + big) * lump)) ** 2 + ((y + 42) / ((16 + big) * lump)) ** 2 > 1) return 0;
     const back = x < -10 && y < -29 && !(inEar(x, y, 1.3) && x > -17); // round the back of the head, leaving the ear
     const temple = x > 12 && y < -32;
     return y < fringe(x) || back || temple ? lock(H, x, y) : 0;
@@ -230,16 +244,28 @@ function body(shade0, L) {
   }
 }
 
-function beard(shade, L) {
+function beard(shade, L, set0) {
   if (!L.beard) return;
   TAG = M.beard;
   const B = L.BC, my = EYE_Y + 6;
-  if (L.beard === "full")
-    shade(-13, -36, 17, -15, (x, y) => {
-      const inB = ((x - 3) / 14) ** 2 + ((y + 26) / 10.5) ** 2 <= 1 && y > -33 + Math.max(0, 6 - Math.abs(x - 3)) * 0.8 && (inHead(x, y) || (y > -24 && Math.abs(x - 3) < 9));
-      if (!inB || (x > 2 && x < 8 && y >= my - 1 && y <= my + 2)) return 0;
-      return lock(B, x, y, -0.2);
-    });
+  if (L.beard === "full") {
+    // a fluffy beard: round clumps along the jaw and down the chin, each lit top-left, lower ones over upper ones
+    const clumps = [];
+    for (let row = 0; row < 5; row++)
+      for (let k = -3; k <= 3; k++) {
+        const cx = 3 + k * 3.6 + (row & 1) * 1.8, cy = -31 + row * 3.4;
+        const inB = ((cx - 3) / 13.5) ** 2 + ((cy + 25) / 10.5) ** 2 <= 1 && cy > -33 + Math.max(0, 5 - Math.abs(cx - 3)) * 0.9;
+        if (inB && !(cx > 1 && cx < 9 && cy > my - 3 && cy < my + 2)) clumps.push([cx, cy]);
+      }
+    for (const [cx, cy] of clumps)
+      shade(cx - 3, cy - 3, cx + 3, cy + 3, (x, y) => {
+        const d = ((x - cx) / 2.9) ** 2 + ((y - cy) / 2.6) ** 2;
+        if (d > 1 || (x > 2 && x < 8 && y >= my - 1 && y <= my + 1)) return 0;
+        const v = -((x - cx) * 0.6 + (y - cy) * 0.8) / 2.6;
+        return v > 0.45 ? B[4] : v > -0.1 ? B[3] : v > -0.6 ? B[2] : B[1];
+      });
+    for (let x = 0; x <= 9; x++) set0(x, my - 2, B[3]); // the mustache over the smile
+  }
   else if (L.beard === "mustache") shade(1, my - 3, 10, my - 1, (x, y) => (Math.abs(x - 5) < 4 - (y - my + 3) ? B[2] : 0));
   else shade(-8, -32, 16, -20, (x, y) => (inHead(x, y) && (Math.floor(x) + Math.floor(y)) % 2 === 0 && !(x > 2 && x < 8 && y > my - 2 && y < my + 2) ? mix(L.K[2], B[1], 0.5) : 0));
 }
@@ -274,22 +300,33 @@ function hat(shade, set, L) {
     const rx = kind === "sunhat" ? 25 : 23;
     shade(-16, -66, 12, -47, (x, y) => {
       if (((x + 2) / 12.5) ** 2 + ((y + 54) / 10) ** 2 > 1 || y > -47 || (kind === "cowboy" && Math.abs(x) < 2 && y < -61)) return 0;
-      if (y >= -50) return band[2];
-      const c = x < -6 && y < -57 ? C[4] : x > 5 ? C[2] : C[3];
-      return tex(x, y) ? C[1] : c;
+      if (y >= -50) return y >= -49 ? band[1] : band[3];
+      // round: lit where the dome faces up and left, deeper round the right
+      const nx = (x + 2) / 12.5, ny = (y + 54) / 10, v = -(nx * 0.6 + ny * 0.8);
+      const r = rand(Math.floor(x), Math.floor(y), 77);
+      if (r > 0.84) return v > 0.3 ? C[2] : C[1]; // dark straw
+      if (r < 0.06) return C[4]; // a bright strand
+      return v > 0.55 ? C[4] : v > 0.15 ? C[3] : v > -0.35 ? C[2] : C[1];
     });
     shade(-rx - 1, -56, rx + 1, -38, (x, y) => {
       const u = x / rx, cy = -47 - u * 3 + (kind === "cowboy" ? -(u ** 4) * 5 : u * u * 2.5);
       const d = u * u + ((y - cy) / 5.5) ** 2;
       if (d > 1) return 0;
-      const under = y > cy + 1.5, rim = d > 0.8;
-      const c = under ? (rim ? C[2] : C[1]) : y < cy - 2 ? (x < 0 ? C[4] : C[3]) : C[3];
-      return tex(x, y) && !rim ? C[2] : c;
+      const under = y > cy + 1.5, rim = d > 0.8, r = rand(Math.floor(x), Math.floor(y), 78);
+      // the top of the brim lit towards the left and the far edge, the underside in shade, a lit rim at the front
+      const top = u < -0.3 || y < cy - 3 ? C[4] : u > 0.55 ? C[2] : C[3];
+      const c = under ? (rim ? C[2] : C[1]) : rim && y > cy ? C[3] : top;
+      return !rim && r > 0.84 ? (under ? C[0] : C[2]) : !under && r < 0.05 ? C[4] : c;
     });
     if (kind === "sunhat") flower(set, L.F ?? ["#7a3a10", "#ffc820", "#fff0a0"].map(hex), -13, -52);
   } else if (kind === "cap" || kind === "flatcap" || kind === "beanie" || kind === "bandana") {
     const low = kind === "beanie" ? -42 : -45;
-    shade(-20, -62, 20, low, (x, y) => ((x / 18.5) ** 2 + ((y + 44) / 16.5) ** 2 <= 1 ? (x < -5 && y < -53 ? C[4] : x > 10 ? C[2] : Math.floor(x + 30) % 7 === 0 && kind !== "bandana" ? C[2] : C[3]) : 0));
+    shade(-20, -62, 20, low, (x, y) => {
+      if ((x / 18.5) ** 2 + ((y + 44) / 16.5) ** 2 > 1) return 0;
+      const v = -((x / 18.5) * 0.6 + ((y + 50) / 10) * 0.8);
+      if (Math.floor(x + 30) % 7 === 0 && kind !== "bandana" && v < 0.6) return C[2]; // seams between the panels
+      return v > 0.6 ? C[4] : v > 0.1 ? C[3] : v > -0.4 ? C[2] : C[1];
+    });
     if (kind === "cap") shade(-6, low, 24, low + 3, (x, y) => (x - 24 < -(y - low) * 4 && x > -6 + (y - low) * 2 ? (y < low + 1 ? C[2] : C[1]) : 0));
     if (kind === "flatcap") shade(-20, low - 1, 23, low + 2, (x, y) => (y >= low + 1 ? C[1] : C[2]));
     if (kind === "beanie") {
