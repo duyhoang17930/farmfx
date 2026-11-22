@@ -1,6 +1,6 @@
 # Catalog
 
-8 effects in 4 categories. Every one is a file in
+24 effects in 4 categories. Every one is a file in
 `src/fx/<category>/<name>.js`; render any of them with `node tools/render.mjs <id> --gif`.
 
 ## characters
@@ -9,10 +9,26 @@ farmers and villagers, walking and idle in four facings.
 
 | effect | id | | size | what it does |
 |---|---|---|---|---|
-| Elder | `characters/elder` | loop 1.6s | 112×48 | An old man with a white beard and a flat cap, top-down 3/4, about 16 x 28 px. Walks or stands in four facings; facing 'all' shows them side by side. |
-| Farmer | `characters/farmer` | loop 1.6s | 112×48 | A farmer in a straw hat and overalls, top-down 3/4, about 16 x 28 px. Walks or stands in four facings; facing 'all' shows them side by side. |
-| Kid | `characters/kid` | loop 1.6s | 112×48 | A small kid in a red cap and a yellow tee, top-down 3/4, about 16 x 28 px. Walks or stands in four facings; facing 'all' shows them side by side. |
-| Villager | `characters/villager` | loop 1.6s | 112×48 | A villager with long red hair and a green dress, top-down 3/4, about 16 x 28 px. Walks or stands in four facings; facing 'all' shows them side by side. |
+| Arlo | `characters/arlo` | loop 1.6s | 112×56 | A fair-haired lad in a brown vest. Top-down 3/4 chibi, about 16 x 24 px, walking or idle in four facings ('all' shows them side by side). |
+| Ash | `characters/ash` | loop 1.6s | 112×56 | A quiet mage with silver hair, a purple scarf and a robe. Top-down 3/4 chibi, about 16 x 24 px, walking or idle in four facings ('all' shows them side by side). |
+| Bram | `characters/bram` | loop 1.6s | 112×56 | A bearded woodsman in a tank top and dark overalls. Top-down 3/4 chibi, about 16 x 24 px, walking or idle in four facings ('all' shows them side by side). |
+| Clove | `characters/clove` | loop 1.6s | 112×56 | A baker in a chef's hat and a red apron. Top-down 3/4 chibi, about 16 x 24 px, walking or idle in four facings ('all' shows them side by side). |
+| Cog | `characters/cog` | loop 1.6s | 112×56 | A tinkerer with goggles up, an orange scarf and olive overalls. Top-down 3/4 chibi, about 16 x 24 px, walking or idle in four facings ('all' shows them side by side). |
+| Farmer | `characters/farmer` | loop 1.6s | 112×56 | A farmer in a straw hat and denim overalls over a cream shirt. Top-down 3/4 chibi, about 16 x 24 px, walking or idle in four facings ('all' shows them side by side). |
+| Fern | `characters/fern` | loop 1.6s | 112×56 | A florist with a ginger braid, a flower in her hair and a green dress. Top-down 3/4 chibi, about 16 x 24 px, walking or idle in four facings ('all' shows them side by side). |
+| Grandpa | `characters/grandpa` | loop 1.6s | 112×56 | An old farmer with a white beard and a straw hat. Top-down 3/4 chibi, about 16 x 24 px, walking or idle in four facings ('all' shows them side by side). |
+| Ivy | `characters/ivy` | loop 1.6s | 112×56 | A botanist in a white bucket hat and glasses, with a braid. Top-down 3/4 chibi, about 16 x 24 px, walking or idle in four facings ('all' shows them side by side). |
+| Kofi | `characters/kofi` | loop 1.6s | 112×56 | A runner with curly hair, a headband and a tank top. Top-down 3/4 chibi, about 16 x 24 px, walking or idle in four facings ('all' shows them side by side). |
+| Marina | `characters/marina` | loop 1.6s | 112×56 | A fisher girl with long blue hair, a flower and a white dress. Top-down 3/4 chibi, about 16 x 24 px, walking or idle in four facings ('all' shows them side by side). |
+| Nana | `characters/nana` | loop 1.6s | 112×56 | A grandma with a grey bun, round glasses and an apron. Top-down 3/4 chibi, about 16 x 24 px, walking or idle in four facings ('all' shows them side by side). |
+| Pip | `characters/pip` | loop 1.6s | 112×56 | A pink-haired girl with a bow, in a blouse and denim. Top-down 3/4 chibi, about 16 x 24 px, walking or idle in four facings ('all' shows them side by side). |
+| Rosa | `characters/rosa` | loop 1.6s | 112×56 | A farm girl in a red bandana, long brown hair and overalls. Top-down 3/4 chibi, about 16 x 24 px, walking or idle in four facings ('all' shows them side by side). |
+| Rowan | `characters/rowan` | loop 1.6s | 112×56 | A wanderer in a green flat cap, a scarf and a brown jacket. Top-down 3/4 chibi, about 16 x 24 px, walking or idle in four facings ('all' shows them side by side). |
+| Suki | `characters/suki` | loop 1.6s | 112×56 | A girl with a black ponytail and a red vest. Top-down 3/4 chibi, about 16 x 24 px, walking or idle in four facings ('all' shows them side by side). |
+| Sunny | `characters/sunny` | loop 1.6s | 112×56 | A gardener in a sunhat with a sunflower and green overalls. Top-down 3/4 chibi, about 16 x 24 px, walking or idle in four facings ('all' shows them side by side). |
+| Theo | `characters/theo` | loop 1.6s | 112×56 | A bookish lad with messy black hair, glasses and a brown vest. Top-down 3/4 chibi, about 16 x 24 px, walking or idle in four facings ('all' shows them side by side). |
+| Wade | `characters/wade` | loop 1.6s | 112×56 | A rancher in a cowboy hat and a leather jacket, with stubble. Top-down 3/4 chibi, about 16 x 24 px, walking or idle in four facings ('all' shows them side by side). |
+| Wisteria | `characters/wisteria` | loop 1.6s | 112×56 | A witch with wavy purple hair, a pointed hat and a dark robe. Top-down 3/4 chibi, about 16 x 24 px, walking or idle in four facings ('all' shows them side by side). |
 
 ## farming
 
@@ -20,8 +36,8 @@ hoeing, watering, sowing, harvesting, done by a farmer in four facings.
 
 | effect | id | | size | what it does |
 |---|---|---|---|---|
-| Hoe | `farming/hoe` | one-shot 1.8s | 120×80 | Side-facing, top-down 3/4: the farmer heaves a hoe overhead and chops it in; clods fly and bounce, dust rolls, and a patch of tilled soil opens as he drags it back. |
-| Water | `farming/water` | one-shot 2.2s | 120×80 | Side-facing, top-down 3/4: the farmer tips a watering can; drops arc from the rose and splash across the ground, and a dark wet patch spreads and glistens. |
+| Hoe | `farming/hoe` | loop 1.8s | 176×80 | Top-down 3/4, four facings: the farmer heaves a hoe overhead and chops the tile in front; clods fly, dust puffs, and a patch of tilled soil opens there. |
+| Water | `farming/water` | loop 1.9s | 176×72 | Top-down 3/4, four facings: the farmer lifts a watering can and tips it over the tile in front; drops arc down and splash, and a wet patch spreads and glints. |
 
 ## crops
 

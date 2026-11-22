@@ -25,9 +25,9 @@ const HIT = 0.5, OPEN = 0.78, FADE0 = 1.3, FADE1 = 1.72;
 const WOOD = ["#4a2a14", "#8a5a30", "#b47c44"].map(hex), IRON = ["#3a3c4a", "#7a8094", "#c8ccd8"].map(hex);
 
 // per facing, drawn facing right (left is the mirror): where the chop lands, and the grip and blade over time
-const REST_R = { grip: [4, -8], head: [12, 1], lean: 0, bob: 0 };
-const REST_D = { grip: [3, -8], head: [7, 3], bob: 0 };
-const REST_U = { grip: [3, -9], head: [4, -14], bob: 0 };
+const REST_R = { grip: [4, -5], head: [12, 1], lean: 0, bob: 0 };
+const REST_D = { grip: [5, -5], head: [8, 3], bob: 0 };
+const REST_U = { grip: [4, -6], head: [5, -12], bob: 0 };
 const PLAN = {
   right: {
     target: [16, 1], flat: false,
@@ -35,10 +35,10 @@ const PLAN = {
       [0, REST_R],
       [0.3, { grip: [0, -24], head: [-6, -36], lean: -1, bob: -1 }],
       [0.42, { grip: [-1, -26], head: [-8, -37], lean: -1, bob: -1 }],
-      [0.46, { grip: [4, -22], head: [13, -28], lean: 1, bob: 0 }, "snap"],
-      [HIT, { grip: [6, -11], head: [16, 0], lean: 2, bob: 1 }, "snap"],
-      [0.62, { grip: [6, -11], head: [16, 0], lean: 2, bob: 1 }],
-      [OPEN, { grip: [5, -10], head: [13, 0], lean: 1, bob: 1 }],
+      [0.46, { grip: [4, -18], head: [13, -26], lean: 1, bob: 0 }, "snap"],
+      [HIT, { grip: [6, -7], head: [16, 0], lean: 2, bob: 1 }, "snap"],
+      [0.62, { grip: [6, -7], head: [16, 0], lean: 2, bob: 1 }],
+      [OPEN, { grip: [5, -6], head: [13, 0], lean: 1, bob: 1 }],
       [1.05, REST_R],
       [1.8, REST_R],
     ],
@@ -49,10 +49,10 @@ const PLAN = {
       [0, REST_D],
       [0.3, { grip: [1, -25], head: [1, -38], bob: -1 }],
       [0.42, { grip: [0, -27], head: [0, -40], bob: -1 }],
-      [0.46, { grip: [0, -19], head: [0, -4], bob: 0 }, "snap"],
-      [HIT, { grip: [0, -10], head: [0, 10], bob: 1 }, "snap"],
-      [0.62, { grip: [0, -10], head: [0, 10], bob: 1 }],
-      [OPEN, { grip: [0, -9], head: [0, 7], bob: 1 }],
+      [0.46, { grip: [0, -16], head: [0, -2], bob: 0 }, "snap"],
+      [HIT, { grip: [0, -5], head: [0, 10], bob: 1 }, "snap"],
+      [0.62, { grip: [0, -5], head: [0, 10], bob: 1 }],
+      [OPEN, { grip: [0, -5], head: [0, 7], bob: 1 }],
       [1.05, REST_D],
       [1.8, REST_D],
     ],
@@ -78,7 +78,7 @@ PLAN.left = PLAN.right;
 function hoe(g, flip, grip, head, flat) {
   const set = (x, y, c) => g.set(x * flip, y, c);
   const dx = head[0] - grip[0], dy = head[1] - grip[1], L = Math.hypot(dx, dy) || 1, ux = dx / L, uy = dy / L;
-  for (let s = -5; s <= L; s += 0.5) set(grip[0] + ux * s, grip[1] + uy * s, s > L - 1 ? WOOD[0] : ux > 0.3 || uy < -0.3 ? WOOD[2] : WOOD[1]);
+  for (let s = -3; s <= L; s += 0.5) set(grip[0] + ux * s, grip[1] + uy * s, s > L - 1 ? WOOD[0] : ux > 0.3 || uy < -0.3 ? WOOD[2] : WOOD[1]);
   if (flat && Math.abs(uy) > 0.6) {
     // seen end-on (facing down or up): the blade is a short bar across the end of the shaft
     for (let x = -2; x <= 2; x++) (set(head[0] + x, head[1], x < 0 ? IRON[2] : IRON[1]), set(head[0] + x, head[1] + 1, IRON[0]));

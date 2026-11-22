@@ -38,9 +38,9 @@ const keysFor = (rest, lift, pour) => [
   [1.9, rest],
 ];
 const PLAN = {
-  right: { keys: keysFor({ grip: [2, -6], a: 0 }, { grip: [6, -11], a: -0.1, lean: 1 }, { grip: [7, -12], a: 1.15, lean: 2 }), land: [-2, 3], wet: [13, 1], behind: false },
-  down: { keys: keysFor({ grip: [4, -6], a: 0 }, { grip: [4, -11], a: -0.1 }, { grip: [4, -12], a: 1.15 }), land: [5, 10], wet: [9, 8], behind: false },
-  up: { keys: keysFor({ grip: [3, -7], a: 0 }, { grip: [4, -16], a: -0.1 }, { grip: [4, -18], a: 1.15 }), land: [-11, -7], wet: [9, -8], behind: true },
+  right: { keys: keysFor({ grip: [3, -4], a: 0 }, { grip: [6, -8], a: -0.1, lean: 1 }, { grip: [7, -8], a: 1.15, lean: 2 }), land: [0, 4], wet: [13, 2], behind: false },
+  down: { keys: keysFor({ grip: [6, -4], a: 0 }, { grip: [7, -7], a: -0.1 }, { grip: [7, -7], a: 1.15 }), land: [5, 10], wet: [11, 8], behind: false },
+  up: { keys: keysFor({ grip: [5, -4], a: 0 }, { grip: [5, -14], a: -0.1 }, { grip: [5, -16], a: 1.15 }), land: [-9, -6], wet: [10, -7], behind: true },
 };
 PLAN.left = PLAN.right;
 
@@ -115,7 +115,7 @@ export function draw(p, t, o) {
     if (plan.behind) shower();
     const tool = (g, fl) => can(g, fl, k.grip, k.a);
     drawPerson(p, ox, 0, f, o.look, {
-      hands: [k.grip, f === "up" || f === "down" ? [-4, -7] : [k.grip[0] - 2, k.grip[1] + 2]],
+      hands: [k.grip, f === "up" || f === "down" ? [-7, -5] : [k.grip[0] - 2, k.grip[1] + 2]],
       lean: k.lean ?? 0,
       behind: plan.behind ? tool : null, front: plan.behind ? null : tool,
     });

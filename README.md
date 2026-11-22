@@ -1,6 +1,6 @@
 # farmfx.
 
-**<!-- count -->8<!-- /count --> pixel art assets and animations for farming games, every one a small piece of
+**<!-- count -->24<!-- /count --> pixel art assets and animations for farming games, every one a small piece of
 code.** Crops that grow from seed to harvest, animals going about their day, tilled and watered soil, weather and
 seasons, and a farmer who hoes, waters, sows and harvests. Play them live, recolor them for another season, drop
 them into a browser game, or export sprite sheets for any engine.
@@ -13,7 +13,11 @@ system, with a library made for farms instead of fights.
 
 <!-- previews -->
 <table>
-<tr><td align="center"><img src="docs/preview/characters-elder.gif" width="180" alt="Elder"><br><code>characters/elder</code></td><td align="center"><img src="docs/preview/characters-farmer.gif" width="180" alt="Farmer"><br><code>characters/farmer</code></td><td align="center"><img src="docs/preview/characters-kid.gif" width="180" alt="Kid"><br><code>characters/kid</code></td><td align="center"><img src="docs/preview/characters-villager.gif" width="180" alt="Villager"><br><code>characters/villager</code></td></tr>
+<tr><td align="center"><img src="docs/preview/characters-arlo.gif" width="180" alt="Arlo"><br><code>characters/arlo</code></td><td align="center"><img src="docs/preview/characters-ash.gif" width="180" alt="Ash"><br><code>characters/ash</code></td><td align="center"><img src="docs/preview/characters-bram.gif" width="180" alt="Bram"><br><code>characters/bram</code></td><td align="center"><img src="docs/preview/characters-clove.gif" width="180" alt="Clove"><br><code>characters/clove</code></td></tr>
+<tr><td align="center"><img src="docs/preview/characters-cog.gif" width="180" alt="Cog"><br><code>characters/cog</code></td><td align="center"><img src="docs/preview/characters-farmer.gif" width="180" alt="Farmer"><br><code>characters/farmer</code></td><td align="center"><img src="docs/preview/characters-fern.gif" width="180" alt="Fern"><br><code>characters/fern</code></td><td align="center"><img src="docs/preview/characters-grandpa.gif" width="180" alt="Grandpa"><br><code>characters/grandpa</code></td></tr>
+<tr><td align="center"><img src="docs/preview/characters-ivy.gif" width="180" alt="Ivy"><br><code>characters/ivy</code></td><td align="center"><img src="docs/preview/characters-kofi.gif" width="180" alt="Kofi"><br><code>characters/kofi</code></td><td align="center"><img src="docs/preview/characters-marina.gif" width="180" alt="Marina"><br><code>characters/marina</code></td><td align="center"><img src="docs/preview/characters-nana.gif" width="180" alt="Nana"><br><code>characters/nana</code></td></tr>
+<tr><td align="center"><img src="docs/preview/characters-pip.gif" width="180" alt="Pip"><br><code>characters/pip</code></td><td align="center"><img src="docs/preview/characters-rosa.gif" width="180" alt="Rosa"><br><code>characters/rosa</code></td><td align="center"><img src="docs/preview/characters-rowan.gif" width="180" alt="Rowan"><br><code>characters/rowan</code></td><td align="center"><img src="docs/preview/characters-suki.gif" width="180" alt="Suki"><br><code>characters/suki</code></td></tr>
+<tr><td align="center"><img src="docs/preview/characters-sunny.gif" width="180" alt="Sunny"><br><code>characters/sunny</code></td><td align="center"><img src="docs/preview/characters-theo.gif" width="180" alt="Theo"><br><code>characters/theo</code></td><td align="center"><img src="docs/preview/characters-wade.gif" width="180" alt="Wade"><br><code>characters/wade</code></td><td align="center"><img src="docs/preview/characters-wisteria.gif" width="180" alt="Wisteria"><br><code>characters/wisteria</code></td></tr>
 <tr><td align="center"><img src="docs/preview/farming-hoe.gif" width="180" alt="Hoe"><br><code>farming/hoe</code></td><td align="center"><img src="docs/preview/farming-water.gif" width="180" alt="Water"><br><code>farming/water</code></td><td align="center"><img src="docs/preview/crops-carrot.gif" width="180" alt="Carrot"><br><code>crops/carrot</code></td><td align="center"><img src="docs/preview/animals-chicken.gif" width="180" alt="Chicken"><br><code>animals/chicken</code></td></tr>
 </table>
 <!-- /previews -->
@@ -23,7 +27,7 @@ system, with a library made for farms instead of fights.
 <!-- catalog -->
 | category | effects | some of them |
 |---|---|---|
-| **characters** | 4 | elder, farmer, kid, villager |
+| **characters** | 20 | arlo, ash, bram, clove, cog, farmer… |
 | **farming** | 2 | hoe, water |
 | **crops** | 1 | carrot |
 | **animals** | 1 | chicken |
