@@ -41,7 +41,8 @@ system, with a library made for farms instead of fights.
 | **buildings** | 2 | barn, chicken coop |
 <!-- /catalog -->
 
-Every asset is a file in `src/fx/<category>/<name>.js`. The [catalog](docs/CATALOG.md) lists them all.
+The [asset index](ASSETS.md) links to every source file and available GIF preview. The [catalog](docs/CATALOG.md)
+includes dimensions, timing, and descriptions.
 
 ## use one.
 
@@ -126,7 +127,7 @@ start your own animation `windup` seconds before the effect.
 node tools/new.mjs crops/pumpkin         # a working starting point (add --loop for a loop)
 node tools/render.mjs crops/pumpkin      # records/crops/pumpkin/contact.png: look at it
 node tools/check.mjs crops/pumpkin       # spills, seams, unseeded randomness, slow frames
-node tools/index.mjs                     # update the registry, catalog and this README
+node tools/index.mjs                     # update the registry, asset index, catalog and this README
 node tools/preview.mjs crops/pumpkin     # its GIF in docs/preview and the grid at the top of this README
 node tools/serve.mjs                     # the gallery, locally
 ```

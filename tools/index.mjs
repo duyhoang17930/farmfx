@@ -1,9 +1,9 @@
 #!/usr/bin/env node
-// Regenerate the registry (src/fx/index.js) and the catalog (docs/CATALOG.md) from the effect files.
+// Regenerate the registry, asset index and catalog from the effect files.
 //
 //   node tools/index.mjs
 
-import { writeFileSync, readFileSync } from "node:fs";
+import { existsSync, writeFileSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { ROOT, FX_DIR, allIds, loadEffect } from "./lib/fxlib.mjs";
 import { categories } from "../src/fx/categories.js";
@@ -53,7 +53,33 @@ for (const c of categories) {
   md.push("");
 }
 writeFileSync(join(ROOT, "docs", "CATALOG.md"), md.join("\n"));
-console.log(`${ids.length} effects -> src/fx/index.js, docs/CATALOG.md`);
+
+const assets = [
+  "# FarmFX assets",
+  "",
+  `${ids.length} assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.`,
+  "",
+];
+const groups = new Map();
+for (const asset of metas) {
+  const category = asset.id.split("/")[0];
+  if (!groups.has(category)) groups.set(category, []);
+  groups.get(category).push(asset);
+}
+for (const [category, list] of groups) {
+  const title = categories.find((c) => c.id === category)?.name ?? category;
+  assets.push(`## ${title[0].toUpperCase() + title.slice(1)} (${list.length})`, "",
+    "| Asset | ID | Preview |", "| --- | --- | --- |");
+  for (const { id, name } of list) {
+    const file = `src/fx/${id}.js`;
+    const gif = `docs/preview/${id.replaceAll("/", "-")}.gif`;
+    const preview = existsSync(join(ROOT, gif)) ? `[GIF](${gif})` : "—";
+    assets.push(`| ${name.replace(/\|/g, "\\|")} | [\`${id}\`](${file}) | ${preview} |`);
+  }
+  assets.push("");
+}
+writeFileSync(join(ROOT, "ASSETS.md"), assets.join("\n"));
+console.log(`${ids.length} effects -> src/fx/index.js, ASSETS.md, docs/CATALOG.md`);
 
 // README: the count and the category table
 const readme = join(ROOT, "README.md");
