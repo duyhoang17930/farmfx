@@ -73,6 +73,7 @@ import * as tiles_fence from "./tiles/fence.js";
 import * as tiles_grass from "./tiles/grass.js";
 import * as tiles_pond from "./tiles/pond.js";
 import * as tiles_tilled_soil from "./tiles/tilled-soil.js";
+import * as buildings_barn from "./buildings/barn.js";
 
 export { categories } from "./categories.js";
 
@@ -150,4 +151,5 @@ export const effects = {
   "tiles/grass": tiles_grass,
   "tiles/pond": tiles_pond,
   "tiles/tilled-soil": tiles_tilled_soil,
+  "buildings/barn": buildings_barn,
 };

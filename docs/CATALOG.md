@@ -1,6 +1,6 @@
 # Catalog
 
-73 effects in 6 categories. Every one is a file in
+74 effects in 7 categories. Every one is a file in
 `src/fx/<category>/<name>.js`; render any of them with `node tools/render.mjs <id> --gif`.
 
 ## characters
@@ -117,3 +117,11 @@ tilled soil, wet soil, pond water, grass, fences.
 | Grass | `tiles/grass` | loop 2.5s | 16×16 | A seamless 16 px ground tile with wind-stirred tufts and spring, summer, autumn or winter colors. |
 | Pond | `tiles/pond` | loop 3s | 16×16 | A rippling 16 px pond tile with configurable banks N/E/S/W. Use empty banks for deep water. |
 | Tilled soil | `tiles/tilled-soil` | loop 2.5s | 16×16 | A 16 px soil tile with dry or damp furrows. Edges N/E/S/W can join adjacent plots. |
+
+## buildings
+
+windmills, chimneys, wells, coops.
+
+| effect | id | | size | what it does |
+|---|---|---|---|---|
+| Barn | `buildings/barn` | loop 4s | 64×64 | A three-tile red barn with a gambrel roof, hayloft window and sliding doors. Pin the doors with open 0-1. |
