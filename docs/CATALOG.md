@@ -1,6 +1,6 @@
 # Catalog
 
-58 effects in 5 categories. Every one is a file in
+59 effects in 5 categories. Every one is a file in
 `src/fx/<category>/<name>.js`; render any of them with `node tools/render.mjs <id> --gif`.
 
 ## characters
@@ -72,6 +72,7 @@ seed to sprout to ripe, swaying in the wind.
 
 | effect | id | | size | what it does |
 |---|---|---|---|---|
+| Apples | `crops/apples` | loop 5s | 48×64 | A round orchard tree grows layered chartreuse foliage and three red apples with little stems. Stage 0-4 holds growth. |
 | Bananas | `crops/bananas` | loop 5s | 32×64 | Broad split blades rise over a soft green stem. Curved yellow bananas fill out below the crown. Stage 0-4 holds growth. |
 | Barley | `crops/barley` | loop 5s | 32×48 | Slim, angled barley heads carry long whiskered awns above a loose fan of blades. Stage 0-4 holds growth. |
 | Carrot | `crops/carrot` | loop 4.8s | 32×48 | One tile of tilled soil, top-down 3/4: seed, sprout, feathery fronds, an orange shoulder swelling out, a ripe twinkle, pulled up in a spray of soil. stage 0..4 holds one. |
