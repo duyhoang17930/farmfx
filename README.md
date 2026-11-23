@@ -1,6 +1,6 @@
 # farmfx.
 
-**<!-- count -->78<!-- /count --> pixel art assets and animations for farming games, every one a small piece of
+**<!-- count -->79<!-- /count --> pixel art assets and animations for farming games, every one a small piece of
 code.** Crops that grow from seed to harvest, animals going about their day, tilled and watered soil, weather and
 seasons, and a farmer who hoes, waters, sows and harvests. Play them live, recolor them for another season, drop
 them into a browser game, or export sprite sheets for any engine.
@@ -34,7 +34,7 @@ system, with a library made for farms instead of fights.
 |---|---|---|
 | **characters** | 20 | arlo, ash, bram, clove, cog, farmer… |
 | **portraits** | 20 | arlo portrait, ash portrait, bram portrait, clove portrait, cog portrait, farmer portrait… |
-| **farming** | 3 | hoe, sow, water |
+| **farming** | 4 | harvest, hoe, sow, water |
 | **crops** | 26 | apples, bananas, barley, cabbages, carrot, cassava… |
 | **animals** | 3 | chicken, cow, sheep |
 | **tiles** | 4 | fence and gate, grass, pond, tilled soil |
@@ -87,6 +87,22 @@ Any asset takes a `palette`, so a summer field can turn autumn gold without touc
 ```bash
 node tools/render.mjs crops/wheat --gif --opts '{"palette": ["#2a1a08","#5c3a10","#a0701c","#d8a830","#f4d860","#fff4b0"]}'
 ```
+
+## farm essentials.
+
+| Assets | Options |
+|---|---|
+| `tiles/grass` | `season` is `spring`, `summer`, `autumn`, or `winter`. |
+| `tiles/tilled-soil`, `tiles/pond` | `edges` or `banks` lists the exposed sides in `NESW` order. Use `""` for interior tiles. Soil `wet` goes from 0 to 1. |
+| `tiles/fence` | Set `facing` to `east-west` or `north-south`. Set `gate: false` for plain rails, or choose an `open` value from 0 to 1 for a hinged gate. |
+| `buildings/barn`, `buildings/chicken-coop` | Set `open` from 0 to 1 to position the door or hatch. |
+| `animals/cow`, `animals/sheep` | Set `facing` to `down`, `left`, `right`, or `up`. Set `anim` to `idle`, `walk`, or `graze`. |
+| `farming/sow`, `farming/harvest` | These use the same four facings and farmer looks as hoeing and watering. Set `plot: false` to draw over your map. |
+
+Give the terrain tiles their map coordinates as `tileX` and `tileY` and use the same `seed` across a map
+for continuous texture. A 16 px terrain tile goes at `x = 16 * tileX + 8`, `y = 16 * tileY + 12`.
+The defaults for soil wetness, gate opening, and building doors or hatches cycle in previews. Set those
+options explicitly to match your game's state.
 
 ## farmer actions.
 

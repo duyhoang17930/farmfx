@@ -1,6 +1,6 @@
 # Catalog
 
-78 effects in 7 categories. Every one is a file in
+79 effects in 7 categories. Every one is a file in
 `src/fx/<category>/<name>.js`; render any of them with `node tools/render.mjs <id> --gif`.
 
 ## characters
@@ -63,6 +63,7 @@ hoeing, watering, sowing, harvesting, done by a farmer in four facings.
 
 | effect | id | | size | what it does |
 |---|---|---|---|---|
+| Harvest | `farming/harvest` | loop 1.75s | 176×64 | Four facings: the farmer stoops, tugs a ripe root free, and lifts it with a flick of soil and a gold glint. |
 | Hoe | `farming/hoe` | loop 1.8s | 176×80 | Top-down 3/4, four facings: the farmer heaves a hoe overhead and chops the tile in front; clods fly, dust puffs, and a patch of tilled soil opens there. |
 | Sow | `farming/sow` | loop 1.75s | 176×64 | Four facings: the farmer flicks seeds by hand into a prepared furrow, where they settle into the soil. |
 | Water | `farming/water` | loop 1.9s | 176×72 | Top-down 3/4, four facings: the farmer lifts a watering can and tips it over the tile in front; drops arc down and splash, and a wet patch spreads and glints. |
