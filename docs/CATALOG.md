@@ -1,6 +1,6 @@
 # Catalog
 
-52 effects in 5 categories. Every one is a file in
+53 effects in 5 categories. Every one is a file in
 `src/fx/<category>/<name>.js`; render any of them with `node tools/render.mjs <id> --gif`.
 
 ## characters
@@ -79,6 +79,7 @@ seed to sprout to ripe, swaying in the wind.
 | Potatoes | `crops/potatoes` | loop 5s | 32×48 | Low, ruffled leaves and white flowers hide a cluster of speckled golden potatoes. Stage 0-4 holds growth. |
 | Rice | `crops/rice` | loop 5s | 32×48 | A blue-green paddy tuft with slender blades and drooping sprays of pale, spaced grains. Stage 0-4 holds growth. |
 | Soybeans | `crops/soybeans` | loop 5s | 32×48 | An upright bush with three-part leaves and hanging pods, each with a row of swelling beans. Stage 0-4 holds growth. |
+| Sugar beet | `crops/sugar-beet` | loop 5s | 32×48 | Broad lime-veined leaves reveal an ivory shoulder. The full tapered beet pops out of the soil. Stage 0-4 holds growth. |
 | Sugarcane | `crops/sugarcane` | loop 5s | 32×64 | Three jointed violet cane stalks with long, arching blades. Harvest lifts a bundle of cut cane. Stage 0-4 holds growth. |
 | Wheat | `crops/wheat` | loop 5s | 32×48 | An upright golden stand with broad grain ears and fine awns. A small sheaf hops out at harvest. Stage 0-4 holds growth. |
 
