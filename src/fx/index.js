@@ -70,15 +70,117 @@ import * as crops_tomatoes from "./crops/tomatoes.js";
 import * as crops_watermelons from "./crops/watermelons.js";
 import * as crops_wheat from "./crops/wheat.js";
 import * as crops_yams from "./crops/yams.js";
+import * as trees_fruit_tree from "./trees/fruit-tree.js";
+import * as trees_oak from "./trees/oak.js";
+import * as trees_pine from "./trees/pine.js";
+import * as animals_bee from "./animals/bee.js";
+import * as animals_butterfly from "./animals/butterfly.js";
+import * as animals_cat from "./animals/cat.js";
 import * as animals_chicken from "./animals/chicken.js";
 import * as animals_cow from "./animals/cow.js";
+import * as animals_crow from "./animals/crow.js";
+import * as animals_dog from "./animals/dog.js";
+import * as animals_duck from "./animals/duck.js";
+import * as animals_fish from "./animals/fish.js";
+import * as animals_frog from "./animals/frog.js";
+import * as animals_goat from "./animals/goat.js";
+import * as animals_horse from "./animals/horse.js";
+import * as animals_pig from "./animals/pig.js";
+import * as animals_rabbit from "./animals/rabbit.js";
 import * as animals_sheep from "./animals/sheep.js";
+import * as animals_songbird from "./animals/songbird.js";
+import * as tiles_berry_bush from "./tiles/berry-bush.js";
+import * as tiles_bridge from "./tiles/bridge.js";
+import * as tiles_cliff from "./tiles/cliff.js";
+import * as tiles_cliff_corner from "./tiles/cliff-corner.js";
+import * as tiles_dirt_path from "./tiles/dirt-path.js";
+import * as tiles_fallen_log from "./tiles/fallen-log.js";
 import * as tiles_fence from "./tiles/fence.js";
 import * as tiles_grass from "./tiles/grass.js";
+import * as tiles_grass_autumn from "./tiles/grass-autumn.js";
+import * as tiles_grass_summer from "./tiles/grass-summer.js";
+import * as tiles_grass_winter from "./tiles/grass-winter.js";
 import * as tiles_pond from "./tiles/pond.js";
+import * as tiles_river from "./tiles/river.js";
+import * as tiles_rock from "./tiles/rock.js";
+import * as tiles_sand from "./tiles/sand.js";
+import * as tiles_stone_path from "./tiles/stone-path.js";
+import * as tiles_stump from "./tiles/stump.js";
 import * as tiles_tilled_soil from "./tiles/tilled-soil.js";
+import * as tiles_waterfall from "./tiles/waterfall.js";
+import * as tiles_weeds from "./tiles/weeds.js";
+import * as tiles_wildflowers from "./tiles/wildflowers.js";
 import * as buildings_barn from "./buildings/barn.js";
 import * as buildings_chicken_coop from "./buildings/chicken-coop.js";
+import * as buildings_farmhouse from "./buildings/farmhouse.js";
+import * as buildings_farmhouse_deluxe from "./buildings/farmhouse-deluxe.js";
+import * as buildings_farmhouse_upgrade from "./buildings/farmhouse-upgrade.js";
+import * as buildings_greenhouse from "./buildings/greenhouse.js";
+import * as buildings_market_stall from "./buildings/market-stall.js";
+import * as buildings_shop from "./buildings/shop.js";
+import * as buildings_silo from "./buildings/silo.js";
+import * as buildings_stable from "./buildings/stable.js";
+import * as buildings_storage_shed from "./buildings/storage-shed.js";
+import * as buildings_well from "./buildings/well.js";
+import * as buildings_windmill from "./buildings/windmill.js";
+import * as buildings_workshop from "./buildings/workshop.js";
+import * as tools_axe from "./tools/axe.js";
+import * as tools_bucket from "./tools/bucket.js";
+import * as tools_fishing_rod from "./tools/fishing-rod.js";
+import * as tools_hammer from "./tools/hammer.js";
+import * as tools_lantern from "./tools/lantern.js";
+import * as tools_pickaxe from "./tools/pickaxe.js";
+import * as tools_scarecrow from "./tools/scarecrow.js";
+import * as tools_scythe from "./tools/scythe.js";
+import * as tools_seed_bag from "./tools/seed-bag.js";
+import * as tools_shovel from "./tools/shovel.js";
+import * as tools_sprinkler from "./tools/sprinkler.js";
+import * as tools_watering_can from "./tools/watering-can.js";
+import * as objects_barrel from "./objects/barrel.js";
+import * as objects_beehive from "./objects/beehive.js";
+import * as objects_bench from "./objects/bench.js";
+import * as objects_chest from "./objects/chest.js";
+import * as objects_cooking_pot from "./objects/cooking-pot.js";
+import * as objects_crafting_table from "./objects/crafting-table.js";
+import * as objects_crate from "./objects/crate.js";
+import * as objects_feeding_trough from "./objects/feeding-trough.js";
+import * as objects_furnace from "./objects/furnace.js";
+import * as objects_hay_bale from "./objects/hay-bale.js";
+import * as objects_lamp from "./objects/lamp.js";
+import * as objects_mailbox from "./objects/mailbox.js";
+import * as objects_shipping_bin from "./objects/shipping-bin.js";
+import * as objects_signpost from "./objects/signpost.js";
+import * as objects_workbench from "./objects/workbench.js";
+import * as weather_day_night from "./weather/day-night.js";
+import * as weather_falling_leaves from "./weather/falling-leaves.js";
+import * as weather_fireflies from "./weather/fireflies.js";
+import * as weather_rain from "./weather/rain.js";
+import * as weather_snow from "./weather/snow.js";
+import * as fx_chopping_impact from "./fx/chopping-impact.js";
+import * as fx_dust from "./fx/dust.js";
+import * as fx_footsteps from "./fx/footsteps.js";
+import * as fx_harvest_sparkle from "./fx/harvest-sparkle.js";
+import * as fx_item_pickup from "./fx/item-pickup.js";
+import * as fx_mining_impact from "./fx/mining-impact.js";
+import * as fx_seed_pop from "./fx/seed-pop.js";
+import * as fx_smoke from "./fx/smoke.js";
+import * as fx_water_splash from "./fx/water-splash.js";
+import * as fx_watering_droplets from "./fx/watering-droplets.js";
+import * as ui_calendar from "./ui/calendar.js";
+import * as ui_crafting_menu from "./ui/crafting-menu.js";
+import * as ui_currency from "./ui/currency.js";
+import * as ui_cursor from "./ui/cursor.js";
+import * as ui_day_clock from "./ui/day-clock.js";
+import * as ui_dialogue_box from "./ui/dialogue-box.js";
+import * as ui_energy_bar from "./ui/energy-bar.js";
+import * as ui_health_bar from "./ui/health-bar.js";
+import * as ui_hotbar from "./ui/hotbar.js";
+import * as ui_inventory_slots from "./ui/inventory-slots.js";
+import * as ui_item_icons from "./ui/item-icons.js";
+import * as ui_pickup_toast from "./ui/pickup-toast.js";
+import * as ui_quest_marker from "./ui/quest-marker.js";
+import * as ui_shop_interface from "./ui/shop-interface.js";
+import * as ui_tooltip from "./ui/tooltip.js";
 
 export { categories } from "./categories.js";
 
@@ -153,13 +255,115 @@ export const effects = {
   "crops/watermelons": crops_watermelons,
   "crops/wheat": crops_wheat,
   "crops/yams": crops_yams,
+  "trees/fruit-tree": trees_fruit_tree,
+  "trees/oak": trees_oak,
+  "trees/pine": trees_pine,
+  "animals/bee": animals_bee,
+  "animals/butterfly": animals_butterfly,
+  "animals/cat": animals_cat,
   "animals/chicken": animals_chicken,
   "animals/cow": animals_cow,
+  "animals/crow": animals_crow,
+  "animals/dog": animals_dog,
+  "animals/duck": animals_duck,
+  "animals/fish": animals_fish,
+  "animals/frog": animals_frog,
+  "animals/goat": animals_goat,
+  "animals/horse": animals_horse,
+  "animals/pig": animals_pig,
+  "animals/rabbit": animals_rabbit,
   "animals/sheep": animals_sheep,
+  "animals/songbird": animals_songbird,
+  "tiles/berry-bush": tiles_berry_bush,
+  "tiles/bridge": tiles_bridge,
+  "tiles/cliff": tiles_cliff,
+  "tiles/cliff-corner": tiles_cliff_corner,
+  "tiles/dirt-path": tiles_dirt_path,
+  "tiles/fallen-log": tiles_fallen_log,
   "tiles/fence": tiles_fence,
   "tiles/grass": tiles_grass,
+  "tiles/grass-autumn": tiles_grass_autumn,
+  "tiles/grass-summer": tiles_grass_summer,
+  "tiles/grass-winter": tiles_grass_winter,
   "tiles/pond": tiles_pond,
+  "tiles/river": tiles_river,
+  "tiles/rock": tiles_rock,
+  "tiles/sand": tiles_sand,
+  "tiles/stone-path": tiles_stone_path,
+  "tiles/stump": tiles_stump,
   "tiles/tilled-soil": tiles_tilled_soil,
+  "tiles/waterfall": tiles_waterfall,
+  "tiles/weeds": tiles_weeds,
+  "tiles/wildflowers": tiles_wildflowers,
   "buildings/barn": buildings_barn,
   "buildings/chicken-coop": buildings_chicken_coop,
+  "buildings/farmhouse": buildings_farmhouse,
+  "buildings/farmhouse-deluxe": buildings_farmhouse_deluxe,
+  "buildings/farmhouse-upgrade": buildings_farmhouse_upgrade,
+  "buildings/greenhouse": buildings_greenhouse,
+  "buildings/market-stall": buildings_market_stall,
+  "buildings/shop": buildings_shop,
+  "buildings/silo": buildings_silo,
+  "buildings/stable": buildings_stable,
+  "buildings/storage-shed": buildings_storage_shed,
+  "buildings/well": buildings_well,
+  "buildings/windmill": buildings_windmill,
+  "buildings/workshop": buildings_workshop,
+  "tools/axe": tools_axe,
+  "tools/bucket": tools_bucket,
+  "tools/fishing-rod": tools_fishing_rod,
+  "tools/hammer": tools_hammer,
+  "tools/lantern": tools_lantern,
+  "tools/pickaxe": tools_pickaxe,
+  "tools/scarecrow": tools_scarecrow,
+  "tools/scythe": tools_scythe,
+  "tools/seed-bag": tools_seed_bag,
+  "tools/shovel": tools_shovel,
+  "tools/sprinkler": tools_sprinkler,
+  "tools/watering-can": tools_watering_can,
+  "objects/barrel": objects_barrel,
+  "objects/beehive": objects_beehive,
+  "objects/bench": objects_bench,
+  "objects/chest": objects_chest,
+  "objects/cooking-pot": objects_cooking_pot,
+  "objects/crafting-table": objects_crafting_table,
+  "objects/crate": objects_crate,
+  "objects/feeding-trough": objects_feeding_trough,
+  "objects/furnace": objects_furnace,
+  "objects/hay-bale": objects_hay_bale,
+  "objects/lamp": objects_lamp,
+  "objects/mailbox": objects_mailbox,
+  "objects/shipping-bin": objects_shipping_bin,
+  "objects/signpost": objects_signpost,
+  "objects/workbench": objects_workbench,
+  "weather/day-night": weather_day_night,
+  "weather/falling-leaves": weather_falling_leaves,
+  "weather/fireflies": weather_fireflies,
+  "weather/rain": weather_rain,
+  "weather/snow": weather_snow,
+  "fx/chopping-impact": fx_chopping_impact,
+  "fx/dust": fx_dust,
+  "fx/footsteps": fx_footsteps,
+  "fx/harvest-sparkle": fx_harvest_sparkle,
+  "fx/item-pickup": fx_item_pickup,
+  "fx/mining-impact": fx_mining_impact,
+  "fx/seed-pop": fx_seed_pop,
+  "fx/smoke": fx_smoke,
+  "fx/water-splash": fx_water_splash,
+  "fx/watering-droplets": fx_watering_droplets,
+  "ui/calendar": ui_calendar,
+  "ui/crafting-menu": ui_crafting_menu,
+  "ui/currency": ui_currency,
+  "ui/cursor": ui_cursor,
+  "ui/day-clock": ui_day_clock,
+  "ui/dialogue-box": ui_dialogue_box,
+  "ui/energy-bar": ui_energy_bar,
+  "ui/health-bar": ui_health_bar,
+  "ui/hotbar": ui_hotbar,
+  "ui/inventory-slots": ui_inventory_slots,
+  "ui/item-icons": ui_item_icons,
+  "ui/pickup-toast": ui_pickup_toast,
+  "ui/quest-marker": ui_quest_marker,
+  "ui/shop-interface": ui_shop_interface,
+  "ui/tooltip": ui_tooltip,
 };

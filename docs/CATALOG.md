@@ -1,6 +1,6 @@
 # Catalog
 
-79 effects in 7 categories. Every one is a file in
+181 effects in 13 categories. Every one is a file in
 `src/fx/<category>/<name>.js`; render any of them with `node tools/render.mjs <id> --gif`.
 
 ## characters
@@ -101,32 +101,176 @@ seed to sprout to ripe, swaying in the wind.
 | Wheat | `crops/wheat` | loop 5s | 32×48 | An upright golden stand with broad grain ears and fine awns. A small sheaf hops out at harvest. Stage 0-4 holds growth. |
 | Yams | `crops/yams` | loop 5s | 32×48 | A climbing vine curls up a tall stake with pointed heart leaves. A knobbly brown yam is dug up. Stage 0-4 holds growth. |
 
-## animals
+## trees
 
-chickens, cows, sheep, pigs, ducks going about their day.
+oak, pine and cherry trees with swaying foliage.
 
 | effect | id | | size | what it does |
 |---|---|---|---|---|
+| Cherry tree | `trees/fruit-tree` | loop 2s | 48×64 | A cherry tree with spring blossoms or ripe fruit in its swaying canopy. |
+| Oak | `trees/oak` | loop 2s | 48×64 | A broad oak with a forked trunk and swaying layered foliage. |
+| Pine | `trees/pine` | loop 2s | 48×64 | A tall pine with four staggered tiers of evergreen needles. |
+
+## animals
+
+farm livestock, pets, pond animals and flying wildlife.
+
+| effect | id | | size | what it does |
+|---|---|---|---|---|
+| Bee | `animals/bee` | loop 2.4s | 48×48 | A striped bee buzzing in a short figure eight, facing right; flip for left. |
+| Butterfly | `animals/butterfly` | loop 2.4s | 48×48 | A violet butterfly flapping over a drifting path, viewed from above and facing up. |
+| Cat | `animals/cat` | loop 3.2s | 48×48 | An orange tabby with pointed ears, whiskers and an upright tail, animated in four directions. |
 | Chicken | `animals/chicken` | loop 3.2s | 48×48 | A hen, side-facing (flip for left), top-down 3/4: three grains land around her feet, she pecks each up, flaps, drops a feather, jerks her head about and blinks. |
 | Cow | `animals/cow` | loop 3.2s | 48×48 | A spotted dairy cow with four facings, a swishing tail and idle, walk and graze loops. |
+| Crow | `animals/crow` | loop 2.4s | 48×48 | A charcoal crow hops, dips its beak to peck and flicks its tail. Faces right; flip for left. |
+| Dog | `animals/dog` | loop 3.2s | 48×48 | A cream and brown dog with floppy ears and a wagging tail, animated in four directions. |
+| Duck | `animals/duck` | loop 2.4s | 48×48 | A mallard paddling and dipping its beak, facing right; flip for left. |
+| Pond fish | `animals/fish` | loop 2.4s | 48×48 | An orange fish with a fanned tail and optional water ripples, facing right; flip for left. |
+| Frog | `animals/frog` | loop 2.4s | 48×48 | A pond frog blinking, squatting and springing onto a lily pad, facing down. |
+| Goat | `animals/goat` | loop 3.2s | 48×48 | A cream goat with curved horns and a small beard, animated in four directions. |
+| Horse | `animals/horse` | loop 3.2s | 48×48 | A chestnut horse with a dark mane and long legs, animated in four directions. |
+| Pig | `animals/pig` | loop 3.2s | 48×48 | A pink pig with a curled tail, round snout and four-direction idle, walk and graze loops. |
+| Rabbit | `animals/rabbit` | loop 2.4s | 48×48 | A round brown rabbit with long ears, a white tail and a short hop, facing right; flip for left. |
 | Sheep | `animals/sheep` | loop 3.2s | 32×32 | A woolly sheep with a charcoal face, four facings and idle, walk and graze loops. |
+| Songbird | `animals/songbird` | loop 2.4s | 48×48 | A small blue songbird that hops, flutters and pecks, facing right; flip for left. |
 
 ## tiles
 
-tilled soil, wet soil, pond water, grass, fences.
+seasonal ground, path and water tiles, cliffs, foliage and crossings.
 
 | effect | id | | size | what it does |
 |---|---|---|---|---|
+| Berry bush | `tiles/berry-bush` | loop 2s | 32×32 | A low, swaying bramble with optional coral berries. |
+| Footbridge | `tiles/bridge` | loop 2s | 48×32 | A wood plank crossing with raised rails. Water is optional in the preview. |
+| Cliff wall | `tiles/cliff` | loop 2s | 16×32 | A repeatable cliff wall with a grassy lip and vertical rock clefts. |
+| Cliff corner | `tiles/cliff-corner` | loop 2s | 16×32 | A corner segment with a raised turf lip and two shaded rock faces. |
+| Dirt path | `tiles/dirt-path` | loop 2s | 16×16 | A 16 px packed-earth path with configurable edges and seeded grit. |
+| Fallen log | `tiles/fallen-log` | loop 2s | 48×32 | A hollow fallen log with split bark, growth rings and small patches of moss. |
 | Fence and gate | `tiles/fence` | loop 3s | 32×32 | A one-tile split-rail fence or hinged gate. Orient east-west or north-south and set the gate opening. |
 | Grass | `tiles/grass` | loop 2.5s | 16×16 | A seamless 16 px ground tile with wind-stirred tufts and spring, summer, autumn or winter colors. |
+| Autumn grass | `tiles/grass-autumn` | loop 2.5s | 16×16 | The autumn grass tile with seeded ground texture and animated tufts. |
+| Summer grass | `tiles/grass-summer` | loop 2.5s | 16×16 | The summer grass tile with seeded ground texture and animated tufts. |
+| Winter grass | `tiles/grass-winter` | loop 2.5s | 16×16 | The winter grass tile with seeded ground texture and animated tufts. |
 | Pond | `tiles/pond` | loop 3s | 16×16 | A rippling 16 px pond tile with configurable banks N/E/S/W. Use empty banks for deep water. |
+| River | `tiles/river` | loop 2.4s | 16×16 | A flowing 16 px straight reach with earthen banks; orient north-south or east-west. |
+| Mossy rock | `tiles/rock` | loop 2s | 32×32 | An angular boulder with a lit upper plane and optional moss. |
+| Sand | `tiles/sand` | loop 2s | 16×16 | A seamless 16 px shore tile with wind ridges and occasional pale grains. |
+| Stone path | `tiles/stone-path` | loop 2s | 16×16 | Staggered 16 px flagstones with pale bevels and configurable path edges. |
+| Stump | `tiles/stump` | loop 2s | 32×32 | A low tree stump with three roots and a warm, ringed cut surface. |
 | Tilled soil | `tiles/tilled-soil` | loop 2.5s | 16×16 | A 16 px soil tile with dry or damp furrows. Edges N/E/S/W can join adjacent plots. |
+| Waterfall | `tiles/waterfall` | loop 2.4s | 48×64 | A layered ribbon of falling water over dark stone, with a frothy basin and rising mist. |
+| Weeds | `tiles/weeds` | loop 2s | 32×32 | A tangled clump of triangular blades, hooked broad leaves and a dry seed tuft. |
+| Wildflowers | `tiles/wildflowers` | loop 2s | 32×32 | Clusters of violet daisies with golden centers on waving stems. |
 
 ## buildings
 
-windmills, chimneys, wells, coops.
+farmhouses, livestock shelters, workshops and market buildings.
 
 | effect | id | | size | what it does |
 |---|---|---|---|---|
 | Barn | `buildings/barn` | loop 4s | 64×64 | A three-tile red barn with a gambrel roof, hayloft window and sliding doors. Pin the doors with open 0-1. |
 | Chicken coop | `buildings/chicken-coop` | loop 3.5s | 48×48 | A raised cedar coop with a teal shingle roof, screened window and a hatch that lowers into a ramp. |
+| Farmhouse | `buildings/farmhouse` | loop 3.2s | 80×64 | A cream cottage with a red roof, brick chimney, warm windows and an opening front door. |
+| Deluxe farmhouse | `buildings/farmhouse-deluxe` | loop 3.2s | 80×80 | A second farmhouse upgrade with two dormers, a wraparound porch, flower boxes and warm shutters. |
+| Expanded farmhouse | `buildings/farmhouse-upgrade` | loop 3.2s | 80×64 | An upgraded two-storey farmhouse with a side wing, upper windows and a covered porch. |
+| Greenhouse | `buildings/greenhouse` | loop 2s | 64×64 | A glasshouse with angled panes, dark metal ribs and warm light over its seedling benches. |
+| Market stall | `buildings/market-stall` | loop 2s | 64×48 | A striped produce stand with baskets, pumpkins and an awning that stirs in the wind. |
+| General store | `buildings/shop` | loop 3.2s | 80×64 | A slate-roofed store with a striped canopy, display window and a swinging shop sign. |
+| Grain silo | `buildings/silo` | loop 2s | 48×64 | A ribbed steel grain silo with a red cap, access ladder and a flickering level indicator. |
+| Stable | `buildings/stable` | loop 3.2s | 80×64 | An open timber stable with two stalls, hay racks and a wide shingled roof. |
+| Storage shed | `buildings/storage-shed` | loop 3.2s | 80×64 | A narrow plank shed with a tin roof, sliding door and stacked supply boxes. |
+| Water well | `buildings/well` | loop 3.2s | 48×48 | A stone well with a wooden canopy and a bucket rising from the water. |
+| Windmill | `buildings/windmill` | loop 4s | 80×80 | A stone mill tower with four slowly turning cloth sails around a wooden hub. |
+| Workshop | `buildings/workshop` | loop 3.2s | 80×64 | A moss-roofed workshop with a wide door, a wall-mounted wrench and a smoking chimney. |
+
+## tools
+
+hand tools, carried equipment and placeable farm equipment.
+
+| effect | id | | size | what it does |
+|---|---|---|---|---|
+| Axe | `tools/axe` | loop 2s | 32×32 | A wood-handled axe with a broad beveled cutting edge. |
+| Bucket | `tools/bucket` | loop 2s | 32×32 | A slatted wood bucket with an iron bail and a rippling water surface. |
+| Fishing rod | `tools/fishing-rod` | loop 2s | 32×32 | A bent rod with a spool, thin line and a swaying red float. |
+| Hammer | `tools/hammer` | loop 2s | 32×32 | A carpenter's hammer with a blocky iron head and wooden handle. |
+| Lantern | `tools/lantern` | loop 2s | 32×32 | An iron-framed lantern with warm glass and a flickering flame. |
+| Pickaxe | `tools/pickaxe` | loop 2s | 32×32 | A mining pick with a hooked iron head and a varnished handle. |
+| Scarecrow | `tools/scarecrow` | loop 2s | 48×48 | A straw-headed scarecrow in a patched coat, swaying slightly in the breeze. |
+| Scythe | `tools/scythe` | loop 2s | 32×32 | A long farm scythe with an offset grip and a curved blade. |
+| Seed bag | `tools/seed-bag` | loop 2s | 32×32 | A tied kraft pouch printed with a little green seedling. |
+| Shovel | `tools/shovel` | loop 2s | 32×32 | A spade with a D-ring handle and a polished pointed blade. |
+| Sprinkler | `tools/sprinkler` | loop 2s | 48×48 | A low irrigation head that spins and throws water out in a circle. |
+| Watering can | `tools/watering-can` | loop 2s | 32×32 | A blue-green can with a perforated spout, fill opening and loop handle. |
+
+## objects
+
+storage, furniture and props with configurable active or open states.
+
+| effect | id | | size | what it does |
+|---|---|---|---|---|
+| Barrel | `objects/barrel` | loop 2s | 48×48 | A round oak cask with iron hoops and a shaded inset lid. |
+| Beehive | `objects/beehive` | loop 2s | 48×48 | A stacked hive with a peaked lid and optional bees hovering at the entrance. |
+| Bench | `objects/bench` | loop 2s | 48×48 | A two-seat slatted wooden bench with a raised back. |
+| Storage chest | `objects/chest` | loop 2s | 48×48 | A metal-strapped chest with a hinged lid and a glint of treasure. |
+| Cooking pot | `objects/cooking-pot` | loop 2s | 48×48 | An iron pot above a brazier with optional steam and simmering broth. |
+| Crafting table | `objects/crafting-table` | loop 2s | 48×48 | A workshop table with a green cutting mat, plans and a shallow drawer. |
+| Crate | `objects/crate` | loop 2s | 48×48 | A braced wooden crate with visible slats and nail heads. |
+| Feeding trough | `objects/feeding-trough` | loop 2s | 48×48 | A low plank trough with optional feed in the top. |
+| Furnace | `objects/furnace` | loop 2s | 48×48 | A squat masonry furnace with optional glowing coals. |
+| Hay bale | `objects/hay-bale` | loop 2s | 48×48 | A rectangular bale with tied bands and loose golden straw. |
+| Lamppost | `objects/lamp` | loop 2s | 48×48 | A tall iron path light with a warm, flickering glow when active. |
+| Mailbox | `objects/mailbox` | loop 2s | 48×48 | A rounded painted mailbox whose flag rises with the arrival of a letter. |
+| Shipping bin | `objects/shipping-bin` | loop 2s | 48×48 | A large wooden bin with an opening lid and a painted shipping arrow. |
+| Signpost | `objects/signpost` | loop 2s | 48×48 | A carved arrow sign with a short configurable label. |
+| Workbench | `objects/workbench` | loop 2s | 48×48 | A carpenter's bench with a vise and a rack of steel tools. |
+
+## weather & seasons
+
+rain, snow, autumn leaves, fireflies, day and night.
+
+| effect | id | | size | what it does |
+|---|---|---|---|---|
+| Day and night | `weather/day-night` | loop 8s | 80×48 | A configurable global tint that cycles from clear noon to golden dusk and violet night. |
+| Falling leaves | `weather/falling-leaves` | loop 5s | 96×64 | Rust and gold leaves spiral down, turning edge-on before they fade. |
+| Fireflies | `weather/fireflies` | loop 4s | 96×64 | Small warm lights pulse at different times as they wander over a dark field. |
+| Rain | `weather/rain` | loop 3s | 96×64 | Slanted rain streaks and tiny ground splashes cycle over a field. |
+| Snow | `weather/snow` | loop 5s | 96×64 | Soft snowfall with three sizes of flakes drifting at different speeds. |
+
+## farm fx
+
+dust, splashes, impact debris, growth and pickup feedback.
+
+| effect | id | | size | what it does |
+|---|---|---|---|---|
+| Chopping impact | `fx/chopping-impact` | one-shot 0.8s | 48×48 | A quick edge flash kicks out sapwood chips and a little sawdust. |
+| Dust puff | `fx/dust` | one-shot 0.85s | 48×48 | A low, translucent puff of dry earth that spreads and clears. |
+| Footsteps | `fx/footsteps` | one-shot 1.2s | 48×48 | Two alternating little boot prints that fade against the ground. |
+| Harvest sparkle | `fx/harvest-sparkle` | one-shot 0.8s | 48×48 | Gold and ivory stars pop outward to signal a ripe or collected crop. |
+| Item pickup | `fx/item-pickup` | one-shot 0.84s | 48×48 | A small golden token arcs up through a neat burst of pickup glints. |
+| Mining impact | `fx/mining-impact` | one-shot 0.86s | 48×48 | Sharp fragments, a pale strike flash and dust mark a pick hitting stone. |
+| Seed sprout pop | `fx/seed-pop` | one-shot 0.9s | 48×48 | A two-leaf sprout springs out of a little scattering of dry soil. |
+| Chimney smoke | `fx/smoke` | loop 3.2s | 48×48 | A slow continuous plume of pale smoke rises, widens and fades. |
+| Water splash | `fx/water-splash` | one-shot 0.9s | 48×48 | A shallow crown of water with arcing drops and two spreading rings. |
+| Watering droplets | `fx/watering-droplets` | one-shot 1.15s | 48×48 | A short arc of irrigation droplets lands in staggered twinkles. |
+
+## ui
+
+pixel HUD, inventory icons, menus, dialogue and notifications.
+
+| effect | id | | size | what it does |
+|---|---|---|---|---|
+| Calendar | `ui/calendar` | loop 2.4s | 128×80 | A 28-day seasonal calendar with a configurable current day and marked dates. |
+| Crafting menu | `ui/crafting-menu` | loop 2.4s | 112×64 | A recipe panel with configurable ingredient slots, quantities and output. |
+| Currency | `ui/currency` | loop 2.4s | 80×32 | A flipping coin and a configurable gold balance on a compact HUD panel. |
+| Tile cursor | `ui/cursor` | loop 2.4s | 32×32 | Pulsing corner brackets for a 16 px tile, with valid and blocked placement colors. |
+| Day clock | `ui/day-clock` | loop 2.4s | 112×32 | A configurable day and time readout with a sun or moon icon. |
+| Dialogue box | `ui/dialogue-box` | loop 2.4s | 160×48 | A two-line dialogue panel with a speaker name, type-in demo and continue marker. |
+| Energy bar | `ui/energy-bar` | loop 2.4s | 96×32 | A blue energy meter with a lightning icon and configurable 0-to-1 fill. |
+| Health bar | `ui/health-bar` | loop 2.4s | 96×32 | A heart meter with a configurable 0-to-1 fill level. |
+| Hotbar | `ui/hotbar` | loop 2.4s | 128×32 | Six quick slots with configurable items and selection. |
+| Inventory slots | `ui/inventory-slots` | loop 2.4s | 96×96 | A sixteen-slot backpack panel with item icons and a moving selection. |
+| Item icons | `ui/item-icons` | loop 2.4s | 112×48 | Twelve inventory icons for produce, materials and animal goods. Set item to show a single icon. |
+| Pickup toast | `ui/pickup-toast` | one-shot 1.4s | 112×48 | A short pickup notification with a configurable item, name and quantity. |
+| Quest marker | `ui/quest-marker` | loop 2.4s | 32×32 | A bobbing quest pin that can display a new quest, a hint or a completed check. |
+| Shop interface | `ui/shop-interface` | loop 2.4s | 128×96 | A shop panel with editable stock, prices, gold total and highlighted row. |
+| Item tooltip | `ui/tooltip` | loop 2.4s | 128×48 | A small icon tooltip with a title and two short configurable text lines. |

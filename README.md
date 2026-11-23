@@ -1,6 +1,6 @@
 # farmfx.
 
-**<!-- count -->79<!-- /count --> pixel art assets and animations for farming games, every one a small piece of
+**<!-- count -->181<!-- /count --> pixel art assets and animations for farming games, every one a small piece of
 code.** Crops that grow from seed to harvest, animals going about their day, tilled and watered soil, weather and
 seasons, and a farmer who hoes, waters, sows and harvests. Play them live, recolor them for another season, drop
 them into a browser game, or export sprite sheets for any engine.
@@ -36,9 +36,15 @@ system, with a library made for farms instead of fights.
 | **portraits** | 20 | arlo portrait, ash portrait, bram portrait, clove portrait, cog portrait, farmer portrait… |
 | **farming** | 4 | harvest, hoe, sow, water |
 | **crops** | 26 | apples, bananas, barley, cabbages, carrot, cassava… |
-| **animals** | 3 | chicken, cow, sheep |
-| **tiles** | 4 | fence and gate, grass, pond, tilled soil |
-| **buildings** | 2 | barn, chicken coop |
+| **trees** | 3 | cherry tree, oak, pine |
+| **animals** | 16 | bee, butterfly, cat, chicken, cow, crow… |
+| **tiles** | 21 | berry bush, footbridge, cliff wall, cliff corner, dirt path, fallen log… |
+| **buildings** | 14 | barn, chicken coop, farmhouse, deluxe farmhouse, expanded farmhouse, greenhouse… |
+| **tools** | 12 | axe, bucket, fishing rod, hammer, lantern, pickaxe… |
+| **objects** | 15 | barrel, beehive, bench, storage chest, cooking pot, crafting table… |
+| **weather & seasons** | 5 | day and night, falling leaves, fireflies, rain, snow |
+| **farm fx** | 10 | chopping impact, dust puff, footsteps, harvest sparkle, item pickup, mining impact… |
+| **ui** | 15 | calendar, crafting menu, currency, tile cursor, day clock, dialogue box… |
 <!-- /catalog -->
 
 The [asset index](ASSETS.md) links to every source file and available GIF preview. The [catalog](docs/CATALOG.md)
@@ -104,6 +110,26 @@ Give the terrain tiles their map coordinates as `tileX` and `tileY` and use the 
 for continuous texture. A 16 px terrain tile goes at `x = 16 * tileX + 8`, `y = 16 * tileY + 12`.
 The defaults for soil wetness, gate opening, and building doors or hatches cycle in previews. Set those
 options explicitly to match your game's state.
+
+## environment, equipment, wildlife, and UI.
+
+Browse the [asset index](ASSETS.md) for source files and previews. Dirt and stone paths follow the same
+`tileX`, `tileY`, and exposed `edges` convention as tilled soil. River tiles use `facing` and `tileOffset`
+along the direction of flow. Set `water: false` on the bridge, duck, or fish to draw it over your own water.
+
+The farmhouse has base, expanded, and deluxe sprites. Where available, use `open` and `active` to set an
+object's door, lid, light, or cooking state. Pigs, goats, horses, cats, and dogs use the same `facing` and
+`anim` options as cows and sheep. Small wildlife includes its facing in the catalog.
+
+The UI assets draw the data supplied by your game, such as the selected slot, dialogue text, shop stock, or
+health value. One-shot effects such as impacts and pickup notifications can be removed when `fx.done()`
+returns true.
+
+```bash
+node tools/render.mjs buildings/farmhouse-deluxe --gif --sheet
+node tools/render.mjs animals/horse --sheet --opts '{"facing":"down","anim":"walk"}'
+node tools/render.mjs ui/energy-bar --sheet --opts '{"value":0.75}'
+```
 
 ## farmer actions.
 
