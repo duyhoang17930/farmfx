@@ -1,6 +1,6 @@
 # Catalog
 
-74 effects in 7 categories. Every one is a file in
+75 effects in 7 categories. Every one is a file in
 `src/fx/<category>/<name>.js`; render any of them with `node tools/render.mjs <id> --gif`.
 
 ## characters
@@ -125,3 +125,4 @@ windmills, chimneys, wells, coops.
 | effect | id | | size | what it does |
 |---|---|---|---|---|
 | Barn | `buildings/barn` | loop 4s | 64×64 | A three-tile red barn with a gambrel roof, hayloft window and sliding doors. Pin the doors with open 0-1. |
+| Chicken coop | `buildings/chicken-coop` | loop 3.5s | 48×48 | A raised cedar coop with a teal shingle roof, screened window and a hatch that lowers into a ramp. |
