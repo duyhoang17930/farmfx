@@ -44,6 +44,7 @@ import * as farming_hoe from "./farming/hoe.js";
 import * as farming_water from "./farming/water.js";
 import * as crops_carrot from "./crops/carrot.js";
 import * as crops_corn from "./crops/corn.js";
+import * as crops_oil_palm from "./crops/oil-palm.js";
 import * as crops_rice from "./crops/rice.js";
 import * as crops_sugarcane from "./crops/sugarcane.js";
 import * as crops_wheat from "./crops/wheat.js";
@@ -96,6 +97,7 @@ export const effects = {
   "farming/water": farming_water,
   "crops/carrot": crops_carrot,
   "crops/corn": crops_corn,
+  "crops/oil-palm": crops_oil_palm,
   "crops/rice": crops_rice,
   "crops/sugarcane": crops_sugarcane,
   "crops/wheat": crops_wheat,
