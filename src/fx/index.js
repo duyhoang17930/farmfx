@@ -58,6 +58,7 @@ import * as crops_sugarcane from "./crops/sugarcane.js";
 import * as crops_tomatoes from "./crops/tomatoes.js";
 import * as crops_watermelons from "./crops/watermelons.js";
 import * as crops_wheat from "./crops/wheat.js";
+import * as crops_yams from "./crops/yams.js";
 import * as animals_chicken from "./animals/chicken.js";
 
 export { categories } from "./categories.js";
@@ -121,5 +122,6 @@ export const effects = {
   "crops/tomatoes": crops_tomatoes,
   "crops/watermelons": crops_watermelons,
   "crops/wheat": crops_wheat,
+  "crops/yams": crops_yams,
   "animals/chicken": animals_chicken,
 };

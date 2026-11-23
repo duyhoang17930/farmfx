@@ -1,6 +1,6 @@
 # Catalog
 
-59 effects in 5 categories. Every one is a file in
+60 effects in 5 categories. Every one is a file in
 `src/fx/<category>/<name>.js`; render any of them with `node tools/render.mjs <id> --gif`.
 
 ## characters
@@ -88,6 +88,7 @@ seed to sprout to ripe, swaying in the wind.
 | Tomatoes | `crops/tomatoes` | loop 5s | 32×48 | A staked vine grows jagged leaves and clusters of glossy, red tomatoes with green stars. Stage 0-4 holds growth. |
 | Watermelons | `crops/watermelons` | loop 5s | 32×48 | A low, spreading vine curls around a broad, dark green melon with winding lime stripes. Stage 0-4 holds growth. |
 | Wheat | `crops/wheat` | loop 5s | 32×48 | An upright golden stand with broad grain ears and fine awns. A small sheaf hops out at harvest. Stage 0-4 holds growth. |
+| Yams | `crops/yams` | loop 5s | 32×48 | A climbing vine curls up a tall stake with pointed heart leaves. A knobbly brown yam is dug up. Stage 0-4 holds growth. |
 
 ## animals
 
