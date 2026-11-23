@@ -51,6 +51,7 @@ import * as crops_corn from "./crops/corn.js";
 import * as crops_oil_palm from "./crops/oil-palm.js";
 import * as crops_onions_and_shallots from "./crops/onions-and-shallots.js";
 import * as crops_potatoes from "./crops/potatoes.js";
+import * as crops_rapeseed from "./crops/rapeseed.js";
 import * as crops_rice from "./crops/rice.js";
 import * as crops_soybeans from "./crops/soybeans.js";
 import * as crops_sugar_beet from "./crops/sugar-beet.js";
@@ -116,6 +117,7 @@ export const effects = {
   "crops/oil-palm": crops_oil_palm,
   "crops/onions-and-shallots": crops_onions_and_shallots,
   "crops/potatoes": crops_potatoes,
+  "crops/rapeseed": crops_rapeseed,
   "crops/rice": crops_rice,
   "crops/soybeans": crops_soybeans,
   "crops/sugar-beet": crops_sugar_beet,

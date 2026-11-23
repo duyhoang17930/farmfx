@@ -1,6 +1,6 @@
 # Catalog
 
-61 effects in 5 categories. Every one is a file in
+62 effects in 5 categories. Every one is a file in
 `src/fx/<category>/<name>.js`; render any of them with `node tools/render.mjs <id> --gif`.
 
 ## characters
@@ -81,6 +81,7 @@ seed to sprout to ripe, swaying in the wind.
 | Oil palm | `crops/oil-palm` | loop 5s | 48×64 | A squat palm with a crosshatched trunk, feathery fronds and dense bunches of red-orange fruit. Stage 0-4 holds growth. |
 | Onions and shallots | `crops/onions-and-shallots` | loop 5s | 32×48 | Hollow blue-green shoots rise from a golden onion beside two smaller copper-pink shallots. Stage 0-4 holds growth. |
 | Potatoes | `crops/potatoes` | loop 5s | 32×48 | Low, ruffled leaves and white flowers hide a cluster of speckled golden potatoes. Stage 0-4 holds growth. |
+| Rapeseed | `crops/rapeseed` | loop 5s | 32×48 | An open spray of butter-yellow flowers gives way to a handful of dark canola seeds. Stage 0-4 holds growth. |
 | Rice | `crops/rice` | loop 5s | 32×48 | A blue-green paddy tuft with slender blades and drooping sprays of pale, spaced grains. Stage 0-4 holds growth. |
 | Soybeans | `crops/soybeans` | loop 5s | 32×48 | An upright bush with three-part leaves and hanging pods, each with a row of swelling beans. Stage 0-4 holds growth. |
 | Sugar beet | `crops/sugar-beet` | loop 5s | 32×48 | Broad lime-veined leaves reveal an ivory shoulder. The full tapered beet pops out of the soil. Stage 0-4 holds growth. |
