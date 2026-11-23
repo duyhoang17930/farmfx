@@ -1,6 +1,6 @@
 # Catalog
 
-47 effects in 5 categories. Every one is a file in
+48 effects in 5 categories. Every one is a file in
 `src/fx/<category>/<name>.js`; render any of them with `node tools/render.mjs <id> --gif`.
 
 ## characters
@@ -76,6 +76,7 @@ seed to sprout to ripe, swaying in the wind.
 | Corn | `crops/corn` | loop 5s | 32×64 | A tasselled maize stalk opens ribbon leaves and fills two golden ears wrapped in green husks. Stage 0-4 holds growth. |
 | Rice | `crops/rice` | loop 5s | 32×48 | A blue-green paddy tuft with slender blades and drooping sprays of pale, spaced grains. Stage 0-4 holds growth. |
 | Sugarcane | `crops/sugarcane` | loop 5s | 32×64 | Three jointed violet cane stalks with long, arching blades. Harvest lifts a bundle of cut cane. Stage 0-4 holds growth. |
+| Wheat | `crops/wheat` | loop 5s | 32×48 | An upright golden stand with broad grain ears and fine awns. A small sheaf hops out at harvest. Stage 0-4 holds growth. |
 
 ## animals
 
