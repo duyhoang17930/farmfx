@@ -1,6 +1,6 @@
 # farmfx.
 
-**<!-- count -->66<!-- /count --> pixel art assets and animations for farming games, every one a small piece of
+**<!-- count -->67<!-- /count --> pixel art assets and animations for farming games, every one a small piece of
 code.** Crops that grow from seed to harvest, animals going about their day, tilled and watered soil, weather and
 seasons, and a farmer who hoes, waters, sows and harvests. Play them live, recolor them for another season, drop
 them into a browser game, or export sprite sheets for any engine.
@@ -35,7 +35,7 @@ system, with a library made for farms instead of fights.
 | **characters** | 20 | arlo, ash, bram, clove, cog, farmer… |
 | **portraits** | 20 | arlo portrait, ash portrait, bram portrait, clove portrait, cog portrait, farmer portrait… |
 | **farming** | 2 | hoe, water |
-| **crops** | 23 | apples, bananas, barley, cabbages, carrot, cassava… |
+| **crops** | 24 | apples, bananas, barley, cabbages, carrot, cassava… |
 | **animals** | 1 | chicken |
 <!-- /catalog -->
 

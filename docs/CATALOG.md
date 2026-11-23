@@ -1,6 +1,6 @@
 # Catalog
 
-66 effects in 5 categories. Every one is a file in
+67 effects in 5 categories. Every one is a file in
 `src/fx/<category>/<name>.js`; render any of them with `node tools/render.mjs <id> --gif`.
 
 ## characters
@@ -84,6 +84,7 @@ seed to sprout to ripe, swaying in the wind.
 | Grapes | `crops/grapes` | loop 5s | 32×48 | A trunk twists up a wide trellis under lobed leaves and dangling purple bunches. Stage 0-4 holds growth. |
 | Oil palm | `crops/oil-palm` | loop 5s | 48×64 | A squat palm with a crosshatched trunk, feathery fronds and dense bunches of red-orange fruit. Stage 0-4 holds growth. |
 | Onions and shallots | `crops/onions-and-shallots` | loop 5s | 32×48 | Hollow blue-green shoots rise from a golden onion beside two smaller copper-pink shallots. Stage 0-4 holds growth. |
+| Oranges | `crops/oranges` | loop 5s | 48×64 | A glossy citrus tree with a forked trunk and a cascade of dimpled orange fruit. Stage 0-4 holds growth. |
 | Potatoes | `crops/potatoes` | loop 5s | 32×48 | Low, ruffled leaves and white flowers hide a cluster of speckled golden potatoes. Stage 0-4 holds growth. |
 | Rapeseed | `crops/rapeseed` | loop 5s | 32×48 | An open spray of butter-yellow flowers gives way to a handful of dark canola seeds. Stage 0-4 holds growth. |
 | Rice | `crops/rice` | loop 5s | 32×48 | A blue-green paddy tuft with slender blades and drooping sprays of pale, spaced grains. Stage 0-4 holds growth. |
