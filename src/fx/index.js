@@ -46,6 +46,7 @@ import * as crops_carrot from "./crops/carrot.js";
 import * as crops_corn from "./crops/corn.js";
 import * as crops_oil_palm from "./crops/oil-palm.js";
 import * as crops_rice from "./crops/rice.js";
+import * as crops_soybeans from "./crops/soybeans.js";
 import * as crops_sugarcane from "./crops/sugarcane.js";
 import * as crops_wheat from "./crops/wheat.js";
 import * as animals_chicken from "./animals/chicken.js";
@@ -99,6 +100,7 @@ export const effects = {
   "crops/corn": crops_corn,
   "crops/oil-palm": crops_oil_palm,
   "crops/rice": crops_rice,
+  "crops/soybeans": crops_soybeans,
   "crops/sugarcane": crops_sugarcane,
   "crops/wheat": crops_wheat,
   "animals/chicken": animals_chicken,
