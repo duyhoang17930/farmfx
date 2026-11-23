@@ -6,6 +6,7 @@ export const meta = {
   desc: "Four facings: the farmer flicks seeds by hand into a prepared furrow, where they settle into the soil.",
   tags: ["sow", "seed", "farming", "chore", "four-way"], size: [176, 64], origin: [88, 44],
   duration: DURATION, fps: 24, loop: true, bg: "field",
+  events: { release: CONTACT },
   options: { ...FIELD_OPTIONS, palette: ["#4c3228", "#704c31", "#ad7a43", "#e5b863", "#f8d996"] },
 };
 

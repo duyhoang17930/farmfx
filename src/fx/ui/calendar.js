@@ -9,6 +9,6 @@ export const { meta, draw } = ui("Calendar","A 28-day seasonal calendar with a c
   for(let i=0;i<28;i++){
     const x=-51+(i%7)*15,y=-19+Math.floor(i/7)*12;
     p.rect(x,y,13,10,i+1===day?GOLD[wave(ph)>0.7?4:3]:CREAM[2]);label(p,i+1,x+2,y+2,2,C[0]);
-    if(events.includes(i+1))p.px(x+10,y+7,RED[2]);
+    if(events.includes(i+1))p.rect(x+9,y+6,3,3,RED[0]);
   }
 });

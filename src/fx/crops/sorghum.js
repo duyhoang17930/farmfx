@@ -12,6 +12,7 @@ export const { meta, draw } = crop({
   name: "Sorghum",
   desc: "Two thick canes with waxy blades bear dense, upright clusters of copper-red grain.",
   tags: ["grain", "cereal"], method: "cut", tall: true, sparkleAt: [5, -26],
+  sproutLeaves: [[-3, 1], [3, -3], [2, -1]],
   produce: ["#572a34", "#813740", "#b45549", "#dc7b5d", "#f9a578"],
   palette: ["#2b4131", "#455f39", "#62814c", "#87a561", "#b9c879"],
   drawPlant(b, { C, F, ripe }) {

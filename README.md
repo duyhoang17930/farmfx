@@ -81,8 +81,18 @@ Install from GitHub with `npm i github:duyhoang17930/farmfx`, or copy `src/core`
 node tools/render.mjs crops/carrot --sheet
 ```
 
-That writes a transparent PNG of every frame in a grid and an Aseprite-style JSON (frame rects, durations, and
-`meta.farmfx` with fps, loop, columns and the pivot). `node tools/sheets.mjs` exports the whole library to `sheets/`.
+That writes a transparent PNG and Aseprite-style JSON with frame rectangles, durations, and a pixel pivot measured
+from the top-left of a frame. Pixel-identical static clips use a single frame.
+
+`node tools/sheets.mjs` exports the library to `sheets/`. Pass a category or asset ID to export a subset, or
+`--out <directory>` to use a fresh destination. The `index.json` points to the default preview sheets and named
+gameplay clips. Character and livestock clips use names such as `down-walk`, portraits use names such as
+`happy-talk`, and farming clips use a facing such as `right` and play once. Crop stages `stage-0` through
+`stage-4` are transparent overlays for your own soil.
+
+The dirt path, stone path, pond, and dry tilled soil each export 16 cardinal masks named `connect-*`.
+Open each `terrain.tsj` in Tiled and use its edge set with the Terrain Brush. The pond tileset retains its
+water animation. Use nearest texture filtering for sheets that you import directly into an engine.
 
 Crops play from seed to harvest by default. Set `stage` to 0 for seed, 1 for sprout, 2 for
 young growth, 3 for maturing growth, or 4 for ripe. Where available, set `plot: false` to use your own ground tiles.
@@ -113,8 +123,8 @@ options explicitly to match your game's state.
 
 ## environment, equipment, wildlife, and UI.
 
-Browse the [asset index](ASSETS.md) for source files and previews. Dirt and stone paths follow the same
-`tileX`, `tileY`, and exposed `edges` convention as tilled soil. River tiles use `facing` and `tileOffset`
+Browse the [asset index](ASSETS.md) for source files and previews. Dirt and stone paths use `tileX` and `tileY` with
+`edges` listing the sides that connect to another path tile. River tiles use `facing` and `tileOffset`
 along the direction of flow. Set `water: false` on the bridge, duck, or fish to draw it over your own water.
 
 The farmhouse has base, expanded, and deluxe sprites. Where available, use `open` and `active` to set an
@@ -133,19 +143,26 @@ node tools/render.mjs ui/energy-bar --sheet --opts '{"value":0.75}'
 
 ## farmer actions.
 
-The `farming` category is acted out by the stock character from pixelfx: he winds up, swings the hoe, the soil
-bursts, he recovers. Swap `createFx` for `createAct` to play the character too:
+The farming sprites include the farmer, tool, and chore effects. Choose a single facing and draw the action with
+`createFx`. The default preview shows all four directions.
 
 ```js
-import { createAct } from "farmfx";
+import { createFx } from "farmfx";
 import * as hoe from "farmfx/fx/farming/hoe";
+const till = createFx(hoe, { x: 80, y: 140, facing: "right" });
 
-const act = createAct(hoe, { x: 80, y: 140 });
-// act.update(dt); act.draw(frame); act.shake gives a little camera shake on contact
+// Each tick, with a cleared frame:
+const before = till.t;
+till.update(dt);
+if (before < hoe.meta.events.contact && till.t >= hoe.meta.events.contact) {
+  tillSoil(); // Your game's state update.
+}
+if (till.t < hoe.meta.duration) till.draw(frame);
 ```
 
-Got your own farmer sprite? Read the timing from `hoe.act` (or `meta.farmfx.act` in a sprite sheet's JSON) and
-start your own animation `windup` seconds before the effect.
+Event times are in seconds from the start of the animation and also appear in exported
+`meta.farmfx.events`. Hoe exposes `contact`, sow exposes `release`, harvest exposes `pull`, and water exposes
+`pourStart` and `pourEnd`. Create a new effect instance to start another action.
 
 ## make your own.
 
@@ -168,5 +185,10 @@ Copy it into `~/.claude/skills/`, or add this repo as a plugin marketplace.
 
 ## license.
 
-The MIT license covers the code and assets, except for the character reference art and its derivatives. See
-[NOTICE.md](NOTICE.md) for the character art's status and the notices for pixelfx, Hugo Duprez's effects, and Hollow Crown.
+The MIT license covers the code and assets except for the reference-derived characters, portraits, and farming
+animations. These remain part of the full local library and exports. Their redistribution rights are unverified.
+See [NOTICE.md](NOTICE.md) for details.
+
+`node tools/sheets.mjs --release` exports a separate set to `sheets/release/` without those assets.
+`node tools/build-gallery.mjs --release` builds the corresponding public gallery in `dist/release/gallery/`.
+The full source and npm package still include the reference artwork.

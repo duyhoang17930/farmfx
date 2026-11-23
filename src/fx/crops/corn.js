@@ -16,6 +16,7 @@ export const { meta, draw } = crop({
   desc: "A tasselled maize stalk opens ribbon leaves and fills two golden ears wrapped in green husks.",
   tags: ["maize", "grain"], produce: ["#6b391c", "#a96023", "#dc942e", "#f6c648", "#ffea83"],
   sparkleAt: [5, -16], tall: true,
+  sproutLeaves: [[-4, -2], [4, 1], [1, -3]],
   drawPlant(b, { C, F, ripe }) {
     b.stem(0, 0, 1, -29, 2.3, C);
     b.leaf(0, -6, -9, -10, 2.4, C, true);

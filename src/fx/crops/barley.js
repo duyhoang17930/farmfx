@@ -12,6 +12,7 @@ export const { meta, draw } = crop({
   name: "Barley",
   desc: "Slim, angled barley heads carry long whiskered awns above a loose fan of blades.",
   tags: ["grain", "cereal"], method: "cut", sparkleAt: [6, -23],
+  sproutLeaves: [[-4, -1], [4, -1]],
   palette: ["#2c3b2d", "#405635", "#63804a", "#88a552", "#bfc876"],
   produce: ["#5f4a32", "#82653e", "#ab884d", "#caab60", "#f1d48b"],
   drawPlant(b, { C, F, ripe }) {

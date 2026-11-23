@@ -17,6 +17,7 @@ export const meta = {
     root: ["#3a1406", "#7a2a08", "#c4500e", "#ee7a1a", "#ffa640", "#ffd08a"],
     soil: ["#1a0f08", "#2e1c10", "#4a2e1a", "#664126", "#865a36", "#a87a4c"],
     stage: -1,
+    plot: true,
     seed: 1,
   },
 };
@@ -125,7 +126,7 @@ function rootShape(g, R, swell, whole, dy) {
 export function draw(p, t, o) {
   const C = fit(o.palette, 7), R = fit(o.root, 6), S = fit(o.soil, 6), ph = t / D;
   const s = state(t, o), sway = 0.12 * Math.sin(ph * TAU * 3) + 0.05 * Math.sin(ph * TAU * 5 + 1);
-  tile(p, S, s.hole);
+  if (o.plot) tile(p, S, s.hole);
 
   // the plant, in its own grid so it gets one outline
   const g = G.clear();

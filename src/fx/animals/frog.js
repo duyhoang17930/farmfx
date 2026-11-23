@@ -7,10 +7,11 @@ export const { meta, draw } = smallAnimal("Frog","A pond frog blinking, squattin
   else groundShadow(p,0,0,8,2);
   for(const x of [-6,6])round(p,x,-3-h,3.3,2.6,C);
   round(p,0,-5-h,7,4.5,C);round(p,0,-3-h,5.4,2.5,C);
+  p.ellipse(0,-2-h,3.5,1.35,C[4]);
   for(const x of [-4,4]){
     round(p,x,-8-h,2.7,2.7,C);
     if(wave(ph,2)>.84)p.line(x-1,-8-h,x+1,-8-h,C[1]);
     else {p.px(x,-9-h,GOLD[4]);p.px(x,-8-h,C[0]);}
   }
-  p.line(-2,-3-h,2,-3-h,C[1]);
+  p.line(-2,-3-h,2,-3-h,C[0]);
 },{lily:true});

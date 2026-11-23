@@ -13,6 +13,7 @@ export const { meta, draw } = crop({
   name: "Wheat",
   desc: "An upright golden stand with broad grain ears and fine awns. A small sheaf hops out at harvest.",
   tags: ["grain", "cereal"], method: "cut", sparkleAt: [4, -24],
+  sproutLeaves: [[-2, -1], [2, -2], [0, -4]],
   produce: ["#604223", "#8b602c", "#bd8c38", "#e5b952", "#ffe285"],
   drawPlant(b, { C, F, ripe }) {
     for (const [x, y, foot] of [[-5, -15, -2], [5, -18, 2], [0, -22, 0], [-2, -13, 1]]) {

@@ -21,3 +21,7 @@ License). No font files are shipped in this repository. pixelfx's Patch Pixel fo
 license. Its redistribution rights have not been verified. This repository does
 not assert an MIT license for those pixels or the sheets and previews derived from
 them. Verify permission before publishing or distributing those assets.
+
+This also covers the default farming animations, which include the reference-derived farmer.
+Local sheet exports identify these assets with `redistribution: "unverified"` in their metadata.
+The release sheet and gallery builds omit the affected categories.

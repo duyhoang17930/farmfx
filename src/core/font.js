@@ -17,6 +17,7 @@ const MINI = {
   "%": "#.#|..#|.#.|#..|#.#", x: "...|#.#|.#.|#.#|...", "*": "#.#|.#.|#.#|...|...", "'": "#|#|.|.|.",
   "(": ".#|#.|#.|#.|.#", ")": "#.|.#|.#|.#|#.", "<": "..#|.#.|#..|.#.|..#", ">": "#..|.#.|..#|.#.|#..",
   "=": "...|###|...|###|...", _: "...|...|...|...|###", "#": "#.#|###|#.#|###|#.#",
+  "Đ": "##..|#.#.|###.|#.#.|##..",
 };
 
 const BIG = {
@@ -44,6 +45,7 @@ const BIG = {
   x: ".....|.....|#...#|.#.#.|..#..|.#.#.|#...#", "*": ".....|..#..|#.#.#|.###.|#.#.#|..#..|.....", "'": "#|#|.|.|.|.|.",
   "<": "...#|..#.|.#..|#...|.#..|..#.|...#", ">": "#...|.#..|..#.|...#|..#.|.#..|#...", "=": "....|....|####|....|####|....|....",
   "(": "..#|.#.|#..|#..|#..|.#.|..#", ")": "#..|.#.|..#|..#|..#|.#.|#..", "#": ".#.#.|.#.#.|#####|.#.#.|#####|.#.#.|.#.#.",
+  "Đ": "####.|#...#|#...#|###.#|#...#|#...#|####.",
 };
 
 function build(table, h) {
@@ -61,12 +63,57 @@ export const FONTS = {
   big: { h: 7, space: 3, gap: 1, glyphs: build(BIG, 7) },
 };
 
+// Accents use extra rows above or below the fixed-height Latin letters.
+const accents = {
+  "\u0300": [[-1, 0], [0, 1]],
+  "\u0301": [[1, 0], [0, 1]],
+  "\u0302": [[0, 0], [-1, 1], [1, 1]],
+  "\u0303": [[0, 0], [1, 0], [-1, 1], [0, 1]],
+  "\u0304": [[-1, 0], [0, 0], [1, 0]],
+  "\u0306": [[-1, 0], [1, 0], [0, 1]],
+  "\u0307": [[0, 0]],
+  "\u0308": [[-1, 0], [1, 0]],
+  "\u0309": [[0, 0], [1, 0], [0, 1]],
+  "\u030a": [[-1, 0], [1, 0], [-1, 1], [1, 1]],
+};
+const fallback = new WeakMap();
+
+function findGlyph(font, ch) {
+  const glyph = font.glyphs[ch] ?? font.glyphs[ch.toUpperCase()];
+  if (glyph || /^\s$/u.test(ch)) return glyph;
+  if (!fallback.has(font)) fallback.set(font, new Map());
+  const cache = fallback.get(font);
+  if (cache.has(ch)) return cache.get(ch);
+  const [letter, ...marks] = ch.normalize("NFD");
+  const base = font.glyphs[letter] ?? font.glyphs[letter.toUpperCase()];
+  if (!base) return font.glyphs["?"];
+
+  const pixels = [], center = Math.floor(base.w / 2);
+  let top = 0;
+  // Shape marks sit closest to the letter, regardless of Unicode mark order.
+  for (const mark of [...marks.filter((m) => m === "\u0302" || m === "\u0306"), ...marks.filter((m) => m !== "\u0302" && m !== "\u0306")]) {
+    if (mark === "\u0323" || mark === "\u0327" || mark === "\u0328") {
+      pixels.push([center, font.h]);
+    } else if (mark === "\u031b") {
+      pixels.push([base.w - 1, -1]);
+    } else if (accents[mark]) {
+      const points = accents[mark];
+      const height = top === 0 ? Math.max(...points.map(([, y]) => y)) + 1 : 1;
+      top -= height;
+      for (const [x, y] of points) pixels.push([Math.max(0, Math.min(base.w - 1, center + x)), top + Math.min(y, height - 1)]);
+    }
+  }
+  const result = { ...base, pixels };
+  cache.set(ch, result);
+  return result;
+}
+
 /** Width in font pixels of a string (before scaling). */
 export function textWidth(str, font = "mini") {
   const F = FONTS[font];
   let w = 0;
-  for (const ch of String(str)) {
-    const g = F.glyphs[ch] ?? F.glyphs[ch.toUpperCase()];
+  for (const ch of String(str).normalize("NFC")) {
+    const g = findGlyph(F, ch);
     w += (g ? g.w : F.space) + F.gap;
   }
   return Math.max(0, w - F.gap);
@@ -76,13 +123,14 @@ export function textWidth(str, font = "mini") {
 export function rasterText(str, font, plot) {
   const F = FONTS[font];
   let x = 0;
-  for (const ch of String(str)) {
-    const g = F.glyphs[ch] ?? F.glyphs[ch.toUpperCase()];
+  for (const ch of String(str).normalize("NFC")) {
+    const g = findGlyph(F, ch);
     if (!g) {
       x += F.space + F.gap;
       continue;
     }
     for (let r = 0; r < F.h; r++) for (let c = 0; c < g.w; c++) if (g.rows[r][c]) plot(x + c, r);
+    if (g.pixels) for (const [gx, gy] of g.pixels) plot(x + gx, gy);
     x += g.w + F.gap;
   }
 }

@@ -44,7 +44,7 @@ export function puff(p,u,C,o,n=7){
     if(u<delay)continue;
     const k=seg(u,delay,0.84+delay),a=i*2.399;
     const x=Math.cos(a)*ease.outCubic(k)*(4+rand(i,4,o.seed)*10),y=-1+Math.sin(a)*k*4-k*5;
-    const strength=0.46*Math.sin(Math.PI*k)**0.8;
+    const strength=0.62*Math.sin(Math.PI*k)**0.8;
     p.disc(x,y,1.5+3*k,C[2],strength);
     p.disc(x-.55,y-1,1+2*k,C[4],strength*.74);
   }

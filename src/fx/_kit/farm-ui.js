@@ -15,7 +15,7 @@ export function frame(p,x,y,w,h,C){
   p.px(x+2,y+3,C[4]);
 }
 export function label(p,s,x,y,max,C=CREAM[4]){
-  p.text(String(s??"").slice(0,max),x,y,C,{font:"mini"});
+  p.text([...String(s??"").normalize("NFC")].slice(0,max).join(""),x,y,C,{font:"mini"});
 }
 export function slot(p,x,y,C,selected=false){
   p.rect(x,y,15,15,selected?GOLD[3]:C[0]);p.rect(x+1,y+1,13,13,selected?GOLD[1]:C[2]);

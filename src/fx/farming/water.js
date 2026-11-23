@@ -3,6 +3,10 @@ import { groundShadow } from "../_kit/sprite.js";
 import { keyed, spots } from "../_kit/person.js";
 import { drawWorkingCharacter } from "../characters/_draw.js";
 
+const POUR0 = 0.42, POUR1 = 1.25, FIRST_DROP = POUR0 + 0.06;
+const RATE = 70, GRAV = 260, FADE0 = 1.4, FADE1 = 1.82;
+const DROPS = Math.ceil((POUR1 - POUR0) * RATE);
+
 export const meta = {
   name: "Water",
   desc: "Top-down 3/4, four facings: the farmer lifts a watering can and tips it over the tile in front; drops arc down and splash, and a wet patch spreads and glints.",
@@ -10,6 +14,7 @@ export const meta = {
   size: [176, 72],
   origin: [88, 48],
   duration: 1.9,
+  events: { pourStart: FIRST_DROP, pourEnd: FIRST_DROP + (DROPS - 1) / RATE },
   loop: true,
   fps: 30,
   bg: "field",
@@ -24,7 +29,6 @@ export const meta = {
   },
 };
 
-const POUR0 = 0.42, POUR1 = 1.25, RATE = 70, GRAV = 260, FADE0 = 1.4, FADE1 = 1.82;
 const CAN = ["#2c4650", "#5a8590", "#8fb4bc", "#d4eef0"].map(hex);
 const ROSE = [6.5, -0.5]; // the rose, from the fist on the handle, can upright and facing right
 
@@ -92,9 +96,8 @@ export function draw(p, t, o) {
 
     // the shower: each drop leaves the rose where the can was when it left, falls, and splashes at its own depth
     const shower = () => {
-      const n = Math.ceil((POUR1 - POUR0) * RATE);
-      for (let i = 0; i < n; i++) {
-        const t0 = POUR0 + 0.06 + i / RATE, age = t - t0;
+      for (let i = 0; i < DROPS; i++) {
+        const t0 = FIRST_DROP + i / RATE, age = t - t0;
         if (age < 0) break;
         const [rx, ry] = roseAt(keyed(plan.keys, t0)), x0 = ox + rx * flip;
         const vx = lerp(4, 22, rand(i, 2, o.seed)) * flip, vy = lerp(-4, 14, rand(i, 3, o.seed));

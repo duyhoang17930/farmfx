@@ -290,16 +290,27 @@ function code(fx) {
   $("#d-src").href = `${REPO}/blob/main/src/fx/${fx.id}.js`;
 }
 function sheet() {
-  const fx = detail.fx, m = fx.meta, [w, h] = m.size, n = Math.max(1, Math.round(m.duration * m.fps) + (m.loop ? 0 : 1));
-  const cols = Math.min(n, Math.max(1, Math.ceil(Math.sqrt((n * h) / w)))), rows = Math.ceil(n / cols);
+  const fx = detail.fx, m = fx.meta, [w, h] = m.size;
+  let n = Math.max(1, Math.round(m.duration * m.fps) + (m.loop ? 0 : 1));
+  let cols = Math.min(n, Math.max(1, Math.ceil(Math.sqrt((n * h) / w)))), rows = Math.ceil(n / cols);
   const cv = el("canvas", { width: cols * w, height: rows * h }), ctx = cv.getContext("2d");
   const frame = createFrame(w, h), img = ctx.createImageData(w, h);
+  const pixels = new Uint32Array(img.data.buffer);
+  let first;
   const inst = createFx(fx.mod, { x: m.origin[0], y: m.origin[1], ...detail.opts, flip: detail.flip });
   for (let i = 0; i < n; i++) {
     if (i) inst.update(1 / m.fps);
     inst.draw(clearFrame(frame));
     composite(frame, img.data, null);
+    if (i === 0) first = pixels.slice();
+    else if (first && pixels.some((pixel, j) => pixel !== first[j])) first = undefined;
     ctx.putImageData(img, (i % cols) * w, Math.floor(i / cols) * h);
+  }
+  if (first) {
+    n = cols = rows = 1;
+    cv.width = w;
+    cv.height = h;
+    ctx.putImageData(img, 0, 0);
   }
   const k = Math.max(1, Math.min(4, Math.floor(1100 / (cols * w))));
   const pic = el("img", { src: cv.toDataURL("image/png"), alt: `${m.name} sprite sheet`, width: cols * w * k, height: rows * h * k });

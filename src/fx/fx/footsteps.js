@@ -5,8 +5,9 @@ export const { meta, draw } = burst("Footsteps","Two alternating little boot pri
   for(const [x,y,delay] of [[-3,1,0],[3,-7,.24]]){
     if(u<delay)continue;
     const a=1-seg(u,delay+.18,.96);
-    p.ellipse(x,y,1.9,2.6,C[1],a*.7);
-    p.ellipse(x,y+2.4,1.1,1,C[0],a*.67);
+    p.ellipse(x,y,1.9,2.5,C[0],a*.87);
+    p.ellipse(x,y+3,1.25,1,C[0],a*.85);
+    p.line(x-1,y-1,x+1,y-1,C[3],a*.75);
   }
   puff(p,u,C,o,3);
 });

@@ -7,6 +7,7 @@ import { spawnSync } from "node:child_process";
 import { createFrame, clearFrame, createFx, createAct, actBounds, actTiming, composite, painterFor, drawActor, stockActor, backdrop, actorAlphaOf } from "../../src/core/index.js";
 import { rasterText, textWidth } from "../../src/core/font.js";
 import { encodePNG } from "./png.mjs";
+import { usesReferenceArt } from "./asset-rights.mjs";
 
 export const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
 export const FX_DIR = join(ROOT, "src", "fx");
@@ -51,7 +52,8 @@ export async function loadEffect(id, dir = FX_DIR) {
  * clear: RGBA on transparency }] }. opts: { fps, seed, bg, margin, options (passed to the effect) }.
  */
 export function renderFrames(fx, opts = {}) {
-  const { meta } = fx, [W, H] = meta.size, [OX, OY] = meta.origin, m = opts.margin ?? 0;
+  const { meta } = fx;
+  const [W, H] = opts.viewport?.size ?? meta.size, [OX, OY] = opts.viewport?.pivot ?? meta.origin, m = opts.margin ?? 0;
   const w = W + m * 2, h = H + m * 2, fps = opts.fps ?? meta.fps;
   const n = Math.max(1, Math.round(meta.duration * fps) + (meta.loop ? 0 : 1));
   const shown = createFrame(w, h, -m, -m), bare = createFrame(w, h, -m, -m);
@@ -79,7 +81,7 @@ export function renderFrames(fx, opts = {}) {
       light: bare.light.slice(),
     });
   }
-  return { w, h, fps, n, frames, margin: m };
+  return { w, h, fps, n, frames, margin: m, pivot: [OX + m, OY + m] };
 }
 
 /**
@@ -218,17 +220,25 @@ export function contactSheet(fx, r, { max = 16, width = 1600, title, zoom } = {}
 }
 
 /** A sprite sheet (transparent frames in a grid) plus Aseprite-style JSON that most engines import. */
-export function spriteSheet(fx, r, name) {
-  const { w, h, frames, fps } = r, n = frames.length;
+export function spriteSheet(fx, r, name, { options, loop = fx.meta.loop } = {}) {
+  const { w, h, fps } = r;
+  const bytes = ({ clear }) => Buffer.from(clear.buffer, clear.byteOffset, clear.byteLength);
+  const first = bytes(r.frames[0]);
+  const isStatic = r.frames.every((frame) => first.equals(bytes(frame)));
+  const frames = isStatic ? r.frames.slice(0, 1) : r.frames;
+  const n = frames.length;
   const cols = Math.min(n, Math.max(1, Math.ceil(Math.sqrt((n * h) / w)))), rows = Math.ceil(n / cols);
   const img = canvas(cols * w, rows * h, [0, 0, 0, 0]);
   const json = { frames: [], meta: {} };
   frames.forEach((f, i) => {
     const x = (i % cols) * w, y = Math.floor(i / cols) * h;
-    img.paste(f.clear, w, h, x, y);
+    for (let row = 0; row < h; row++) {
+      img.data.set(f.clear.subarray(row * w * 4, (row + 1) * w * 4), ((y + row) * img.w + x) * 4);
+    }
     json.frames.push({
       filename: `${name} ${i}`, frame: { x, y, w, h }, rotated: false, trimmed: false,
-      spriteSourceSize: { x: 0, y: 0, w, h }, sourceSize: { w, h }, duration: Math.round(1000 / fps),
+      spriteSourceSize: { x: 0, y: 0, w, h }, sourceSize: { w, h },
+      duration: isStatic ? Math.round(r.frames.length * 1000 / fps) : frameDuration(i, fps),
     });
   });
   const m = fx.meta;
@@ -236,10 +246,17 @@ export function spriteSheet(fx, r, name) {
     app: "https://github.com/duyhoang17930/farmfx", version: "1", image: `${name}.png`, format: "RGBA8888",
     size: { w: cols * w, h: rows * h }, scale: "1",
     frameTags: [{ name: name, from: 0, to: n - 1, direction: "forward" }],
-    farmfx: { id: fx.id, name: m.name, fps, loop: m.loop, frames: n, frameSize: [w, h], pivot: m.origin, columns: cols, ...(fx.mod.act ? { act: actTiming(fx.mod) } : {}) },
+    farmfx: { id: fx.id, name: m.name, fps, loop, frames: n, frameSize: [w, h], pivot: r.pivot ?? m.origin, columns: cols,
+      ...(options && Object.keys(options).length ? { options } : {}),
+      ...(usesReferenceArt(fx.id) ? { redistribution: "unverified" } : {}),
+      ...(m.events ? { events: m.events } : {}),
+      ...(fx.mod.act ? { act: actTiming(fx.mod) } : {}),
+    },
   };
   return { png: img.png(), json };
 }
+
+export const frameDuration = (i, fps) => Math.round((i + 1) * 1000 / fps) - Math.round(i * 1000 / fps);
 
 /** Animated preview through ffmpeg (GIF or MP4), scaled k times. Returns false if ffmpeg is missing. */
 export function writeVideo(file, r, k, { loops = 1 } = {}) {

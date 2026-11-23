@@ -12,6 +12,7 @@ export const meta = {
   desc: "Four facings: the farmer stoops, tugs a ripe root free, and lifts it with a flick of soil and a gold glint.",
   tags: ["harvest", "farming", "crop", "chore", "four-way"], size: [176, 64], origin: [88, 44],
   duration: DURATION, fps: 24, loop: true, bg: "field",
+  events: { pull: CONTACT + 0.045 },
   options: { ...FIELD_OPTIONS, palette: ["#64303f", "#945063", "#c3747e", "#e79b94", "#f6c3a8"] },
 };
 

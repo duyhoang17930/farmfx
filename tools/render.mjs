@@ -33,12 +33,13 @@ let failed = 0;
 for (const id of resolveIds(ids)) {
   try {
     const fx = await loadEffect(id);
+    const options = flags.opts ? JSON.parse(flags.opts) : undefined;
     const r = renderFrames(fx, {
       fps: flags.fps ? +flags.fps : undefined,
       seed: flags.seed ? +flags.seed : undefined,
       bg: flags.bg,
       actor: flags["no-actor"] ? false : undefined,
-      options: flags.opts ? JSON.parse(flags.opts) : undefined,
+      options,
     });
     const dir = join(out, id), made = [];
     made.push(save(join(dir, "contact.png"), contactSheet(fx, r, { max: flags.all ? 400 : +(flags.max ?? 16), zoom: flags.zoom ? +flags.zoom : undefined })));
@@ -47,7 +48,7 @@ for (const id of resolveIds(ids)) {
     if (flags.gif && writeVideo(join(dir, "anim.gif"), r, k, { loops })) made.push(join(dir, "anim.gif"));
     if (flags.mp4 && writeVideo(join(dir, "anim.mp4"), r, k, { loops: Math.max(loops, fx.meta.loop ? 3 : 1) })) made.push(join(dir, "anim.mp4"));
     if (flags.sheet) {
-      const name = id.split("/")[1], s = spriteSheet(fx, r, name);
+      const name = id.split("/")[1], s = spriteSheet(fx, r, name, { options });
       made.push(save(join(dir, `${name}.png`), s.png), save(join(dir, `${name}.json`), JSON.stringify(s.json, null, 1)));
     }
     console.log(`${id}  ${r.n} frames  ->  ${made.join("  ")}`);

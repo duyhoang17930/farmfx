@@ -4,6 +4,8 @@ import { groundShadow } from "../_kit/sprite.js";
 import { keyed, spots } from "../_kit/person.js";
 import { drawWorkingCharacter } from "../characters/_draw.js";
 
+const HIT = 0.5, OPEN = 0.78, FADE0 = 1.3, FADE1 = 1.72;
+
 export const meta = {
   name: "Hoe",
   desc: "Top-down 3/4, four facings: the farmer heaves a hoe overhead and chops the tile in front; clods fly, dust puffs, and a patch of tilled soil opens there.",
@@ -11,6 +13,7 @@ export const meta = {
   size: [176, 80],
   origin: [88, 52],
   duration: 1.8,
+  events: { contact: HIT },
   loop: true,
   fps: 30,
   bg: "field",
@@ -24,7 +27,6 @@ export const meta = {
   },
 };
 
-const HIT = 0.5, OPEN = 0.78, FADE0 = 1.3, FADE1 = 1.72;
 const WOOD = ["#4a2a14", "#8a5a30", "#b47c44"].map(hex), IRON = ["#3a3c4a", "#7a8094", "#c8ccd8"].map(hex);
 
 // per facing, drawn facing right (left is the mirror): where the chop lands, and the grip and blade over time

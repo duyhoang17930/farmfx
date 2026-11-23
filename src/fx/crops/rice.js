@@ -4,6 +4,7 @@ export const { meta, draw } = crop({
   name: "Rice",
   desc: "A blue-green paddy tuft with slender blades and drooping sprays of pale, spaced grains.",
   tags: ["paddy", "grain"], method: "cut", sparkleAt: [6, -18],
+  sproutLeaves: [[-3, -3], [1, -5], [3, -2]],
   palette: ["#17332b", "#244d3a", "#3a734e", "#64975e", "#b4cc71"],
   produce: ["#575026", "#8b7837", "#b9a14d", "#dcbe69", "#f4dd91"],
   drawPlant(b, { C, F, ripe, W }) {

@@ -12,7 +12,7 @@ const SHINE = hex("#fff3be");
 
 export function crop({
   name, desc, tags, palette = LEAF, produce, wood = SOIL, drawPlant, drawHarvest,
-  sparkleAt, method = "pick", orchard = false, tall = false,
+  sparkleAt, method = "pick", orchard = false, tall = false, sproutLeaves,
 }) {
   const size = orchard ? [48, 64] : [32, tall ? 64 : 48];
   const origin = [size[0] / 2, size[1] - 8];
@@ -59,7 +59,7 @@ export function crop({
       groundShadow(p, 0, -1, orchard ? 9 : 5, orchard ? 3 : 2, growth * fade);
       if (growth < 0.25) {
         const pop = stage === null ? Math.sin(Math.PI * seg(t, 0.44, 0.68)) : 0;
-        sprout(q, C, 4 * growth / 0.15 + pop);
+        sprout(q, C, 4 * growth / 0.15 + pop, sproutLeaves);
       } else {
         const tug = stage === null ? ease.inQuad(seg(age, -0.13, 0)) - uproot : 0;
         const stretch = 1 + (picking ? 0 : -0.04 * tug);
@@ -111,13 +111,13 @@ function seed(p, S, alpha) {
   p.dot(0, -1, S[1], alpha);
 }
 
-function sprout(p, C, h) {
+function sprout(p, C, h, leaves = [[-2, -1], [2, -2]]) {
   const tip = -Math.round(h);
   p.line(0, 0, 0, tip, C[2]);
-  p.line(0, tip + 1, -2, tip - 1, C[3]);
-  p.line(0, tip, 2, tip - 2, C[3]);
-  p.px(-2, tip - 1, C[4]);
-  p.px(2, tip - 2, C[4]);
+  for (const [x, y] of leaves) {
+    p.line(0, tip + Number(x < 0), x, tip + y, C[3]);
+    p.px(x, tip + y, C[4]);
+  }
 }
 
 function harvest(p, drawHarvest, age, method, at, colors) {

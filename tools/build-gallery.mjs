@@ -6,14 +6,36 @@
 
 import { build } from "esbuild";
 import { readFileSync, writeFileSync, mkdirSync, cpSync } from "node:fs";
-import { join } from "node:path";
-import { ROOT } from "./lib/fxlib.mjs";
+import { dirname, join } from "node:path";
+import { ROOT, allIds } from "./lib/fxlib.mjs";
+import { usesReferenceArt } from "./lib/asset-rights.mjs";
 
-const G = join(ROOT, "gallery"), OUT = join(ROOT, "dist", "gallery"), PAGE = join(ROOT, "dist", "page");
+const release = process.argv.includes("--release");
+const G = join(ROOT, "gallery"), dist = release ? join(ROOT, "dist", "release") : join(ROOT, "dist");
+const OUT = join(dist, "gallery"), PAGE = join(dist, "page");
 mkdirSync(OUT, { recursive: true });
 mkdirSync(PAGE, { recursive: true });
 
-await build({ entryPoints: [join(G, "app.js")], bundle: true, format: "esm", minify: true, outfile: join(OUT, "app.js"), legalComments: "none" });
+const releaseAssets = {
+  name: "release-assets",
+  setup(build) {
+    build.onLoad({ filter: /[\\/]src[\\/]fx[\\/]index\.js$/ }, ({ path }) => {
+      const ids = allIds().filter((id) => !usesReferenceArt(id));
+      const imports = ids.map((id, i) => `import * as fx${i} from ${JSON.stringify("./" + id + ".js")};`);
+      const entries = ids.map((id, i) => `${JSON.stringify(id)}: fx${i}`);
+      const contents = [...imports, 'export { categories } from "./categories.js";', `export const effects = {${entries.join(",")}};`].join("\n");
+      return { contents, resolveDir: dirname(path) };
+    });
+    build.onLoad({ filter: /[\\/](characters|portraits)[\\/]_art\.js$/ }, () => ({
+      contents: "export const characterArt = {}; export const portraitArt = {};",
+    }));
+  },
+};
+
+await build({
+  entryPoints: [join(G, "app.js")], bundle: true, format: "esm", minify: true, outfile: join(OUT, "app.js"),
+  legalComments: "none", plugins: release ? [releaseAssets] : [],
+});
 writeFileSync(join(OUT, "style.css"), readFileSync(join(G, "style.css")));
 writeFileSync(join(OUT, "index.html"), readFileSync(join(G, "index.html")));
 
@@ -33,4 +55,8 @@ writeFileSync(
   ].join("\n"),
 );
 cpSync(join(OUT, "app.js"), join(PAGE, "app.js"));
-console.log(`dist/gallery and dist/page built (${(readFileSync(join(OUT, "app.js")).length / 1024).toFixed(0)} KB of script)`);
+for (const name of ["LICENSE", "NOTICE.md"]) {
+  cpSync(join(ROOT, name), join(OUT, name));
+  cpSync(join(ROOT, name), join(PAGE, name));
+}
+console.log(`gallery and page built under ${dist} (${(readFileSync(join(OUT, "app.js")).length / 1024).toFixed(0)} KB of script)`);
