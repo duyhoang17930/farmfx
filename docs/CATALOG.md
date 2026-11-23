@@ -1,6 +1,6 @@
 # Catalog
 
-75 effects in 7 categories. Every one is a file in
+76 effects in 7 categories. Every one is a file in
 `src/fx/<category>/<name>.js`; render any of them with `node tools/render.mjs <id> --gif`.
 
 ## characters
@@ -106,6 +106,7 @@ chickens, cows, sheep, pigs, ducks going about their day.
 | effect | id | | size | what it does |
 |---|---|---|---|---|
 | Chicken | `animals/chicken` | loop 3.2s | 48×48 | A hen, side-facing (flip for left), top-down 3/4: three grains land around her feet, she pecks each up, flaps, drops a feather, jerks her head about and blinks. |
+| Cow | `animals/cow` | loop 3.2s | 48×48 | A spotted dairy cow with four facings, a swishing tail and idle, walk and graze loops. |
 
 ## tiles
 

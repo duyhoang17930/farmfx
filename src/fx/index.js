@@ -69,6 +69,7 @@ import * as crops_watermelons from "./crops/watermelons.js";
 import * as crops_wheat from "./crops/wheat.js";
 import * as crops_yams from "./crops/yams.js";
 import * as animals_chicken from "./animals/chicken.js";
+import * as animals_cow from "./animals/cow.js";
 import * as tiles_fence from "./tiles/fence.js";
 import * as tiles_grass from "./tiles/grass.js";
 import * as tiles_pond from "./tiles/pond.js";
@@ -148,6 +149,7 @@ export const effects = {
   "crops/wheat": crops_wheat,
   "crops/yams": crops_yams,
   "animals/chicken": animals_chicken,
+  "animals/cow": animals_cow,
   "tiles/fence": tiles_fence,
   "tiles/grass": tiles_grass,
   "tiles/pond": tiles_pond,
