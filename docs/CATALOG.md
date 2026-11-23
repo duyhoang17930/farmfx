@@ -1,6 +1,6 @@
 # Catalog
 
-54 effects in 5 categories. Every one is a file in
+55 effects in 5 categories. Every one is a file in
 `src/fx/<category>/<name>.js`; render any of them with `node tools/render.mjs <id> --gif`.
 
 ## characters
@@ -72,6 +72,7 @@ seed to sprout to ripe, swaying in the wind.
 
 | effect | id | | size | what it does |
 |---|---|---|---|---|
+| Barley | `crops/barley` | loop 5s | 32×48 | Slim, angled barley heads carry long whiskered awns above a loose fan of blades. Stage 0-4 holds growth. |
 | Carrot | `crops/carrot` | loop 4.8s | 32×48 | One tile of tilled soil, top-down 3/4: seed, sprout, feathery fronds, an orange shoulder swelling out, a ripe twinkle, pulled up in a spray of soil. stage 0..4 holds one. |
 | Cassava | `crops/cassava` | loop 5s | 32×48 | A reddish stalk holds wide fans of finger-shaped leaves. Three tapered brown roots emerge at harvest. Stage 0-4 holds growth. |
 | Corn | `crops/corn` | loop 5s | 32×64 | A tasselled maize stalk opens ribbon leaves and fills two golden ears wrapped in green husks. Stage 0-4 holds growth. |

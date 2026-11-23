@@ -42,6 +42,7 @@ import * as portraits_wade from "./portraits/wade.js";
 import * as portraits_wisteria from "./portraits/wisteria.js";
 import * as farming_hoe from "./farming/hoe.js";
 import * as farming_water from "./farming/water.js";
+import * as crops_barley from "./crops/barley.js";
 import * as crops_carrot from "./crops/carrot.js";
 import * as crops_cassava from "./crops/cassava.js";
 import * as crops_corn from "./crops/corn.js";
@@ -100,6 +101,7 @@ export const effects = {
   "portraits/wisteria": portraits_wisteria,
   "farming/hoe": farming_hoe,
   "farming/water": farming_water,
+  "crops/barley": crops_barley,
   "crops/carrot": crops_carrot,
   "crops/cassava": crops_cassava,
   "crops/corn": crops_corn,
