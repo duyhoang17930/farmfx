@@ -1,6 +1,6 @@
 # Catalog
 
-63 effects in 5 categories. Every one is a file in
+64 effects in 5 categories. Every one is a file in
 `src/fx/<category>/<name>.js`; render any of them with `node tools/render.mjs <id> --gif`.
 
 ## characters
@@ -79,6 +79,7 @@ seed to sprout to ripe, swaying in the wind.
 | Cassava | `crops/cassava` | loop 5s | 32×48 | A reddish stalk holds wide fans of finger-shaped leaves. Three tapered brown roots emerge at harvest. Stage 0-4 holds growth. |
 | Corn | `crops/corn` | loop 5s | 32×64 | A tasselled maize stalk opens ribbon leaves and fills two golden ears wrapped in green husks. Stage 0-4 holds growth. |
 | Cucumbers and gherkins | `crops/cucumbers-and-gherkins` | loop 5s | 32×48 | Curling tendrils climb a split trellis. Long striped cucumbers hang above two shorter, bumpy gherkins. Stage 0-4 holds growth. |
+| Grapes | `crops/grapes` | loop 5s | 32×48 | A trunk twists up a wide trellis under lobed leaves and dangling purple bunches. Stage 0-4 holds growth. |
 | Oil palm | `crops/oil-palm` | loop 5s | 48×64 | A squat palm with a crosshatched trunk, feathery fronds and dense bunches of red-orange fruit. Stage 0-4 holds growth. |
 | Onions and shallots | `crops/onions-and-shallots` | loop 5s | 32×48 | Hollow blue-green shoots rise from a golden onion beside two smaller copper-pink shallots. Stage 0-4 holds growth. |
 | Potatoes | `crops/potatoes` | loop 5s | 32×48 | Low, ruffled leaves and white flowers hide a cluster of speckled golden potatoes. Stage 0-4 holds growth. |
