@@ -1,6 +1,6 @@
 # farmfx.
 
-**<!-- count -->44<!-- /count --> pixel art assets and animations for farming games, every one a small piece of
+**<!-- count -->45<!-- /count --> pixel art assets and animations for farming games, every one a small piece of
 code.** Crops that grow from seed to harvest, animals going about their day, tilled and watered soil, weather and
 seasons, and a farmer who hoes, waters, sows and harvests. Play them live, recolor them for another season, drop
 them into a browser game, or export sprite sheets for any engine.
@@ -35,7 +35,7 @@ system, with a library made for farms instead of fights.
 | **characters** | 20 | arlo, ash, bram, clove, cog, farmer… |
 | **portraits** | 20 | arlo portrait, ash portrait, bram portrait, clove portrait, cog portrait, farmer portrait… |
 | **farming** | 2 | hoe, water |
-| **crops** | 1 | carrot |
+| **crops** | 2 | carrot, sugarcane |
 | **animals** | 1 | chicken |
 <!-- /catalog -->
 
@@ -74,6 +74,11 @@ node tools/render.mjs crops/carrot --sheet
 
 That writes a transparent PNG of every frame in a grid and an Aseprite-style JSON (frame rects, durations, and
 `meta.farmfx` with fps, loop, columns and the pivot). `node tools/sheets.mjs` exports the whole library to `sheets/`.
+
+Crops play from seed to harvest by default. Set `stage` to 0 for seed, 1 for sprout, 2 for
+young growth, 3 for maturing growth, or 4 for ripe. Where available, set `plot: false` to use your own ground tiles.
+To render the crop previews and spritesheets together, run `node tools/render.mjs crops --gif --sheet --loops 1`.
+The [preview directory](docs/preview/) contains GIFs named `crops-<id>.gif`.
 
 Any asset takes a `palette`, so a summer field can turn autumn gold without touching its code:
 
