@@ -59,6 +59,7 @@ import * as crops_oranges from "./crops/oranges.js";
 import * as crops_potatoes from "./crops/potatoes.js";
 import * as crops_rapeseed from "./crops/rapeseed.js";
 import * as crops_rice from "./crops/rice.js";
+import * as crops_sorghum from "./crops/sorghum.js";
 import * as crops_soybeans from "./crops/soybeans.js";
 import * as crops_sugar_beet from "./crops/sugar-beet.js";
 import * as crops_sugarcane from "./crops/sugarcane.js";
@@ -131,6 +132,7 @@ export const effects = {
   "crops/potatoes": crops_potatoes,
   "crops/rapeseed": crops_rapeseed,
   "crops/rice": crops_rice,
+  "crops/sorghum": crops_sorghum,
   "crops/soybeans": crops_soybeans,
   "crops/sugar-beet": crops_sugar_beet,
   "crops/sugarcane": crops_sugarcane,
