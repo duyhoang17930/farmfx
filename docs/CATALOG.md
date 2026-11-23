@@ -1,6 +1,6 @@
 # Catalog
 
-69 effects in 5 categories. Every one is a file in
+70 effects in 6 categories. Every one is a file in
 `src/fx/<category>/<name>.js`; render any of them with `node tools/render.mjs <id> --gif`.
 
 ## characters
@@ -106,3 +106,11 @@ chickens, cows, sheep, pigs, ducks going about their day.
 | effect | id | | size | what it does |
 |---|---|---|---|---|
 | Chicken | `animals/chicken` | loop 3.2s | 48×48 | A hen, side-facing (flip for left), top-down 3/4: three grains land around her feet, she pecks each up, flaps, drops a feather, jerks her head about and blinks. |
+
+## tiles
+
+tilled soil, wet soil, pond water, grass, fences.
+
+| effect | id | | size | what it does |
+|---|---|---|---|---|
+| Grass | `tiles/grass` | loop 2.5s | 16×16 | A seamless 16 px ground tile with wind-stirred tufts and spring, summer, autumn or winter colors. |
