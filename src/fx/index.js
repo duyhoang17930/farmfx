@@ -48,6 +48,7 @@ import * as crops_barley from "./crops/barley.js";
 import * as crops_cabbages from "./crops/cabbages.js";
 import * as crops_carrot from "./crops/carrot.js";
 import * as crops_cassava from "./crops/cassava.js";
+import * as crops_coconuts from "./crops/coconuts.js";
 import * as crops_corn from "./crops/corn.js";
 import * as crops_cotton from "./crops/cotton.js";
 import * as crops_cucumbers_and_gherkins from "./crops/cucumbers-and-gherkins.js";
@@ -119,6 +120,7 @@ export const effects = {
   "crops/cabbages": crops_cabbages,
   "crops/carrot": crops_carrot,
   "crops/cassava": crops_cassava,
+  "crops/coconuts": crops_coconuts,
   "crops/corn": crops_corn,
   "crops/cotton": crops_cotton,
   "crops/cucumbers-and-gherkins": crops_cucumbers_and_gherkins,

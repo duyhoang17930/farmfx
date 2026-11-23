@@ -1,6 +1,6 @@
 # Catalog
 
-67 effects in 5 categories. Every one is a file in
+68 effects in 5 categories. Every one is a file in
 `src/fx/<category>/<name>.js`; render any of them with `node tools/render.mjs <id> --gif`.
 
 ## characters
@@ -78,6 +78,7 @@ seed to sprout to ripe, swaying in the wind.
 | Cabbages | `crops/cabbages` | loop 5s | 32×48 | Blue-green wrapper leaves cradle a pale cabbage head with overlapping, curled folds. Stage 0-4 holds growth. |
 | Carrot | `crops/carrot` | loop 4.8s | 32×48 | One tile of tilled soil, top-down 3/4: seed, sprout, feathery fronds, an orange shoulder swelling out, a ripe twinkle, pulled up in a spray of soil. stage 0..4 holds one. |
 | Cassava | `crops/cassava` | loop 5s | 32×48 | A reddish stalk holds wide fans of finger-shaped leaves. Three tapered brown roots emerge at harvest. Stage 0-4 holds growth. |
+| Coconuts | `crops/coconuts` | loop 5s | 48×64 | A bent, ringed palm carries long drooping pinnae and a cluster of large, fibrous coconuts. Stage 0-4 holds growth. |
 | Corn | `crops/corn` | loop 5s | 32×64 | A tasselled maize stalk opens ribbon leaves and fills two golden ears wrapped in green husks. Stage 0-4 holds growth. |
 | Cotton | `crops/cotton` | loop 5s | 32×48 | Rust-colored branching stems carry split leaves and fluffy white seed-cotton bolls. Stage 0-4 holds growth. |
 | Cucumbers and gherkins | `crops/cucumbers-and-gherkins` | loop 5s | 32×48 | Curling tendrils climb a split trellis. Long striped cucumbers hang above two shorter, bumpy gherkins. Stage 0-4 holds growth. |
