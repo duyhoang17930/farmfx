@@ -1,6 +1,6 @@
 # FarmFX assets
 
-332 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
+352 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
 
 ## Characters (20)
 
@@ -359,10 +359,30 @@
 | Stone cutter | [`machines/stone-cutter`](src/fx/machines/stone-cutter.js) | [GIF](docs/preview/machines-stone-cutter.gif) |
 | Teleporter | [`machines/teleporter`](src/fx/machines/teleporter.js) | [GIF](docs/preview/machines-teleporter.gif) |
 
-## Items (55)
+## Items (75)
 
 | Asset | ID | Preview |
 | --- | --- | --- |
+| Battery | [`items/components/battery`](src/fx/items/components/battery.js) | [GIF](docs/preview/items-components-battery.gif) |
+| Bolt | [`items/components/bolt`](src/fx/items/components/bolt.js) | [GIF](docs/preview/items-components-bolt.gif) |
+| Circuit board | [`items/components/circuit-board`](src/fx/items/components/circuit-board.js) | [GIF](docs/preview/items-components-circuit-board.gif) |
+| Copper wire | [`items/components/copper-wire`](src/fx/items/components/copper-wire.js) | [GIF](docs/preview/items-components-copper-wire.gif) |
+| Electronic part | [`items/components/electronic-part`](src/fx/items/components/electronic-part.js) | [GIF](docs/preview/items-components-electronic-part.gif) |
+| Engine | [`items/components/engine`](src/fx/items/components/engine.js) | [GIF](docs/preview/items-components-engine.gif) |
+| Fuel cell | [`items/components/fuel-cell`](src/fx/items/components/fuel-cell.js) | [GIF](docs/preview/items-components-fuel-cell.gif) |
+| Gear | [`items/components/gear`](src/fx/items/components/gear.js) | [GIF](docs/preview/items-components-gear.gif) |
+| Glass tube | [`items/components/glass-tube`](src/fx/items/components/glass-tube.js) | [GIF](docs/preview/items-components-glass-tube.gif) |
+| Mechanical part | [`items/components/mechanical-part`](src/fx/items/components/mechanical-part.js) | [GIF](docs/preview/items-components-mechanical-part.gif) |
+| Metal pipe | [`items/components/metal-pipe`](src/fx/items/components/metal-pipe.js) | [GIF](docs/preview/items-components-metal-pipe.gif) |
+| Metal plate | [`items/components/metal-plate`](src/fx/items/components/metal-plate.js) | [GIF](docs/preview/items-components-metal-plate.gif) |
+| Microchip | [`items/components/microchip`](src/fx/items/components/microchip.js) | [GIF](docs/preview/items-components-microchip.gif) |
+| Motor | [`items/components/motor`](src/fx/items/components/motor.js) | [GIF](docs/preview/items-components-motor.gif) |
+| Nail | [`items/components/nail`](src/fx/items/components/nail.js) | [GIF](docs/preview/items-components-nail.gif) |
+| Plastic | [`items/components/plastic`](src/fx/items/components/plastic.js) | [GIF](docs/preview/items-components-plastic.gif) |
+| Rubber | [`items/components/rubber`](src/fx/items/components/rubber.js) | [GIF](docs/preview/items-components-rubber.gif) |
+| Screw | [`items/components/screw`](src/fx/items/components/screw.js) | [GIF](docs/preview/items-components-screw.gif) |
+| Spring | [`items/components/spring`](src/fx/items/components/spring.js) | [GIF](docs/preview/items-components-spring.gif) |
+| Wire | [`items/components/wire`](src/fx/items/components/wire.js) | [GIF](docs/preview/items-components-wire.gif) |
 | Brick | [`items/processed/brick`](src/fx/items/processed/brick.js) | [GIF](docs/preview/items-processed-brick.gif) |
 | Bronze ingot | [`items/processed/bronze-ingot`](src/fx/items/processed/bronze-ingot.js) | [GIF](docs/preview/items-processed-bronze-ingot.gif) |
 | Cement | [`items/processed/cement`](src/fx/items/processed/cement.js) | [GIF](docs/preview/items-processed-cement.gif) |

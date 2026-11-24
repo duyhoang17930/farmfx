@@ -1,6 +1,6 @@
 # farmfx.
 
-**<!-- count -->332<!-- /count --> pixel art assets and animations for farming games, every one a small piece of
+**<!-- count -->352<!-- /count --> pixel art assets and animations for farming games, every one a small piece of
 code.** Crops that grow from seed to harvest, animals going about their day, tilled and watered soil, weather and
 seasons, and a farmer who hoes, waters, sows and harvests. Play them live, recolor them for another season, drop
 them into a browser game, or export sprite sheets for any engine.
@@ -48,7 +48,7 @@ system, with a library made for farms instead of fights.
 | **island exploration** | 7 | gathering swing, metal ingot, island explorer, island shoreline, locked plot marker, ore deposit… |
 | **resources** | 30 | amethyst deposit, bamboo, bone pile, cactus, clay deposit, coal ore… |
 | **machines** | 45 | advanced furnace, alchemy station, anvil, assembly machine, auto collector, auto feeder… |
-| **items** | 55 | brick, bronze ingot, cement, charcoal, cloth, cooking oil… |
+| **items** | 75 | battery, bolt, circuit board, copper wire, electronic part, engine… |
 <!-- /catalog -->
 
 The [asset index](ASSETS.md) links to every source file and available GIF preview. The [catalog](docs/CATALOG.md)
@@ -235,6 +235,18 @@ node tools/sheets.mjs items/processed --release --out sheets/processed-items
 
 Pass IDs such as `steel-ingot` or `refined-oil` to the inventory UI, or import a standalone sprite from
 `farmfx/fx/items/processed/<name>`.
+
+## component inventory items
+
+The [component preview](docs/preview/component-items.png) shows 20 fasteners, electronic parts, and machine parts.
+Each sprite is a transparent 16 × 16 frame with an `[8, 8]` pivot.
+
+```bash
+node tools/sheets.mjs items/components --release --out sheets/component-items
+```
+
+The inventory UI accepts IDs such as `gear` and `circuit-board`. Import standalone sprites from
+`farmfx/fx/items/components/<name>`.
 
 ## farmer actions.
 

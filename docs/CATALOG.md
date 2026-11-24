@@ -1,6 +1,6 @@
 # Catalog
 
-332 effects in 17 categories. Every one is a file in
+352 effects in 17 categories. Every one is a file in
 `src/fx/<category>/<name>.js`; render any of them with `node tools/render.mjs <id> --gif`.
 
 ## characters
@@ -394,10 +394,30 @@ crafting stations, industrial machinery, power, automation and conveyors.
 
 ## items
 
-inventory icons for raw materials and processed goods.
+inventory icons for raw materials, processed goods and components.
 
 | effect | id | | size | what it does |
 |---|---|---|---|---|
+| Battery | `items/components/battery` | loop 1s | 16×16 | A green cylindrical battery with a bright terminal and charge band. |
+| Bolt | `items/components/bolt` | loop 1s | 16×16 | A blunt steel bolt with a large hexagonal head. |
+| Circuit board | `items/components/circuit-board` | loop 1s | 16×16 | A green circuit board with gold contacts, traces and a dark center chip. |
+| Copper wire | `items/components/copper-wire` | loop 1s | 16×16 | A spool wrapped in copper wire with a loose tail. |
+| Electronic part | `items/components/electronic-part` | loop 1s | 16×16 | A violet capacitor with a polarity stripe and two bent leads. |
+| Engine | `items/components/engine` | loop 1s | 16×16 | A blocky red engine with a silver intake and copper exhaust. |
+| Fuel cell | `items/components/fuel-cell` | loop 1s | 16×16 | A rectangular blue fuel cell with a cyan charge window and brass contacts. |
+| Gear | `items/components/gear` | loop 1s | 16×16 | A round steel cog with six teeth and a hollow hub. |
+| Glass tube | `items/components/glass-tube` | loop 1s | 16×16 | A clear laboratory tube with blue rims and a long reflection. |
+| Mechanical part | `items/components/mechanical-part` | loop 1s | 16×16 | A brass bracket with a round bearing and slotted mount. |
+| Metal pipe | `items/components/metal-pipe` | loop 1s | 16×16 | A steel elbow pipe with raised collars and an open end. |
+| Metal plate | `items/components/metal-plate` | loop 1s | 16×16 | A blue-gray sheet-metal plate with four corner rivets. |
+| Microchip | `items/components/microchip` | loop 1s | 16×16 | A square charcoal chip with gold pins and a notched corner. |
+| Motor | `items/components/motor` | loop 1s | 16×16 | A compact blue electric motor with cooling fins and a shaft. |
+| Nail | `items/components/nail` | loop 1s | 16×16 | A slim pointed nail with a flat, wide head. |
+| Plastic | `items/components/plastic` | loop 1s | 16×16 | Two folded pink plastic sheets with molded ridges. |
+| Rubber | `items/components/rubber` | loop 1s | 16×16 | A flattened black rubber belt with a visible inner opening. |
+| Screw | `items/components/screw` | loop 1s | 16×16 | A tapered silver screw with a slotted head and diagonal threads. |
+| Spring | `items/components/spring` | loop 1s | 16×16 | A vertical compression spring with overlapping steel coils. |
+| Wire | `items/components/wire` | loop 1s | 16×16 | A loop of blue insulated cable with two exposed metal ends. |
 | Brick | `items/processed/brick` | loop 1s | 16×16 | Two stacked fired-clay bricks with orange top faces. |
 | Bronze ingot | `items/processed/bronze-ingot` | loop 1s | 16×16 | A warm dark bronze bar stamped with two marks. |
 | Cement | `items/processed/cement` | loop 1s | 16×16 | A gray mortar sack with a folded top and worn seam. |

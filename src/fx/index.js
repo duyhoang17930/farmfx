@@ -277,6 +277,26 @@ import * as machines_spinning_wheel from "./machines/spinning-wheel.js";
 import * as machines_steam_generator from "./machines/steam-generator.js";
 import * as machines_stone_cutter from "./machines/stone-cutter.js";
 import * as machines_teleporter from "./machines/teleporter.js";
+import * as items_components_battery from "./items/components/battery.js";
+import * as items_components_bolt from "./items/components/bolt.js";
+import * as items_components_circuit_board from "./items/components/circuit-board.js";
+import * as items_components_copper_wire from "./items/components/copper-wire.js";
+import * as items_components_electronic_part from "./items/components/electronic-part.js";
+import * as items_components_engine from "./items/components/engine.js";
+import * as items_components_fuel_cell from "./items/components/fuel-cell.js";
+import * as items_components_gear from "./items/components/gear.js";
+import * as items_components_glass_tube from "./items/components/glass-tube.js";
+import * as items_components_mechanical_part from "./items/components/mechanical-part.js";
+import * as items_components_metal_pipe from "./items/components/metal-pipe.js";
+import * as items_components_metal_plate from "./items/components/metal-plate.js";
+import * as items_components_microchip from "./items/components/microchip.js";
+import * as items_components_motor from "./items/components/motor.js";
+import * as items_components_nail from "./items/components/nail.js";
+import * as items_components_plastic from "./items/components/plastic.js";
+import * as items_components_rubber from "./items/components/rubber.js";
+import * as items_components_screw from "./items/components/screw.js";
+import * as items_components_spring from "./items/components/spring.js";
+import * as items_components_wire from "./items/components/wire.js";
 import * as items_processed_brick from "./items/processed/brick.js";
 import * as items_processed_bronze_ingot from "./items/processed/bronze-ingot.js";
 import * as items_processed_cement from "./items/processed/cement.js";
@@ -613,6 +633,26 @@ export const effects = {
   "machines/steam-generator": machines_steam_generator,
   "machines/stone-cutter": machines_stone_cutter,
   "machines/teleporter": machines_teleporter,
+  "items/components/battery": items_components_battery,
+  "items/components/bolt": items_components_bolt,
+  "items/components/circuit-board": items_components_circuit_board,
+  "items/components/copper-wire": items_components_copper_wire,
+  "items/components/electronic-part": items_components_electronic_part,
+  "items/components/engine": items_components_engine,
+  "items/components/fuel-cell": items_components_fuel_cell,
+  "items/components/gear": items_components_gear,
+  "items/components/glass-tube": items_components_glass_tube,
+  "items/components/mechanical-part": items_components_mechanical_part,
+  "items/components/metal-pipe": items_components_metal_pipe,
+  "items/components/metal-plate": items_components_metal_plate,
+  "items/components/microchip": items_components_microchip,
+  "items/components/motor": items_components_motor,
+  "items/components/nail": items_components_nail,
+  "items/components/plastic": items_components_plastic,
+  "items/components/rubber": items_components_rubber,
+  "items/components/screw": items_components_screw,
+  "items/components/spring": items_components_spring,
+  "items/components/wire": items_components_wire,
   "items/processed/brick": items_processed_brick,
   "items/processed/bronze-ingot": items_processed_bronze_ingot,
   "items/processed/cement": items_processed_cement,
