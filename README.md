@@ -1,6 +1,6 @@
 # farmfx.
 
-**<!-- count -->232<!-- /count --> pixel art assets and animations for farming games, every one a small piece of
+**<!-- count -->277<!-- /count --> pixel art assets and animations for farming games, every one a small piece of
 code.** Crops that grow from seed to harvest, animals going about their day, tilled and watered soil, weather and
 seasons, and a farmer who hoes, waters, sows and harvests. Play them live, recolor them for another season, drop
 them into a browser game, or export sprite sheets for any engine.
@@ -47,6 +47,7 @@ system, with a library made for farms instead of fights.
 | **ui** | 15 | calendar, crafting menu, currency, tile cursor, day clock, dialogue box… |
 | **island exploration** | 7 | gathering swing, metal ingot, island explorer, island shoreline, locked plot marker, ore deposit… |
 | **resources** | 30 | amethyst deposit, bamboo, bone pile, cactus, clay deposit, coal ore… |
+| **machines** | 45 | advanced furnace, alchemy station, anvil, assembly machine, auto collector, auto feeder… |
 <!-- /catalog -->
 
 The [asset index](ASSETS.md) links to every source file and available GIF preview. The [catalog](docs/CATALOG.md)
@@ -191,6 +192,24 @@ node tools/sheets.mjs trees --release --out sheets/trees
   and sync the ground hit to the `impact` cue. Both cues are in the sheet metadata.
 - `trees/tree-regrowth` exports four single-frame sheets. Set `stage` to `0` for a stump, `1` for a sapling,
   `2` for a young tree, or `3` for a mature maple. The default animation previews the sequence.
+
+## machines and conveyors
+
+The machine set includes 45 crafting stations, production machines, generators and transport tiles. See the
+[machine preview](docs/preview/machine-pack.png) and [asset names](docs/CATALOG.md#machines).
+
+```bash
+node tools/sheets.mjs machines --release --out sheets/machines
+```
+
+The working loops play by default. Choose the `idle` sheet or pass `active: false` in code to show a stopped
+machine. The anvil and bank are still sprites.
+
+Conveyors are 16 × 16 tiles with their pivot at `[8, 12]`. The `facing` option takes `north`, `east`, `south`,
+or `west`. It gives the direction of travel for straight belts, the incoming direction of travel for corners
+and splitters, and the outgoing direction of travel for mergers. A corner also takes a `turn` of `left` or
+`right`. Splitters send items to both sides, and mergers take items from both sides. Directional idle sheets
+use the same ports as their active versions.
 
 ## farmer actions.
 

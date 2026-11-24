@@ -1,6 +1,6 @@
 # Catalog
 
-232 effects in 15 categories. Every one is a file in
+277 effects in 16 categories. Every one is a file in
 `src/fx/<category>/<name>.js`; render any of them with `node tools/render.mjs <id> --gif`.
 
 ## characters
@@ -339,3 +339,55 @@ metal ores, gemstone clusters, mineral deposits and wild gatherables.
 | Sulfur deposit | `resources/sulfur-deposit` | loop 1s | 32×32 | Yellow sulfur nodules clustered in the vents of a rust-dark crust. |
 | Tin ore | `resources/tin-ore` | loop 1s | 32×32 | Small pale green-gray nodules scattered over a sandy ledge. |
 | Titanium ore | `resources/titanium-ore` | loop 1s | 32×32 | A steep blue-gray outcrop with three tall metallic veins. |
+
+## machines
+
+crafting stations, industrial machinery, power, automation and conveyors.
+
+| effect | id | | size | what it does |
+|---|---|---|---|---|
+| Advanced furnace | `machines/advanced-furnace` | loop 2s | 64×64 | A reinforced double-door furnace with lit viewports and a side pressure gauge. |
+| Alchemy station | `machines/alchemy-station` | loop 2s | 64×64 | Glass alembics and a coiled copper tube bubble over a cluttered bench. |
+| Anvil | `machines/anvil` | loop 1s | 64×64 | A steel anvil on a banded stump with a hammer resting beside the horn. |
+| Assembly machine | `machines/assembly-machine` | loop 2s | 64×64 | An enclosed assembly station stamps components on a short feed track. |
+| Auto collector | `machines/auto-collector` | loop 2s | 64×64 | A teal intake pulls loose items into a strapped collection bin. |
+| Auto feeder | `machines/auto-feeder` | loop 2s | 64×64 | A grain hopper dispenses feed into a long wooden animal trough. |
+| Auto harvester | `machines/auto-harvester` | loop 2s | 64×64 | A wheeled harvester sweeps its front reel through a row of crops. |
+| Auto planter | `machines/auto-planter` | loop 2s | 64×64 | A green seed hopper drops grains behind two furrow-forming wheels. |
+| Bank | `machines/bank` | loop 1s | 64×64 | A stone vault with brass trim, a round locking dial and a coin emblem. |
+| Battery station | `machines/battery-station` | loop 2s | 64×64 | Three upright battery packs with charge bars dock on a reinforced platform. |
+| Blast furnace | `machines/blast-furnace` | loop 2s | 64×80 | A tall steel tower with a hot inspection slot, banded shell and side air pipes. |
+| Brewing station | `machines/brewing-station` | loop 2s | 64×64 | A wooden cask feeds a copper tap over a row of bottles and a drip tray. |
+| Charcoal kiln | `machines/charcoal-kiln` | loop 2s | 64×64 | A low clay charcoal oven with a blackened flue, split logs and cooling smoke. |
+| Coin mint | `machines/coin-mint` | loop 2s | 64×64 | A gold-trimmed stamping press drops currency into a front tray. |
+| Conveyor belt | `machines/conveyor-belt` | loop 2s | 16×16 | A straight 16 px roller belt with traveling link highlights. |
+| Conveyor corner | `machines/conveyor-corner` | loop 2s | 16×16 | A quarter-turn belt with interchangeable left and right bends. |
+| Conveyor merger | `machines/conveyor-merger` | loop 2s | 16×16 | A T-shaped belt joins both side feeds into the forward outlet. |
+| Conveyor splitter | `machines/conveyor-splitter` | loop 2s | 16×16 | A T-shaped belt splits the rear feed into two side outlets. |
+| Cooking station | `machines/cooking-station` | loop 2s | 64×64 | A kitchen range with a steaming soup pot, side pan and small firebox. |
+| Crusher | `machines/crusher` | loop 2s | 64×64 | A heavy jaw press opens over a stone hopper and a short discharge chute. |
+| Enchanting table | `machines/enchanting-table` | loop 2s | 64×64 | An open book floats above a runed plinth between two crystal lamps. |
+| Factory | `machines/factory` | loop 2s | 80×80 | A broad brick works with sawtooth roofs, paired chimneys and lit windows. |
+| Fish trap | `machines/fish-trap` | loop 2s | 64×64 | A floating woven fish trap with a funnel opening and a small bobbing float. |
+| Forge | `machines/forge` | loop 2s | 64×64 | An open hearth under a blackened hood with a bellows and hot coals. |
+| Grinder | `machines/grinder` | loop 2s | 64×64 | A rotating millstone sits above a flour drawer and a brass feed funnel. |
+| Kiln | `machines/kiln` | loop 2s | 64×64 | A brick dome with a firing arch and a shelf of finished pottery. |
+| Loom | `machines/loom` | loop 2s | 64×64 | A tall wooden loom pulls a patterned teal cloth under a sliding shuttle. |
+| Lumber mill | `machines/lumber-mill` | loop 2s | 64×64 | A roofed timber frame with a reciprocating blade, feed rollers and stacked planks. |
+| Mining drill | `machines/mining-drill` | loop 2s | 64×64 | A tall frame lowers a rotating steel auger into an ore bed. |
+| Mining rod | `machines/mining-rod` | loop 2s | 64×64 | A slender copper mast suspends a crystal that sends pulses toward the ground. |
+| Oil press | `machines/oil-press` | loop 2s | 64×64 | A brass screw press lowers into a slatted barrel above a golden drip tray. |
+| Oil pump | `machines/oil-pump` | loop 2s | 64×64 | A walking beam rocks over a tall rig and a black oil sump. |
+| Power generator | `machines/power-generator` | loop 2s | 64×64 | A petrol generator with copper windings, a side fan and a green status light. |
+| Recycling machine | `machines/recycling-machine` | loop 2s | 64×64 | A green recycling cabinet feeds scrap through rollers and sorts it into a bin. |
+| Refinery | `machines/refinery` | loop 2s | 64×80 | Twin distillation tanks with linked pipes and a blue sight glass. |
+| Repair station | `machines/repair-station` | loop 2s | 64×64 | A service bench holds a wrench, a vise and a softly pulsing work lamp. |
+| Robotic arm | `machines/robotic-arm` | loop 2s | 64×64 | A servo arm cycles between positions with an opening two-finger gripper. |
+| Sawmill | `machines/sawmill` | loop 2s | 64×64 | A rotating circular saw cuts a log on a compact slatted bench. |
+| Sewing station | `machines/sewing-station` | loop 2s | 64×64 | A treadle sewing machine stitches bright fabric on a narrow table. |
+| Smelter | `machines/smelter` | loop 2s | 64×64 | A suspended copper crucible melts ore above a glowing ingot mold. |
+| Solar panel | `machines/solar-panel` | loop 2s | 64×64 | An angled blue photovoltaic array with an indicator on its stand. |
+| Spinning wheel | `machines/spinning-wheel` | loop 2s | 64×64 | A tall spoked wheel drives a small spindle wrapped in cream thread. |
+| Steam generator | `machines/steam-generator` | loop 2s | 64×64 | A brass boiler with a rocking pressure gauge and a short steam stack. |
+| Stone cutter | `machines/stone-cutter` | loop 2s | 64×64 | A guided cutting blade crosses a pale stone block on a masonry bed. |
+| Teleporter | `machines/teleporter` | loop 2s | 64×64 | Two pylons project a violet gate over a circular platform. |

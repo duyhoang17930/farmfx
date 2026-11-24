@@ -232,6 +232,51 @@ import * as resources_silver_ore from "./resources/silver-ore.js";
 import * as resources_sulfur_deposit from "./resources/sulfur-deposit.js";
 import * as resources_tin_ore from "./resources/tin-ore.js";
 import * as resources_titanium_ore from "./resources/titanium-ore.js";
+import * as machines_advanced_furnace from "./machines/advanced-furnace.js";
+import * as machines_alchemy_station from "./machines/alchemy-station.js";
+import * as machines_anvil from "./machines/anvil.js";
+import * as machines_assembly_machine from "./machines/assembly-machine.js";
+import * as machines_auto_collector from "./machines/auto-collector.js";
+import * as machines_auto_feeder from "./machines/auto-feeder.js";
+import * as machines_auto_harvester from "./machines/auto-harvester.js";
+import * as machines_auto_planter from "./machines/auto-planter.js";
+import * as machines_bank from "./machines/bank.js";
+import * as machines_battery_station from "./machines/battery-station.js";
+import * as machines_blast_furnace from "./machines/blast-furnace.js";
+import * as machines_brewing_station from "./machines/brewing-station.js";
+import * as machines_charcoal_kiln from "./machines/charcoal-kiln.js";
+import * as machines_coin_mint from "./machines/coin-mint.js";
+import * as machines_conveyor_belt from "./machines/conveyor-belt.js";
+import * as machines_conveyor_corner from "./machines/conveyor-corner.js";
+import * as machines_conveyor_merger from "./machines/conveyor-merger.js";
+import * as machines_conveyor_splitter from "./machines/conveyor-splitter.js";
+import * as machines_cooking_station from "./machines/cooking-station.js";
+import * as machines_crusher from "./machines/crusher.js";
+import * as machines_enchanting_table from "./machines/enchanting-table.js";
+import * as machines_factory from "./machines/factory.js";
+import * as machines_fish_trap from "./machines/fish-trap.js";
+import * as machines_forge from "./machines/forge.js";
+import * as machines_grinder from "./machines/grinder.js";
+import * as machines_kiln from "./machines/kiln.js";
+import * as machines_loom from "./machines/loom.js";
+import * as machines_lumber_mill from "./machines/lumber-mill.js";
+import * as machines_mining_drill from "./machines/mining-drill.js";
+import * as machines_mining_rod from "./machines/mining-rod.js";
+import * as machines_oil_press from "./machines/oil-press.js";
+import * as machines_oil_pump from "./machines/oil-pump.js";
+import * as machines_power_generator from "./machines/power-generator.js";
+import * as machines_recycling_machine from "./machines/recycling-machine.js";
+import * as machines_refinery from "./machines/refinery.js";
+import * as machines_repair_station from "./machines/repair-station.js";
+import * as machines_robotic_arm from "./machines/robotic-arm.js";
+import * as machines_sawmill from "./machines/sawmill.js";
+import * as machines_sewing_station from "./machines/sewing-station.js";
+import * as machines_smelter from "./machines/smelter.js";
+import * as machines_solar_panel from "./machines/solar-panel.js";
+import * as machines_spinning_wheel from "./machines/spinning-wheel.js";
+import * as machines_steam_generator from "./machines/steam-generator.js";
+import * as machines_stone_cutter from "./machines/stone-cutter.js";
+import * as machines_teleporter from "./machines/teleporter.js";
 
 export { categories } from "./categories.js";
 
@@ -468,4 +513,49 @@ export const effects = {
   "resources/sulfur-deposit": resources_sulfur_deposit,
   "resources/tin-ore": resources_tin_ore,
   "resources/titanium-ore": resources_titanium_ore,
+  "machines/advanced-furnace": machines_advanced_furnace,
+  "machines/alchemy-station": machines_alchemy_station,
+  "machines/anvil": machines_anvil,
+  "machines/assembly-machine": machines_assembly_machine,
+  "machines/auto-collector": machines_auto_collector,
+  "machines/auto-feeder": machines_auto_feeder,
+  "machines/auto-harvester": machines_auto_harvester,
+  "machines/auto-planter": machines_auto_planter,
+  "machines/bank": machines_bank,
+  "machines/battery-station": machines_battery_station,
+  "machines/blast-furnace": machines_blast_furnace,
+  "machines/brewing-station": machines_brewing_station,
+  "machines/charcoal-kiln": machines_charcoal_kiln,
+  "machines/coin-mint": machines_coin_mint,
+  "machines/conveyor-belt": machines_conveyor_belt,
+  "machines/conveyor-corner": machines_conveyor_corner,
+  "machines/conveyor-merger": machines_conveyor_merger,
+  "machines/conveyor-splitter": machines_conveyor_splitter,
+  "machines/cooking-station": machines_cooking_station,
+  "machines/crusher": machines_crusher,
+  "machines/enchanting-table": machines_enchanting_table,
+  "machines/factory": machines_factory,
+  "machines/fish-trap": machines_fish_trap,
+  "machines/forge": machines_forge,
+  "machines/grinder": machines_grinder,
+  "machines/kiln": machines_kiln,
+  "machines/loom": machines_loom,
+  "machines/lumber-mill": machines_lumber_mill,
+  "machines/mining-drill": machines_mining_drill,
+  "machines/mining-rod": machines_mining_rod,
+  "machines/oil-press": machines_oil_press,
+  "machines/oil-pump": machines_oil_pump,
+  "machines/power-generator": machines_power_generator,
+  "machines/recycling-machine": machines_recycling_machine,
+  "machines/refinery": machines_refinery,
+  "machines/repair-station": machines_repair_station,
+  "machines/robotic-arm": machines_robotic_arm,
+  "machines/sawmill": machines_sawmill,
+  "machines/sewing-station": machines_sewing_station,
+  "machines/smelter": machines_smelter,
+  "machines/solar-panel": machines_solar_panel,
+  "machines/spinning-wheel": machines_spinning_wheel,
+  "machines/steam-generator": machines_steam_generator,
+  "machines/stone-cutter": machines_stone_cutter,
+  "machines/teleporter": machines_teleporter,
 };

@@ -1,6 +1,6 @@
 # FarmFX assets
 
-232 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
+277 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
 
 ## Characters (20)
 
@@ -308,3 +308,53 @@
 | Sulfur deposit | [`resources/sulfur-deposit`](src/fx/resources/sulfur-deposit.js) | [GIF](docs/preview/resources-sulfur-deposit.gif) |
 | Tin ore | [`resources/tin-ore`](src/fx/resources/tin-ore.js) | [GIF](docs/preview/resources-tin-ore.gif) |
 | Titanium ore | [`resources/titanium-ore`](src/fx/resources/titanium-ore.js) | [GIF](docs/preview/resources-titanium-ore.gif) |
+
+## Machines (45)
+
+| Asset | ID | Preview |
+| --- | --- | --- |
+| Advanced furnace | [`machines/advanced-furnace`](src/fx/machines/advanced-furnace.js) | [GIF](docs/preview/machines-advanced-furnace.gif) |
+| Alchemy station | [`machines/alchemy-station`](src/fx/machines/alchemy-station.js) | [GIF](docs/preview/machines-alchemy-station.gif) |
+| Anvil | [`machines/anvil`](src/fx/machines/anvil.js) | [GIF](docs/preview/machines-anvil.gif) |
+| Assembly machine | [`machines/assembly-machine`](src/fx/machines/assembly-machine.js) | [GIF](docs/preview/machines-assembly-machine.gif) |
+| Auto collector | [`machines/auto-collector`](src/fx/machines/auto-collector.js) | [GIF](docs/preview/machines-auto-collector.gif) |
+| Auto feeder | [`machines/auto-feeder`](src/fx/machines/auto-feeder.js) | [GIF](docs/preview/machines-auto-feeder.gif) |
+| Auto harvester | [`machines/auto-harvester`](src/fx/machines/auto-harvester.js) | [GIF](docs/preview/machines-auto-harvester.gif) |
+| Auto planter | [`machines/auto-planter`](src/fx/machines/auto-planter.js) | [GIF](docs/preview/machines-auto-planter.gif) |
+| Bank | [`machines/bank`](src/fx/machines/bank.js) | [GIF](docs/preview/machines-bank.gif) |
+| Battery station | [`machines/battery-station`](src/fx/machines/battery-station.js) | [GIF](docs/preview/machines-battery-station.gif) |
+| Blast furnace | [`machines/blast-furnace`](src/fx/machines/blast-furnace.js) | [GIF](docs/preview/machines-blast-furnace.gif) |
+| Brewing station | [`machines/brewing-station`](src/fx/machines/brewing-station.js) | [GIF](docs/preview/machines-brewing-station.gif) |
+| Charcoal kiln | [`machines/charcoal-kiln`](src/fx/machines/charcoal-kiln.js) | [GIF](docs/preview/machines-charcoal-kiln.gif) |
+| Coin mint | [`machines/coin-mint`](src/fx/machines/coin-mint.js) | [GIF](docs/preview/machines-coin-mint.gif) |
+| Conveyor belt | [`machines/conveyor-belt`](src/fx/machines/conveyor-belt.js) | [GIF](docs/preview/machines-conveyor-belt.gif) |
+| Conveyor corner | [`machines/conveyor-corner`](src/fx/machines/conveyor-corner.js) | [GIF](docs/preview/machines-conveyor-corner.gif) |
+| Conveyor merger | [`machines/conveyor-merger`](src/fx/machines/conveyor-merger.js) | [GIF](docs/preview/machines-conveyor-merger.gif) |
+| Conveyor splitter | [`machines/conveyor-splitter`](src/fx/machines/conveyor-splitter.js) | [GIF](docs/preview/machines-conveyor-splitter.gif) |
+| Cooking station | [`machines/cooking-station`](src/fx/machines/cooking-station.js) | [GIF](docs/preview/machines-cooking-station.gif) |
+| Crusher | [`machines/crusher`](src/fx/machines/crusher.js) | [GIF](docs/preview/machines-crusher.gif) |
+| Enchanting table | [`machines/enchanting-table`](src/fx/machines/enchanting-table.js) | [GIF](docs/preview/machines-enchanting-table.gif) |
+| Factory | [`machines/factory`](src/fx/machines/factory.js) | [GIF](docs/preview/machines-factory.gif) |
+| Fish trap | [`machines/fish-trap`](src/fx/machines/fish-trap.js) | [GIF](docs/preview/machines-fish-trap.gif) |
+| Forge | [`machines/forge`](src/fx/machines/forge.js) | [GIF](docs/preview/machines-forge.gif) |
+| Grinder | [`machines/grinder`](src/fx/machines/grinder.js) | [GIF](docs/preview/machines-grinder.gif) |
+| Kiln | [`machines/kiln`](src/fx/machines/kiln.js) | [GIF](docs/preview/machines-kiln.gif) |
+| Loom | [`machines/loom`](src/fx/machines/loom.js) | [GIF](docs/preview/machines-loom.gif) |
+| Lumber mill | [`machines/lumber-mill`](src/fx/machines/lumber-mill.js) | [GIF](docs/preview/machines-lumber-mill.gif) |
+| Mining drill | [`machines/mining-drill`](src/fx/machines/mining-drill.js) | [GIF](docs/preview/machines-mining-drill.gif) |
+| Mining rod | [`machines/mining-rod`](src/fx/machines/mining-rod.js) | [GIF](docs/preview/machines-mining-rod.gif) |
+| Oil press | [`machines/oil-press`](src/fx/machines/oil-press.js) | [GIF](docs/preview/machines-oil-press.gif) |
+| Oil pump | [`machines/oil-pump`](src/fx/machines/oil-pump.js) | [GIF](docs/preview/machines-oil-pump.gif) |
+| Power generator | [`machines/power-generator`](src/fx/machines/power-generator.js) | [GIF](docs/preview/machines-power-generator.gif) |
+| Recycling machine | [`machines/recycling-machine`](src/fx/machines/recycling-machine.js) | [GIF](docs/preview/machines-recycling-machine.gif) |
+| Refinery | [`machines/refinery`](src/fx/machines/refinery.js) | [GIF](docs/preview/machines-refinery.gif) |
+| Repair station | [`machines/repair-station`](src/fx/machines/repair-station.js) | [GIF](docs/preview/machines-repair-station.gif) |
+| Robotic arm | [`machines/robotic-arm`](src/fx/machines/robotic-arm.js) | [GIF](docs/preview/machines-robotic-arm.gif) |
+| Sawmill | [`machines/sawmill`](src/fx/machines/sawmill.js) | [GIF](docs/preview/machines-sawmill.gif) |
+| Sewing station | [`machines/sewing-station`](src/fx/machines/sewing-station.js) | [GIF](docs/preview/machines-sewing-station.gif) |
+| Smelter | [`machines/smelter`](src/fx/machines/smelter.js) | [GIF](docs/preview/machines-smelter.gif) |
+| Solar panel | [`machines/solar-panel`](src/fx/machines/solar-panel.js) | [GIF](docs/preview/machines-solar-panel.gif) |
+| Spinning wheel | [`machines/spinning-wheel`](src/fx/machines/spinning-wheel.js) | [GIF](docs/preview/machines-spinning-wheel.gif) |
+| Steam generator | [`machines/steam-generator`](src/fx/machines/steam-generator.js) | [GIF](docs/preview/machines-steam-generator.gif) |
+| Stone cutter | [`machines/stone-cutter`](src/fx/machines/stone-cutter.js) | [GIF](docs/preview/machines-stone-cutter.gif) |
+| Teleporter | [`machines/teleporter`](src/fx/machines/teleporter.js) | [GIF](docs/preview/machines-teleporter.gif) |

@@ -16,4 +16,5 @@ export const categories = [
   { id: "ui", name: "ui", blurb: "pixel HUD, inventory icons, menus, dialogue and notifications" },
   { id: "exploration", name: "island exploration", blurb: "an original player, gathering animations, ore, and island expansion" },
   { id: "resources", name: "resources", blurb: "metal ores, gemstone clusters, mineral deposits and wild gatherables" },
+  { id: "machines", name: "machines", blurb: "crafting stations, industrial machinery, power, automation and conveyors" },
 ];

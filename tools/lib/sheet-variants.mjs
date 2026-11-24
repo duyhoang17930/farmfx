@@ -33,6 +33,18 @@ export function sheetVariants(fx) {
     }
   } else if (category === "crops") {
     for (let stage = 0; stage <= 4; stage++) add(`stage-${stage}`, { stage, plot: false });
+  } else if (category === "machines" && options.facing) {
+    const turns = options.turn ? ["left", "right"] : [undefined];
+    for (const facing of ["north", "east", "south", "west"]) {
+      for (const turn of turns) {
+        const name = turn ? `${facing}-${turn}` : facing;
+        const route = turn ? { facing, turn } : { facing };
+        add(name, route);
+        add(`${name}-idle`, { ...route, active: false });
+      }
+    }
+  } else if (category === "machines" && options.active) {
+    add("idle", { active: false });
   } else if (fx.id === "trees/tree-regrowth") {
     for (let stage = 0; stage <= 3; stage++) add(`stage-${stage}`, { stage });
   } else if (fx.id === "trees/falling-tree") {
