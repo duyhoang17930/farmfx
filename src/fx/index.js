@@ -311,6 +311,31 @@ import * as items_components_rubber from "./items/components/rubber.js";
 import * as items_components_screw from "./items/components/screw.js";
 import * as items_components_spring from "./items/components/spring.js";
 import * as items_components_wire from "./items/components/wire.js";
+import * as items_food_bread from "./items/food/bread.js";
+import * as items_food_burger from "./items/food/burger.js";
+import * as items_food_cake from "./items/food/cake.js";
+import * as items_food_cheese_pizza from "./items/food/cheese-pizza.js";
+import * as items_food_coffee from "./items/food/coffee.js";
+import * as items_food_cooked_fish from "./items/food/cooked-fish.js";
+import * as items_food_cooked_meat from "./items/food/cooked-meat.js";
+import * as items_food_cookie from "./items/food/cookie.js";
+import * as items_food_fried_egg from "./items/food/fried-egg.js";
+import * as items_food_fruit_bowl from "./items/food/fruit-bowl.js";
+import * as items_food_grilled_corn from "./items/food/grilled-corn.js";
+import * as items_food_jam from "./items/food/jam.js";
+import * as items_food_juice from "./items/food/juice.js";
+import * as items_food_mushroom_soup from "./items/food/mushroom-soup.js";
+import * as items_food_omelette from "./items/food/omelette.js";
+import * as items_food_pie from "./items/food/pie.js";
+import * as items_food_rice_bowl from "./items/food/rice-bowl.js";
+import * as items_food_roasted_potato from "./items/food/roasted-potato.js";
+import * as items_food_salad from "./items/food/salad.js";
+import * as items_food_sandwich from "./items/food/sandwich.js";
+import * as items_food_soup from "./items/food/soup.js";
+import * as items_food_sushi from "./items/food/sushi.js";
+import * as items_food_tea from "./items/food/tea.js";
+import * as items_food_toast from "./items/food/toast.js";
+import * as items_food_vegetable_stew from "./items/food/vegetable-stew.js";
 import * as items_gems_amber from "./items/gems/amber.js";
 import * as items_gems_amethyst from "./items/gems/amethyst.js";
 import * as items_gems_diamond from "./items/gems/diamond.js";
@@ -721,6 +746,31 @@ export const effects = {
   "items/components/screw": items_components_screw,
   "items/components/spring": items_components_spring,
   "items/components/wire": items_components_wire,
+  "items/food/bread": items_food_bread,
+  "items/food/burger": items_food_burger,
+  "items/food/cake": items_food_cake,
+  "items/food/cheese-pizza": items_food_cheese_pizza,
+  "items/food/coffee": items_food_coffee,
+  "items/food/cooked-fish": items_food_cooked_fish,
+  "items/food/cooked-meat": items_food_cooked_meat,
+  "items/food/cookie": items_food_cookie,
+  "items/food/fried-egg": items_food_fried_egg,
+  "items/food/fruit-bowl": items_food_fruit_bowl,
+  "items/food/grilled-corn": items_food_grilled_corn,
+  "items/food/jam": items_food_jam,
+  "items/food/juice": items_food_juice,
+  "items/food/mushroom-soup": items_food_mushroom_soup,
+  "items/food/omelette": items_food_omelette,
+  "items/food/pie": items_food_pie,
+  "items/food/rice-bowl": items_food_rice_bowl,
+  "items/food/roasted-potato": items_food_roasted_potato,
+  "items/food/salad": items_food_salad,
+  "items/food/sandwich": items_food_sandwich,
+  "items/food/soup": items_food_soup,
+  "items/food/sushi": items_food_sushi,
+  "items/food/tea": items_food_tea,
+  "items/food/toast": items_food_toast,
+  "items/food/vegetable-stew": items_food_vegetable_stew,
   "items/gems/amber": items_gems_amber,
   "items/gems/amethyst": items_gems_amethyst,
   "items/gems/diamond": items_gems_diamond,

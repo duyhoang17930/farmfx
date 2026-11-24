@@ -1,6 +1,6 @@
 # Catalog
 
-406 effects in 17 categories. Every one is a file in
+431 effects in 17 categories. Every one is a file in
 `src/fx/<category>/<name>.js`; render any of them with `node tools/render.mjs <id> --gif`.
 
 ## characters
@@ -394,7 +394,7 @@ crafting stations, industrial machinery, power, automation and conveyors.
 
 ## items
 
-inventory icons for materials, components, gems, produce and animal products.
+inventory icons for materials, components, gems, produce, animal products and meals.
 
 | effect | id | | size | what it does |
 |---|---|---|---|---|
@@ -432,6 +432,31 @@ inventory icons for materials, components, gems, produce and animal products.
 | Screw | `items/components/screw` | loop 1s | 16×16 | A tapered silver screw with a slotted head and diagonal threads. |
 | Spring | `items/components/spring` | loop 1s | 16×16 | A vertical compression spring with overlapping steel coils. |
 | Wire | `items/components/wire` | loop 1s | 16×16 | A loop of blue insulated cable with two exposed metal ends. |
+| Bread | `items/food/bread` | loop 1s | 16×16 | A golden loaf with scored crust and a pale cut end. |
+| Burger | `items/food/burger` | loop 1s | 16×16 | A sesame bun stacked over lettuce, cheese and a dark patty. |
+| Cake | `items/food/cake` | loop 1s | 16×16 | A layer-cake slice with pink filling, icing and a red topping. |
+| Cheese pizza | `items/food/cheese-pizza` | loop 1s | 16×16 | A triangular pizza slice with a thick crust and melted cheese. |
+| Coffee | `items/food/coffee` | loop 1s | 16×16 | A warm stoneware cup of dark coffee with a pale steam curl. |
+| Cooked fish | `items/food/cooked-fish` | loop 1s | 16×16 | A roasted golden fish with a fan tail and dark grill marks. |
+| Cooked meat | `items/food/cooked-meat` | loop 1s | 16×16 | A browned steak with a caramelized rim and short grill marks. |
+| Cookie | `items/food/cookie` | loop 1s | 16×16 | A round golden cookie with dark chocolate chips. |
+| Fried egg | `items/food/fried-egg` | loop 1s | 16×16 | A sunny-side-up egg with a golden yolk and an irregular white edge. |
+| Fruit bowl | `items/food/fruit-bowl` | loop 1s | 16×16 | A clay bowl topped with red, yellow and purple fruit. |
+| Grilled corn | `items/food/grilled-corn` | loop 1s | 16×16 | A golden cob with char marks and a short toasted stem. |
+| Jam | `items/food/jam` | loop 1s | 16×16 | A small jar of purple berry jam with a cloth cap and a cream label. |
+| Juice | `items/food/juice` | loop 1s | 16×16 | A tall glass of orange juice with a bent blue straw. |
+| Mushroom soup | `items/food/mushroom-soup` | loop 1s | 16×16 | Creamy mushroom soup in a violet bowl with a mushroom slice on top. |
+| Omelette | `items/food/omelette` | loop 1s | 16×16 | A folded golden omelette with a browned edge and chopped herbs. |
+| Pie | `items/food/pie` | loop 1s | 16×16 | A small golden pie with a crimped crust and three scored vents. |
+| Rice bowl | `items/food/rice-bowl` | loop 1s | 16×16 | A blue bowl heaped with white rice and a small herb garnish. |
+| Roasted potato | `items/food/roasted-potato` | loop 1s | 16×16 | A baked potato split open to show a pale center and butter. |
+| Salad | `items/food/salad` | loop 1s | 16×16 | Leafy greens and tomato pieces piled on a cool ceramic plate. |
+| Sandwich | `items/food/sandwich` | loop 1s | 16×16 | A triangular sandwich with green lettuce and red filling between two bread slices. |
+| Soup | `items/food/soup` | loop 1s | 16×16 | An orange broth with a pale swirl in a blue bowl. |
+| Sushi | `items/food/sushi` | loop 1s | 16×16 | Two rice rolls edged in dark seaweed with salmon centers. |
+| Tea | `items/food/tea` | loop 1s | 16×16 | A light green teacup holding brewed tea, with a tiny leaf beside it. |
+| Toast | `items/food/toast` | loop 1s | 16×16 | A browned bread slice with a dark crust and toasted crumbs. |
+| Vegetable stew | `items/food/vegetable-stew` | loop 1s | 16×16 | A wide earthenware bowl of brown stew with carrot and green vegetable pieces. |
 | Amber | `items/gems/amber` | loop 1s | 16×16 | An irregular honey-brown amber nugget with a dark inclusion. |
 | Amethyst | `items/gems/amethyst` | loop 1s | 16×16 | A violet triangular cut with a lilac crown and deep plum edges. |
 | Diamond | `items/gems/diamond` | loop 1s | 16×16 | A wide brilliant-cut diamond with an icy crown and pointed base. |

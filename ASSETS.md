@@ -1,6 +1,6 @@
 # FarmFX assets
 
-406 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
+431 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
 
 ## Characters (20)
 
@@ -359,7 +359,7 @@
 | Stone cutter | [`machines/stone-cutter`](src/fx/machines/stone-cutter.js) | [GIF](docs/preview/machines-stone-cutter.gif) |
 | Teleporter | [`machines/teleporter`](src/fx/machines/teleporter.js) | [GIF](docs/preview/machines-teleporter.gif) |
 
-## Items (129)
+## Items (154)
 
 | Asset | ID | Preview |
 | --- | --- | --- |
@@ -397,6 +397,31 @@
 | Screw | [`items/components/screw`](src/fx/items/components/screw.js) | [GIF](docs/preview/items-components-screw.gif) |
 | Spring | [`items/components/spring`](src/fx/items/components/spring.js) | [GIF](docs/preview/items-components-spring.gif) |
 | Wire | [`items/components/wire`](src/fx/items/components/wire.js) | [GIF](docs/preview/items-components-wire.gif) |
+| Bread | [`items/food/bread`](src/fx/items/food/bread.js) | [GIF](docs/preview/items-food-bread.gif) |
+| Burger | [`items/food/burger`](src/fx/items/food/burger.js) | [GIF](docs/preview/items-food-burger.gif) |
+| Cake | [`items/food/cake`](src/fx/items/food/cake.js) | [GIF](docs/preview/items-food-cake.gif) |
+| Cheese pizza | [`items/food/cheese-pizza`](src/fx/items/food/cheese-pizza.js) | [GIF](docs/preview/items-food-cheese-pizza.gif) |
+| Coffee | [`items/food/coffee`](src/fx/items/food/coffee.js) | [GIF](docs/preview/items-food-coffee.gif) |
+| Cooked fish | [`items/food/cooked-fish`](src/fx/items/food/cooked-fish.js) | [GIF](docs/preview/items-food-cooked-fish.gif) |
+| Cooked meat | [`items/food/cooked-meat`](src/fx/items/food/cooked-meat.js) | [GIF](docs/preview/items-food-cooked-meat.gif) |
+| Cookie | [`items/food/cookie`](src/fx/items/food/cookie.js) | [GIF](docs/preview/items-food-cookie.gif) |
+| Fried egg | [`items/food/fried-egg`](src/fx/items/food/fried-egg.js) | [GIF](docs/preview/items-food-fried-egg.gif) |
+| Fruit bowl | [`items/food/fruit-bowl`](src/fx/items/food/fruit-bowl.js) | [GIF](docs/preview/items-food-fruit-bowl.gif) |
+| Grilled corn | [`items/food/grilled-corn`](src/fx/items/food/grilled-corn.js) | [GIF](docs/preview/items-food-grilled-corn.gif) |
+| Jam | [`items/food/jam`](src/fx/items/food/jam.js) | [GIF](docs/preview/items-food-jam.gif) |
+| Juice | [`items/food/juice`](src/fx/items/food/juice.js) | [GIF](docs/preview/items-food-juice.gif) |
+| Mushroom soup | [`items/food/mushroom-soup`](src/fx/items/food/mushroom-soup.js) | [GIF](docs/preview/items-food-mushroom-soup.gif) |
+| Omelette | [`items/food/omelette`](src/fx/items/food/omelette.js) | [GIF](docs/preview/items-food-omelette.gif) |
+| Pie | [`items/food/pie`](src/fx/items/food/pie.js) | [GIF](docs/preview/items-food-pie.gif) |
+| Rice bowl | [`items/food/rice-bowl`](src/fx/items/food/rice-bowl.js) | [GIF](docs/preview/items-food-rice-bowl.gif) |
+| Roasted potato | [`items/food/roasted-potato`](src/fx/items/food/roasted-potato.js) | [GIF](docs/preview/items-food-roasted-potato.gif) |
+| Salad | [`items/food/salad`](src/fx/items/food/salad.js) | [GIF](docs/preview/items-food-salad.gif) |
+| Sandwich | [`items/food/sandwich`](src/fx/items/food/sandwich.js) | [GIF](docs/preview/items-food-sandwich.gif) |
+| Soup | [`items/food/soup`](src/fx/items/food/soup.js) | [GIF](docs/preview/items-food-soup.gif) |
+| Sushi | [`items/food/sushi`](src/fx/items/food/sushi.js) | [GIF](docs/preview/items-food-sushi.gif) |
+| Tea | [`items/food/tea`](src/fx/items/food/tea.js) | [GIF](docs/preview/items-food-tea.gif) |
+| Toast | [`items/food/toast`](src/fx/items/food/toast.js) | [GIF](docs/preview/items-food-toast.gif) |
+| Vegetable stew | [`items/food/vegetable-stew`](src/fx/items/food/vegetable-stew.js) | [GIF](docs/preview/items-food-vegetable-stew.gif) |
 | Amber | [`items/gems/amber`](src/fx/items/gems/amber.js) | [GIF](docs/preview/items-gems-amber.gif) |
 | Amethyst | [`items/gems/amethyst`](src/fx/items/gems/amethyst.js) | [GIF](docs/preview/items-gems-amethyst.gif) |
 | Diamond | [`items/gems/diamond`](src/fx/items/gems/diamond.js) | [GIF](docs/preview/items-gems-diamond.gif) |
