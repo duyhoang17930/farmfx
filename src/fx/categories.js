@@ -14,4 +14,5 @@ export const categories = [
   { id: "weather", name: "weather & seasons", blurb: "rain, snow, autumn leaves, fireflies, day and night" },
   { id: "fx", name: "farm fx", blurb: "dust, splashes, impact debris, growth and pickup feedback" },
   { id: "ui", name: "ui", blurb: "pixel HUD, inventory icons, menus, dialogue and notifications" },
+  { id: "exploration", name: "island exploration", blurb: "an original player, gathering animations, ore, and island expansion" },
 ];

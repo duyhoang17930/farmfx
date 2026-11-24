@@ -181,6 +181,13 @@ import * as ui_pickup_toast from "./ui/pickup-toast.js";
 import * as ui_quest_marker from "./ui/quest-marker.js";
 import * as ui_shop_interface from "./ui/shop-interface.js";
 import * as ui_tooltip from "./ui/tooltip.js";
+import * as exploration_gather_swing from "./exploration/gather-swing.js";
+import * as exploration_ingot from "./exploration/ingot.js";
+import * as exploration_island_explorer from "./exploration/island-explorer.js";
+import * as exploration_island_shore from "./exploration/island-shore.js";
+import * as exploration_locked_plot from "./exploration/locked-plot.js";
+import * as exploration_ore_deposit from "./exploration/ore-deposit.js";
+import * as exploration_plot_unlock from "./exploration/plot-unlock.js";
 
 export { categories } from "./categories.js";
 
@@ -366,4 +373,11 @@ export const effects = {
   "ui/quest-marker": ui_quest_marker,
   "ui/shop-interface": ui_shop_interface,
   "ui/tooltip": ui_tooltip,
+  "exploration/gather-swing": exploration_gather_swing,
+  "exploration/ingot": exploration_ingot,
+  "exploration/island-explorer": exploration_island_explorer,
+  "exploration/island-shore": exploration_island_shore,
+  "exploration/locked-plot": exploration_locked_plot,
+  "exploration/ore-deposit": exploration_ore_deposit,
+  "exploration/plot-unlock": exploration_plot_unlock,
 };

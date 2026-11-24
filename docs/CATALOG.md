@@ -1,6 +1,6 @@
 # Catalog
 
-181 effects in 13 categories. Every one is a file in
+188 effects in 14 categories. Every one is a file in
 `src/fx/<category>/<name>.js`; render any of them with `node tools/render.mjs <id> --gif`.
 
 ## characters
@@ -274,3 +274,17 @@ pixel HUD, inventory icons, menus, dialogue and notifications.
 | Quest marker | `ui/quest-marker` | loop 2.4s | 32×32 | A bobbing quest pin that can display a new quest, a hint or a completed check. |
 | Shop interface | `ui/shop-interface` | loop 2.4s | 128×96 | A shop panel with editable stock, prices, gold total and highlighted row. |
 | Item tooltip | `ui/tooltip` | loop 2.4s | 128×48 | A small icon tooltip with a title and two short configurable text lines. |
+
+## island exploration
+
+an original player, gathering animations, ore, and island expansion.
+
+| effect | id | | size | what it does |
+|---|---|---|---|---|
+| Gathering swing | `exploration/gather-swing` | one-shot 0.6s | 48×48 | The explorer swings an axe or pickaxe in four facings, with a contact cue for impact effects. |
+| Metal ingot | `exploration/ingot` | loop 1s | 16×16 | A small beveled metal bar for smelting recipes, inventory slots and ground pickups. |
+| Island explorer | `exploration/island-explorer` | loop 0.8s | 48×48 | An original moss-hooded adventurer with four-direction idle and walk cycles. |
+| Island shoreline | `exploration/island-shore` | loop 2.5s | 16×16 | A 16 px grass-to-water transition with outer edges and inside corners. The water remains transparent. |
+| Locked plot marker | `exploration/locked-plot` | loop 1s | 64×48 | A wooden parcel sign with a brass padlock and a configurable coin price. |
+| Ore deposit | `exploration/ore-deposit` | loop 1s | 32×32 | A split slate boulder with exposed metal seams, distinct from a plain gatherable rock. |
+| Plot unlock | `exploration/plot-unlock` | one-shot 0.92s | 80×64 | A golden ground ripple and opening padlock celebrate the purchase of new land. |

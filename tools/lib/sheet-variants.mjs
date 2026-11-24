@@ -33,6 +33,22 @@ export function sheetVariants(fx) {
     }
   } else if (category === "crops") {
     for (let stage = 0; stage <= 4; stage++) add(`stage-${stage}`, { stage, plot: false });
+  } else if (fx.id === "exploration/island-explorer") {
+    directional(["idle", "walk"]);
+  } else if (fx.id === "exploration/gather-swing") {
+    for (const facing of FACINGS) {
+      for (const tool of ["axe", "pickaxe"]) add(`${facing}-${tool}`, { facing, tool });
+    }
+  } else if (fx.id === "exploration/island-shore") {
+    for (let mask = 0; mask < 16; mask++) {
+      const edges = [...sides].filter((_, i) => mask & (1 << i)).join("");
+      const available = ["NE", "SE", "SW", "NW"].filter((corner) => [...corner].every((side) => !edges.includes(side)));
+      for (let submask = 0; submask < 2 ** available.length; submask++) {
+        const corners = available.filter((_, i) => submask & (1 << i));
+        const suffix = corners.length ? `-inside-${corners.join("-").toLowerCase()}` : "";
+        add(`edge-${edges.toLowerCase() || "none"}${suffix}`, { edges, corners });
+      }
+    }
   } else if (Object.hasOwn(terrain, fx.id)) {
     const { option, connected, animated, options } = terrain[fx.id];
     for (let mask = 0; mask < 16; mask++) {

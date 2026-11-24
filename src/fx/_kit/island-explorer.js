@@ -1,0 +1,113 @@
+import { hex, ramp } from "../../core/index.js";
+import { STEEL, WOOD } from "./art.js";
+import { groundShadow } from "./sprite.js";
+
+// Original hood, scarf and satchel. Side pixels face right and are mirrored for left.
+const HEAD = {
+  down: [
+    "....ooooo....", "..oHHHHHHHo..", ".oHHHHHHHHho.", "oHHHHHHHhhhho",
+    "oHHHhhhhhhhho", "ohhhoooooohho", ".ooSFFFSooho.", ".oSFeFFeSSo..",
+    "..oSFFFFSo...", "...oSSSSo....", "....oooo.....",
+  ],
+  up: [
+    "....ooooo....", "..oHHHHHHHo..", ".oHHHHHHHHho.", "oHHHhhhhhhhho",
+    "oHHhhhhhhhhho", "ohhhhhhhhhho.", ".ohhhhhhhho..", ".ohhhohhho...",
+    "..ohhohho....", "...ohoho.....", "....ooo......",
+  ],
+  right: [
+    "....ooooo....", "..oHHHHHHHo..", ".oHHHHHHHHho.", "oHHHHHHhhhhho",
+    "oHHhhhhhhhooo", "ohhhhhhhoFFo.", "ohhhhhhoF-eo.", ".ohhhhhoFFSSo",
+    "..ohhhoSFFSo.", "...ooooSSSo..", ".......ooo...",
+  ],
+};
+const HOOD = ["#33353e", "#66743e", "#aabb62", "#dc9170", "#f6bd8b"];
+const COAT = ramp(["#343042", "#563e57", "#775467", "#ac717b", "#e39a8b"]);
+const PANTS = ramp(["#2b2939", "#45435a", "#65637c"]);
+const SCARF = ramp(["#633a37", "#c15c41", "#f08d55", "#ffb46a"]);
+const eye = hex("#362c3b");
+
+const WALK = [
+  { feet: [-2, 0], sideFeet: [-2, 2], arms: 2, bob: 0 },
+  { feet: [-3, 0], sideFeet: [0, 1], arms: 1, bob: -1 },
+  { feet: [0, -2], sideFeet: [2, -2], arms: -2, bob: 0 },
+  { feet: [0, -3], sideFeet: [1, 0], arms: -1, bob: -1 },
+];
+const STAND = { feet: [0, 0], sideFeet: [0, 0], arms: 0, bob: 0 };
+
+export function explorer(p, palette, facing, { step = -1, bob = 0, lean = 0, hand, tool, tip } = {}) {
+  const mirrored = facing === "left";
+  const view = mirrored ? "right" : facing;
+  const side = view === "right";
+  const back = view === "up";
+  const motion = WALK[step] ?? STAND;
+  const yy = bob + motion.bob;
+  const x = (value) => mirrored ? -value : value;
+  const rect = (left, top, w, h, color) => p.rect(x(mirrored ? left + w - 1 : left), top, w, h, color);
+  const line = (a, b, color) => p.line(x(a[0]), a[1], x(b[0]), b[1], color);
+  const poly = (points, color) => p.poly(points.map(([px, py]) => [x(px), py]), color);
+  const shoulder = [lean + (side ? -1 : 4), yy - 10];
+  const grip = hand ?? [shoulder[0] + (side ? motion.arms : 2), yy - 6 - (side ? 0 : motion.arms)];
+  const far = [lean + (side ? 3 : -4), yy - 10];
+  const arm = (start, end, near) => {
+    line(start, end, COAT[0]);
+    line([start[0] - 1, start[1]], [end[0] - 1, end[1]], COAT[near ? 3 : 1]);
+    rect(end[0] - 1, end[1], 2, 2, palette[near ? 4 : 3]);
+  };
+  const heldTool = () => {
+    const dx = tip[0] - grip[0], dy = tip[1] - grip[1];
+    const length = Math.hypot(dx, dy);
+    const along = [dx / length, dy / length], across = [-along[1], along[0]];
+    const at = (a, b) => [tip[0] + a * along[0] + b * across[0], tip[1] + a * along[1] + b * across[1]];
+    const blade = (points, color) => poly(points.map(([a, b]) => at(a, b)), color);
+    line([grip[0] - 2 * along[0], grip[1] - 2 * along[1]], tip, WOOD[0]);
+    line(grip, tip, WOOD[3]);
+    if (tool === "axe") {
+      blade([[-2, -2], [1, -2], [3, 1], [3, 4], [0, 5], [-2, 2]], STEEL[0]);
+      blade([[-1, 0], [1, 0], [2, 2], [2, 4], [0, 4]], STEEL[3]);
+      line(at(2, 2), at(1, 4), STEEL[4]);
+    } else {
+      blade([[-3, -5], [0, -4], [2, -1], [2, 2], [0, 5], [-3, 6], [-1, 2], [-1, -2]], STEEL[0]);
+      line(at(-2, -4), at(1, -1), STEEL[3]);
+      line(at(1, -1), at(1, 2), STEEL[4]);
+      line(at(1, 2), at(-2, 5), STEEL[3]);
+    }
+  };
+
+  groundShadow(p, 0, 0, 6.5, 2);
+  arm(far, [far[0] - (side ? motion.arms : 1), yy - 6 + (side ? 0 : motion.arms)], false);
+  for (let i = 0; i < 2; i++) {
+    const foot = side ? -2 + i * 3 + motion.sideFeet[i] : -4 + i * 5;
+    const lift = motion.feet[i];
+    rect(foot, lift - 6, 3, 6, PANTS[i === 0 ? 1 : 2]);
+    rect(foot + Number(side), lift - 2, side ? 4 : 3, 2, PANTS[0]);
+    rect(foot + Number(side), lift - 2, 2, 1, WOOD[2]);
+  }
+  poly([[lean - 4, yy - 12], [lean + 4, yy - 12], [lean + 5, yy - 5],
+    [lean + 3, yy - 3], [lean - 4, yy - 4], [lean - 5, yy - 6]], COAT[0]);
+  rect(lean - 3, yy - 11, 7, 6, COAT[2]);
+  rect(lean - 3, yy - 11, 2, 5, COAT[3]);
+  if (back || side) {
+    rect(lean - (side ? 5 : 3), yy - 11, 5, 6, WOOD[0]);
+    rect(lean - (side ? 4 : 2), yy - 10, 3, 4, WOOD[2]);
+    rect(lean - (side ? 4 : 2), yy - 10, 3, 1, WOOD[4]);
+  } else {
+    line([lean - 2, yy - 11], [lean + 2, yy - 6], WOOD[3]);
+    rect(lean + 1, yy - 7, 3, 3, WOOD[1]);
+  }
+  rect(lean - 4, yy - 13, 8, 3, SCARF[0]);
+  rect(lean - 3, yy - 13, 7, 2, SCARF[2]);
+  rect(lean - 4, yy - 11, 2, 3, SCARF[1]);
+
+  if (back && tool) {
+    heldTool();
+    arm(shoulder, grip, true);
+  }
+  const colors = { o: palette[0], h: palette[1], H: palette[2], S: palette[3], F: palette[4], e: eye, "-": palette[4] };
+  p.sprite(HEAD[view] ?? HEAD.down, colors, mirrored ? -lean - 6 : lean - 6, yy - 23, { flip: mirrored });
+  if (!back || !tool) {
+    if (tool) heldTool();
+    arm(shoulder, grip, true);
+  }
+}
+
+export { HOOD };

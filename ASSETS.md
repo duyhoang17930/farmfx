@@ -1,6 +1,6 @@
 # FarmFX assets
 
-181 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
+188 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
 
 ## Characters (20)
 
@@ -247,3 +247,15 @@
 | Quest marker | [`ui/quest-marker`](src/fx/ui/quest-marker.js) | [GIF](docs/preview/ui-quest-marker.gif) |
 | Shop interface | [`ui/shop-interface`](src/fx/ui/shop-interface.js) | [GIF](docs/preview/ui-shop-interface.gif) |
 | Item tooltip | [`ui/tooltip`](src/fx/ui/tooltip.js) | [GIF](docs/preview/ui-tooltip.gif) |
+
+## Island exploration (7)
+
+| Asset | ID | Preview |
+| --- | --- | --- |
+| Gathering swing | [`exploration/gather-swing`](src/fx/exploration/gather-swing.js) | [GIF](docs/preview/exploration-gather-swing.gif) |
+| Metal ingot | [`exploration/ingot`](src/fx/exploration/ingot.js) | [GIF](docs/preview/exploration-ingot.gif) |
+| Island explorer | [`exploration/island-explorer`](src/fx/exploration/island-explorer.js) | [GIF](docs/preview/exploration-island-explorer.gif) |
+| Island shoreline | [`exploration/island-shore`](src/fx/exploration/island-shore.js) | [GIF](docs/preview/exploration-island-shore.gif) |
+| Locked plot marker | [`exploration/locked-plot`](src/fx/exploration/locked-plot.js) | [GIF](docs/preview/exploration-locked-plot.gif) |
+| Ore deposit | [`exploration/ore-deposit`](src/fx/exploration/ore-deposit.js) | [GIF](docs/preview/exploration-ore-deposit.gif) |
+| Plot unlock | [`exploration/plot-unlock`](src/fx/exploration/plot-unlock.js) | [GIF](docs/preview/exploration-plot-unlock.gif) |

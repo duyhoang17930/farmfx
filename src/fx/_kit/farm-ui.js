@@ -72,6 +72,12 @@ const icons = {
     p.poly([[x-4,y+1],[x-1,y-3],[x+3,y-2],[x+4,y+1],[x,y+2]],STEEL[3]);
     p.line(x-2,y-1,x,y-2,STEEL[4]);
   },
+  ingot(p,x,y) {
+    p.poly([[x-6,y+2],[x-5,y-1],[x-2,y-4],[x+4,y-4],[x+6,y-1],[x+5,y+3],[x-4,y+4]],STEEL[0]);
+    p.poly([[x-5,y+1],[x-2,y-3],[x+4,y-3],[x+5,y-1],[x+2,y+1]],STEEL[3]);
+    p.poly([[x-5,y+2],[x+2,y+2],[x+5,y],[x+4,y+2],[x-4,y+3]],STEEL[2]);
+    p.line(x-2,y-3,x+3,y-3,STEEL[4]);
+  },
 };
 
 export function icon(p,id,x,y,ph){

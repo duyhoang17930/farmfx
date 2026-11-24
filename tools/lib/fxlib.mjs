@@ -223,9 +223,11 @@ export function contactSheet(fx, r, { max = 16, width = 1600, title, zoom } = {}
 export function spriteSheet(fx, r, name, { options, loop = fx.meta.loop } = {}) {
   const { w, h, fps } = r;
   const bytes = ({ clear }) => Buffer.from(clear.buffer, clear.byteOffset, clear.byteLength);
-  const first = bytes(r.frames[0]);
-  const isStatic = r.frames.every((frame) => first.equals(bytes(frame)));
-  const frames = isStatic ? r.frames.slice(0, 1) : r.frames;
+  // Gameplay clips can hand off to another animation before their empty endpoint.
+  const sampled = fx.meta.omitTerminalFrame && !loop && r.frames.length > 1 ? r.frames.slice(0, -1) : r.frames;
+  const first = bytes(sampled[0]);
+  const isStatic = sampled.every((frame) => first.equals(bytes(frame)));
+  const frames = isStatic ? sampled.slice(0, 1) : sampled;
   const n = frames.length;
   const cols = Math.min(n, Math.max(1, Math.ceil(Math.sqrt((n * h) / w)))), rows = Math.ceil(n / cols);
   const img = canvas(cols * w, rows * h, [0, 0, 0, 0]);
@@ -238,7 +240,7 @@ export function spriteSheet(fx, r, name, { options, loop = fx.meta.loop } = {}) 
     json.frames.push({
       filename: `${name} ${i}`, frame: { x, y, w, h }, rotated: false, trimmed: false,
       spriteSourceSize: { x: 0, y: 0, w, h }, sourceSize: { w, h },
-      duration: isStatic ? Math.round(r.frames.length * 1000 / fps) : frameDuration(i, fps),
+      duration: isStatic ? Math.round(sampled.length * 1000 / fps) : frameDuration(i, fps),
     });
   });
   const m = fx.meta;

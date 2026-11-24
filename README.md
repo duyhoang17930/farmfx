@@ -1,6 +1,6 @@
 # farmfx.
 
-**<!-- count -->181<!-- /count --> pixel art assets and animations for farming games, every one a small piece of
+**<!-- count -->188<!-- /count --> pixel art assets and animations for farming games, every one a small piece of
 code.** Crops that grow from seed to harvest, animals going about their day, tilled and watered soil, weather and
 seasons, and a farmer who hoes, waters, sows and harvests. Play them live, recolor them for another season, drop
 them into a browser game, or export sprite sheets for any engine.
@@ -45,6 +45,7 @@ system, with a library made for farms instead of fights.
 | **weather & seasons** | 5 | day and night, falling leaves, fireflies, rain, snow |
 | **farm fx** | 10 | chopping impact, dust puff, footsteps, harvest sparkle, item pickup, mining impact… |
 | **ui** | 15 | calendar, crafting menu, currency, tile cursor, day clock, dialogue box… |
+| **island exploration** | 7 | gathering swing, metal ingot, island explorer, island shoreline, locked plot marker, ore deposit… |
 <!-- /catalog -->
 
 The [asset index](ASSETS.md) links to every source file and available GIF preview. The [catalog](docs/CATALOG.md)
@@ -140,6 +141,27 @@ node tools/render.mjs buildings/farmhouse-deluxe --gif --sheet
 node tools/render.mjs animals/horse --sheet --opts '{"facing":"down","anim":"walk"}'
 node tools/render.mjs ui/energy-bar --sheet --opts '{"value":0.75}'
 ```
+
+## island exploration
+
+The exploration assets add an original player, an ore deposit and ingot, a locked plot sign, an unlock effect, and
+47 shoreline layouts for a 16 px grid. See the [island scene](docs/preview/island-exploration.png) and the
+[exploration catalog](docs/CATALOG.md#island-exploration).
+
+```bash
+node tools/sheets.mjs exploration --release --out sheets/exploration
+node tools/exploration-audio.mjs sheets/exploration/audio
+```
+
+- Player sheets share a 48 × 48 frame and a foot pivot at `[24, 36]`. Each direction has idle, walk, axe, and
+  pickaxe clips. Play an impact effect and the chop or mine sound at the swing's `contact` cue in the sheet metadata.
+- Draw shoreline tiles over water. Pass the exposed cardinal sides as `edges` and any diagonally adjacent water as
+  `corners` where both neighboring cardinal tiles are land. For example, `{ edges: "W", corners: ["NE"] }` matches
+  the exported `edge-w-inside-ne` sheet. Reuse `tiles/pond` with `banks: ""` for water.
+- Set `price` on the locked plot marker. For a static sheet with a different price, render it with
+  `node tools/render.mjs exploration/locked-plot --sheet --opts '{"price":75}'`.
+- Use `ingot` with FarmFX inventory and crafting UI, or use its standalone 16 × 16 sheet.
+  The five WAVs are also in [audio/exploration](audio/exploration/).
 
 ## farmer actions.
 
