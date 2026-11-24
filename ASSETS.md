@@ -1,6 +1,6 @@
 # FarmFX assets
 
-352 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
+362 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
 
 ## Characters (20)
 
@@ -359,7 +359,7 @@
 | Stone cutter | [`machines/stone-cutter`](src/fx/machines/stone-cutter.js) | [GIF](docs/preview/machines-stone-cutter.gif) |
 | Teleporter | [`machines/teleporter`](src/fx/machines/teleporter.js) | [GIF](docs/preview/machines-teleporter.gif) |
 
-## Items (75)
+## Items (85)
 
 | Asset | ID | Preview |
 | --- | --- | --- |
@@ -383,6 +383,16 @@
 | Screw | [`items/components/screw`](src/fx/items/components/screw.js) | [GIF](docs/preview/items-components-screw.gif) |
 | Spring | [`items/components/spring`](src/fx/items/components/spring.js) | [GIF](docs/preview/items-components-spring.gif) |
 | Wire | [`items/components/wire`](src/fx/items/components/wire.js) | [GIF](docs/preview/items-components-wire.gif) |
+| Amber | [`items/gems/amber`](src/fx/items/gems/amber.js) | [GIF](docs/preview/items-gems-amber.gif) |
+| Amethyst | [`items/gems/amethyst`](src/fx/items/gems/amethyst.js) | [GIF](docs/preview/items-gems-amethyst.gif) |
+| Diamond | [`items/gems/diamond`](src/fx/items/gems/diamond.js) | [GIF](docs/preview/items-gems-diamond.gif) |
+| Emerald | [`items/gems/emerald`](src/fx/items/gems/emerald.js) | [GIF](docs/preview/items-gems-emerald.gif) |
+| Jade | [`items/gems/jade`](src/fx/items/gems/jade.js) | [GIF](docs/preview/items-gems-jade.gif) |
+| Opal | [`items/gems/opal`](src/fx/items/gems/opal.js) | [GIF](docs/preview/items-gems-opal.gif) |
+| Quartz | [`items/gems/quartz`](src/fx/items/gems/quartz.js) | [GIF](docs/preview/items-gems-quartz.gif) |
+| Ruby | [`items/gems/ruby`](src/fx/items/gems/ruby.js) | [GIF](docs/preview/items-gems-ruby.gif) |
+| Sapphire | [`items/gems/sapphire`](src/fx/items/gems/sapphire.js) | [GIF](docs/preview/items-gems-sapphire.gif) |
+| Topaz | [`items/gems/topaz`](src/fx/items/gems/topaz.js) | [GIF](docs/preview/items-gems-topaz.gif) |
 | Brick | [`items/processed/brick`](src/fx/items/processed/brick.js) | [GIF](docs/preview/items-processed-brick.gif) |
 | Bronze ingot | [`items/processed/bronze-ingot`](src/fx/items/processed/bronze-ingot.js) | [GIF](docs/preview/items-processed-bronze-ingot.gif) |
 | Cement | [`items/processed/cement`](src/fx/items/processed/cement.js) | [GIF](docs/preview/items-processed-cement.gif) |

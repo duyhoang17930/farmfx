@@ -1,6 +1,6 @@
 # Catalog
 
-352 effects in 17 categories. Every one is a file in
+362 effects in 17 categories. Every one is a file in
 `src/fx/<category>/<name>.js`; render any of them with `node tools/render.mjs <id> --gif`.
 
 ## characters
@@ -394,7 +394,7 @@ crafting stations, industrial machinery, power, automation and conveyors.
 
 ## items
 
-inventory icons for raw materials, processed goods and components.
+inventory icons for raw materials, processed goods, components and gems.
 
 | effect | id | | size | what it does |
 |---|---|---|---|---|
@@ -418,6 +418,16 @@ inventory icons for raw materials, processed goods and components.
 | Screw | `items/components/screw` | loop 1s | 16×16 | A tapered silver screw with a slotted head and diagonal threads. |
 | Spring | `items/components/spring` | loop 1s | 16×16 | A vertical compression spring with overlapping steel coils. |
 | Wire | `items/components/wire` | loop 1s | 16×16 | A loop of blue insulated cable with two exposed metal ends. |
+| Amber | `items/gems/amber` | loop 1s | 16×16 | An irregular honey-brown amber nugget with a dark inclusion. |
+| Amethyst | `items/gems/amethyst` | loop 1s | 16×16 | A violet triangular cut with a lilac crown and deep plum edges. |
+| Diamond | `items/gems/diamond` | loop 1s | 16×16 | A wide brilliant-cut diamond with an icy crown and pointed base. |
+| Emerald | `items/gems/emerald` | loop 1s | 16×16 | A tall step-cut emerald with clipped corners and mint facets. |
+| Jade | `items/gems/jade` | loop 1s | 16×16 | A softly polished sage-green jade bead with a drilled center. |
+| Opal | `items/gems/opal` | loop 1s | 16×16 | A milky oval opal with teal and purple flashes. |
+| Quartz | `items/gems/quartz` | loop 1s | 16×16 | A rose-tinged hexagonal quartz prism with an unpolished base. |
+| Ruby | `items/gems/ruby` | loop 1s | 16×16 | A cushion-cut red gem with a broad pink highlight. |
+| Sapphire | `items/gems/sapphire` | loop 1s | 16×16 | An oval cobalt gem with an asymmetric star of blue facets. |
+| Topaz | `items/gems/topaz` | loop 1s | 16×16 | An amber-yellow pear cut with a pointed tip and a pale center. |
 | Brick | `items/processed/brick` | loop 1s | 16×16 | Two stacked fired-clay bricks with orange top faces. |
 | Bronze ingot | `items/processed/bronze-ingot` | loop 1s | 16×16 | A warm dark bronze bar stamped with two marks. |
 | Cement | `items/processed/cement` | loop 1s | 16×16 | A gray mortar sack with a folded top and worn seam. |

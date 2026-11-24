@@ -297,6 +297,16 @@ import * as items_components_rubber from "./items/components/rubber.js";
 import * as items_components_screw from "./items/components/screw.js";
 import * as items_components_spring from "./items/components/spring.js";
 import * as items_components_wire from "./items/components/wire.js";
+import * as items_gems_amber from "./items/gems/amber.js";
+import * as items_gems_amethyst from "./items/gems/amethyst.js";
+import * as items_gems_diamond from "./items/gems/diamond.js";
+import * as items_gems_emerald from "./items/gems/emerald.js";
+import * as items_gems_jade from "./items/gems/jade.js";
+import * as items_gems_opal from "./items/gems/opal.js";
+import * as items_gems_quartz from "./items/gems/quartz.js";
+import * as items_gems_ruby from "./items/gems/ruby.js";
+import * as items_gems_sapphire from "./items/gems/sapphire.js";
+import * as items_gems_topaz from "./items/gems/topaz.js";
 import * as items_processed_brick from "./items/processed/brick.js";
 import * as items_processed_bronze_ingot from "./items/processed/bronze-ingot.js";
 import * as items_processed_cement from "./items/processed/cement.js";
@@ -653,6 +663,16 @@ export const effects = {
   "items/components/screw": items_components_screw,
   "items/components/spring": items_components_spring,
   "items/components/wire": items_components_wire,
+  "items/gems/amber": items_gems_amber,
+  "items/gems/amethyst": items_gems_amethyst,
+  "items/gems/diamond": items_gems_diamond,
+  "items/gems/emerald": items_gems_emerald,
+  "items/gems/jade": items_gems_jade,
+  "items/gems/opal": items_gems_opal,
+  "items/gems/quartz": items_gems_quartz,
+  "items/gems/ruby": items_gems_ruby,
+  "items/gems/sapphire": items_gems_sapphire,
+  "items/gems/topaz": items_gems_topaz,
   "items/processed/brick": items_processed_brick,
   "items/processed/bronze-ingot": items_processed_bronze_ingot,
   "items/processed/cement": items_processed_cement,

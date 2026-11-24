@@ -1,6 +1,6 @@
 # farmfx.
 
-**<!-- count -->352<!-- /count --> pixel art assets and animations for farming games, every one a small piece of
+**<!-- count -->362<!-- /count --> pixel art assets and animations for farming games, every one a small piece of
 code.** Crops that grow from seed to harvest, animals going about their day, tilled and watered soil, weather and
 seasons, and a farmer who hoes, waters, sows and harvests. Play them live, recolor them for another season, drop
 them into a browser game, or export sprite sheets for any engine.
@@ -48,7 +48,7 @@ system, with a library made for farms instead of fights.
 | **island exploration** | 7 | gathering swing, metal ingot, island explorer, island shoreline, locked plot marker, ore deposit… |
 | **resources** | 30 | amethyst deposit, bamboo, bone pile, cactus, clay deposit, coal ore… |
 | **machines** | 45 | advanced furnace, alchemy station, anvil, assembly machine, auto collector, auto feeder… |
-| **items** | 75 | battery, bolt, circuit board, copper wire, electronic part, engine… |
+| **items** | 85 | battery, bolt, circuit board, copper wire, electronic part, engine… |
 <!-- /catalog -->
 
 The [asset index](ASSETS.md) links to every source file and available GIF preview. The [catalog](docs/CATALOG.md)
@@ -247,6 +247,18 @@ node tools/sheets.mjs items/components --release --out sheets/component-items
 
 The inventory UI accepts IDs such as `gear` and `circuit-board`. Import standalone sprites from
 `farmfx/fx/items/components/<name>`.
+
+## gem inventory items
+
+The [gem preview](docs/preview/gem-items.png) shows 10 stones with distinct cuts and silhouettes. Each export
+is a transparent 16 × 16 sprite with an `[8, 8]` pivot.
+
+```bash
+node tools/sheets.mjs items/gems --release --out sheets/gem-items
+```
+
+Use IDs such as `ruby` and `quartz` in the inventory UI, or import the sprite from
+`farmfx/fx/items/gems/<name>`.
 
 ## farmer actions.
 
