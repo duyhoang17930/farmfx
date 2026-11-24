@@ -15,4 +15,5 @@ export const categories = [
   { id: "fx", name: "farm fx", blurb: "dust, splashes, impact debris, growth and pickup feedback" },
   { id: "ui", name: "ui", blurb: "pixel HUD, inventory icons, menus, dialogue and notifications" },
   { id: "exploration", name: "island exploration", blurb: "an original player, gathering animations, ore, and island expansion" },
+  { id: "resources", name: "resources", blurb: "metal ores, gemstone clusters, mineral deposits and wild gatherables" },
 ];

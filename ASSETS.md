@@ -1,6 +1,6 @@
 # FarmFX assets
 
-188 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
+218 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
 
 ## Characters (20)
 
@@ -259,3 +259,38 @@
 | Locked plot marker | [`exploration/locked-plot`](src/fx/exploration/locked-plot.js) | [GIF](docs/preview/exploration-locked-plot.gif) |
 | Ore deposit | [`exploration/ore-deposit`](src/fx/exploration/ore-deposit.js) | [GIF](docs/preview/exploration-ore-deposit.gif) |
 | Plot unlock | [`exploration/plot-unlock`](src/fx/exploration/plot-unlock.js) | [GIF](docs/preview/exploration-plot-unlock.gif) |
+
+## Resources (30)
+
+| Asset | ID | Preview |
+| --- | --- | --- |
+| Amethyst deposit | [`resources/amethyst-deposit`](src/fx/resources/amethyst-deposit.js) | [GIF](docs/preview/resources-amethyst-deposit.gif) |
+| Bamboo | [`resources/bamboo`](src/fx/resources/bamboo.js) | [GIF](docs/preview/resources-bamboo.gif) |
+| Bone pile | [`resources/bone-pile`](src/fx/resources/bone-pile.js) | [GIF](docs/preview/resources-bone-pile.gif) |
+| Cactus | [`resources/cactus`](src/fx/resources/cactus.js) | [GIF](docs/preview/resources-cactus.gif) |
+| Clay deposit | [`resources/clay-deposit`](src/fx/resources/clay-deposit.js) | [GIF](docs/preview/resources-clay-deposit.gif) |
+| Coal ore | [`resources/coal-ore`](src/fx/resources/coal-ore.js) | [GIF](docs/preview/resources-coal-ore.gif) |
+| Copper ore | [`resources/copper-ore`](src/fx/resources/copper-ore.js) | [GIF](docs/preview/resources-copper-ore.gif) |
+| Cotton bush | [`resources/cotton-bush`](src/fx/resources/cotton-bush.js) | [GIF](docs/preview/resources-cotton-bush.gif) |
+| Crystal deposit | [`resources/crystal-deposit`](src/fx/resources/crystal-deposit.js) | [GIF](docs/preview/resources-crystal-deposit.gif) |
+| Driftwood | [`resources/driftwood`](src/fx/resources/driftwood.js) | [GIF](docs/preview/resources-driftwood.gif) |
+| Emerald deposit | [`resources/emerald-deposit`](src/fx/resources/emerald-deposit.js) | [GIF](docs/preview/resources-emerald-deposit.gif) |
+| Fiber bush | [`resources/fiber-bush`](src/fx/resources/fiber-bush.js) | [GIF](docs/preview/resources-fiber-bush.gif) |
+| Fossil deposit | [`resources/fossil-deposit`](src/fx/resources/fossil-deposit.js) | [GIF](docs/preview/resources-fossil-deposit.gif) |
+| Gold ore | [`resources/gold-ore`](src/fx/resources/gold-ore.js) | [GIF](docs/preview/resources-gold-ore.gif) |
+| Iron ore | [`resources/iron-ore`](src/fx/resources/iron-ore.js) | [GIF](docs/preview/resources-iron-ore.gif) |
+| Limestone deposit | [`resources/limestone-deposit`](src/fx/resources/limestone-deposit.js) | [GIF](docs/preview/resources-limestone-deposit.gif) |
+| Meteorite | [`resources/meteorite`](src/fx/resources/meteorite.js) | [GIF](docs/preview/resources-meteorite.gif) |
+| Mushroom | [`resources/mushroom`](src/fx/resources/mushroom.js) | [GIF](docs/preview/resources-mushroom.gif) |
+| Obsidian deposit | [`resources/obsidian-deposit`](src/fx/resources/obsidian-deposit.js) | [GIF](docs/preview/resources-obsidian-deposit.gif) |
+| Red mushroom | [`resources/red-mushroom`](src/fx/resources/red-mushroom.js) | [GIF](docs/preview/resources-red-mushroom.gif) |
+| Ruby deposit | [`resources/ruby-deposit`](src/fx/resources/ruby-deposit.js) | [GIF](docs/preview/resources-ruby-deposit.gif) |
+| Salt deposit | [`resources/salt-deposit`](src/fx/resources/salt-deposit.js) | [GIF](docs/preview/resources-salt-deposit.gif) |
+| Sandstone deposit | [`resources/sandstone-deposit`](src/fx/resources/sandstone-deposit.js) | [GIF](docs/preview/resources-sandstone-deposit.gif) |
+| Sapphire deposit | [`resources/sapphire-deposit`](src/fx/resources/sapphire-deposit.js) | [GIF](docs/preview/resources-sapphire-deposit.gif) |
+| Seashell | [`resources/seashell`](src/fx/resources/seashell.js) | [GIF](docs/preview/resources-seashell.gif) |
+| Seaweed | [`resources/seaweed`](src/fx/resources/seaweed.js) | [GIF](docs/preview/resources-seaweed.gif) |
+| Silver ore | [`resources/silver-ore`](src/fx/resources/silver-ore.js) | [GIF](docs/preview/resources-silver-ore.gif) |
+| Sulfur deposit | [`resources/sulfur-deposit`](src/fx/resources/sulfur-deposit.js) | [GIF](docs/preview/resources-sulfur-deposit.gif) |
+| Tin ore | [`resources/tin-ore`](src/fx/resources/tin-ore.js) | [GIF](docs/preview/resources-tin-ore.gif) |
+| Titanium ore | [`resources/titanium-ore`](src/fx/resources/titanium-ore.js) | [GIF](docs/preview/resources-titanium-ore.gif) |

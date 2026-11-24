@@ -1,6 +1,6 @@
 # farmfx.
 
-**<!-- count -->188<!-- /count --> pixel art assets and animations for farming games, every one a small piece of
+**<!-- count -->218<!-- /count --> pixel art assets and animations for farming games, every one a small piece of
 code.** Crops that grow from seed to harvest, animals going about their day, tilled and watered soil, weather and
 seasons, and a farmer who hoes, waters, sows and harvests. Play them live, recolor them for another season, drop
 them into a browser game, or export sprite sheets for any engine.
@@ -46,6 +46,7 @@ system, with a library made for farms instead of fights.
 | **farm fx** | 10 | chopping impact, dust puff, footsteps, harvest sparkle, item pickup, mining impact… |
 | **ui** | 15 | calendar, crafting menu, currency, tile cursor, day clock, dialogue box… |
 | **island exploration** | 7 | gathering swing, metal ingot, island explorer, island shoreline, locked plot marker, ore deposit… |
+| **resources** | 30 | amethyst deposit, bamboo, bone pile, cactus, clay deposit, coal ore… |
 <!-- /catalog -->
 
 The [asset index](ASSETS.md) links to every source file and available GIF preview. The [catalog](docs/CATALOG.md)
@@ -162,6 +163,19 @@ node tools/exploration-audio.mjs sheets/exploration/audio
   `node tools/render.mjs exploration/locked-plot --sheet --opts '{"price":75}'`.
 - Use `ingot` with FarmFX inventory and crafting UI, or use its standalone 16 × 16 sheet.
   The five WAVs are also in [audio/exploration](audio/exploration/).
+
+## gatherable resources
+
+The resource set includes 30 metal ores, gemstone clusters, mineral deposits, and wild gatherables. Most use a
+32 × 32 canvas. Bamboo uses 32 × 48. See the [resource preview](docs/preview/resources.png) and
+[asset names](docs/CATALOG.md#resources).
+
+```bash
+node tools/sheets.mjs resources --release --out sheets/resources
+```
+
+Use the exported pivot to place each sprite on the 16 px map grid. Static deposits export a single frame.
+Gem glints, moving plants, and the meteorite embers export as loops.
 
 ## farmer actions.
 

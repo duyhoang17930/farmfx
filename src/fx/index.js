@@ -188,6 +188,36 @@ import * as exploration_island_shore from "./exploration/island-shore.js";
 import * as exploration_locked_plot from "./exploration/locked-plot.js";
 import * as exploration_ore_deposit from "./exploration/ore-deposit.js";
 import * as exploration_plot_unlock from "./exploration/plot-unlock.js";
+import * as resources_amethyst_deposit from "./resources/amethyst-deposit.js";
+import * as resources_bamboo from "./resources/bamboo.js";
+import * as resources_bone_pile from "./resources/bone-pile.js";
+import * as resources_cactus from "./resources/cactus.js";
+import * as resources_clay_deposit from "./resources/clay-deposit.js";
+import * as resources_coal_ore from "./resources/coal-ore.js";
+import * as resources_copper_ore from "./resources/copper-ore.js";
+import * as resources_cotton_bush from "./resources/cotton-bush.js";
+import * as resources_crystal_deposit from "./resources/crystal-deposit.js";
+import * as resources_driftwood from "./resources/driftwood.js";
+import * as resources_emerald_deposit from "./resources/emerald-deposit.js";
+import * as resources_fiber_bush from "./resources/fiber-bush.js";
+import * as resources_fossil_deposit from "./resources/fossil-deposit.js";
+import * as resources_gold_ore from "./resources/gold-ore.js";
+import * as resources_iron_ore from "./resources/iron-ore.js";
+import * as resources_limestone_deposit from "./resources/limestone-deposit.js";
+import * as resources_meteorite from "./resources/meteorite.js";
+import * as resources_mushroom from "./resources/mushroom.js";
+import * as resources_obsidian_deposit from "./resources/obsidian-deposit.js";
+import * as resources_red_mushroom from "./resources/red-mushroom.js";
+import * as resources_ruby_deposit from "./resources/ruby-deposit.js";
+import * as resources_salt_deposit from "./resources/salt-deposit.js";
+import * as resources_sandstone_deposit from "./resources/sandstone-deposit.js";
+import * as resources_sapphire_deposit from "./resources/sapphire-deposit.js";
+import * as resources_seashell from "./resources/seashell.js";
+import * as resources_seaweed from "./resources/seaweed.js";
+import * as resources_silver_ore from "./resources/silver-ore.js";
+import * as resources_sulfur_deposit from "./resources/sulfur-deposit.js";
+import * as resources_tin_ore from "./resources/tin-ore.js";
+import * as resources_titanium_ore from "./resources/titanium-ore.js";
 
 export { categories } from "./categories.js";
 
@@ -380,4 +410,34 @@ export const effects = {
   "exploration/locked-plot": exploration_locked_plot,
   "exploration/ore-deposit": exploration_ore_deposit,
   "exploration/plot-unlock": exploration_plot_unlock,
+  "resources/amethyst-deposit": resources_amethyst_deposit,
+  "resources/bamboo": resources_bamboo,
+  "resources/bone-pile": resources_bone_pile,
+  "resources/cactus": resources_cactus,
+  "resources/clay-deposit": resources_clay_deposit,
+  "resources/coal-ore": resources_coal_ore,
+  "resources/copper-ore": resources_copper_ore,
+  "resources/cotton-bush": resources_cotton_bush,
+  "resources/crystal-deposit": resources_crystal_deposit,
+  "resources/driftwood": resources_driftwood,
+  "resources/emerald-deposit": resources_emerald_deposit,
+  "resources/fiber-bush": resources_fiber_bush,
+  "resources/fossil-deposit": resources_fossil_deposit,
+  "resources/gold-ore": resources_gold_ore,
+  "resources/iron-ore": resources_iron_ore,
+  "resources/limestone-deposit": resources_limestone_deposit,
+  "resources/meteorite": resources_meteorite,
+  "resources/mushroom": resources_mushroom,
+  "resources/obsidian-deposit": resources_obsidian_deposit,
+  "resources/red-mushroom": resources_red_mushroom,
+  "resources/ruby-deposit": resources_ruby_deposit,
+  "resources/salt-deposit": resources_salt_deposit,
+  "resources/sandstone-deposit": resources_sandstone_deposit,
+  "resources/sapphire-deposit": resources_sapphire_deposit,
+  "resources/seashell": resources_seashell,
+  "resources/seaweed": resources_seaweed,
+  "resources/silver-ore": resources_silver_ore,
+  "resources/sulfur-deposit": resources_sulfur_deposit,
+  "resources/tin-ore": resources_tin_ore,
+  "resources/titanium-ore": resources_titanium_ore,
 };

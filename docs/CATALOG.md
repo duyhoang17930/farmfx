@@ -1,6 +1,6 @@
 # Catalog
 
-188 effects in 14 categories. Every one is a file in
+218 effects in 15 categories. Every one is a file in
 `src/fx/<category>/<name>.js`; render any of them with `node tools/render.mjs <id> --gif`.
 
 ## characters
@@ -288,3 +288,40 @@ an original player, gathering animations, ore, and island expansion.
 | Locked plot marker | `exploration/locked-plot` | loop 1s | 64×48 | A wooden parcel sign with a brass padlock and a configurable coin price. |
 | Ore deposit | `exploration/ore-deposit` | loop 1s | 32×32 | A split slate boulder with exposed metal seams, distinct from a plain gatherable rock. |
 | Plot unlock | `exploration/plot-unlock` | one-shot 0.92s | 80×64 | A golden ground ripple and opening padlock celebrate the purchase of new land. |
+
+## resources
+
+metal ores, gemstone clusters, mineral deposits and wild gatherables.
+
+| effect | id | | size | what it does |
+|---|---|---|---|---|
+| Amethyst deposit | `resources/amethyst-deposit` | loop 2.5s | 32×32 | A low geode crown with violet points and lilac highlights. |
+| Bamboo | `resources/bamboo` | loop 2.5s | 32×48 | Three segmented green culms with swaying pointed leaves. |
+| Bone pile | `resources/bone-pile` | loop 1s | 32×32 | Crossed weathered bones beneath a small cracked skull. |
+| Cactus | `resources/cactus` | loop 1s | 32×32 | A ribbed desert cactus with two side arms and a small coral flower. |
+| Clay deposit | `resources/clay-deposit` | loop 1s | 32×32 | A low red-brown clay mound with a smooth cut face and drying cracks. |
+| Coal ore | `resources/coal-ore` | loop 1s | 32×32 | A low shale bed with broad charcoal chips and a blue-black sheen. |
+| Copper ore | `resources/copper-ore` | loop 1s | 32×32 | Orange copper knobs set in a weathered green split boulder. |
+| Cotton bush | `resources/cotton-bush` | loop 2.5s | 32×32 | Rust-colored stems carry five fluffy cotton bolls on a wild bush. |
+| Crystal deposit | `resources/crystal-deposit` | loop 2.5s | 32×32 | Three milky quartz prisms with pale cyan faces and a passing glint. |
+| Driftwood | `resources/driftwood` | loop 1s | 32×32 | A curved bleached branch with split ends and carved grain. |
+| Emerald deposit | `resources/emerald-deposit` | loop 2.5s | 32×32 | A narrow green spire with two angled offshoots. |
+| Fiber bush | `resources/fiber-bush` | loop 2.5s | 32×32 | A swaying tuft of flax blades and seed heads. |
+| Fossil deposit | `resources/fossil-deposit` | loop 1s | 32×32 | An exposed spiral shell embedded in a tilted sediment slab. |
+| Gold ore | `resources/gold-ore` | loop 1s | 32×32 | Two dark crags with a wide, bright seam of exposed gold. |
+| Iron ore | `resources/iron-ore` | loop 1s | 32×32 | A high, rusty ridge with square hematite bands across its face. |
+| Limestone deposit | `resources/limestone-deposit` | loop 1s | 32×32 | Two rough chalky slabs with cool seams and broken ivory edges. |
+| Meteorite | `resources/meteorite` | loop 2.5s | 32×32 | A scorched, pitted meteorite lodged in a shallow crater with dim pulsing embers. |
+| Mushroom | `resources/mushroom` | loop 2.5s | 32×32 | A cluster of rounded chestnut caps on pale stems. |
+| Obsidian deposit | `resources/obsidian-deposit` | loop 1s | 32×32 | Two sharp volcanic glass splinters with narrow blue-purple reflection lines. |
+| Red mushroom | `resources/red-mushroom` | loop 2.5s | 32×32 | Scarlet toadstools marked with cream spots. |
+| Ruby deposit | `resources/ruby-deposit` | loop 2.5s | 32×32 | Two stout crimson crystals with warm red tips on a dark ledge. |
+| Salt deposit | `resources/salt-deposit` | loop 1s | 32×32 | Rose-and-white salt cubes rising from a pale crust. |
+| Sandstone deposit | `resources/sandstone-deposit` | loop 1s | 32×32 | Staggered ochre shelves with amber sediment bands. |
+| Sapphire deposit | `resources/sapphire-deposit` | loop 2.5s | 32×32 | An asymmetrical spray of cobalt crystals with ice-blue facets. |
+| Seashell | `resources/seashell` | loop 1s | 32×32 | A small blush scallop shell with raised radial ribs. |
+| Seaweed | `resources/seaweed` | loop 2.5s | 32×32 | Three olive-teal fronds that bend in a shallow current. |
+| Silver ore | `resources/silver-ore` | loop 1s | 32×32 | A violet wedge with broad white-silver flakes. |
+| Sulfur deposit | `resources/sulfur-deposit` | loop 1s | 32×32 | Yellow sulfur nodules clustered in the vents of a rust-dark crust. |
+| Tin ore | `resources/tin-ore` | loop 1s | 32×32 | Small pale green-gray nodules scattered over a sandy ledge. |
+| Titanium ore | `resources/titanium-ore` | loop 1s | 32×32 | A steep blue-gray outcrop with three tall metallic veins. |
