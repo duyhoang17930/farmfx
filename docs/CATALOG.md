@@ -1,6 +1,6 @@
 # Catalog
 
-307 effects in 17 categories. Every one is a file in
+332 effects in 17 categories. Every one is a file in
 `src/fx/<category>/<name>.js`; render any of them with `node tools/render.mjs <id> --gif`.
 
 ## characters
@@ -394,10 +394,35 @@ crafting stations, industrial machinery, power, automation and conveyors.
 
 ## items
 
-inventory icons for raw materials and crafting ingredients.
+inventory icons for raw materials and processed goods.
 
 | effect | id | | size | what it does |
 |---|---|---|---|---|
+| Brick | `items/processed/brick` | loop 1s | 16×16 | Two stacked fired-clay bricks with orange top faces. |
+| Bronze ingot | `items/processed/bronze-ingot` | loop 1s | 16×16 | A warm dark bronze bar stamped with two marks. |
+| Cement | `items/processed/cement` | loop 1s | 16×16 | A gray mortar sack with a folded top and worn seam. |
+| Charcoal | `items/processed/charcoal` | loop 1s | 16×16 | Three lightweight black charcoal sticks with pale ash along the cracks. |
+| Cloth | `items/processed/cloth` | loop 1s | 16×16 | A folded lilac swatch with a stitched hem. |
+| Cooking oil | `items/processed/cooking-oil` | loop 1s | 16×16 | A squat green glass bottle with bright golden oil. |
+| Copper ingot | `items/processed/copper-ingot` | loop 1s | 16×16 | A bright copper bar with an orange face and a single stamped line. |
+| Crystal shard | `items/processed/crystal-shard` | loop 1s | 16×16 | A single slanted cyan shard with a sharp highlight and dark cut face. |
+| Flour | `items/processed/flour` | loop 1s | 16×16 | An open cloth sack filled with off-white flour. |
+| Glass | `items/processed/glass` | loop 1s | 16×16 | A thin blue-green glass pane with two bright reflections. |
+| Gold ingot | `items/processed/gold-ingot` | loop 1s | 16×16 | A yellow gold bar with a small stamped mark. |
+| Hardwood plank | `items/processed/hardwood-plank` | loop 1s | 16×16 | A dark timber plank with a striped cut end and two knots. |
+| Iron ingot | `items/processed/iron-ingot` | loop 1s | 16×16 | A dark forged iron bar with a muted gray face. |
+| Leather roll | `items/processed/leather-roll` | loop 1s | 16×16 | A brown hide rolled into a cylinder, with a visible spiral end. |
+| Paper | `items/processed/paper` | loop 1s | 16×16 | A stack of cream pages with an upturned corner. |
+| Plank | `items/processed/plank` | loop 1s | 16×16 | A pale sawn board with straight grain and a bright edge. |
+| Polished stone | `items/processed/polished-stone` | loop 1s | 16×16 | A smooth-cut stone tile with bevels and a pale reflective streak. |
+| Refined oil | `items/processed/refined-oil` | loop 1s | 16×16 | A tall steel-blue oil vial marked with a copper band. |
+| Rope | `items/processed/rope` | loop 1s | 16×16 | A coiled tan rope with tucked ends and diagonal twists. |
+| Silver ingot | `items/processed/silver-ingot` | loop 1s | 16×16 | A bright ivory-silver bar with a subtle violet bevel. |
+| Steel ingot | `items/processed/steel-ingot` | loop 1s | 16×16 | A blue steel bar with a dark center stamp and a crisp edge. |
+| Sugar | `items/processed/sugar` | loop 1s | 16×16 | Two white sugar cubes with a small loose crystal. |
+| Thread | `items/processed/thread` | loop 1s | 16×16 | A small wooden spool wound with cream thread. |
+| Tin ingot | `items/processed/tin-ingot` | loop 1s | 16×16 | A soft pale tin bar with a green-gray cast. |
+| Titanium ingot | `items/processed/titanium-ingot` | loop 1s | 16×16 | A violet-blue titanium bar with a three-pixel diagonal hallmark. |
 | Bark | `items/raw/bark` | loop 1s | 16×16 | Three rough curling bark flakes with reddish edges. |
 | Bone | `items/raw/bone` | loop 1s | 16×16 | A small ivory bone with rounded joints. |
 | Clay | `items/raw/clay` | loop 1s | 16×16 | A lumpy terracotta piece with two drying cracks. |

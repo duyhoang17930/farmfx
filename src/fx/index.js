@@ -277,6 +277,31 @@ import * as machines_spinning_wheel from "./machines/spinning-wheel.js";
 import * as machines_steam_generator from "./machines/steam-generator.js";
 import * as machines_stone_cutter from "./machines/stone-cutter.js";
 import * as machines_teleporter from "./machines/teleporter.js";
+import * as items_processed_brick from "./items/processed/brick.js";
+import * as items_processed_bronze_ingot from "./items/processed/bronze-ingot.js";
+import * as items_processed_cement from "./items/processed/cement.js";
+import * as items_processed_charcoal from "./items/processed/charcoal.js";
+import * as items_processed_cloth from "./items/processed/cloth.js";
+import * as items_processed_cooking_oil from "./items/processed/cooking-oil.js";
+import * as items_processed_copper_ingot from "./items/processed/copper-ingot.js";
+import * as items_processed_crystal_shard from "./items/processed/crystal-shard.js";
+import * as items_processed_flour from "./items/processed/flour.js";
+import * as items_processed_glass from "./items/processed/glass.js";
+import * as items_processed_gold_ingot from "./items/processed/gold-ingot.js";
+import * as items_processed_hardwood_plank from "./items/processed/hardwood-plank.js";
+import * as items_processed_iron_ingot from "./items/processed/iron-ingot.js";
+import * as items_processed_leather_roll from "./items/processed/leather-roll.js";
+import * as items_processed_paper from "./items/processed/paper.js";
+import * as items_processed_plank from "./items/processed/plank.js";
+import * as items_processed_polished_stone from "./items/processed/polished-stone.js";
+import * as items_processed_refined_oil from "./items/processed/refined-oil.js";
+import * as items_processed_rope from "./items/processed/rope.js";
+import * as items_processed_silver_ingot from "./items/processed/silver-ingot.js";
+import * as items_processed_steel_ingot from "./items/processed/steel-ingot.js";
+import * as items_processed_sugar from "./items/processed/sugar.js";
+import * as items_processed_thread from "./items/processed/thread.js";
+import * as items_processed_tin_ingot from "./items/processed/tin-ingot.js";
+import * as items_processed_titanium_ingot from "./items/processed/titanium-ingot.js";
 import * as items_raw_bark from "./items/raw/bark.js";
 import * as items_raw_bone from "./items/raw/bone.js";
 import * as items_raw_clay from "./items/raw/clay.js";
@@ -588,6 +613,31 @@ export const effects = {
   "machines/steam-generator": machines_steam_generator,
   "machines/stone-cutter": machines_stone_cutter,
   "machines/teleporter": machines_teleporter,
+  "items/processed/brick": items_processed_brick,
+  "items/processed/bronze-ingot": items_processed_bronze_ingot,
+  "items/processed/cement": items_processed_cement,
+  "items/processed/charcoal": items_processed_charcoal,
+  "items/processed/cloth": items_processed_cloth,
+  "items/processed/cooking-oil": items_processed_cooking_oil,
+  "items/processed/copper-ingot": items_processed_copper_ingot,
+  "items/processed/crystal-shard": items_processed_crystal_shard,
+  "items/processed/flour": items_processed_flour,
+  "items/processed/glass": items_processed_glass,
+  "items/processed/gold-ingot": items_processed_gold_ingot,
+  "items/processed/hardwood-plank": items_processed_hardwood_plank,
+  "items/processed/iron-ingot": items_processed_iron_ingot,
+  "items/processed/leather-roll": items_processed_leather_roll,
+  "items/processed/paper": items_processed_paper,
+  "items/processed/plank": items_processed_plank,
+  "items/processed/polished-stone": items_processed_polished_stone,
+  "items/processed/refined-oil": items_processed_refined_oil,
+  "items/processed/rope": items_processed_rope,
+  "items/processed/silver-ingot": items_processed_silver_ingot,
+  "items/processed/steel-ingot": items_processed_steel_ingot,
+  "items/processed/sugar": items_processed_sugar,
+  "items/processed/thread": items_processed_thread,
+  "items/processed/tin-ingot": items_processed_tin_ingot,
+  "items/processed/titanium-ingot": items_processed_titanium_ingot,
   "items/raw/bark": items_raw_bark,
   "items/raw/bone": items_raw_bone,
   "items/raw/clay": items_raw_clay,

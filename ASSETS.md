@@ -1,6 +1,6 @@
 # FarmFX assets
 
-307 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
+332 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
 
 ## Characters (20)
 
@@ -359,10 +359,35 @@
 | Stone cutter | [`machines/stone-cutter`](src/fx/machines/stone-cutter.js) | [GIF](docs/preview/machines-stone-cutter.gif) |
 | Teleporter | [`machines/teleporter`](src/fx/machines/teleporter.js) | [GIF](docs/preview/machines-teleporter.gif) |
 
-## Items (30)
+## Items (55)
 
 | Asset | ID | Preview |
 | --- | --- | --- |
+| Brick | [`items/processed/brick`](src/fx/items/processed/brick.js) | [GIF](docs/preview/items-processed-brick.gif) |
+| Bronze ingot | [`items/processed/bronze-ingot`](src/fx/items/processed/bronze-ingot.js) | [GIF](docs/preview/items-processed-bronze-ingot.gif) |
+| Cement | [`items/processed/cement`](src/fx/items/processed/cement.js) | [GIF](docs/preview/items-processed-cement.gif) |
+| Charcoal | [`items/processed/charcoal`](src/fx/items/processed/charcoal.js) | [GIF](docs/preview/items-processed-charcoal.gif) |
+| Cloth | [`items/processed/cloth`](src/fx/items/processed/cloth.js) | [GIF](docs/preview/items-processed-cloth.gif) |
+| Cooking oil | [`items/processed/cooking-oil`](src/fx/items/processed/cooking-oil.js) | [GIF](docs/preview/items-processed-cooking-oil.gif) |
+| Copper ingot | [`items/processed/copper-ingot`](src/fx/items/processed/copper-ingot.js) | [GIF](docs/preview/items-processed-copper-ingot.gif) |
+| Crystal shard | [`items/processed/crystal-shard`](src/fx/items/processed/crystal-shard.js) | [GIF](docs/preview/items-processed-crystal-shard.gif) |
+| Flour | [`items/processed/flour`](src/fx/items/processed/flour.js) | [GIF](docs/preview/items-processed-flour.gif) |
+| Glass | [`items/processed/glass`](src/fx/items/processed/glass.js) | [GIF](docs/preview/items-processed-glass.gif) |
+| Gold ingot | [`items/processed/gold-ingot`](src/fx/items/processed/gold-ingot.js) | [GIF](docs/preview/items-processed-gold-ingot.gif) |
+| Hardwood plank | [`items/processed/hardwood-plank`](src/fx/items/processed/hardwood-plank.js) | [GIF](docs/preview/items-processed-hardwood-plank.gif) |
+| Iron ingot | [`items/processed/iron-ingot`](src/fx/items/processed/iron-ingot.js) | [GIF](docs/preview/items-processed-iron-ingot.gif) |
+| Leather roll | [`items/processed/leather-roll`](src/fx/items/processed/leather-roll.js) | [GIF](docs/preview/items-processed-leather-roll.gif) |
+| Paper | [`items/processed/paper`](src/fx/items/processed/paper.js) | [GIF](docs/preview/items-processed-paper.gif) |
+| Plank | [`items/processed/plank`](src/fx/items/processed/plank.js) | [GIF](docs/preview/items-processed-plank.gif) |
+| Polished stone | [`items/processed/polished-stone`](src/fx/items/processed/polished-stone.js) | [GIF](docs/preview/items-processed-polished-stone.gif) |
+| Refined oil | [`items/processed/refined-oil`](src/fx/items/processed/refined-oil.js) | [GIF](docs/preview/items-processed-refined-oil.gif) |
+| Rope | [`items/processed/rope`](src/fx/items/processed/rope.js) | [GIF](docs/preview/items-processed-rope.gif) |
+| Silver ingot | [`items/processed/silver-ingot`](src/fx/items/processed/silver-ingot.js) | [GIF](docs/preview/items-processed-silver-ingot.gif) |
+| Steel ingot | [`items/processed/steel-ingot`](src/fx/items/processed/steel-ingot.js) | [GIF](docs/preview/items-processed-steel-ingot.gif) |
+| Sugar | [`items/processed/sugar`](src/fx/items/processed/sugar.js) | [GIF](docs/preview/items-processed-sugar.gif) |
+| Thread | [`items/processed/thread`](src/fx/items/processed/thread.js) | [GIF](docs/preview/items-processed-thread.gif) |
+| Tin ingot | [`items/processed/tin-ingot`](src/fx/items/processed/tin-ingot.js) | [GIF](docs/preview/items-processed-tin-ingot.gif) |
+| Titanium ingot | [`items/processed/titanium-ingot`](src/fx/items/processed/titanium-ingot.js) | [GIF](docs/preview/items-processed-titanium-ingot.gif) |
 | Bark | [`items/raw/bark`](src/fx/items/raw/bark.js) | [GIF](docs/preview/items-raw-bark.gif) |
 | Bone | [`items/raw/bone`](src/fx/items/raw/bone.js) | [GIF](docs/preview/items-raw-bone.gif) |
 | Clay | [`items/raw/clay`](src/fx/items/raw/clay.js) | [GIF](docs/preview/items-raw-clay.gif) |

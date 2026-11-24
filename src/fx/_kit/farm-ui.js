@@ -1,6 +1,7 @@
 import { clamp } from "../../core/index.js";
 import { asset, CREAM, GOLD, LEAF, RED, STEEL, VIOLET, WATER, WOOD, round, wave } from "./art.js";
 import { drawRawIcon } from "./raw-items.js";
+import { drawProcessedIcon } from "./processed-items.js";
 import { panel } from "./ui.js";
 
 const UI = ["#342b42","#563d53","#835966","#b67c72","#ecc196"];
@@ -75,7 +76,7 @@ const icons = {
 
 export function icon(p,id,x,y,ph){
   if(Object.hasOwn(icons,id))icons[id](p,x,y,ph);
-  else drawRawIcon(p,id,x,y);
+  else if(!drawRawIcon(p,id,x,y))drawProcessedIcon(p,id,x,y);
 }
 
 export function itemGrid(p,C,ph,o,{x,y,cols,rows}){

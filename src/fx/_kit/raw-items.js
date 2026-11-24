@@ -1,5 +1,6 @@
-import { fit, ramp } from "../../core/index.js";
-import { asset, CREAM, GOLD, LEAF, STEEL, VIOLET, WATER, WOOD, round } from "./art.js";
+import { ramp } from "../../core/index.js";
+import { CREAM, GOLD, LEAF, STEEL, VIOLET, WATER, WOOD, round } from "./art.js";
+import { inventoryItems, itemPoly as poly } from "./inventory-items.js";
 
 const BARK = ramp(["#382a39","#5d3d43","#885548","#b87857","#d69a6b"]);
 const CLAY = ramp(["#593641","#804648","#b26751","#d88963","#edad81"]);
@@ -9,10 +10,6 @@ const CHALK = ramp(["#4c4c49","#76766a","#a4a08c","#cdccb0","#f1ebcf"]);
 const AMBER = ramp(["#56313c","#945037","#cb7e3e","#efa44e","#ffe097"]);
 const MINT = ramp(["#2d454c","#4b6468","#7a9994","#b0c2ac","#e4e4c8"]);
 const FIBER = ramp(["#353e2e","#5b6640","#85914f","#b4b765","#e0cd89"]);
-
-function poly(p, x, y, points, color) {
-  p.poly(points.map(([dx,dy]) => [x+dx,y+dy]), color);
-}
 
 function chip(p, x, y, C) {
   poly(p,x,y,[[-5,2],[-4,-1],[-2,-4],[2,-5],[5,-1],[4,3],[1,5],[-3,4]],C[0]);
@@ -216,18 +213,4 @@ const items = {
   }],
 };
 
-export function drawRawIcon(p, id, x, y) {
-  const key = typeof id === "string" && id.startsWith("items/raw/") ? id.slice("items/raw/".length) : id;
-  if (!Object.hasOwn(items,key)) return;
-  const [,palette,paint] = items[key];
-  paint(p,x,y,fit(palette,5));
-}
-
-export function rawItem(id) {
-  const [desc,palette,paint] = items[id];
-  const name = id[0].toUpperCase()+id.slice(1).replaceAll("-"," ");
-  return asset({
-    name, desc, tags: ["item","inventory","raw",id], size: [16,16], origin: [8,8],
-    duration: 1, fps: 1, bg: "dark", palette,
-  }, (p,_phase,C) => paint(p,0,0,C));
-}
+export const { item:rawItem, drawIcon:drawRawIcon } = inventoryItems("raw",items);
