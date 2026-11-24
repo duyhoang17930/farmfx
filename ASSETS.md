@@ -1,6 +1,6 @@
 # FarmFX assets
 
-362 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
+392 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
 
 ## Characters (20)
 
@@ -359,7 +359,7 @@
 | Stone cutter | [`machines/stone-cutter`](src/fx/machines/stone-cutter.js) | [GIF](docs/preview/machines-stone-cutter.gif) |
 | Teleporter | [`machines/teleporter`](src/fx/machines/teleporter.js) | [GIF](docs/preview/machines-teleporter.gif) |
 
-## Items (85)
+## Items (115)
 
 | Asset | ID | Preview |
 | --- | --- | --- |
@@ -418,6 +418,36 @@
 | Thread | [`items/processed/thread`](src/fx/items/processed/thread.js) | [GIF](docs/preview/items-processed-thread.gif) |
 | Tin ingot | [`items/processed/tin-ingot`](src/fx/items/processed/tin-ingot.js) | [GIF](docs/preview/items-processed-tin-ingot.gif) |
 | Titanium ingot | [`items/processed/titanium-ingot`](src/fx/items/processed/titanium-ingot.js) | [GIF](docs/preview/items-processed-titanium-ingot.gif) |
+| Apple | [`items/produce/apple`](src/fx/items/produce/apple.js) | [GIF](docs/preview/items-produce-apple.gif) |
+| Banana | [`items/produce/banana`](src/fx/items/produce/banana.js) | [GIF](docs/preview/items-produce-banana.gif) |
+| Barley | [`items/produce/barley`](src/fx/items/produce/barley.js) | [GIF](docs/preview/items-produce-barley.gif) |
+| Berry | [`items/produce/berry`](src/fx/items/produce/berry.js) | [GIF](docs/preview/items-produce-berry.gif) |
+| Cabbage | [`items/produce/cabbage`](src/fx/items/produce/cabbage.js) | [GIF](docs/preview/items-produce-cabbage.gif) |
+| Carrot | [`items/produce/carrot`](src/fx/items/produce/carrot.js) | [GIF](docs/preview/items-produce-carrot.gif) |
+| Cassava | [`items/produce/cassava`](src/fx/items/produce/cassava.js) | [GIF](docs/preview/items-produce-cassava.gif) |
+| Cherry | [`items/produce/cherry`](src/fx/items/produce/cherry.js) | [GIF](docs/preview/items-produce-cherry.gif) |
+| Coconut | [`items/produce/coconut`](src/fx/items/produce/coconut.js) | [GIF](docs/preview/items-produce-coconut.gif) |
+| Corn | [`items/produce/corn`](src/fx/items/produce/corn.js) | [GIF](docs/preview/items-produce-corn.gif) |
+| Cotton | [`items/produce/cotton`](src/fx/items/produce/cotton.js) | [GIF](docs/preview/items-produce-cotton.gif) |
+| Cucumber | [`items/produce/cucumber`](src/fx/items/produce/cucumber.js) | [GIF](docs/preview/items-produce-cucumber.gif) |
+| Gherkin | [`items/produce/gherkin`](src/fx/items/produce/gherkin.js) | [GIF](docs/preview/items-produce-gherkin.gif) |
+| Grape | [`items/produce/grape`](src/fx/items/produce/grape.js) | [GIF](docs/preview/items-produce-grape.gif) |
+| Onion | [`items/produce/onion`](src/fx/items/produce/onion.js) | [GIF](docs/preview/items-produce-onion.gif) |
+| Orange | [`items/produce/orange`](src/fx/items/produce/orange.js) | [GIF](docs/preview/items-produce-orange.gif) |
+| Palm fruit | [`items/produce/palm-fruit`](src/fx/items/produce/palm-fruit.js) | [GIF](docs/preview/items-produce-palm-fruit.gif) |
+| Potato | [`items/produce/potato`](src/fx/items/produce/potato.js) | [GIF](docs/preview/items-produce-potato.gif) |
+| Rapeseed | [`items/produce/rapeseed`](src/fx/items/produce/rapeseed.js) | [GIF](docs/preview/items-produce-rapeseed.gif) |
+| Rice | [`items/produce/rice`](src/fx/items/produce/rice.js) | [GIF](docs/preview/items-produce-rice.gif) |
+| Shallot | [`items/produce/shallot`](src/fx/items/produce/shallot.js) | [GIF](docs/preview/items-produce-shallot.gif) |
+| Sorghum | [`items/produce/sorghum`](src/fx/items/produce/sorghum.js) | [GIF](docs/preview/items-produce-sorghum.gif) |
+| Soybean | [`items/produce/soybean`](src/fx/items/produce/soybean.js) | [GIF](docs/preview/items-produce-soybean.gif) |
+| Sugar beet | [`items/produce/sugar-beet`](src/fx/items/produce/sugar-beet.js) | [GIF](docs/preview/items-produce-sugar-beet.gif) |
+| Sugarcane | [`items/produce/sugarcane`](src/fx/items/produce/sugarcane.js) | [GIF](docs/preview/items-produce-sugarcane.gif) |
+| Sweet potato | [`items/produce/sweet-potato`](src/fx/items/produce/sweet-potato.js) | [GIF](docs/preview/items-produce-sweet-potato.gif) |
+| Tomato | [`items/produce/tomato`](src/fx/items/produce/tomato.js) | [GIF](docs/preview/items-produce-tomato.gif) |
+| Watermelon | [`items/produce/watermelon`](src/fx/items/produce/watermelon.js) | [GIF](docs/preview/items-produce-watermelon.gif) |
+| Wheat | [`items/produce/wheat`](src/fx/items/produce/wheat.js) | [GIF](docs/preview/items-produce-wheat.gif) |
+| Yam | [`items/produce/yam`](src/fx/items/produce/yam.js) | [GIF](docs/preview/items-produce-yam.gif) |
 | Bark | [`items/raw/bark`](src/fx/items/raw/bark.js) | [GIF](docs/preview/items-raw-bark.gif) |
 | Bone | [`items/raw/bone`](src/fx/items/raw/bone.js) | [GIF](docs/preview/items-raw-bone.gif) |
 | Clay | [`items/raw/clay`](src/fx/items/raw/clay.js) | [GIF](docs/preview/items-raw-clay.gif) |

@@ -332,6 +332,36 @@ import * as items_processed_sugar from "./items/processed/sugar.js";
 import * as items_processed_thread from "./items/processed/thread.js";
 import * as items_processed_tin_ingot from "./items/processed/tin-ingot.js";
 import * as items_processed_titanium_ingot from "./items/processed/titanium-ingot.js";
+import * as items_produce_apple from "./items/produce/apple.js";
+import * as items_produce_banana from "./items/produce/banana.js";
+import * as items_produce_barley from "./items/produce/barley.js";
+import * as items_produce_berry from "./items/produce/berry.js";
+import * as items_produce_cabbage from "./items/produce/cabbage.js";
+import * as items_produce_carrot from "./items/produce/carrot.js";
+import * as items_produce_cassava from "./items/produce/cassava.js";
+import * as items_produce_cherry from "./items/produce/cherry.js";
+import * as items_produce_coconut from "./items/produce/coconut.js";
+import * as items_produce_corn from "./items/produce/corn.js";
+import * as items_produce_cotton from "./items/produce/cotton.js";
+import * as items_produce_cucumber from "./items/produce/cucumber.js";
+import * as items_produce_gherkin from "./items/produce/gherkin.js";
+import * as items_produce_grape from "./items/produce/grape.js";
+import * as items_produce_onion from "./items/produce/onion.js";
+import * as items_produce_orange from "./items/produce/orange.js";
+import * as items_produce_palm_fruit from "./items/produce/palm-fruit.js";
+import * as items_produce_potato from "./items/produce/potato.js";
+import * as items_produce_rapeseed from "./items/produce/rapeseed.js";
+import * as items_produce_rice from "./items/produce/rice.js";
+import * as items_produce_shallot from "./items/produce/shallot.js";
+import * as items_produce_sorghum from "./items/produce/sorghum.js";
+import * as items_produce_soybean from "./items/produce/soybean.js";
+import * as items_produce_sugar_beet from "./items/produce/sugar-beet.js";
+import * as items_produce_sugarcane from "./items/produce/sugarcane.js";
+import * as items_produce_sweet_potato from "./items/produce/sweet-potato.js";
+import * as items_produce_tomato from "./items/produce/tomato.js";
+import * as items_produce_watermelon from "./items/produce/watermelon.js";
+import * as items_produce_wheat from "./items/produce/wheat.js";
+import * as items_produce_yam from "./items/produce/yam.js";
 import * as items_raw_bark from "./items/raw/bark.js";
 import * as items_raw_bone from "./items/raw/bone.js";
 import * as items_raw_clay from "./items/raw/clay.js";
@@ -698,6 +728,36 @@ export const effects = {
   "items/processed/thread": items_processed_thread,
   "items/processed/tin-ingot": items_processed_tin_ingot,
   "items/processed/titanium-ingot": items_processed_titanium_ingot,
+  "items/produce/apple": items_produce_apple,
+  "items/produce/banana": items_produce_banana,
+  "items/produce/barley": items_produce_barley,
+  "items/produce/berry": items_produce_berry,
+  "items/produce/cabbage": items_produce_cabbage,
+  "items/produce/carrot": items_produce_carrot,
+  "items/produce/cassava": items_produce_cassava,
+  "items/produce/cherry": items_produce_cherry,
+  "items/produce/coconut": items_produce_coconut,
+  "items/produce/corn": items_produce_corn,
+  "items/produce/cotton": items_produce_cotton,
+  "items/produce/cucumber": items_produce_cucumber,
+  "items/produce/gherkin": items_produce_gherkin,
+  "items/produce/grape": items_produce_grape,
+  "items/produce/onion": items_produce_onion,
+  "items/produce/orange": items_produce_orange,
+  "items/produce/palm-fruit": items_produce_palm_fruit,
+  "items/produce/potato": items_produce_potato,
+  "items/produce/rapeseed": items_produce_rapeseed,
+  "items/produce/rice": items_produce_rice,
+  "items/produce/shallot": items_produce_shallot,
+  "items/produce/sorghum": items_produce_sorghum,
+  "items/produce/soybean": items_produce_soybean,
+  "items/produce/sugar-beet": items_produce_sugar_beet,
+  "items/produce/sugarcane": items_produce_sugarcane,
+  "items/produce/sweet-potato": items_produce_sweet_potato,
+  "items/produce/tomato": items_produce_tomato,
+  "items/produce/watermelon": items_produce_watermelon,
+  "items/produce/wheat": items_produce_wheat,
+  "items/produce/yam": items_produce_yam,
   "items/raw/bark": items_raw_bark,
   "items/raw/bone": items_raw_bone,
   "items/raw/clay": items_raw_clay,

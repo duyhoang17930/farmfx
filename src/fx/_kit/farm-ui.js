@@ -4,6 +4,7 @@ import { drawRawIcon } from "./raw-items.js";
 import { drawProcessedIcon } from "./processed-items.js";
 import { drawComponentIcon } from "./component-items.js";
 import { drawGemIcon } from "./gem-items.js";
+import { drawProduceIcon } from "./produce-items.js";
 import { panel } from "./ui.js";
 
 const UI = ["#342b42","#563d53","#835966","#b67c72","#ecc196"];
@@ -28,18 +29,6 @@ export function slot(p,x,y,C,selected=false){
 
 export const ITEM_IDS=["carrot","apple","wheat","seed","wood","ore","fish","egg","milk","coin","berry","stone"];
 const icons = {
-  carrot(p,x,y){
-    p.poly([[x-3,y-2],[x+2,y-3],[x+4,y-1],[x-3,y+5],[x-4,y+4]],GOLD[1]);
-    p.poly([[x-2,y-2],[x+2,y-2],[x+3,y],[x-3,y+4]],RED[3]);p.line(x-1,y-1,x-2,y+2,GOLD[4]);
-    p.line(x+1,y-2,x+1,y-5,LEAF[3]);p.line(x+1,y-2,x+4,y-5,LEAF[2]);
-  },
-  apple(p,x,y) {
-    round(p,x-.6,y,4.4,3.9,RED);p.line(x,y-2,x+1,y-5,WOOD[1]);p.line(x+1,y-4,x+3,y-5,LEAF[3]);
-  },
-  wheat(p,x,y) {
-    p.line(x-2,y+4,x+1,y-5,GOLD[2]);
-    for(const dy of [-3,-1,1]){p.line(x-2,y+dy-1,x,y+dy,GOLD[3]);p.line(x,y+dy,x+3,y+dy-1,GOLD[4]);}
-  },
   seed(p,x,y) {
     p.poly([[x-3,y-4],[x+3,y-4],[x+4,y+4],[x-4,y+4]],GOLD[0]);p.rect(x-2,y-3,5,6,GOLD[3]);
     p.line(x,y+1,x+2,y-2,LEAF[2]);p.dot(x-2,y-2,GOLD[4],.9);
@@ -64,10 +53,6 @@ const icons = {
     const w=2+2*Math.abs(wave(ph,1,.25));round(p,x,y,w,4.2,GOLD);
     if(w>3.1){p.line(x,y-2,x,y+2,GOLD[4]);p.px(x+1,y-1,GOLD[2]);}
   },
-  berry(p,x,y) {
-    for(const [dx,dy] of [[-2,-1],[2,-1],[0,2]])round(p,x+dx,y+dy,2.35,2.4,RED);
-    p.line(x,y-2,x+2,y-4,LEAF[3]);
-  },
   ingot(p,x,y) {
     p.poly([[x-6,y+2],[x-5,y-1],[x-2,y-4],[x+4,y-4],[x+6,y-1],[x+5,y+3],[x-4,y+4]],STEEL[0]);
     p.poly([[x-5,y+1],[x-2,y-3],[x+4,y-3],[x+5,y-1],[x+2,y+1]],STEEL[3]);
@@ -76,7 +61,7 @@ const icons = {
   },
 };
 
-const itemPainters = [drawRawIcon, drawProcessedIcon, drawComponentIcon, drawGemIcon];
+const itemPainters = [drawRawIcon, drawProcessedIcon, drawComponentIcon, drawGemIcon, drawProduceIcon];
 
 export function icon(p,id,x,y,ph){
   if(Object.hasOwn(icons,id))icons[id](p,x,y,ph);

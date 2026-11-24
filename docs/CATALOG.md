@@ -1,6 +1,6 @@
 # Catalog
 
-362 effects in 17 categories. Every one is a file in
+392 effects in 17 categories. Every one is a file in
 `src/fx/<category>/<name>.js`; render any of them with `node tools/render.mjs <id> --gif`.
 
 ## characters
@@ -394,7 +394,7 @@ crafting stations, industrial machinery, power, automation and conveyors.
 
 ## items
 
-inventory icons for raw materials, processed goods, components and gems.
+inventory icons for raw materials, processed goods, components, gems and produce.
 
 | effect | id | | size | what it does |
 |---|---|---|---|---|
@@ -453,6 +453,36 @@ inventory icons for raw materials, processed goods, components and gems.
 | Thread | `items/processed/thread` | loop 1s | 16×16 | A small wooden spool wound with cream thread. |
 | Tin ingot | `items/processed/tin-ingot` | loop 1s | 16×16 | A soft pale tin bar with a green-gray cast. |
 | Titanium ingot | `items/processed/titanium-ingot` | loop 1s | 16×16 | A violet-blue titanium bar with a three-pixel diagonal hallmark. |
+| Apple | `items/produce/apple` | loop 1s | 16×16 | A red apple with a bent stem and a green leaf. |
+| Banana | `items/produce/banana` | loop 1s | 16×16 | A curved yellow banana with a dark stem tip. |
+| Barley | `items/produce/barley` | loop 1s | 16×16 | A warm tan barley head with long, fine awns. |
+| Berry | `items/produce/berry` | loop 1s | 16×16 | A cluster of three small red berries with a green stem. |
+| Cabbage | `items/produce/cabbage` | loop 1s | 16×16 | A pale cabbage head wrapped in layered green leaves. |
+| Carrot | `items/produce/carrot` | loop 1s | 16×16 | An orange carrot with its tapered tip and leafy green top. |
+| Cassava | `items/produce/cassava` | loop 1s | 16×16 | Two long tan cassava roots, one with an exposed ivory end. |
+| Cherry | `items/produce/cherry` | loop 1s | 16×16 | Two shiny red cherries connected by a forked stem. |
+| Coconut | `items/produce/coconut` | loop 1s | 16×16 | A split brown coconut with a bright white rim and dark shell. |
+| Corn | `items/produce/corn` | loop 1s | 16×16 | A bright maize cob with two folded green husks. |
+| Cotton | `items/produce/cotton` | loop 1s | 16×16 | A pair of picked cotton bolls on a forked brown stem. |
+| Cucumber | `items/produce/cucumber` | loop 1s | 16×16 | A long blue-green cucumber with light ridges. |
+| Gherkin | `items/produce/gherkin` | loop 1s | 16×16 | A short knobby lime-green gherkin with a pale blossom end. |
+| Grape | `items/produce/grape` | loop 1s | 16×16 | A hanging bunch of purple grapes with a short twig and leaf. |
+| Onion | `items/produce/onion` | loop 1s | 16×16 | A golden onion bulb with layered skin and dry roots. |
+| Orange | `items/produce/orange` | loop 1s | 16×16 | A bright orange fruit with peel dots and a dark green leaf. |
+| Palm fruit | `items/produce/palm-fruit` | loop 1s | 16×16 | A compact bunch of orange-red oil palm fruits. |
+| Potato | `items/produce/potato` | loop 1s | 16×16 | Two rounded beige potatoes with small eyes. |
+| Rapeseed | `items/produce/rapeseed` | loop 1s | 16×16 | A split seed pod spilling dark seeds, with a yellow flower. |
+| Rice | `items/produce/rice` | loop 1s | 16×16 | A bowed rice panicle with pale grains on a green stem. |
+| Shallot | `items/produce/shallot` | loop 1s | 16×16 | A pair of slender pink shallot bulbs with dry stem tips. |
+| Sorghum | `items/produce/sorghum` | loop 1s | 16×16 | A reddish-brown seed head on a short stalk. |
+| Soybean | `items/produce/soybean` | loop 1s | 16×16 | A curved green soybean pod with three round beans. |
+| Sugar beet | `items/produce/sugar-beet` | loop 1s | 16×16 | A creamy sugar beet with a pointed root and green sprig. |
+| Sugarcane | `items/produce/sugarcane` | loop 1s | 16×16 | Two cut cane stalks with pale joints and green rinds. |
+| Sweet potato | `items/produce/sweet-potato` | loop 1s | 16×16 | A curved reddish sweet potato with a bright copper end. |
+| Tomato | `items/produce/tomato` | loop 1s | 16×16 | A round scarlet tomato with a spread green calyx. |
+| Watermelon | `items/produce/watermelon` | loop 1s | 16×16 | A red watermelon wedge with dark seeds and a green rind. |
+| Wheat | `items/produce/wheat` | loop 1s | 16×16 | A golden wheat ear with paired grains and a bent stalk. |
+| Yam | `items/produce/yam` | loop 1s | 16×16 | A rough, dark-skinned yam with a tapered root tip. |
 | Bark | `items/raw/bark` | loop 1s | 16×16 | Three rough curling bark flakes with reddish edges. |
 | Bone | `items/raw/bone` | loop 1s | 16×16 | A small ivory bone with rounded joints. |
 | Clay | `items/raw/clay` | loop 1s | 16×16 | A lumpy terracotta piece with two drying cracks. |
