@@ -1,5 +1,6 @@
 import { clamp } from "../../core/index.js";
 import { asset, CREAM, GOLD, LEAF, RED, STEEL, VIOLET, WATER, WOOD, round, wave } from "./art.js";
+import { drawRawIcon } from "./raw-items.js";
 import { panel } from "./ui.js";
 
 const UI = ["#342b42","#563d53","#835966","#b67c72","#ecc196"];
@@ -40,9 +41,6 @@ const icons = {
     p.poly([[x-3,y-4],[x+3,y-4],[x+4,y+4],[x-4,y+4]],GOLD[0]);p.rect(x-2,y-3,5,6,GOLD[3]);
     p.line(x,y+1,x+2,y-2,LEAF[2]);p.dot(x-2,y-2,GOLD[4],.9);
   },
-  wood(p,x,y) {
-    p.beam(x-3,y+2,x+3,y-2,5,WOOD[2]);p.line(x-2,y,x+3,y-3,WOOD[4]);p.ellipse(x-3,y+2,2,2.5,WOOD[1]);p.px(x-4,y+1,WOOD[4]);
-  },
   ore(p,x,y) {
     p.poly([[x-5,y+1],[x-3,y-3],[x+1,y-4],[x+5,y],[x+3,y+4],[x-3,y+4]],STEEL[1]);
     p.poly([[x-4,y],[x-2,y-3],[x+1,y-3],[x+4,y],[x+1,y+2],[x-2,y+2]],STEEL[3]);
@@ -67,11 +65,6 @@ const icons = {
     for(const [dx,dy] of [[-2,-1],[2,-1],[0,2]])round(p,x+dx,y+dy,2.35,2.4,RED);
     p.line(x,y-2,x+2,y-4,LEAF[3]);
   },
-  stone(p,x,y) {
-    p.poly([[x-5,y+2],[x-4,y-1],[x-1,y-4],[x+3,y-3],[x+5,y+2],[x+3,y+4],[x-3,y+4]],STEEL[1]);
-    p.poly([[x-4,y+1],[x-1,y-3],[x+3,y-2],[x+4,y+1],[x,y+2]],STEEL[3]);
-    p.line(x-2,y-1,x,y-2,STEEL[4]);
-  },
   ingot(p,x,y) {
     p.poly([[x-6,y+2],[x-5,y-1],[x-2,y-4],[x+4,y-4],[x+6,y-1],[x+5,y+3],[x-4,y+4]],STEEL[0]);
     p.poly([[x-5,y+1],[x-2,y-3],[x+4,y-3],[x+5,y-1],[x+2,y+1]],STEEL[3]);
@@ -82,6 +75,7 @@ const icons = {
 
 export function icon(p,id,x,y,ph){
   if(Object.hasOwn(icons,id))icons[id](p,x,y,ph);
+  else drawRawIcon(p,id,x,y);
 }
 
 export function itemGrid(p,C,ph,o,{x,y,cols,rows}){

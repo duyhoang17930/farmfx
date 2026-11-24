@@ -1,6 +1,6 @@
 # farmfx.
 
-**<!-- count -->277<!-- /count --> pixel art assets and animations for farming games, every one a small piece of
+**<!-- count -->307<!-- /count --> pixel art assets and animations for farming games, every one a small piece of
 code.** Crops that grow from seed to harvest, animals going about their day, tilled and watered soil, weather and
 seasons, and a farmer who hoes, waters, sows and harvests. Play them live, recolor them for another season, drop
 them into a browser game, or export sprite sheets for any engine.
@@ -48,6 +48,7 @@ system, with a library made for farms instead of fights.
 | **island exploration** | 7 | gathering swing, metal ingot, island explorer, island shoreline, locked plot marker, ore deposit… |
 | **resources** | 30 | amethyst deposit, bamboo, bone pile, cactus, clay deposit, coal ore… |
 | **machines** | 45 | advanced furnace, alchemy station, anvil, assembly machine, auto collector, auto feeder… |
+| **items** | 30 | bark, bone, clay, coal, copper ore, cotton… |
 <!-- /catalog -->
 
 The [asset index](ASSETS.md) links to every source file and available GIF preview. The [catalog](docs/CATALOG.md)
@@ -210,6 +211,18 @@ or `west`. It gives the direction of travel for straight belts, the incoming dir
 and splitters, and the outgoing direction of travel for mergers. A corner also takes a `turn` of `left` or
 `right`. Splitters send items to both sides, and mergers take items from both sides. Directional idle sheets
 use the same ports as their active versions.
+
+## raw inventory items
+
+The [raw-item preview](docs/preview/raw-items.png) shows the 30 material icons at inventory scale. Each export
+is a single transparent 16 × 16 frame with an `[8, 8]` pivot.
+
+```bash
+node tools/sheets.mjs items/raw --release --out sheets/raw-items
+```
+
+Pass item names such as `hardwood` or `copper-ore` to FarmFX's inventory, hotbar, crafting, shop, and pickup UI.
+For standalone sprites in JavaScript, import from `farmfx/fx/items/raw/<name>`.
 
 ## farmer actions.
 

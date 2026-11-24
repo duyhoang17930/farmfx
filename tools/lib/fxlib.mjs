@@ -1,7 +1,7 @@
 // Shared by the tools: find effects, render their frames, lay frames out, write PNG, GIF and MP4.
 
 import { readdirSync, existsSync, statSync, writeFileSync, mkdirSync } from "node:fs";
-import { join, dirname, relative, sep } from "node:path";
+import { join, dirname, relative, resolve, sep } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { spawnSync } from "node:child_process";
 import { createFrame, clearFrame, createFx, createAct, actBounds, actTiming, composite, painterFor, drawActor, stockActor, backdrop, actorAlphaOf } from "../../src/core/index.js";
@@ -12,15 +12,20 @@ import { usesReferenceArt } from "./asset-rights.mjs";
 export const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
 export const FX_DIR = join(ROOT, "src", "fx");
 
-/** Every effect id ("fire/torch"), sorted. Files starting with _ are helpers, not effects. */
+/** Every effect id, sorted. Names starting with _ are helpers, not effects. */
 export function allIds(dir = FX_DIR) {
   const out = [];
   if (!existsSync(dir)) return out;
-  for (const cat of readdirSync(dir).sort()) {
-    const d = join(dir, cat);
-    if (cat.startsWith("_") || !statSync(d).isDirectory()) continue;
-    for (const f of readdirSync(d).sort()) if (f.endsWith(".js") && !f.startsWith("_")) out.push(`${cat}/${f.slice(0, -3)}`);
+  function visit(folder, prefix) {
+    for (const entry of readdirSync(folder, { withFileTypes: true })) {
+      if (entry.name.startsWith("_")) continue;
+      const id = prefix + entry.name;
+      if (entry.isDirectory()) visit(join(folder, entry.name), id + "/");
+      else if (prefix && entry.isFile() && id.endsWith(".js")) out.push(id.slice(0, -3));
+    }
   }
+  visit(dir, "");
+  out.sort();
   return out;
 }
 
@@ -28,7 +33,7 @@ export function allIds(dir = FX_DIR) {
 export function resolveIds(patterns, dir = FX_DIR) {
   const all = allIds(dir), out = new Set();
   for (let p of patterns) {
-    if (p.endsWith(".js")) p = relative(dir, p.startsWith("/") ? p : join(process.cwd(), p)).split(sep).join("/").replace(/\.js$/, "");
+    if (p.endsWith(".js")) p = relative(dir, resolve(p)).split(sep).join("/").replace(/\.js$/, "");
     const re = new RegExp("^" + p.split("*").map((s) => s.replace(/[.+?^${}()|[\]\\]/g, "\\$&")).join(".*") + "$");
     const hits = all.filter((id) => id === p || id.startsWith(p + "/") || re.test(id));
     if (!hits.length) console.error(`no effect matches ${p}`);

@@ -277,6 +277,36 @@ import * as machines_spinning_wheel from "./machines/spinning-wheel.js";
 import * as machines_steam_generator from "./machines/steam-generator.js";
 import * as machines_stone_cutter from "./machines/stone-cutter.js";
 import * as machines_teleporter from "./machines/teleporter.js";
+import * as items_raw_bark from "./items/raw/bark.js";
+import * as items_raw_bone from "./items/raw/bone.js";
+import * as items_raw_clay from "./items/raw/clay.js";
+import * as items_raw_coal from "./items/raw/coal.js";
+import * as items_raw_copper_ore from "./items/raw/copper-ore.js";
+import * as items_raw_cotton from "./items/raw/cotton.js";
+import * as items_raw_crystal from "./items/raw/crystal.js";
+import * as items_raw_feather from "./items/raw/feather.js";
+import * as items_raw_fiber from "./items/raw/fiber.js";
+import * as items_raw_gold_ore from "./items/raw/gold-ore.js";
+import * as items_raw_hardwood from "./items/raw/hardwood.js";
+import * as items_raw_iron_ore from "./items/raw/iron-ore.js";
+import * as items_raw_leather from "./items/raw/leather.js";
+import * as items_raw_limestone from "./items/raw/limestone.js";
+import * as items_raw_obsidian from "./items/raw/obsidian.js";
+import * as items_raw_pebble from "./items/raw/pebble.js";
+import * as items_raw_resin from "./items/raw/resin.js";
+import * as items_raw_salt from "./items/raw/salt.js";
+import * as items_raw_sand from "./items/raw/sand.js";
+import * as items_raw_sap from "./items/raw/sap.js";
+import * as items_raw_seashell from "./items/raw/seashell.js";
+import * as items_raw_seaweed from "./items/raw/seaweed.js";
+import * as items_raw_silver_ore from "./items/raw/silver-ore.js";
+import * as items_raw_stick from "./items/raw/stick.js";
+import * as items_raw_stone from "./items/raw/stone.js";
+import * as items_raw_sulfur from "./items/raw/sulfur.js";
+import * as items_raw_tin_ore from "./items/raw/tin-ore.js";
+import * as items_raw_titanium_ore from "./items/raw/titanium-ore.js";
+import * as items_raw_wood from "./items/raw/wood.js";
+import * as items_raw_wool from "./items/raw/wool.js";
 
 export { categories } from "./categories.js";
 
@@ -558,4 +588,34 @@ export const effects = {
   "machines/steam-generator": machines_steam_generator,
   "machines/stone-cutter": machines_stone_cutter,
   "machines/teleporter": machines_teleporter,
+  "items/raw/bark": items_raw_bark,
+  "items/raw/bone": items_raw_bone,
+  "items/raw/clay": items_raw_clay,
+  "items/raw/coal": items_raw_coal,
+  "items/raw/copper-ore": items_raw_copper_ore,
+  "items/raw/cotton": items_raw_cotton,
+  "items/raw/crystal": items_raw_crystal,
+  "items/raw/feather": items_raw_feather,
+  "items/raw/fiber": items_raw_fiber,
+  "items/raw/gold-ore": items_raw_gold_ore,
+  "items/raw/hardwood": items_raw_hardwood,
+  "items/raw/iron-ore": items_raw_iron_ore,
+  "items/raw/leather": items_raw_leather,
+  "items/raw/limestone": items_raw_limestone,
+  "items/raw/obsidian": items_raw_obsidian,
+  "items/raw/pebble": items_raw_pebble,
+  "items/raw/resin": items_raw_resin,
+  "items/raw/salt": items_raw_salt,
+  "items/raw/sand": items_raw_sand,
+  "items/raw/sap": items_raw_sap,
+  "items/raw/seashell": items_raw_seashell,
+  "items/raw/seaweed": items_raw_seaweed,
+  "items/raw/silver-ore": items_raw_silver_ore,
+  "items/raw/stick": items_raw_stick,
+  "items/raw/stone": items_raw_stone,
+  "items/raw/sulfur": items_raw_sulfur,
+  "items/raw/tin-ore": items_raw_tin_ore,
+  "items/raw/titanium-ore": items_raw_titanium_ore,
+  "items/raw/wood": items_raw_wood,
+  "items/raw/wool": items_raw_wool,
 };

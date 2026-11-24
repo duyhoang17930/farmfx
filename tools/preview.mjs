@@ -20,7 +20,7 @@ for (const id of ids) {
     // an asset with an act plays acted out, the farmer and all
     const fx = await loadEffect(id), r = fx.mod.act ? renderAct(fx, { fps: fx.meta.fps }) : renderFrames(fx);
     const k = Math.max(2, Math.min(4, Math.floor(240 / Math.max(r.w, r.h))));
-    const file = join(DIR, id.replace("/", "-") + ".gif");
+    const file = join(DIR, id.replaceAll("/", "-") + ".gif");
     if (!writeVideo(file, r, k, { loops: 1 })) throw new Error("ffmpeg not found");
     console.log(`${id}  ->  ${file}`);
   } catch (e) {
@@ -34,7 +34,7 @@ const have = new Set(existsSync(DIR) ? readdirSync(DIR).filter((f) => f.endsWith
 const order = new Map(categories.map((c, i) => [c.id, i]));
 const shown = [];
 for (const id of allIds().sort((a, b) => (order.get(a.split("/")[0]) ?? 99) - (order.get(b.split("/")[0]) ?? 99) || a.localeCompare(b))) {
-  const f = id.replace("/", "-") + ".gif";
+  const f = id.replaceAll("/", "-") + ".gif";
   if (have.has(f)) shown.push({ id, f, name: (await loadEffect(id)).meta.name });
 }
 const rows = [];

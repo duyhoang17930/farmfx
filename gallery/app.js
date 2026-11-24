@@ -269,7 +269,7 @@ function applyFigureColor() {
 }
 
 function code(fx) {
-  const v = fx.id.split("/")[1].replace(/-(\w)/g, (_, c) => c.toUpperCase());
+  const v = fx.id.split("/").at(-1).replace(/-(\w)/g, (_, c) => c.toUpperCase());
   const opts = { x: 160, y: 120, ...(detail.opts.palette ? { palette: "[…]" } : {}), ...(detail.flip ? { flip: true } : {}) };
   if (detail.opts.season) opts.season = detail.opts.season;
   if (detail.opts.colors) opts.colors = detail.opts.colors;

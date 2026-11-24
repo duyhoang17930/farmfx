@@ -48,7 +48,7 @@ for (const id of resolveIds(ids)) {
     if (flags.gif && writeVideo(join(dir, "anim.gif"), r, k, { loops })) made.push(join(dir, "anim.gif"));
     if (flags.mp4 && writeVideo(join(dir, "anim.mp4"), r, k, { loops: Math.max(loops, fx.meta.loop ? 3 : 1) })) made.push(join(dir, "anim.mp4"));
     if (flags.sheet) {
-      const name = id.split("/")[1], s = spriteSheet(fx, r, name, { options });
+      const name = id.split("/").at(-1), s = spriteSheet(fx, r, name, { options });
       made.push(save(join(dir, `${name}.png`), s.png), save(join(dir, `${name}.json`), JSON.stringify(s.json, null, 1)));
     }
     console.log(`${id}  ${r.n} frames  ->  ${made.join("  ")}`);

@@ -1,6 +1,6 @@
 # Catalog
 
-277 effects in 16 categories. Every one is a file in
+307 effects in 17 categories. Every one is a file in
 `src/fx/<category>/<name>.js`; render any of them with `node tools/render.mjs <id> --gif`.
 
 ## characters
@@ -391,3 +391,40 @@ crafting stations, industrial machinery, power, automation and conveyors.
 | Steam generator | `machines/steam-generator` | loop 2s | 64×64 | A brass boiler with a rocking pressure gauge and a short steam stack. |
 | Stone cutter | `machines/stone-cutter` | loop 2s | 64×64 | A guided cutting blade crosses a pale stone block on a masonry bed. |
 | Teleporter | `machines/teleporter` | loop 2s | 64×64 | Two pylons project a violet gate over a circular platform. |
+
+## items
+
+inventory icons for raw materials and crafting ingredients.
+
+| effect | id | | size | what it does |
+|---|---|---|---|---|
+| Bark | `items/raw/bark` | loop 1s | 16×16 | Three rough curling bark flakes with reddish edges. |
+| Bone | `items/raw/bone` | loop 1s | 16×16 | A small ivory bone with rounded joints. |
+| Clay | `items/raw/clay` | loop 1s | 16×16 | A lumpy terracotta piece with two drying cracks. |
+| Coal | `items/raw/coal` | loop 1s | 16×16 | Two deep charcoal chips with blue-gray edges. |
+| Copper ore | `items/raw/copper-ore` | loop 1s | 16×16 | Orange copper nodules on a green-gray chip. |
+| Cotton | `items/raw/cotton` | loop 1s | 16×16 | Three white cotton bolls with green bracts. |
+| Crystal | `items/raw/crystal` | loop 1s | 16×16 | A pale quartz point with blue-green faces. |
+| Feather | `items/raw/feather` | loop 1s | 16×16 | A curved pale feather with a fine central quill. |
+| Fiber | `items/raw/fiber` | loop 1s | 16×16 | A tied fan of long green-gold plant fibers. |
+| Gold ore | `items/raw/gold-ore` | loop 1s | 16×16 | Bright yellow metal exposed in two chunky seams. |
+| Hardwood | `items/raw/hardwood` | loop 1s | 16×16 | A split dark timber block with a warm heartwood face. |
+| Iron ore | `items/raw/iron-ore` | loop 1s | 16×16 | Broad rust-red bands on a dark iron fragment. |
+| Leather | `items/raw/leather` | loop 1s | 16×16 | A folded tan hide with uneven cut edges. |
+| Limestone | `items/raw/limestone` | loop 1s | 16×16 | A pale chalky block with a stepped edge. |
+| Obsidian | `items/raw/obsidian` | loop 1s | 16×16 | Two sharp black-violet volcanic glass splinters. |
+| Pebble | `items/raw/pebble` | loop 1s | 16×16 | A small smooth river pebble with a rounded highlight. |
+| Resin | `items/raw/resin` | loop 1s | 16×16 | A hardened amber bead with a trapped fleck. |
+| Salt | `items/raw/salt` | loop 1s | 16×16 | An angular pile of rosy salt cubes. |
+| Sand | `items/raw/sand` | loop 1s | 16×16 | A loose golden sand pile with scattered grains. |
+| Sap | `items/raw/sap` | loop 1s | 16×16 | A golden drop of fresh tree sap. |
+| Seashell | `items/raw/seashell` | loop 1s | 16×16 | A pink scallop shell with three raised ribs. |
+| Seaweed | `items/raw/seaweed` | loop 1s | 16×16 | Three dark teal fronds gathered at the root. |
+| Silver ore | `items/raw/silver-ore` | loop 1s | 16×16 | White silver flakes over a cool purple stone. |
+| Stick | `items/raw/stick` | loop 1s | 16×16 | A slim forked twig with a pale broken tip. |
+| Stone | `items/raw/stone` | loop 1s | 16×16 | An angular slate-gray stone with a bright top edge. |
+| Sulfur | `items/raw/sulfur` | loop 1s | 16×16 | Mustard-yellow sulfur nodules with bright centers. |
+| Tin ore | `items/raw/tin-ore` | loop 1s | 16×16 | Small pale-green flecks on a warm ochre matrix. |
+| Titanium ore | `items/raw/titanium-ore` | loop 1s | 16×16 | Three vivid blue veins on a dark ore fragment. |
+| Wood | `items/raw/wood` | loop 1s | 16×16 | A short brown log with a cut end. |
+| Wool | `items/raw/wool` | loop 1s | 16×16 | A cream fleece tuft with overlapping curls. |

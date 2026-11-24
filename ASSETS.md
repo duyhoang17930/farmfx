@@ -1,6 +1,6 @@
 # FarmFX assets
 
-277 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
+307 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
 
 ## Characters (20)
 
@@ -358,3 +358,38 @@
 | Steam generator | [`machines/steam-generator`](src/fx/machines/steam-generator.js) | [GIF](docs/preview/machines-steam-generator.gif) |
 | Stone cutter | [`machines/stone-cutter`](src/fx/machines/stone-cutter.js) | [GIF](docs/preview/machines-stone-cutter.gif) |
 | Teleporter | [`machines/teleporter`](src/fx/machines/teleporter.js) | [GIF](docs/preview/machines-teleporter.gif) |
+
+## Items (30)
+
+| Asset | ID | Preview |
+| --- | --- | --- |
+| Bark | [`items/raw/bark`](src/fx/items/raw/bark.js) | [GIF](docs/preview/items-raw-bark.gif) |
+| Bone | [`items/raw/bone`](src/fx/items/raw/bone.js) | [GIF](docs/preview/items-raw-bone.gif) |
+| Clay | [`items/raw/clay`](src/fx/items/raw/clay.js) | [GIF](docs/preview/items-raw-clay.gif) |
+| Coal | [`items/raw/coal`](src/fx/items/raw/coal.js) | [GIF](docs/preview/items-raw-coal.gif) |
+| Copper ore | [`items/raw/copper-ore`](src/fx/items/raw/copper-ore.js) | [GIF](docs/preview/items-raw-copper-ore.gif) |
+| Cotton | [`items/raw/cotton`](src/fx/items/raw/cotton.js) | [GIF](docs/preview/items-raw-cotton.gif) |
+| Crystal | [`items/raw/crystal`](src/fx/items/raw/crystal.js) | [GIF](docs/preview/items-raw-crystal.gif) |
+| Feather | [`items/raw/feather`](src/fx/items/raw/feather.js) | [GIF](docs/preview/items-raw-feather.gif) |
+| Fiber | [`items/raw/fiber`](src/fx/items/raw/fiber.js) | [GIF](docs/preview/items-raw-fiber.gif) |
+| Gold ore | [`items/raw/gold-ore`](src/fx/items/raw/gold-ore.js) | [GIF](docs/preview/items-raw-gold-ore.gif) |
+| Hardwood | [`items/raw/hardwood`](src/fx/items/raw/hardwood.js) | [GIF](docs/preview/items-raw-hardwood.gif) |
+| Iron ore | [`items/raw/iron-ore`](src/fx/items/raw/iron-ore.js) | [GIF](docs/preview/items-raw-iron-ore.gif) |
+| Leather | [`items/raw/leather`](src/fx/items/raw/leather.js) | [GIF](docs/preview/items-raw-leather.gif) |
+| Limestone | [`items/raw/limestone`](src/fx/items/raw/limestone.js) | [GIF](docs/preview/items-raw-limestone.gif) |
+| Obsidian | [`items/raw/obsidian`](src/fx/items/raw/obsidian.js) | [GIF](docs/preview/items-raw-obsidian.gif) |
+| Pebble | [`items/raw/pebble`](src/fx/items/raw/pebble.js) | [GIF](docs/preview/items-raw-pebble.gif) |
+| Resin | [`items/raw/resin`](src/fx/items/raw/resin.js) | [GIF](docs/preview/items-raw-resin.gif) |
+| Salt | [`items/raw/salt`](src/fx/items/raw/salt.js) | [GIF](docs/preview/items-raw-salt.gif) |
+| Sand | [`items/raw/sand`](src/fx/items/raw/sand.js) | [GIF](docs/preview/items-raw-sand.gif) |
+| Sap | [`items/raw/sap`](src/fx/items/raw/sap.js) | [GIF](docs/preview/items-raw-sap.gif) |
+| Seashell | [`items/raw/seashell`](src/fx/items/raw/seashell.js) | [GIF](docs/preview/items-raw-seashell.gif) |
+| Seaweed | [`items/raw/seaweed`](src/fx/items/raw/seaweed.js) | [GIF](docs/preview/items-raw-seaweed.gif) |
+| Silver ore | [`items/raw/silver-ore`](src/fx/items/raw/silver-ore.js) | [GIF](docs/preview/items-raw-silver-ore.gif) |
+| Stick | [`items/raw/stick`](src/fx/items/raw/stick.js) | [GIF](docs/preview/items-raw-stick.gif) |
+| Stone | [`items/raw/stone`](src/fx/items/raw/stone.js) | [GIF](docs/preview/items-raw-stone.gif) |
+| Sulfur | [`items/raw/sulfur`](src/fx/items/raw/sulfur.js) | [GIF](docs/preview/items-raw-sulfur.gif) |
+| Tin ore | [`items/raw/tin-ore`](src/fx/items/raw/tin-ore.js) | [GIF](docs/preview/items-raw-tin-ore.gif) |
+| Titanium ore | [`items/raw/titanium-ore`](src/fx/items/raw/titanium-ore.js) | [GIF](docs/preview/items-raw-titanium-ore.gif) |
+| Wood | [`items/raw/wood`](src/fx/items/raw/wood.js) | [GIF](docs/preview/items-raw-wood.gif) |
+| Wool | [`items/raw/wool`](src/fx/items/raw/wool.js) | [GIF](docs/preview/items-raw-wool.gif) |

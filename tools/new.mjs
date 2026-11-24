@@ -7,8 +7,8 @@ import { join, dirname } from "node:path";
 import { FX_DIR } from "./lib/fxlib.mjs";
 
 const id = process.argv[2], loop = process.argv.includes("--loop");
-if (!id || !/^[a-z0-9-]+\/[a-z0-9-]+$/.test(id)) {
-  console.error("usage: node tools/new.mjs <category>/<name> [--loop]   (kebab-case)");
+if (!id || !/^(?:[a-z0-9-]+\/)+[a-z0-9-]+$/.test(id)) {
+  console.error("usage: node tools/new.mjs <category>/[<folder>/]<name> [--loop]   (kebab-case)");
   process.exit(1);
 }
 const file = join(FX_DIR, id + ".js");
@@ -16,7 +16,8 @@ if (existsSync(file)) {
   console.error(`${file} already exists`);
   process.exit(1);
 }
-const name = id.split("/")[1].replace(/-/g, " ").replace(/^./, (c) => c.toUpperCase());
+const parts = id.split("/");
+const name = parts.at(-1).replace(/-/g, " ").replace(/^./, (c) => c.toUpperCase());
 const body = loop
   ? `  // a loop: everything is a function of the phase, so t = 0 and t = duration match
   const C = ramp(o.palette), ph = t / meta.duration;
@@ -37,7 +38,7 @@ const body = loop
     p.light(x, y, C[4], 0.5 * (1 - t / life));
   });
   p.glow(0, -8, 24, C[4], 0.5 * (1 - seg(t, 0, 0.4)));`;
-const src = `import { PAL, ramp, at, ${loop ? "cycle" : "burst, fly, seg, WHITE"}, TAU } from "../../core/index.js";
+const src = `import { PAL, ramp, at, ${loop ? "cycle" : "burst, fly, seg, WHITE"}, TAU } from "${"../".repeat(parts.length)}core/index.js";
 
 export const meta = {
   name: "${name}",

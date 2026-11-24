@@ -21,7 +21,7 @@ const ids = resolveIds(pos);
 for (const id of ids) {
   const fx = await loadEffect(id);
   if (flags.sheet) {
-    const r = renderAct(fx, { fps: fx.meta.fps, bg: "none", target: !flags["no-target"], hold: 0 }), name = id.split("/")[1], base = join(ROOT, "records", "act", id.replace("/", "-"));
+    const r = renderAct(fx, { fps: fx.meta.fps, bg: "none", target: !flags["no-target"], hold: 0 }), name = id.split("/").at(-1), base = join(ROOT, "records", "act", id.replaceAll("/", "-"));
     const s = spriteSheet(fx, r, name);
     s.json.meta.farmfx.pivot = r.pivot;
     save(`${base}.sheet.png`, s.png);
@@ -30,7 +30,7 @@ for (const id of ids) {
     continue;
   }
   const r = renderAct(fx, { fps: 60, bg: flags.bg, target: !flags["no-target"], seconds: flags.seconds ? +flags.seconds : undefined });
-  const base = join(ROOT, "records", "act", id.replace("/", "-"));
+  const base = join(ROOT, "records", "act", id.replaceAll("/", "-"));
   if (flags.mp4) {
     const k = +(flags.zoom ?? Math.max(2, Math.min(8, Math.floor(960 / Math.max(r.w, r.h)))));
     const file = flags.out ?? base + ".mp4";

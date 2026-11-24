@@ -49,7 +49,7 @@ function writeClip(fx, path, name, render, variant) {
 
 let variantCount = 0, terrainCount = 0;
 for (const id of ids) {
-  const fx = await loadEffect(id), name = id.split("/")[1];
+  const fx = await loadEffect(id), name = id.split("/").at(-1);
   const entry = {
     ...writeClip(fx, id, name, renderFrames(fx, { bg: "none" })),
     desc: fx.meta.desc, tags: fx.meta.tags,
