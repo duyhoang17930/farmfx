@@ -1,6 +1,6 @@
 # Catalog
 
-392 effects in 17 categories. Every one is a file in
+406 effects in 17 categories. Every one is a file in
 `src/fx/<category>/<name>.js`; render any of them with `node tools/render.mjs <id> --gif`.
 
 ## characters
@@ -394,10 +394,24 @@ crafting stations, industrial machinery, power, automation and conveyors.
 
 ## items
 
-inventory icons for raw materials, processed goods, components, gems and produce.
+inventory icons for materials, components, gems, produce and animal products.
 
 | effect | id | | size | what it does |
 |---|---|---|---|---|
+| Animal feed | `items/animal/animal-feed` | loop 1s | 16×16 | A burlap sack filled with golden grains and marked with a green stripe. |
+| Beeswax | `items/animal/beeswax` | loop 1s | 16×16 | Two honey-colored hexagonal slabs of beeswax. |
+| Butter | `items/animal/butter` | loop 1s | 16×16 | A pale butter pat on a small folded paper wrapper. |
+| Cheese | `items/animal/cheese` | loop 1s | 16×16 | A golden cheese wedge with three round holes. |
+| Cream | `items/animal/cream` | loop 1s | 16×16 | A short ceramic pitcher with a handle and a pale cream surface. |
+| Egg | `items/animal/egg` | loop 1s | 16×16 | A pale, lightly speckled egg. |
+| Fish roe | `items/animal/fish-roe` | loop 1s | 16×16 | A cluster of salmon-orange roe on a small green leaf. |
+| Goat milk | `items/animal/goat-milk` | loop 1s | 16×16 | A tall glass bottle of goat milk with a teal label. |
+| Golden egg | `items/animal/golden-egg` | loop 1s | 16×16 | A golden egg with a broad shine and a small glint. |
+| Honey | `items/animal/honey` | loop 1s | 16×16 | A squat amber honey jar with a cloth lid. |
+| Milk | `items/animal/milk` | loop 1s | 16×16 | A white milk container with a pale violet rim. |
+| Raw chicken | `items/animal/raw-chicken` | loop 1s | 16×16 | A pale pink chicken drumstick with a rounded ivory bone. |
+| Raw fish | `items/animal/raw-fish` | loop 1s | 16×16 | A whole silver-blue fish with a fan tail and bright belly. |
+| Raw meat | `items/animal/raw-meat` | loop 1s | 16×16 | A red steak with a cream fat rim and a marbled line. |
 | Battery | `items/components/battery` | loop 1s | 16×16 | A green cylindrical battery with a bright terminal and charge band. |
 | Bolt | `items/components/bolt` | loop 1s | 16×16 | A blunt steel bolt with a large hexagonal head. |
 | Circuit board | `items/components/circuit-board` | loop 1s | 16×16 | A green circuit board with gold contacts, traces and a dark center chip. |

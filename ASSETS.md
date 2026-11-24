@@ -1,6 +1,6 @@
 # FarmFX assets
 
-392 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
+406 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
 
 ## Characters (20)
 
@@ -359,10 +359,24 @@
 | Stone cutter | [`machines/stone-cutter`](src/fx/machines/stone-cutter.js) | [GIF](docs/preview/machines-stone-cutter.gif) |
 | Teleporter | [`machines/teleporter`](src/fx/machines/teleporter.js) | [GIF](docs/preview/machines-teleporter.gif) |
 
-## Items (115)
+## Items (129)
 
 | Asset | ID | Preview |
 | --- | --- | --- |
+| Animal feed | [`items/animal/animal-feed`](src/fx/items/animal/animal-feed.js) | [GIF](docs/preview/items-animal-animal-feed.gif) |
+| Beeswax | [`items/animal/beeswax`](src/fx/items/animal/beeswax.js) | [GIF](docs/preview/items-animal-beeswax.gif) |
+| Butter | [`items/animal/butter`](src/fx/items/animal/butter.js) | [GIF](docs/preview/items-animal-butter.gif) |
+| Cheese | [`items/animal/cheese`](src/fx/items/animal/cheese.js) | [GIF](docs/preview/items-animal-cheese.gif) |
+| Cream | [`items/animal/cream`](src/fx/items/animal/cream.js) | [GIF](docs/preview/items-animal-cream.gif) |
+| Egg | [`items/animal/egg`](src/fx/items/animal/egg.js) | [GIF](docs/preview/items-animal-egg.gif) |
+| Fish roe | [`items/animal/fish-roe`](src/fx/items/animal/fish-roe.js) | [GIF](docs/preview/items-animal-fish-roe.gif) |
+| Goat milk | [`items/animal/goat-milk`](src/fx/items/animal/goat-milk.js) | [GIF](docs/preview/items-animal-goat-milk.gif) |
+| Golden egg | [`items/animal/golden-egg`](src/fx/items/animal/golden-egg.js) | [GIF](docs/preview/items-animal-golden-egg.gif) |
+| Honey | [`items/animal/honey`](src/fx/items/animal/honey.js) | [GIF](docs/preview/items-animal-honey.gif) |
+| Milk | [`items/animal/milk`](src/fx/items/animal/milk.js) | [GIF](docs/preview/items-animal-milk.gif) |
+| Raw chicken | [`items/animal/raw-chicken`](src/fx/items/animal/raw-chicken.js) | [GIF](docs/preview/items-animal-raw-chicken.gif) |
+| Raw fish | [`items/animal/raw-fish`](src/fx/items/animal/raw-fish.js) | [GIF](docs/preview/items-animal-raw-fish.gif) |
+| Raw meat | [`items/animal/raw-meat`](src/fx/items/animal/raw-meat.js) | [GIF](docs/preview/items-animal-raw-meat.gif) |
 | Battery | [`items/components/battery`](src/fx/items/components/battery.js) | [GIF](docs/preview/items-components-battery.gif) |
 | Bolt | [`items/components/bolt`](src/fx/items/components/bolt.js) | [GIF](docs/preview/items-components-bolt.gif) |
 | Circuit board | [`items/components/circuit-board`](src/fx/items/components/circuit-board.js) | [GIF](docs/preview/items-components-circuit-board.gif) |

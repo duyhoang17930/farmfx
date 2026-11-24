@@ -5,6 +5,7 @@ import { drawProcessedIcon } from "./processed-items.js";
 import { drawComponentIcon } from "./component-items.js";
 import { drawGemIcon } from "./gem-items.js";
 import { drawProduceIcon } from "./produce-items.js";
+import { drawAnimalItemIcon } from "./animal-items.js";
 import { panel } from "./ui.js";
 
 const UI = ["#342b42","#563d53","#835966","#b67c72","#ecc196"];
@@ -42,13 +43,6 @@ const icons = {
     p.tri(x-1,y,x-5,y-3,x-5,y+3,WATER[2]);round(p,x+1,y,4,2.7,WATER);
     p.px(x+3,y-1,WATER[0]);p.px(x+3,y-2,WATER[4]);
   },
-  egg(p,x,y) {
-    round(p,x,y,3.6,4.5,CREAM);p.px(x+1,y+1,GOLD[2]);
-  },
-  milk(p,x,y) {
-    p.rect(x-3,y-1,7,5,STEEL[1]);p.rect(x-2,y-4,5,4,STEEL[2]);p.rect(x-2,y-2,4,5,CREAM[4]);
-    p.line(x-2,y-4,x+2,y-4,VIOLET[4]);
-  },
   coin(p,x,y,ph=0) {
     const w=2+2*Math.abs(wave(ph,1,.25));round(p,x,y,w,4.2,GOLD);
     if(w>3.1){p.line(x,y-2,x,y+2,GOLD[4]);p.px(x+1,y-1,GOLD[2]);}
@@ -61,7 +55,7 @@ const icons = {
   },
 };
 
-const itemPainters = [drawRawIcon, drawProcessedIcon, drawComponentIcon, drawGemIcon, drawProduceIcon];
+const itemPainters = [drawRawIcon, drawProcessedIcon, drawComponentIcon, drawGemIcon, drawProduceIcon, drawAnimalItemIcon];
 
 export function icon(p,id,x,y,ph){
   if(Object.hasOwn(icons,id))icons[id](p,x,y,ph);

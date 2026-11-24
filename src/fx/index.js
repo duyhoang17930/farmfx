@@ -277,6 +277,20 @@ import * as machines_spinning_wheel from "./machines/spinning-wheel.js";
 import * as machines_steam_generator from "./machines/steam-generator.js";
 import * as machines_stone_cutter from "./machines/stone-cutter.js";
 import * as machines_teleporter from "./machines/teleporter.js";
+import * as items_animal_animal_feed from "./items/animal/animal-feed.js";
+import * as items_animal_beeswax from "./items/animal/beeswax.js";
+import * as items_animal_butter from "./items/animal/butter.js";
+import * as items_animal_cheese from "./items/animal/cheese.js";
+import * as items_animal_cream from "./items/animal/cream.js";
+import * as items_animal_egg from "./items/animal/egg.js";
+import * as items_animal_fish_roe from "./items/animal/fish-roe.js";
+import * as items_animal_goat_milk from "./items/animal/goat-milk.js";
+import * as items_animal_golden_egg from "./items/animal/golden-egg.js";
+import * as items_animal_honey from "./items/animal/honey.js";
+import * as items_animal_milk from "./items/animal/milk.js";
+import * as items_animal_raw_chicken from "./items/animal/raw-chicken.js";
+import * as items_animal_raw_fish from "./items/animal/raw-fish.js";
+import * as items_animal_raw_meat from "./items/animal/raw-meat.js";
 import * as items_components_battery from "./items/components/battery.js";
 import * as items_components_bolt from "./items/components/bolt.js";
 import * as items_components_circuit_board from "./items/components/circuit-board.js";
@@ -673,6 +687,20 @@ export const effects = {
   "machines/steam-generator": machines_steam_generator,
   "machines/stone-cutter": machines_stone_cutter,
   "machines/teleporter": machines_teleporter,
+  "items/animal/animal-feed": items_animal_animal_feed,
+  "items/animal/beeswax": items_animal_beeswax,
+  "items/animal/butter": items_animal_butter,
+  "items/animal/cheese": items_animal_cheese,
+  "items/animal/cream": items_animal_cream,
+  "items/animal/egg": items_animal_egg,
+  "items/animal/fish-roe": items_animal_fish_roe,
+  "items/animal/goat-milk": items_animal_goat_milk,
+  "items/animal/golden-egg": items_animal_golden_egg,
+  "items/animal/honey": items_animal_honey,
+  "items/animal/milk": items_animal_milk,
+  "items/animal/raw-chicken": items_animal_raw_chicken,
+  "items/animal/raw-fish": items_animal_raw_fish,
+  "items/animal/raw-meat": items_animal_raw_meat,
   "items/components/battery": items_components_battery,
   "items/components/bolt": items_components_bolt,
   "items/components/circuit-board": items_components_circuit_board,
