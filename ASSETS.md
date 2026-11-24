@@ -1,6 +1,6 @@
 # FarmFX assets
 
-218 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
+232 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
 
 ## Characters (20)
 
@@ -92,13 +92,27 @@
 | Wheat | [`crops/wheat`](src/fx/crops/wheat.js) | [GIF](docs/preview/crops-wheat.gif) |
 | Yams | [`crops/yams`](src/fx/crops/yams.js) | [GIF](docs/preview/crops-yams.gif) |
 
-## Trees (3)
+## Trees (17)
 
 | Asset | ID | Preview |
 | --- | --- | --- |
+| Bamboo tree | [`trees/bamboo-tree`](src/fx/trees/bamboo-tree.js) | [GIF](docs/preview/trees-bamboo-tree.gif) |
+| Birch | [`trees/birch`](src/fx/trees/birch.js) | [GIF](docs/preview/trees-birch.gif) |
+| Burnt tree | [`trees/burnt-tree`](src/fx/trees/burnt-tree.js) | [GIF](docs/preview/trees-burnt-tree.gif) |
+| Crystal tree | [`trees/crystal-tree`](src/fx/trees/crystal-tree.js) | [GIF](docs/preview/trees-crystal-tree.gif) |
+| Dead tree | [`trees/dead-tree`](src/fx/trees/dead-tree.js) | [GIF](docs/preview/trees-dead-tree.gif) |
+| Falling tree | [`trees/falling-tree`](src/fx/trees/falling-tree.js) | [GIF](docs/preview/trees-falling-tree.gif) |
 | Cherry tree | [`trees/fruit-tree`](src/fx/trees/fruit-tree.js) | [GIF](docs/preview/trees-fruit-tree.gif) |
+| Magical tree | [`trees/magical-tree`](src/fx/trees/magical-tree.js) | [GIF](docs/preview/trees-magical-tree.gif) |
+| Maple | [`trees/maple`](src/fx/trees/maple.js) | [GIF](docs/preview/trees-maple.gif) |
+| Mushroom tree | [`trees/mushroom-tree`](src/fx/trees/mushroom-tree.js) | [GIF](docs/preview/trees-mushroom-tree.gif) |
 | Oak | [`trees/oak`](src/fx/trees/oak.js) | [GIF](docs/preview/trees-oak.gif) |
+| Palm | [`trees/palm`](src/fx/trees/palm.js) | [GIF](docs/preview/trees-palm.gif) |
 | Pine | [`trees/pine`](src/fx/trees/pine.js) | [GIF](docs/preview/trees-pine.gif) |
+| Sapling | [`trees/sapling`](src/fx/trees/sapling.js) | [GIF](docs/preview/trees-sapling.gif) |
+| Snow-covered tree | [`trees/snow-covered-tree`](src/fx/trees/snow-covered-tree.js) | [GIF](docs/preview/trees-snow-covered-tree.gif) |
+| Tree regrowth | [`trees/tree-regrowth`](src/fx/trees/tree-regrowth.js) | [GIF](docs/preview/trees-tree-regrowth.gif) |
+| Willow | [`trees/willow`](src/fx/trees/willow.js) | [GIF](docs/preview/trees-willow.gif) |
 
 ## Animals (16)
 

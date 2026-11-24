@@ -1,6 +1,6 @@
 # Catalog
 
-218 effects in 15 categories. Every one is a file in
+232 effects in 15 categories. Every one is a file in
 `src/fx/<category>/<name>.js`; render any of them with `node tools/render.mjs <id> --gif`.
 
 ## characters
@@ -103,13 +103,27 @@ seed to sprout to ripe, swaying in the wind.
 
 ## trees
 
-oak, pine and cherry trees with swaying foliage.
+woodland and fantasy trees, saplings, regrowth stages and a chopping animation.
 
 | effect | id | | size | what it does |
 |---|---|---|---|---|
+| Bamboo tree | `trees/bamboo-tree` | loop 3s | 64×64 | A mature stand of five tall, segmented bamboo culms with narrow leaves. |
+| Birch | `trees/birch` | loop 3s | 64×64 | A slender pale trunk with broken dark bark bands and a light green crown. |
+| Burnt tree | `trees/burnt-tree` | loop 3s | 64×64 | A blackened snag with cracked bark and faint embers down at the roots. |
+| Crystal tree | `trees/crystal-tree` | loop 3s | 64×64 | A faceted mineral trunk branching into cyan prisms with occasional glints. |
+| Dead tree | `trees/dead-tree` | loop 1s | 64×64 | A bare weathered snag with a broken crown and crooked branches. |
+| Falling tree | `trees/falling-tree` | one-shot 1.24s | 144×96 | A maple leans, falls sideways and settles in a puff of dust and leaf litter. |
 | Cherry tree | `trees/fruit-tree` | loop 2s | 48×64 | A cherry tree with spring blossoms or ripe fruit in its swaying canopy. |
+| Magical tree | `trees/magical-tree` | loop 4s | 64×64 | A violet crown with golden lantern fruit and looping motes of light. |
+| Maple | `trees/maple` | loop 3s | 64×64 | A broad autumn maple with a forked trunk and copper-red foliage. |
+| Mushroom tree | `trees/mushroom-tree` | loop 3s | 64×64 | A giant speckled mushroom cap with a branching smaller shelf cap. |
 | Oak | `trees/oak` | loop 2s | 48×64 | A broad oak with a forked trunk and swaying layered foliage. |
+| Palm | `trees/palm` | loop 3s | 64×64 | A leaning tropical palm with ringed bark, wind-tossed fronds and coconuts. |
 | Pine | `trees/pine` | loop 2s | 48×64 | A tall pine with four staggered tiers of evergreen needles. |
+| Sapling | `trees/sapling` | loop 3s | 32×32 | A small, two-leaf sapling that sways gently. |
+| Snow-covered tree | `trees/snow-covered-tree` | loop 3s | 64×64 | A layered evergreen with broad snow caps and exposed needle tips. |
+| Tree regrowth | `trees/tree-regrowth` | loop 6s | 64×64 | Four selectable stages from cut stump to sapling, young tree and mature maple. |
+| Willow | `trees/willow` | loop 3s | 64×64 | A slanted trunk under a spreading canopy with hanging green fronds. |
 
 ## animals
 

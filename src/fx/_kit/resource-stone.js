@@ -42,7 +42,7 @@ export function ore(name, desc, palette, profile, nuggets, host = STEEL) {
   });
 }
 
-function shard(p, x, y, w, h, lean, C) {
+export function shard(p, x, y, w, h, lean, C) {
   const tip = [x + lean, y - h], shoulder = [tip[0] - w,y - h + w + 1];
   const other = [tip[0] + w,y - h + w - 1], ridge = [x - 1,y - 1];
   const left = [x - w,y - 3], right = [x + w,y - 2];

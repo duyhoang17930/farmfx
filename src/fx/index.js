@@ -70,9 +70,23 @@ import * as crops_tomatoes from "./crops/tomatoes.js";
 import * as crops_watermelons from "./crops/watermelons.js";
 import * as crops_wheat from "./crops/wheat.js";
 import * as crops_yams from "./crops/yams.js";
+import * as trees_bamboo_tree from "./trees/bamboo-tree.js";
+import * as trees_birch from "./trees/birch.js";
+import * as trees_burnt_tree from "./trees/burnt-tree.js";
+import * as trees_crystal_tree from "./trees/crystal-tree.js";
+import * as trees_dead_tree from "./trees/dead-tree.js";
+import * as trees_falling_tree from "./trees/falling-tree.js";
 import * as trees_fruit_tree from "./trees/fruit-tree.js";
+import * as trees_magical_tree from "./trees/magical-tree.js";
+import * as trees_maple from "./trees/maple.js";
+import * as trees_mushroom_tree from "./trees/mushroom-tree.js";
 import * as trees_oak from "./trees/oak.js";
+import * as trees_palm from "./trees/palm.js";
 import * as trees_pine from "./trees/pine.js";
+import * as trees_sapling from "./trees/sapling.js";
+import * as trees_snow_covered_tree from "./trees/snow-covered-tree.js";
+import * as trees_tree_regrowth from "./trees/tree-regrowth.js";
+import * as trees_willow from "./trees/willow.js";
 import * as animals_bee from "./animals/bee.js";
 import * as animals_butterfly from "./animals/butterfly.js";
 import * as animals_cat from "./animals/cat.js";
@@ -292,9 +306,23 @@ export const effects = {
   "crops/watermelons": crops_watermelons,
   "crops/wheat": crops_wheat,
   "crops/yams": crops_yams,
+  "trees/bamboo-tree": trees_bamboo_tree,
+  "trees/birch": trees_birch,
+  "trees/burnt-tree": trees_burnt_tree,
+  "trees/crystal-tree": trees_crystal_tree,
+  "trees/dead-tree": trees_dead_tree,
+  "trees/falling-tree": trees_falling_tree,
   "trees/fruit-tree": trees_fruit_tree,
+  "trees/magical-tree": trees_magical_tree,
+  "trees/maple": trees_maple,
+  "trees/mushroom-tree": trees_mushroom_tree,
   "trees/oak": trees_oak,
+  "trees/palm": trees_palm,
   "trees/pine": trees_pine,
+  "trees/sapling": trees_sapling,
+  "trees/snow-covered-tree": trees_snow_covered_tree,
+  "trees/tree-regrowth": trees_tree_regrowth,
+  "trees/willow": trees_willow,
   "animals/bee": animals_bee,
   "animals/butterfly": animals_butterfly,
   "animals/cat": animals_cat,

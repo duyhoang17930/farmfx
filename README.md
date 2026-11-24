@@ -1,6 +1,6 @@
 # farmfx.
 
-**<!-- count -->218<!-- /count --> pixel art assets and animations for farming games, every one a small piece of
+**<!-- count -->232<!-- /count --> pixel art assets and animations for farming games, every one a small piece of
 code.** Crops that grow from seed to harvest, animals going about their day, tilled and watered soil, weather and
 seasons, and a farmer who hoes, waters, sows and harvests. Play them live, recolor them for another season, drop
 them into a browser game, or export sprite sheets for any engine.
@@ -36,7 +36,7 @@ system, with a library made for farms instead of fights.
 | **portraits** | 20 | arlo portrait, ash portrait, bram portrait, clove portrait, cog portrait, farmer portrait… |
 | **farming** | 4 | harvest, hoe, sow, water |
 | **crops** | 26 | apples, bananas, barley, cabbages, carrot, cassava… |
-| **trees** | 3 | cherry tree, oak, pine |
+| **trees** | 17 | bamboo tree, birch, burnt tree, crystal tree, dead tree, falling tree… |
 | **animals** | 16 | bee, butterfly, cat, chicken, cow, crow… |
 | **tiles** | 21 | berry bush, footbridge, cliff wall, cliff corner, dirt path, fallen log… |
 | **buildings** | 14 | barn, chicken coop, farmhouse, deluxe farmhouse, expanded farmhouse, greenhouse… |
@@ -176,6 +176,21 @@ node tools/sheets.mjs resources --release --out sheets/resources
 
 Use the exported pivot to place each sprite on the 16 px map grid. Static deposits export a single frame.
 Gem glints, moving plants, and the meteorite embers export as loops.
+
+## trees and regrowth
+
+The tree collection includes woodland, tropical, winter, and fantasy trees. The [tree preview](docs/preview/tree-pack.png)
+shows the new silhouettes, the chopping animation, and the regrowth stages.
+
+```bash
+node tools/sheets.mjs trees --release --out sheets/trees
+```
+
+- `trees/falling-tree` exports left and right one-shot clips. In code, set `flip: true` for a leftward fall.
+  Replace the standing tree with the animation, place `tiles/stump` at the same map position on the `tip` cue,
+  and sync the ground hit to the `impact` cue. Both cues are in the sheet metadata.
+- `trees/tree-regrowth` exports four single-frame sheets. Set `stage` to `0` for a stump, `1` for a sapling,
+  `2` for a young tree, or `3` for a mature maple. The default animation previews the sequence.
 
 ## farmer actions.
 

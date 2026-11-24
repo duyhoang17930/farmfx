@@ -5,7 +5,7 @@ export const categories = [
   { id: "portraits", name: "portraits", blurb: "40 x 48 chibi busts for dialogue boxes, one for every character" },
   { id: "farming", name: "farming", blurb: "hoeing, watering, sowing, harvesting, done by a farmer in four facings" },
   { id: "crops", name: "crops", blurb: "seed to sprout to ripe, swaying in the wind" },
-  { id: "trees", name: "trees", blurb: "oak, pine and cherry trees with swaying foliage" },
+  { id: "trees", name: "trees", blurb: "woodland and fantasy trees, saplings, regrowth stages and a chopping animation" },
   { id: "animals", name: "animals", blurb: "farm livestock, pets, pond animals and flying wildlife" },
   { id: "tiles", name: "tiles", blurb: "seasonal ground, path and water tiles, cliffs, foliage and crossings" },
   { id: "buildings", name: "buildings", blurb: "farmhouses, livestock shelters, workshops and market buildings" },

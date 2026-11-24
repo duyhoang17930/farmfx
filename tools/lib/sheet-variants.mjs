@@ -33,6 +33,11 @@ export function sheetVariants(fx) {
     }
   } else if (category === "crops") {
     for (let stage = 0; stage <= 4; stage++) add(`stage-${stage}`, { stage, plot: false });
+  } else if (fx.id === "trees/tree-regrowth") {
+    for (let stage = 0; stage <= 3; stage++) add(`stage-${stage}`, { stage });
+  } else if (fx.id === "trees/falling-tree") {
+    add("right", { flip: false });
+    add("left", { flip: true });
   } else if (fx.id === "exploration/island-explorer") {
     directional(["idle", "walk"]);
   } else if (fx.id === "exploration/gather-swing") {
