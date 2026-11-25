@@ -378,13 +378,43 @@ import * as ui_pickup_toast from "./ui/pickup-toast.js";
 import * as ui_quest_marker from "./ui/quest-marker.js";
 import * as ui_shop_interface from "./ui/shop-interface.js";
 import * as ui_tooltip from "./ui/tooltip.js";
+import * as exploration_artifact_discovery from "./exploration/artifact-discovery.js";
+import * as exploration_boat from "./exploration/boat.js";
+import * as exploration_boat_dock from "./exploration/boat-dock.js";
+import * as exploration_buried_treasure from "./exploration/buried-treasure.js";
+import * as exploration_cave_discovery from "./exploration/cave-discovery.js";
+import * as exploration_exploration_flag from "./exploration/exploration-flag.js";
+import * as exploration_fast_travel_point from "./exploration/fast-travel-point.js";
+import * as exploration_fishing_spot from "./exploration/fishing-spot.js";
+import * as exploration_fog_of_war from "./exploration/fog-of-war.js";
+import * as exploration_fossil_discovery from "./exploration/fossil-discovery.js";
 import * as exploration_gather_swing from "./exploration/gather-swing.js";
+import * as exploration_hidden_treasure_marker from "./exploration/hidden-treasure-marker.js";
 import * as exploration_ingot from "./exploration/ingot.js";
+import * as exploration_island_construction from "./exploration/island-construction.js";
+import * as exploration_island_emerge from "./exploration/island-emerge.js";
+import * as exploration_island_expand from "./exploration/island-expand.js";
 import * as exploration_island_explorer from "./exploration/island-explorer.js";
+import * as exploration_island_locked_overlay from "./exploration/island-locked-overlay.js";
+import * as exploration_island_purchase_border from "./exploration/island-purchase-border.js";
+import * as exploration_island_purchase_preview from "./exploration/island-purchase-preview.js";
 import * as exploration_island_shore from "./exploration/island-shore.js";
+import * as exploration_island_unlock_reveal from "./exploration/island-unlock-reveal.js";
 import * as exploration_locked_plot from "./exploration/locked-plot.js";
+import * as exploration_magical_portal from "./exploration/magical-portal.js";
+import * as exploration_map_marker from "./exploration/map-marker.js";
 import * as exploration_ore_deposit from "./exploration/ore-deposit.js";
 import * as exploration_plot_unlock from "./exploration/plot-unlock.js";
+import * as exploration_raft from "./exploration/raft.js";
+import * as exploration_resource_highlight from "./exploration/resource-highlight.js";
+import * as exploration_resource_respawn from "./exploration/resource-respawn.js";
+import * as exploration_sailing_boat from "./exploration/sailing-boat.js";
+import * as exploration_secret_door from "./exploration/secret-door.js";
+import * as exploration_secret_island from "./exploration/secret-island.js";
+import * as exploration_teleport_gate from "./exploration/teleport-gate.js";
+import * as exploration_treasure_dig from "./exploration/treasure-dig.js";
+import * as exploration_treasure_reveal from "./exploration/treasure-reveal.js";
+import * as exploration_waypoint from "./exploration/waypoint.js";
 import * as resources_amethyst_deposit from "./resources/amethyst-deposit.js";
 import * as resources_bamboo from "./resources/bamboo.js";
 import * as resources_bone_pile from "./resources/bone-pile.js";
@@ -1299,13 +1329,43 @@ export const effects = {
   "ui/quest-marker": ui_quest_marker,
   "ui/shop-interface": ui_shop_interface,
   "ui/tooltip": ui_tooltip,
+  "exploration/artifact-discovery": exploration_artifact_discovery,
+  "exploration/boat": exploration_boat,
+  "exploration/boat-dock": exploration_boat_dock,
+  "exploration/buried-treasure": exploration_buried_treasure,
+  "exploration/cave-discovery": exploration_cave_discovery,
+  "exploration/exploration-flag": exploration_exploration_flag,
+  "exploration/fast-travel-point": exploration_fast_travel_point,
+  "exploration/fishing-spot": exploration_fishing_spot,
+  "exploration/fog-of-war": exploration_fog_of_war,
+  "exploration/fossil-discovery": exploration_fossil_discovery,
   "exploration/gather-swing": exploration_gather_swing,
+  "exploration/hidden-treasure-marker": exploration_hidden_treasure_marker,
   "exploration/ingot": exploration_ingot,
+  "exploration/island-construction": exploration_island_construction,
+  "exploration/island-emerge": exploration_island_emerge,
+  "exploration/island-expand": exploration_island_expand,
   "exploration/island-explorer": exploration_island_explorer,
+  "exploration/island-locked-overlay": exploration_island_locked_overlay,
+  "exploration/island-purchase-border": exploration_island_purchase_border,
+  "exploration/island-purchase-preview": exploration_island_purchase_preview,
   "exploration/island-shore": exploration_island_shore,
+  "exploration/island-unlock-reveal": exploration_island_unlock_reveal,
   "exploration/locked-plot": exploration_locked_plot,
+  "exploration/magical-portal": exploration_magical_portal,
+  "exploration/map-marker": exploration_map_marker,
   "exploration/ore-deposit": exploration_ore_deposit,
   "exploration/plot-unlock": exploration_plot_unlock,
+  "exploration/raft": exploration_raft,
+  "exploration/resource-highlight": exploration_resource_highlight,
+  "exploration/resource-respawn": exploration_resource_respawn,
+  "exploration/sailing-boat": exploration_sailing_boat,
+  "exploration/secret-door": exploration_secret_door,
+  "exploration/secret-island": exploration_secret_island,
+  "exploration/teleport-gate": exploration_teleport_gate,
+  "exploration/treasure-dig": exploration_treasure_dig,
+  "exploration/treasure-reveal": exploration_treasure_reveal,
+  "exploration/waypoint": exploration_waypoint,
   "resources/amethyst-deposit": resources_amethyst_deposit,
   "resources/bamboo": resources_bamboo,
   "resources/bone-pile": resources_bone_pile,

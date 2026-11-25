@@ -1,6 +1,6 @@
 # Catalog
 
-917 effects in 23 categories. Every one is a file in
+947 effects in 23 categories. Every one is a file in
 `src/fx/<category>/<name>.js`; render any of them with `node tools/render.mjs <id> --gif`.
 
 ## characters
@@ -478,13 +478,43 @@ an original player, gathering animations, ore, and island expansion.
 
 | effect | id | | size | what it does |
 |---|---|---|---|---|
+| artifact discovery | `exploration/artifact-discovery` | one-shot 1.25s | 64×64 | A top-down artifact discovery visual for island exploration. |
+| boat | `exploration/boat` | loop 2.5s | 64×64 | A top-down boat visual for island exploration. |
+| boat dock | `exploration/boat-dock` | loop 2.5s | 64×64 | A top-down boat dock visual for island exploration. |
+| buried treasure | `exploration/buried-treasure` | loop 2.5s | 64×64 | A top-down buried treasure visual for island exploration. |
+| cave discovery | `exploration/cave-discovery` | one-shot 1.25s | 64×64 | A top-down cave discovery visual for island exploration. |
+| exploration flag | `exploration/exploration-flag` | loop 2.5s | 64×64 | A top-down exploration flag visual for island exploration. |
+| fast travel point | `exploration/fast-travel-point` | loop 2.5s | 64×64 | A top-down fast travel point visual for island exploration. |
+| fishing spot | `exploration/fishing-spot` | loop 2.5s | 64×64 | A top-down fishing spot visual for island exploration. |
+| fog of war | `exploration/fog-of-war` | loop 2.5s | 96×64 | A top-down fog of war visual for island exploration. |
+| fossil discovery | `exploration/fossil-discovery` | one-shot 1.25s | 64×64 | A top-down fossil discovery visual for island exploration. |
 | Gathering swing | `exploration/gather-swing` | one-shot 0.6s | 48×48 | The explorer swings an axe or pickaxe in four facings, with a contact cue for impact effects. |
+| hidden treasure marker | `exploration/hidden-treasure-marker` | loop 2.5s | 64×64 | A top-down hidden treasure marker visual for island exploration. |
 | Metal ingot | `exploration/ingot` | loop 1s | 16×16 | A small beveled metal bar for smelting recipes, inventory slots and ground pickups. |
+| island construction | `exploration/island-construction` | one-shot 1.25s | 64×64 | A top-down island construction visual for island exploration. |
+| island emerge | `exploration/island-emerge` | one-shot 1.25s | 64×64 | A top-down island emerge visual for island exploration. |
+| island expand | `exploration/island-expand` | one-shot 1.25s | 64×64 | A top-down island expand visual for island exploration. |
 | Island explorer | `exploration/island-explorer` | loop 0.8s | 48×48 | An original moss-hooded adventurer with four-direction idle and walk cycles. |
+| island locked overlay | `exploration/island-locked-overlay` | loop 2.5s | 64×64 | A top-down island locked overlay visual for island exploration. |
+| island purchase border | `exploration/island-purchase-border` | loop 2.5s | 64×64 | A top-down island purchase border visual for island exploration. |
+| island purchase preview | `exploration/island-purchase-preview` | loop 2.5s | 64×64 | A top-down island purchase preview visual for island exploration. |
 | Island shoreline | `exploration/island-shore` | loop 2.5s | 16×16 | A 16 px grass-to-water transition with outer edges and inside corners. The water remains transparent. |
+| island unlock reveal | `exploration/island-unlock-reveal` | one-shot 1.25s | 64×64 | A top-down island unlock reveal visual for island exploration. |
 | Locked plot marker | `exploration/locked-plot` | loop 1s | 64×48 | A wooden parcel sign with a brass padlock and a configurable coin price. |
+| magical portal | `exploration/magical-portal` | loop 2.5s | 64×64 | A top-down magical portal visual for island exploration. |
+| map marker | `exploration/map-marker` | loop 2.5s | 64×64 | A top-down map marker visual for island exploration. |
 | Ore deposit | `exploration/ore-deposit` | loop 1s | 32×32 | A split slate boulder with exposed metal seams, distinct from a plain gatherable rock. |
 | Plot unlock | `exploration/plot-unlock` | one-shot 0.92s | 80×64 | A golden ground ripple and opening padlock celebrate the purchase of new land. |
+| raft | `exploration/raft` | loop 2.5s | 64×64 | A top-down raft visual for island exploration. |
+| resource highlight | `exploration/resource-highlight` | loop 2.5s | 64×64 | A top-down resource highlight visual for island exploration. |
+| resource respawn | `exploration/resource-respawn` | one-shot 1.25s | 64×64 | A top-down resource respawn visual for island exploration. |
+| sailing boat | `exploration/sailing-boat` | loop 2.5s | 64×64 | A top-down sailing boat visual for island exploration. |
+| secret door | `exploration/secret-door` | loop 2.5s | 64×64 | A top-down secret door visual for island exploration. |
+| secret island | `exploration/secret-island` | loop 2.5s | 64×64 | A top-down secret island visual for island exploration. |
+| teleport gate | `exploration/teleport-gate` | loop 2.5s | 64×64 | A top-down teleport gate visual for island exploration. |
+| treasure dig | `exploration/treasure-dig` | one-shot 1.25s | 64×64 | A top-down treasure dig visual for island exploration. |
+| treasure reveal | `exploration/treasure-reveal` | one-shot 1.25s | 64×64 | A top-down treasure reveal visual for island exploration. |
+| waypoint | `exploration/waypoint` | loop 2.5s | 64×64 | A top-down waypoint visual for island exploration. |
 
 ## resources
 

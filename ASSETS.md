@@ -1,6 +1,6 @@
 # FarmFX assets
 
-917 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
+947 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
 
 ## Characters (20)
 
@@ -445,17 +445,47 @@
 | Shop interface | [`ui/shop-interface`](src/fx/ui/shop-interface.js) | [GIF](docs/preview/ui-shop-interface.gif) |
 | Item tooltip | [`ui/tooltip`](src/fx/ui/tooltip.js) | [GIF](docs/preview/ui-tooltip.gif) |
 
-## Island exploration (7)
+## Island exploration (37)
 
 | Asset | ID | Preview |
 | --- | --- | --- |
+| artifact discovery | [`exploration/artifact-discovery`](src/fx/exploration/artifact-discovery.js) | — |
+| boat | [`exploration/boat`](src/fx/exploration/boat.js) | — |
+| boat dock | [`exploration/boat-dock`](src/fx/exploration/boat-dock.js) | — |
+| buried treasure | [`exploration/buried-treasure`](src/fx/exploration/buried-treasure.js) | — |
+| cave discovery | [`exploration/cave-discovery`](src/fx/exploration/cave-discovery.js) | — |
+| exploration flag | [`exploration/exploration-flag`](src/fx/exploration/exploration-flag.js) | — |
+| fast travel point | [`exploration/fast-travel-point`](src/fx/exploration/fast-travel-point.js) | — |
+| fishing spot | [`exploration/fishing-spot`](src/fx/exploration/fishing-spot.js) | — |
+| fog of war | [`exploration/fog-of-war`](src/fx/exploration/fog-of-war.js) | — |
+| fossil discovery | [`exploration/fossil-discovery`](src/fx/exploration/fossil-discovery.js) | — |
 | Gathering swing | [`exploration/gather-swing`](src/fx/exploration/gather-swing.js) | [GIF](docs/preview/exploration-gather-swing.gif) |
+| hidden treasure marker | [`exploration/hidden-treasure-marker`](src/fx/exploration/hidden-treasure-marker.js) | — |
 | Metal ingot | [`exploration/ingot`](src/fx/exploration/ingot.js) | [GIF](docs/preview/exploration-ingot.gif) |
+| island construction | [`exploration/island-construction`](src/fx/exploration/island-construction.js) | — |
+| island emerge | [`exploration/island-emerge`](src/fx/exploration/island-emerge.js) | — |
+| island expand | [`exploration/island-expand`](src/fx/exploration/island-expand.js) | — |
 | Island explorer | [`exploration/island-explorer`](src/fx/exploration/island-explorer.js) | [GIF](docs/preview/exploration-island-explorer.gif) |
+| island locked overlay | [`exploration/island-locked-overlay`](src/fx/exploration/island-locked-overlay.js) | — |
+| island purchase border | [`exploration/island-purchase-border`](src/fx/exploration/island-purchase-border.js) | — |
+| island purchase preview | [`exploration/island-purchase-preview`](src/fx/exploration/island-purchase-preview.js) | — |
 | Island shoreline | [`exploration/island-shore`](src/fx/exploration/island-shore.js) | [GIF](docs/preview/exploration-island-shore.gif) |
+| island unlock reveal | [`exploration/island-unlock-reveal`](src/fx/exploration/island-unlock-reveal.js) | — |
 | Locked plot marker | [`exploration/locked-plot`](src/fx/exploration/locked-plot.js) | [GIF](docs/preview/exploration-locked-plot.gif) |
+| magical portal | [`exploration/magical-portal`](src/fx/exploration/magical-portal.js) | — |
+| map marker | [`exploration/map-marker`](src/fx/exploration/map-marker.js) | — |
 | Ore deposit | [`exploration/ore-deposit`](src/fx/exploration/ore-deposit.js) | [GIF](docs/preview/exploration-ore-deposit.gif) |
 | Plot unlock | [`exploration/plot-unlock`](src/fx/exploration/plot-unlock.js) | [GIF](docs/preview/exploration-plot-unlock.gif) |
+| raft | [`exploration/raft`](src/fx/exploration/raft.js) | — |
+| resource highlight | [`exploration/resource-highlight`](src/fx/exploration/resource-highlight.js) | — |
+| resource respawn | [`exploration/resource-respawn`](src/fx/exploration/resource-respawn.js) | — |
+| sailing boat | [`exploration/sailing-boat`](src/fx/exploration/sailing-boat.js) | — |
+| secret door | [`exploration/secret-door`](src/fx/exploration/secret-door.js) | — |
+| secret island | [`exploration/secret-island`](src/fx/exploration/secret-island.js) | — |
+| teleport gate | [`exploration/teleport-gate`](src/fx/exploration/teleport-gate.js) | — |
+| treasure dig | [`exploration/treasure-dig`](src/fx/exploration/treasure-dig.js) | — |
+| treasure reveal | [`exploration/treasure-reveal`](src/fx/exploration/treasure-reveal.js) | — |
+| waypoint | [`exploration/waypoint`](src/fx/exploration/waypoint.js) | — |
 
 ## Resources (30)
 
