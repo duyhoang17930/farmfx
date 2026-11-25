@@ -1,6 +1,6 @@
 # FarmFX assets
 
-1376 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
+1395 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
 
 ## Characters (20)
 
@@ -1522,3 +1522,27 @@
 | torch light | [`lighting/torch-light`](src/fx/lighting/torch-light.js) | — |
 | tree shadow | [`lighting/tree-shadow`](src/fx/lighting/tree-shadow.js) | — |
 | window light | [`lighting/window-light`](src/fx/lighting/window-light.js) | — |
+
+## Transitions (19)
+
+| Asset | ID | Preview |
+| --- | --- | --- |
+| biome transition | [`transitions/biome-transition`](src/fx/transitions/biome-transition.js) | — |
+| boss defeated | [`transitions/boss-defeated`](src/fx/transitions/boss-defeated.js) | — |
+| boss introduction | [`transitions/boss-introduction`](src/fx/transitions/boss-introduction.js) | — |
+| circle close | [`transitions/circle-close`](src/fx/transitions/circle-close.js) | — |
+| circle open | [`transitions/circle-open`](src/fx/transitions/circle-open.js) | — |
+| crossfade | [`transitions/crossfade`](src/fx/transitions/crossfade.js) | — |
+| day transition | [`transitions/day-transition`](src/fx/transitions/day-transition.js) | — |
+| dungeon enter | [`transitions/dungeon-enter`](src/fx/transitions/dungeon-enter.js) | — |
+| dungeon exit | [`transitions/dungeon-exit`](src/fx/transitions/dungeon-exit.js) | — |
+| fade in | [`transitions/fade-in`](src/fx/transitions/fade-in.js) | — |
+| fade out | [`transitions/fade-out`](src/fx/transitions/fade-out.js) | — |
+| island unlock transition | [`transitions/island-unlock-transition`](src/fx/transitions/island-unlock-transition.js) | — |
+| night transition | [`transitions/night-transition`](src/fx/transitions/night-transition.js) | — |
+| pixel dissolve | [`transitions/pixel-dissolve`](src/fx/transitions/pixel-dissolve.js) | — |
+| pixel wipe | [`transitions/pixel-wipe`](src/fx/transitions/pixel-wipe.js) | — |
+| player death | [`transitions/player-death`](src/fx/transitions/player-death.js) | — |
+| player respawn | [`transitions/player-respawn`](src/fx/transitions/player-respawn.js) | — |
+| season transition | [`transitions/season-transition`](src/fx/transitions/season-transition.js) | — |
+| teleport transition | [`transitions/teleport-transition`](src/fx/transitions/teleport-transition.js) | — |

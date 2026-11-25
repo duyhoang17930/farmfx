@@ -1,6 +1,6 @@
 # Catalog
 
-1376 effects in 29 categories. Every one is a file in
+1395 effects in 30 categories. Every one is a file in
 `src/fx/<category>/<name>.js`; render any of them with `node tools/render.mjs <id> --gif`.
 
 ## characters
@@ -1581,3 +1581,29 @@ configurable light sources, darkness and shadows.
 | torch light | `lighting/torch-light` | loop 2.5s | 96×80 | A configurable torch light layer with adjustable radius and intensity. |
 | tree shadow | `lighting/tree-shadow` | loop 1s | 96×80 | A configurable tree shadow layer with adjustable radius and intensity. |
 | window light | `lighting/window-light` | loop 1s | 96×80 | A configurable window light layer with adjustable radius and intensity. |
+
+## transitions
+
+screen fades, iris masks and scene changes.
+
+| effect | id | | size | what it does |
+|---|---|---|---|---|
+| biome transition | `transitions/biome-transition` | one-shot 1.6s | 160×96 | A pixel-art biome transition transition with a midpoint scene-swap cue. |
+| boss defeated | `transitions/boss-defeated` | one-shot 1.6s | 160×96 | A pixel-art boss defeated transition with a midpoint scene-swap cue. |
+| boss introduction | `transitions/boss-introduction` | one-shot 1.6s | 160×96 | A pixel-art boss introduction transition with a midpoint scene-swap cue. |
+| circle close | `transitions/circle-close` | one-shot 1.6s | 160×96 | A pixel-art circle close transition with a midpoint scene-swap cue. |
+| circle open | `transitions/circle-open` | one-shot 1.6s | 160×96 | A pixel-art circle open transition with a midpoint scene-swap cue. |
+| crossfade | `transitions/crossfade` | one-shot 1.6s | 160×96 | A pixel-art crossfade transition with a midpoint scene-swap cue. |
+| day transition | `transitions/day-transition` | one-shot 1.6s | 160×96 | A pixel-art day transition transition with a midpoint scene-swap cue. |
+| dungeon enter | `transitions/dungeon-enter` | one-shot 1.6s | 160×96 | A pixel-art dungeon enter transition with a midpoint scene-swap cue. |
+| dungeon exit | `transitions/dungeon-exit` | one-shot 1.6s | 160×96 | A pixel-art dungeon exit transition with a midpoint scene-swap cue. |
+| fade in | `transitions/fade-in` | one-shot 1.6s | 160×96 | A pixel-art fade in transition with a midpoint scene-swap cue. |
+| fade out | `transitions/fade-out` | one-shot 1.6s | 160×96 | A pixel-art fade out transition with a midpoint scene-swap cue. |
+| island unlock transition | `transitions/island-unlock-transition` | one-shot 1.6s | 160×96 | A pixel-art island unlock transition transition with a midpoint scene-swap cue. |
+| night transition | `transitions/night-transition` | one-shot 1.6s | 160×96 | A pixel-art night transition transition with a midpoint scene-swap cue. |
+| pixel dissolve | `transitions/pixel-dissolve` | one-shot 1.6s | 160×96 | A pixel-art pixel dissolve transition with a midpoint scene-swap cue. |
+| pixel wipe | `transitions/pixel-wipe` | one-shot 1.6s | 160×96 | A pixel-art pixel wipe transition with a midpoint scene-swap cue. |
+| player death | `transitions/player-death` | one-shot 1.6s | 160×96 | A pixel-art player death transition with a midpoint scene-swap cue. |
+| player respawn | `transitions/player-respawn` | one-shot 1.6s | 160×96 | A pixel-art player respawn transition with a midpoint scene-swap cue. |
+| season transition | `transitions/season-transition` | one-shot 1.6s | 160×96 | A pixel-art season transition transition with a midpoint scene-swap cue. |
+| teleport transition | `transitions/teleport-transition` | one-shot 1.6s | 160×96 | A pixel-art teleport transition transition with a midpoint scene-swap cue. |

@@ -1,6 +1,6 @@
 # farmfx.
 
-**<!-- count -->1376<!-- /count --> pixel art assets and animations for farming games, every one a small piece of
+**<!-- count -->1395<!-- /count --> pixel art assets and animations for farming games, every one a small piece of
 code.** Crops that grow from seed to harvest, animals going about their day, tilled and watered soil, weather and
 seasons, and a farmer who hoes, waters, sows and harvests. Play them live, recolor them for another season, drop
 them into a browser game, or export sprite sheets for any engine.
@@ -61,6 +61,7 @@ system, with a library made for farms instead of fights.
 | **emotes** | 25 | angry, annoyed, broken heart, celebration, confused, crying… |
 | **particles** | 25 | coin, crystal shard, dust, ember, experience orb, flame… |
 | **lighting** | 20 | ambient light, building shadow, campfire light, cave darkness, character shadow, crystal light… |
+| **transitions** | 19 | biome transition, boss defeated, boss introduction, circle close, circle open, crossfade… |
 <!-- /catalog -->
 
 The [asset index](ASSETS.md) links to every source file and available GIF preview. The [catalog](docs/CATALOG.md)

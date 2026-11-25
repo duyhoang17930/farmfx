@@ -1376,6 +1376,25 @@ import * as lighting_street_light from "./lighting/street-light.js";
 import * as lighting_torch_light from "./lighting/torch-light.js";
 import * as lighting_tree_shadow from "./lighting/tree-shadow.js";
 import * as lighting_window_light from "./lighting/window-light.js";
+import * as transitions_biome_transition from "./transitions/biome-transition.js";
+import * as transitions_boss_defeated from "./transitions/boss-defeated.js";
+import * as transitions_boss_introduction from "./transitions/boss-introduction.js";
+import * as transitions_circle_close from "./transitions/circle-close.js";
+import * as transitions_circle_open from "./transitions/circle-open.js";
+import * as transitions_crossfade from "./transitions/crossfade.js";
+import * as transitions_day_transition from "./transitions/day-transition.js";
+import * as transitions_dungeon_enter from "./transitions/dungeon-enter.js";
+import * as transitions_dungeon_exit from "./transitions/dungeon-exit.js";
+import * as transitions_fade_in from "./transitions/fade-in.js";
+import * as transitions_fade_out from "./transitions/fade-out.js";
+import * as transitions_island_unlock_transition from "./transitions/island-unlock-transition.js";
+import * as transitions_night_transition from "./transitions/night-transition.js";
+import * as transitions_pixel_dissolve from "./transitions/pixel-dissolve.js";
+import * as transitions_pixel_wipe from "./transitions/pixel-wipe.js";
+import * as transitions_player_death from "./transitions/player-death.js";
+import * as transitions_player_respawn from "./transitions/player-respawn.js";
+import * as transitions_season_transition from "./transitions/season-transition.js";
+import * as transitions_teleport_transition from "./transitions/teleport-transition.js";
 
 export { categories } from "./categories.js";
 
@@ -2756,4 +2775,23 @@ export const effects = {
   "lighting/torch-light": lighting_torch_light,
   "lighting/tree-shadow": lighting_tree_shadow,
   "lighting/window-light": lighting_window_light,
+  "transitions/biome-transition": transitions_biome_transition,
+  "transitions/boss-defeated": transitions_boss_defeated,
+  "transitions/boss-introduction": transitions_boss_introduction,
+  "transitions/circle-close": transitions_circle_close,
+  "transitions/circle-open": transitions_circle_open,
+  "transitions/crossfade": transitions_crossfade,
+  "transitions/day-transition": transitions_day_transition,
+  "transitions/dungeon-enter": transitions_dungeon_enter,
+  "transitions/dungeon-exit": transitions_dungeon_exit,
+  "transitions/fade-in": transitions_fade_in,
+  "transitions/fade-out": transitions_fade_out,
+  "transitions/island-unlock-transition": transitions_island_unlock_transition,
+  "transitions/night-transition": transitions_night_transition,
+  "transitions/pixel-dissolve": transitions_pixel_dissolve,
+  "transitions/pixel-wipe": transitions_pixel_wipe,
+  "transitions/player-death": transitions_player_death,
+  "transitions/player-respawn": transitions_player_respawn,
+  "transitions/season-transition": transitions_season_transition,
+  "transitions/teleport-transition": transitions_teleport_transition,
 };
