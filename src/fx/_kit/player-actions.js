@@ -61,7 +61,7 @@ export function playerClip(id) {
     ...(mode==="combo"?{secondContact:duration*0.59}: {})};
   const meta={name:id.replaceAll("-"," "),desc:`Island explorer ${id.replaceAll("-"," ")} in four directions.`,
     size:[64,64],origin:[32,48],duration,fps:15,loop,bg:"field",tags:["player",mode],options:{facing:"down",palette:HOOD},
-    ...(events?{events,omitTerminalFrame:true}:{})};
+    collision:{width:12,height:8},...(events?{events,omitTerminalFrame:true}:{})};
   function draw(p,t,o){
     if(!loop&&t>=duration)return;
     if(mode==="gather"){gather.draw(p,t,{...o,tool:item});return;}
