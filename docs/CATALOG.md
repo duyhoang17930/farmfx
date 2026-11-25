@@ -1,6 +1,6 @@
 # Catalog
 
-506 effects in 17 categories. Every one is a file in
+556 effects in 18 categories. Every one is a file in
 `src/fx/<category>/<name>.js`; render any of them with `node tools/render.mjs <id> --gif`.
 
 ## characters
@@ -627,3 +627,60 @@ inventory icons for materials, components, gems, produce, animal products and me
 | Soul shard | `items/special/soul-shard` | loop 1s | 16×16 | A blue shard holding a pale soul rune. |
 | Spirit essence | `items/special/spirit-essence` | loop 1s | 16×16 | A pale spirit pearl with a teal ring of light. |
 | Treasure map | `items/special/treasure-map` | loop 1s | 16×16 | A creased treasure map with a winding route and red mark. |
+
+## player
+
+island explorer movement and action clips.
+
+| effect | id | | size | what it does |
+|---|---|---|---|---|
+| axe swing | `player/axe-swing` | one-shot 0.6s | 64×64 | Island explorer axe swing in four directions. |
+| bow aim | `player/bow-aim` | loop 1.07s | 64×64 | Island explorer bow aim in four directions. |
+| bow shoot | `player/bow-shoot` | one-shot 0.73s | 64×64 | Island explorer bow shoot in four directions. |
+| building | `player/building` | one-shot 0.93s | 64×64 | Island explorer building in four directions. |
+| celebration | `player/celebration` | one-shot 1.2s | 64×64 | Island explorer celebration in four directions. |
+| climbing | `player/climbing` | loop 0.93s | 64×64 | Island explorer climbing in four directions. |
+| crafting | `player/crafting` | one-shot 1.07s | 64×64 | Island explorer crafting in four directions. |
+| dash | `player/dash` | one-shot 0.47s | 64×64 | Island explorer dash in four directions. |
+| death | `player/death` | one-shot 1.13s | 64×64 | Island explorer death in four directions. |
+| dodge roll | `player/dodge-roll` | one-shot 0.73s | 64×64 | Island explorer dodge roll in four directions. |
+| drinking | `player/drinking` | one-shot 1s | 64×64 | Island explorer drinking in four directions. |
+| eating | `player/eating` | one-shot 1s | 64×64 | Island explorer eating in four directions. |
+| fishing cast | `player/fishing-cast` | one-shot 1s | 64×64 | Island explorer fishing cast in four directions. |
+| fishing catch | `player/fishing-catch` | one-shot 1.07s | 64×64 | Island explorer fishing catch in four directions. |
+| fishing reel | `player/fishing-reel` | loop 1.07s | 64×64 | Island explorer fishing reel in four directions. |
+| fishing wait | `player/fishing-wait` | loop 1.6s | 64×64 | Island explorer fishing wait in four directions. |
+| hammer swing | `player/hammer-swing` | one-shot 0.67s | 64×64 | Island explorer hammer swing in four directions. |
+| harvesting | `player/harvesting` | one-shot 0.8s | 64×64 | Island explorer harvesting in four directions. |
+| heavy attack | `player/heavy-attack` | one-shot 1.13s | 64×64 | Island explorer heavy attack in four directions. |
+| hoe swing | `player/hoe-swing` | one-shot 0.73s | 64×64 | Island explorer hoe swing in four directions. |
+| hurt | `player/hurt` | one-shot 0.53s | 64×64 | Island explorer hurt in four directions. |
+| idle | `player/idle` | loop 1.6s | 64×64 | Island explorer idle in four directions. |
+| item carry | `player/item-carry` | loop 0.8s | 64×64 | Island explorer item carry in four directions. |
+| item pickup | `player/item-pickup` | one-shot 0.73s | 64×64 | Island explorer item pickup in four directions. |
+| item throw | `player/item-throw` | one-shot 0.8s | 64×64 | Island explorer item throw in four directions. |
+| jump | `player/jump` | one-shot 0.93s | 64×64 | Island explorer jump in four directions. |
+| knockback | `player/knockback` | one-shot 0.67s | 64×64 | Island explorer knockback in four directions. |
+| landing | `player/landing` | one-shot 0.53s | 64×64 | Island explorer landing in four directions. |
+| level up | `player/level-up` | one-shot 1.47s | 64×64 | Island explorer level up in four directions. |
+| magic cast | `player/magic-cast` | one-shot 1s | 64×64 | Island explorer magic cast in four directions. |
+| pickaxe swing | `player/pickaxe-swing` | one-shot 0.6s | 64×64 | Island explorer pickaxe swing in four directions. |
+| pulling | `player/pulling` | loop 0.8s | 64×64 | Island explorer pulling in four directions. |
+| pushing | `player/pushing` | loop 0.8s | 64×64 | Island explorer pushing in four directions. |
+| respawn | `player/respawn` | one-shot 1.07s | 64×64 | Island explorer respawn in four directions. |
+| run | `player/run` | loop 0.53s | 64×64 | Island explorer run in four directions. |
+| scythe swing | `player/scythe-swing` | one-shot 0.8s | 64×64 | Island explorer scythe swing in four directions. |
+| shield block | `player/shield-block` | one-shot 0.73s | 64×64 | Island explorer shield block in four directions. |
+| shovel dig | `player/shovel-dig` | one-shot 0.87s | 64×64 | Island explorer shovel dig in four directions. |
+| sleeping | `player/sleeping` | loop 1.73s | 64×64 | Island explorer sleeping in four directions. |
+| sowing | `player/sowing` | one-shot 0.8s | 64×64 | Island explorer sowing in four directions. |
+| spear attack | `player/spear-attack` | one-shot 0.8s | 64×64 | Island explorer spear attack in four directions. |
+| sprint | `player/sprint` | loop 0.4s | 64×64 | Island explorer sprint in four directions. |
+| stunned | `player/stunned` | loop 1.47s | 64×64 | Island explorer stunned in four directions. |
+| swimming | `player/swimming` | loop 0.93s | 64×64 | Island explorer swimming in four directions. |
+| sword attack | `player/sword-attack` | one-shot 0.6s | 64×64 | Island explorer sword attack in four directions. |
+| sword combo | `player/sword-combo` | one-shot 1.4s | 64×64 | Island explorer sword combo in four directions. |
+| teleport | `player/teleport` | one-shot 1.07s | 64×64 | Island explorer teleport in four directions. |
+| waking up | `player/waking-up` | one-shot 0.87s | 64×64 | Island explorer waking up in four directions. |
+| walk | `player/walk` | loop 0.8s | 64×64 | Island explorer walk in four directions. |
+| watering | `player/watering` | one-shot 1.13s | 64×64 | Island explorer watering in four directions. |

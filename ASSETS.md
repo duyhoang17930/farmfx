@@ -1,6 +1,6 @@
 # FarmFX assets
 
-506 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
+556 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
 
 ## Characters (20)
 
@@ -592,3 +592,58 @@
 | Soul shard | [`items/special/soul-shard`](src/fx/items/special/soul-shard.js) | — |
 | Spirit essence | [`items/special/spirit-essence`](src/fx/items/special/spirit-essence.js) | — |
 | Treasure map | [`items/special/treasure-map`](src/fx/items/special/treasure-map.js) | — |
+
+## Player (50)
+
+| Asset | ID | Preview |
+| --- | --- | --- |
+| axe swing | [`player/axe-swing`](src/fx/player/axe-swing.js) | — |
+| bow aim | [`player/bow-aim`](src/fx/player/bow-aim.js) | — |
+| bow shoot | [`player/bow-shoot`](src/fx/player/bow-shoot.js) | — |
+| building | [`player/building`](src/fx/player/building.js) | — |
+| celebration | [`player/celebration`](src/fx/player/celebration.js) | — |
+| climbing | [`player/climbing`](src/fx/player/climbing.js) | — |
+| crafting | [`player/crafting`](src/fx/player/crafting.js) | — |
+| dash | [`player/dash`](src/fx/player/dash.js) | — |
+| death | [`player/death`](src/fx/player/death.js) | — |
+| dodge roll | [`player/dodge-roll`](src/fx/player/dodge-roll.js) | — |
+| drinking | [`player/drinking`](src/fx/player/drinking.js) | — |
+| eating | [`player/eating`](src/fx/player/eating.js) | — |
+| fishing cast | [`player/fishing-cast`](src/fx/player/fishing-cast.js) | — |
+| fishing catch | [`player/fishing-catch`](src/fx/player/fishing-catch.js) | — |
+| fishing reel | [`player/fishing-reel`](src/fx/player/fishing-reel.js) | — |
+| fishing wait | [`player/fishing-wait`](src/fx/player/fishing-wait.js) | — |
+| hammer swing | [`player/hammer-swing`](src/fx/player/hammer-swing.js) | — |
+| harvesting | [`player/harvesting`](src/fx/player/harvesting.js) | — |
+| heavy attack | [`player/heavy-attack`](src/fx/player/heavy-attack.js) | — |
+| hoe swing | [`player/hoe-swing`](src/fx/player/hoe-swing.js) | — |
+| hurt | [`player/hurt`](src/fx/player/hurt.js) | — |
+| idle | [`player/idle`](src/fx/player/idle.js) | — |
+| item carry | [`player/item-carry`](src/fx/player/item-carry.js) | — |
+| item pickup | [`player/item-pickup`](src/fx/player/item-pickup.js) | — |
+| item throw | [`player/item-throw`](src/fx/player/item-throw.js) | — |
+| jump | [`player/jump`](src/fx/player/jump.js) | — |
+| knockback | [`player/knockback`](src/fx/player/knockback.js) | — |
+| landing | [`player/landing`](src/fx/player/landing.js) | — |
+| level up | [`player/level-up`](src/fx/player/level-up.js) | — |
+| magic cast | [`player/magic-cast`](src/fx/player/magic-cast.js) | — |
+| pickaxe swing | [`player/pickaxe-swing`](src/fx/player/pickaxe-swing.js) | — |
+| pulling | [`player/pulling`](src/fx/player/pulling.js) | — |
+| pushing | [`player/pushing`](src/fx/player/pushing.js) | — |
+| respawn | [`player/respawn`](src/fx/player/respawn.js) | — |
+| run | [`player/run`](src/fx/player/run.js) | — |
+| scythe swing | [`player/scythe-swing`](src/fx/player/scythe-swing.js) | — |
+| shield block | [`player/shield-block`](src/fx/player/shield-block.js) | — |
+| shovel dig | [`player/shovel-dig`](src/fx/player/shovel-dig.js) | — |
+| sleeping | [`player/sleeping`](src/fx/player/sleeping.js) | — |
+| sowing | [`player/sowing`](src/fx/player/sowing.js) | — |
+| spear attack | [`player/spear-attack`](src/fx/player/spear-attack.js) | — |
+| sprint | [`player/sprint`](src/fx/player/sprint.js) | — |
+| stunned | [`player/stunned`](src/fx/player/stunned.js) | — |
+| swimming | [`player/swimming`](src/fx/player/swimming.js) | — |
+| sword attack | [`player/sword-attack`](src/fx/player/sword-attack.js) | — |
+| sword combo | [`player/sword-combo`](src/fx/player/sword-combo.js) | — |
+| teleport | [`player/teleport`](src/fx/player/teleport.js) | — |
+| waking up | [`player/waking-up`](src/fx/player/waking-up.js) | — |
+| walk | [`player/walk`](src/fx/player/walk.js) | — |
+| watering | [`player/watering`](src/fx/player/watering.js) | — |

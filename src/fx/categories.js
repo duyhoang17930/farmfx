@@ -18,4 +18,5 @@ export const categories = [
   { id: "resources", name: "resources", blurb: "metal ores, gemstone clusters, mineral deposits and wild gatherables" },
   { id: "machines", name: "machines", blurb: "crafting stations, industrial machinery, power, automation and conveyors" },
   { id: "items", name: "items", blurb: "inventory icons for materials, components, gems, produce, animal products and meals" },
+  { id: "player", name: "player", blurb: "island explorer movement and action clips" },
 ];

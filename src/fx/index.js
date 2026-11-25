@@ -506,6 +506,56 @@ import * as items_special_slime_gel from "./items/special/slime-gel.js";
 import * as items_special_soul_shard from "./items/special/soul-shard.js";
 import * as items_special_spirit_essence from "./items/special/spirit-essence.js";
 import * as items_special_treasure_map from "./items/special/treasure-map.js";
+import * as player_axe_swing from "./player/axe-swing.js";
+import * as player_bow_aim from "./player/bow-aim.js";
+import * as player_bow_shoot from "./player/bow-shoot.js";
+import * as player_building from "./player/building.js";
+import * as player_celebration from "./player/celebration.js";
+import * as player_climbing from "./player/climbing.js";
+import * as player_crafting from "./player/crafting.js";
+import * as player_dash from "./player/dash.js";
+import * as player_death from "./player/death.js";
+import * as player_dodge_roll from "./player/dodge-roll.js";
+import * as player_drinking from "./player/drinking.js";
+import * as player_eating from "./player/eating.js";
+import * as player_fishing_cast from "./player/fishing-cast.js";
+import * as player_fishing_catch from "./player/fishing-catch.js";
+import * as player_fishing_reel from "./player/fishing-reel.js";
+import * as player_fishing_wait from "./player/fishing-wait.js";
+import * as player_hammer_swing from "./player/hammer-swing.js";
+import * as player_harvesting from "./player/harvesting.js";
+import * as player_heavy_attack from "./player/heavy-attack.js";
+import * as player_hoe_swing from "./player/hoe-swing.js";
+import * as player_hurt from "./player/hurt.js";
+import * as player_idle from "./player/idle.js";
+import * as player_item_carry from "./player/item-carry.js";
+import * as player_item_pickup from "./player/item-pickup.js";
+import * as player_item_throw from "./player/item-throw.js";
+import * as player_jump from "./player/jump.js";
+import * as player_knockback from "./player/knockback.js";
+import * as player_landing from "./player/landing.js";
+import * as player_level_up from "./player/level-up.js";
+import * as player_magic_cast from "./player/magic-cast.js";
+import * as player_pickaxe_swing from "./player/pickaxe-swing.js";
+import * as player_pulling from "./player/pulling.js";
+import * as player_pushing from "./player/pushing.js";
+import * as player_respawn from "./player/respawn.js";
+import * as player_run from "./player/run.js";
+import * as player_scythe_swing from "./player/scythe-swing.js";
+import * as player_shield_block from "./player/shield-block.js";
+import * as player_shovel_dig from "./player/shovel-dig.js";
+import * as player_sleeping from "./player/sleeping.js";
+import * as player_sowing from "./player/sowing.js";
+import * as player_spear_attack from "./player/spear-attack.js";
+import * as player_sprint from "./player/sprint.js";
+import * as player_stunned from "./player/stunned.js";
+import * as player_swimming from "./player/swimming.js";
+import * as player_sword_attack from "./player/sword-attack.js";
+import * as player_sword_combo from "./player/sword-combo.js";
+import * as player_teleport from "./player/teleport.js";
+import * as player_waking_up from "./player/waking-up.js";
+import * as player_walk from "./player/walk.js";
+import * as player_watering from "./player/watering.js";
 
 export { categories } from "./categories.js";
 
@@ -1016,4 +1066,54 @@ export const effects = {
   "items/special/soul-shard": items_special_soul_shard,
   "items/special/spirit-essence": items_special_spirit_essence,
   "items/special/treasure-map": items_special_treasure_map,
+  "player/axe-swing": player_axe_swing,
+  "player/bow-aim": player_bow_aim,
+  "player/bow-shoot": player_bow_shoot,
+  "player/building": player_building,
+  "player/celebration": player_celebration,
+  "player/climbing": player_climbing,
+  "player/crafting": player_crafting,
+  "player/dash": player_dash,
+  "player/death": player_death,
+  "player/dodge-roll": player_dodge_roll,
+  "player/drinking": player_drinking,
+  "player/eating": player_eating,
+  "player/fishing-cast": player_fishing_cast,
+  "player/fishing-catch": player_fishing_catch,
+  "player/fishing-reel": player_fishing_reel,
+  "player/fishing-wait": player_fishing_wait,
+  "player/hammer-swing": player_hammer_swing,
+  "player/harvesting": player_harvesting,
+  "player/heavy-attack": player_heavy_attack,
+  "player/hoe-swing": player_hoe_swing,
+  "player/hurt": player_hurt,
+  "player/idle": player_idle,
+  "player/item-carry": player_item_carry,
+  "player/item-pickup": player_item_pickup,
+  "player/item-throw": player_item_throw,
+  "player/jump": player_jump,
+  "player/knockback": player_knockback,
+  "player/landing": player_landing,
+  "player/level-up": player_level_up,
+  "player/magic-cast": player_magic_cast,
+  "player/pickaxe-swing": player_pickaxe_swing,
+  "player/pulling": player_pulling,
+  "player/pushing": player_pushing,
+  "player/respawn": player_respawn,
+  "player/run": player_run,
+  "player/scythe-swing": player_scythe_swing,
+  "player/shield-block": player_shield_block,
+  "player/shovel-dig": player_shovel_dig,
+  "player/sleeping": player_sleeping,
+  "player/sowing": player_sowing,
+  "player/spear-attack": player_spear_attack,
+  "player/sprint": player_sprint,
+  "player/stunned": player_stunned,
+  "player/swimming": player_swimming,
+  "player/sword-attack": player_sword_attack,
+  "player/sword-combo": player_sword_combo,
+  "player/teleport": player_teleport,
+  "player/waking-up": player_waking_up,
+  "player/walk": player_walk,
+  "player/watering": player_watering,
 };

@@ -34,7 +34,7 @@ const WALK = [
 ];
 const STAND = { feet: [0, 0], sideFeet: [0, 0], arms: 0, bob: 0 };
 
-export function explorer(p, palette, facing, { step = -1, bob = 0, lean = 0, hand, tool, tip } = {}) {
+export function explorer(p, palette, facing, { step = -1, bob = 0, lean = 0, hand, tool, tip, shadow = true } = {}) {
   const mirrored = facing === "left";
   const view = mirrored ? "right" : facing;
   const side = view === "right";
@@ -65,15 +65,19 @@ export function explorer(p, palette, facing, { step = -1, bob = 0, lean = 0, han
       blade([[-2, -2], [1, -2], [3, 1], [3, 4], [0, 5], [-2, 2]], STEEL[0]);
       blade([[-1, 0], [1, 0], [2, 2], [2, 4], [0, 4]], STEEL[3]);
       line(at(2, 2), at(1, 4), STEEL[4]);
-    } else {
+    } else if (tool === "pickaxe") {
       blade([[-3, -5], [0, -4], [2, -1], [2, 2], [0, 5], [-3, 6], [-1, 2], [-1, -2]], STEEL[0]);
       line(at(-2, -4), at(1, -1), STEEL[3]);
       line(at(1, -1), at(1, 2), STEEL[4]);
       line(at(1, 2), at(-2, 5), STEEL[3]);
+    } else {
+      blade([[-4,-2],[0,-3],[3,0],[0,3],[-4,2]],STEEL[0]);
+      line(at(-2,-1),at(2,0),STEEL[4]);
+      line(at(0,-2),at(0,2),STEEL[2]);
     }
   };
 
-  groundShadow(p, 0, 0, 6.5, 2);
+  if (shadow) groundShadow(p, 0, 0, 6.5, 2);
   arm(far, [far[0] - (side ? motion.arms : 1), yy - 6 + (side ? 0 : motion.arms)], false);
   for (let i = 0; i < 2; i++) {
     const foot = side ? -2 + i * 3 + motion.sideFeet[i] : -4 + i * 5;
