@@ -348,6 +348,17 @@ metadata for timing events and collision sizes. Connected tiles expose `edges` a
 named sheets where supported. For tiered tools, use `tier` from 1 through 8 to choose a material, or 0 for
 the default art.
 
+For the full adventure ZIP with PNG, JSON, and GIF exports for each variant, run the following from the repository
+root with Python and Pillow 10.1 or newer installed.
+
+```bash
+node tools/adventure-sheets.mjs sheets/adventure-stage
+python tools/adventure-package.py sheets/adventure-stage
+```
+
+The output is `sheets/farmfx-a-md-assets.zip`. Inside it, `index.json` links to the asset and audio manifests.
+Each variant links to its own PNG sheet, JSON metadata, and GIF preview.
+
 The [audio index](audio/game-audio.json) lists 90 original mono WAV files for gameplay, UI, ambience, and music.
 Use its `loop` flag to identify continuous cues. Run `node tools/game-audio.mjs` to regenerate the WAV files.
 
