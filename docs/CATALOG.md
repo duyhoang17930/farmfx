@@ -1,6 +1,6 @@
 # Catalog
 
-1419 effects in 30 categories. Every one is a file in
+1425 effects in 30 categories. Every one is a file in
 `src/fx/<category>/<name>.js`; render any of them with `node tools/render.mjs <id> --gif`.
 
 ## characters
@@ -139,6 +139,7 @@ farm livestock, pets, pond animals and flying wildlife.
 | Cat | `animals/cat` | loop 3.2s | 48×48 | An orange tabby with pointed ears, whiskers and an upright tail, animated in four directions. |
 | chick | `animals/chick` | loop 1.25s | 48×48 | A top-down chick with selectable animation states. |
 | Chicken | `animals/chicken` | loop 3.2s | 48×48 | A hen, side-facing (flip for left), top-down 3/4: three grains land around her feet, she pecks each up, flaps, drops a feather, jerks her head about and blinks. |
+| Coastal livestock | `animals/coastal-livestock` | loop 2.5s | 48×48 | Farm and woodland animals at consistent scale, with gentle idle and feeding loops. |
 | Cow | `animals/cow` | loop 3.2s | 48×48 | A spotted dairy cow with four facings, a swishing tail and idle, walk and graze loops. |
 | crab | `animals/crab` | loop 1.25s | 48×48 | A top-down crab with selectable animation states. |
 | Crow | `animals/crow` | loop 2.4s | 48×48 | A charcoal crow hops, dips its beak to peck and flicks its tail. Faces right; flip for left. |
@@ -195,6 +196,8 @@ seasonal ground, path and water tiles, cliffs, foliage and crossings.
 | cliff inner corner | `tiles/cliff-inner-corner` | loop 1s | 16×16 | A raised connected cliff edge with a fractured face. |
 | cliff outer corner | `tiles/cliff-outer-corner` | loop 1s | 16×16 | A raised connected cliff edge with a fractured face. |
 | Coastal boardwalk | `tiles/coastal-boardwalk` | loop 1s | 32×32 | A top-down three-quarter plank deck with wide treads, recessed end posts and shallow timber fascia. |
+| Coastal field | `tiles/coastal-field` | loop 1s | 16×16 | Connected dry or watered soil with continuous furrows and a soft outer edge. |
+| Coastal pond | `tiles/coastal-pond` | loop 3s | 16×16 | A modular stillwater pond with soft earthen banks and inside and outside corners. |
 | Coastal wildflowers | `tiles/coastal-wildflowers` | loop 2.4s | 32×32 | Wind-bent wildflowers with four cluster shapes, three bloom colors and picked stems. |
 | crystal floor | `tiles/crystal-floor` | loop 1s | 16×16 | A repeatable patterned floor with matching side edges. |
 | deep water | `tiles/deep-water` | loop 2.5s | 16×16 | A flowing 16 pixel water tile. |
@@ -222,6 +225,7 @@ seasonal ground, path and water tiles, cliffs, foliage and crossings.
 | metal bridge | `tiles/metal-bridge` | loop 1s | 16×16 | A raised bridge deck with matching plank and rail edges. |
 | metal floor | `tiles/metal-floor` | loop 1s | 16×16 | A repeatable patterned floor with matching side edges. |
 | metal wall | `tiles/metal-wall` | loop 1s | 16×16 | A tiled wall segment with selectable joins. |
+| Mist fern | `tiles/mist-fern` | loop 2.5s | 32×32 | A violet fern with small blue crystals along the stems. |
 | ocean water | `tiles/ocean-water` | loop 2.5s | 16×16 | A flowing 16 pixel water tile. |
 | ocean wave | `tiles/ocean-wave` | loop 2.5s | 16×16 | A looping foam crest on water. |
 | Pond | `tiles/pond` | loop 3s | 16×16 | A rippling 16 px pond tile with configurable banks N/E/S/W. Use empty banks for deep water. |
@@ -272,6 +276,7 @@ farmhouses, livestock shelters, workshops and market buildings.
 | church | `buildings/church` | loop 3s | 96×112 | A top-down church with a selectable door and interior lights. |
 | clock tower | `buildings/clock-tower` | loop 3s | 96×112 | A top-down clock tower with a selectable door and interior lights. |
 | clothing shop | `buildings/clothing-shop` | loop 3s | 96×112 | A top-down clothing shop with a selectable door and interior lights. |
+| Coastal farmstead | `buildings/coastal-farmstead` | loop 3.5s | 112×96 | A coop, glasshouse or barn with the same three-quarter projection, larger foundations and top-left lighting. |
 | duck house | `buildings/duck-house` | loop 3s | 96×112 | A top-down duck house with a selectable door and interior lights. |
 | dungeon entrance | `buildings/dungeon-entrance` | loop 3s | 96×112 | A top-down dungeon entrance with a selectable door and interior lights. |
 | factory building | `buildings/factory-building` | loop 3s | 96×112 | A top-down factory building with a selectable door and interior lights. |
@@ -806,6 +811,7 @@ crafting stations, industrial machinery, power, automation and conveyors.
 | Brewing station | `machines/brewing-station` | loop 2s | 64×64 | A wooden cask feeds a copper tap over a row of bottles and a drip tray. |
 | Charcoal kiln | `machines/charcoal-kiln` | loop 2s | 64×64 | A low clay charcoal oven with a blackened flue, split logs and cooling smoke. |
 | Coastal kiln | `machines/coastal-kiln` | loop 2s | 48×64 | A stone kiln with a sea-glass flue cap and a firebox that glows when working. |
+| Coastal workshop | `machines/coastal-workshop` | loop 2s | 64×64 | Running workshop machines with worn timber frames, lit steel and brass fittings. |
 | Coin mint | `machines/coin-mint` | loop 2s | 64×64 | A gold-trimmed stamping press drops currency into a front tray. |
 | Conveyor belt | `machines/conveyor-belt` | loop 2s | 16×16 | A straight 16 px roller belt with traveling link highlights. |
 | Conveyor corner | `machines/conveyor-corner` | loop 2s | 16×16 | A quarter-turn belt with interchangeable left and right bends. |

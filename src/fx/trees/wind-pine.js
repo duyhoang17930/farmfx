@@ -1,8 +1,11 @@
-import { clamp, rand } from "../../core/index.js";
+import { clamp, ramp, rand } from "../../core/index.js";
 import { asset, GOLD, WOOD, wave } from "../_kit/art.js";
 import { groundShadow, Layer } from "../_kit/sprite.js";
 
 const needles = ["#264d47", "#376958", "#529868", "#83bd75", "#cadf88"];
+export const MIST_NEEDLES = ["#404262","#57517c","#766897","#9885b0","#c7afd3"];
+const mistBark=ramp(["#283e52","#3a4f68","#4f6983","#6986a0","#9baab8"]);
+const prism=ramp(["#40567b","#658caa","#a1dace","#ddf4db"]);
 const crowns = [
   [[0,-31,15],[-2,-39,12],[0,-46,8]],
   [[0,-31,12],[1,-41,10],[0,-51,7]],
@@ -13,7 +16,8 @@ const sizes = [0.82, 1, 1.14];
 
 const cachedArt = new Map();
 
-function paintTree(canvas, C, pose) {
+function paintTree(canvas, C, pose, mist) {
+  const B=mist?mistBark:WOOD;
   const seed = pose % 8;
   const shape = Math.floor(pose / 8) % 4;
   const scale = sizes[Math.floor(pose / 32) % 3];
@@ -25,10 +29,10 @@ function paintTree(canvas, C, pose) {
     px: (x, y, color) => canvas.px(...at([x, y]), color),
   };
   p.poly([[-7,0],[-4,-3],[-3,-17],[bend * .28 - 2,-30],[bend * .3 + 3,-30],
-    [4,-17],[4,-5],[7,-1],[3,1],[0,-1]], WOOD[0]);
-  p.poly([[-5,0],[-2,-9],[-2,-20],[2,-23],[2,-2]], WOOD[2]);
-  p.line(-2, -3, 0, -15, WOOD[4]);
-  p.line(2, -7, 2, -11, WOOD[1]);
+    [4,-17],[4,-5],[7,-1],[3,1],[0,-1]], B[0]);
+  p.poly([[-5,0],[-2,-9],[-2,-20],[2,-23],[2,-2]], B[2]);
+  p.line(-2, -3, 0, -15, B[4]);
+  p.line(2, -7, 2, -11, B[1]);
   p.poly([[-4,1],[-2,-1],[3,0],[1,2]], C[1]);
 
   for (const [index, [offset, top, width]] of crowns[shape].entries()) {
@@ -51,15 +55,21 @@ function paintTree(canvas, C, pose) {
       p.line(ax - 1, ay + 1, ax, ay, C[i === 0 ? 4 : 3]);
     }
   }
-  p.px(-3, -13, WOOD[4]);
+  p.px(-3, -13, B[4]);
+  if(mist) for(const [x,y,h] of [[-9+bend*.45,-17,8],[9+bend*.52,-20,7],[-4+bend*.65,-30,7],[4+bend*.78,-38,5]]){
+    p.poly([[x-3,y],[x-3,y-h+2],[x+1,y-h],[x+3,y-h+4],[x+2,y+2]],prism[0]);
+    p.poly([[x-2,y-1],[x-2,y-h+3],[x+1,y-h+1],[x+2,y-h+4],[x+1,y]],prism[2]);
+    p.line(x-2,y-h+3,x+1,y-h+1,prism[3]);
+    p.line(x+1,y-h+2,x+1,y,prism[1]);
+  }
 }
 
-function drawTree(p, C, pose) {
-  const key = [...C,pose].join(",");
+function drawTree(p, C, pose, mist) {
+  const key = [...C,pose,mist].join(",");
   let layer = cachedArt.get(key);
   if (!layer) {
     layer = new Layer(64,66);
-    paintTree(layer.begin(-32,-61),C,pose);
+    paintTree(layer.begin(-32,-61),C,pose,mist);
     if (cachedArt.size >= 96) cachedArt.delete(cachedArt.keys().next().value);
     cachedArt.set(key,layer);
   }
@@ -70,17 +80,18 @@ export const { meta, draw } = asset({
   name: "Wind pine",
   desc: "A coastal conifer with sunlit needle clusters, a flexible crown and a cut stump.",
   tags: ["tree", "pine", "harvest"], size: [64, 80], origin: [32, 65], duration: 2.5,
-  palette: needles, options: { bend: 0, stump: false, shadow: true, chipped: false, shape: 0, growth: 1 },
+  palette: needles, options: { bend: 0, stump: false, shadow: true, chipped: false, shape: 0, growth: 1, mist:false },
 }, (p, t, C, o) => {
   const growth = clamp(Math.round(o.growth), 0, 2);
   const scale = sizes[growth];
   const at = ([x, y]) => [Math.round(x * scale), Math.round(y * scale)];
   const shape = clamp(Math.round(o.shape), 0, 3);
+  const B=o.mist?mistBark:WOOD;
   if (o.shadow) groundShadow(p, 1, 1, (o.stump ? 8 : 14) * scale, 3 * scale, 0.79);
   if (o.stump) {
-    p.poly([[-7,0],[-4,-4],[-4,-8],[5,-8],[5,-4],[7,-1],[2,1],[-2,0]].map(at), WOOD[1]);
-    p.line(...at([-3,-6]), ...at([-4,-1]), WOOD[3]);
-    p.ellipse(0, -7 * scale, 5 * scale, 2.6 * scale, WOOD[4]);
+    p.poly([[-7,0],[-4,-4],[-4,-8],[5,-8],[5,-4],[7,-1],[2,1],[-2,0]].map(at), B[1]);
+    p.line(...at([-3,-6]), ...at([-4,-1]), B[3]);
+    p.ellipse(0, -7 * scale, 5 * scale, 2.6 * scale, B[4]);
     p.ellipse(-1, -7 * scale, 2.3 * scale, 1.1 * scale, GOLD[1]);
     p.px(...at([-2,-8]), GOLD[4]);
     p.line(...at([2,-7]), ...at([3,-6]), GOLD[2]);
@@ -89,9 +100,9 @@ export const { meta, draw } = asset({
   const gust = Math.round(wave(t, 1, o.seed * 0.07) * 0.8);
   const bend = Math.round(Math.max(-7, Math.min(7, o.bend))) + gust;
   const variant = Math.abs(Math.floor(o.seed)) % 8;
-  drawTree(p, C, (bend + 8) * 96 + growth * 32 + shape * 8 + variant);
+  drawTree(p, o.mist ? ramp(MIST_NEEDLES) : C, (bend + 8) * 96 + growth * 32 + shape * 8 + variant,o.mist);
   if (o.chipped) {
-    p.poly([[-3,-9],[1,-8],[-1,-5],[-3,-6]].map(at), WOOD[0]);
-    p.line(...at([-3,-8]), ...at([0,-8]), WOOD[4]);
+    p.poly([[-3,-9],[1,-8],[-1,-5],[-3,-6]].map(at), B[0]);
+    p.line(...at([-3,-8]), ...at([0,-8]), B[4]);
   }
 });

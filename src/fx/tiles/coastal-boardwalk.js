@@ -33,9 +33,11 @@ export const { meta, draw } = asset({
   if (alongY) {
     p.line(x,y,x,y+h-1,C[4]);
     p.line(x+w-1,y,x+w-1,y+h-1,C[1]);
+    p.line(x+w,y+1,x+w,y+h-1,C[2]);
   } else {
     p.line(x,y,x+w-1,y,C[4]);
     p.line(x,y+h,x+w-1,y+h,C[1]);
+    p.line(x+1,y+h+1,x+w-1,y+h+1,C[2]);
   }
   for (const [end, delta] of [["start",1],["end",14]]) {
     if (o.ends !== "both" && o.ends !== end) continue;
@@ -43,6 +45,7 @@ export const { meta, draw } = asset({
       const px = alongY ? x-1+edge*(w+1) : x+delta;
       const py = alongY ? y+delta : y+edge*(h-1);
       const top = py - (edge ? 3 : 4);
+      if(edge) p.rect(px-1,py+1,3,3,C[0]);
       p.rect(px-1,top,3,py-top+2,C[0]);
       p.line(px,top+1,px,py,C[2]);
       p.px(px,top,GOLD[3]);

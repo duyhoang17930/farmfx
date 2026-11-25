@@ -120,10 +120,10 @@ export function explorer(p, palette, facing, { step = -1, bob = 0, lean = 0, han
     rect(foot + Number(side), lift - 2, side ? 4 : 3, 2, pants[0]);
     rect(foot + Number(side), lift - 2, 2, 1, WOOD[2]);
   }
-  const shoulderWidth = keeper ? 5 : 4;
-  poly([[lean - shoulderWidth, upper - 12], [lean + shoulderWidth, upper - 12], [lean + 5, yy - 5],
-    [lean + 3, yy - 3], [lean - 4, yy - 4], [lean - 5, yy - 6]], coat[0]);
-  rect(lean - 3, upper - 11, keeper ? 8 : 7, keeper ? 5 : 6, coat[2]);
+  const shoulderWidth = keeper ? 5 : 4, coatWidth=keeper?6:5;
+  poly([[lean - shoulderWidth, upper - 12], [lean + shoulderWidth, upper - 12], [lean + coatWidth, yy - 5],
+    [lean + 3, yy - 3], [lean - 4, yy - 4], [lean - coatWidth, yy - 6]], coat[0]);
+  rect(lean - 3, upper - 11, keeper ? 9 : 7, keeper ? 5 : 6, coat[2]);
   rect(lean - 3, upper - 11, 2, keeper ? 4 : 5, coat[3]);
   if (back || side) {
     rect(lean - (side ? 5 : 3), yy - 11, 5, 6, WOOD[0]);

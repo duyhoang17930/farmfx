@@ -70,7 +70,7 @@ const scenery = [
   ...SCENERY.map(([kind,x,y,visual]) => ({ ...at(kind,x,y), visual, solid:solidDecor.has(kind) })),
   ...gardenSamples.map(([kind,name,col,row,options = {}]) => {
     const [width,height] = options.footprint ?? [1,1];
-    return { ...at(kind,col,row), name, width, height, solid:Boolean(options.footprint), ground:options.ground,
+    return { ...at(kind,col,row), name, width, height, solid:Boolean(options.footprint), ground:options.ground, water:options.water,
       x:tileX(col)+(width-1)*8, y:tileY(row+height-1), visual:options.visual };
   }),
 ];
@@ -313,6 +313,7 @@ function strike(target) {
       effect(fallTree, target.x, target.y, {
         seed, direction: target.hitDirection, shape: target.visual.shape, growth: target.visual.growth,
         palette: treePalette(target.island,target.visual.tint),
+        mist:target.island===2,
       });
       sound("treeFall");
     }
@@ -604,7 +605,7 @@ window.addEventListener("blur", () => { keys.clear(); held = null; releaseStick(
 
 let last = performance.now(), lastDraw = -Infinity, t = 0;
 function loop(now) {
-  const dt = Math.min(0.05, (now - last) / 1000);
+  const dt = Math.max(0,Math.min(0.05, (now - last) / 1000));
   last = now;
   t += dt;
   if (dt > 0) update(dt);

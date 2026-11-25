@@ -17,6 +17,7 @@ import * as redMushrooms from "../../src/fx/resources/red-mushroom.js";
 import * as turtle from "../../src/fx/animals/turtle.js";
 import * as butterfly from "../../src/fx/animals/butterfly.js";
 import * as crystals from "../../src/fx/biomes/crystal/crystal-cluster.js";
+import * as mistFern from "../../src/fx/tiles/mist-fern.js";
 import * as wood from "../../src/fx/items/raw/wood.js";
 import * as rock from "../../src/fx/items/raw/stone.js";
 import * as ironOre from "../../src/fx/items/raw/iron-ore.js";
@@ -42,14 +43,13 @@ const gardenArt = Object.fromEntries(await Promise.all(gardenAssetIds.map(async 
   [id, await import(`../../src/fx/${id}.js`)])));
 
 export const objects = { pine, stone, ore, copper, gold, flowers, forge, workbench, bridge, beacon, dock,
-  guardian, trailSign, bench, mushrooms, redMushrooms, turtle, butterfly, crystals, showcaseBeacon: beacon, ...gardenArt };
+  guardian, trailSign, bench, mushrooms, redMushrooms, turtle, butterfly, crystals, mistFern, showcaseBeacon: beacon, ...gardenArt };
 const pineColors = [
   ["#31544a","#3f6e57","#59966a","#85b977","#c5d58a"],
   ["#344f45","#4a7155","#679963","#94bd78","#d0d98e"],
   ["#31504d","#416d65","#5b9a82","#85bfa1","#c6df9d"],
 ];
-const mistPine = ["#394759","#4d6375","#668b8d","#8db19c","#c3dbb9"];
-export const treePalette = (island,tint) => island === 2 ? mistPine : pineColors[tint];
+export const treePalette = (island,tint) => island === 2 ? pine.MIST_NEEDLES : pineColors[tint];
 export const clips = { idle, walk, axe, pick, sword, dash, building, hurt, gatherFlowers };
 export const items = {
   wood: { name: "Gỗ thông", module: wood, icon: "wood" },

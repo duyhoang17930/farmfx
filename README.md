@@ -1,6 +1,6 @@
 # farmfx.
 
-**<!-- count -->1419<!-- /count --> pixel art assets and animations for farming games, every one a small piece of
+**<!-- count -->1425<!-- /count --> pixel art assets and animations for farming games, every one a small piece of
 code.** Crops that grow from seed to harvest, animals going about their day, tilled and watered soil, weather and
 seasons, and a farmer who hoes, waters, sows and harvests. Play them live, recolor them for another season, drop
 them into a browser game, or export sprite sheets for any engine.
@@ -37,9 +37,9 @@ system, with a library made for farms instead of fights.
 | **farming** | 4 | harvest, hoe, sow, water |
 | **crops** | 26 | apples, bananas, barley, cabbages, carrot, cassava… |
 | **trees** | 19 | bamboo tree, birch, burnt tree, crystal tree, dead tree, falling tree… |
-| **animals** | 46 | bee, butterfly, calf, cat, chick, chicken… |
-| **tiles** | 68 | berry bush, brick floor, brick wall, footbridge, cliff wall, cliff corner… |
-| **buildings** | 54 | abandoned house, animal shelter, bakery, bank building, barn, blacksmith… |
+| **animals** | 47 | bee, butterfly, calf, cat, chick, chicken… |
+| **tiles** | 71 | berry bush, brick floor, brick wall, footbridge, cliff wall, cliff corner… |
+| **buildings** | 55 | abandoned house, animal shelter, bakery, bank building, barn, blacksmith… |
 | **tools** | 30 | advanced sprinkler, axe, backpack, bucket, bug net, chainsaw… |
 | **objects** | 70 | banner, barrel, bed, beehive, bench, bookshelf… |
 | **weather & seasons** | 30 | aurora, blizzard, cloud shadow, day and night, drifting clouds, falling ash… |
@@ -47,7 +47,7 @@ system, with a library made for farms instead of fights.
 | **ui** | 131 | calendar, achievement card, button, checkbox, circular progress, confirmation dialog… |
 | **island exploration** | 39 | artifact discovery, boat, boat dock, buried treasure, cave discovery, coastal shoreline… |
 | **resources** | 34 | amethyst deposit, bamboo, bone pile, cactus, clay deposit, coal ore… |
-| **machines** | 46 | advanced furnace, alchemy station, anvil, assembly machine, auto collector, auto feeder… |
+| **machines** | 47 | advanced furnace, alchemy station, anvil, assembly machine, auto collector, auto feeder… |
 | **items** | 229 | animal feed, beeswax, butter, cheese, cream, egg… |
 | **player** | 50 | axe swing, bow aim, bow shoot, building, celebration, climbing… |
 | **weapons** | 31 | arrow, battle axe, boomerang, copper sword, crossbow, crystal shield… |
@@ -338,8 +338,9 @@ Event times are in seconds from the start of the animation and also appear in ex
 Run `npm run demo` and open [Trạm Sương](http://localhost:8080/demo/mist-station/). The
 [demo source](demo/mist-station/) shows a complete mobile-friendly loop from gathering and building to restoring a
 weather station. Touch an object to walk to it and interact, or use WASD and E. Progress saves in the browser.
-Open Hải đồ and select Vườn Mẫu, Khu nông trại, Khu xưởng or Vườn cây và ao. The free preview island includes
-harvestable resources, crop growth stages, working machines and wildlife. Tap an exhibit to see its name.
+Open Hải đồ and select Vườn Mẫu or one of its four districts. The free preview island includes harvestable
+resources, crop growth stages on dry and watered beds, working machines, a woodland pond and a coastal exhibit.
+Tap an exhibit to see its name.
 
 `npm run demo:assets` exports the Windkeeper clips, coastal props, harvest effects and shoreline to
 `sheets/mist-station/`. The output includes PNG sheets, JSON metadata and Tiled terrain sets with 47 masks per

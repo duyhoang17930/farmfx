@@ -6,10 +6,11 @@ import * as footprint from "../../src/fx/fx/build-footprint.js";
 import * as telegraph from "../../src/fx/combat/ground-telegraph.js";
 import * as touchAction from "../../src/fx/ui/components/touch-action.js";
 import * as lootFlight from "../../src/fx/fx/loot-flight.js";
+import { SEA_COLORS } from "../../src/fx/tiles/coastal-pond.js";
 import { blueprints, clips, items, objects, treePalette } from "./art.js";
 import { BRIDGE, canEnter, coast, GARDEN_WALK, HEIGHT, land, tileX, tileY, TILE, WIDTH } from "./islands.js";
 
-const water = ramp(["#3d8296", "#509bad", "#64adba", "#8bc4c4", "#c7e9d9"]);
+const water = ramp(SEA_COLORS);
 const surfaces = [
   shore.meta.options.palette,
   ["#4d4d74", "#665681", "#786694", "#866fa4", "#afa0cc"],
@@ -86,12 +87,13 @@ export function createScene(canvas, touchCanvas) {
   let left = 0, top = 0;
 
   function paintSample(target, entry, t) {
-    paint(target, objects[entry.kind], t, entry.x, entry.y, {
+    const phase=entry.visual?.stage===-1?((entry.col+entry.row*2)%8)*.31:0;
+    paint(target, objects[entry.kind], t+phase, entry.x, entry.y, {
       seed:entry.col*3+entry.row*17, tileX:entry.col, tileY:entry.row, ...entry.visual,
     });
   }
 
-  function renderGround(unlocked) {
+  function renderGround(unlocked,scenery) {
     renderedUnlocked = unlocked;
     clearFrame(ground);
     for (let y = 0; y < HEIGHT; y++) for (let x = 0; x < WIDTH; x++) {
@@ -103,12 +105,13 @@ export function createScene(canvas, touchCanvas) {
       });
     }
     paintSea(ground);
-    for (let row = 27; row <= 53; row++) {
+    for (let row = 27; row <= 70; row++) {
       paint(ground,objects["tiles/dirt-path"],0,tileX(10),tileY(row),{
-        edges:row===27?"S":row===53?"N":"NS", tileX:10, tileY:row,
+        edges:row===27?"S":row===70?"N":"NS", tileX:10, tileY:row,
         palette:["#a3996e","#b1a474","#b7a97a","#bcaf81","#bfb285"],
       });
     }
+    for(const entry of scenery) if(entry.ground&&objects[entry.kind].meta.fps===1) paintSample(ground,entry,0);
   }
 
   function resize() {
@@ -127,7 +130,7 @@ export function createScene(canvas, touchCanvas) {
   resize();
 
   function draw(state, t) {
-    if (renderedUnlocked !== state.unlocked) renderGround(state.unlocked);
+    if (renderedUnlocked !== state.unlocked) renderGround(state.unlocked,state.scenery);
     const { player } = state;
     const clamp = (value, max) => Math.max(0, Math.min(max, Math.round(value)));
     left = frame.ox = clamp(player.x - frame.w / 2, W - frame.w);
@@ -158,7 +161,7 @@ export function createScene(canvas, touchCanvas) {
       });
     }
     for (const entry of state.scenery) {
-      if (entry.ground && entry.x >= left-16 && entry.x <= left+frame.w+16 &&
+      if (entry.ground && objects[entry.kind].meta.fps>1 && entry.x >= left-16 && entry.x <= left+frame.w+16 &&
           entry.y >= top-16 && entry.y <= top+frame.h+16) paintSample(frame,entry,t);
     }
     if (state.attack) paint(frame, telegraph, state.attack.t, state.attack.x, state.attack.y, state.attack);
@@ -168,7 +171,7 @@ export function createScene(canvas, touchCanvas) {
       if (node.x < left-24 || node.x > left+frame.w+24 || node.y < top-18 || node.y > top+frame.h+24) continue;
       if (state.structures.some(entry => node.col >= entry.col && node.col < entry.col+entry.width && node.row === entry.row)) continue;
       paint(frame, objects[node.kind],t,node.x,node.y, {
-        ...node.visual, stump: true, condition: node.kind === "flowers" ? "picked" : "depleted",
+        ...node.visual, stump: true, mist:node.island===2, condition: node.kind === "flowers" ? "picked" : "depleted",
       });
     }
 
@@ -188,14 +191,14 @@ export function createScene(canvas, touchCanvas) {
     }
 
     const drawables = [...state.nodes, ...state.structures, ...state.fixtures, ...state.scenery]
-      .filter(e => e.hp !== 0 && !e.ground && e.kind !== "bridge" && canEnter(e.island,state.unlocked));
+      .filter(e => e.hp !== 0 && !e.ground && e.kind !== "bridge" && (e.water||canEnter(e.island,state.unlocked)));
     drawables.push(player);
     if (state.guardian.hp > 0 && state.unlocked) drawables.push(state.guardian);
     drawables.sort((a, b) => a.y - b.y);
 
     for (const entity of drawables) {
       if (entity.x < left - 60 || entity.x > left + frame.w + 60 ||
-          entity.y < top - 45 || entity.y > top + frame.h + 65) continue;
+          entity.y < top - 45 || entity.y > top + frame.h + 105) continue;
       if (entity === player) {
         const clip = clips[player.action?.clip ?? (player.moving ? "walk" : "idle")];
         const blink = player.invulnerable > 0 && Math.floor(t * 14) % 2 === 0;
@@ -208,7 +211,7 @@ export function createScene(canvas, touchCanvas) {
         const activity = entity.kind === "beacon" ? { active: state.restored }
           : entity.kind === "forge" ? { active: state.jobs.some(job => job.station === entity.id) } : {};
         const styling = entity.kind === "pine" ? {
-          palette: treePalette(entity.island,entity.visual.tint), chipped: entity.hp === 1,
+          palette: treePalette(entity.island,entity.visual.tint), chipped: entity.hp === 1, mist:entity.island===2,
         } : entity.kind === "crystals" ? { palette: crystalColors }
           : entity.kind === "flowers" && entity.island === 2 ? { tint: 1 }
           : entity.kind === "trailSign" ? { label: entity.island === 3 ? "VINH" : "VUON", pointing: "left" } : {};

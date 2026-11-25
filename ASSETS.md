@@ -1,6 +1,6 @@
 # FarmFX assets
 
-1419 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
+1425 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
 
 ## Characters (20)
 
@@ -116,7 +116,7 @@
 | Wind pine | [`trees/wind-pine`](src/fx/trees/wind-pine.js) | — |
 | Wind pine fall | [`trees/wind-pine-fall`](src/fx/trees/wind-pine-fall.js) | — |
 
-## Animals (46)
+## Animals (47)
 
 | Asset | ID | Preview |
 | --- | --- | --- |
@@ -126,6 +126,7 @@
 | Cat | [`animals/cat`](src/fx/animals/cat.js) | [GIF](docs/preview/animals-cat.gif) |
 | chick | [`animals/chick`](src/fx/animals/chick.js) | — |
 | Chicken | [`animals/chicken`](src/fx/animals/chicken.js) | [GIF](docs/preview/animals-chicken.gif) |
+| Coastal livestock | [`animals/coastal-livestock`](src/fx/animals/coastal-livestock.js) | — |
 | Cow | [`animals/cow`](src/fx/animals/cow.js) | [GIF](docs/preview/animals-cow.gif) |
 | crab | [`animals/crab`](src/fx/animals/crab.js) | — |
 | Crow | [`animals/crow`](src/fx/animals/crow.js) | [GIF](docs/preview/animals-crow.gif) |
@@ -167,7 +168,7 @@
 | turkey | [`animals/turkey`](src/fx/animals/turkey.js) | — |
 | turtle | [`animals/turtle`](src/fx/animals/turtle.js) | — |
 
-## Tiles (68)
+## Tiles (71)
 
 | Asset | ID | Preview |
 | --- | --- | --- |
@@ -180,6 +181,8 @@
 | cliff inner corner | [`tiles/cliff-inner-corner`](src/fx/tiles/cliff-inner-corner.js) | — |
 | cliff outer corner | [`tiles/cliff-outer-corner`](src/fx/tiles/cliff-outer-corner.js) | — |
 | Coastal boardwalk | [`tiles/coastal-boardwalk`](src/fx/tiles/coastal-boardwalk.js) | — |
+| Coastal field | [`tiles/coastal-field`](src/fx/tiles/coastal-field.js) | — |
+| Coastal pond | [`tiles/coastal-pond`](src/fx/tiles/coastal-pond.js) | — |
 | Coastal wildflowers | [`tiles/coastal-wildflowers`](src/fx/tiles/coastal-wildflowers.js) | — |
 | crystal floor | [`tiles/crystal-floor`](src/fx/tiles/crystal-floor.js) | — |
 | deep water | [`tiles/deep-water`](src/fx/tiles/deep-water.js) | — |
@@ -207,6 +210,7 @@
 | metal bridge | [`tiles/metal-bridge`](src/fx/tiles/metal-bridge.js) | — |
 | metal floor | [`tiles/metal-floor`](src/fx/tiles/metal-floor.js) | — |
 | metal wall | [`tiles/metal-wall`](src/fx/tiles/metal-wall.js) | — |
+| Mist fern | [`tiles/mist-fern`](src/fx/tiles/mist-fern.js) | — |
 | ocean water | [`tiles/ocean-water`](src/fx/tiles/ocean-water.js) | — |
 | ocean wave | [`tiles/ocean-wave`](src/fx/tiles/ocean-wave.js) | — |
 | Pond | [`tiles/pond`](src/fx/tiles/pond.js) | [GIF](docs/preview/tiles-pond.gif) |
@@ -240,7 +244,7 @@
 | wooden stairs | [`tiles/wooden-stairs`](src/fx/tiles/wooden-stairs.js) | — |
 | wooden wall | [`tiles/wooden-wall`](src/fx/tiles/wooden-wall.js) | — |
 
-## Buildings (54)
+## Buildings (55)
 
 | Asset | ID | Preview |
 | --- | --- | --- |
@@ -255,6 +259,7 @@
 | church | [`buildings/church`](src/fx/buildings/church.js) | — |
 | clock tower | [`buildings/clock-tower`](src/fx/buildings/clock-tower.js) | — |
 | clothing shop | [`buildings/clothing-shop`](src/fx/buildings/clothing-shop.js) | — |
+| Coastal farmstead | [`buildings/coastal-farmstead`](src/fx/buildings/coastal-farmstead.js) | — |
 | duck house | [`buildings/duck-house`](src/fx/buildings/duck-house.js) | — |
 | dungeon entrance | [`buildings/dungeon-entrance`](src/fx/buildings/dungeon-entrance.js) | — |
 | factory building | [`buildings/factory-building`](src/fx/buildings/factory-building.js) | — |
@@ -755,7 +760,7 @@
 | Tin ore | [`resources/tin-ore`](src/fx/resources/tin-ore.js) | [GIF](docs/preview/resources-tin-ore.gif) |
 | Titanium ore | [`resources/titanium-ore`](src/fx/resources/titanium-ore.js) | [GIF](docs/preview/resources-titanium-ore.gif) |
 
-## Machines (46)
+## Machines (47)
 
 | Asset | ID | Preview |
 | --- | --- | --- |
@@ -773,6 +778,7 @@
 | Brewing station | [`machines/brewing-station`](src/fx/machines/brewing-station.js) | [GIF](docs/preview/machines-brewing-station.gif) |
 | Charcoal kiln | [`machines/charcoal-kiln`](src/fx/machines/charcoal-kiln.js) | [GIF](docs/preview/machines-charcoal-kiln.gif) |
 | Coastal kiln | [`machines/coastal-kiln`](src/fx/machines/coastal-kiln.js) | — |
+| Coastal workshop | [`machines/coastal-workshop`](src/fx/machines/coastal-workshop.js) | — |
 | Coin mint | [`machines/coin-mint`](src/fx/machines/coin-mint.js) | [GIF](docs/preview/machines-coin-mint.gif) |
 | Conveyor belt | [`machines/conveyor-belt`](src/fx/machines/conveyor-belt.js) | [GIF](docs/preview/machines-conveyor-belt.gif) |
 | Conveyor corner | [`machines/conveyor-corner`](src/fx/machines/conveyor-corner.js) | [GIF](docs/preview/machines-conveyor-corner.gif) |

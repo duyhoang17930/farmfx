@@ -2,7 +2,7 @@ import { gardenSections } from "./garden.js";
 
 export const TILE = 16;
 export const WIDTH = 24;
-export const HEIGHT = 58;
+export const HEIGHT = 74;
 export const START = [6, 8];
 export const BRIDGE = [[13, 8], [14, 8]];
 export const GARDEN_WALK = [[7, 14], [7, 15]];
@@ -18,7 +18,9 @@ const bank = [null, null, null, [19, 20], [17, 21], [16, 22], [16, 22], [15, 22]
 const garden = [[5,9],[4,12],[3,15],[3,17],[2,18],[2,19],[3,19],[4,18],[5,16],[7,14],[9,12],
   [8,14],[5,17],[3,20],[2,21],[2,21],[2,21],[2,21],[2,21],[2,21],[3,21],[4,20],
   [3,20],[2,21],[2,21],[2,21],[2,21],[2,21],[2,21],[3,20],[3,19],[4,19],[4,20],
-  [3,20],[3,20],[4,20],[4,20],[5,19],[5,18],[7,16],[8,14],[9,11]];
+  [3,20],[3,20],[4,20],[4,20],[5,19],[5,18],[7,16],[8,14],[9,11],
+  [8,12],[5,16],[3,20],[3,21],[3,21],[3,21],[2,21],[2,21],[2,21],[3,21],[3,20],
+  [3,20],[4,19],[6,17],[8,13],[9,12]];
 
 export const keyOf = (x, y) => y * WIDTH + x;
 export const tileX = x => x * TILE + 8;
@@ -70,8 +72,10 @@ export const SCENERY = [
   ["mushrooms",3,20], ["mushrooms",6,23], ["redMushrooms",10,22], ["redMushrooms",9,25],
   ["turtle",6,24], ["butterfly",9,20], ["butterfly",16,22],
   ["crystals",18,4], ["crystals",21,8], ["crystals",16,10],
-  ["crystals",17,24], ["showcaseBeacon",13,21],
+  ["crystals",16,24], ["showcaseBeacon",13,21],
   ["flowers",5,20,{ shape: 2, condition: "damaged" }], ["flowers",7,21,{ shape: 1, condition: "picked" }],
+  ["mistFern",19,4,{growth:1}], ["mistFern",21,6,{growth:2}], ["mistFern",17,10,{growth:0}],
+  ["mistFern",18,12,{growth:2}], ["mistFern",19,8,{growth:1}],
 ];
 
 const directions = [[1,0],[-1,0],[0,1],[0,-1]];

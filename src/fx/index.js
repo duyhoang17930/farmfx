@@ -95,6 +95,7 @@ import * as animals_calf from "./animals/calf.js";
 import * as animals_cat from "./animals/cat.js";
 import * as animals_chick from "./animals/chick.js";
 import * as animals_chicken from "./animals/chicken.js";
+import * as animals_coastal_livestock from "./animals/coastal-livestock.js";
 import * as animals_cow from "./animals/cow.js";
 import * as animals_crab from "./animals/crab.js";
 import * as animals_crow from "./animals/crow.js";
@@ -144,6 +145,8 @@ import * as tiles_cliff_corner from "./tiles/cliff-corner.js";
 import * as tiles_cliff_inner_corner from "./tiles/cliff-inner-corner.js";
 import * as tiles_cliff_outer_corner from "./tiles/cliff-outer-corner.js";
 import * as tiles_coastal_boardwalk from "./tiles/coastal-boardwalk.js";
+import * as tiles_coastal_field from "./tiles/coastal-field.js";
+import * as tiles_coastal_pond from "./tiles/coastal-pond.js";
 import * as tiles_coastal_wildflowers from "./tiles/coastal-wildflowers.js";
 import * as tiles_crystal_floor from "./tiles/crystal-floor.js";
 import * as tiles_deep_water from "./tiles/deep-water.js";
@@ -171,6 +174,7 @@ import * as tiles_marble_floor from "./tiles/marble-floor.js";
 import * as tiles_metal_bridge from "./tiles/metal-bridge.js";
 import * as tiles_metal_floor from "./tiles/metal-floor.js";
 import * as tiles_metal_wall from "./tiles/metal-wall.js";
+import * as tiles_mist_fern from "./tiles/mist-fern.js";
 import * as tiles_ocean_water from "./tiles/ocean-water.js";
 import * as tiles_ocean_wave from "./tiles/ocean-wave.js";
 import * as tiles_pond from "./tiles/pond.js";
@@ -214,6 +218,7 @@ import * as buildings_chicken_coop from "./buildings/chicken-coop.js";
 import * as buildings_church from "./buildings/church.js";
 import * as buildings_clock_tower from "./buildings/clock-tower.js";
 import * as buildings_clothing_shop from "./buildings/clothing-shop.js";
+import * as buildings_coastal_farmstead from "./buildings/coastal-farmstead.js";
 import * as buildings_duck_house from "./buildings/duck-house.js";
 import * as buildings_dungeon_entrance from "./buildings/dungeon-entrance.js";
 import * as buildings_factory_building from "./buildings/factory-building.js";
@@ -692,6 +697,7 @@ import * as machines_blast_furnace from "./machines/blast-furnace.js";
 import * as machines_brewing_station from "./machines/brewing-station.js";
 import * as machines_charcoal_kiln from "./machines/charcoal-kiln.js";
 import * as machines_coastal_kiln from "./machines/coastal-kiln.js";
+import * as machines_coastal_workshop from "./machines/coastal-workshop.js";
 import * as machines_coin_mint from "./machines/coin-mint.js";
 import * as machines_conveyor_belt from "./machines/conveyor-belt.js";
 import * as machines_conveyor_corner from "./machines/conveyor-corner.js";
@@ -1518,6 +1524,7 @@ export const effects = {
   "animals/cat": animals_cat,
   "animals/chick": animals_chick,
   "animals/chicken": animals_chicken,
+  "animals/coastal-livestock": animals_coastal_livestock,
   "animals/cow": animals_cow,
   "animals/crab": animals_crab,
   "animals/crow": animals_crow,
@@ -1567,6 +1574,8 @@ export const effects = {
   "tiles/cliff-inner-corner": tiles_cliff_inner_corner,
   "tiles/cliff-outer-corner": tiles_cliff_outer_corner,
   "tiles/coastal-boardwalk": tiles_coastal_boardwalk,
+  "tiles/coastal-field": tiles_coastal_field,
+  "tiles/coastal-pond": tiles_coastal_pond,
   "tiles/coastal-wildflowers": tiles_coastal_wildflowers,
   "tiles/crystal-floor": tiles_crystal_floor,
   "tiles/deep-water": tiles_deep_water,
@@ -1594,6 +1603,7 @@ export const effects = {
   "tiles/metal-bridge": tiles_metal_bridge,
   "tiles/metal-floor": tiles_metal_floor,
   "tiles/metal-wall": tiles_metal_wall,
+  "tiles/mist-fern": tiles_mist_fern,
   "tiles/ocean-water": tiles_ocean_water,
   "tiles/ocean-wave": tiles_ocean_wave,
   "tiles/pond": tiles_pond,
@@ -1637,6 +1647,7 @@ export const effects = {
   "buildings/church": buildings_church,
   "buildings/clock-tower": buildings_clock_tower,
   "buildings/clothing-shop": buildings_clothing_shop,
+  "buildings/coastal-farmstead": buildings_coastal_farmstead,
   "buildings/duck-house": buildings_duck_house,
   "buildings/dungeon-entrance": buildings_dungeon_entrance,
   "buildings/factory-building": buildings_factory_building,
@@ -2115,6 +2126,7 @@ export const effects = {
   "machines/brewing-station": machines_brewing_station,
   "machines/charcoal-kiln": machines_charcoal_kiln,
   "machines/coastal-kiln": machines_coastal_kiln,
+  "machines/coastal-workshop": machines_coastal_workshop,
   "machines/coin-mint": machines_coin_mint,
   "machines/conveyor-belt": machines_conveyor_belt,
   "machines/conveyor-corner": machines_conveyor_corner,

@@ -12,7 +12,7 @@ const assets = [
   "trees/wind-pine", "trees/wind-pine-fall",
   "resources/coastal-iron-seam", "resources/coastal-copper-node", "resources/coastal-gold-node", "resources/coastal-boulder",
   "resources/mushroom", "resources/red-mushroom", "machines/coastal-kiln",
-  "tiles/coastal-boardwalk", "tiles/coastal-wildflowers", "biomes/crystal/crystal-cluster",
+  "tiles/coastal-boardwalk", "tiles/coastal-wildflowers", "tiles/mist-fern", "biomes/crystal/crystal-cluster",
   "animals/butterfly", "animals/turtle", "enemies/crystal-guardian",
   "items/raw/wood", "items/raw/stone", "items/raw/iron-ore", "items/raw/copper-ore", "items/raw/gold-ore",
   "items/processed/iron-ingot", "items/seeds/flower-seed", "items/special/coin", "items/special/magic-orb", "items/gems/quartz",

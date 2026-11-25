@@ -67,6 +67,28 @@ export function sheetVariants(fx) {
     add("locked", { state: "locked" });
     add("axe", { tool: "axe" });
     add("pick", { tool: "pick" });
+  } else if (fx.id === "animals/coastal-livestock") {
+    for(const species of ["chicken","chick","duck","cow","calf","sheep","lamb","rabbit","fox","pig","goat","deer"]){
+      add(species,{species});
+      add(`${species}-left`,{species,facing:"left"});
+      if(["chicken","chick","duck","cow","calf","sheep","pig"].includes(species)) add(`${species}-feeding`,{species,feed:true});
+    }
+  } else if (fx.id === "buildings/coastal-farmstead") {
+    for(const style of ["coop","barn","greenhouse"]) for(const open of [true,false]) {
+      add(`${style}-${open?"open":"closed"}`,{style,open});
+    }
+  } else if (fx.id === "machines/coastal-workshop") {
+    for(const machine of ["saw","spinner","anvil","generator","belt","pump"]){
+      add(machine,{machine});
+      if(machine!=="anvil") add(`${machine}-idle`,{machine,active:false});
+    }
+  } else if (fx.id === "tiles/coastal-field") {
+    for(let mask=0;mask<16;mask++) {
+      const joins=[...sides].filter((_,i)=>mask&(1<<i)).join("");
+      for(const wet of [true,false]) add(`${wet?"wet":"dry"}-${joins.toLowerCase()||"none"}`,{joins,wet});
+    }
+  } else if (fx.id === "tiles/mist-fern") {
+    for(let growth=0;growth<3;growth++) add(`size-${growth+1}`,{growth,seed:growth+1});
   } else if (fx.id === "trees/wind-pine" || fx.id === "tiles/coastal-wildflowers" || coastalDeposits.has(fx.id)) {
     for (const [shape,growth] of [[0,0],[1,1],[2,2],[3,1]]) {
       add(`shape-${shape+1}`, { seed: shape+1, shape, growth, tint: shape%3 });
@@ -74,6 +96,8 @@ export function sheetVariants(fx) {
     if (fx.id === "trees/wind-pine") {
       add("chipped", { chipped: true });
       add("stump", { stump: true });
+      for(const [shape,growth] of [[0,1],[1,2],[2,0],[3,1]]) add(`mist-shape-${shape+1}`,{mist:true,shape,growth});
+      add("mist-stump",{mist:true,stump:true});
     } else if (fx.id === "tiles/coastal-wildflowers") {
       add("damaged", { condition: "damaged" });
       add("picked", { condition: "picked" });
@@ -88,6 +112,10 @@ export function sheetVariants(fx) {
   } else if (fx.id === "trees/wind-pine-fall" || fx.id === "fx/woodcut-impact") {
     add("left", { direction: -1 });
     add("right", { direction: 1 });
+    if(fx.id==="trees/wind-pine-fall") {
+      add("mist-left",{mist:true,direction:-1});
+      add("mist-right",{mist:true,direction:1});
+    }
   } else if (fx.id === "fx/ore-pick-impact" || fx.id === "fx/stone-pick-impact") {
     add("finishing-hit", { heavy: true });
   } else if (fx.id === "objects/mist-beacon") {
@@ -130,7 +158,7 @@ export function sheetVariants(fx) {
     for (const facing of FACINGS) {
       for (const tool of ["axe", "pickaxe"]) add(`${facing}-${tool}`, { facing, tool });
     }
-  } else if (fx.id === "exploration/island-shore" || fx.id === "exploration/coastal-shore") {
+  } else if (["exploration/island-shore","exploration/coastal-shore","tiles/coastal-pond"].includes(fx.id)) {
     for (let mask = 0; mask < 16; mask++) {
       const edges = [...sides].filter((_, i) => mask & (1 << i)).join("");
       const available = ["NE", "SE", "SW", "NW"].filter((corner) => [...corner].every((side) => !edges.includes(side)));
@@ -138,7 +166,7 @@ export function sheetVariants(fx) {
         const corners = available.filter((_, i) => submask & (1 << i));
         const suffix = corners.length ? `-inside-${corners.join("-").toLowerCase()}` : "";
         const joins = [...sides].filter(side => !edges.includes(side)).join("");
-        add(`edge-${edges.toLowerCase() || "none"}${suffix}`, { edges, corners }, {
+        add(`edge-${edges.toLowerCase() || "none"}${suffix}`, { [fx.id==="tiles/coastal-pond"?"banks":"edges"]:edges, corners }, {
           terrain: { joins, corners, animated: true },
         });
       }
