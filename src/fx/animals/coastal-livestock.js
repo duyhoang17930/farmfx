@@ -3,13 +3,13 @@ import { asset, GOLD, wave } from "../_kit/art.js";
 import { groundShadow } from "../_kit/sprite.js";
 
 const fur = {
-  chicken: ["#58465a","#8f7d87","#cfbac0","#f0ddd5","#fff0d5"],
+  chicken: ["#453649","#806978","#c9aeb3","#f0ddd5","#fff0d5"],
   chick: ["#76524a","#aa724d","#deaa58","#f4ce7b","#fff0bb"],
   duck: ["#464555","#786c68","#ac967f","#d5b89a","#eddbb6"],
-  cow: ["#554c58","#817383","#b3a1a0","#e0cabb","#f7e5cd"],
-  calf: ["#554c58","#817383","#b3a1a0","#e0cabb","#f7e5cd"],
-  sheep: ["#564a5b","#887787","#c4adb0","#e6d2c5","#f5e5d2"],
-  lamb: ["#564a5b","#887787","#c4adb0","#e6d2c5","#f5e5d2"],
+  cow: ["#443947","#746170","#b9a49d","#e7d1bd","#fae6cc"],
+  calf: ["#443947","#746170","#b9a49d","#e7d1bd","#fae6cc"],
+  sheep: ["#493b50","#7a657b","#bea5ab","#e7d2c5","#f5e5d2"],
+  lamb: ["#493b50","#7a657b","#bea5ab","#e7d2c5","#f5e5d2"],
   rabbit: ["#614f56","#927770","#bb978c","#dcba9e","#f3d8b0"],
   fox: ["#604756","#9a605a","#c67d63","#e5a076","#f4d5a6"],
   pig: ["#704e5d","#9c6e78","#ca9292","#e5b2a7","#f8d4bc"],
@@ -25,6 +25,7 @@ const shapes = {
   calf:[7,4.4,-6,6,-7,3.1], lamb:[5,3.4,-5,4,-5.5,2.4], deer:[9,5,-9,8,-12,3.5],
 };
 const comb=ramp(["#b96259"])[0];
+const muzzle=ramp(["#b98d86","#e8b7a3"]);
 
 export const { meta, draw } = asset({
   name:"Coastal livestock", desc:"Farm and woodland animals at consistent scale, with gentle idle and feeding loops.",
@@ -61,14 +62,26 @@ export const { meta, draw } = asset({
   if(species==="cow") {
     poly([[-7,-12],[-3,-15],[-1,-12],[-3,-8],[-7,-9]],C[1]);
     poly([[1,-13],[5,-12],[7,-8],[3,-6],[0,-8]],C[0]);
+    stroke(-8,-11,-6,-13,C[3]);
+    stroke(-6,-5,-2,-4,C[3]);
+    stroke(-9,-7,-8,-4,C[1]);
   }
   if(species==="calf") disc(-2,-7,2,1.5,C[1]);
-  if(species==="sheep") for(const [x,y] of [[-5,-9],[-3,-12],[2,-11],[4,-7]]) disc(x,y,2.6,2,C[3]);
+  if(species==="sheep") for(const [x,y] of [[-5,-9],[-3,-12],[2,-11],[4,-7],[-4,-5],[0,-7]]) {
+    disc(x,y,2.6,2,C[2]);
+    disc(x,y-1,2.1,1.1,C[3]);
+    stroke(x-1,y-1,x,y-2,C[4]);
+  }
   if(species==="lamb") disc(-1,-7,2,1.2,C[4]);
   if(species==="deer") for(const [x,y] of [[-5,-10],[-2,-12],[1,-10],[4,-11]])p.px(at(x),y,C[4]);
   if(isBird) {
     disc(-1,y-lift,Math.max(1,rx*.62),Math.max(1,ry*.56),C[1]);
     stroke(-3,y-1,1,y-2,C[3]);
+    if(species==="chicken"){
+      stroke(-5,y-2,-3,y-3,C[4]);
+      stroke(-3,y+1,0,y,C[2]);
+      stroke(-rx-1,y-2,-rx+1,y-1,C[4]);
+    }
   }
   const hx=headX+(peck?1:0), hy=headY+peck-lift;
   if(["fox","rabbit","goat","cow","calf","pig","deer"].includes(species)){
@@ -88,10 +101,20 @@ export const { meta, draw } = asset({
     poly([[hx+headR-1,hy],[hx+headR+3,hy+1],[hx+headR-1,hy+2]],GOLD[2]);
     if(species==="chicken") {
       poly([[hx-2,hy-3],[hx-2,hy-5],[hx+1,hy-5],[hx+2,hy-3]],comb);
+      p.px(at(hx+2),hy+2,comb);
+      p.px(at(hx+headR),hy,GOLD[4]);
     }
   } else if(["cow","calf","pig","fox","deer"].includes(species)) {
-    disc(hx+headR-1,hy+2,headR*.75,headR*.52,C[4]);
+    const bovine=species==="cow" || species==="calf";
+    disc(hx+headR-1,hy+2,headR*.75,headR*.52,bovine?muzzle[0]:C[4]);
+    if(bovine){
+      stroke(hx+1,hy+1,hx+headR+1,hy+1,muzzle[1]);
+      p.px(at(hx+headR-2),hy+2,C[0]);
+      p.px(at(hx-2),hy-headR,C[4]);
+      p.px(at(hx+3),hy-headR,C[4]);
+    }
     p.px(at(hx+headR),hy+2,C[0]);
   }
   p.px(at(hx+1),hy-1,C[0]);
+  if(species==="sheep" || species==="lamb")p.px(at(hx+2),hy-2,C[4]);
 });

@@ -17,17 +17,21 @@ const farm = [
 ];
 
 const crops = [
-  ["crops/carrot","Cà rốt",12,33],
-  ["crops/tomatoes","Cà chua",15,33],
-  ["crops/wheat","Lúa mì",18,33],
-  ["crops/corn","Ngô",12,36],
-  ["crops/watermelons","Dưa hấu",15,36],
-  ["crops/grapes","Nho",18,36],
-].flatMap(([id,name,x,y]) => [2,4,-1].map((stage,i) =>
-  [id,name,x+i,y,{visual:{stage,plot:false}}]));
+  ["carrot","Cà rốt",12,33],
+  ["tomato","Cà chua",15,33],
+  ["wheat","Lúa mì",18,33],
+  ["corn","Ngô",12,36],
+  ["melon","Dưa hấu",15,36],
+  ["grape","Nho",18,36],
+  ["rice","Lúa",13,68],
+  ["cabbage","Bắp cải",16,68],
+  ["pepper","Ớt ngọt",11,85],
+  ["turnip","Củ cải",14,85],
+  ["bean","Đậu leo",17,85],
+].flatMap(([crop,name,x,y]) => [2,4,-1].map((stage,i) =>
+  ["crops/coastal-crop",name,x+i,y,{visual:{crop,stage}}]));
 
-const field = [33,36,68].flatMap(row => {
-  const start=row===68?13:12, length=row===68?6:9;
+const field = [[33,12,9],[36,12,9],[68,13,6],[85,11,9]].flatMap(([row,start,length]) => {
   return Array.from({length},(_,i)=>["tiles/coastal-field",row===33?"Đất khô":"Đất ướt",start+i,row,{
     ground:true, visual:{joins:i===0?"E":i===length-1?"W":"EW",wet:row!==33,seed:17},
   }]);
@@ -80,16 +84,16 @@ const coast = [
   ["buildings/lumber-house","Nhà mộc",13,59,{footprint:[4,3]}],
   ["objects/notice-board","Bảng thông báo",9,57,{footprint:[1,1]}],
   ["objects/street-lamp","Đèn đường",9,62,{footprint:[1,1]}],
-  ["objects/wood-pile","Chồng gỗ",18,62,{footprint:[1,1]}],
-  ["objects/resource-crate","Thùng vật liệu",18,65,{footprint:[1,1]}],
-  ["objects/shipping-bin","Thùng gửi hàng",17,66,{footprint:[1,1]}],
-  ["objects/wheelbarrow","Xe cút kít",6,69,{footprint:[1,1]}],
+  ["objects/coastal-supplies","Chồng gỗ",18,62,{footprint:[1,1],visual:{object:"logs"}}],
+  ["objects/coastal-supplies","Thùng vật liệu",18,65,{footprint:[1,1],visual:{object:"crate"}}],
+  ["objects/coastal-supplies","Thùng gửi hàng",17,66,{footprint:[1,1],visual:{object:"bin"}}],
+  ["objects/coastal-supplies","Xe cút kít",6,69,{footprint:[1,1],visual:{object:"cart"}}],
   ["objects/hay-bale","Kiện cỏ khô",6,63,{footprint:[1,1]}],
   ["objects/mailbox","Hộp thư",8,63,{footprint:[1,1]}],
-  ["objects/flower-pot","Chậu hoa",12,61,{footprint:[1,1]}],
+  ["objects/coastal-supplies","Chậu hoa",12,61,{footprint:[1,1],visual:{object:"pot"}}],
   ["resources/seashell","Vỏ sò",4,65],
-  ["resources/clay-deposit","Mỏ đất sét",13,64,{footprint:[1,1]}],
-  ["resources/salt-deposit","Mỏ muối",17,64,{footprint:[1,1]}],
+  ["objects/coastal-supplies","Mỏ đất sét",13,64,{footprint:[1,1],visual:{object:"clay"}}],
+  ["objects/coastal-supplies","Mỏ muối",17,64,{footprint:[1,1],visual:{object:"salt"}}],
   ["exploration/boat","Thuyền",21,67,{water:true}],
   ["exploration/fishing-spot","Điểm câu cá",2,67,{water:true}],
   ["animals/crab","Cua",4,67],
@@ -98,13 +102,26 @@ const coast = [
   ["animals/coastal-livestock","Heo",6,65,{visual:{species:"pig",feed:true}}],
   ["animals/coastal-livestock","Dê",7,68,{visual:{species:"goat",facing:"left"}}],
   ["animals/koi-fish","Cá koi",14,52],
-  ["crops/rice","Lúa",13,68,{visual:{stage:2,plot:false}}],
-  ["crops/rice","Lúa",14,68,{visual:{stage:4,plot:false}}],
-  ["crops/rice","Lúa",15,68,{visual:{stage:-1,plot:false}}],
-  ["crops/cabbages","Bắp cải",16,68,{visual:{stage:2,plot:false}}],
-  ["crops/cabbages","Bắp cải",17,68,{visual:{stage:4,plot:false}}],
-  ["crops/cabbages","Bắp cải",18,68,{visual:{stage:-1,plot:false}}],
   ["trees/bamboo-tree","Tre",16,70,{footprint:[1,1]}],
+];
+
+const craftYard = [
+  ["buildings/blacksmith","Nhà rèn",4,76,{footprint:[4,2]}],
+  ["buildings/bakery","Lò bánh",16,76,{footprint:[4,2]}],
+  ["objects/banner","Cờ hiệu",9,77,{footprint:[1,1]}],
+  ["machines/coastal-workshop","Máy nghiền",4,79,{footprint:[2,2],visual:{machine:"grinder"}}],
+  ["machines/coastal-workshop","Lò luyện kim",12,79,{footprint:[2,2],visual:{machine:"smelter"}}],
+  ["machines/coastal-workshop","Máy lắp ráp tự động",17,79,{footprint:[2,2],visual:{machine:"assembler"}}],
+  ["objects/cooking-pot","Nồi nấu",7,80,{footprint:[1,1]}],
+  ["objects/brazier","Lò than",15,81,{footprint:[1,1],visual:{active:true}}],
+  ["objects/stone-pile","Đống đá xây",4,82,{footprint:[1,1]}],
+  ["objects/wooden-pallet","Kiện hàng gỗ",19,82,{footprint:[1,1]}],
+  ["objects/kitchen-counter","Bàn bếp",6,83,{footprint:[2,1]}],
+  ["objects/fountain","Đài phun nước",14,83,{footprint:[2,1]}],
+  ["objects/crystal-chest","Rương pha lê",18,84,{footprint:[1,1]}],
+  ["trees/magical-tree","Cây phát sáng",6,85,{footprint:[1,1]}],
+  ["animals/snail","Ốc sên",8,84],
+  ["animals/ladybug","Bọ rùa",10,86],
 ];
 
 export const gardenSections = [
@@ -112,7 +129,8 @@ export const gardenSections = [
   { id:"workshop", title:"Khu xưởng", detail:"Cối xay, quầy hàng và máy đang chạy", waypoint:[10,42], firstRow:38 },
   { id:"woodland", title:"Vườn cây và ao", detail:"Các loài cây, thú hoang, ao nhỏ và lửa trại", waypoint:[10,50], firstRow:46 },
   { id:"coast",title:"Bến ven biển",detail:"Nhà câu cá, bến thuyền, tài nguyên bờ biển và luống lúa",waypoint:[10,63],firstRow:57 },
+  { id:"craft-yard",title:"Sân nghề",detail:"Nhà rèn, lò bánh, máy nghiền, luyện kim và lắp ráp",waypoint:[10,80],firstRow:73 },
 ];
 
-export const gardenSamples = [...farm,...crops,...field,...workshop,...woodland,...pond,...coast];
+export const gardenSamples = [...farm,...crops,...field,...workshop,...woodland,...pond,...coast,...craftYard];
 export const gardenAssetIds = [...new Set([...gardenSamples.map(([id]) => id),"tiles/dirt-path"])];

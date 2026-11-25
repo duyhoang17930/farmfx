@@ -50,6 +50,7 @@ import * as crops_barley from "./crops/barley.js";
 import * as crops_cabbages from "./crops/cabbages.js";
 import * as crops_carrot from "./crops/carrot.js";
 import * as crops_cassava from "./crops/cassava.js";
+import * as crops_coastal_crop from "./crops/coastal-crop.js";
 import * as crops_coconuts from "./crops/coconuts.js";
 import * as crops_corn from "./crops/corn.js";
 import * as crops_cotton from "./crops/cotton.js";
@@ -306,6 +307,7 @@ import * as objects_chair from "./objects/chair.js";
 import * as objects_chest from "./objects/chest.js";
 import * as objects_coastal_bench from "./objects/coastal-bench.js";
 import * as objects_coastal_dock from "./objects/coastal-dock.js";
+import * as objects_coastal_supplies from "./objects/coastal-supplies.js";
 import * as objects_coastal_waypost from "./objects/coastal-waypost.js";
 import * as objects_cooking_pot from "./objects/cooking-pot.js";
 import * as objects_crafting_table from "./objects/crafting-table.js";
@@ -1479,6 +1481,7 @@ export const effects = {
   "crops/cabbages": crops_cabbages,
   "crops/carrot": crops_carrot,
   "crops/cassava": crops_cassava,
+  "crops/coastal-crop": crops_coastal_crop,
   "crops/coconuts": crops_coconuts,
   "crops/corn": crops_corn,
   "crops/cotton": crops_cotton,
@@ -1735,6 +1738,7 @@ export const effects = {
   "objects/chest": objects_chest,
   "objects/coastal-bench": objects_coastal_bench,
   "objects/coastal-dock": objects_coastal_dock,
+  "objects/coastal-supplies": objects_coastal_supplies,
   "objects/coastal-waypost": objects_coastal_waypost,
   "objects/cooking-pot": objects_cooking_pot,
   "objects/crafting-table": objects_crafting_table,

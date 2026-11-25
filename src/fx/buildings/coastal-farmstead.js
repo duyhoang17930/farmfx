@@ -1,5 +1,5 @@
 import { ramp } from "../../core/index.js";
-import { asset, GOLD, STEEL, WATER, WOOD, wave } from "../_kit/art.js";
+import { asset, GOLD, LEAF, STEEL, WOOD, wave } from "../_kit/art.js";
 import { groundShadow } from "../_kit/sprite.js";
 
 const roof = ramp(["#355050","#4a6860","#648777","#8eaa8c","#b8c5a0"]);
@@ -32,21 +32,48 @@ export const { meta, draw } = asset({
   p.poly([[-half+8,ridge],[-half+8+depth,ridge-depth+1],[half-8+depth,ridge-depth+1],[half-8,ridge+1]],R[3]);
   p.poly([[-half-1,eave],[-half+8,ridge],[half-8,ridge],[half+1,eave]],R[2]);
   p.poly([[half-8,ridge],[half-8+depth,ridge-depth+1],[half+depth+1,eave-depth],[half+1,eave]],R[1]);
+  const span=y=>half-8+Math.round((y-ridge)*8/(eave-ridge));
+  const step=green?6:4;
+  for(let y=ridge+step,row=0;y<eave;y+=step,row++){
+    const width=span(y);
+    p.line(-width+1,y,width-1,y,R[1]);
+    p.line(-width+1,y+1,width-2,y+1,R[3]);
+    for(let x=-half+10+(row%2)*4;x<width-3;x+=green?10:8) {
+      p.line(x,y-step+2,x-1,y-1,green?R[4]:R[1]);
+      if(green)p.line(x+2,y-3,x+5,y-5,R[3]);
+      else if((x+row)%3===0)p.px(x+1,y-1,R[3]);
+    }
+  }
+  for(let d=4;d<depth;d+=4){
+    p.line(half-8+d,ridge-d+1,half+d,eave-d,R[0]);
+    p.line(half-8+d-1,ridge-d+1,half+d-1,eave-d,R[2]);
+    p.line(-half+9+d,ridge-d,half-10+d,ridge-d,R[2]);
+    if(green)p.line(-half/3+d,ridge-d,-half/3+d+8,ridge-d,R[4]);
+  }
   p.line(-half+8,ridge,half-8,ridge,R[4]);
-  p.line(-half+5,ridge+5,half-5,ridge+5,R[3]);
-  p.line(-half+1,eave-3,half-1,eave-3,R[1]);
+  p.line(-half-1,eave+1,half+1,eave+1,W[0]);
+  p.line(-half+1,eave+2,half-1,eave+2,W[1]);
   p.line(-half-1,eave,half+1,eave,R[4]);
   if(green){
     for(let x=-half+12;x<half-8;x+=9){
       p.line(x,ridge-2,x-4,eave,R[3]);
-      p.ellipse(x-4,base-6,3,4,R[1]);
-      p.line(x-6,base-7,x-6,base-11,GOLD[1]);
+      p.ellipse(x-4,base-6,3,4,LEAF[1]);
+      p.line(x-6,base-7,x-4,base-10,LEAF[3]);
+      p.line(x-7,eave+4,x-3,eave+3,R[4]);
     }
   } else {
     p.rect(-half+5,eave+5,12,9,C[4]);
     p.rect(-half+6,eave+6,10,7,STEEL[0]);
     p.line(-half+10,eave+6,-half+10,eave+12,C[2]);
     p.line(-half+6,eave+9,-half+6+9,eave+9,C[2]);
+    const tx=half-14;
+    p.rect(tx,eave+5,9,7,C[0]);
+    p.rect(tx+1,eave+6,7,5,STEEL[1]);
+    p.line(tx+1,eave+6,tx+7,eave+6,C[4]);
+    p.line(tx+4,eave+6,tx+4,eave+10,C[2]);
+    p.line(-half+2,eave+4,-half+2,base-2,C[4]);
+    p.line(half-2,eave+4,half-2,base-2,C[2]);
+    p.line(half+depth-2,eave-depth+2,half+depth-2,base-depth-1,W[0]);
   }
   const door=coop?9:green?11:21, x=coop?4:-Math.floor(door/2);
   p.rect(x-1,base-15,door+2,15,C[0]);

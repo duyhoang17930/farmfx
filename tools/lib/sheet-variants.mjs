@@ -41,6 +41,11 @@ export function sheetVariants(fx) {
     for (const expression of ["smile", "neutral", "happy", "surprised"]) {
       for (const anim of ["idle", "talk"]) add(`${expression}-${anim}`, { expression, anim });
     }
+  } else if (fx.id === "crops/coastal-crop") {
+    for(const crop of ["carrot","tomato","wheat","corn","melon","grape","rice","cabbage","pepper","turnip","bean"]){
+      add(crop,{crop});
+      for(let stage=0;stage<=4;stage++)add(`${crop}-stage-${stage}`,{crop,stage});
+    }
   } else if (category === "crops") {
     for (let stage = 0; stage <= 4; stage++) add(`stage-${stage}`, { stage, plot: false });
   } else if (category === "player") {
@@ -78,7 +83,7 @@ export function sheetVariants(fx) {
       add(`${style}-${open?"open":"closed"}`,{style,open});
     }
   } else if (fx.id === "machines/coastal-workshop") {
-    for(const machine of ["saw","spinner","anvil","generator","belt","pump"]){
+    for(const machine of ["saw","spinner","anvil","generator","belt","pump","grinder","smelter","assembler"]){
       add(machine,{machine});
       if(machine!=="anvil") add(`${machine}-idle`,{machine,active:false});
     }
@@ -87,6 +92,8 @@ export function sheetVariants(fx) {
       const joins=[...sides].filter((_,i)=>mask&(1<<i)).join("");
       for(const wet of [true,false]) add(`${wet?"wet":"dry"}-${joins.toLowerCase()||"none"}`,{joins,wet});
     }
+  } else if (fx.id === "objects/coastal-supplies") {
+    for(const object of ["cart","logs","pot","clay","salt","crate","bin"]) add(object,{object});
   } else if (fx.id === "tiles/mist-fern") {
     for(let growth=0;growth<3;growth++) add(`size-${growth+1}`,{growth,seed:growth+1});
   } else if (fx.id === "trees/wind-pine" || fx.id === "tiles/coastal-wildflowers" || coastalDeposits.has(fx.id)) {

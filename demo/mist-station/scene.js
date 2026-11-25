@@ -105,9 +105,9 @@ export function createScene(canvas, touchCanvas) {
       });
     }
     paintSea(ground);
-    for (let row = 27; row <= 70; row++) {
+    for (let row = 27; row <= 85; row++) {
       paint(ground,objects["tiles/dirt-path"],0,tileX(10),tileY(row),{
-        edges:row===27?"S":row===70?"N":"NS", tileX:10, tileY:row,
+        edges:row===27?"S":row===85?"N":"NS", tileX:10, tileY:row,
         palette:["#a3996e","#b1a474","#b7a97a","#bcaf81","#bfb285"],
       });
     }

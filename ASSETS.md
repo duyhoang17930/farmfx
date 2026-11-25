@@ -1,6 +1,6 @@
 # FarmFX assets
 
-1425 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
+1427 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
 
 ## Characters (20)
 
@@ -61,7 +61,7 @@
 | Sow | [`farming/sow`](src/fx/farming/sow.js) | [GIF](docs/preview/farming-sow.gif) |
 | Water | [`farming/water`](src/fx/farming/water.js) | [GIF](docs/preview/farming-water.gif) |
 
-## Crops (26)
+## Crops (27)
 
 | Asset | ID | Preview |
 | --- | --- | --- |
@@ -71,6 +71,7 @@
 | Cabbages | [`crops/cabbages`](src/fx/crops/cabbages.js) | [GIF](docs/preview/crops-cabbages.gif) |
 | Carrot | [`crops/carrot`](src/fx/crops/carrot.js) | [GIF](docs/preview/crops-carrot.gif) |
 | Cassava | [`crops/cassava`](src/fx/crops/cassava.js) | [GIF](docs/preview/crops-cassava.gif) |
+| Coastal crop | [`crops/coastal-crop`](src/fx/crops/coastal-crop.js) | — |
 | Coconuts | [`crops/coconuts`](src/fx/crops/coconuts.js) | [GIF](docs/preview/crops-coconuts.gif) |
 | Corn | [`crops/corn`](src/fx/crops/corn.js) | [GIF](docs/preview/crops-corn.gif) |
 | Cotton | [`crops/cotton`](src/fx/crops/cotton.js) | [GIF](docs/preview/crops-cotton.gif) |
@@ -339,7 +340,7 @@
 | treasure detector | [`tools/treasure-detector`](src/fx/tools/treasure-detector.js) | — |
 | Watering can | [`tools/watering-can`](src/fx/tools/watering-can.js) | [GIF](docs/preview/tools-watering-can.gif) |
 
-## Objects (70)
+## Objects (71)
 
 | Asset | ID | Preview |
 | --- | --- | --- |
@@ -357,6 +358,7 @@
 | Storage chest | [`objects/chest`](src/fx/objects/chest.js) | [GIF](docs/preview/objects-chest.gif) |
 | Coastal bench | [`objects/coastal-bench`](src/fx/objects/coastal-bench.js) | — |
 | Coastal dock | [`objects/coastal-dock`](src/fx/objects/coastal-dock.js) | — |
+| Coastal supplies | [`objects/coastal-supplies`](src/fx/objects/coastal-supplies.js) | — |
 | Coastal waypost | [`objects/coastal-waypost`](src/fx/objects/coastal-waypost.js) | — |
 | Cooking pot | [`objects/cooking-pot`](src/fx/objects/cooking-pot.js) | [GIF](docs/preview/objects-cooking-pot.gif) |
 | Crafting table | [`objects/crafting-table`](src/fx/objects/crafting-table.js) | [GIF](docs/preview/objects-crafting-table.gif) |

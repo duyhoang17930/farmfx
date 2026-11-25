@@ -1,6 +1,6 @@
 # Catalog
 
-1425 effects in 30 categories. Every one is a file in
+1427 effects in 30 categories. Every one is a file in
 `src/fx/<category>/<name>.js`; render any of them with `node tools/render.mjs <id> --gif`.
 
 ## characters
@@ -80,6 +80,7 @@ seed to sprout to ripe, swaying in the wind.
 | Cabbages | `crops/cabbages` | loop 5s | 32×48 | Blue-green wrapper leaves cradle a pale cabbage head with overlapping, curled folds. Stage 0-4 holds growth. |
 | Carrot | `crops/carrot` | loop 4.8s | 32×48 | One tile of tilled soil, top-down 3/4: seed, sprout, feathery fronds, an orange shoulder swelling out, a ripe twinkle, pulled up in a spray of soil. stage 0..4 holds one. |
 | Cassava | `crops/cassava` | loop 5s | 32×48 | A reddish stalk holds wide fans of finger-shaped leaves. Three tapered brown roots emerge at harvest. Stage 0-4 holds growth. |
+| Coastal crop | `crops/coastal-crop` | loop 4.8s | 32×48 | Readable plant silhouettes and fruit on transparent ground at five growth stages. |
 | Coconuts | `crops/coconuts` | loop 5s | 48×64 | A bent, ringed palm carries long drooping pinnae and a cluster of large, fibrous coconuts. Stage 0-4 holds growth. |
 | Corn | `crops/corn` | loop 5s | 32×64 | A tasselled maize stalk opens ribbon leaves and fills two golden ears wrapped in green husks. Stage 0-4 holds growth. |
 | Cotton | `crops/cotton` | loop 5s | 32×48 | Rust-colored branching stems carry split leaves and fluffy white seed-cotton bolls. Stage 0-4 holds growth. |
@@ -378,6 +379,7 @@ storage, furniture and props with configurable active or open states.
 | Storage chest | `objects/chest` | loop 2s | 48×48 | A metal-strapped chest with a hinged lid and a glint of treasure. |
 | Coastal bench | `objects/coastal-bench` | loop 1s | 48×32 | A bench with a broad plank seat and a receding side and rear legs in top-down three-quarter view. |
 | Coastal dock | `objects/coastal-dock` | loop 1s | 48×48 | A raised trading platform with a deep deck, bollards and a small painted flag. |
+| Coastal supplies | `objects/coastal-supplies` | loop 2.5s | 64×48 | Coastal carts, crates, log stacks and pots with distinct top, front and side lighting. |
 | Coastal waypost | `objects/coastal-waypost` | loop 1s | 48×32 | A small carved direction sign with a bevel, visible upper face and shaded side. |
 | Cooking pot | `objects/cooking-pot` | loop 2s | 48×48 | An iron pot above a brazier with optional steam and simmering broth. |
 | Crafting table | `objects/crafting-table` | loop 2s | 48×48 | A workshop table with a green cutting mat, plans and a shallow drawer. |
@@ -811,7 +813,7 @@ crafting stations, industrial machinery, power, automation and conveyors.
 | Brewing station | `machines/brewing-station` | loop 2s | 64×64 | A wooden cask feeds a copper tap over a row of bottles and a drip tray. |
 | Charcoal kiln | `machines/charcoal-kiln` | loop 2s | 64×64 | A low clay charcoal oven with a blackened flue, split logs and cooling smoke. |
 | Coastal kiln | `machines/coastal-kiln` | loop 2s | 48×64 | A stone kiln with a sea-glass flue cap and a firebox that glows when working. |
-| Coastal workshop | `machines/coastal-workshop` | loop 2s | 64×64 | Running workshop machines with worn timber frames, lit steel and brass fittings. |
+| Coastal workshop | `machines/coastal-workshop` | loop 2s | 64×64 | Timber and brass machines with distinct frames, hoppers, chimneys and moving drive systems. |
 | Coin mint | `machines/coin-mint` | loop 2s | 64×64 | A gold-trimmed stamping press drops currency into a front tray. |
 | Conveyor belt | `machines/conveyor-belt` | loop 2s | 16×16 | A straight 16 px roller belt with traveling link highlights. |
 | Conveyor corner | `machines/conveyor-corner` | loop 2s | 16×16 | A quarter-turn belt with interchangeable left and right bends. |
