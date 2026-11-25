@@ -1,6 +1,6 @@
 # FarmFX assets
 
-1427 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
+1428 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
 
 ## Characters (20)
 
@@ -245,7 +245,7 @@
 | wooden stairs | [`tiles/wooden-stairs`](src/fx/tiles/wooden-stairs.js) | — |
 | wooden wall | [`tiles/wooden-wall`](src/fx/tiles/wooden-wall.js) | — |
 
-## Buildings (55)
+## Buildings (56)
 
 | Asset | ID | Preview |
 | --- | --- | --- |
@@ -261,6 +261,7 @@
 | clock tower | [`buildings/clock-tower`](src/fx/buildings/clock-tower.js) | — |
 | clothing shop | [`buildings/clothing-shop`](src/fx/buildings/clothing-shop.js) | — |
 | Coastal farmstead | [`buildings/coastal-farmstead`](src/fx/buildings/coastal-farmstead.js) | — |
+| Coastal trades | [`buildings/coastal-trades`](src/fx/buildings/coastal-trades.js) | — |
 | duck house | [`buildings/duck-house`](src/fx/buildings/duck-house.js) | — |
 | dungeon entrance | [`buildings/dungeon-entrance`](src/fx/buildings/dungeon-entrance.js) | — |
 | factory building | [`buildings/factory-building`](src/fx/buildings/factory-building.js) | — |

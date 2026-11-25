@@ -47,7 +47,11 @@ export const { meta, draw } = asset({
     if(isBird && dy===-1) continue;
     stroke(x,y+ry-1,x,dy-lift,C[0]);
     if(isBird) stroke(x,dy-lift,x+2,dy-lift,GOLD[2]);
-    else p.px(at(x+1),dy-lift,C[1]);
+    else {
+      if(dy>0)p.line(at(x)-1,y+ry,at(x)-1,dy-lift-1,C[2]);
+      p.px(at(x+1),dy-lift,C[1]);
+      p.px(at(x),dy-lift,C[0]);
+    }
   }
   if(species==="fox") {
     poly([[-6,-7],[-11,-9],[-15,-7],[-16,-3],[-11,-2],[-6,-4]],C[0]);
@@ -57,8 +61,10 @@ export const { meta, draw } = asset({
     poly([[-3,y+1],[-rx-3,y-4],[-rx-2,y+1],[-2,y+3]],C[1]);
   } else if(species==="rabbit") disc(-rx,y+1,2.5,2,C[4]);
   disc(0,y-lift,rx,ry,C[0]);
-  disc(0,y-lift-1,rx-1,ry-1,C[2]);
-  p.ellipse(-rx*.23,y-lift-ry*.36,rx*.60,ry*.53,C[3]);
+  disc(0,y-lift,rx-1,ry-1,C[1]);
+  p.ellipse(-.5,y-lift-1,rx*.84,ry*.67,C[2]);
+  p.ellipse(-rx*.23,y-lift-ry*.36,rx*.62,ry*.53,C[3]);
+  p.ellipse(-rx*.38,y-lift-ry*.55,rx*.30,Math.max(.6,ry*.18),C[4]);
   if(species==="cow") {
     poly([[-7,-12],[-3,-15],[-1,-12],[-3,-8],[-7,-9]],C[1]);
     poly([[1,-13],[5,-12],[7,-8],[3,-6],[0,-8]],C[0]);
@@ -78,6 +84,7 @@ export const { meta, draw } = asset({
     disc(-1,y-lift,Math.max(1,rx*.62),Math.max(1,ry*.56),C[1]);
     stroke(-3,y-1,1,y-2,C[3]);
     if(species==="chicken"){
+      disc(-1,y-lift-.3,2.8,1.5,C[2]);
       stroke(-5,y-2,-3,y-3,C[4]);
       stroke(-3,y+1,0,y,C[2]);
       stroke(-rx-1,y-2,-rx+1,y-1,C[4]);
@@ -89,6 +96,7 @@ export const { meta, draw } = asset({
     for(const delta of [-2,1]) {
       poly([[hx+delta-1,hy],[hx+delta-2,hy-headR-long],[hx+delta+1,hy-headR],[hx+delta+2,hy]],C[0]);
       stroke(hx+delta-1,hy-headR-long+1,hx+delta,hy-headR+1,C[3]);
+      if(species==="rabbit")stroke(hx+delta-1,hy-headR-long+2,hx+delta,hy-headR-1,muzzle[0]);
     }
   }
   if(species==="deer") for(const d of [-2,2]){
@@ -96,7 +104,10 @@ export const { meta, draw } = asset({
     stroke(hx+d-1,hy-7,hx+d+2,hy-10,C[1]);
   }
   disc(hx,hy,headR+1,headR,C[0]);
-  disc(hx,hy-1,headR,Math.max(1,headR-1),species==="sheep"||species==="lamb"?C[1]:C[3]);
+  disc(hx,hy-.2,headR,Math.max(1,headR-1),C[1]);
+  p.ellipse(at(hx)-.45,hy-.9,Math.max(1,headR-.9),Math.max(1,headR-1.25),
+    species==="sheep"||species==="lamb"?C[2]:C[3]);
+  p.px(at(hx)-1,hy-2,C[4]);
   if(isBird){
     poly([[hx+headR-1,hy],[hx+headR+3,hy+1],[hx+headR-1,hy+2]],GOLD[2]);
     if(species==="chicken") {
@@ -116,5 +127,8 @@ export const { meta, draw } = asset({
     p.px(at(hx+headR),hy+2,C[0]);
   }
   p.px(at(hx+1),hy-1,C[0]);
-  if(species==="sheep" || species==="lamb")p.px(at(hx+2),hy-2,C[4]);
+  if(species==="rabbit"){
+    disc(hx+headR-1,hy+1,1.7,1.3,C[4]);
+    p.px(at(hx+headR),hy+1,C[0]);
+  }
 });

@@ -2,7 +2,7 @@ import { clamp, ramp, seg } from "../../core/index.js";
 import { asset, GOLD, wave, WOOD } from "../_kit/art.js";
 import { groundShadow } from "../_kit/sprite.js";
 
-const greens=["#354e38","#547546","#71964f","#91b45f","#cccf7e"];
+const greens=["#304831","#4b6d40","#71964f","#9fbd63","#d8d98a"];
 const fruitColors = Object.fromEntries(Object.entries({
   carrot:["#814b39","#cd773d","#f1ac52"],
   tomato:["#7e4548","#c36150","#e9946b"],
@@ -35,15 +35,17 @@ export const { meta, draw } = asset({
   const polygon=(points,c)=>p.poly(points.map(at),c);
   const line=(a,b,c)=>p.line(...at(a),...at(b),c);
   const leaf=(x,z,sx,sy,side)=>{
-    const pts=[[x,z],[x+side*2,z+sy+1],[x+side*sx,z+sy],[x+side*(sx+1),z+sy-3],[x+side*3,z+sy-3]];
+    const pts=[[x,z],[x+side*3,z+sy+2],[x+side*sx,z+sy+1],[x+side*(sx+2),z+sy-2],
+      [x+side*(sx-1),z+sy-4],[x+side*3,z+sy-3]];
     polygon(pts,C[0]);
-    polygon([[x+side,z-1],[x+side*2,z+sy],[x+side*sx,z+sy-1],[x+side*3,z+sy-2]],C[2]);
-    line([x+side*2,z+sy],[x+side*sx,z+sy-1],C[3]);
+    polygon([[x+side,z-1],[x+side*3,z+sy],[x+side*sx,z+sy],[x+side*(sx+1),z+sy-2],
+      [x+side*3,z+sy-2]],C[2]);
+    line([x+side*3,z+sy-1],[x+side*sx,z+sy-2],C[3]);
   };
   const fruit=(type,x,z,rx,ry)=>{
     const F=fruitColors[type], [xx,yy]=at([x,z]);
     p.ellipse(xx,yy,rx,ry,F[0]);p.ellipse(xx-.4,yy-.7,Math.max(.7,rx-1),Math.max(.6,ry-1),F[1]);
-    p.px(xx-1,yy-1,F[2]);
+    p.line(xx-Math.max(1,rx*.4),yy-1,xx,yy-1,F[2]);
   };
   const type=o.crop;
   if(type==="wheat"||type==="rice"||type==="corn"){
@@ -66,13 +68,17 @@ export const { meta, draw } = asset({
     if(corn){
       leaf(0,-9,6,-5,1);
       if(stage>=3){
-        polygon([[1,-8],[2,-14],[5,-16],[6,-11],[4,-8]],C[0]);
+        polygon([[1,-7],[1,-14],[5,-17],[7,-13],[5,-8]],C[0]);
+        polygon([[2,-10],[2,-14],[5,-16],[6,-13],[4,-9]],ripe?GOLD[2]:C[3]);
         line([3,-10],[4,-14],ripe?GOLD[4]:C[4]);
       }
     }
   } else if(type==="melon"||type==="cabbage"){
     leaf(0,-1,7,-2,-1);leaf(0,-1,7,-3,1);leaf(0,-3,4,-4,-1);
-    if(type==="melon"&&stage>=3)fruit("melon",3,-3,stage===4?5:3,3);
+    if(type==="melon"&&stage>=3){
+      fruit("melon",3,-3,ripe?6:4,ripe?4:3);
+      if(ripe){line([1,-6],[0,-2],C[0]);line([5,-6],[6,-2],C[1]);}
+    }
     else if(type==="cabbage"){
       polygon([[-6,-2],[-6,-6],[-2,-10],[3,-10],[6,-6],[5,-2],[0,0]],C[2]);
       polygon([[-4,-5],[-2,-8],[2,-9],[4,-5],[0,-3]],C[3]);
@@ -86,20 +92,29 @@ export const { meta, draw } = asset({
       line([0,0],[wind,-height],C[1]);
       leaf(0,-5,6,-4,-1);leaf(0,-8,6,-4,1);leaf(wind,-12,5,-4,-1);
       if(stage>=3){
-        if(type==="grape")for(const [x,z] of [[4,-12],[6,-11],[3,-10],[5,-8]])fruit(type,x,z,2,2);
-        else if(type==="bean"){leaf(1,-11,4,-3,1);line([4,-13],[5,-8],C[4]);}
-        else{fruit(type,-3,-7,3,3);if(ripe)fruit(type,4,-10,3,3);}
+        if(type==="grape")for(const [x,z] of [[3,-13],[6,-12],[3,-10],[6,-9],[4,-7]])fruit(type,x,z,2.5,2.5);
+        else if(type==="bean"){
+          leaf(1,-11,5,-3,1);polygon([[4,-13],[7,-12],[7,-8],[4,-6],[5,-10]],C[0]);
+          line([6,-12],[5,-7],C[4]);
+        } else {
+          fruit(type,-3,-7,ripe?4:3,3.5);
+          if(ripe)fruit(type,5,-10,3.8,4);
+        }
       }
     } else {
       line([0,0],[wind,-8],C[1]);
+      if(stage>=3) {
+        polygon([[-4,-3],[-5,-10],[-1,-11],[0,-14],[3,-12],[4,-6],[1,-2]],C[0]);
+        polygon([[-3,-4],[-4,-9],[-1,-10],[0,-12],[2,-9],[2,-5]],C[2]);
+      }
       leaf(0,-1,5,-7,-1);leaf(wind,-2,5,-9,1);leaf(0,-3,3,-11,-1);
       if(stage>=3){
         if(type==="carrot"){
           const F=fruitColors.carrot;
-          polygon([[-3,-3],[3,-3],[2,1],[0,4],[-2,1]],F[0]);
-          polygon([[-2,-3],[2,-3],[0,3]],F[1]);
-          line([-1,-2],[-1,0],F[2]);
-        } else fruit("turnip",0,-1,4,3);
+          polygon([[-4,-3],[3,-4],[3,0],[0,5],[-3,1]],F[0]);
+          polygon([[-3,-3],[2,-4],[2,0],[0,4]],F[1]);
+          line([-1,-3],[-2,0],F[2]);
+        } else fruit("turnip",0,-1,ripe?5:3.7,3.5);
       }
     }
   }

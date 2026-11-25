@@ -220,6 +220,7 @@ import * as buildings_church from "./buildings/church.js";
 import * as buildings_clock_tower from "./buildings/clock-tower.js";
 import * as buildings_clothing_shop from "./buildings/clothing-shop.js";
 import * as buildings_coastal_farmstead from "./buildings/coastal-farmstead.js";
+import * as buildings_coastal_trades from "./buildings/coastal-trades.js";
 import * as buildings_duck_house from "./buildings/duck-house.js";
 import * as buildings_dungeon_entrance from "./buildings/dungeon-entrance.js";
 import * as buildings_factory_building from "./buildings/factory-building.js";
@@ -1651,6 +1652,7 @@ export const effects = {
   "buildings/clock-tower": buildings_clock_tower,
   "buildings/clothing-shop": buildings_clothing_shop,
   "buildings/coastal-farmstead": buildings_coastal_farmstead,
+  "buildings/coastal-trades": buildings_coastal_trades,
   "buildings/duck-house": buildings_duck_house,
   "buildings/dungeon-entrance": buildings_dungeon_entrance,
   "buildings/factory-building": buildings_factory_building,

@@ -1,6 +1,6 @@
 # Catalog
 
-1427 effects in 30 categories. Every one is a file in
+1428 effects in 30 categories. Every one is a file in
 `src/fx/<category>/<name>.js`; render any of them with `node tools/render.mjs <id> --gif`.
 
 ## characters
@@ -278,6 +278,7 @@ farmhouses, livestock shelters, workshops and market buildings.
 | clock tower | `buildings/clock-tower` | loop 3s | 96×112 | A top-down clock tower with a selectable door and interior lights. |
 | clothing shop | `buildings/clothing-shop` | loop 3s | 96×112 | A top-down clothing shop with a selectable door and interior lights. |
 | Coastal farmstead | `buildings/coastal-farmstead` | loop 3.5s | 112×96 | A coop, glasshouse or barn with the same three-quarter projection, larger foundations and top-left lighting. |
+| Coastal trades | `buildings/coastal-trades` | loop 3s | 112×96 | Four distinct coastal trade buildings with a fishing deck, open carpentry shed, stone forge or rounded bakery. |
 | duck house | `buildings/duck-house` | loop 3s | 96×112 | A top-down duck house with a selectable door and interior lights. |
 | dungeon entrance | `buildings/dungeon-entrance` | loop 3s | 96×112 | A top-down dungeon entrance with a selectable door and interior lights. |
 | factory building | `buildings/factory-building` | loop 3s | 96×112 | A top-down factory building with a selectable door and interior lights. |

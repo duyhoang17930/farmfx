@@ -82,6 +82,11 @@ export function sheetVariants(fx) {
     for(const style of ["coop","barn","greenhouse"]) for(const open of [true,false]) {
       add(`${style}-${open?"open":"closed"}`,{style,open});
     }
+  } else if (fx.id === "buildings/coastal-trades") {
+    for(const style of ["fishing","lumber","forge","bakery"]) {
+      add(style,{style});
+      if(style==="forge"||style==="bakery")add(`${style}-idle`,{style,active:false});
+    }
   } else if (fx.id === "machines/coastal-workshop") {
     for(const machine of ["saw","spinner","anvil","generator","belt","pump","grinder","smelter","assembler"]){
       add(machine,{machine});

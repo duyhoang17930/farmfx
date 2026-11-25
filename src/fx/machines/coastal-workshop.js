@@ -12,6 +12,15 @@ function gear(p,x,y,r,t,C) {
   p.px(x-1,y-1,GOLD[4]);
 }
 
+function rivets(p,C,points){
+  for(const [x,y] of points){p.px(x,y,C[0]); p.px(x-1,y-1,C[4]);}
+}
+
+function lamp(p,x,y,t,active,C){
+  p.rect(x-2,y-1,4,3,C[0]);
+  p.line(x-1,y,x,y,active&&wave(t)>.05?GOLD[3]:C[1]);
+}
+
 export const { meta, draw } = asset({
   name:"Coastal workshop",desc:"Timber and brass machines with distinct frames, hoppers, chimneys and moving drive systems.",
   tags:["machine","workshop","coast"],size:[64,64],origin:[32,51],duration:2,fps:16,
@@ -40,8 +49,13 @@ export const { meta, draw } = asset({
     p.poly([[-16,-32],[13,-32],[16,-29],[7,-20],[-8,-20]],WOOD[3]);
     p.poly([[-15,-32],[13,-32],[11,-29],[-12,-29]],C[0]);
     p.line(-16,-34,13,-34,WOOD[4]);
+    for(const x of [-10,-4,3,9])p.line(x,-28,x*.62,-21,WOOD[2]);
     p.line(-8,-20,7,-20,GOLD[2]);
+    p.line(-10,-18,-10,-10,C[3]);
+    p.line(6,-9,14,-9,C[0]);
+    p.px(13,-10,GOLD[3]);
     gear(p,6,-9,5,turn,C);
+    rivets(p,C,[[-9,-15],[8,-16],[-8,-4],[10,-4]]);
     p.line(-10,-8,-5,-8,C[4]);
     if(o.active) p.px(-7+Math.floor(t*5),-31,GOLD[4]);
     return;
@@ -51,12 +65,20 @@ export const { meta, draw } = asset({
     p.poly([[-14,-5],[-13,-23],[-9,-29],[8,-29],[12,-24],[12,-4],[-10,-1]],C[2]);
     p.poly([[-12,-23],[-9,-29],[7,-29],[10,-25]],C[3]);
     p.rect(6,-39,8,13,C[0]); p.rect(7,-37,4,11,C[2]); p.line(6,-39,13,-39,C[4]);
+    p.rect(5,-35,10,2,C[1]);p.line(6,-35,12,-35,C[3]);
+    p.beam(-12,-10,-12,-25,3,C[0]);p.line(-13,-24,-13,-11,C[3]);
+    for(const x of [-5,-2,1,4])p.line(x,-23,x,-21,C[1]);
+    rivets(p,C,[[-10,-22],[10,-21],[-10,-5],[11,-6]]);
     p.poly([[-9,-4],[-9,-13],[-5,-18],[5,-18],[9,-13],[9,-4]],WOOD[0]);
     p.line(-8,-11,-4,-16,WOOD[4]);
     if(o.active){
       p.poly([[-6,-5],[-5,-11],[-2,-9],[1,-14+Math.round(wave(t,2))],[4,-10],[6,-5]],GOLD[2]);
       p.line(-3,-6,3,-6,GOLD[4]);
-      for(let i=0;i<4;i++){const a=(t+i/4)%1;p.dot(9+2*wave(a),-41-a*8,C[3],Math.sin(a*Math.PI)*.6);}
+      for(let i=0;i<4;i++){
+        const a=(t+i/4)%1;
+        p.disc(9+2*wave(a),-40-a*7,1+a*1.8,C[3],Math.sin(a*Math.PI)*.34);
+        if(i<2) p.dot(-4+i*8+3*a,-10-6*a,GOLD[3],1-a);
+      }
     }
     return;
   }
@@ -66,12 +88,18 @@ export const { meta, draw } = asset({
     p.line(-15,-7,17,-7,C[4]);
     p.rect(-16,-21,15,16,WOOD[0]);p.rect(-15,-20,12,12,WOOD[2]);
     gear(p,-9,-15,6,turn,C);gear(p,-1,-11,4,-turn,C);
+    lamp(p,-13,-7,t,o.active,C);
+    rivets(p,C,[[-16,-4],[16,-4],[12,-10],[-4,-19]]);
     const swing=o.active?3*wave(t):0;
     p.beam(12,-5,12,-25,7,C[0]);p.line(10,-7,10,-24,C[3]);
     p.beam(12,-25,3+swing,-29,6,C[0]);p.beam(11,-27,3+swing,-31,2,C[4]);
     p.line(3+swing,-29,1+swing,-17,GOLD[2]);
     p.line(1+swing,-17,-2+swing,-14,C[3]);p.line(1+swing,-17,4+swing,-14,C[3]);
     p.px(12,-24,GOLD[4]);
+    if(o.active&&wave(t)>.64) {
+      p.dot(1+swing,-12,GOLD[4],.8);
+      p.dot(-1+swing,-11,GOLD[3],.6);
+    }
     return;
   }
   const gen=o.machine==="generator", anvil=o.machine==="anvil";
@@ -82,9 +110,14 @@ export const { meta, draw } = asset({
     p.poly([[-14,-24],[-9,-30],[12,-30],[17,-25],[-14,-23]],C[3]);
     p.rect(-14,-23,27,16,C[2]);
     p.line(-14,-23,12,-23,C[4]);
-    for(const vent of [-12,-9,-6,-3])p.line(vent,-20,vent,-12,C[0]);
+    for(const vent of [-12,-9,-6,-3]){
+      p.line(vent,-20,vent,-12,C[0]);p.line(vent+1,-19,vent+1,-12,C[3]);
+    }
+    p.beam(-9,-25,-9,-33,3,C[0]);p.beam(-9,-33,2,-33,3,C[0]);
+    p.line(-10,-32,-10,-25,C[3]);p.line(-9,-34,1,-34,C[3]);
     gear(p,8,-15,6,turn,C);
-    p.line(-9,-9,-5,-9,GOLD[2]);p.px(-10,-9,o.active?GOLD[4]:C[2]);
+    lamp(p,-9,-9,t,o.active,C);
+    rivets(p,C,[[13,-21],[13,-8],[-13,-8]]);
     return;
   }
   if(anvil){
@@ -103,7 +136,12 @@ export const { meta, draw } = asset({
     p.rect(-5,-27,9,23,C[2]);p.line(-4,-28,3,-28,C[4]);
     p.line(4,-20,14,-20,C[3]);p.rect(-8,-25,16,2,GOLD[2]);
     p.line(3,-30,12,-33,WOOD[2]);
-    if(o.active){const a=(t*2)%1;p.dot(14,-16+Math.floor(a*8),C[4],1-a);}
+    rivets(p,C,[[-3,-6],[3,-6],[12,-18]]);
+    if(o.active){
+      const a=(t*2)%1;
+      p.dot(14,-16+Math.floor(a*8),C[4],1-a);
+      p.disc(14+a*2,-16-a*5,1+a*1.4,C[3],Math.sin(a*Math.PI)*.26);
+    }
     return;
   }
   const saw=o.machine==="saw";
@@ -129,6 +167,11 @@ export const { meta, draw } = asset({
   p.beam(-14,1,-6,-11,3,WOOD[1]); p.beam(11,1,5,-11,3,WOOD[1]);
   p.line(-11,-7,12,-7,C[1]);
   p.rect(-12,-18,6,4,WOOD[1]);p.line(-11,-18,-7,-18,WOOD[4]);
+  rivets(p,C,[[-14,-12],[11,-12],[-12,-8],[10,-8]]);
   gear(p,2,-18,7,turn,C);
   p.line(-5,-14,12,-14,C[4]);
+  if(o.active) for(let i=0;i<3;i++){
+    const a=(t*2+i/3)%1;
+    p.dot(4+a*(6+i*2),-17-a*6+6*a*a,WOOD[i+2],1-a);
+  }
 });

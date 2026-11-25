@@ -80,8 +80,8 @@ const pond = pondCells.map(([x,y]) => {
 });
 
 const coast = [
-  ["buildings/fishing-hut","Nhà câu cá",5,59,{footprint:[4,3]}],
-  ["buildings/lumber-house","Nhà mộc",13,59,{footprint:[4,3]}],
+  ["buildings/coastal-trades","Nhà câu cá",5,59,{footprint:[4,3],visual:{style:"fishing"}}],
+  ["buildings/coastal-trades","Nhà mộc",13,59,{footprint:[4,3],visual:{style:"lumber"}}],
   ["objects/notice-board","Bảng thông báo",9,57,{footprint:[1,1]}],
   ["objects/street-lamp","Đèn đường",9,62,{footprint:[1,1]}],
   ["objects/coastal-supplies","Chồng gỗ",18,62,{footprint:[1,1],visual:{object:"logs"}}],
@@ -106,8 +106,8 @@ const coast = [
 ];
 
 const craftYard = [
-  ["buildings/blacksmith","Nhà rèn",4,76,{footprint:[4,2]}],
-  ["buildings/bakery","Lò bánh",16,76,{footprint:[4,2]}],
+  ["buildings/coastal-trades","Nhà rèn",4,76,{footprint:[4,2],visual:{style:"forge"}}],
+  ["buildings/coastal-trades","Lò bánh",16,76,{footprint:[4,2],visual:{style:"bakery"}}],
   ["objects/banner","Cờ hiệu",9,77,{footprint:[1,1]}],
   ["machines/coastal-workshop","Máy nghiền",4,79,{footprint:[2,2],visual:{machine:"grinder"}}],
   ["machines/coastal-workshop","Lò luyện kim",12,79,{footprint:[2,2],visual:{machine:"smelter"}}],
