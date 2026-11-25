@@ -1,6 +1,6 @@
 # FarmFX assets
 
-867 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
+917 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
 
 ## Characters (20)
 
@@ -330,24 +330,74 @@
 | treasure detector | [`tools/treasure-detector`](src/fx/tools/treasure-detector.js) | — |
 | Watering can | [`tools/watering-can`](src/fx/tools/watering-can.js) | [GIF](docs/preview/tools-watering-can.gif) |
 
-## Objects (15)
+## Objects (65)
 
 | Asset | ID | Preview |
 | --- | --- | --- |
+| banner | [`objects/banner`](src/fx/objects/banner.js) | — |
 | Barrel | [`objects/barrel`](src/fx/objects/barrel.js) | [GIF](docs/preview/objects-barrel.gif) |
+| bed | [`objects/bed`](src/fx/objects/bed.js) | — |
 | Beehive | [`objects/beehive`](src/fx/objects/beehive.js) | [GIF](docs/preview/objects-beehive.gif) |
 | Bench | [`objects/bench`](src/fx/objects/bench.js) | [GIF](docs/preview/objects-bench.gif) |
+| bookshelf | [`objects/bookshelf`](src/fx/objects/bookshelf.js) | — |
+| brazier | [`objects/brazier`](src/fx/objects/brazier.js) | — |
+| cabinet | [`objects/cabinet`](src/fx/objects/cabinet.js) | — |
+| campfire | [`objects/campfire`](src/fx/objects/campfire.js) | — |
+| carpet | [`objects/carpet`](src/fx/objects/carpet.js) | — |
+| chair | [`objects/chair`](src/fx/objects/chair.js) | — |
 | Storage chest | [`objects/chest`](src/fx/objects/chest.js) | [GIF](docs/preview/objects-chest.gif) |
 | Cooking pot | [`objects/cooking-pot`](src/fx/objects/cooking-pot.js) | [GIF](docs/preview/objects-cooking-pot.gif) |
 | Crafting table | [`objects/crafting-table`](src/fx/objects/crafting-table.js) | [GIF](docs/preview/objects-crafting-table.gif) |
 | Crate | [`objects/crate`](src/fx/objects/crate.js) | [GIF](docs/preview/objects-crate.gif) |
+| crystal chest | [`objects/crystal-chest`](src/fx/objects/crystal-chest.js) | — |
+| dining table | [`objects/dining-table`](src/fx/objects/dining-table.js) | — |
+| donation box | [`objects/donation-box`](src/fx/objects/donation-box.js) | — |
+| double bed | [`objects/double-bed`](src/fx/objects/double-bed.js) | — |
 | Feeding trough | [`objects/feeding-trough`](src/fx/objects/feeding-trough.js) | [GIF](docs/preview/objects-feeding-trough.gif) |
+| fireplace | [`objects/fireplace`](src/fx/objects/fireplace.js) | — |
+| flag | [`objects/flag`](src/fx/objects/flag.js) | — |
+| flower pot | [`objects/flower-pot`](src/fx/objects/flower-pot.js) | — |
+| fountain | [`objects/fountain`](src/fx/objects/fountain.js) | — |
 | Furnace | [`objects/furnace`](src/fx/objects/furnace.js) | [GIF](docs/preview/objects-furnace.gif) |
+| golden chest | [`objects/golden-chest`](src/fx/objects/golden-chest.js) | — |
 | Hay bale | [`objects/hay-bale`](src/fx/objects/hay-bale.js) | [GIF](docs/preview/objects-hay-bale.gif) |
+| kitchen counter | [`objects/kitchen-counter`](src/fx/objects/kitchen-counter.js) | — |
 | Lamppost | [`objects/lamp`](src/fx/objects/lamp.js) | [GIF](docs/preview/objects-lamp.gif) |
+| large storage chest | [`objects/large-storage-chest`](src/fx/objects/large-storage-chest.js) | — |
+| locked chest | [`objects/locked-chest`](src/fx/objects/locked-chest.js) | — |
 | Mailbox | [`objects/mailbox`](src/fx/objects/mailbox.js) | [GIF](docs/preview/objects-mailbox.gif) |
+| market cart | [`objects/market-cart`](src/fx/objects/market-cart.js) | — |
+| metal door | [`objects/metal-door`](src/fx/objects/metal-door.js) | — |
+| minecart | [`objects/minecart`](src/fx/objects/minecart.js) | — |
+| minecart track | [`objects/minecart-track`](src/fx/objects/minecart-track.js) | — |
+| notice board | [`objects/notice-board`](src/fx/objects/notice-board.js) | — |
+| painting | [`objects/painting`](src/fx/objects/painting.js) | — |
+| quest board | [`objects/quest-board`](src/fx/objects/quest-board.js) | — |
+| refrigerator | [`objects/refrigerator`](src/fx/objects/refrigerator.js) | — |
+| resource crate | [`objects/resource-crate`](src/fx/objects/resource-crate.js) | — |
+| rug | [`objects/rug`](src/fx/objects/rug.js) | — |
 | Shipping bin | [`objects/shipping-bin`](src/fx/objects/shipping-bin.js) | [GIF](docs/preview/objects-shipping-bin.gif) |
 | Signpost | [`objects/signpost`](src/fx/objects/signpost.js) | [GIF](docs/preview/objects-signpost.gif) |
+| silver chest | [`objects/silver-chest`](src/fx/objects/silver-chest.js) | — |
+| statue | [`objects/statue`](src/fx/objects/statue.js) | — |
+| stone door | [`objects/stone-door`](src/fx/objects/stone-door.js) | — |
+| stone pile | [`objects/stone-pile`](src/fx/objects/stone-pile.js) | — |
+| stool | [`objects/stool`](src/fx/objects/stool.js) | — |
+| stove | [`objects/stove`](src/fx/objects/stove.js) | — |
+| street lamp | [`objects/street-lamp`](src/fx/objects/street-lamp.js) | — |
+| torch | [`objects/torch`](src/fx/objects/torch.js) | — |
+| trash bin | [`objects/trash-bin`](src/fx/objects/trash-bin.js) | — |
+| treasure chest | [`objects/treasure-chest`](src/fx/objects/treasure-chest.js) | — |
+| wall clock | [`objects/wall-clock`](src/fx/objects/wall-clock.js) | — |
+| wardrobe | [`objects/wardrobe`](src/fx/objects/wardrobe.js) | — |
+| water pump | [`objects/water-pump`](src/fx/objects/water-pump.js) | — |
+| water tank | [`objects/water-tank`](src/fx/objects/water-tank.js) | — |
+| wheelbarrow | [`objects/wheelbarrow`](src/fx/objects/wheelbarrow.js) | — |
+| window | [`objects/window`](src/fx/objects/window.js) | — |
+| wood pile | [`objects/wood-pile`](src/fx/objects/wood-pile.js) | — |
+| wooden door | [`objects/wooden-door`](src/fx/objects/wooden-door.js) | — |
+| wooden pallet | [`objects/wooden-pallet`](src/fx/objects/wooden-pallet.js) | — |
+| wooden table | [`objects/wooden-table`](src/fx/objects/wooden-table.js) | — |
 | Workbench | [`objects/workbench`](src/fx/objects/workbench.js) | [GIF](docs/preview/objects-workbench.gif) |
 
 ## Weather & seasons (5)

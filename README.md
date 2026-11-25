@@ -1,6 +1,6 @@
 # farmfx.
 
-**<!-- count -->867<!-- /count --> pixel art assets and animations for farming games, every one a small piece of
+**<!-- count -->917<!-- /count --> pixel art assets and animations for farming games, every one a small piece of
 code.** Crops that grow from seed to harvest, animals going about their day, tilled and watered soil, weather and
 seasons, and a farmer who hoes, waters, sows and harvests. Play them live, recolor them for another season, drop
 them into a browser game, or export sprite sheets for any engine.
@@ -41,7 +41,7 @@ system, with a library made for farms instead of fights.
 | **tiles** | 66 | berry bush, brick floor, brick wall, footbridge, cliff wall, cliff corner… |
 | **buildings** | 54 | abandoned house, animal shelter, bakery, bank building, barn, blacksmith… |
 | **tools** | 30 | advanced sprinkler, axe, backpack, bucket, bug net, chainsaw… |
-| **objects** | 15 | barrel, beehive, bench, storage chest, cooking pot, crafting table… |
+| **objects** | 65 | banner, barrel, bed, beehive, bench, bookshelf… |
 | **weather & seasons** | 5 | day and night, falling leaves, fireflies, rain, snow |
 | **farm fx** | 10 | chopping impact, dust puff, footsteps, harvest sparkle, item pickup, mining impact… |
 | **ui** | 15 | calendar, crafting menu, currency, tile cursor, day clock, dialogue box… |

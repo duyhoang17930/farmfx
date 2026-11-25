@@ -1,6 +1,6 @@
 # Catalog
 
-867 effects in 23 categories. Every one is a file in
+917 effects in 23 categories. Every one is a file in
 `src/fx/<category>/<name>.js`; render any of them with `node tools/render.mjs <id> --gif`.
 
 ## characters
@@ -355,20 +355,70 @@ storage, furniture and props with configurable active or open states.
 
 | effect | id | | size | what it does |
 |---|---|---|---|---|
+| banner | `objects/banner` | loop 2s | 64×64 | A top-down banner prop with shaded surfaces. |
 | Barrel | `objects/barrel` | loop 2s | 48×48 | A round oak cask with iron hoops and a shaded inset lid. |
+| bed | `objects/bed` | loop 1s | 64×64 | A top-down bed prop with shaded surfaces. |
 | Beehive | `objects/beehive` | loop 2s | 48×48 | A stacked hive with a peaked lid and optional bees hovering at the entrance. |
 | Bench | `objects/bench` | loop 2s | 48×48 | A two-seat slatted wooden bench with a raised back. |
+| bookshelf | `objects/bookshelf` | loop 1s | 64×64 | A top-down bookshelf prop with shaded surfaces. |
+| brazier | `objects/brazier` | loop 2s | 64×64 | A top-down brazier prop with shaded surfaces. |
+| cabinet | `objects/cabinet` | loop 1s | 64×64 | A top-down cabinet prop with shaded surfaces. |
+| campfire | `objects/campfire` | loop 2s | 64×64 | A top-down campfire prop with shaded surfaces. |
+| carpet | `objects/carpet` | loop 2s | 64×64 | A top-down carpet prop with shaded surfaces. |
+| chair | `objects/chair` | loop 1s | 64×64 | A top-down chair prop with shaded surfaces. |
 | Storage chest | `objects/chest` | loop 2s | 48×48 | A metal-strapped chest with a hinged lid and a glint of treasure. |
 | Cooking pot | `objects/cooking-pot` | loop 2s | 48×48 | An iron pot above a brazier with optional steam and simmering broth. |
 | Crafting table | `objects/crafting-table` | loop 2s | 48×48 | A workshop table with a green cutting mat, plans and a shallow drawer. |
 | Crate | `objects/crate` | loop 2s | 48×48 | A braced wooden crate with visible slats and nail heads. |
+| crystal chest | `objects/crystal-chest` | loop 1s | 64×64 | A top-down crystal chest prop with shaded surfaces. |
+| dining table | `objects/dining-table` | loop 1s | 64×64 | A top-down dining table prop with shaded surfaces. |
+| donation box | `objects/donation-box` | loop 1s | 64×64 | A top-down donation box prop with shaded surfaces. |
+| double bed | `objects/double-bed` | loop 1s | 64×64 | A top-down double bed prop with shaded surfaces. |
 | Feeding trough | `objects/feeding-trough` | loop 2s | 48×48 | A low plank trough with optional feed in the top. |
+| fireplace | `objects/fireplace` | loop 2s | 64×64 | A top-down fireplace prop with shaded surfaces. |
+| flag | `objects/flag` | loop 2s | 64×64 | A top-down flag prop with shaded surfaces. |
+| flower pot | `objects/flower-pot` | loop 2s | 64×64 | A top-down flower pot prop with shaded surfaces. |
+| fountain | `objects/fountain` | loop 2s | 64×64 | A top-down fountain prop with shaded surfaces. |
 | Furnace | `objects/furnace` | loop 2s | 48×48 | A squat masonry furnace with optional glowing coals. |
+| golden chest | `objects/golden-chest` | loop 1s | 64×64 | A top-down golden chest prop with shaded surfaces. |
 | Hay bale | `objects/hay-bale` | loop 2s | 48×48 | A rectangular bale with tied bands and loose golden straw. |
+| kitchen counter | `objects/kitchen-counter` | loop 1s | 64×64 | A top-down kitchen counter prop with shaded surfaces. |
 | Lamppost | `objects/lamp` | loop 2s | 48×48 | A tall iron path light with a warm, flickering glow when active. |
+| large storage chest | `objects/large-storage-chest` | loop 1s | 64×64 | A top-down large storage chest prop with shaded surfaces. |
+| locked chest | `objects/locked-chest` | loop 1s | 64×64 | A top-down locked chest prop with shaded surfaces. |
 | Mailbox | `objects/mailbox` | loop 2s | 48×48 | A rounded painted mailbox whose flag rises with the arrival of a letter. |
+| market cart | `objects/market-cart` | loop 1s | 64×64 | A top-down market cart prop with shaded surfaces. |
+| metal door | `objects/metal-door` | loop 1s | 64×64 | A top-down metal door prop with shaded surfaces. |
+| minecart | `objects/minecart` | loop 1s | 64×64 | A top-down minecart prop with shaded surfaces. |
+| minecart track | `objects/minecart-track` | loop 1s | 64×64 | A top-down minecart track prop with shaded surfaces. |
+| notice board | `objects/notice-board` | loop 1s | 64×64 | A top-down notice board prop with shaded surfaces. |
+| painting | `objects/painting` | loop 2s | 64×64 | A top-down painting prop with shaded surfaces. |
+| quest board | `objects/quest-board` | loop 1s | 64×64 | A top-down quest board prop with shaded surfaces. |
+| refrigerator | `objects/refrigerator` | loop 1s | 64×64 | A top-down refrigerator prop with shaded surfaces. |
+| resource crate | `objects/resource-crate` | loop 1s | 64×64 | A top-down resource crate prop with shaded surfaces. |
+| rug | `objects/rug` | loop 2s | 64×64 | A top-down rug prop with shaded surfaces. |
 | Shipping bin | `objects/shipping-bin` | loop 2s | 48×48 | A large wooden bin with an opening lid and a painted shipping arrow. |
 | Signpost | `objects/signpost` | loop 2s | 48×48 | A carved arrow sign with a short configurable label. |
+| silver chest | `objects/silver-chest` | loop 1s | 64×64 | A top-down silver chest prop with shaded surfaces. |
+| statue | `objects/statue` | loop 2s | 64×64 | A top-down statue prop with shaded surfaces. |
+| stone door | `objects/stone-door` | loop 1s | 64×64 | A top-down stone door prop with shaded surfaces. |
+| stone pile | `objects/stone-pile` | loop 1s | 64×64 | A top-down stone pile prop with shaded surfaces. |
+| stool | `objects/stool` | loop 1s | 64×64 | A top-down stool prop with shaded surfaces. |
+| stove | `objects/stove` | loop 2s | 64×64 | A top-down stove prop with shaded surfaces. |
+| street lamp | `objects/street-lamp` | loop 2s | 64×64 | A top-down street lamp prop with shaded surfaces. |
+| torch | `objects/torch` | loop 2s | 64×64 | A top-down torch prop with shaded surfaces. |
+| trash bin | `objects/trash-bin` | loop 1s | 64×64 | A top-down trash bin prop with shaded surfaces. |
+| treasure chest | `objects/treasure-chest` | loop 1s | 64×64 | A top-down treasure chest prop with shaded surfaces. |
+| wall clock | `objects/wall-clock` | loop 2s | 64×64 | A top-down wall clock prop with shaded surfaces. |
+| wardrobe | `objects/wardrobe` | loop 1s | 64×64 | A top-down wardrobe prop with shaded surfaces. |
+| water pump | `objects/water-pump` | loop 2s | 64×64 | A top-down water pump prop with shaded surfaces. |
+| water tank | `objects/water-tank` | loop 2s | 64×64 | A top-down water tank prop with shaded surfaces. |
+| wheelbarrow | `objects/wheelbarrow` | loop 1s | 64×64 | A top-down wheelbarrow prop with shaded surfaces. |
+| window | `objects/window` | loop 2s | 64×64 | A top-down window prop with shaded surfaces. |
+| wood pile | `objects/wood-pile` | loop 1s | 64×64 | A top-down wood pile prop with shaded surfaces. |
+| wooden door | `objects/wooden-door` | loop 1s | 64×64 | A top-down wooden door prop with shaded surfaces. |
+| wooden pallet | `objects/wooden-pallet` | loop 1s | 64×64 | A top-down wooden pallet prop with shaded surfaces. |
+| wooden table | `objects/wooden-table` | loop 1s | 64×64 | A top-down wooden table prop with shaded surfaces. |
 | Workbench | `objects/workbench` | loop 2s | 48×48 | A carpenter's bench with a vise and a rack of steel tools. |
 
 ## weather & seasons

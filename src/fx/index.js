@@ -283,20 +283,70 @@ import * as tools_sickle from "./tools/sickle.js";
 import * as tools_sprinkler from "./tools/sprinkler.js";
 import * as tools_treasure_detector from "./tools/treasure-detector.js";
 import * as tools_watering_can from "./tools/watering-can.js";
+import * as objects_banner from "./objects/banner.js";
 import * as objects_barrel from "./objects/barrel.js";
+import * as objects_bed from "./objects/bed.js";
 import * as objects_beehive from "./objects/beehive.js";
 import * as objects_bench from "./objects/bench.js";
+import * as objects_bookshelf from "./objects/bookshelf.js";
+import * as objects_brazier from "./objects/brazier.js";
+import * as objects_cabinet from "./objects/cabinet.js";
+import * as objects_campfire from "./objects/campfire.js";
+import * as objects_carpet from "./objects/carpet.js";
+import * as objects_chair from "./objects/chair.js";
 import * as objects_chest from "./objects/chest.js";
 import * as objects_cooking_pot from "./objects/cooking-pot.js";
 import * as objects_crafting_table from "./objects/crafting-table.js";
 import * as objects_crate from "./objects/crate.js";
+import * as objects_crystal_chest from "./objects/crystal-chest.js";
+import * as objects_dining_table from "./objects/dining-table.js";
+import * as objects_donation_box from "./objects/donation-box.js";
+import * as objects_double_bed from "./objects/double-bed.js";
 import * as objects_feeding_trough from "./objects/feeding-trough.js";
+import * as objects_fireplace from "./objects/fireplace.js";
+import * as objects_flag from "./objects/flag.js";
+import * as objects_flower_pot from "./objects/flower-pot.js";
+import * as objects_fountain from "./objects/fountain.js";
 import * as objects_furnace from "./objects/furnace.js";
+import * as objects_golden_chest from "./objects/golden-chest.js";
 import * as objects_hay_bale from "./objects/hay-bale.js";
+import * as objects_kitchen_counter from "./objects/kitchen-counter.js";
 import * as objects_lamp from "./objects/lamp.js";
+import * as objects_large_storage_chest from "./objects/large-storage-chest.js";
+import * as objects_locked_chest from "./objects/locked-chest.js";
 import * as objects_mailbox from "./objects/mailbox.js";
+import * as objects_market_cart from "./objects/market-cart.js";
+import * as objects_metal_door from "./objects/metal-door.js";
+import * as objects_minecart from "./objects/minecart.js";
+import * as objects_minecart_track from "./objects/minecart-track.js";
+import * as objects_notice_board from "./objects/notice-board.js";
+import * as objects_painting from "./objects/painting.js";
+import * as objects_quest_board from "./objects/quest-board.js";
+import * as objects_refrigerator from "./objects/refrigerator.js";
+import * as objects_resource_crate from "./objects/resource-crate.js";
+import * as objects_rug from "./objects/rug.js";
 import * as objects_shipping_bin from "./objects/shipping-bin.js";
 import * as objects_signpost from "./objects/signpost.js";
+import * as objects_silver_chest from "./objects/silver-chest.js";
+import * as objects_statue from "./objects/statue.js";
+import * as objects_stone_door from "./objects/stone-door.js";
+import * as objects_stone_pile from "./objects/stone-pile.js";
+import * as objects_stool from "./objects/stool.js";
+import * as objects_stove from "./objects/stove.js";
+import * as objects_street_lamp from "./objects/street-lamp.js";
+import * as objects_torch from "./objects/torch.js";
+import * as objects_trash_bin from "./objects/trash-bin.js";
+import * as objects_treasure_chest from "./objects/treasure-chest.js";
+import * as objects_wall_clock from "./objects/wall-clock.js";
+import * as objects_wardrobe from "./objects/wardrobe.js";
+import * as objects_water_pump from "./objects/water-pump.js";
+import * as objects_water_tank from "./objects/water-tank.js";
+import * as objects_wheelbarrow from "./objects/wheelbarrow.js";
+import * as objects_window from "./objects/window.js";
+import * as objects_wood_pile from "./objects/wood-pile.js";
+import * as objects_wooden_door from "./objects/wooden-door.js";
+import * as objects_wooden_pallet from "./objects/wooden-pallet.js";
+import * as objects_wooden_table from "./objects/wooden-table.js";
 import * as objects_workbench from "./objects/workbench.js";
 import * as weather_day_night from "./weather/day-night.js";
 import * as weather_falling_leaves from "./weather/falling-leaves.js";
@@ -1154,20 +1204,70 @@ export const effects = {
   "tools/sprinkler": tools_sprinkler,
   "tools/treasure-detector": tools_treasure_detector,
   "tools/watering-can": tools_watering_can,
+  "objects/banner": objects_banner,
   "objects/barrel": objects_barrel,
+  "objects/bed": objects_bed,
   "objects/beehive": objects_beehive,
   "objects/bench": objects_bench,
+  "objects/bookshelf": objects_bookshelf,
+  "objects/brazier": objects_brazier,
+  "objects/cabinet": objects_cabinet,
+  "objects/campfire": objects_campfire,
+  "objects/carpet": objects_carpet,
+  "objects/chair": objects_chair,
   "objects/chest": objects_chest,
   "objects/cooking-pot": objects_cooking_pot,
   "objects/crafting-table": objects_crafting_table,
   "objects/crate": objects_crate,
+  "objects/crystal-chest": objects_crystal_chest,
+  "objects/dining-table": objects_dining_table,
+  "objects/donation-box": objects_donation_box,
+  "objects/double-bed": objects_double_bed,
   "objects/feeding-trough": objects_feeding_trough,
+  "objects/fireplace": objects_fireplace,
+  "objects/flag": objects_flag,
+  "objects/flower-pot": objects_flower_pot,
+  "objects/fountain": objects_fountain,
   "objects/furnace": objects_furnace,
+  "objects/golden-chest": objects_golden_chest,
   "objects/hay-bale": objects_hay_bale,
+  "objects/kitchen-counter": objects_kitchen_counter,
   "objects/lamp": objects_lamp,
+  "objects/large-storage-chest": objects_large_storage_chest,
+  "objects/locked-chest": objects_locked_chest,
   "objects/mailbox": objects_mailbox,
+  "objects/market-cart": objects_market_cart,
+  "objects/metal-door": objects_metal_door,
+  "objects/minecart": objects_minecart,
+  "objects/minecart-track": objects_minecart_track,
+  "objects/notice-board": objects_notice_board,
+  "objects/painting": objects_painting,
+  "objects/quest-board": objects_quest_board,
+  "objects/refrigerator": objects_refrigerator,
+  "objects/resource-crate": objects_resource_crate,
+  "objects/rug": objects_rug,
   "objects/shipping-bin": objects_shipping_bin,
   "objects/signpost": objects_signpost,
+  "objects/silver-chest": objects_silver_chest,
+  "objects/statue": objects_statue,
+  "objects/stone-door": objects_stone_door,
+  "objects/stone-pile": objects_stone_pile,
+  "objects/stool": objects_stool,
+  "objects/stove": objects_stove,
+  "objects/street-lamp": objects_street_lamp,
+  "objects/torch": objects_torch,
+  "objects/trash-bin": objects_trash_bin,
+  "objects/treasure-chest": objects_treasure_chest,
+  "objects/wall-clock": objects_wall_clock,
+  "objects/wardrobe": objects_wardrobe,
+  "objects/water-pump": objects_water_pump,
+  "objects/water-tank": objects_water_tank,
+  "objects/wheelbarrow": objects_wheelbarrow,
+  "objects/window": objects_window,
+  "objects/wood-pile": objects_wood_pile,
+  "objects/wooden-door": objects_wooden_door,
+  "objects/wooden-pallet": objects_wooden_pallet,
+  "objects/wooden-table": objects_wooden_table,
   "objects/workbench": objects_workbench,
   "weather/day-night": weather_day_night,
   "weather/falling-leaves": weather_falling_leaves,
