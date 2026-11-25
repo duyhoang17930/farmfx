@@ -605,6 +605,36 @@ import * as weapons_stone_sword from "./weapons/stone-sword.js";
 import * as weapons_wooden_bow from "./weapons/wooden-bow.js";
 import * as weapons_wooden_shield from "./weapons/wooden-shield.js";
 import * as weapons_wooden_sword from "./weapons/wooden-sword.js";
+import * as equipment_crystal_armor from "./equipment/crystal-armor.js";
+import * as equipment_crystal_helmet from "./equipment/crystal-helmet.js";
+import * as equipment_defense_ring from "./equipment/defense-ring.js";
+import * as equipment_energy_ring from "./equipment/energy-ring.js";
+import * as equipment_explorer_cape from "./equipment/explorer-cape.js";
+import * as equipment_farming_gloves from "./equipment/farming-gloves.js";
+import * as equipment_fire_cape from "./equipment/fire-cape.js";
+import * as equipment_golden_armor from "./equipment/golden-armor.js";
+import * as equipment_golden_helmet from "./equipment/golden-helmet.js";
+import * as equipment_health_ring from "./equipment/health-ring.js";
+import * as equipment_ice_cape from "./equipment/ice-cape.js";
+import * as equipment_iron_armor from "./equipment/iron-armor.js";
+import * as equipment_iron_boots from "./equipment/iron-boots.js";
+import * as equipment_iron_helmet from "./equipment/iron-helmet.js";
+import * as equipment_large_backpack from "./equipment/large-backpack.js";
+import * as equipment_leather_armor from "./equipment/leather-armor.js";
+import * as equipment_leather_backpack from "./equipment/leather-backpack.js";
+import * as equipment_leather_boots from "./equipment/leather-boots.js";
+import * as equipment_leather_gloves from "./equipment/leather-gloves.js";
+import * as equipment_leather_helmet from "./equipment/leather-helmet.js";
+import * as equipment_luck_ring from "./equipment/luck-ring.js";
+import * as equipment_magic_amulet from "./equipment/magic-amulet.js";
+import * as equipment_magic_backpack from "./equipment/magic-backpack.js";
+import * as equipment_magic_boots from "./equipment/magic-boots.js";
+import * as equipment_magnet_ring from "./equipment/magnet-ring.js";
+import * as equipment_mining_gloves from "./equipment/mining-gloves.js";
+import * as equipment_speed_boots from "./equipment/speed-boots.js";
+import * as equipment_speed_ring from "./equipment/speed-ring.js";
+import * as equipment_strength_ring from "./equipment/strength-ring.js";
+import * as equipment_wooden_backpack from "./equipment/wooden-backpack.js";
 
 export { categories } from "./categories.js";
 
@@ -1214,4 +1244,34 @@ export const effects = {
   "weapons/wooden-bow": weapons_wooden_bow,
   "weapons/wooden-shield": weapons_wooden_shield,
   "weapons/wooden-sword": weapons_wooden_sword,
+  "equipment/crystal-armor": equipment_crystal_armor,
+  "equipment/crystal-helmet": equipment_crystal_helmet,
+  "equipment/defense-ring": equipment_defense_ring,
+  "equipment/energy-ring": equipment_energy_ring,
+  "equipment/explorer-cape": equipment_explorer_cape,
+  "equipment/farming-gloves": equipment_farming_gloves,
+  "equipment/fire-cape": equipment_fire_cape,
+  "equipment/golden-armor": equipment_golden_armor,
+  "equipment/golden-helmet": equipment_golden_helmet,
+  "equipment/health-ring": equipment_health_ring,
+  "equipment/ice-cape": equipment_ice_cape,
+  "equipment/iron-armor": equipment_iron_armor,
+  "equipment/iron-boots": equipment_iron_boots,
+  "equipment/iron-helmet": equipment_iron_helmet,
+  "equipment/large-backpack": equipment_large_backpack,
+  "equipment/leather-armor": equipment_leather_armor,
+  "equipment/leather-backpack": equipment_leather_backpack,
+  "equipment/leather-boots": equipment_leather_boots,
+  "equipment/leather-gloves": equipment_leather_gloves,
+  "equipment/leather-helmet": equipment_leather_helmet,
+  "equipment/luck-ring": equipment_luck_ring,
+  "equipment/magic-amulet": equipment_magic_amulet,
+  "equipment/magic-backpack": equipment_magic_backpack,
+  "equipment/magic-boots": equipment_magic_boots,
+  "equipment/magnet-ring": equipment_magnet_ring,
+  "equipment/mining-gloves": equipment_mining_gloves,
+  "equipment/speed-boots": equipment_speed_boots,
+  "equipment/speed-ring": equipment_speed_ring,
+  "equipment/strength-ring": equipment_strength_ring,
+  "equipment/wooden-backpack": equipment_wooden_backpack,
 };

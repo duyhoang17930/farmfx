@@ -1,6 +1,6 @@
 # FarmFX assets
 
-605 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
+635 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
 
 ## Characters (20)
 
@@ -701,3 +701,38 @@
 | wooden bow | [`weapons/wooden-bow`](src/fx/weapons/wooden-bow.js) | — |
 | wooden shield | [`weapons/wooden-shield`](src/fx/weapons/wooden-shield.js) | — |
 | wooden sword | [`weapons/wooden-sword`](src/fx/weapons/wooden-sword.js) | — |
+
+## Equipment (30)
+
+| Asset | ID | Preview |
+| --- | --- | --- |
+| crystal armor | [`equipment/crystal-armor`](src/fx/equipment/crystal-armor.js) | — |
+| crystal helmet | [`equipment/crystal-helmet`](src/fx/equipment/crystal-helmet.js) | — |
+| defense ring | [`equipment/defense-ring`](src/fx/equipment/defense-ring.js) | — |
+| energy ring | [`equipment/energy-ring`](src/fx/equipment/energy-ring.js) | — |
+| explorer cape | [`equipment/explorer-cape`](src/fx/equipment/explorer-cape.js) | — |
+| farming gloves | [`equipment/farming-gloves`](src/fx/equipment/farming-gloves.js) | — |
+| fire cape | [`equipment/fire-cape`](src/fx/equipment/fire-cape.js) | — |
+| golden armor | [`equipment/golden-armor`](src/fx/equipment/golden-armor.js) | — |
+| golden helmet | [`equipment/golden-helmet`](src/fx/equipment/golden-helmet.js) | — |
+| health ring | [`equipment/health-ring`](src/fx/equipment/health-ring.js) | — |
+| ice cape | [`equipment/ice-cape`](src/fx/equipment/ice-cape.js) | — |
+| iron armor | [`equipment/iron-armor`](src/fx/equipment/iron-armor.js) | — |
+| iron boots | [`equipment/iron-boots`](src/fx/equipment/iron-boots.js) | — |
+| iron helmet | [`equipment/iron-helmet`](src/fx/equipment/iron-helmet.js) | — |
+| large backpack | [`equipment/large-backpack`](src/fx/equipment/large-backpack.js) | — |
+| leather armor | [`equipment/leather-armor`](src/fx/equipment/leather-armor.js) | — |
+| leather backpack | [`equipment/leather-backpack`](src/fx/equipment/leather-backpack.js) | — |
+| leather boots | [`equipment/leather-boots`](src/fx/equipment/leather-boots.js) | — |
+| leather gloves | [`equipment/leather-gloves`](src/fx/equipment/leather-gloves.js) | — |
+| leather helmet | [`equipment/leather-helmet`](src/fx/equipment/leather-helmet.js) | — |
+| luck ring | [`equipment/luck-ring`](src/fx/equipment/luck-ring.js) | — |
+| magic amulet | [`equipment/magic-amulet`](src/fx/equipment/magic-amulet.js) | — |
+| magic backpack | [`equipment/magic-backpack`](src/fx/equipment/magic-backpack.js) | — |
+| magic boots | [`equipment/magic-boots`](src/fx/equipment/magic-boots.js) | — |
+| magnet ring | [`equipment/magnet-ring`](src/fx/equipment/magnet-ring.js) | — |
+| mining gloves | [`equipment/mining-gloves`](src/fx/equipment/mining-gloves.js) | — |
+| speed boots | [`equipment/speed-boots`](src/fx/equipment/speed-boots.js) | — |
+| speed ring | [`equipment/speed-ring`](src/fx/equipment/speed-ring.js) | — |
+| strength ring | [`equipment/strength-ring`](src/fx/equipment/strength-ring.js) | — |
+| wooden backpack | [`equipment/wooden-backpack`](src/fx/equipment/wooden-backpack.js) | — |

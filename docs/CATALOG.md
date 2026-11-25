@@ -1,6 +1,6 @@
 # Catalog
 
-605 effects in 19 categories. Every one is a file in
+635 effects in 20 categories. Every one is a file in
 `src/fx/<category>/<name>.js`; render any of them with `node tools/render.mjs <id> --gif`.
 
 ## characters
@@ -740,3 +740,40 @@ fantasy weapon and shield sprites.
 | wooden bow | `weapons/wooden-bow` | loop 1s | 48×48 | A curved game bow with a taut string and grip. |
 | wooden shield | `weapons/wooden-shield` | loop 1s | 48×48 | A beveled shield with a colored crest and riveted rim. |
 | wooden sword | `weapons/wooden-sword` | loop 1s | 48×48 | An outlined blade with a beveled edge and wrapped grip. |
+
+## equipment
+
+armor, clothing, bags and jewelry sprites.
+
+| effect | id | | size | what it does |
+|---|---|---|---|---|
+| crystal armor | `equipment/crystal-armor` | loop 1s | 48×48 | A front-facing torso plate with shoulders and a lower hem. |
+| crystal helmet | `equipment/crystal-helmet` | loop 1s | 48×48 | A fitted helmet with a light brow and shaded face opening. |
+| defense ring | `equipment/defense-ring` | loop 1s | 48×48 | A ring with a polished stone set in the band. |
+| energy ring | `equipment/energy-ring` | loop 1s | 48×48 | A ring with a polished stone set in the band. |
+| explorer cape | `equipment/explorer-cape` | loop 1s | 48×48 | A draped cape with a darker lining and neck clasp. |
+| farming gloves | `equipment/farming-gloves` | loop 1s | 48×48 | A pair of work gloves with broad cuffs. |
+| fire cape | `equipment/fire-cape` | loop 1s | 48×48 | A draped cape with a darker lining and neck clasp. |
+| golden armor | `equipment/golden-armor` | loop 1s | 48×48 | A front-facing torso plate with shoulders and a lower hem. |
+| golden helmet | `equipment/golden-helmet` | loop 1s | 48×48 | A fitted helmet with a light brow and shaded face opening. |
+| health ring | `equipment/health-ring` | loop 1s | 48×48 | A ring with a polished stone set in the band. |
+| ice cape | `equipment/ice-cape` | loop 1s | 48×48 | A draped cape with a darker lining and neck clasp. |
+| iron armor | `equipment/iron-armor` | loop 1s | 48×48 | A front-facing torso plate with shoulders and a lower hem. |
+| iron boots | `equipment/iron-boots` | loop 1s | 48×48 | A matched pair of boots with reinforced toes. |
+| iron helmet | `equipment/iron-helmet` | loop 1s | 48×48 | A fitted helmet with a light brow and shaded face opening. |
+| large backpack | `equipment/large-backpack` | loop 1s | 48×48 | A backpack with a front pocket, bright clasp and shoulder straps. |
+| leather armor | `equipment/leather-armor` | loop 1s | 48×48 | A front-facing torso plate with shoulders and a lower hem. |
+| leather backpack | `equipment/leather-backpack` | loop 1s | 48×48 | A backpack with a front pocket, bright clasp and shoulder straps. |
+| leather boots | `equipment/leather-boots` | loop 1s | 48×48 | A matched pair of boots with reinforced toes. |
+| leather gloves | `equipment/leather-gloves` | loop 1s | 48×48 | A pair of work gloves with broad cuffs. |
+| leather helmet | `equipment/leather-helmet` | loop 1s | 48×48 | A fitted helmet with a light brow and shaded face opening. |
+| luck ring | `equipment/luck-ring` | loop 1s | 48×48 | A ring with a polished stone set in the band. |
+| magic amulet | `equipment/magic-amulet` | loop 1s | 48×48 | A hanging amulet with a faceted pendant. |
+| magic backpack | `equipment/magic-backpack` | loop 1s | 48×48 | A backpack with a front pocket, bright clasp and shoulder straps. |
+| magic boots | `equipment/magic-boots` | loop 1s | 48×48 | A matched pair of boots with reinforced toes. |
+| magnet ring | `equipment/magnet-ring` | loop 1s | 48×48 | A ring with a polished stone set in the band. |
+| mining gloves | `equipment/mining-gloves` | loop 1s | 48×48 | A pair of work gloves with broad cuffs. |
+| speed boots | `equipment/speed-boots` | loop 1s | 48×48 | A matched pair of boots with reinforced toes. |
+| speed ring | `equipment/speed-ring` | loop 1s | 48×48 | A ring with a polished stone set in the band. |
+| strength ring | `equipment/strength-ring` | loop 1s | 48×48 | A ring with a polished stone set in the band. |
+| wooden backpack | `equipment/wooden-backpack` | loop 1s | 48×48 | A backpack with a front pocket, bright clasp and shoulder straps. |

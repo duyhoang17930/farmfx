@@ -20,4 +20,5 @@ export const categories = [
   { id: "items", name: "items", blurb: "inventory icons for materials, components, gems, produce, animal products and meals" },
   { id: "player", name: "player", blurb: "island explorer movement and action clips" },
   { id: "weapons", name: "weapons", blurb: "fantasy weapon and shield sprites" },
+  { id: "equipment", name: "equipment", blurb: "armor, clothing, bags and jewelry sprites" },
 ];
