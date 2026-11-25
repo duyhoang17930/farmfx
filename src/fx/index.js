@@ -319,6 +319,7 @@ import * as objects_market_cart from "./objects/market-cart.js";
 import * as objects_metal_door from "./objects/metal-door.js";
 import * as objects_minecart from "./objects/minecart.js";
 import * as objects_minecart_track from "./objects/minecart-track.js";
+import * as objects_mist_beacon from "./objects/mist-beacon.js";
 import * as objects_notice_board from "./objects/notice-board.js";
 import * as objects_painting from "./objects/painting.js";
 import * as objects_quest_board from "./objects/quest-board.js";
@@ -386,6 +387,7 @@ import * as fx_blueprint_unlock from "./fx/blueprint-unlock.js";
 import * as fx_buff_activate from "./fx/buff-activate.js";
 import * as fx_buff_expire from "./fx/buff-expire.js";
 import * as fx_build_complete from "./fx/build-complete.js";
+import * as fx_build_footprint from "./fx/build-footprint.js";
 import * as fx_build_placement from "./fx/build-placement.js";
 import * as fx_build_preview from "./fx/build-preview.js";
 import * as fx_building_demolish from "./fx/building-demolish.js";
@@ -427,6 +429,7 @@ import * as fx_item_magnet from "./fx/item-magnet.js";
 import * as fx_item_pickup from "./fx/item-pickup.js";
 import * as fx_legendary_item_drop from "./fx/legendary-item-drop.js";
 import * as fx_level_up from "./fx/level-up.js";
+import * as fx_loot_flight from "./fx/loot-flight.js";
 import * as fx_low_energy_warning from "./fx/low-energy-warning.js";
 import * as fx_machine_overheat from "./fx/machine-overheat.js";
 import * as fx_machine_smoke from "./fx/machine-smoke.js";
@@ -494,6 +497,7 @@ import * as ui_components_skill_node from "./ui/components/skill-node.js";
 import * as ui_components_slider from "./ui/components/slider.js";
 import * as ui_components_tab from "./ui/components/tab.js";
 import * as ui_components_toggle from "./ui/components/toggle.js";
+import * as ui_components_touch_action from "./ui/components/touch-action.js";
 import * as ui_components_touch_prompt from "./ui/components/touch-prompt.js";
 import * as ui_crafting_menu from "./ui/crafting-menu.js";
 import * as ui_currency from "./ui/currency.js";
@@ -622,6 +626,7 @@ import * as exploration_resource_respawn from "./exploration/resource-respawn.js
 import * as exploration_sailing_boat from "./exploration/sailing-boat.js";
 import * as exploration_secret_door from "./exploration/secret-door.js";
 import * as exploration_secret_island from "./exploration/secret-island.js";
+import * as exploration_target_brackets from "./exploration/target-brackets.js";
 import * as exploration_teleport_gate from "./exploration/teleport-gate.js";
 import * as exploration_treasure_dig from "./exploration/treasure-dig.js";
 import * as exploration_treasure_reveal from "./exploration/treasure-reveal.js";
@@ -1227,6 +1232,7 @@ import * as combat_fireball_impact from "./combat/fireball-impact.js";
 import * as combat_frozen from "./combat/frozen.js";
 import * as combat_ground_crack from "./combat/ground-crack.js";
 import * as combat_ground_slam from "./combat/ground-slam.js";
+import * as combat_ground_telegraph from "./combat/ground-telegraph.js";
 import * as combat_healing_aura from "./combat/healing-aura.js";
 import * as combat_heavy_slash from "./combat/heavy-slash.js";
 import * as combat_ice_arrow_impact from "./combat/ice-arrow-impact.js";
@@ -1718,6 +1724,7 @@ export const effects = {
   "objects/metal-door": objects_metal_door,
   "objects/minecart": objects_minecart,
   "objects/minecart-track": objects_minecart_track,
+  "objects/mist-beacon": objects_mist_beacon,
   "objects/notice-board": objects_notice_board,
   "objects/painting": objects_painting,
   "objects/quest-board": objects_quest_board,
@@ -1785,6 +1792,7 @@ export const effects = {
   "fx/buff-activate": fx_buff_activate,
   "fx/buff-expire": fx_buff_expire,
   "fx/build-complete": fx_build_complete,
+  "fx/build-footprint": fx_build_footprint,
   "fx/build-placement": fx_build_placement,
   "fx/build-preview": fx_build_preview,
   "fx/building-demolish": fx_building_demolish,
@@ -1826,6 +1834,7 @@ export const effects = {
   "fx/item-pickup": fx_item_pickup,
   "fx/legendary-item-drop": fx_legendary_item_drop,
   "fx/level-up": fx_level_up,
+  "fx/loot-flight": fx_loot_flight,
   "fx/low-energy-warning": fx_low_energy_warning,
   "fx/machine-overheat": fx_machine_overheat,
   "fx/machine-smoke": fx_machine_smoke,
@@ -1893,6 +1902,7 @@ export const effects = {
   "ui/components/slider": ui_components_slider,
   "ui/components/tab": ui_components_tab,
   "ui/components/toggle": ui_components_toggle,
+  "ui/components/touch-action": ui_components_touch_action,
   "ui/components/touch-prompt": ui_components_touch_prompt,
   "ui/crafting-menu": ui_crafting_menu,
   "ui/currency": ui_currency,
@@ -2021,6 +2031,7 @@ export const effects = {
   "exploration/sailing-boat": exploration_sailing_boat,
   "exploration/secret-door": exploration_secret_door,
   "exploration/secret-island": exploration_secret_island,
+  "exploration/target-brackets": exploration_target_brackets,
   "exploration/teleport-gate": exploration_teleport_gate,
   "exploration/treasure-dig": exploration_treasure_dig,
   "exploration/treasure-reveal": exploration_treasure_reveal,
@@ -2626,6 +2637,7 @@ export const effects = {
   "combat/frozen": combat_frozen,
   "combat/ground-crack": combat_ground_crack,
   "combat/ground-slam": combat_ground_slam,
+  "combat/ground-telegraph": combat_ground_telegraph,
   "combat/healing-aura": combat_healing_aura,
   "combat/heavy-slash": combat_heavy_slash,
   "combat/ice-arrow-impact": combat_ice_arrow_impact,

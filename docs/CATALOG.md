@@ -1,6 +1,6 @@
 # Catalog
 
-1395 effects in 30 categories. Every one is a file in
+1401 effects in 30 categories. Every one is a file in
 `src/fx/<category>/<name>.js`; render any of them with `node tools/render.mjs <id> --gif`.
 
 ## characters
@@ -391,6 +391,7 @@ storage, furniture and props with configurable active or open states.
 | metal door | `objects/metal-door` | loop 1s | 64×64 | A top-down metal door prop with shaded surfaces. |
 | minecart | `objects/minecart` | loop 1s | 64×64 | A top-down minecart prop with shaded surfaces. |
 | minecart track | `objects/minecart-track` | loop 1s | 64×64 | A top-down minecart track prop with shaded surfaces. |
+| Mist beacon | `objects/mist-beacon` | loop 2s | 48×64 | A copper-braced weather station with a crystal chamber that lights up when restored. |
 | notice board | `objects/notice-board` | loop 1s | 64×64 | A top-down notice board prop with shaded surfaces. |
 | painting | `objects/painting` | loop 2s | 64×64 | A top-down painting prop with shaded surfaces. |
 | quest board | `objects/quest-board` | loop 1s | 64×64 | A top-down quest board prop with shaded surfaces. |
@@ -472,6 +473,7 @@ dust, splashes, impact debris, growth and pickup feedback.
 | buff activate | `fx/buff-activate` | one-shot 1.15s | 80×64 | A pixel-art buff activate effect with configurable color and seed. |
 | buff expire | `fx/buff-expire` | one-shot 1.15s | 80×64 | A pixel-art buff expire effect with configurable color and seed. |
 | build complete | `fx/build-complete` | one-shot 1.15s | 80×64 | A pixel-art build complete effect with configurable color and seed. |
+| Build footprint | `fx/build-footprint` | loop 1s | 128×128 | Grid-aligned placement marks for up to six by six tiles, with an X on each blocked square. |
 | build placement | `fx/build-placement` | one-shot 1.15s | 80×64 | A pixel-art build placement effect with configurable color and seed. |
 | build preview | `fx/build-preview` | loop 2s | 80×64 | A pixel-art build preview effect with configurable color and seed. |
 | building demolish | `fx/building-demolish` | one-shot 1.15s | 80×64 | A pixel-art building demolish effect with configurable color and seed. |
@@ -513,6 +515,7 @@ dust, splashes, impact debris, growth and pickup feedback.
 | Item pickup | `fx/item-pickup` | one-shot 0.84s | 48×48 | A small golden token arcs up through a neat burst of pickup glints. |
 | legendary item drop | `fx/legendary-item-drop` | one-shot 1.15s | 80×64 | A pixel-art legendary item drop effect with configurable color and seed. |
 | level up | `fx/level-up` | one-shot 1.15s | 80×64 | A pixel-art level up effect with configurable color and seed. |
+| Loot flight | `fx/loot-flight` | one-shot 0.66s | 128×112 | A configurable item icon bounces from its source then accelerates toward a moving destination. |
 | low energy warning | `fx/low-energy-warning` | one-shot 1.15s | 80×64 | A pixel-art low energy warning effect with configurable color and seed. |
 | machine overheat | `fx/machine-overheat` | loop 2s | 80×64 | A pixel-art machine overheat effect with configurable color and seed. |
 | machine smoke | `fx/machine-smoke` | loop 2s | 80×64 | A pixel-art machine smoke effect with configurable color and seed. |
@@ -587,6 +590,7 @@ pixel HUD, inventory icons, menus, dialogue and notifications.
 | slider | `ui/components/slider` | loop 1s | 96×48 | A configurable slider component. |
 | tab | `ui/components/tab` | loop 1s | 160×80 | A configurable tab component. |
 | toggle | `ui/components/toggle` | loop 1s | 96×48 | A configurable toggle component. |
+| Touch action | `ui/components/touch-action` | loop 1s | 48×48 | A pixel touch control with pressed, hold progress and locked states. |
 | touch prompt | `ui/components/touch-prompt` | loop 1s | 96×48 | A configurable touch prompt component. |
 | Crafting menu | `ui/crafting-menu` | loop 2.4s | 112×64 | A recipe panel with configurable ingredient slots, quantities and output. |
 | Currency | `ui/currency` | loop 2.4s | 80×32 | A flipping coin and a configurable gold balance on a compact HUD panel. |
@@ -722,6 +726,7 @@ an original player, gathering animations, ore, and island expansion.
 | sailing boat | `exploration/sailing-boat` | loop 2.5s | 64×64 | A top-down sailing boat visual for island exploration. |
 | secret door | `exploration/secret-door` | loop 2.5s | 64×64 | A top-down secret door visual for island exploration. |
 | secret island | `exploration/secret-island` | loop 2.5s | 64×64 | A top-down secret island visual for island exploration. |
+| Target brackets | `exploration/target-brackets` | loop 1s | 64×64 | Four animated pixel brackets with ready, distant, and hostile states. |
 | teleport gate | `exploration/teleport-gate` | loop 2.5s | 64×64 | A top-down teleport gate visual for island exploration. |
 | treasure dig | `exploration/treasure-dig` | one-shot 1.25s | 64×64 | A top-down treasure dig visual for island exploration. |
 | treasure reveal | `exploration/treasure-reveal` | one-shot 1.25s | 64×64 | A top-down treasure reveal visual for island exploration. |
@@ -1404,6 +1409,7 @@ animated combat hits, spells, projectiles and status effects.
 | frozen | `combat/frozen` | loop 2s | 72×64 | Chilled to the bone: frost ferns creep over the body, icicles hang from chin and hands and drip, breath steams, snow settles, a shiver every second, frost spreads underfoot. |
 | ground crack | `combat/ground-crack` | one-shot 3.4s | 272×150 | The floor cracks with light and heaves, a faceted stone spike rams up with two side shards in a burst of chips, grit and dust; rubble rains, then it splits and crumbles. |
 | ground slam | `combat/ground-slam` | one-shot 3.2s | 288×208 | Something lands hard: the floor flashes and cracks, two crescent shock waves race out along it, a dust wave and a tall dust cloud rise, rocks erupt, bounce and settle. |
+| Ground telegraph | `combat/ground-telegraph` | one-shot 1.1s | 128×80 | A circle, a lane or a cone that fills toward the attack cue on the ground plane. |
 | healing aura | `combat/healing-aura` | one-shot 2.9s | 256×136 | A seed of green light sinks into the floor and a soft ring rolls out from it; the floor glows where it passes and plus signs sprout and float up. |
 | heavy slash | `combat/heavy-slash` | one-shot 1.9s | 208×116 | A glint over the head, then a thick ember arc accelerates over the top into the floor: a white slam, glowing cracks, dust rolling both ways, grit and rising embers. |
 | ice arrow impact | `combat/ice-arrow-impact` | one-shot 2.8s | 224×112 | A block of ice takes a hit from the left: it jolts, cracks race over its faces, it flashes white and bursts into chunks that tumble, bounce and skid off in a roll of ice dust. |

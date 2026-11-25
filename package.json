@@ -15,7 +15,9 @@
   "scripts": {
     "render": "node tools/render.mjs",
     "check": "node tools/check.mjs",
-    "gallery": "node tools/serve.mjs"
+    "gallery": "node tools/serve.mjs",
+    "demo": "node tools/serve.mjs 8080 demo",
+    "demo:assets": "node tools/sheets.mjs exploration/target-brackets fx/build-footprint fx/loot-flight combat/ground-telegraph ui/components/touch-action objects/mist-beacon exploration/island-shore --release --out sheets/mist-station"
   },
   "devDependencies": {
     "esbuild": "^0.25.10"

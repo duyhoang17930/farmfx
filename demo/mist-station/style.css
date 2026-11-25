@@ -1,0 +1,92 @@
+:root {
+  color-scheme: dark;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  color: #edecdb;
+  background: #132420;
+  --surface: #192e27;
+  --panel: #1e352c;
+  --line: #365045;
+  --muted: #a9bcb0;
+  --mint: #a6dfb8;
+  --gold: #f6cb83;
+}
+* { box-sizing: border-box; }
+body { margin: 0; padding: max(12px, env(safe-area-inset-top)) max(12px, env(safe-area-inset-right)) max(18px, env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-left)); }
+button { font: inherit; color: inherit; cursor: pointer; touch-action: manipulation; }
+button:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+button:disabled { color: var(--muted); cursor: default; }
+.shell { margin: 0 auto; max-width: 1280px; }
+.masthead, .brand, .header-actions, .objective-top { display: flex; align-items: center; }
+.masthead { justify-content: space-between; gap: 12px; padding: 7px 0 17px; }
+.brand { gap: 12px; }
+.brand-icon, .objective-icon { display: grid; place-items: center; color: var(--mint); background: #2c483d; border: 1px solid #4d6956; }
+.brand-icon { width: 48px; height: 48px; font-size: 27px; border-radius: 12px; }
+.brand h1 { margin: 0; font-size: clamp(22px, 4vw, 32px); line-height: 1.12; letter-spacing: -.035em; }
+.brand p { color: var(--muted); margin: 3px 0 0; font-size: 13px; }
+.header-actions { gap: 7px; }
+.header-actions button, .toolbar button, .panel button { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; min-height: 44px; padding: 7px 12px; }
+.header-actions button[aria-pressed="true"], button[aria-expanded="true"] { border-color: #71a583; color: var(--mint); }
+.layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(260px, 320px); gap: 14px; align-items: start; }
+.play, .objective, .panel { border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: var(--surface); }
+.viewport { position: relative; height: clamp(330px, 61vh, 635px); background: #294952; isolation: isolate; }
+#world { width: 100%; height: 100%; display: block; image-rendering: pixelated; touch-action: none; }
+.world-hud { position: absolute; inset: 12px 12px auto; display: flex; justify-content: space-between; pointer-events: none; }
+.hearts, .zone, .toast { border: 1px solid #9bc69b45; border-radius: 6px; background: #132420eb; color: #fff2d5; }
+.hearts { font-size: 20px; letter-spacing: 2px; padding: 3px 9px; color: #ffab86; }
+.hearts .empty { color: #927d6c; }
+.zone { padding: 7px 10px; font-size: 13px; }
+.toast { position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); width: max-content; max-width: 64%; text-align: center; font-size: 13px; padding: 6px 9px; pointer-events: none; }
+.toast:empty { display: none; }
+.world-controls { pointer-events: none; position: absolute; inset: auto 14px 14px; display: flex; justify-content: space-between; align-items: end; }
+.stick, .interact { pointer-events: auto; touch-action: none; user-select: none; }
+.stick { display: none; position: relative; width: 86px; height: 86px; border-radius: 50%; background: #12262392; border: 2px solid #a6dfb883; place-items: center; }
+.knob { display: grid; place-items: center; position: absolute; width: 42px; height: 42px; border-radius: 50%; background: #27473b; border: 1px solid #9fc4a4; color: var(--mint); pointer-events: none; }
+.interact { margin-left: auto; padding: 0; border: 0; background: transparent; min-width: 82px; min-height: 74px; display: grid; justify-items: center; }
+.interact canvas { width: 68px; height: 68px; image-rendering: pixelated; }
+.interact span { margin-top: -5px; background: #172a25eb; border-radius: 5px; padding: 3px 6px; font-size: 12px; }
+.toolbar { display: grid; gap: 7px; grid-template-columns: repeat(4, minmax(0, 1fr)); padding: 8px; }
+.toolbar button { padding: 4px; font-size: 13px; }
+.toolbar span { color: var(--mint); font-size: 18px; margin-right: 6px; }
+.sidebar { display: grid; gap: 12px; }
+.objective, .panel { padding: 15px; }
+.objective-top { gap: 8px; color: var(--mint); font-size: 13px; font-weight: 700; }
+.objective-icon { width: 28px; height: 28px; border-radius: 7px; }
+#step { margin-left: auto; color: var(--muted); font-variant-numeric: tabular-nums; }
+.objective h2 { font-size: 20px; margin: 10px 0 3px; }
+.objective p, .panel p { margin: 4px 0 0; color: var(--muted); font-size: 14px; line-height: 1.42; }
+.progress { display: flex; gap: 5px; margin-top: 13px; }
+.progress i { flex: 1; height: 4px; background: #385246; border-radius: 2px; }
+.progress i.on { background: var(--mint); }
+.panel h2 { margin: 0; font-size: 17px; }
+.panel-head { display: flex; align-items: center; justify-content: space-between; gap: 7px; }
+.panel-head button { min-width: 44px; }
+.entries { display: grid; gap: 6px; margin-top: 10px; }
+.entries button, .entry { display: flex; align-items: center; gap: 8px; text-align: left; background: var(--panel); }
+.entries button { width: 100%; }
+.entries button:enabled:hover, .toolbar button:hover { border-color: #80a98b; }
+.entry { min-height: 42px; border: 1px solid var(--line); border-radius: 7px; padding: 6px 8px; }
+.entries img, .entry img { image-rendering: pixelated; width: 28px; height: 28px; flex: 0 0 auto; }
+.entry strong, .entries strong { display: block; font-size: 13px; }
+.entry small, .entries small { display: block; color: var(--muted); font-size: 12px; }
+.entry b { margin-left: auto; color: var(--gold); }
+.entries .selected { border-color: #9bd2a9; color: var(--mint); }
+.desktop-help { margin: 0 3px; font-size: 12px; color: var(--muted); }
+@media (pointer: coarse), (max-width: 700px) {
+  .stick { display: grid; }
+  .toast { max-width: 48%; bottom: 18px; }
+  .desktop-help { display: none; }
+}
+@media (max-width: 770px) {
+  .layout { grid-template-columns: 1fr; gap: 9px; }
+  .masthead { padding-bottom: 10px; }
+  .viewport { height: clamp(260px, 48svh, 470px); }
+  .sidebar { gap: 8px; }
+  .sidebar.panel-open .panel { order: -1; }
+  .objective, .panel { padding: 11px; }
+  .objective h2 { font-size: 17px; margin-top: 6px; }
+  .objective p { font-size: 13px; }
+}
+@media (max-width: 360px) {
+  .brand-icon { display: none; }
+  .toolbar span { margin-right: 2px; }
+}

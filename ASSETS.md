@@ -1,6 +1,6 @@
 # FarmFX assets
 
-1395 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
+1401 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
 
 ## Characters (20)
 
@@ -330,7 +330,7 @@
 | treasure detector | [`tools/treasure-detector`](src/fx/tools/treasure-detector.js) | — |
 | Watering can | [`tools/watering-can`](src/fx/tools/watering-can.js) | [GIF](docs/preview/tools-watering-can.gif) |
 
-## Objects (65)
+## Objects (66)
 
 | Asset | ID | Preview |
 | --- | --- | --- |
@@ -370,6 +370,7 @@
 | metal door | [`objects/metal-door`](src/fx/objects/metal-door.js) | — |
 | minecart | [`objects/minecart`](src/fx/objects/minecart.js) | — |
 | minecart track | [`objects/minecart-track`](src/fx/objects/minecart-track.js) | — |
+| Mist beacon | [`objects/mist-beacon`](src/fx/objects/mist-beacon.js) | — |
 | notice board | [`objects/notice-board`](src/fx/objects/notice-board.js) | — |
 | painting | [`objects/painting`](src/fx/objects/painting.js) | — |
 | quest board | [`objects/quest-board`](src/fx/objects/quest-board.js) | — |
@@ -435,7 +436,7 @@
 | volcanic smoke | [`weather/volcanic-smoke`](src/fx/weather/volcanic-smoke.js) | — |
 | wind gust | [`weather/wind-gust`](src/fx/weather/wind-gust.js) | — |
 
-## Farm fx (81)
+## Farm fx (83)
 
 | Asset | ID | Preview |
 | --- | --- | --- |
@@ -447,6 +448,7 @@
 | buff activate | [`fx/buff-activate`](src/fx/fx/buff-activate.js) | — |
 | buff expire | [`fx/buff-expire`](src/fx/fx/buff-expire.js) | — |
 | build complete | [`fx/build-complete`](src/fx/fx/build-complete.js) | — |
+| Build footprint | [`fx/build-footprint`](src/fx/fx/build-footprint.js) | — |
 | build placement | [`fx/build-placement`](src/fx/fx/build-placement.js) | — |
 | build preview | [`fx/build-preview`](src/fx/fx/build-preview.js) | — |
 | building demolish | [`fx/building-demolish`](src/fx/fx/building-demolish.js) | — |
@@ -488,6 +490,7 @@
 | Item pickup | [`fx/item-pickup`](src/fx/fx/item-pickup.js) | [GIF](docs/preview/fx-item-pickup.gif) |
 | legendary item drop | [`fx/legendary-item-drop`](src/fx/fx/legendary-item-drop.js) | — |
 | level up | [`fx/level-up`](src/fx/fx/level-up.js) | — |
+| Loot flight | [`fx/loot-flight`](src/fx/fx/loot-flight.js) | — |
 | low energy warning | [`fx/low-energy-warning`](src/fx/fx/low-energy-warning.js) | — |
 | machine overheat | [`fx/machine-overheat`](src/fx/fx/machine-overheat.js) | — |
 | machine smoke | [`fx/machine-smoke`](src/fx/fx/machine-smoke.js) | — |
@@ -521,7 +524,7 @@
 | Watering droplets | [`fx/watering-droplets`](src/fx/fx/watering-droplets.js) | [GIF](docs/preview/fx-watering-droplets.gif) |
 | welding sparks | [`fx/welding-sparks`](src/fx/fx/welding-sparks.js) | — |
 
-## Ui (130)
+## Ui (131)
 
 | Asset | ID | Preview |
 | --- | --- | --- |
@@ -560,6 +563,7 @@
 | slider | [`ui/components/slider`](src/fx/ui/components/slider.js) | — |
 | tab | [`ui/components/tab`](src/fx/ui/components/tab.js) | — |
 | toggle | [`ui/components/toggle`](src/fx/ui/components/toggle.js) | — |
+| Touch action | [`ui/components/touch-action`](src/fx/ui/components/touch-action.js) | — |
 | touch prompt | [`ui/components/touch-prompt`](src/fx/ui/components/touch-prompt.js) | — |
 | Crafting menu | [`ui/crafting-menu`](src/fx/ui/crafting-menu.js) | [GIF](docs/preview/ui-crafting-menu.gif) |
 | Currency | [`ui/currency`](src/fx/ui/currency.js) | [GIF](docs/preview/ui-currency.gif) |
@@ -656,7 +660,7 @@
 | Shop interface | [`ui/shop-interface`](src/fx/ui/shop-interface.js) | [GIF](docs/preview/ui-shop-interface.gif) |
 | Item tooltip | [`ui/tooltip`](src/fx/ui/tooltip.js) | [GIF](docs/preview/ui-tooltip.gif) |
 
-## Island exploration (37)
+## Island exploration (38)
 
 | Asset | ID | Preview |
 | --- | --- | --- |
@@ -693,6 +697,7 @@
 | sailing boat | [`exploration/sailing-boat`](src/fx/exploration/sailing-boat.js) | — |
 | secret door | [`exploration/secret-door`](src/fx/exploration/secret-door.js) | — |
 | secret island | [`exploration/secret-island`](src/fx/exploration/secret-island.js) | — |
+| Target brackets | [`exploration/target-brackets`](src/fx/exploration/target-brackets.js) | — |
 | teleport gate | [`exploration/teleport-gate`](src/fx/exploration/teleport-gate.js) | — |
 | treasure dig | [`exploration/treasure-dig`](src/fx/exploration/treasure-dig.js) | — |
 | treasure reveal | [`exploration/treasure-reveal`](src/fx/exploration/treasure-reveal.js) | — |
@@ -1330,7 +1335,7 @@
 | swinging blade trap | [`dungeons/swinging-blade-trap`](src/fx/dungeons/swinging-blade-trap.js) | — |
 | wall button | [`dungeons/wall-button`](src/fx/dungeons/wall-button.js) | — |
 
-## Combat (50)
+## Combat (51)
 
 | Asset | ID | Preview |
 | --- | --- | --- |
@@ -1353,6 +1358,7 @@
 | frozen | [`combat/frozen`](src/fx/combat/frozen.js) | — |
 | ground crack | [`combat/ground-crack`](src/fx/combat/ground-crack.js) | — |
 | ground slam | [`combat/ground-slam`](src/fx/combat/ground-slam.js) | — |
+| Ground telegraph | [`combat/ground-telegraph`](src/fx/combat/ground-telegraph.js) | — |
 | healing aura | [`combat/healing-aura`](src/fx/combat/healing-aura.js) | — |
 | heavy slash | [`combat/heavy-slash`](src/fx/combat/heavy-slash.js) | — |
 | ice arrow impact | [`combat/ice-arrow-impact`](src/fx/combat/ice-arrow-impact.js) | — |

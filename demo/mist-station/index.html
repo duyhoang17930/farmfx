@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#132420">
+  <meta name="description" content="Trò chơi pixel art về khôi phục một trạm thời tiết giữa quần đảo mù sương.">
+  <title>Trạm Sương</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./game.js"></script>
+</head>
+<body>
+  <main class="shell">
+    <header class="masthead">
+      <div class="brand">
+        <span class="brand-icon" aria-hidden="true">✦</span>
+        <div><h1>Trạm Sương</h1><p>Quần đảo Gió Lặng</p></div>
+      </div>
+      <div class="header-actions">
+        <button id="sound" type="button" aria-pressed="false">Âm thanh</button>
+        <button id="help" type="button" aria-label="Hướng dẫn">?</button>
+      </div>
+    </header>
+    <div class="layout">
+      <section class="play" aria-label="Bản đồ quần đảo">
+        <div class="viewport">
+          <canvas id="world" width="384" height="256" aria-label="Bản đồ pixel art. Chạm vào mục tiêu để đi tới và tương tác."></canvas>
+          <div class="world-hud">
+            <div id="hearts" class="hearts" aria-label="Máu"></div>
+            <div id="zone" class="zone">Vịnh Rêu</div>
+          </div>
+          <output id="toast" class="toast" aria-live="polite"></output>
+          <div class="world-controls">
+            <div id="stick" class="stick" role="group" aria-label="Cần di chuyển"><div id="knob" class="knob">✥</div></div>
+            <button id="interact" class="interact" type="button" aria-disabled="true">
+              <canvas id="action-icon" width="48" height="48" aria-hidden="true"></canvas>
+              <span id="action-word">Tương tác</span>
+            </button>
+          </div>
+        </div>
+        <nav class="toolbar" aria-label="Công cụ">
+          <button id="bag" type="button" aria-expanded="false"><span aria-hidden="true">▤</span>Túi đồ</button>
+          <button id="build" type="button" aria-expanded="false"><span aria-hidden="true">▦</span>Xây dựng</button>
+          <button id="map" type="button" aria-expanded="false"><span aria-hidden="true">◇</span>Hải đồ</button>
+          <button id="dash" type="button"><span aria-hidden="true">»</span>Lướt</button>
+        </nav>
+      </section>
+      <aside class="sidebar" aria-label="Nhật ký trạm">
+        <section class="objective">
+          <div class="objective-top"><span class="objective-icon" aria-hidden="true">✦</span><span>Nhật ký trạm</span><span id="step"></span></div>
+          <h2 id="goal"></h2>
+          <p id="goal-detail"></p>
+          <div id="progress" class="progress" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+        </section>
+        <section id="panel" class="panel" aria-label="Thông tin và tương tác"></section>
+        <p class="desktop-help">WASD di chuyển · E tương tác · Space lướt</p>
+      </aside>
+    </div>
+  </main>
+</body>
+</html>
