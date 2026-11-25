@@ -1,6 +1,6 @@
 # FarmFX assets
 
-997 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
+1047 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
 
 ## Characters (20)
 
@@ -1118,3 +1118,58 @@
 | spike trap | [`dungeons/spike-trap`](src/fx/dungeons/spike-trap.js) | — |
 | swinging blade trap | [`dungeons/swinging-blade-trap`](src/fx/dungeons/swinging-blade-trap.js) | — |
 | wall button | [`dungeons/wall-button`](src/fx/dungeons/wall-button.js) | — |
+
+## Combat (50)
+
+| Asset | ID | Preview |
+| --- | --- | --- |
+| arrow impact | [`combat/arrow-impact`](src/fx/combat/arrow-impact.js) | — |
+| arrow projectile | [`combat/arrow-projectile`](src/fx/combat/arrow-projectile.js) | — |
+| axe cleave | [`combat/axe-cleave`](src/fx/combat/axe-cleave.js) | — |
+| bomb explosion | [`combat/bomb-explosion`](src/fx/combat/bomb-explosion.js) | — |
+| boss warning | [`combat/boss-warning`](src/fx/combat/boss-warning.js) | — |
+| bow shot | [`combat/bow-shot`](src/fx/combat/bow-shot.js) | — |
+| burning | [`combat/burning`](src/fx/combat/burning.js) | — |
+| chain lightning | [`combat/chain-lightning`](src/fx/combat/chain-lightning.js) | — |
+| critical hit | [`combat/critical-hit`](src/fx/combat/critical-hit.js) | — |
+| critical number | [`combat/critical-number`](src/fx/combat/critical-number.js) | — |
+| damage number | [`combat/damage-number`](src/fx/combat/damage-number.js) | — |
+| enemy death | [`combat/enemy-death`](src/fx/combat/enemy-death.js) | — |
+| enemy hit | [`combat/enemy-hit`](src/fx/combat/enemy-hit.js) | — |
+| fire arrow impact | [`combat/fire-arrow-impact`](src/fx/combat/fire-arrow-impact.js) | — |
+| fireball | [`combat/fireball`](src/fx/combat/fireball.js) | — |
+| fireball impact | [`combat/fireball-impact`](src/fx/combat/fireball-impact.js) | — |
+| frozen | [`combat/frozen`](src/fx/combat/frozen.js) | — |
+| ground crack | [`combat/ground-crack`](src/fx/combat/ground-crack.js) | — |
+| ground slam | [`combat/ground-slam`](src/fx/combat/ground-slam.js) | — |
+| healing aura | [`combat/healing-aura`](src/fx/combat/healing-aura.js) | — |
+| heavy slash | [`combat/heavy-slash`](src/fx/combat/heavy-slash.js) | — |
+| ice arrow impact | [`combat/ice-arrow-impact`](src/fx/combat/ice-arrow-impact.js) | — |
+| ice ball | [`combat/ice-ball`](src/fx/combat/ice-ball.js) | — |
+| ice explosion | [`combat/ice-explosion`](src/fx/combat/ice-explosion.js) | — |
+| ice shard | [`combat/ice-shard`](src/fx/combat/ice-shard.js) | — |
+| invulnerability | [`combat/invulnerability`](src/fx/combat/invulnerability.js) | — |
+| knockback | [`combat/knockback`](src/fx/combat/knockback.js) | — |
+| large explosion | [`combat/large-explosion`](src/fx/combat/large-explosion.js) | — |
+| lightning bolt | [`combat/lightning-bolt`](src/fx/combat/lightning-bolt.js) | — |
+| magic circle | [`combat/magic-circle`](src/fx/combat/magic-circle.js) | — |
+| magic explosion | [`combat/magic-explosion`](src/fx/combat/magic-explosion.js) | — |
+| magic missile | [`combat/magic-missile`](src/fx/combat/magic-missile.js) | — |
+| magic shield | [`combat/magic-shield`](src/fx/combat/magic-shield.js) | — |
+| melee hit | [`combat/melee-hit`](src/fx/combat/melee-hit.js) | — |
+| parry | [`combat/parry`](src/fx/combat/parry.js) | — |
+| poison cloud | [`combat/poison-cloud`](src/fx/combat/poison-cloud.js) | — |
+| poison hit | [`combat/poison-hit`](src/fx/combat/poison-hit.js) | — |
+| ranged hit | [`combat/ranged-hit`](src/fx/combat/ranged-hit.js) | — |
+| regeneration aura | [`combat/regeneration-aura`](src/fx/combat/regeneration-aura.js) | — |
+| rock projectile | [`combat/rock-projectile`](src/fx/combat/rock-projectile.js) | — |
+| shield block | [`combat/shield-block`](src/fx/combat/shield-block.js) | — |
+| shield break | [`combat/shield-break`](src/fx/combat/shield-break.js) | — |
+| shockwave | [`combat/shockwave`](src/fx/combat/shockwave.js) | — |
+| spear thrust | [`combat/spear-thrust`](src/fx/combat/spear-thrust.js) | — |
+| speed aura | [`combat/speed-aura`](src/fx/combat/speed-aura.js) | — |
+| strength aura | [`combat/strength-aura`](src/fx/combat/strength-aura.js) | — |
+| stun stars | [`combat/stun-stars`](src/fx/combat/stun-stars.js) | — |
+| sword double slash | [`combat/sword-double-slash`](src/fx/combat/sword-double-slash.js) | — |
+| sword slash | [`combat/sword-slash`](src/fx/combat/sword-slash.js) | — |
+| sword spin | [`combat/sword-spin`](src/fx/combat/sword-spin.js) | — |

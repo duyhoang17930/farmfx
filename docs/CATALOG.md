@@ -1,6 +1,6 @@
 # Catalog
 
-997 effects in 24 categories. Every one is a file in
+1047 effects in 25 categories. Every one is a file in
 `src/fx/<category>/<name>.js`; render any of them with `node tools/render.mjs <id> --gif`.
 
 ## characters
@@ -1167,3 +1167,60 @@ dungeon terrain, switches, traps and props.
 | spike trap | `dungeons/spike-trap` | loop 1.15s | 64×64 | A dungeon spike trap with a top-down footprint. |
 | swinging blade trap | `dungeons/swinging-blade-trap` | loop 1.15s | 64×64 | A dungeon swinging blade trap with a top-down footprint. |
 | wall button | `dungeons/wall-button` | loop 2.5s | 64×64 | A dungeon wall button with a top-down footprint. |
+
+## combat
+
+animated combat hits, spells, projectiles and status effects.
+
+| effect | id | | size | what it does |
+|---|---|---|---|---|
+| arrow impact | `combat/arrow-impact` | one-shot 0.5s | 136×80 | The everyday hit: a sharp, lopsided cross flare with one long ray along the blow round a white diamond core, then a cone of sparks and hot chips that fall and bounce. |
+| arrow projectile | `combat/arrow-projectile` | loop 0.6s | 112×32 | An arrow in flight: a steel broadhead catching the light, a wooden shaft, fletching fluttering in the wind, streaks of air peeling off its head and swirling off its feathers. |
+| axe cleave | `combat/axe-cleave` | one-shot 1.9s | 208×116 | A glint over the head, then a thick ember arc accelerates over the top into the floor: a white slam, glowing cracks, dust rolling both ways, grit and rising embers. |
+| bomb explosion | `combat/bomb-explosion` | one-shot 5.2s | 300×240 | An explosive barrel shudders, its lid bulging and spitting flame, then blows: a fireball column, staves and the lid flying, burning fuel splashed over the floor. |
+| boss warning | `combat/boss-warning` | one-shot 1.4s | 84×104 | A bold ! springs up off the hero's head, stretching as it shoots up and squashing as it lands; surprise ticks flick out, it wobbles, then pops away. |
+| bow shot | `combat/bow-shot` | one-shot 1.9s | 300×74 | He raises the bow, draws to his cheek, holds his breath and looses: the string snaps forward, the arrow crosses the floor and thuds home. |
+| burning | `combat/burning` | loop 1.2s | 72×80 | Burning over time: small flames lick from four hot spots, trailing sparks and thin smoke; every 0.6 s they flare, the body flashes white then orange, scorch marks spread. |
+| chain lightning | `combat/chain-lightning` | one-shot 1.8s | 248×104 | A bolt leaps from the caster's hand through three targets in turn; each flashes, sparks and grounds itself to the floor while the arcs between them flicker, then the chain snaps. |
+| critical hit | `combat/critical-hit` | one-shot 0.9s | 216×136 | A critical hit: a jagged starburst slams in white and overshoots, a ring breaks into flying arcs, sparks streak off, shards tumble to the floor under a big flare. |
+| critical number | `combat/critical-number` | one-shot 1.5s | 152×120 | CRIT 128! slams in huge and white over a jagged starburst with a hard shake and speed lines, cools to fire, holds with a shine, then pops into sparks. |
+| damage number | `combat/damage-number` | one-shot 1.05s | 76×68 | A red -27 punches out of a hit spark, white for a frame, arcs up, lands with a squash and a little hop, then fades as it lifts away. |
+| enemy death | `combat/enemy-death` | one-shot 3.4s | 176×100 | The character crackles with light, flashes white, then peels away from the head down: each pixel flares white-hot and streams off on the wind as a cooling mote of light. |
+| enemy hit | `combat/enemy-hit` | one-shot 0.5s | 80×64 | The character takes damage: a white frame, then their own colors flushed red and blinking white, cooling off, while comic hit lines jab in at them. |
+| fire arrow impact | `combat/fire-arrow-impact` | one-shot 3.9s | 224×128 | A white flash at the feet, then flames race outward along the floor in a ring, flaring as the front passes and burning down behind it over a smouldering scorch. |
+| fireball | `combat/fireball` | loop 1.2s | 136×56 | A fireball flying right: a churning white-hot head with a corona of flame, a long torn tail of flame puffs cooling into smoke, embers shed behind. |
+| fireball impact | `combat/fireball-impact` | one-shot 5.4s | 300×240 | A ground blast: a white flash and shock rings, fire that cools into a rolling smoke column, sparks, burning brands that land and keep burning, tumbling rocks and a glowing scorch. |
+| frozen | `combat/frozen` | loop 2s | 72×64 | Chilled to the bone: frost ferns creep over the body, icicles hang from chin and hands and drip, breath steams, snow settles, a shiver every second, frost spreads underfoot. |
+| ground crack | `combat/ground-crack` | one-shot 3.4s | 272×150 | The floor cracks with light and heaves, a faceted stone spike rams up with two side shards in a burst of chips, grit and dust; rubble rains, then it splits and crumbles. |
+| ground slam | `combat/ground-slam` | one-shot 3.2s | 288×208 | Something lands hard: the floor flashes and cracks, two crescent shock waves race out along it, a dust wave and a tall dust cloud rise, rocks erupt, bounce and settle. |
+| healing aura | `combat/healing-aura` | one-shot 2.9s | 256×136 | A seed of green light sinks into the floor and a soft ring rolls out from it; the floor glows where it passes and plus signs sprout and float up. |
+| heavy slash | `combat/heavy-slash` | one-shot 1.9s | 208×116 | A glint over the head, then a thick ember arc accelerates over the top into the floor: a white slam, glowing cracks, dust rolling both ways, grit and rising embers. |
+| ice arrow impact | `combat/ice-arrow-impact` | one-shot 2.8s | 224×112 | A block of ice takes a hit from the left: it jolts, cracks race over its faces, it flashes white and bursts into chunks that tumble, bounce and skid off in a roll of ice dust. |
+| ice ball | `combat/ice-ball` | loop 3s | 100×108 | A sphere of water floats and wobbles: a current circles inside it, the floor shows upside down through it, it shines, light gathers on the floor under it, and drips fall and plink. |
+| ice explosion | `combat/ice-explosion` | one-shot 3.4s | 288×192 | Frost spirals into a spinning snowflake, then a wave blooms three rings of ice crystals round the caster; snow drifts, frost creeps, and the ice melts back into the floor. |
+| ice shard | `combat/ice-shard` | loop 0.8s | 176×64 | A faceted ice spear flying right: a light pulse runs through its core, rings of cold air shear off the tip, frost peels off into a wake and crystals shed behind it. |
+| invulnerability | `combat/invulnerability` | loop 2.4s | 88×84 | A bubble of gold light round the character: a bright rim and a thin gold film, meridians turning like a slow globe, a sheen sweeping across and sparkles winking on it. |
+| knockback | `combat/knockback` | one-shot 1.6s | 176×80 | A character lands hard: the floor dents and cracks under their feet, two rings of dust roll out along the floor one after the other, and pebbles hop away. |
+| large explosion | `combat/large-explosion` | one-shot 7.2s | 360×300 | A huge ground blast in three beats: a white dome, a rolling fireball that climbs into a mushrooming smoke column, heavy rocks, and fires left burning. |
+| lightning bolt | `combat/lightning-bolt` | one-shot 3s | 240×264 | A targeted strike: a sigil charges on the floor, the scene darkens, a thick bolt slams into it, arcs race out along the cracks it splits, the channel crumbles to a scorch. |
+| magic circle | `combat/magic-circle` | loop 4s | 136×100 | A rune circle turns on the floor in perspective: a carousel of runes lit by chasing light, a turning square, ticks, motes rising off it. |
+| magic explosion | `combat/magic-explosion` | one-shot 1.8s | 208×150 | Energy rushes into a point and blows out in a white flash and rings, flinging glowing runes that flare and pop into sparks one after another. |
+| magic missile | `combat/magic-missile` | one-shot 1.9s | 208×112 | Motes gather into an arcane orb at a hand `height` px above the floor (the origin); it weaves to its target trailing a twisting ribbon and bursts into a star of light. |
+| magic shield | `combat/magic-shield` | loop 2.4s | 184×104 | A glassy dome of hex plates over the hero: plates glint, tracers from the right slam into it, a ripple and cracks of light race across, sparks glance off. |
+| melee hit | `combat/melee-hit` | one-shot 0.9s | 128×88 | A heavy, soft thud: a white-hot lumpy blob cools to cream in a warm pool of light, inked wedges jab out and snap back, a squashed ring of dust puffs swells and drifts, clods drop. |
+| parry | `combat/parry` | one-shot 1s | 200×112 | Two blades clash: their edges flash in an X, a white four-point star rings out, a ring breaks into arcs and a fan of gold sparks sprays up and rains down. |
+| poison cloud | `combat/poison-cloud` | loop 4s | 256×100 | A miasma hugging the floor: ragged sheets of gas lit yellow-green from within, fading to violet, creep out in tongues that curl over at their tips; plumes twist up as ribbons. |
+| poison hit | `combat/poison-hit` | one-shot 2.8s | 184×116 | A gob of acid bursts into a crown and spatters; it eats a glowing, smoking pit into the floor and boils down into it, spitting bright beads, pale steam curling off. |
+| ranged hit | `combat/ranged-hit` | one-shot 1.1s | 232×84 | A tracer streaks down onto the floor, glances off with a white-hot star and skips away at an angle, leaving a glowing skid while sparks skitter along the ground. |
+| regeneration aura | `combat/regeneration-aura` | one-shot 3.3s | 124×120 | A sprout pushes up and unfurls, a bud swells and opens round a glowing golden heart in a flare of healing light; its petals lift away one by one as motes. |
+| rock projectile | `combat/rock-projectile` | one-shot 2.3s | 264×120 | A spinning boulder arcs right shedding dust and pebbles, smashes into the floor in a white flash and bursts into tumbling chunks, gravel and rolling dust. |
+| shield block | `combat/shield-block` | one-shot 1.1s | 148×104 | A blow is caught on a half-dome of energy in front of the character: its diamond lattice flashes, a ripple runs over it, sparks glance off, then it blinks out cell by cell. |
+| shield break | `combat/shield-break` | one-shot 3.3s | 172×96 | Frost races up the body and seals it in faceted ice, a glint sweeps it, cracks spread from the chest, then it bursts into its own facets that tumble, bounce and melt. |
+| shockwave | `combat/shockwave` | one-shot 3.1s | 288×104 | The ground jolts three times: a rift tears out along the floor glowing deep inside, slabs of floor heave up and drop back askew, pebbles hop and dust bursts out of the split. |
+| spear thrust | `combat/spear-thrust` | one-shot 0.75s | 196×76 | A piercing stab: a bundle of streaks shoots out from the hand to a point, a long four-point star flares at the tip with a pierce ring, sparks and speed lines. |
+| speed aura | `combat/speed-aura` | loop 1.2s | 100×56 | Sped up: striped after-images stream out behind, speed lines whip past, dust kicks off the heels and the leading edge catches the wind. Faces right. |
+| strength aura | `combat/strength-aura` | loop 1.2s | 80×80 | Seething: the body judders on every heartbeat, an anger mark throbs at the temple, eyes burn, steam jets off the head, stress lines flash out and the floor cracks hot underfoot. |
+| stun stars | `combat/stun-stars` | loop 2s | 60×64 | Seeing stars: three spinning stars and two little birds circle the head on a tilted ring, ducking behind it and sweeping round in front, trailing glitter. |
+| sword double slash | `combat/sword-double-slash` | one-shot 0.8s | 164×108 | A down cut, then an up cut that crosses it: the moment the X closes both strokes flash white, the crossing bursts with light and sparks, and a dotted X lingers. |
+| sword slash | `combat/sword-slash` | one-shot 0.75s | 136×104 | A tilted crescent whips round in two frames, cools from white to deep blue as it trails off, glints at the tip and throws sparks. |
+| sword spin | `combat/sword-spin` | one-shot 0.8s | 208×104 | The blade whirls once round the waist on a tilted plane, behind the body and back in front; the closed ring flares white, dissolves into a dotted trace and throws sparks. |

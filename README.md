@@ -1,6 +1,6 @@
 # farmfx.
 
-**<!-- count -->997<!-- /count --> pixel art assets and animations for farming games, every one a small piece of
+**<!-- count -->1047<!-- /count --> pixel art assets and animations for farming games, every one a small piece of
 code.** Crops that grow from seed to harvest, animals going about their day, tilled and watered soil, weather and
 seasons, and a farmer who hoes, waters, sows and harvests. Play them live, recolor them for another season, drop
 them into a browser game, or export sprite sheets for any engine.
@@ -56,6 +56,7 @@ system, with a library made for farms instead of fights.
 | **bosses** | 15 | ancient demon, ancient tree guardian, crystal golem, dark wizard, desert pharaoh, fire dragon… |
 | **biomes** | 62 | crystal cliff, crystal cluster, crystal grass, crystal ground, crystal rock, crystal shore… |
 | **dungeons** | 50 | ancient altar, ancient statue, arrow trap, boss chest, boss door, boss summoning circle… |
+| **combat** | 50 | arrow impact, arrow projectile, axe cleave, bomb explosion, boss warning, bow shot… |
 <!-- /catalog -->
 
 The [asset index](ASSETS.md) links to every source file and available GIF preview. The [catalog](docs/CATALOG.md)

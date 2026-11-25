@@ -997,6 +997,56 @@ import * as dungeons_skeleton_remains from "./dungeons/skeleton-remains.js";
 import * as dungeons_spike_trap from "./dungeons/spike-trap.js";
 import * as dungeons_swinging_blade_trap from "./dungeons/swinging-blade-trap.js";
 import * as dungeons_wall_button from "./dungeons/wall-button.js";
+import * as combat_arrow_impact from "./combat/arrow-impact.js";
+import * as combat_arrow_projectile from "./combat/arrow-projectile.js";
+import * as combat_axe_cleave from "./combat/axe-cleave.js";
+import * as combat_bomb_explosion from "./combat/bomb-explosion.js";
+import * as combat_boss_warning from "./combat/boss-warning.js";
+import * as combat_bow_shot from "./combat/bow-shot.js";
+import * as combat_burning from "./combat/burning.js";
+import * as combat_chain_lightning from "./combat/chain-lightning.js";
+import * as combat_critical_hit from "./combat/critical-hit.js";
+import * as combat_critical_number from "./combat/critical-number.js";
+import * as combat_damage_number from "./combat/damage-number.js";
+import * as combat_enemy_death from "./combat/enemy-death.js";
+import * as combat_enemy_hit from "./combat/enemy-hit.js";
+import * as combat_fire_arrow_impact from "./combat/fire-arrow-impact.js";
+import * as combat_fireball from "./combat/fireball.js";
+import * as combat_fireball_impact from "./combat/fireball-impact.js";
+import * as combat_frozen from "./combat/frozen.js";
+import * as combat_ground_crack from "./combat/ground-crack.js";
+import * as combat_ground_slam from "./combat/ground-slam.js";
+import * as combat_healing_aura from "./combat/healing-aura.js";
+import * as combat_heavy_slash from "./combat/heavy-slash.js";
+import * as combat_ice_arrow_impact from "./combat/ice-arrow-impact.js";
+import * as combat_ice_ball from "./combat/ice-ball.js";
+import * as combat_ice_explosion from "./combat/ice-explosion.js";
+import * as combat_ice_shard from "./combat/ice-shard.js";
+import * as combat_invulnerability from "./combat/invulnerability.js";
+import * as combat_knockback from "./combat/knockback.js";
+import * as combat_large_explosion from "./combat/large-explosion.js";
+import * as combat_lightning_bolt from "./combat/lightning-bolt.js";
+import * as combat_magic_circle from "./combat/magic-circle.js";
+import * as combat_magic_explosion from "./combat/magic-explosion.js";
+import * as combat_magic_missile from "./combat/magic-missile.js";
+import * as combat_magic_shield from "./combat/magic-shield.js";
+import * as combat_melee_hit from "./combat/melee-hit.js";
+import * as combat_parry from "./combat/parry.js";
+import * as combat_poison_cloud from "./combat/poison-cloud.js";
+import * as combat_poison_hit from "./combat/poison-hit.js";
+import * as combat_ranged_hit from "./combat/ranged-hit.js";
+import * as combat_regeneration_aura from "./combat/regeneration-aura.js";
+import * as combat_rock_projectile from "./combat/rock-projectile.js";
+import * as combat_shield_block from "./combat/shield-block.js";
+import * as combat_shield_break from "./combat/shield-break.js";
+import * as combat_shockwave from "./combat/shockwave.js";
+import * as combat_spear_thrust from "./combat/spear-thrust.js";
+import * as combat_speed_aura from "./combat/speed-aura.js";
+import * as combat_strength_aura from "./combat/strength-aura.js";
+import * as combat_stun_stars from "./combat/stun-stars.js";
+import * as combat_sword_double_slash from "./combat/sword-double-slash.js";
+import * as combat_sword_slash from "./combat/sword-slash.js";
+import * as combat_sword_spin from "./combat/sword-spin.js";
 
 export { categories } from "./categories.js";
 
@@ -1998,4 +2048,54 @@ export const effects = {
   "dungeons/spike-trap": dungeons_spike_trap,
   "dungeons/swinging-blade-trap": dungeons_swinging_blade_trap,
   "dungeons/wall-button": dungeons_wall_button,
+  "combat/arrow-impact": combat_arrow_impact,
+  "combat/arrow-projectile": combat_arrow_projectile,
+  "combat/axe-cleave": combat_axe_cleave,
+  "combat/bomb-explosion": combat_bomb_explosion,
+  "combat/boss-warning": combat_boss_warning,
+  "combat/bow-shot": combat_bow_shot,
+  "combat/burning": combat_burning,
+  "combat/chain-lightning": combat_chain_lightning,
+  "combat/critical-hit": combat_critical_hit,
+  "combat/critical-number": combat_critical_number,
+  "combat/damage-number": combat_damage_number,
+  "combat/enemy-death": combat_enemy_death,
+  "combat/enemy-hit": combat_enemy_hit,
+  "combat/fire-arrow-impact": combat_fire_arrow_impact,
+  "combat/fireball": combat_fireball,
+  "combat/fireball-impact": combat_fireball_impact,
+  "combat/frozen": combat_frozen,
+  "combat/ground-crack": combat_ground_crack,
+  "combat/ground-slam": combat_ground_slam,
+  "combat/healing-aura": combat_healing_aura,
+  "combat/heavy-slash": combat_heavy_slash,
+  "combat/ice-arrow-impact": combat_ice_arrow_impact,
+  "combat/ice-ball": combat_ice_ball,
+  "combat/ice-explosion": combat_ice_explosion,
+  "combat/ice-shard": combat_ice_shard,
+  "combat/invulnerability": combat_invulnerability,
+  "combat/knockback": combat_knockback,
+  "combat/large-explosion": combat_large_explosion,
+  "combat/lightning-bolt": combat_lightning_bolt,
+  "combat/magic-circle": combat_magic_circle,
+  "combat/magic-explosion": combat_magic_explosion,
+  "combat/magic-missile": combat_magic_missile,
+  "combat/magic-shield": combat_magic_shield,
+  "combat/melee-hit": combat_melee_hit,
+  "combat/parry": combat_parry,
+  "combat/poison-cloud": combat_poison_cloud,
+  "combat/poison-hit": combat_poison_hit,
+  "combat/ranged-hit": combat_ranged_hit,
+  "combat/regeneration-aura": combat_regeneration_aura,
+  "combat/rock-projectile": combat_rock_projectile,
+  "combat/shield-block": combat_shield_block,
+  "combat/shield-break": combat_shield_break,
+  "combat/shockwave": combat_shockwave,
+  "combat/spear-thrust": combat_spear_thrust,
+  "combat/speed-aura": combat_speed_aura,
+  "combat/strength-aura": combat_strength_aura,
+  "combat/stun-stars": combat_stun_stars,
+  "combat/sword-double-slash": combat_sword_double_slash,
+  "combat/sword-slash": combat_sword_slash,
+  "combat/sword-spin": combat_sword_spin,
 };
