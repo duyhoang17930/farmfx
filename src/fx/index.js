@@ -451,6 +451,36 @@ import * as items_raw_tin_ore from "./items/raw/tin-ore.js";
 import * as items_raw_titanium_ore from "./items/raw/titanium-ore.js";
 import * as items_raw_wood from "./items/raw/wood.js";
 import * as items_raw_wool from "./items/raw/wool.js";
+import * as items_seeds_apple_seed from "./items/seeds/apple-seed.js";
+import * as items_seeds_banana_seed from "./items/seeds/banana-seed.js";
+import * as items_seeds_barley_seed from "./items/seeds/barley-seed.js";
+import * as items_seeds_cabbage_seed from "./items/seeds/cabbage-seed.js";
+import * as items_seeds_carrot_seed from "./items/seeds/carrot-seed.js";
+import * as items_seeds_cassava_seed from "./items/seeds/cassava-seed.js";
+import * as items_seeds_cherry_seed from "./items/seeds/cherry-seed.js";
+import * as items_seeds_coconut_seed from "./items/seeds/coconut-seed.js";
+import * as items_seeds_corn_seed from "./items/seeds/corn-seed.js";
+import * as items_seeds_cotton_seed from "./items/seeds/cotton-seed.js";
+import * as items_seeds_cucumber_seed from "./items/seeds/cucumber-seed.js";
+import * as items_seeds_flower_seed from "./items/seeds/flower-seed.js";
+import * as items_seeds_grape_seed from "./items/seeds/grape-seed.js";
+import * as items_seeds_magic_seed from "./items/seeds/magic-seed.js";
+import * as items_seeds_mixed_seeds from "./items/seeds/mixed-seeds.js";
+import * as items_seeds_onion_seed from "./items/seeds/onion-seed.js";
+import * as items_seeds_orange_seed from "./items/seeds/orange-seed.js";
+import * as items_seeds_palm_seed from "./items/seeds/palm-seed.js";
+import * as items_seeds_potato_seed from "./items/seeds/potato-seed.js";
+import * as items_seeds_rapeseed from "./items/seeds/rapeseed.js";
+import * as items_seeds_rice_seed from "./items/seeds/rice-seed.js";
+import * as items_seeds_sorghum_seed from "./items/seeds/sorghum-seed.js";
+import * as items_seeds_soybean_seed from "./items/seeds/soybean-seed.js";
+import * as items_seeds_sugar_beet_seed from "./items/seeds/sugar-beet-seed.js";
+import * as items_seeds_sugarcane_seed from "./items/seeds/sugarcane-seed.js";
+import * as items_seeds_sweet_potato_seed from "./items/seeds/sweet-potato-seed.js";
+import * as items_seeds_tomato_seed from "./items/seeds/tomato-seed.js";
+import * as items_seeds_watermelon_seed from "./items/seeds/watermelon-seed.js";
+import * as items_seeds_wheat_seed from "./items/seeds/wheat-seed.js";
+import * as items_seeds_yam_seed from "./items/seeds/yam-seed.js";
 import * as items_special_ancient_relic from "./items/special/ancient-relic.js";
 import * as items_special_ancient_scroll from "./items/special/ancient-scroll.js";
 import * as items_special_ancient_tablet from "./items/special/ancient-tablet.js";
@@ -931,6 +961,36 @@ export const effects = {
   "items/raw/titanium-ore": items_raw_titanium_ore,
   "items/raw/wood": items_raw_wood,
   "items/raw/wool": items_raw_wool,
+  "items/seeds/apple-seed": items_seeds_apple_seed,
+  "items/seeds/banana-seed": items_seeds_banana_seed,
+  "items/seeds/barley-seed": items_seeds_barley_seed,
+  "items/seeds/cabbage-seed": items_seeds_cabbage_seed,
+  "items/seeds/carrot-seed": items_seeds_carrot_seed,
+  "items/seeds/cassava-seed": items_seeds_cassava_seed,
+  "items/seeds/cherry-seed": items_seeds_cherry_seed,
+  "items/seeds/coconut-seed": items_seeds_coconut_seed,
+  "items/seeds/corn-seed": items_seeds_corn_seed,
+  "items/seeds/cotton-seed": items_seeds_cotton_seed,
+  "items/seeds/cucumber-seed": items_seeds_cucumber_seed,
+  "items/seeds/flower-seed": items_seeds_flower_seed,
+  "items/seeds/grape-seed": items_seeds_grape_seed,
+  "items/seeds/magic-seed": items_seeds_magic_seed,
+  "items/seeds/mixed-seeds": items_seeds_mixed_seeds,
+  "items/seeds/onion-seed": items_seeds_onion_seed,
+  "items/seeds/orange-seed": items_seeds_orange_seed,
+  "items/seeds/palm-seed": items_seeds_palm_seed,
+  "items/seeds/potato-seed": items_seeds_potato_seed,
+  "items/seeds/rapeseed": items_seeds_rapeseed,
+  "items/seeds/rice-seed": items_seeds_rice_seed,
+  "items/seeds/sorghum-seed": items_seeds_sorghum_seed,
+  "items/seeds/soybean-seed": items_seeds_soybean_seed,
+  "items/seeds/sugar-beet-seed": items_seeds_sugar_beet_seed,
+  "items/seeds/sugarcane-seed": items_seeds_sugarcane_seed,
+  "items/seeds/sweet-potato-seed": items_seeds_sweet_potato_seed,
+  "items/seeds/tomato-seed": items_seeds_tomato_seed,
+  "items/seeds/watermelon-seed": items_seeds_watermelon_seed,
+  "items/seeds/wheat-seed": items_seeds_wheat_seed,
+  "items/seeds/yam-seed": items_seeds_yam_seed,
   "items/special/ancient-relic": items_special_ancient_relic,
   "items/special/ancient-scroll": items_special_ancient_scroll,
   "items/special/ancient-tablet": items_special_ancient_tablet,

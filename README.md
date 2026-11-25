@@ -1,6 +1,6 @@
 # farmfx.
 
-**<!-- count -->476<!-- /count --> pixel art assets and animations for farming games, every one a small piece of
+**<!-- count -->506<!-- /count --> pixel art assets and animations for farming games, every one a small piece of
 code.** Crops that grow from seed to harvest, animals going about their day, tilled and watered soil, weather and
 seasons, and a farmer who hoes, waters, sows and harvests. Play them live, recolor them for another season, drop
 them into a browser game, or export sprite sheets for any engine.
@@ -48,7 +48,7 @@ system, with a library made for farms instead of fights.
 | **island exploration** | 7 | gathering swing, metal ingot, island explorer, island shoreline, locked plot marker, ore deposit… |
 | **resources** | 30 | amethyst deposit, bamboo, bone pile, cactus, clay deposit, coal ore… |
 | **machines** | 45 | advanced furnace, alchemy station, anvil, assembly machine, auto collector, auto feeder… |
-| **items** | 199 | animal feed, beeswax, butter, cheese, cream, egg… |
+| **items** | 229 | animal feed, beeswax, butter, cheese, cream, egg… |
 <!-- /catalog -->
 
 The [asset index](ASSETS.md) links to every source file and available GIF preview. The [catalog](docs/CATALOG.md)

@@ -9,6 +9,7 @@ import { drawAnimalItemIcon } from "./animal-items.js";
 import { drawFoodIcon } from "./food-items.js";
 import { drawConsumableIcon } from "./consumable-items.js";
 import { drawSpecialIcon } from "./special-items.js";
+import { drawSeedIcon } from "./seed-items.js";
 import { panel } from "./ui.js";
 
 const UI = ["#342b42","#563d53","#835966","#b67c72","#ecc196"];
@@ -58,7 +59,7 @@ const icons = {
   },
 };
 
-const itemPainters = [drawRawIcon, drawProcessedIcon, drawComponentIcon, drawGemIcon, drawProduceIcon, drawAnimalItemIcon, drawFoodIcon, drawConsumableIcon, drawSpecialIcon];
+const itemPainters = [drawRawIcon, drawProcessedIcon, drawComponentIcon, drawGemIcon, drawProduceIcon, drawAnimalItemIcon, drawFoodIcon, drawConsumableIcon, drawSpecialIcon, drawSeedIcon];
 
 export function icon(p,id,x,y,ph){
   if(Object.hasOwn(icons,id))icons[id](p,x,y,ph);

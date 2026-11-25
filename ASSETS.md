@@ -1,6 +1,6 @@
 # FarmFX assets
 
-476 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
+506 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
 
 ## Characters (20)
 
@@ -359,7 +359,7 @@
 | Stone cutter | [`machines/stone-cutter`](src/fx/machines/stone-cutter.js) | [GIF](docs/preview/machines-stone-cutter.gif) |
 | Teleporter | [`machines/teleporter`](src/fx/machines/teleporter.js) | [GIF](docs/preview/machines-teleporter.gif) |
 
-## Items (199)
+## Items (229)
 
 | Asset | ID | Preview |
 | --- | --- | --- |
@@ -537,6 +537,36 @@
 | Titanium ore | [`items/raw/titanium-ore`](src/fx/items/raw/titanium-ore.js) | [GIF](docs/preview/items-raw-titanium-ore.gif) |
 | Wood | [`items/raw/wood`](src/fx/items/raw/wood.js) | [GIF](docs/preview/items-raw-wood.gif) |
 | Wool | [`items/raw/wool`](src/fx/items/raw/wool.js) | [GIF](docs/preview/items-raw-wool.gif) |
+| Apple seed | [`items/seeds/apple-seed`](src/fx/items/seeds/apple-seed.js) | — |
+| Banana seed | [`items/seeds/banana-seed`](src/fx/items/seeds/banana-seed.js) | — |
+| Barley seed | [`items/seeds/barley-seed`](src/fx/items/seeds/barley-seed.js) | — |
+| Cabbage seed | [`items/seeds/cabbage-seed`](src/fx/items/seeds/cabbage-seed.js) | — |
+| Carrot seed | [`items/seeds/carrot-seed`](src/fx/items/seeds/carrot-seed.js) | — |
+| Cassava seed | [`items/seeds/cassava-seed`](src/fx/items/seeds/cassava-seed.js) | — |
+| Cherry seed | [`items/seeds/cherry-seed`](src/fx/items/seeds/cherry-seed.js) | — |
+| Coconut seed | [`items/seeds/coconut-seed`](src/fx/items/seeds/coconut-seed.js) | — |
+| Corn seed | [`items/seeds/corn-seed`](src/fx/items/seeds/corn-seed.js) | — |
+| Cotton seed | [`items/seeds/cotton-seed`](src/fx/items/seeds/cotton-seed.js) | — |
+| Cucumber seed | [`items/seeds/cucumber-seed`](src/fx/items/seeds/cucumber-seed.js) | — |
+| Flower seed | [`items/seeds/flower-seed`](src/fx/items/seeds/flower-seed.js) | — |
+| Grape seed | [`items/seeds/grape-seed`](src/fx/items/seeds/grape-seed.js) | — |
+| Magic seed | [`items/seeds/magic-seed`](src/fx/items/seeds/magic-seed.js) | — |
+| Mixed seeds | [`items/seeds/mixed-seeds`](src/fx/items/seeds/mixed-seeds.js) | — |
+| Onion seed | [`items/seeds/onion-seed`](src/fx/items/seeds/onion-seed.js) | — |
+| Orange seed | [`items/seeds/orange-seed`](src/fx/items/seeds/orange-seed.js) | — |
+| Palm seed | [`items/seeds/palm-seed`](src/fx/items/seeds/palm-seed.js) | — |
+| Potato seed | [`items/seeds/potato-seed`](src/fx/items/seeds/potato-seed.js) | — |
+| Rapeseed | [`items/seeds/rapeseed`](src/fx/items/seeds/rapeseed.js) | — |
+| Rice seed | [`items/seeds/rice-seed`](src/fx/items/seeds/rice-seed.js) | — |
+| Sorghum seed | [`items/seeds/sorghum-seed`](src/fx/items/seeds/sorghum-seed.js) | — |
+| Soybean seed | [`items/seeds/soybean-seed`](src/fx/items/seeds/soybean-seed.js) | — |
+| Sugar beet seed | [`items/seeds/sugar-beet-seed`](src/fx/items/seeds/sugar-beet-seed.js) | — |
+| Sugarcane seed | [`items/seeds/sugarcane-seed`](src/fx/items/seeds/sugarcane-seed.js) | — |
+| Sweet potato seed | [`items/seeds/sweet-potato-seed`](src/fx/items/seeds/sweet-potato-seed.js) | — |
+| Tomato seed | [`items/seeds/tomato-seed`](src/fx/items/seeds/tomato-seed.js) | — |
+| Watermelon seed | [`items/seeds/watermelon-seed`](src/fx/items/seeds/watermelon-seed.js) | — |
+| Wheat seed | [`items/seeds/wheat-seed`](src/fx/items/seeds/wheat-seed.js) | — |
+| Yam seed | [`items/seeds/yam-seed`](src/fx/items/seeds/yam-seed.js) | — |
 | Ancient relic | [`items/special/ancient-relic`](src/fx/items/special/ancient-relic.js) | — |
 | Ancient scroll | [`items/special/ancient-scroll`](src/fx/items/special/ancient-scroll.js) | — |
 | Ancient tablet | [`items/special/ancient-tablet`](src/fx/items/special/ancient-tablet.js) | — |

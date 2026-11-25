@@ -1,6 +1,6 @@
 # Catalog
 
-476 effects in 17 categories. Every one is a file in
+506 effects in 17 categories. Every one is a file in
 `src/fx/<category>/<name>.js`; render any of them with `node tools/render.mjs <id> --gif`.
 
 ## characters
@@ -572,6 +572,36 @@ inventory icons for materials, components, gems, produce, animal products and me
 | Titanium ore | `items/raw/titanium-ore` | loop 1s | 16×16 | Three vivid blue veins on a dark ore fragment. |
 | Wood | `items/raw/wood` | loop 1s | 16×16 | A short brown log with a cut end. |
 | Wool | `items/raw/wool` | loop 1s | 16×16 | A cream fleece tuft with overlapping curls. |
+| Apple seed | `items/seeds/apple-seed` | loop 1s | 16×16 | A seed packet with a apple label. |
+| Banana seed | `items/seeds/banana-seed` | loop 1s | 16×16 | A seed packet with a banana label. |
+| Barley seed | `items/seeds/barley-seed` | loop 1s | 16×16 | A seed packet with a barley label. |
+| Cabbage seed | `items/seeds/cabbage-seed` | loop 1s | 16×16 | A seed packet with a cabbage label. |
+| Carrot seed | `items/seeds/carrot-seed` | loop 1s | 16×16 | A seed packet with a carrot label. |
+| Cassava seed | `items/seeds/cassava-seed` | loop 1s | 16×16 | A seed packet with a cassava label. |
+| Cherry seed | `items/seeds/cherry-seed` | loop 1s | 16×16 | A seed packet with a cherry label. |
+| Coconut seed | `items/seeds/coconut-seed` | loop 1s | 16×16 | A seed packet with a coconut label. |
+| Corn seed | `items/seeds/corn-seed` | loop 1s | 16×16 | A seed packet with a corn label. |
+| Cotton seed | `items/seeds/cotton-seed` | loop 1s | 16×16 | A seed packet with a cotton label. |
+| Cucumber seed | `items/seeds/cucumber-seed` | loop 1s | 16×16 | A seed packet with a cucumber label. |
+| Flower seed | `items/seeds/flower-seed` | loop 1s | 16×16 | A seed packet with a flower label. |
+| Grape seed | `items/seeds/grape-seed` | loop 1s | 16×16 | A seed packet with a grape label. |
+| Magic seed | `items/seeds/magic-seed` | loop 1s | 16×16 | A seed packet with a magic label. |
+| Mixed seeds | `items/seeds/mixed-seeds` | loop 1s | 16×16 | A seed packet with a mixed label. |
+| Onion seed | `items/seeds/onion-seed` | loop 1s | 16×16 | A seed packet with a onion label. |
+| Orange seed | `items/seeds/orange-seed` | loop 1s | 16×16 | A seed packet with a orange label. |
+| Palm seed | `items/seeds/palm-seed` | loop 1s | 16×16 | A seed packet with a palm fruit label. |
+| Potato seed | `items/seeds/potato-seed` | loop 1s | 16×16 | A seed packet with a potato label. |
+| Rapeseed | `items/seeds/rapeseed` | loop 1s | 16×16 | A seed packet with a rapeseed label. |
+| Rice seed | `items/seeds/rice-seed` | loop 1s | 16×16 | A seed packet with a rice label. |
+| Sorghum seed | `items/seeds/sorghum-seed` | loop 1s | 16×16 | A seed packet with a sorghum label. |
+| Soybean seed | `items/seeds/soybean-seed` | loop 1s | 16×16 | A seed packet with a soybean label. |
+| Sugar beet seed | `items/seeds/sugar-beet-seed` | loop 1s | 16×16 | A seed packet with a sugar beet label. |
+| Sugarcane seed | `items/seeds/sugarcane-seed` | loop 1s | 16×16 | A seed packet with a sugarcane label. |
+| Sweet potato seed | `items/seeds/sweet-potato-seed` | loop 1s | 16×16 | A seed packet with a sweet potato label. |
+| Tomato seed | `items/seeds/tomato-seed` | loop 1s | 16×16 | A seed packet with a tomato label. |
+| Watermelon seed | `items/seeds/watermelon-seed` | loop 1s | 16×16 | A seed packet with a watermelon label. |
+| Wheat seed | `items/seeds/wheat-seed` | loop 1s | 16×16 | A seed packet with a wheat label. |
+| Yam seed | `items/seeds/yam-seed` | loop 1s | 16×16 | A seed packet with a yam label. |
 | Ancient relic | `items/special/ancient-relic` | loop 1s | 16×16 | A green stone relic incised with a triangular rune. |
 | Ancient scroll | `items/special/ancient-scroll` | loop 1s | 16×16 | A faded scroll covered in violet glyphs. |
 | Ancient tablet | `items/special/ancient-tablet` | loop 1s | 16×16 | A slate tablet incised with three parallel marks. |
