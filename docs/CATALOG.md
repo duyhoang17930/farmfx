@@ -1,6 +1,6 @@
 # Catalog
 
-947 effects in 23 categories. Every one is a file in
+997 effects in 24 categories. Every one is a file in
 `src/fx/<category>/<name>.js`; render any of them with `node tools/render.mjs <id> --gif`.
 
 ## characters
@@ -1110,3 +1110,60 @@ terrain and props for eight island biomes.
 | volcanic cliff | `biomes/volcanic/volcanic-cliff` | loop 1s | 16×16 | A raised connected cliff edge with a fractured face. |
 | volcanic ground | `biomes/volcanic/volcanic-ground` | loop 1s | 16×16 | A seamless ground tile with seeded texture. |
 | volcanic rock | `biomes/volcanic/volcanic-rock` | loop 1s | 48×48 | A volcanic rock sprite for the volcanic biome. |
+
+## dungeons
+
+dungeon terrain, switches, traps and props.
+
+| effect | id | | size | what it does |
+|---|---|---|---|---|
+| ancient altar | `dungeons/ancient-altar` | loop 2.5s | 64×64 | A dungeon ancient altar with a top-down footprint. |
+| ancient statue | `dungeons/ancient-statue` | loop 2.5s | 64×64 | A dungeon ancient statue with a top-down footprint. |
+| arrow trap | `dungeons/arrow-trap` | loop 1.15s | 64×64 | A dungeon arrow trap with a top-down footprint. |
+| boss chest | `dungeons/boss-chest` | loop 2.5s | 64×64 | A dungeon boss chest with a top-down footprint. |
+| boss door | `dungeons/boss-door` | loop 2.5s | 64×64 | A dungeon boss door with a top-down footprint. |
+| boss summoning circle | `dungeons/boss-summoning-circle` | loop 2.5s | 64×64 | A dungeon boss summoning circle with a top-down footprint. |
+| cobweb | `dungeons/cobweb` | loop 2.5s | 64×64 | A dungeon cobweb with a top-down footprint. |
+| collapsing floor | `dungeons/collapsing-floor` | loop 1.15s | 64×64 | A dungeon collapsing floor with a top-down footprint. |
+| cracked floor | `dungeons/cracked-floor` | loop 1s | 16×16 | A seamless ground tile crossed by branching seams. |
+| dungeon barrel | `dungeons/dungeon-barrel` | loop 2.5s | 64×64 | A dungeon dungeon barrel with a top-down footprint. |
+| dungeon brazier | `dungeons/dungeon-brazier` | loop 2.5s | 64×64 | A dungeon dungeon brazier with a top-down footprint. |
+| dungeon chest | `dungeons/dungeon-chest` | loop 2.5s | 64×64 | A dungeon dungeon chest with a top-down footprint. |
+| dungeon complete portal | `dungeons/dungeon-complete-portal` | loop 2.5s | 64×64 | A dungeon dungeon complete portal with a top-down footprint. |
+| dungeon crate | `dungeons/dungeon-crate` | loop 2.5s | 64×64 | A dungeon dungeon crate with a top-down footprint. |
+| dungeon door | `dungeons/dungeon-door` | loop 2.5s | 64×64 | A dungeon dungeon door with a top-down footprint. |
+| dungeon entrance | `dungeons/dungeon-entrance` | loop 2.5s | 64×64 | A dungeon dungeon entrance with a top-down footprint. |
+| dungeon exit | `dungeons/dungeon-exit` | loop 2.5s | 64×64 | A dungeon dungeon exit with a top-down footprint. |
+| dungeon floor | `dungeons/dungeon-floor` | loop 1s | 16×16 | A repeatable patterned floor with matching side edges. |
+| dungeon pillar | `dungeons/dungeon-pillar` | loop 2.5s | 64×64 | A dungeon dungeon pillar with a top-down footprint. |
+| dungeon stairs | `dungeons/dungeon-stairs` | loop 1s | 16×16 | Broad stairs with lit step edges. |
+| dungeon torch | `dungeons/dungeon-torch` | loop 2.5s | 64×64 | A dungeon dungeon torch with a top-down footprint. |
+| dungeon wall | `dungeons/dungeon-wall` | loop 1s | 16×16 | A tiled wall segment with selectable joins. |
+| dungeon wall corner | `dungeons/dungeon-wall-corner` | loop 1s | 16×16 | A tiled wall segment with selectable joins. |
+| enemy spawner | `dungeons/enemy-spawner` | loop 2.5s | 64×64 | A dungeon enemy spawner with a top-down footprint. |
+| falling rock trap | `dungeons/falling-rock-trap` | loop 1.15s | 64×64 | A dungeon falling rock trap with a top-down footprint. |
+| fire trap | `dungeons/fire-trap` | loop 1.15s | 64×64 | A dungeon fire trap with a top-down footprint. |
+| floor button | `dungeons/floor-button` | loop 2.5s | 64×64 | A dungeon floor button with a top-down footprint. |
+| healing fountain | `dungeons/healing-fountain` | loop 2.5s | 64×64 | A dungeon healing fountain with a top-down footprint. |
+| iron bars | `dungeons/iron-bars` | loop 2.5s | 64×64 | A dungeon iron bars with a top-down footprint. |
+| laser emitter | `dungeons/laser-emitter` | loop 2.5s | 64×64 | A dungeon laser emitter with a top-down footprint. |
+| laser receiver | `dungeons/laser-receiver` | loop 2.5s | 64×64 | A dungeon laser receiver with a top-down footprint. |
+| lever | `dungeons/lever` | loop 2.5s | 64×64 | A dungeon lever with a top-down footprint. |
+| locked door | `dungeons/locked-door` | loop 2.5s | 64×64 | A dungeon locked door with a top-down footprint. |
+| magic crystal | `dungeons/magic-crystal` | loop 2.5s | 64×64 | A dungeon magic crystal with a top-down footprint. |
+| mana fountain | `dungeons/mana-fountain` | loop 2.5s | 64×64 | A dungeon mana fountain with a top-down footprint. |
+| poison trap | `dungeons/poison-trap` | loop 1.15s | 64×64 | A dungeon poison trap with a top-down footprint. |
+| pressure plate | `dungeons/pressure-plate` | loop 2.5s | 64×64 | A dungeon pressure plate with a top-down footprint. |
+| prison cell | `dungeons/prison-cell` | loop 2.5s | 64×64 | A dungeon prison cell with a top-down footprint. |
+| prison gate | `dungeons/prison-gate` | loop 2.5s | 64×64 | A dungeon prison gate with a top-down footprint. |
+| pushable block | `dungeons/pushable-block` | loop 2.5s | 64×64 | A dungeon pushable block with a top-down footprint. |
+| puzzle pedestal | `dungeons/puzzle-pedestal` | loop 2.5s | 64×64 | A dungeon puzzle pedestal with a top-down footprint. |
+| rotating mirror | `dungeons/rotating-mirror` | loop 2.5s | 64×64 | A dungeon rotating mirror with a top-down footprint. |
+| rotating switch | `dungeons/rotating-switch` | loop 2.5s | 64×64 | A dungeon rotating switch with a top-down footprint. |
+| rune block | `dungeons/rune-block` | loop 2.5s | 64×64 | A dungeon rune block with a top-down footprint. |
+| rune floor | `dungeons/rune-floor` | loop 2.5s | 64×64 | A dungeon rune floor with a top-down footprint. |
+| sacrifice altar | `dungeons/sacrifice-altar` | loop 2.5s | 64×64 | A dungeon sacrifice altar with a top-down footprint. |
+| skeleton remains | `dungeons/skeleton-remains` | loop 2.5s | 64×64 | A dungeon skeleton remains with a top-down footprint. |
+| spike trap | `dungeons/spike-trap` | loop 1.15s | 64×64 | A dungeon spike trap with a top-down footprint. |
+| swinging blade trap | `dungeons/swinging-blade-trap` | loop 1.15s | 64×64 | A dungeon swinging blade trap with a top-down footprint. |
+| wall button | `dungeons/wall-button` | loop 2.5s | 64×64 | A dungeon wall button with a top-down footprint. |

@@ -24,4 +24,5 @@ export const categories = [
   { id: "enemies", name: "enemies", blurb: "hostile creatures with movement and reaction clips" },
   { id: "bosses", name: "bosses", blurb: "large encounters with attack, phase and reward clips" },
   { id: "biomes", name: "biomes", blurb: "terrain and props for eight island biomes" },
+  { id: "dungeons", name: "dungeons", blurb: "dungeon terrain, switches, traps and props" },
 ];

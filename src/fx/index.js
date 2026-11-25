@@ -947,6 +947,56 @@ import * as biomes_volcanic_lava_waterfall from "./biomes/volcanic/lava-waterfal
 import * as biomes_volcanic_volcanic_cliff from "./biomes/volcanic/volcanic-cliff.js";
 import * as biomes_volcanic_volcanic_ground from "./biomes/volcanic/volcanic-ground.js";
 import * as biomes_volcanic_volcanic_rock from "./biomes/volcanic/volcanic-rock.js";
+import * as dungeons_ancient_altar from "./dungeons/ancient-altar.js";
+import * as dungeons_ancient_statue from "./dungeons/ancient-statue.js";
+import * as dungeons_arrow_trap from "./dungeons/arrow-trap.js";
+import * as dungeons_boss_chest from "./dungeons/boss-chest.js";
+import * as dungeons_boss_door from "./dungeons/boss-door.js";
+import * as dungeons_boss_summoning_circle from "./dungeons/boss-summoning-circle.js";
+import * as dungeons_cobweb from "./dungeons/cobweb.js";
+import * as dungeons_collapsing_floor from "./dungeons/collapsing-floor.js";
+import * as dungeons_cracked_floor from "./dungeons/cracked-floor.js";
+import * as dungeons_dungeon_barrel from "./dungeons/dungeon-barrel.js";
+import * as dungeons_dungeon_brazier from "./dungeons/dungeon-brazier.js";
+import * as dungeons_dungeon_chest from "./dungeons/dungeon-chest.js";
+import * as dungeons_dungeon_complete_portal from "./dungeons/dungeon-complete-portal.js";
+import * as dungeons_dungeon_crate from "./dungeons/dungeon-crate.js";
+import * as dungeons_dungeon_door from "./dungeons/dungeon-door.js";
+import * as dungeons_dungeon_entrance from "./dungeons/dungeon-entrance.js";
+import * as dungeons_dungeon_exit from "./dungeons/dungeon-exit.js";
+import * as dungeons_dungeon_floor from "./dungeons/dungeon-floor.js";
+import * as dungeons_dungeon_pillar from "./dungeons/dungeon-pillar.js";
+import * as dungeons_dungeon_stairs from "./dungeons/dungeon-stairs.js";
+import * as dungeons_dungeon_torch from "./dungeons/dungeon-torch.js";
+import * as dungeons_dungeon_wall from "./dungeons/dungeon-wall.js";
+import * as dungeons_dungeon_wall_corner from "./dungeons/dungeon-wall-corner.js";
+import * as dungeons_enemy_spawner from "./dungeons/enemy-spawner.js";
+import * as dungeons_falling_rock_trap from "./dungeons/falling-rock-trap.js";
+import * as dungeons_fire_trap from "./dungeons/fire-trap.js";
+import * as dungeons_floor_button from "./dungeons/floor-button.js";
+import * as dungeons_healing_fountain from "./dungeons/healing-fountain.js";
+import * as dungeons_iron_bars from "./dungeons/iron-bars.js";
+import * as dungeons_laser_emitter from "./dungeons/laser-emitter.js";
+import * as dungeons_laser_receiver from "./dungeons/laser-receiver.js";
+import * as dungeons_lever from "./dungeons/lever.js";
+import * as dungeons_locked_door from "./dungeons/locked-door.js";
+import * as dungeons_magic_crystal from "./dungeons/magic-crystal.js";
+import * as dungeons_mana_fountain from "./dungeons/mana-fountain.js";
+import * as dungeons_poison_trap from "./dungeons/poison-trap.js";
+import * as dungeons_pressure_plate from "./dungeons/pressure-plate.js";
+import * as dungeons_prison_cell from "./dungeons/prison-cell.js";
+import * as dungeons_prison_gate from "./dungeons/prison-gate.js";
+import * as dungeons_pushable_block from "./dungeons/pushable-block.js";
+import * as dungeons_puzzle_pedestal from "./dungeons/puzzle-pedestal.js";
+import * as dungeons_rotating_mirror from "./dungeons/rotating-mirror.js";
+import * as dungeons_rotating_switch from "./dungeons/rotating-switch.js";
+import * as dungeons_rune_block from "./dungeons/rune-block.js";
+import * as dungeons_rune_floor from "./dungeons/rune-floor.js";
+import * as dungeons_sacrifice_altar from "./dungeons/sacrifice-altar.js";
+import * as dungeons_skeleton_remains from "./dungeons/skeleton-remains.js";
+import * as dungeons_spike_trap from "./dungeons/spike-trap.js";
+import * as dungeons_swinging_blade_trap from "./dungeons/swinging-blade-trap.js";
+import * as dungeons_wall_button from "./dungeons/wall-button.js";
 
 export { categories } from "./categories.js";
 
@@ -1898,4 +1948,54 @@ export const effects = {
   "biomes/volcanic/volcanic-cliff": biomes_volcanic_volcanic_cliff,
   "biomes/volcanic/volcanic-ground": biomes_volcanic_volcanic_ground,
   "biomes/volcanic/volcanic-rock": biomes_volcanic_volcanic_rock,
+  "dungeons/ancient-altar": dungeons_ancient_altar,
+  "dungeons/ancient-statue": dungeons_ancient_statue,
+  "dungeons/arrow-trap": dungeons_arrow_trap,
+  "dungeons/boss-chest": dungeons_boss_chest,
+  "dungeons/boss-door": dungeons_boss_door,
+  "dungeons/boss-summoning-circle": dungeons_boss_summoning_circle,
+  "dungeons/cobweb": dungeons_cobweb,
+  "dungeons/collapsing-floor": dungeons_collapsing_floor,
+  "dungeons/cracked-floor": dungeons_cracked_floor,
+  "dungeons/dungeon-barrel": dungeons_dungeon_barrel,
+  "dungeons/dungeon-brazier": dungeons_dungeon_brazier,
+  "dungeons/dungeon-chest": dungeons_dungeon_chest,
+  "dungeons/dungeon-complete-portal": dungeons_dungeon_complete_portal,
+  "dungeons/dungeon-crate": dungeons_dungeon_crate,
+  "dungeons/dungeon-door": dungeons_dungeon_door,
+  "dungeons/dungeon-entrance": dungeons_dungeon_entrance,
+  "dungeons/dungeon-exit": dungeons_dungeon_exit,
+  "dungeons/dungeon-floor": dungeons_dungeon_floor,
+  "dungeons/dungeon-pillar": dungeons_dungeon_pillar,
+  "dungeons/dungeon-stairs": dungeons_dungeon_stairs,
+  "dungeons/dungeon-torch": dungeons_dungeon_torch,
+  "dungeons/dungeon-wall": dungeons_dungeon_wall,
+  "dungeons/dungeon-wall-corner": dungeons_dungeon_wall_corner,
+  "dungeons/enemy-spawner": dungeons_enemy_spawner,
+  "dungeons/falling-rock-trap": dungeons_falling_rock_trap,
+  "dungeons/fire-trap": dungeons_fire_trap,
+  "dungeons/floor-button": dungeons_floor_button,
+  "dungeons/healing-fountain": dungeons_healing_fountain,
+  "dungeons/iron-bars": dungeons_iron_bars,
+  "dungeons/laser-emitter": dungeons_laser_emitter,
+  "dungeons/laser-receiver": dungeons_laser_receiver,
+  "dungeons/lever": dungeons_lever,
+  "dungeons/locked-door": dungeons_locked_door,
+  "dungeons/magic-crystal": dungeons_magic_crystal,
+  "dungeons/mana-fountain": dungeons_mana_fountain,
+  "dungeons/poison-trap": dungeons_poison_trap,
+  "dungeons/pressure-plate": dungeons_pressure_plate,
+  "dungeons/prison-cell": dungeons_prison_cell,
+  "dungeons/prison-gate": dungeons_prison_gate,
+  "dungeons/pushable-block": dungeons_pushable_block,
+  "dungeons/puzzle-pedestal": dungeons_puzzle_pedestal,
+  "dungeons/rotating-mirror": dungeons_rotating_mirror,
+  "dungeons/rotating-switch": dungeons_rotating_switch,
+  "dungeons/rune-block": dungeons_rune_block,
+  "dungeons/rune-floor": dungeons_rune_floor,
+  "dungeons/sacrifice-altar": dungeons_sacrifice_altar,
+  "dungeons/skeleton-remains": dungeons_skeleton_remains,
+  "dungeons/spike-trap": dungeons_spike_trap,
+  "dungeons/swinging-blade-trap": dungeons_swinging_blade_trap,
+  "dungeons/wall-button": dungeons_wall_button,
 };

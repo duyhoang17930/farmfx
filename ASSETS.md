@@ -1,6 +1,6 @@
 # FarmFX assets
 
-947 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
+997 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
 
 ## Characters (20)
 
@@ -1063,3 +1063,58 @@
 | volcanic cliff | [`biomes/volcanic/volcanic-cliff`](src/fx/biomes/volcanic/volcanic-cliff.js) | — |
 | volcanic ground | [`biomes/volcanic/volcanic-ground`](src/fx/biomes/volcanic/volcanic-ground.js) | — |
 | volcanic rock | [`biomes/volcanic/volcanic-rock`](src/fx/biomes/volcanic/volcanic-rock.js) | — |
+
+## Dungeons (50)
+
+| Asset | ID | Preview |
+| --- | --- | --- |
+| ancient altar | [`dungeons/ancient-altar`](src/fx/dungeons/ancient-altar.js) | — |
+| ancient statue | [`dungeons/ancient-statue`](src/fx/dungeons/ancient-statue.js) | — |
+| arrow trap | [`dungeons/arrow-trap`](src/fx/dungeons/arrow-trap.js) | — |
+| boss chest | [`dungeons/boss-chest`](src/fx/dungeons/boss-chest.js) | — |
+| boss door | [`dungeons/boss-door`](src/fx/dungeons/boss-door.js) | — |
+| boss summoning circle | [`dungeons/boss-summoning-circle`](src/fx/dungeons/boss-summoning-circle.js) | — |
+| cobweb | [`dungeons/cobweb`](src/fx/dungeons/cobweb.js) | — |
+| collapsing floor | [`dungeons/collapsing-floor`](src/fx/dungeons/collapsing-floor.js) | — |
+| cracked floor | [`dungeons/cracked-floor`](src/fx/dungeons/cracked-floor.js) | — |
+| dungeon barrel | [`dungeons/dungeon-barrel`](src/fx/dungeons/dungeon-barrel.js) | — |
+| dungeon brazier | [`dungeons/dungeon-brazier`](src/fx/dungeons/dungeon-brazier.js) | — |
+| dungeon chest | [`dungeons/dungeon-chest`](src/fx/dungeons/dungeon-chest.js) | — |
+| dungeon complete portal | [`dungeons/dungeon-complete-portal`](src/fx/dungeons/dungeon-complete-portal.js) | — |
+| dungeon crate | [`dungeons/dungeon-crate`](src/fx/dungeons/dungeon-crate.js) | — |
+| dungeon door | [`dungeons/dungeon-door`](src/fx/dungeons/dungeon-door.js) | — |
+| dungeon entrance | [`dungeons/dungeon-entrance`](src/fx/dungeons/dungeon-entrance.js) | — |
+| dungeon exit | [`dungeons/dungeon-exit`](src/fx/dungeons/dungeon-exit.js) | — |
+| dungeon floor | [`dungeons/dungeon-floor`](src/fx/dungeons/dungeon-floor.js) | — |
+| dungeon pillar | [`dungeons/dungeon-pillar`](src/fx/dungeons/dungeon-pillar.js) | — |
+| dungeon stairs | [`dungeons/dungeon-stairs`](src/fx/dungeons/dungeon-stairs.js) | — |
+| dungeon torch | [`dungeons/dungeon-torch`](src/fx/dungeons/dungeon-torch.js) | — |
+| dungeon wall | [`dungeons/dungeon-wall`](src/fx/dungeons/dungeon-wall.js) | — |
+| dungeon wall corner | [`dungeons/dungeon-wall-corner`](src/fx/dungeons/dungeon-wall-corner.js) | — |
+| enemy spawner | [`dungeons/enemy-spawner`](src/fx/dungeons/enemy-spawner.js) | — |
+| falling rock trap | [`dungeons/falling-rock-trap`](src/fx/dungeons/falling-rock-trap.js) | — |
+| fire trap | [`dungeons/fire-trap`](src/fx/dungeons/fire-trap.js) | — |
+| floor button | [`dungeons/floor-button`](src/fx/dungeons/floor-button.js) | — |
+| healing fountain | [`dungeons/healing-fountain`](src/fx/dungeons/healing-fountain.js) | — |
+| iron bars | [`dungeons/iron-bars`](src/fx/dungeons/iron-bars.js) | — |
+| laser emitter | [`dungeons/laser-emitter`](src/fx/dungeons/laser-emitter.js) | — |
+| laser receiver | [`dungeons/laser-receiver`](src/fx/dungeons/laser-receiver.js) | — |
+| lever | [`dungeons/lever`](src/fx/dungeons/lever.js) | — |
+| locked door | [`dungeons/locked-door`](src/fx/dungeons/locked-door.js) | — |
+| magic crystal | [`dungeons/magic-crystal`](src/fx/dungeons/magic-crystal.js) | — |
+| mana fountain | [`dungeons/mana-fountain`](src/fx/dungeons/mana-fountain.js) | — |
+| poison trap | [`dungeons/poison-trap`](src/fx/dungeons/poison-trap.js) | — |
+| pressure plate | [`dungeons/pressure-plate`](src/fx/dungeons/pressure-plate.js) | — |
+| prison cell | [`dungeons/prison-cell`](src/fx/dungeons/prison-cell.js) | — |
+| prison gate | [`dungeons/prison-gate`](src/fx/dungeons/prison-gate.js) | — |
+| pushable block | [`dungeons/pushable-block`](src/fx/dungeons/pushable-block.js) | — |
+| puzzle pedestal | [`dungeons/puzzle-pedestal`](src/fx/dungeons/puzzle-pedestal.js) | — |
+| rotating mirror | [`dungeons/rotating-mirror`](src/fx/dungeons/rotating-mirror.js) | — |
+| rotating switch | [`dungeons/rotating-switch`](src/fx/dungeons/rotating-switch.js) | — |
+| rune block | [`dungeons/rune-block`](src/fx/dungeons/rune-block.js) | — |
+| rune floor | [`dungeons/rune-floor`](src/fx/dungeons/rune-floor.js) | — |
+| sacrifice altar | [`dungeons/sacrifice-altar`](src/fx/dungeons/sacrifice-altar.js) | — |
+| skeleton remains | [`dungeons/skeleton-remains`](src/fx/dungeons/skeleton-remains.js) | — |
+| spike trap | [`dungeons/spike-trap`](src/fx/dungeons/spike-trap.js) | — |
+| swinging blade trap | [`dungeons/swinging-blade-trap`](src/fx/dungeons/swinging-blade-trap.js) | — |
+| wall button | [`dungeons/wall-button`](src/fx/dungeons/wall-button.js) | — |
