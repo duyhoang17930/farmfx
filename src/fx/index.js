@@ -1356,6 +1356,26 @@ import * as particles_stone_chip from "./particles/stone-chip.js";
 import * as particles_water_bubble from "./particles/water-bubble.js";
 import * as particles_water_drop from "./particles/water-drop.js";
 import * as particles_wood_chip from "./particles/wood-chip.js";
+import * as lighting_ambient_light from "./lighting/ambient-light.js";
+import * as lighting_building_shadow from "./lighting/building-shadow.js";
+import * as lighting_campfire_light from "./lighting/campfire-light.js";
+import * as lighting_cave_darkness from "./lighting/cave-darkness.js";
+import * as lighting_character_shadow from "./lighting/character-shadow.js";
+import * as lighting_crystal_light from "./lighting/crystal-light.js";
+import * as lighting_dungeon_darkness from "./lighting/dungeon-darkness.js";
+import * as lighting_furnace_light from "./lighting/furnace-light.js";
+import * as lighting_lantern_light from "./lighting/lantern-light.js";
+import * as lighting_lava_light from "./lighting/lava-light.js";
+import * as lighting_light_flicker from "./lighting/light-flicker.js";
+import * as lighting_light_pulse from "./lighting/light-pulse.js";
+import * as lighting_magic_light from "./lighting/magic-light.js";
+import * as lighting_point_light from "./lighting/point-light.js";
+import * as lighting_radial_light from "./lighting/radial-light.js";
+import * as lighting_soft_shadow from "./lighting/soft-shadow.js";
+import * as lighting_street_light from "./lighting/street-light.js";
+import * as lighting_torch_light from "./lighting/torch-light.js";
+import * as lighting_tree_shadow from "./lighting/tree-shadow.js";
+import * as lighting_window_light from "./lighting/window-light.js";
 
 export { categories } from "./categories.js";
 
@@ -2716,4 +2736,24 @@ export const effects = {
   "particles/water-bubble": particles_water_bubble,
   "particles/water-drop": particles_water_drop,
   "particles/wood-chip": particles_wood_chip,
+  "lighting/ambient-light": lighting_ambient_light,
+  "lighting/building-shadow": lighting_building_shadow,
+  "lighting/campfire-light": lighting_campfire_light,
+  "lighting/cave-darkness": lighting_cave_darkness,
+  "lighting/character-shadow": lighting_character_shadow,
+  "lighting/crystal-light": lighting_crystal_light,
+  "lighting/dungeon-darkness": lighting_dungeon_darkness,
+  "lighting/furnace-light": lighting_furnace_light,
+  "lighting/lantern-light": lighting_lantern_light,
+  "lighting/lava-light": lighting_lava_light,
+  "lighting/light-flicker": lighting_light_flicker,
+  "lighting/light-pulse": lighting_light_pulse,
+  "lighting/magic-light": lighting_magic_light,
+  "lighting/point-light": lighting_point_light,
+  "lighting/radial-light": lighting_radial_light,
+  "lighting/soft-shadow": lighting_soft_shadow,
+  "lighting/street-light": lighting_street_light,
+  "lighting/torch-light": lighting_torch_light,
+  "lighting/tree-shadow": lighting_tree_shadow,
+  "lighting/window-light": lighting_window_light,
 };

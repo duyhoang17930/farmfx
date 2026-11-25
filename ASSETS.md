@@ -1,6 +1,6 @@
 # FarmFX assets
 
-1356 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
+1376 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
 
 ## Characters (20)
 
@@ -1497,3 +1497,28 @@
 | water bubble | [`particles/water-bubble`](src/fx/particles/water-bubble.js) | — |
 | water drop | [`particles/water-drop`](src/fx/particles/water-drop.js) | — |
 | wood chip | [`particles/wood-chip`](src/fx/particles/wood-chip.js) | — |
+
+## Lighting (20)
+
+| Asset | ID | Preview |
+| --- | --- | --- |
+| ambient light | [`lighting/ambient-light`](src/fx/lighting/ambient-light.js) | — |
+| building shadow | [`lighting/building-shadow`](src/fx/lighting/building-shadow.js) | — |
+| campfire light | [`lighting/campfire-light`](src/fx/lighting/campfire-light.js) | — |
+| cave darkness | [`lighting/cave-darkness`](src/fx/lighting/cave-darkness.js) | — |
+| character shadow | [`lighting/character-shadow`](src/fx/lighting/character-shadow.js) | — |
+| crystal light | [`lighting/crystal-light`](src/fx/lighting/crystal-light.js) | — |
+| dungeon darkness | [`lighting/dungeon-darkness`](src/fx/lighting/dungeon-darkness.js) | — |
+| furnace light | [`lighting/furnace-light`](src/fx/lighting/furnace-light.js) | — |
+| lantern light | [`lighting/lantern-light`](src/fx/lighting/lantern-light.js) | — |
+| lava light | [`lighting/lava-light`](src/fx/lighting/lava-light.js) | — |
+| light flicker | [`lighting/light-flicker`](src/fx/lighting/light-flicker.js) | — |
+| light pulse | [`lighting/light-pulse`](src/fx/lighting/light-pulse.js) | — |
+| magic light | [`lighting/magic-light`](src/fx/lighting/magic-light.js) | — |
+| point light | [`lighting/point-light`](src/fx/lighting/point-light.js) | — |
+| radial light | [`lighting/radial-light`](src/fx/lighting/radial-light.js) | — |
+| soft shadow | [`lighting/soft-shadow`](src/fx/lighting/soft-shadow.js) | — |
+| street light | [`lighting/street-light`](src/fx/lighting/street-light.js) | — |
+| torch light | [`lighting/torch-light`](src/fx/lighting/torch-light.js) | — |
+| tree shadow | [`lighting/tree-shadow`](src/fx/lighting/tree-shadow.js) | — |
+| window light | [`lighting/window-light`](src/fx/lighting/window-light.js) | — |

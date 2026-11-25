@@ -1,6 +1,6 @@
 # Catalog
 
-1356 effects in 28 categories. Every one is a file in
+1376 effects in 29 categories. Every one is a file in
 `src/fx/<category>/<name>.js`; render any of them with `node tools/render.mjs <id> --gif`.
 
 ## characters
@@ -1554,3 +1554,30 @@ reusable particles with seeded motion.
 | water bubble | `particles/water-bubble` | loop 2s | 80×64 | A reusable seeded water bubble particle with adjustable count and scale. |
 | water drop | `particles/water-drop` | loop 2s | 80×64 | A reusable seeded water drop particle with adjustable count and scale. |
 | wood chip | `particles/wood-chip` | loop 2s | 80×64 | A reusable seeded wood chip particle with adjustable count and scale. |
+
+## lighting
+
+configurable light sources, darkness and shadows.
+
+| effect | id | | size | what it does |
+|---|---|---|---|---|
+| ambient light | `lighting/ambient-light` | loop 1s | 96×80 | A configurable ambient light layer with adjustable radius and intensity. |
+| building shadow | `lighting/building-shadow` | loop 1s | 96×80 | A configurable building shadow layer with adjustable radius and intensity. |
+| campfire light | `lighting/campfire-light` | loop 2.5s | 96×80 | A configurable campfire light layer with adjustable radius and intensity. |
+| cave darkness | `lighting/cave-darkness` | loop 1s | 96×80 | A configurable cave darkness layer with adjustable radius and intensity. |
+| character shadow | `lighting/character-shadow` | loop 1s | 96×80 | A configurable character shadow layer with adjustable radius and intensity. |
+| crystal light | `lighting/crystal-light` | loop 1s | 96×80 | A configurable crystal light layer with adjustable radius and intensity. |
+| dungeon darkness | `lighting/dungeon-darkness` | loop 1s | 96×80 | A configurable dungeon darkness layer with adjustable radius and intensity. |
+| furnace light | `lighting/furnace-light` | loop 2.5s | 96×80 | A configurable furnace light layer with adjustable radius and intensity. |
+| lantern light | `lighting/lantern-light` | loop 1s | 96×80 | A configurable lantern light layer with adjustable radius and intensity. |
+| lava light | `lighting/lava-light` | loop 2.5s | 96×80 | A configurable lava light layer with adjustable radius and intensity. |
+| light flicker | `lighting/light-flicker` | loop 2.5s | 96×80 | A configurable light flicker layer with adjustable radius and intensity. |
+| light pulse | `lighting/light-pulse` | loop 2.5s | 96×80 | A configurable light pulse layer with adjustable radius and intensity. |
+| magic light | `lighting/magic-light` | loop 1s | 96×80 | A configurable magic light layer with adjustable radius and intensity. |
+| point light | `lighting/point-light` | loop 1s | 96×80 | A configurable point light layer with adjustable radius and intensity. |
+| radial light | `lighting/radial-light` | loop 1s | 96×80 | A configurable radial light layer with adjustable radius and intensity. |
+| soft shadow | `lighting/soft-shadow` | loop 1s | 96×80 | A configurable soft shadow layer with adjustable radius and intensity. |
+| street light | `lighting/street-light` | loop 1s | 96×80 | A configurable street light layer with adjustable radius and intensity. |
+| torch light | `lighting/torch-light` | loop 2.5s | 96×80 | A configurable torch light layer with adjustable radius and intensity. |
+| tree shadow | `lighting/tree-shadow` | loop 1s | 96×80 | A configurable tree shadow layer with adjustable radius and intensity. |
+| window light | `lighting/window-light` | loop 1s | 96×80 | A configurable window light layer with adjustable radius and intensity. |

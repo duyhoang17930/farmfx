@@ -29,4 +29,5 @@ export const categories = [
   { id: "skills", name: "skills", blurb: "skill icons grouped by progression branch" },
   { id: "emotes", name: "emotes", blurb: "expressive character reaction bubbles" },
   { id: "particles", name: "particles", blurb: "reusable particles with seeded motion" },
+  { id: "lighting", name: "lighting", blurb: "configurable light sources, darkness and shadows" },
 ];
