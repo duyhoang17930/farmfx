@@ -4,6 +4,7 @@ import { glints, puff } from "./farm-feedback.js";
 import { groundShadow, twinkle } from "./sprite.js";
 
 const animations=/reveal|emerge|expand|construction|respawn|dig|discovery/;
+const footprints={"boat-dock":{width:40,height:10},"secret-door":{width:36,height:8}};
 function plot(p,C,t,id,opacity){
   const y=id==="island-emerge"?-12*(1-ease.outCubic(t)):0,w=id==="island-expand"?14+8*ease.outCubic(t):id==="secret-island"?17:22;
   const points=[[-w,y-10],[0,y-21],[w,y-10],[0,y+3]];
@@ -92,5 +93,6 @@ export function explorationAddition(id){
       }
     }
   });
-  return {...fx,meta:{...fx.meta,...(animated?{events:{completion:fx.meta.duration}}:{})}};
+  const collision=footprints[id];
+  return {...fx,meta:{...fx.meta,...(collision?{collision}:{}),...(animated?{events:{completion:fx.meta.duration}}:{})}};
 }
