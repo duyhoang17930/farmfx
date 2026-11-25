@@ -1,6 +1,6 @@
 # Catalog
 
-431 effects in 17 categories. Every one is a file in
+451 effects in 17 categories. Every one is a file in
 `src/fx/<category>/<name>.js`; render any of them with `node tools/render.mjs <id> --gif`.
 
 ## characters
@@ -432,6 +432,26 @@ inventory icons for materials, components, gems, produce, animal products and me
 | Screw | `items/components/screw` | loop 1s | 16×16 | A tapered silver screw with a slotted head and diagonal threads. |
 | Spring | `items/components/spring` | loop 1s | 16×16 | A vertical compression spring with overlapping steel coils. |
 | Wire | `items/components/wire` | loop 1s | 16×16 | A loop of blue insulated cable with two exposed metal ends. |
+| Antidote | `items/consumables/antidote` | loop 1s | 16×16 | A mint-green healing solution in a medium flask. |
+| Bomb | `items/consumables/bomb` | loop 1s | 16×16 | A round fantasy game bomb with a glowing curled fuse. |
+| Defense potion | `items/consumables/defense-potion` | loop 1s | 16×16 | A steel-gray tonic in a wide reinforced bottle. |
+| Experience scroll | `items/consumables/experience-scroll` | loop 1s | 16×16 | A folded scroll with a blue experience rune. |
+| Fertilizer | `items/consumables/fertilizer` | loop 1s | 16×16 | A paper sack marked with a sprouting leaf. |
+| Fire resistance potion | `items/consumables/fire-resistance-potion` | loop 1s | 16×16 | A warm resistance elixir with a gold lightning mark. |
+| Growth booster | `items/consumables/growth-booster` | loop 1s | 16×16 | A broad moss-green growth tonic with a bright cross. |
+| Invisibility potion | `items/consumables/invisibility-potion` | loop 1s | 16×16 | A pale violet solution in a slim cloudy bottle. |
+| Large energy potion | `items/consumables/large-energy-potion` | loop 1s | 16×16 | A wide blue flask with a lightning mark. |
+| Large health potion | `items/consumables/large-health-potion` | loop 1s | 16×16 | A wide crimson flask with a healing cross. |
+| Luck potion | `items/consumables/luck-potion` | loop 1s | 16×16 | A golden luck elixir in a small vial. |
+| Medium energy potion | `items/consumables/medium-energy-potion` | loop 1s | 16×16 | A medium blue flask with a lightning mark. |
+| Medium health potion | `items/consumables/medium-health-potion` | loop 1s | 16×16 | A medium crimson flask with a healing cross. |
+| Poison potion | `items/consumables/poison-potion` | loop 1s | 16×16 | A wide green fantasy status potion. |
+| Repair kit | `items/consumables/repair-kit` | loop 1s | 16×16 | A toolbox with a steel wrench and a brass hinge. |
+| Small energy potion | `items/consumables/small-energy-potion` | loop 1s | 16×16 | A small blue flask with a lightning mark. |
+| Small health potion | `items/consumables/small-health-potion` | loop 1s | 16×16 | A small crimson flask with a healing cross. |
+| Speed potion | `items/consumables/speed-potion` | loop 1s | 16×16 | A slim green elixir with a lightning mark. |
+| Strength potion | `items/consumables/strength-potion` | loop 1s | 16×16 | A square amber tonic with a bright sediment line. |
+| Teleport scroll | `items/consumables/teleport-scroll` | loop 1s | 16×16 | A folded scroll with a violet travel rune. |
 | Bread | `items/food/bread` | loop 1s | 16×16 | A golden loaf with scored crust and a pale cut end. |
 | Burger | `items/food/burger` | loop 1s | 16×16 | A sesame bun stacked over lettuce, cheese and a dark patty. |
 | Cake | `items/food/cake` | loop 1s | 16×16 | A layer-cake slice with pink filling, icing and a red topping. |

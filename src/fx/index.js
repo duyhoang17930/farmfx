@@ -311,6 +311,26 @@ import * as items_components_rubber from "./items/components/rubber.js";
 import * as items_components_screw from "./items/components/screw.js";
 import * as items_components_spring from "./items/components/spring.js";
 import * as items_components_wire from "./items/components/wire.js";
+import * as items_consumables_antidote from "./items/consumables/antidote.js";
+import * as items_consumables_bomb from "./items/consumables/bomb.js";
+import * as items_consumables_defense_potion from "./items/consumables/defense-potion.js";
+import * as items_consumables_experience_scroll from "./items/consumables/experience-scroll.js";
+import * as items_consumables_fertilizer from "./items/consumables/fertilizer.js";
+import * as items_consumables_fire_resistance_potion from "./items/consumables/fire-resistance-potion.js";
+import * as items_consumables_growth_booster from "./items/consumables/growth-booster.js";
+import * as items_consumables_invisibility_potion from "./items/consumables/invisibility-potion.js";
+import * as items_consumables_large_energy_potion from "./items/consumables/large-energy-potion.js";
+import * as items_consumables_large_health_potion from "./items/consumables/large-health-potion.js";
+import * as items_consumables_luck_potion from "./items/consumables/luck-potion.js";
+import * as items_consumables_medium_energy_potion from "./items/consumables/medium-energy-potion.js";
+import * as items_consumables_medium_health_potion from "./items/consumables/medium-health-potion.js";
+import * as items_consumables_poison_potion from "./items/consumables/poison-potion.js";
+import * as items_consumables_repair_kit from "./items/consumables/repair-kit.js";
+import * as items_consumables_small_energy_potion from "./items/consumables/small-energy-potion.js";
+import * as items_consumables_small_health_potion from "./items/consumables/small-health-potion.js";
+import * as items_consumables_speed_potion from "./items/consumables/speed-potion.js";
+import * as items_consumables_strength_potion from "./items/consumables/strength-potion.js";
+import * as items_consumables_teleport_scroll from "./items/consumables/teleport-scroll.js";
 import * as items_food_bread from "./items/food/bread.js";
 import * as items_food_burger from "./items/food/burger.js";
 import * as items_food_cake from "./items/food/cake.js";
@@ -746,6 +766,26 @@ export const effects = {
   "items/components/screw": items_components_screw,
   "items/components/spring": items_components_spring,
   "items/components/wire": items_components_wire,
+  "items/consumables/antidote": items_consumables_antidote,
+  "items/consumables/bomb": items_consumables_bomb,
+  "items/consumables/defense-potion": items_consumables_defense_potion,
+  "items/consumables/experience-scroll": items_consumables_experience_scroll,
+  "items/consumables/fertilizer": items_consumables_fertilizer,
+  "items/consumables/fire-resistance-potion": items_consumables_fire_resistance_potion,
+  "items/consumables/growth-booster": items_consumables_growth_booster,
+  "items/consumables/invisibility-potion": items_consumables_invisibility_potion,
+  "items/consumables/large-energy-potion": items_consumables_large_energy_potion,
+  "items/consumables/large-health-potion": items_consumables_large_health_potion,
+  "items/consumables/luck-potion": items_consumables_luck_potion,
+  "items/consumables/medium-energy-potion": items_consumables_medium_energy_potion,
+  "items/consumables/medium-health-potion": items_consumables_medium_health_potion,
+  "items/consumables/poison-potion": items_consumables_poison_potion,
+  "items/consumables/repair-kit": items_consumables_repair_kit,
+  "items/consumables/small-energy-potion": items_consumables_small_energy_potion,
+  "items/consumables/small-health-potion": items_consumables_small_health_potion,
+  "items/consumables/speed-potion": items_consumables_speed_potion,
+  "items/consumables/strength-potion": items_consumables_strength_potion,
+  "items/consumables/teleport-scroll": items_consumables_teleport_scroll,
   "items/food/bread": items_food_bread,
   "items/food/burger": items_food_burger,
   "items/food/cake": items_food_cake,

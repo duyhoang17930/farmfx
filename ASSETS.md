@@ -1,6 +1,6 @@
 # FarmFX assets
 
-431 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
+451 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
 
 ## Characters (20)
 
@@ -359,7 +359,7 @@
 | Stone cutter | [`machines/stone-cutter`](src/fx/machines/stone-cutter.js) | [GIF](docs/preview/machines-stone-cutter.gif) |
 | Teleporter | [`machines/teleporter`](src/fx/machines/teleporter.js) | [GIF](docs/preview/machines-teleporter.gif) |
 
-## Items (154)
+## Items (174)
 
 | Asset | ID | Preview |
 | --- | --- | --- |
@@ -397,6 +397,26 @@
 | Screw | [`items/components/screw`](src/fx/items/components/screw.js) | [GIF](docs/preview/items-components-screw.gif) |
 | Spring | [`items/components/spring`](src/fx/items/components/spring.js) | [GIF](docs/preview/items-components-spring.gif) |
 | Wire | [`items/components/wire`](src/fx/items/components/wire.js) | [GIF](docs/preview/items-components-wire.gif) |
+| Antidote | [`items/consumables/antidote`](src/fx/items/consumables/antidote.js) | — |
+| Bomb | [`items/consumables/bomb`](src/fx/items/consumables/bomb.js) | — |
+| Defense potion | [`items/consumables/defense-potion`](src/fx/items/consumables/defense-potion.js) | — |
+| Experience scroll | [`items/consumables/experience-scroll`](src/fx/items/consumables/experience-scroll.js) | — |
+| Fertilizer | [`items/consumables/fertilizer`](src/fx/items/consumables/fertilizer.js) | — |
+| Fire resistance potion | [`items/consumables/fire-resistance-potion`](src/fx/items/consumables/fire-resistance-potion.js) | — |
+| Growth booster | [`items/consumables/growth-booster`](src/fx/items/consumables/growth-booster.js) | — |
+| Invisibility potion | [`items/consumables/invisibility-potion`](src/fx/items/consumables/invisibility-potion.js) | — |
+| Large energy potion | [`items/consumables/large-energy-potion`](src/fx/items/consumables/large-energy-potion.js) | — |
+| Large health potion | [`items/consumables/large-health-potion`](src/fx/items/consumables/large-health-potion.js) | — |
+| Luck potion | [`items/consumables/luck-potion`](src/fx/items/consumables/luck-potion.js) | — |
+| Medium energy potion | [`items/consumables/medium-energy-potion`](src/fx/items/consumables/medium-energy-potion.js) | — |
+| Medium health potion | [`items/consumables/medium-health-potion`](src/fx/items/consumables/medium-health-potion.js) | — |
+| Poison potion | [`items/consumables/poison-potion`](src/fx/items/consumables/poison-potion.js) | — |
+| Repair kit | [`items/consumables/repair-kit`](src/fx/items/consumables/repair-kit.js) | — |
+| Small energy potion | [`items/consumables/small-energy-potion`](src/fx/items/consumables/small-energy-potion.js) | — |
+| Small health potion | [`items/consumables/small-health-potion`](src/fx/items/consumables/small-health-potion.js) | — |
+| Speed potion | [`items/consumables/speed-potion`](src/fx/items/consumables/speed-potion.js) | — |
+| Strength potion | [`items/consumables/strength-potion`](src/fx/items/consumables/strength-potion.js) | — |
+| Teleport scroll | [`items/consumables/teleport-scroll`](src/fx/items/consumables/teleport-scroll.js) | — |
 | Bread | [`items/food/bread`](src/fx/items/food/bread.js) | [GIF](docs/preview/items-food-bread.gif) |
 | Burger | [`items/food/burger`](src/fx/items/food/burger.js) | [GIF](docs/preview/items-food-burger.gif) |
 | Cake | [`items/food/cake`](src/fx/items/food/cake.js) | [GIF](docs/preview/items-food-cake.gif) |
