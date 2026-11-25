@@ -1,6 +1,6 @@
 # FarmFX assets
 
-1306 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
+1331 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
 
 ## Characters (20)
 
@@ -1437,3 +1437,33 @@
 | lightning magic | [`skills/magic/lightning-magic`](src/fx/skills/magic/lightning-magic.js) | — |
 | summoning | [`skills/magic/summoning`](src/fx/skills/magic/summoning.js) | — |
 | teleportation | [`skills/magic/teleportation`](src/fx/skills/magic/teleportation.js) | — |
+
+## Emotes (25)
+
+| Asset | ID | Preview |
+| --- | --- | --- |
+| angry | [`emotes/angry`](src/fx/emotes/angry.js) | — |
+| annoyed | [`emotes/annoyed`](src/fx/emotes/annoyed.js) | — |
+| broken heart | [`emotes/broken-heart`](src/fx/emotes/broken-heart.js) | — |
+| celebration | [`emotes/celebration`](src/fx/emotes/celebration.js) | — |
+| confused | [`emotes/confused`](src/fx/emotes/confused.js) | — |
+| crying | [`emotes/crying`](src/fx/emotes/crying.js) | — |
+| dizzy | [`emotes/dizzy`](src/fx/emotes/dizzy.js) | — |
+| exclamation | [`emotes/exclamation`](src/fx/emotes/exclamation.js) | — |
+| goodbye | [`emotes/goodbye`](src/fx/emotes/goodbye.js) | — |
+| greeting | [`emotes/greeting`](src/fx/emotes/greeting.js) | — |
+| happy | [`emotes/happy`](src/fx/emotes/happy.js) | — |
+| hungry | [`emotes/hungry`](src/fx/emotes/hungry.js) | — |
+| idea | [`emotes/idea`](src/fx/emotes/idea.js) | — |
+| laughing | [`emotes/laughing`](src/fx/emotes/laughing.js) | — |
+| love | [`emotes/love`](src/fx/emotes/love.js) | — |
+| music note | [`emotes/music-note`](src/fx/emotes/music-note.js) | — |
+| question | [`emotes/question`](src/fx/emotes/question.js) | — |
+| sad | [`emotes/sad`](src/fx/emotes/sad.js) | — |
+| scared | [`emotes/scared`](src/fx/emotes/scared.js) | — |
+| sleeping | [`emotes/sleeping`](src/fx/emotes/sleeping.js) | — |
+| surprised | [`emotes/surprised`](src/fx/emotes/surprised.js) | — |
+| sweat | [`emotes/sweat`](src/fx/emotes/sweat.js) | — |
+| thinking | [`emotes/thinking`](src/fx/emotes/thinking.js) | — |
+| thirsty | [`emotes/thirsty`](src/fx/emotes/thirsty.js) | — |
+| tired | [`emotes/tired`](src/fx/emotes/tired.js) | — |

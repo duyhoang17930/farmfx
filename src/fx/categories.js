@@ -27,4 +27,5 @@ export const categories = [
   { id: "dungeons", name: "dungeons", blurb: "dungeon terrain, switches, traps and props" },
   { id: "combat", name: "combat", blurb: "animated combat hits, spells, projectiles and status effects" },
   { id: "skills", name: "skills", blurb: "skill icons grouped by progression branch" },
+  { id: "emotes", name: "emotes", blurb: "expressive character reaction bubbles" },
 ];

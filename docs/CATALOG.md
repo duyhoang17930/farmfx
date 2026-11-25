@@ -1,6 +1,6 @@
 # Catalog
 
-1306 effects in 26 categories. Every one is a file in
+1331 effects in 27 categories. Every one is a file in
 `src/fx/<category>/<name>.js`; render any of them with `node tools/render.mjs <id> --gif`.
 
 ## characters
@@ -1490,3 +1490,35 @@ skill icons grouped by progression branch.
 | lightning magic | `skills/magic/lightning-magic` | loop 1s | 32×32 | An inventory-scale emblem for the lightning magic skill. |
 | summoning | `skills/magic/summoning` | loop 1s | 32×32 | An inventory-scale emblem for the summoning skill. |
 | teleportation | `skills/magic/teleportation` | loop 1s | 32×32 | An inventory-scale emblem for the teleportation skill. |
+
+## emotes
+
+expressive character reaction bubbles.
+
+| effect | id | | size | what it does |
+|---|---|---|---|---|
+| angry | `emotes/angry` | loop 2.4s | 48×48 | A floating angry emote with a transparent background. |
+| annoyed | `emotes/annoyed` | loop 2.4s | 48×48 | A floating annoyed emote with a transparent background. |
+| broken heart | `emotes/broken-heart` | loop 2.4s | 48×48 | A floating broken heart emote with a transparent background. |
+| celebration | `emotes/celebration` | loop 2.4s | 48×48 | A floating celebration emote with a transparent background. |
+| confused | `emotes/confused` | loop 2.4s | 48×48 | A floating confused emote with a transparent background. |
+| crying | `emotes/crying` | loop 2.4s | 48×48 | A floating crying emote with a transparent background. |
+| dizzy | `emotes/dizzy` | loop 2.4s | 48×48 | A floating dizzy emote with a transparent background. |
+| exclamation | `emotes/exclamation` | loop 2.4s | 48×48 | A floating exclamation emote with a transparent background. |
+| goodbye | `emotes/goodbye` | loop 2.4s | 48×48 | A floating goodbye emote with a transparent background. |
+| greeting | `emotes/greeting` | loop 2.4s | 48×48 | A floating greeting emote with a transparent background. |
+| happy | `emotes/happy` | loop 2.4s | 48×48 | A floating happy emote with a transparent background. |
+| hungry | `emotes/hungry` | loop 2.4s | 48×48 | A floating hungry emote with a transparent background. |
+| idea | `emotes/idea` | loop 2.4s | 48×48 | A floating idea emote with a transparent background. |
+| laughing | `emotes/laughing` | loop 2.4s | 48×48 | A floating laughing emote with a transparent background. |
+| love | `emotes/love` | loop 2.4s | 48×48 | A floating love emote with a transparent background. |
+| music note | `emotes/music-note` | loop 2.4s | 48×48 | A floating music note emote with a transparent background. |
+| question | `emotes/question` | loop 2.4s | 48×48 | A floating question emote with a transparent background. |
+| sad | `emotes/sad` | loop 2.4s | 48×48 | A floating sad emote with a transparent background. |
+| scared | `emotes/scared` | loop 2.4s | 48×48 | A floating scared emote with a transparent background. |
+| sleeping | `emotes/sleeping` | loop 2.4s | 48×48 | A floating sleeping emote with a transparent background. |
+| surprised | `emotes/surprised` | loop 2.4s | 48×48 | A floating surprised emote with a transparent background. |
+| sweat | `emotes/sweat` | loop 2.4s | 48×48 | A floating sweat emote with a transparent background. |
+| thinking | `emotes/thinking` | loop 2.4s | 48×48 | A floating thinking emote with a transparent background. |
+| thirsty | `emotes/thirsty` | loop 2.4s | 48×48 | A floating thirsty emote with a transparent background. |
+| tired | `emotes/tired` | loop 2.4s | 48×48 | A floating tired emote with a transparent background. |

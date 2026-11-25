@@ -1306,6 +1306,31 @@ import * as skills_magic_ice_magic from "./skills/magic/ice-magic.js";
 import * as skills_magic_lightning_magic from "./skills/magic/lightning-magic.js";
 import * as skills_magic_summoning from "./skills/magic/summoning.js";
 import * as skills_magic_teleportation from "./skills/magic/teleportation.js";
+import * as emotes_angry from "./emotes/angry.js";
+import * as emotes_annoyed from "./emotes/annoyed.js";
+import * as emotes_broken_heart from "./emotes/broken-heart.js";
+import * as emotes_celebration from "./emotes/celebration.js";
+import * as emotes_confused from "./emotes/confused.js";
+import * as emotes_crying from "./emotes/crying.js";
+import * as emotes_dizzy from "./emotes/dizzy.js";
+import * as emotes_exclamation from "./emotes/exclamation.js";
+import * as emotes_goodbye from "./emotes/goodbye.js";
+import * as emotes_greeting from "./emotes/greeting.js";
+import * as emotes_happy from "./emotes/happy.js";
+import * as emotes_hungry from "./emotes/hungry.js";
+import * as emotes_idea from "./emotes/idea.js";
+import * as emotes_laughing from "./emotes/laughing.js";
+import * as emotes_love from "./emotes/love.js";
+import * as emotes_music_note from "./emotes/music-note.js";
+import * as emotes_question from "./emotes/question.js";
+import * as emotes_sad from "./emotes/sad.js";
+import * as emotes_scared from "./emotes/scared.js";
+import * as emotes_sleeping from "./emotes/sleeping.js";
+import * as emotes_surprised from "./emotes/surprised.js";
+import * as emotes_sweat from "./emotes/sweat.js";
+import * as emotes_thinking from "./emotes/thinking.js";
+import * as emotes_thirsty from "./emotes/thirsty.js";
+import * as emotes_tired from "./emotes/tired.js";
 
 export { categories } from "./categories.js";
 
@@ -2616,4 +2641,29 @@ export const effects = {
   "skills/magic/lightning-magic": skills_magic_lightning_magic,
   "skills/magic/summoning": skills_magic_summoning,
   "skills/magic/teleportation": skills_magic_teleportation,
+  "emotes/angry": emotes_angry,
+  "emotes/annoyed": emotes_annoyed,
+  "emotes/broken-heart": emotes_broken_heart,
+  "emotes/celebration": emotes_celebration,
+  "emotes/confused": emotes_confused,
+  "emotes/crying": emotes_crying,
+  "emotes/dizzy": emotes_dizzy,
+  "emotes/exclamation": emotes_exclamation,
+  "emotes/goodbye": emotes_goodbye,
+  "emotes/greeting": emotes_greeting,
+  "emotes/happy": emotes_happy,
+  "emotes/hungry": emotes_hungry,
+  "emotes/idea": emotes_idea,
+  "emotes/laughing": emotes_laughing,
+  "emotes/love": emotes_love,
+  "emotes/music-note": emotes_music_note,
+  "emotes/question": emotes_question,
+  "emotes/sad": emotes_sad,
+  "emotes/scared": emotes_scared,
+  "emotes/sleeping": emotes_sleeping,
+  "emotes/surprised": emotes_surprised,
+  "emotes/sweat": emotes_sweat,
+  "emotes/thinking": emotes_thinking,
+  "emotes/thirsty": emotes_thirsty,
+  "emotes/tired": emotes_tired,
 };
