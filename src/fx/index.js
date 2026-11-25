@@ -675,6 +675,21 @@ import * as enemies_swamp_monster from "./enemies/swamp-monster.js";
 import * as enemies_vampire_bat from "./enemies/vampire-bat.js";
 import * as enemies_wolf from "./enemies/wolf.js";
 import * as enemies_zombie from "./enemies/zombie.js";
+import * as bosses_ancient_demon from "./bosses/ancient-demon.js";
+import * as bosses_ancient_tree_guardian from "./bosses/ancient-tree-guardian.js";
+import * as bosses_crystal_golem from "./bosses/crystal-golem.js";
+import * as bosses_dark_wizard from "./bosses/dark-wizard.js";
+import * as bosses_desert_pharaoh from "./bosses/desert-pharaoh.js";
+import * as bosses_fire_dragon from "./bosses/fire-dragon.js";
+import * as bosses_frost_dragon from "./bosses/frost-dragon.js";
+import * as bosses_giant_spider from "./bosses/giant-spider.js";
+import * as bosses_goblin_king from "./bosses/goblin-king.js";
+import * as bosses_ice_giant from "./bosses/ice-giant.js";
+import * as bosses_lava_titan from "./bosses/lava-titan.js";
+import * as bosses_sand_worm_queen from "./bosses/sand-worm-queen.js";
+import * as bosses_skeleton_king from "./bosses/skeleton-king.js";
+import * as bosses_slime_king from "./bosses/slime-king.js";
+import * as bosses_stone_titan from "./bosses/stone-titan.js";
 
 export { categories } from "./categories.js";
 
@@ -1354,4 +1369,19 @@ export const effects = {
   "enemies/vampire-bat": enemies_vampire_bat,
   "enemies/wolf": enemies_wolf,
   "enemies/zombie": enemies_zombie,
+  "bosses/ancient-demon": bosses_ancient_demon,
+  "bosses/ancient-tree-guardian": bosses_ancient_tree_guardian,
+  "bosses/crystal-golem": bosses_crystal_golem,
+  "bosses/dark-wizard": bosses_dark_wizard,
+  "bosses/desert-pharaoh": bosses_desert_pharaoh,
+  "bosses/fire-dragon": bosses_fire_dragon,
+  "bosses/frost-dragon": bosses_frost_dragon,
+  "bosses/giant-spider": bosses_giant_spider,
+  "bosses/goblin-king": bosses_goblin_king,
+  "bosses/ice-giant": bosses_ice_giant,
+  "bosses/lava-titan": bosses_lava_titan,
+  "bosses/sand-worm-queen": bosses_sand_worm_queen,
+  "bosses/skeleton-king": bosses_skeleton_king,
+  "bosses/slime-king": bosses_slime_king,
+  "bosses/stone-titan": bosses_stone_titan,
 };

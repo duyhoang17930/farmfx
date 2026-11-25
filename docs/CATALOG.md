@@ -1,6 +1,6 @@
 # Catalog
 
-675 effects in 21 categories. Every one is a file in
+690 effects in 22 categories. Every one is a file in
 `src/fx/<category>/<name>.js`; render any of them with `node tools/render.mjs <id> --gif`.
 
 ## characters
@@ -824,3 +824,25 @@ hostile creatures with movement and reaction clips.
 | vampire bat | `enemies/vampire-bat` | loop 1.25s | 64×64 | A top-down vampire bat with selectable animation states. |
 | wolf | `enemies/wolf` | loop 1.25s | 64×64 | A top-down wolf with selectable animation states. |
 | zombie | `enemies/zombie` | loop 1.25s | 64×64 | A top-down zombie with selectable animation states. |
+
+## bosses
+
+large encounters with attack, phase and reward clips.
+
+| effect | id | | size | what it does |
+|---|---|---|---|---|
+| ancient demon | `bosses/ancient-demon` | loop 1.25s | 96×96 | A top-down ancient demon with selectable animation states. |
+| ancient tree guardian | `bosses/ancient-tree-guardian` | loop 1.25s | 96×96 | A top-down ancient tree guardian with selectable animation states. |
+| crystal golem | `bosses/crystal-golem` | loop 1.25s | 96×96 | A top-down crystal golem with selectable animation states. |
+| dark wizard | `bosses/dark-wizard` | loop 1.25s | 96×96 | A top-down dark wizard with selectable animation states. |
+| desert pharaoh | `bosses/desert-pharaoh` | loop 1.25s | 96×96 | A top-down desert pharaoh with selectable animation states. |
+| fire dragon | `bosses/fire-dragon` | loop 1.25s | 96×96 | A top-down fire dragon with selectable animation states. |
+| frost dragon | `bosses/frost-dragon` | loop 1.25s | 96×96 | A top-down frost dragon with selectable animation states. |
+| giant spider | `bosses/giant-spider` | loop 1.25s | 96×96 | A top-down giant spider with selectable animation states. |
+| goblin king | `bosses/goblin-king` | loop 1.25s | 96×96 | A top-down goblin king with selectable animation states. |
+| ice giant | `bosses/ice-giant` | loop 1.25s | 96×96 | A top-down ice giant with selectable animation states. |
+| lava titan | `bosses/lava-titan` | loop 1.25s | 96×96 | A top-down lava titan with selectable animation states. |
+| sand worm queen | `bosses/sand-worm-queen` | loop 1.25s | 96×96 | A top-down sand worm queen with selectable animation states. |
+| skeleton king | `bosses/skeleton-king` | loop 1.25s | 96×96 | A top-down skeleton king with selectable animation states. |
+| slime king | `bosses/slime-king` | loop 1.25s | 96×96 | A top-down slime king with selectable animation states. |
+| stone titan | `bosses/stone-titan` | loop 1.25s | 96×96 | A top-down stone titan with selectable animation states. |

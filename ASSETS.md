@@ -1,6 +1,6 @@
 # FarmFX assets
 
-675 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
+690 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
 
 ## Characters (20)
 
@@ -781,3 +781,23 @@
 | vampire bat | [`enemies/vampire-bat`](src/fx/enemies/vampire-bat.js) | — |
 | wolf | [`enemies/wolf`](src/fx/enemies/wolf.js) | — |
 | zombie | [`enemies/zombie`](src/fx/enemies/zombie.js) | — |
+
+## Bosses (15)
+
+| Asset | ID | Preview |
+| --- | --- | --- |
+| ancient demon | [`bosses/ancient-demon`](src/fx/bosses/ancient-demon.js) | — |
+| ancient tree guardian | [`bosses/ancient-tree-guardian`](src/fx/bosses/ancient-tree-guardian.js) | — |
+| crystal golem | [`bosses/crystal-golem`](src/fx/bosses/crystal-golem.js) | — |
+| dark wizard | [`bosses/dark-wizard`](src/fx/bosses/dark-wizard.js) | — |
+| desert pharaoh | [`bosses/desert-pharaoh`](src/fx/bosses/desert-pharaoh.js) | — |
+| fire dragon | [`bosses/fire-dragon`](src/fx/bosses/fire-dragon.js) | — |
+| frost dragon | [`bosses/frost-dragon`](src/fx/bosses/frost-dragon.js) | — |
+| giant spider | [`bosses/giant-spider`](src/fx/bosses/giant-spider.js) | — |
+| goblin king | [`bosses/goblin-king`](src/fx/bosses/goblin-king.js) | — |
+| ice giant | [`bosses/ice-giant`](src/fx/bosses/ice-giant.js) | — |
+| lava titan | [`bosses/lava-titan`](src/fx/bosses/lava-titan.js) | — |
+| sand worm queen | [`bosses/sand-worm-queen`](src/fx/bosses/sand-worm-queen.js) | — |
+| skeleton king | [`bosses/skeleton-king`](src/fx/bosses/skeleton-king.js) | — |
+| slime king | [`bosses/slime-king`](src/fx/bosses/slime-king.js) | — |
+| stone titan | [`bosses/stone-titan`](src/fx/bosses/stone-titan.js) | — |

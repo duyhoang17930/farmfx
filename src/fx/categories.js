@@ -22,4 +22,5 @@ export const categories = [
   { id: "weapons", name: "weapons", blurb: "fantasy weapon and shield sprites" },
   { id: "equipment", name: "equipment", blurb: "armor, clothing, bags and jewelry sprites" },
   { id: "enemies", name: "enemies", blurb: "hostile creatures with movement and reaction clips" },
+  { id: "bosses", name: "bosses", blurb: "large encounters with attack, phase and reward clips" },
 ];
