@@ -1,6 +1,6 @@
 # FarmFX assets
 
-635 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
+675 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
 
 ## Characters (20)
 
@@ -736,3 +736,48 @@
 | speed ring | [`equipment/speed-ring`](src/fx/equipment/speed-ring.js) | — |
 | strength ring | [`equipment/strength-ring`](src/fx/equipment/strength-ring.js) | — |
 | wooden backpack | [`equipment/wooden-backpack`](src/fx/equipment/wooden-backpack.js) | — |
+
+## Enemies (40)
+
+| Asset | ID | Preview |
+| --- | --- | --- |
+| angry boar | [`enemies/angry-boar`](src/fx/enemies/angry-boar.js) | — |
+| bat | [`enemies/bat`](src/fx/enemies/bat.js) | — |
+| blue slime | [`enemies/blue-slime`](src/fx/enemies/blue-slime.js) | — |
+| carnivorous plant | [`enemies/carnivorous-plant`](src/fx/enemies/carnivorous-plant.js) | — |
+| corrupted tree | [`enemies/corrupted-tree`](src/fx/enemies/corrupted-tree.js) | — |
+| crystal guardian | [`enemies/crystal-guardian`](src/fx/enemies/crystal-guardian.js) | — |
+| crystal slime | [`enemies/crystal-slime`](src/fx/enemies/crystal-slime.js) | — |
+| dark knight | [`enemies/dark-knight`](src/fx/enemies/dark-knight.js) | — |
+| dark spirit | [`enemies/dark-spirit`](src/fx/enemies/dark-spirit.js) | — |
+| demon | [`enemies/demon`](src/fx/enemies/demon.js) | — |
+| fire elemental | [`enemies/fire-elemental`](src/fx/enemies/fire-elemental.js) | — |
+| ghost | [`enemies/ghost`](src/fx/enemies/ghost.js) | — |
+| giant bee | [`enemies/giant-bee`](src/fx/enemies/giant-bee.js) | — |
+| goblin | [`enemies/goblin`](src/fx/enemies/goblin.js) | — |
+| goblin archer | [`enemies/goblin-archer`](src/fx/enemies/goblin-archer.js) | — |
+| goblin warrior | [`enemies/goblin-warrior`](src/fx/enemies/goblin-warrior.js) | — |
+| green slime | [`enemies/green-slime`](src/fx/enemies/green-slime.js) | — |
+| ice elemental | [`enemies/ice-elemental`](src/fx/enemies/ice-elemental.js) | — |
+| ice golem | [`enemies/ice-golem`](src/fx/enemies/ice-golem.js) | — |
+| lava golem | [`enemies/lava-golem`](src/fx/enemies/lava-golem.js) | — |
+| lightning elemental | [`enemies/lightning-elemental`](src/fx/enemies/lightning-elemental.js) | — |
+| mimic chest | [`enemies/mimic-chest`](src/fx/enemies/mimic-chest.js) | — |
+| mini dragon | [`enemies/mini-dragon`](src/fx/enemies/mini-dragon.js) | — |
+| mummy | [`enemies/mummy`](src/fx/enemies/mummy.js) | — |
+| mushroom monster | [`enemies/mushroom-monster`](src/fx/enemies/mushroom-monster.js) | — |
+| poison slime | [`enemies/poison-slime`](src/fx/enemies/poison-slime.js) | — |
+| poison spider | [`enemies/poison-spider`](src/fx/enemies/poison-spider.js) | — |
+| red slime | [`enemies/red-slime`](src/fx/enemies/red-slime.js) | — |
+| sand worm | [`enemies/sand-worm`](src/fx/enemies/sand-worm.js) | — |
+| scorpion | [`enemies/scorpion`](src/fx/enemies/scorpion.js) | — |
+| skeleton | [`enemies/skeleton`](src/fx/enemies/skeleton.js) | — |
+| skeleton archer | [`enemies/skeleton-archer`](src/fx/enemies/skeleton-archer.js) | — |
+| skeleton knight | [`enemies/skeleton-knight`](src/fx/enemies/skeleton-knight.js) | — |
+| snow wolf | [`enemies/snow-wolf`](src/fx/enemies/snow-wolf.js) | — |
+| spider | [`enemies/spider`](src/fx/enemies/spider.js) | — |
+| stone golem | [`enemies/stone-golem`](src/fx/enemies/stone-golem.js) | — |
+| swamp monster | [`enemies/swamp-monster`](src/fx/enemies/swamp-monster.js) | — |
+| vampire bat | [`enemies/vampire-bat`](src/fx/enemies/vampire-bat.js) | — |
+| wolf | [`enemies/wolf`](src/fx/enemies/wolf.js) | — |
+| zombie | [`enemies/zombie`](src/fx/enemies/zombie.js) | — |

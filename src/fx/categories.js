@@ -21,4 +21,5 @@ export const categories = [
   { id: "player", name: "player", blurb: "island explorer movement and action clips" },
   { id: "weapons", name: "weapons", blurb: "fantasy weapon and shield sprites" },
   { id: "equipment", name: "equipment", blurb: "armor, clothing, bags and jewelry sprites" },
+  { id: "enemies", name: "enemies", blurb: "hostile creatures with movement and reaction clips" },
 ];

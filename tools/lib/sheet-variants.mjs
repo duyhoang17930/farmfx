@@ -22,6 +22,12 @@ export function sheetVariants(fx) {
 
   if (category === "characters") {
     directional(["idle", "walk"], { size: [32, 48], pivot: [16, 40] });
+  } else if (fx.meta.clips && options.state) {
+    for (const facing of FACINGS) for (const state of fx.meta.clips) {
+      const loop=["idle","move","walk","eat","sleep","stunned"].includes(state);
+      const events=loop?undefined:{...(state.startsWith("attack")?{damage:fx.meta.duration*0.39}:{}),completion:fx.meta.duration};
+      add(`${facing}-${state}`,{facing,state},{loop,events});
+    }
   } else if (category === "animals" && options.facing && options.anim) {
     directional(["idle", "walk", "graze"]);
   } else if (category === "farming") {

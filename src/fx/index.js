@@ -635,6 +635,46 @@ import * as equipment_speed_boots from "./equipment/speed-boots.js";
 import * as equipment_speed_ring from "./equipment/speed-ring.js";
 import * as equipment_strength_ring from "./equipment/strength-ring.js";
 import * as equipment_wooden_backpack from "./equipment/wooden-backpack.js";
+import * as enemies_angry_boar from "./enemies/angry-boar.js";
+import * as enemies_bat from "./enemies/bat.js";
+import * as enemies_blue_slime from "./enemies/blue-slime.js";
+import * as enemies_carnivorous_plant from "./enemies/carnivorous-plant.js";
+import * as enemies_corrupted_tree from "./enemies/corrupted-tree.js";
+import * as enemies_crystal_guardian from "./enemies/crystal-guardian.js";
+import * as enemies_crystal_slime from "./enemies/crystal-slime.js";
+import * as enemies_dark_knight from "./enemies/dark-knight.js";
+import * as enemies_dark_spirit from "./enemies/dark-spirit.js";
+import * as enemies_demon from "./enemies/demon.js";
+import * as enemies_fire_elemental from "./enemies/fire-elemental.js";
+import * as enemies_ghost from "./enemies/ghost.js";
+import * as enemies_giant_bee from "./enemies/giant-bee.js";
+import * as enemies_goblin from "./enemies/goblin.js";
+import * as enemies_goblin_archer from "./enemies/goblin-archer.js";
+import * as enemies_goblin_warrior from "./enemies/goblin-warrior.js";
+import * as enemies_green_slime from "./enemies/green-slime.js";
+import * as enemies_ice_elemental from "./enemies/ice-elemental.js";
+import * as enemies_ice_golem from "./enemies/ice-golem.js";
+import * as enemies_lava_golem from "./enemies/lava-golem.js";
+import * as enemies_lightning_elemental from "./enemies/lightning-elemental.js";
+import * as enemies_mimic_chest from "./enemies/mimic-chest.js";
+import * as enemies_mini_dragon from "./enemies/mini-dragon.js";
+import * as enemies_mummy from "./enemies/mummy.js";
+import * as enemies_mushroom_monster from "./enemies/mushroom-monster.js";
+import * as enemies_poison_slime from "./enemies/poison-slime.js";
+import * as enemies_poison_spider from "./enemies/poison-spider.js";
+import * as enemies_red_slime from "./enemies/red-slime.js";
+import * as enemies_sand_worm from "./enemies/sand-worm.js";
+import * as enemies_scorpion from "./enemies/scorpion.js";
+import * as enemies_skeleton from "./enemies/skeleton.js";
+import * as enemies_skeleton_archer from "./enemies/skeleton-archer.js";
+import * as enemies_skeleton_knight from "./enemies/skeleton-knight.js";
+import * as enemies_snow_wolf from "./enemies/snow-wolf.js";
+import * as enemies_spider from "./enemies/spider.js";
+import * as enemies_stone_golem from "./enemies/stone-golem.js";
+import * as enemies_swamp_monster from "./enemies/swamp-monster.js";
+import * as enemies_vampire_bat from "./enemies/vampire-bat.js";
+import * as enemies_wolf from "./enemies/wolf.js";
+import * as enemies_zombie from "./enemies/zombie.js";
 
 export { categories } from "./categories.js";
 
@@ -1274,4 +1314,44 @@ export const effects = {
   "equipment/speed-ring": equipment_speed_ring,
   "equipment/strength-ring": equipment_strength_ring,
   "equipment/wooden-backpack": equipment_wooden_backpack,
+  "enemies/angry-boar": enemies_angry_boar,
+  "enemies/bat": enemies_bat,
+  "enemies/blue-slime": enemies_blue_slime,
+  "enemies/carnivorous-plant": enemies_carnivorous_plant,
+  "enemies/corrupted-tree": enemies_corrupted_tree,
+  "enemies/crystal-guardian": enemies_crystal_guardian,
+  "enemies/crystal-slime": enemies_crystal_slime,
+  "enemies/dark-knight": enemies_dark_knight,
+  "enemies/dark-spirit": enemies_dark_spirit,
+  "enemies/demon": enemies_demon,
+  "enemies/fire-elemental": enemies_fire_elemental,
+  "enemies/ghost": enemies_ghost,
+  "enemies/giant-bee": enemies_giant_bee,
+  "enemies/goblin": enemies_goblin,
+  "enemies/goblin-archer": enemies_goblin_archer,
+  "enemies/goblin-warrior": enemies_goblin_warrior,
+  "enemies/green-slime": enemies_green_slime,
+  "enemies/ice-elemental": enemies_ice_elemental,
+  "enemies/ice-golem": enemies_ice_golem,
+  "enemies/lava-golem": enemies_lava_golem,
+  "enemies/lightning-elemental": enemies_lightning_elemental,
+  "enemies/mimic-chest": enemies_mimic_chest,
+  "enemies/mini-dragon": enemies_mini_dragon,
+  "enemies/mummy": enemies_mummy,
+  "enemies/mushroom-monster": enemies_mushroom_monster,
+  "enemies/poison-slime": enemies_poison_slime,
+  "enemies/poison-spider": enemies_poison_spider,
+  "enemies/red-slime": enemies_red_slime,
+  "enemies/sand-worm": enemies_sand_worm,
+  "enemies/scorpion": enemies_scorpion,
+  "enemies/skeleton": enemies_skeleton,
+  "enemies/skeleton-archer": enemies_skeleton_archer,
+  "enemies/skeleton-knight": enemies_skeleton_knight,
+  "enemies/snow-wolf": enemies_snow_wolf,
+  "enemies/spider": enemies_spider,
+  "enemies/stone-golem": enemies_stone_golem,
+  "enemies/swamp-monster": enemies_swamp_monster,
+  "enemies/vampire-bat": enemies_vampire_bat,
+  "enemies/wolf": enemies_wolf,
+  "enemies/zombie": enemies_zombie,
 };

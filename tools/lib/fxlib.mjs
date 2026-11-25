@@ -225,7 +225,7 @@ export function contactSheet(fx, r, { max = 16, width = 1600, title, zoom } = {}
 }
 
 /** A sprite sheet (transparent frames in a grid) plus Aseprite-style JSON that most engines import. */
-export function spriteSheet(fx, r, name, { options, loop = fx.meta.loop } = {}) {
+export function spriteSheet(fx, r, name, { options, loop = fx.meta.loop, events = fx.meta.events } = {}) {
   const { w, h, fps } = r;
   const bytes = ({ clear }) => Buffer.from(clear.buffer, clear.byteOffset, clear.byteLength);
   // Gameplay clips can hand off to another animation before their empty endpoint.
@@ -256,7 +256,8 @@ export function spriteSheet(fx, r, name, { options, loop = fx.meta.loop } = {}) 
     farmfx: { id: fx.id, name: m.name, fps, loop, frames: n, frameSize: [w, h], pivot: r.pivot ?? m.origin, columns: cols,
       ...(options && Object.keys(options).length ? { options } : {}),
       ...(usesReferenceArt(fx.id) ? { redistribution: "unverified" } : {}),
-      ...(m.events ? { events: m.events } : {}),
+      ...(events ? { events } : {}),
+      ...(m.collision ? { collision: m.collision } : {}),
       ...(fx.mod.act ? { act: actTiming(fx.mod) } : {}),
     },
   };

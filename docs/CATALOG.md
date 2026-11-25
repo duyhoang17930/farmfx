@@ -1,6 +1,6 @@
 # Catalog
 
-635 effects in 20 categories. Every one is a file in
+675 effects in 21 categories. Every one is a file in
 `src/fx/<category>/<name>.js`; render any of them with `node tools/render.mjs <id> --gif`.
 
 ## characters
@@ -777,3 +777,50 @@ armor, clothing, bags and jewelry sprites.
 | speed ring | `equipment/speed-ring` | loop 1s | 48×48 | A ring with a polished stone set in the band. |
 | strength ring | `equipment/strength-ring` | loop 1s | 48×48 | A ring with a polished stone set in the band. |
 | wooden backpack | `equipment/wooden-backpack` | loop 1s | 48×48 | A backpack with a front pocket, bright clasp and shoulder straps. |
+
+## enemies
+
+hostile creatures with movement and reaction clips.
+
+| effect | id | | size | what it does |
+|---|---|---|---|---|
+| angry boar | `enemies/angry-boar` | loop 1.25s | 64×64 | A top-down angry boar with selectable animation states. |
+| bat | `enemies/bat` | loop 1.25s | 64×64 | A top-down bat with selectable animation states. |
+| blue slime | `enemies/blue-slime` | loop 1.25s | 64×64 | A top-down blue slime with selectable animation states. |
+| carnivorous plant | `enemies/carnivorous-plant` | loop 1.25s | 64×64 | A top-down carnivorous plant with selectable animation states. |
+| corrupted tree | `enemies/corrupted-tree` | loop 1.25s | 64×64 | A top-down corrupted tree with selectable animation states. |
+| crystal guardian | `enemies/crystal-guardian` | loop 1.25s | 64×64 | A top-down crystal guardian with selectable animation states. |
+| crystal slime | `enemies/crystal-slime` | loop 1.25s | 64×64 | A top-down crystal slime with selectable animation states. |
+| dark knight | `enemies/dark-knight` | loop 1.25s | 64×64 | A top-down dark knight with selectable animation states. |
+| dark spirit | `enemies/dark-spirit` | loop 1.25s | 64×64 | A top-down dark spirit with selectable animation states. |
+| demon | `enemies/demon` | loop 1.25s | 64×64 | A top-down demon with selectable animation states. |
+| fire elemental | `enemies/fire-elemental` | loop 1.25s | 64×64 | A top-down fire elemental with selectable animation states. |
+| ghost | `enemies/ghost` | loop 1.25s | 64×64 | A top-down ghost with selectable animation states. |
+| giant bee | `enemies/giant-bee` | loop 1.25s | 64×64 | A top-down giant bee with selectable animation states. |
+| goblin | `enemies/goblin` | loop 1.25s | 64×64 | A top-down goblin with selectable animation states. |
+| goblin archer | `enemies/goblin-archer` | loop 1.25s | 64×64 | A top-down goblin archer with selectable animation states. |
+| goblin warrior | `enemies/goblin-warrior` | loop 1.25s | 64×64 | A top-down goblin warrior with selectable animation states. |
+| green slime | `enemies/green-slime` | loop 1.25s | 64×64 | A top-down green slime with selectable animation states. |
+| ice elemental | `enemies/ice-elemental` | loop 1.25s | 64×64 | A top-down ice elemental with selectable animation states. |
+| ice golem | `enemies/ice-golem` | loop 1.25s | 64×64 | A top-down ice golem with selectable animation states. |
+| lava golem | `enemies/lava-golem` | loop 1.25s | 64×64 | A top-down lava golem with selectable animation states. |
+| lightning elemental | `enemies/lightning-elemental` | loop 1.25s | 64×64 | A top-down lightning elemental with selectable animation states. |
+| mimic chest | `enemies/mimic-chest` | loop 1.25s | 64×64 | A top-down mimic chest with selectable animation states. |
+| mini dragon | `enemies/mini-dragon` | loop 1.25s | 64×64 | A top-down mini dragon with selectable animation states. |
+| mummy | `enemies/mummy` | loop 1.25s | 64×64 | A top-down mummy with selectable animation states. |
+| mushroom monster | `enemies/mushroom-monster` | loop 1.25s | 64×64 | A top-down mushroom monster with selectable animation states. |
+| poison slime | `enemies/poison-slime` | loop 1.25s | 64×64 | A top-down poison slime with selectable animation states. |
+| poison spider | `enemies/poison-spider` | loop 1.25s | 64×64 | A top-down poison spider with selectable animation states. |
+| red slime | `enemies/red-slime` | loop 1.25s | 64×64 | A top-down red slime with selectable animation states. |
+| sand worm | `enemies/sand-worm` | loop 1.25s | 64×64 | A top-down sand worm with selectable animation states. |
+| scorpion | `enemies/scorpion` | loop 1.25s | 64×64 | A top-down scorpion with selectable animation states. |
+| skeleton | `enemies/skeleton` | loop 1.25s | 64×64 | A top-down skeleton with selectable animation states. |
+| skeleton archer | `enemies/skeleton-archer` | loop 1.25s | 64×64 | A top-down skeleton archer with selectable animation states. |
+| skeleton knight | `enemies/skeleton-knight` | loop 1.25s | 64×64 | A top-down skeleton knight with selectable animation states. |
+| snow wolf | `enemies/snow-wolf` | loop 1.25s | 64×64 | A top-down snow wolf with selectable animation states. |
+| spider | `enemies/spider` | loop 1.25s | 64×64 | A top-down spider with selectable animation states. |
+| stone golem | `enemies/stone-golem` | loop 1.25s | 64×64 | A top-down stone golem with selectable animation states. |
+| swamp monster | `enemies/swamp-monster` | loop 1.25s | 64×64 | A top-down swamp monster with selectable animation states. |
+| vampire bat | `enemies/vampire-bat` | loop 1.25s | 64×64 | A top-down vampire bat with selectable animation states. |
+| wolf | `enemies/wolf` | loop 1.25s | 64×64 | A top-down wolf with selectable animation states. |
+| zombie | `enemies/zombie` | loop 1.25s | 64×64 | A top-down zombie with selectable animation states. |
