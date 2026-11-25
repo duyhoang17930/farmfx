@@ -489,6 +489,49 @@ import * as ui_hud_skill_point_counter from "./ui/hud/skill-point-counter.js";
 import * as ui_hud_stamina_bar from "./ui/hud/stamina-bar.js";
 import * as ui_inventory_slots from "./ui/inventory-slots.js";
 import * as ui_item_icons from "./ui/item-icons.js";
+import * as ui_menus_achievement_menu from "./ui/menus/achievement-menu.js";
+import * as ui_menus_alchemy_menu from "./ui/menus/alchemy-menu.js";
+import * as ui_menus_animal_management from "./ui/menus/animal-management.js";
+import * as ui_menus_backpack_menu from "./ui/menus/backpack-menu.js";
+import * as ui_menus_bestiary from "./ui/menus/bestiary.js";
+import * as ui_menus_build_menu from "./ui/menus/build-menu.js";
+import * as ui_menus_building_upgrade_menu from "./ui/menus/building-upgrade-menu.js";
+import * as ui_menus_character_creation from "./ui/menus/character-creation.js";
+import * as ui_menus_character_menu from "./ui/menus/character-menu.js";
+import * as ui_menus_chest_inventory from "./ui/menus/chest-inventory.js";
+import * as ui_menus_collection_book from "./ui/menus/collection-book.js";
+import * as ui_menus_components from "./ui/menus/components.js";
+import * as ui_menus_cooking_menu from "./ui/menus/cooking-menu.js";
+import * as ui_menus_crafting_queue from "./ui/menus/crafting-queue.js";
+import * as ui_menus_credits_menu from "./ui/menus/credits-menu.js";
+import * as ui_menus_enchanting_menu from "./ui/menus/enchanting-menu.js";
+import * as ui_menus_equipment_menu from "./ui/menus/equipment-menu.js";
+import * as ui_menus_expanded_inventory from "./ui/menus/expanded-inventory.js";
+import * as ui_menus_farm_management from "./ui/menus/farm-management.js";
+import * as ui_menus_fast_travel_menu from "./ui/menus/fast-travel-menu.js";
+import * as ui_menus_fishing_menu from "./ui/menus/fishing-menu.js";
+import * as ui_menus_furnace_interface from "./ui/menus/furnace-interface.js";
+import * as ui_menus_game_over_menu from "./ui/menus/game-over-menu.js";
+import * as ui_menus_land_purchase_menu from "./ui/menus/land-purchase-menu.js";
+import * as ui_menus_machine_interface from "./ui/menus/machine-interface.js";
+import * as ui_menus_main_menu from "./ui/menus/main-menu.js";
+import * as ui_menus_merchant_menu from "./ui/menus/merchant-menu.js";
+import * as ui_menus_museum_menu from "./ui/menus/museum-menu.js";
+import * as ui_menus_pause_menu from "./ui/menus/pause-menu.js";
+import * as ui_menus_quest_detail from "./ui/menus/quest-detail.js";
+import * as ui_menus_quest_log from "./ui/menus/quest-log.js";
+import * as ui_menus_recipe_book from "./ui/menus/recipe-book.js";
+import * as ui_menus_relationship_menu from "./ui/menus/relationship-menu.js";
+import * as ui_menus_repair_menu from "./ui/menus/repair-menu.js";
+import * as ui_menus_respawn_menu from "./ui/menus/respawn-menu.js";
+import * as ui_menus_save_slot_menu from "./ui/menus/save-slot-menu.js";
+import * as ui_menus_sell_menu from "./ui/menus/sell-menu.js";
+import * as ui_menus_settings_menu from "./ui/menus/settings-menu.js";
+import * as ui_menus_skill_detail from "./ui/menus/skill-detail.js";
+import * as ui_menus_skill_tree from "./ui/menus/skill-tree.js";
+import * as ui_menus_trade_menu from "./ui/menus/trade-menu.js";
+import * as ui_menus_upgrade_menu from "./ui/menus/upgrade-menu.js";
+import * as ui_menus_world_map from "./ui/menus/world-map.js";
 import * as ui_pickup_toast from "./ui/pickup-toast.js";
 import * as ui_quest_marker from "./ui/quest-marker.js";
 import * as ui_shop_interface from "./ui/shop-interface.js";
@@ -1655,6 +1698,49 @@ export const effects = {
   "ui/hud/stamina-bar": ui_hud_stamina_bar,
   "ui/inventory-slots": ui_inventory_slots,
   "ui/item-icons": ui_item_icons,
+  "ui/menus/achievement-menu": ui_menus_achievement_menu,
+  "ui/menus/alchemy-menu": ui_menus_alchemy_menu,
+  "ui/menus/animal-management": ui_menus_animal_management,
+  "ui/menus/backpack-menu": ui_menus_backpack_menu,
+  "ui/menus/bestiary": ui_menus_bestiary,
+  "ui/menus/build-menu": ui_menus_build_menu,
+  "ui/menus/building-upgrade-menu": ui_menus_building_upgrade_menu,
+  "ui/menus/character-creation": ui_menus_character_creation,
+  "ui/menus/character-menu": ui_menus_character_menu,
+  "ui/menus/chest-inventory": ui_menus_chest_inventory,
+  "ui/menus/collection-book": ui_menus_collection_book,
+  "ui/menus/components": ui_menus_components,
+  "ui/menus/cooking-menu": ui_menus_cooking_menu,
+  "ui/menus/crafting-queue": ui_menus_crafting_queue,
+  "ui/menus/credits-menu": ui_menus_credits_menu,
+  "ui/menus/enchanting-menu": ui_menus_enchanting_menu,
+  "ui/menus/equipment-menu": ui_menus_equipment_menu,
+  "ui/menus/expanded-inventory": ui_menus_expanded_inventory,
+  "ui/menus/farm-management": ui_menus_farm_management,
+  "ui/menus/fast-travel-menu": ui_menus_fast_travel_menu,
+  "ui/menus/fishing-menu": ui_menus_fishing_menu,
+  "ui/menus/furnace-interface": ui_menus_furnace_interface,
+  "ui/menus/game-over-menu": ui_menus_game_over_menu,
+  "ui/menus/land-purchase-menu": ui_menus_land_purchase_menu,
+  "ui/menus/machine-interface": ui_menus_machine_interface,
+  "ui/menus/main-menu": ui_menus_main_menu,
+  "ui/menus/merchant-menu": ui_menus_merchant_menu,
+  "ui/menus/museum-menu": ui_menus_museum_menu,
+  "ui/menus/pause-menu": ui_menus_pause_menu,
+  "ui/menus/quest-detail": ui_menus_quest_detail,
+  "ui/menus/quest-log": ui_menus_quest_log,
+  "ui/menus/recipe-book": ui_menus_recipe_book,
+  "ui/menus/relationship-menu": ui_menus_relationship_menu,
+  "ui/menus/repair-menu": ui_menus_repair_menu,
+  "ui/menus/respawn-menu": ui_menus_respawn_menu,
+  "ui/menus/save-slot-menu": ui_menus_save_slot_menu,
+  "ui/menus/sell-menu": ui_menus_sell_menu,
+  "ui/menus/settings-menu": ui_menus_settings_menu,
+  "ui/menus/skill-detail": ui_menus_skill_detail,
+  "ui/menus/skill-tree": ui_menus_skill_tree,
+  "ui/menus/trade-menu": ui_menus_trade_menu,
+  "ui/menus/upgrade-menu": ui_menus_upgrade_menu,
+  "ui/menus/world-map": ui_menus_world_map,
   "ui/pickup-toast": ui_pickup_toast,
   "ui/quest-marker": ui_quest_marker,
   "ui/shop-interface": ui_shop_interface,

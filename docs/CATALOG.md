@@ -1,6 +1,6 @@
 # Catalog
 
-1162 effects in 25 categories. Every one is a file in
+1205 effects in 25 categories. Every one is a file in
 `src/fx/<category>/<name>.js`; render any of them with `node tools/render.mjs <id> --gif`.
 
 ## characters
@@ -582,6 +582,49 @@ pixel HUD, inventory icons, menus, dialogue and notifications.
 | stamina bar | `ui/hud/stamina-bar` | loop 1s | 128×32 | A HUD stamina bar with externally supplied state. |
 | Inventory slots | `ui/inventory-slots` | loop 2.4s | 96×96 | A sixteen-slot backpack panel with item icons and a moving selection. |
 | Item icons | `ui/item-icons` | loop 2.4s | 112×48 | Twelve inventory icons for produce, materials and animal goods. Set item to show a single icon. |
+| achievement menu | `ui/menus/achievement-menu` | loop 1s | 192×144 | A configurable achievement menu panel with selection and display data. |
+| alchemy menu | `ui/menus/alchemy-menu` | loop 1s | 192×144 | A configurable alchemy menu panel with selection and display data. |
+| animal management | `ui/menus/animal-management` | loop 1s | 192×144 | A configurable animal management panel with selection and display data. |
+| backpack menu | `ui/menus/backpack-menu` | loop 1s | 192×144 | A configurable backpack menu panel with selection and display data. |
+| bestiary | `ui/menus/bestiary` | loop 1s | 192×144 | A configurable bestiary panel with selection and display data. |
+| build menu | `ui/menus/build-menu` | loop 1s | 192×144 | A configurable build menu panel with selection and display data. |
+| building upgrade menu | `ui/menus/building-upgrade-menu` | loop 1s | 192×144 | A configurable building upgrade menu panel with selection and display data. |
+| character creation | `ui/menus/character-creation` | loop 1s | 192×144 | A configurable character creation panel with selection and display data. |
+| character menu | `ui/menus/character-menu` | loop 1s | 192×144 | A configurable character menu panel with selection and display data. |
+| chest inventory | `ui/menus/chest-inventory` | loop 1s | 192×144 | A configurable chest inventory panel with selection and display data. |
+| collection book | `ui/menus/collection-book` | loop 1s | 192×144 | A configurable collection book panel with selection and display data. |
+| components | `ui/menus/components` | loop 1s | 192×144 | A configurable components panel with selection and display data. |
+| cooking menu | `ui/menus/cooking-menu` | loop 1s | 192×144 | A configurable cooking menu panel with selection and display data. |
+| crafting queue | `ui/menus/crafting-queue` | loop 1s | 192×144 | A configurable crafting queue panel with selection and display data. |
+| credits menu | `ui/menus/credits-menu` | loop 1s | 192×144 | A configurable credits menu panel with selection and display data. |
+| enchanting menu | `ui/menus/enchanting-menu` | loop 1s | 192×144 | A configurable enchanting menu panel with selection and display data. |
+| equipment menu | `ui/menus/equipment-menu` | loop 1s | 192×144 | A configurable equipment menu panel with selection and display data. |
+| expanded inventory | `ui/menus/expanded-inventory` | loop 1s | 192×144 | A configurable expanded inventory panel with selection and display data. |
+| farm management | `ui/menus/farm-management` | loop 1s | 192×144 | A configurable farm management panel with selection and display data. |
+| fast travel menu | `ui/menus/fast-travel-menu` | loop 1s | 192×144 | A configurable fast travel menu panel with selection and display data. |
+| fishing menu | `ui/menus/fishing-menu` | loop 1s | 192×144 | A configurable fishing menu panel with selection and display data. |
+| furnace interface | `ui/menus/furnace-interface` | loop 1s | 192×144 | A configurable furnace interface panel with selection and display data. |
+| game over menu | `ui/menus/game-over-menu` | loop 1s | 192×144 | A configurable game over menu panel with selection and display data. |
+| land purchase menu | `ui/menus/land-purchase-menu` | loop 1s | 192×144 | A configurable land purchase menu panel with selection and display data. |
+| machine interface | `ui/menus/machine-interface` | loop 1s | 192×144 | A configurable machine interface panel with selection and display data. |
+| main menu | `ui/menus/main-menu` | loop 1s | 192×144 | A configurable main menu panel with selection and display data. |
+| merchant menu | `ui/menus/merchant-menu` | loop 1s | 192×144 | A configurable merchant menu panel with selection and display data. |
+| museum menu | `ui/menus/museum-menu` | loop 1s | 192×144 | A configurable museum menu panel with selection and display data. |
+| pause menu | `ui/menus/pause-menu` | loop 1s | 192×144 | A configurable pause menu panel with selection and display data. |
+| quest detail | `ui/menus/quest-detail` | loop 1s | 192×144 | A configurable quest detail panel with selection and display data. |
+| quest log | `ui/menus/quest-log` | loop 1s | 192×144 | A configurable quest log panel with selection and display data. |
+| recipe book | `ui/menus/recipe-book` | loop 1s | 192×144 | A configurable recipe book panel with selection and display data. |
+| relationship menu | `ui/menus/relationship-menu` | loop 1s | 192×144 | A configurable relationship menu panel with selection and display data. |
+| repair menu | `ui/menus/repair-menu` | loop 1s | 192×144 | A configurable repair menu panel with selection and display data. |
+| respawn menu | `ui/menus/respawn-menu` | loop 1s | 192×144 | A configurable respawn menu panel with selection and display data. |
+| save slot menu | `ui/menus/save-slot-menu` | loop 1s | 192×144 | A configurable save slot menu panel with selection and display data. |
+| sell menu | `ui/menus/sell-menu` | loop 1s | 192×144 | A configurable sell menu panel with selection and display data. |
+| settings menu | `ui/menus/settings-menu` | loop 1s | 192×144 | A configurable settings menu panel with selection and display data. |
+| skill detail | `ui/menus/skill-detail` | loop 1s | 192×144 | A configurable skill detail panel with selection and display data. |
+| skill tree | `ui/menus/skill-tree` | loop 1s | 192×144 | A configurable skill tree panel with selection and display data. |
+| trade menu | `ui/menus/trade-menu` | loop 1s | 192×144 | A configurable trade menu panel with selection and display data. |
+| upgrade menu | `ui/menus/upgrade-menu` | loop 1s | 192×144 | A configurable upgrade menu panel with selection and display data. |
+| world map | `ui/menus/world-map` | loop 1s | 192×144 | A configurable world map panel with selection and display data. |
 | Pickup toast | `ui/pickup-toast` | one-shot 1.4s | 112×48 | A short pickup notification with a configurable item, name and quantity. |
 | Quest marker | `ui/quest-marker` | loop 2.4s | 32×32 | A bobbing quest pin that can display a new quest, a hint or a completed check. |
 | Shop interface | `ui/shop-interface` | loop 2.4s | 128×96 | A shop panel with editable stock, prices, gold total and highlighted row. |

@@ -1,6 +1,6 @@
 # FarmFX assets
 
-1162 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
+1205 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
 
 ## Characters (20)
 
@@ -521,7 +521,7 @@
 | Watering droplets | [`fx/watering-droplets`](src/fx/fx/watering-droplets.js) | [GIF](docs/preview/fx-watering-droplets.gif) |
 | welding sparks | [`fx/welding-sparks`](src/fx/fx/welding-sparks.js) | — |
 
-## Ui (34)
+## Ui (77)
 
 | Asset | ID | Preview |
 | --- | --- | --- |
@@ -555,6 +555,49 @@
 | stamina bar | [`ui/hud/stamina-bar`](src/fx/ui/hud/stamina-bar.js) | — |
 | Inventory slots | [`ui/inventory-slots`](src/fx/ui/inventory-slots.js) | [GIF](docs/preview/ui-inventory-slots.gif) |
 | Item icons | [`ui/item-icons`](src/fx/ui/item-icons.js) | [GIF](docs/preview/ui-item-icons.gif) |
+| achievement menu | [`ui/menus/achievement-menu`](src/fx/ui/menus/achievement-menu.js) | — |
+| alchemy menu | [`ui/menus/alchemy-menu`](src/fx/ui/menus/alchemy-menu.js) | — |
+| animal management | [`ui/menus/animal-management`](src/fx/ui/menus/animal-management.js) | — |
+| backpack menu | [`ui/menus/backpack-menu`](src/fx/ui/menus/backpack-menu.js) | — |
+| bestiary | [`ui/menus/bestiary`](src/fx/ui/menus/bestiary.js) | — |
+| build menu | [`ui/menus/build-menu`](src/fx/ui/menus/build-menu.js) | — |
+| building upgrade menu | [`ui/menus/building-upgrade-menu`](src/fx/ui/menus/building-upgrade-menu.js) | — |
+| character creation | [`ui/menus/character-creation`](src/fx/ui/menus/character-creation.js) | — |
+| character menu | [`ui/menus/character-menu`](src/fx/ui/menus/character-menu.js) | — |
+| chest inventory | [`ui/menus/chest-inventory`](src/fx/ui/menus/chest-inventory.js) | — |
+| collection book | [`ui/menus/collection-book`](src/fx/ui/menus/collection-book.js) | — |
+| components | [`ui/menus/components`](src/fx/ui/menus/components.js) | — |
+| cooking menu | [`ui/menus/cooking-menu`](src/fx/ui/menus/cooking-menu.js) | — |
+| crafting queue | [`ui/menus/crafting-queue`](src/fx/ui/menus/crafting-queue.js) | — |
+| credits menu | [`ui/menus/credits-menu`](src/fx/ui/menus/credits-menu.js) | — |
+| enchanting menu | [`ui/menus/enchanting-menu`](src/fx/ui/menus/enchanting-menu.js) | — |
+| equipment menu | [`ui/menus/equipment-menu`](src/fx/ui/menus/equipment-menu.js) | — |
+| expanded inventory | [`ui/menus/expanded-inventory`](src/fx/ui/menus/expanded-inventory.js) | — |
+| farm management | [`ui/menus/farm-management`](src/fx/ui/menus/farm-management.js) | — |
+| fast travel menu | [`ui/menus/fast-travel-menu`](src/fx/ui/menus/fast-travel-menu.js) | — |
+| fishing menu | [`ui/menus/fishing-menu`](src/fx/ui/menus/fishing-menu.js) | — |
+| furnace interface | [`ui/menus/furnace-interface`](src/fx/ui/menus/furnace-interface.js) | — |
+| game over menu | [`ui/menus/game-over-menu`](src/fx/ui/menus/game-over-menu.js) | — |
+| land purchase menu | [`ui/menus/land-purchase-menu`](src/fx/ui/menus/land-purchase-menu.js) | — |
+| machine interface | [`ui/menus/machine-interface`](src/fx/ui/menus/machine-interface.js) | — |
+| main menu | [`ui/menus/main-menu`](src/fx/ui/menus/main-menu.js) | — |
+| merchant menu | [`ui/menus/merchant-menu`](src/fx/ui/menus/merchant-menu.js) | — |
+| museum menu | [`ui/menus/museum-menu`](src/fx/ui/menus/museum-menu.js) | — |
+| pause menu | [`ui/menus/pause-menu`](src/fx/ui/menus/pause-menu.js) | — |
+| quest detail | [`ui/menus/quest-detail`](src/fx/ui/menus/quest-detail.js) | — |
+| quest log | [`ui/menus/quest-log`](src/fx/ui/menus/quest-log.js) | — |
+| recipe book | [`ui/menus/recipe-book`](src/fx/ui/menus/recipe-book.js) | — |
+| relationship menu | [`ui/menus/relationship-menu`](src/fx/ui/menus/relationship-menu.js) | — |
+| repair menu | [`ui/menus/repair-menu`](src/fx/ui/menus/repair-menu.js) | — |
+| respawn menu | [`ui/menus/respawn-menu`](src/fx/ui/menus/respawn-menu.js) | — |
+| save slot menu | [`ui/menus/save-slot-menu`](src/fx/ui/menus/save-slot-menu.js) | — |
+| sell menu | [`ui/menus/sell-menu`](src/fx/ui/menus/sell-menu.js) | — |
+| settings menu | [`ui/menus/settings-menu`](src/fx/ui/menus/settings-menu.js) | — |
+| skill detail | [`ui/menus/skill-detail`](src/fx/ui/menus/skill-detail.js) | — |
+| skill tree | [`ui/menus/skill-tree`](src/fx/ui/menus/skill-tree.js) | — |
+| trade menu | [`ui/menus/trade-menu`](src/fx/ui/menus/trade-menu.js) | — |
+| upgrade menu | [`ui/menus/upgrade-menu`](src/fx/ui/menus/upgrade-menu.js) | — |
+| world map | [`ui/menus/world-map`](src/fx/ui/menus/world-map.js) | — |
 | Pickup toast | [`ui/pickup-toast`](src/fx/ui/pickup-toast.js) | [GIF](docs/preview/ui-pickup-toast.gif) |
 | Quest marker | [`ui/quest-marker`](src/fx/ui/quest-marker.js) | [GIF](docs/preview/ui-quest-marker.gif) |
 | Shop interface | [`ui/shop-interface`](src/fx/ui/shop-interface.js) | [GIF](docs/preview/ui-shop-interface.gif) |
