@@ -1,6 +1,6 @@
 # Catalog
 
-1205 effects in 25 categories. Every one is a file in
+1240 effects in 25 categories. Every one is a file in
 `src/fx/<category>/<name>.js`; render any of them with `node tools/render.mjs <id> --gif`.
 
 ## characters
@@ -553,6 +553,41 @@ pixel HUD, inventory icons, menus, dialogue and notifications.
 | effect | id | | size | what it does |
 |---|---|---|---|---|
 | Calendar | `ui/calendar` | loop 2.4s | 128×80 | A 28-day seasonal calendar with a configurable current day and marked dates. |
+| achievement card | `ui/components/achievement-card` | loop 1s | 160×80 | A configurable achievement card component. |
+| button | `ui/components/button` | loop 1s | 96×48 | A configurable button component. |
+| checkbox | `ui/components/checkbox` | loop 1s | 96×48 | A configurable checkbox component. |
+| circular progress | `ui/components/circular-progress` | loop 1s | 96×48 | A configurable circular progress component. |
+| confirmation dialog | `ui/components/confirmation-dialog` | loop 1s | 160×80 | A configurable confirmation dialog component. |
+| context menu | `ui/components/context-menu` | loop 1s | 160×80 | A configurable context menu component. |
+| controller prompt | `ui/components/controller-prompt` | loop 1s | 96×48 | A configurable controller prompt component. |
+| dropdown | `ui/components/dropdown` | loop 1s | 160×80 | A configurable dropdown component. |
+| equipment slot | `ui/components/equipment-slot` | loop 1s | 96×48 | A configurable equipment slot component. |
+| icon button | `ui/components/icon-button` | loop 1s | 96×48 | A configurable icon button component. |
+| item drag preview | `ui/components/item-drag-preview` | loop 1s | 96×48 | A configurable item drag preview component. |
+| item rarity border | `ui/components/item-rarity-border` | loop 1s | 96×48 | A configurable item rarity border component. |
+| item slot | `ui/components/item-slot` | loop 1s | 96×48 | A configurable item slot component. |
+| item stack counter | `ui/components/item-stack-counter` | loop 1s | 96×48 | A configurable item stack counter component. |
+| keyboard prompt | `ui/components/keyboard-prompt` | loop 1s | 96×48 | A configurable keyboard prompt component. |
+| loading bar | `ui/components/loading-bar` | loop 1s | 96×48 | A configurable loading bar component. |
+| locked slot | `ui/components/locked-slot` | loop 1s | 96×48 | A configurable locked slot component. |
+| modal | `ui/components/modal` | loop 1s | 160×80 | A configurable modal component. |
+| notification badge | `ui/components/notification-badge` | loop 1s | 96×48 | A configurable notification badge component. |
+| pagination | `ui/components/pagination` | loop 1s | 160×80 | A configurable pagination component. |
+| panel | `ui/components/panel` | loop 1s | 160×80 | A configurable panel component. |
+| popup | `ui/components/popup` | loop 1s | 160×80 | A configurable popup component. |
+| progress bar | `ui/components/progress-bar` | loop 1s | 96×48 | A configurable progress bar component. |
+| quest card | `ui/components/quest-card` | loop 1s | 160×80 | A configurable quest card component. |
+| radial menu | `ui/components/radial-menu` | loop 1s | 96×48 | A configurable radial menu component. |
+| radio button | `ui/components/radio-button` | loop 1s | 96×48 | A configurable radio button component. |
+| recipe card | `ui/components/recipe-card` | loop 1s | 160×80 | A configurable recipe card component. |
+| scrollbar | `ui/components/scrollbar` | loop 1s | 96×48 | A configurable scrollbar component. |
+| selection highlight | `ui/components/selection-highlight` | loop 1s | 96×48 | A configurable selection highlight component. |
+| skill connection | `ui/components/skill-connection` | loop 1s | 96×48 | A configurable skill connection component. |
+| skill node | `ui/components/skill-node` | loop 1s | 96×48 | A configurable skill node component. |
+| slider | `ui/components/slider` | loop 1s | 96×48 | A configurable slider component. |
+| tab | `ui/components/tab` | loop 1s | 160×80 | A configurable tab component. |
+| toggle | `ui/components/toggle` | loop 1s | 96×48 | A configurable toggle component. |
+| touch prompt | `ui/components/touch-prompt` | loop 1s | 96×48 | A configurable touch prompt component. |
 | Crafting menu | `ui/crafting-menu` | loop 2.4s | 112×64 | A recipe panel with configurable ingredient slots, quantities and output. |
 | Currency | `ui/currency` | loop 2.4s | 80×32 | A flipping coin and a configurable gold balance on a compact HUD panel. |
 | Tile cursor | `ui/cursor` | loop 2.4s | 32×32 | Pulsing corner brackets for a 16 px tile, with valid and blocked placement colors. |

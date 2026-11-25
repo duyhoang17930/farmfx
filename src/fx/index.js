@@ -460,6 +460,41 @@ import * as fx_water_splash from "./fx/water-splash.js";
 import * as fx_watering_droplets from "./fx/watering-droplets.js";
 import * as fx_welding_sparks from "./fx/welding-sparks.js";
 import * as ui_calendar from "./ui/calendar.js";
+import * as ui_components_achievement_card from "./ui/components/achievement-card.js";
+import * as ui_components_button from "./ui/components/button.js";
+import * as ui_components_checkbox from "./ui/components/checkbox.js";
+import * as ui_components_circular_progress from "./ui/components/circular-progress.js";
+import * as ui_components_confirmation_dialog from "./ui/components/confirmation-dialog.js";
+import * as ui_components_context_menu from "./ui/components/context-menu.js";
+import * as ui_components_controller_prompt from "./ui/components/controller-prompt.js";
+import * as ui_components_dropdown from "./ui/components/dropdown.js";
+import * as ui_components_equipment_slot from "./ui/components/equipment-slot.js";
+import * as ui_components_icon_button from "./ui/components/icon-button.js";
+import * as ui_components_item_drag_preview from "./ui/components/item-drag-preview.js";
+import * as ui_components_item_rarity_border from "./ui/components/item-rarity-border.js";
+import * as ui_components_item_slot from "./ui/components/item-slot.js";
+import * as ui_components_item_stack_counter from "./ui/components/item-stack-counter.js";
+import * as ui_components_keyboard_prompt from "./ui/components/keyboard-prompt.js";
+import * as ui_components_loading_bar from "./ui/components/loading-bar.js";
+import * as ui_components_locked_slot from "./ui/components/locked-slot.js";
+import * as ui_components_modal from "./ui/components/modal.js";
+import * as ui_components_notification_badge from "./ui/components/notification-badge.js";
+import * as ui_components_pagination from "./ui/components/pagination.js";
+import * as ui_components_panel from "./ui/components/panel.js";
+import * as ui_components_popup from "./ui/components/popup.js";
+import * as ui_components_progress_bar from "./ui/components/progress-bar.js";
+import * as ui_components_quest_card from "./ui/components/quest-card.js";
+import * as ui_components_radial_menu from "./ui/components/radial-menu.js";
+import * as ui_components_radio_button from "./ui/components/radio-button.js";
+import * as ui_components_recipe_card from "./ui/components/recipe-card.js";
+import * as ui_components_scrollbar from "./ui/components/scrollbar.js";
+import * as ui_components_selection_highlight from "./ui/components/selection-highlight.js";
+import * as ui_components_skill_connection from "./ui/components/skill-connection.js";
+import * as ui_components_skill_node from "./ui/components/skill-node.js";
+import * as ui_components_slider from "./ui/components/slider.js";
+import * as ui_components_tab from "./ui/components/tab.js";
+import * as ui_components_toggle from "./ui/components/toggle.js";
+import * as ui_components_touch_prompt from "./ui/components/touch-prompt.js";
 import * as ui_crafting_menu from "./ui/crafting-menu.js";
 import * as ui_currency from "./ui/currency.js";
 import * as ui_cursor from "./ui/cursor.js";
@@ -1669,6 +1704,41 @@ export const effects = {
   "fx/watering-droplets": fx_watering_droplets,
   "fx/welding-sparks": fx_welding_sparks,
   "ui/calendar": ui_calendar,
+  "ui/components/achievement-card": ui_components_achievement_card,
+  "ui/components/button": ui_components_button,
+  "ui/components/checkbox": ui_components_checkbox,
+  "ui/components/circular-progress": ui_components_circular_progress,
+  "ui/components/confirmation-dialog": ui_components_confirmation_dialog,
+  "ui/components/context-menu": ui_components_context_menu,
+  "ui/components/controller-prompt": ui_components_controller_prompt,
+  "ui/components/dropdown": ui_components_dropdown,
+  "ui/components/equipment-slot": ui_components_equipment_slot,
+  "ui/components/icon-button": ui_components_icon_button,
+  "ui/components/item-drag-preview": ui_components_item_drag_preview,
+  "ui/components/item-rarity-border": ui_components_item_rarity_border,
+  "ui/components/item-slot": ui_components_item_slot,
+  "ui/components/item-stack-counter": ui_components_item_stack_counter,
+  "ui/components/keyboard-prompt": ui_components_keyboard_prompt,
+  "ui/components/loading-bar": ui_components_loading_bar,
+  "ui/components/locked-slot": ui_components_locked_slot,
+  "ui/components/modal": ui_components_modal,
+  "ui/components/notification-badge": ui_components_notification_badge,
+  "ui/components/pagination": ui_components_pagination,
+  "ui/components/panel": ui_components_panel,
+  "ui/components/popup": ui_components_popup,
+  "ui/components/progress-bar": ui_components_progress_bar,
+  "ui/components/quest-card": ui_components_quest_card,
+  "ui/components/radial-menu": ui_components_radial_menu,
+  "ui/components/radio-button": ui_components_radio_button,
+  "ui/components/recipe-card": ui_components_recipe_card,
+  "ui/components/scrollbar": ui_components_scrollbar,
+  "ui/components/selection-highlight": ui_components_selection_highlight,
+  "ui/components/skill-connection": ui_components_skill_connection,
+  "ui/components/skill-node": ui_components_skill_node,
+  "ui/components/slider": ui_components_slider,
+  "ui/components/tab": ui_components_tab,
+  "ui/components/toggle": ui_components_toggle,
+  "ui/components/touch-prompt": ui_components_touch_prompt,
   "ui/crafting-menu": ui_crafting_menu,
   "ui/currency": ui_currency,
   "ui/cursor": ui_cursor,

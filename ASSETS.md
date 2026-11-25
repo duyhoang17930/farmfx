@@ -1,6 +1,6 @@
 # FarmFX assets
 
-1205 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
+1240 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
 
 ## Characters (20)
 
@@ -521,11 +521,46 @@
 | Watering droplets | [`fx/watering-droplets`](src/fx/fx/watering-droplets.js) | [GIF](docs/preview/fx-watering-droplets.gif) |
 | welding sparks | [`fx/welding-sparks`](src/fx/fx/welding-sparks.js) | — |
 
-## Ui (77)
+## Ui (112)
 
 | Asset | ID | Preview |
 | --- | --- | --- |
 | Calendar | [`ui/calendar`](src/fx/ui/calendar.js) | [GIF](docs/preview/ui-calendar.gif) |
+| achievement card | [`ui/components/achievement-card`](src/fx/ui/components/achievement-card.js) | — |
+| button | [`ui/components/button`](src/fx/ui/components/button.js) | — |
+| checkbox | [`ui/components/checkbox`](src/fx/ui/components/checkbox.js) | — |
+| circular progress | [`ui/components/circular-progress`](src/fx/ui/components/circular-progress.js) | — |
+| confirmation dialog | [`ui/components/confirmation-dialog`](src/fx/ui/components/confirmation-dialog.js) | — |
+| context menu | [`ui/components/context-menu`](src/fx/ui/components/context-menu.js) | — |
+| controller prompt | [`ui/components/controller-prompt`](src/fx/ui/components/controller-prompt.js) | — |
+| dropdown | [`ui/components/dropdown`](src/fx/ui/components/dropdown.js) | — |
+| equipment slot | [`ui/components/equipment-slot`](src/fx/ui/components/equipment-slot.js) | — |
+| icon button | [`ui/components/icon-button`](src/fx/ui/components/icon-button.js) | — |
+| item drag preview | [`ui/components/item-drag-preview`](src/fx/ui/components/item-drag-preview.js) | — |
+| item rarity border | [`ui/components/item-rarity-border`](src/fx/ui/components/item-rarity-border.js) | — |
+| item slot | [`ui/components/item-slot`](src/fx/ui/components/item-slot.js) | — |
+| item stack counter | [`ui/components/item-stack-counter`](src/fx/ui/components/item-stack-counter.js) | — |
+| keyboard prompt | [`ui/components/keyboard-prompt`](src/fx/ui/components/keyboard-prompt.js) | — |
+| loading bar | [`ui/components/loading-bar`](src/fx/ui/components/loading-bar.js) | — |
+| locked slot | [`ui/components/locked-slot`](src/fx/ui/components/locked-slot.js) | — |
+| modal | [`ui/components/modal`](src/fx/ui/components/modal.js) | — |
+| notification badge | [`ui/components/notification-badge`](src/fx/ui/components/notification-badge.js) | — |
+| pagination | [`ui/components/pagination`](src/fx/ui/components/pagination.js) | — |
+| panel | [`ui/components/panel`](src/fx/ui/components/panel.js) | — |
+| popup | [`ui/components/popup`](src/fx/ui/components/popup.js) | — |
+| progress bar | [`ui/components/progress-bar`](src/fx/ui/components/progress-bar.js) | — |
+| quest card | [`ui/components/quest-card`](src/fx/ui/components/quest-card.js) | — |
+| radial menu | [`ui/components/radial-menu`](src/fx/ui/components/radial-menu.js) | — |
+| radio button | [`ui/components/radio-button`](src/fx/ui/components/radio-button.js) | — |
+| recipe card | [`ui/components/recipe-card`](src/fx/ui/components/recipe-card.js) | — |
+| scrollbar | [`ui/components/scrollbar`](src/fx/ui/components/scrollbar.js) | — |
+| selection highlight | [`ui/components/selection-highlight`](src/fx/ui/components/selection-highlight.js) | — |
+| skill connection | [`ui/components/skill-connection`](src/fx/ui/components/skill-connection.js) | — |
+| skill node | [`ui/components/skill-node`](src/fx/ui/components/skill-node.js) | — |
+| slider | [`ui/components/slider`](src/fx/ui/components/slider.js) | — |
+| tab | [`ui/components/tab`](src/fx/ui/components/tab.js) | — |
+| toggle | [`ui/components/toggle`](src/fx/ui/components/toggle.js) | — |
+| touch prompt | [`ui/components/touch-prompt`](src/fx/ui/components/touch-prompt.js) | — |
 | Crafting menu | [`ui/crafting-menu`](src/fx/ui/crafting-menu.js) | [GIF](docs/preview/ui-crafting-menu.gif) |
 | Currency | [`ui/currency`](src/fx/ui/currency.js) | [GIF](docs/preview/ui-currency.gif) |
 | Tile cursor | [`ui/cursor`](src/fx/ui/cursor.js) | [GIF](docs/preview/ui-cursor.gif) |
