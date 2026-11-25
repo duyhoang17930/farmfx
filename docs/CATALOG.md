@@ -1,6 +1,6 @@
 # Catalog
 
-1118 effects in 25 categories. Every one is a file in
+1143 effects in 25 categories. Every one is a file in
 `src/fx/<category>/<name>.js`; render any of them with `node tools/render.mjs <id> --gif`.
 
 ## characters
@@ -427,11 +427,36 @@ rain, snow, autumn leaves, fireflies, day and night.
 
 | effect | id | | size | what it does |
 |---|---|---|---|---|
+| aurora | `weather/aurora` | loop 5s | 160×112 | A seeded, adjustable aurora weather layer. |
+| blizzard | `weather/blizzard` | loop 5s | 160×112 | A seeded, adjustable blizzard weather layer. |
+| cloud shadow | `weather/cloud-shadow` | loop 5s | 160×112 | A seeded, adjustable cloud shadow weather layer. |
 | Day and night | `weather/day-night` | loop 8s | 80×48 | A configurable global tint that cycles from clear noon to golden dusk and violet night. |
+| drifting clouds | `weather/drifting-clouds` | loop 5s | 160×112 | A seeded, adjustable drifting clouds weather layer. |
+| falling ash | `weather/falling-ash` | loop 5s | 160×112 | A seeded, adjustable falling ash weather layer. |
 | Falling leaves | `weather/falling-leaves` | loop 5s | 96×64 | Rust and gold leaves spiral down, turning edge-on before they fade. |
 | Fireflies | `weather/fireflies` | loop 4s | 96×64 | Small warm lights pulse at different times as they wander over a dark field. |
+| floating dust | `weather/floating-dust` | loop 5s | 160×112 | A seeded, adjustable floating dust weather layer. |
+| floating embers | `weather/floating-embers` | loop 5s | 160×112 | A seeded, adjustable floating embers weather layer. |
+| fog | `weather/fog` | loop 5s | 160×112 | A seeded, adjustable fog weather layer. |
+| heavy rain | `weather/heavy-rain` | loop 5s | 160×112 | A seeded, adjustable heavy rain weather layer. |
+| light rain | `weather/light-rain` | loop 5s | 160×112 | A seeded, adjustable light rain weather layer. |
+| lightning flash | `weather/lightning-flash` | one-shot 1.65s | 160×112 | A seeded, adjustable lightning flash weather layer. |
+| meteor shower | `weather/meteor-shower` | loop 5s | 160×112 | A seeded, adjustable meteor shower weather layer. |
+| moonlight | `weather/moonlight` | loop 5s | 160×112 | A seeded, adjustable moonlight weather layer. |
+| morning mist | `weather/morning-mist` | loop 5s | 160×112 | A seeded, adjustable morning mist weather layer. |
+| pollen | `weather/pollen` | loop 5s | 160×112 | A seeded, adjustable pollen weather layer. |
 | Rain | `weather/rain` | loop 3s | 96×64 | Slanted rain streaks and tiny ground splashes cycle over a field. |
+| rainbow | `weather/rainbow` | loop 5s | 160×112 | A seeded, adjustable rainbow weather layer. |
+| sandstorm | `weather/sandstorm` | loop 5s | 160×112 | A seeded, adjustable sandstorm weather layer. |
 | Snow | `weather/snow` | loop 5s | 96×64 | Soft snowfall with three sizes of flakes drifting at different speeds. |
+| starry night | `weather/starry-night` | loop 5s | 160×112 | A seeded, adjustable starry night weather layer. |
+| strong wind | `weather/strong-wind` | loop 5s | 160×112 | A seeded, adjustable strong wind weather layer. |
+| sun rays | `weather/sun-rays` | loop 5s | 160×112 | A seeded, adjustable sun rays weather layer. |
+| sunrise | `weather/sunrise` | one-shot 1.65s | 160×112 | A seeded, adjustable sunrise weather layer. |
+| sunset | `weather/sunset` | one-shot 1.65s | 160×112 | A seeded, adjustable sunset weather layer. |
+| thunderstorm | `weather/thunderstorm` | loop 5s | 160×112 | A seeded, adjustable thunderstorm weather layer. |
+| volcanic smoke | `weather/volcanic-smoke` | loop 5s | 160×112 | A seeded, adjustable volcanic smoke weather layer. |
+| wind gust | `weather/wind-gust` | one-shot 1.65s | 160×112 | A seeded, adjustable wind gust weather layer. |
 
 ## farm fx
 

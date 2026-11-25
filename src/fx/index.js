@@ -348,11 +348,36 @@ import * as objects_wooden_door from "./objects/wooden-door.js";
 import * as objects_wooden_pallet from "./objects/wooden-pallet.js";
 import * as objects_wooden_table from "./objects/wooden-table.js";
 import * as objects_workbench from "./objects/workbench.js";
+import * as weather_aurora from "./weather/aurora.js";
+import * as weather_blizzard from "./weather/blizzard.js";
+import * as weather_cloud_shadow from "./weather/cloud-shadow.js";
 import * as weather_day_night from "./weather/day-night.js";
+import * as weather_drifting_clouds from "./weather/drifting-clouds.js";
+import * as weather_falling_ash from "./weather/falling-ash.js";
 import * as weather_falling_leaves from "./weather/falling-leaves.js";
 import * as weather_fireflies from "./weather/fireflies.js";
+import * as weather_floating_dust from "./weather/floating-dust.js";
+import * as weather_floating_embers from "./weather/floating-embers.js";
+import * as weather_fog from "./weather/fog.js";
+import * as weather_heavy_rain from "./weather/heavy-rain.js";
+import * as weather_light_rain from "./weather/light-rain.js";
+import * as weather_lightning_flash from "./weather/lightning-flash.js";
+import * as weather_meteor_shower from "./weather/meteor-shower.js";
+import * as weather_moonlight from "./weather/moonlight.js";
+import * as weather_morning_mist from "./weather/morning-mist.js";
+import * as weather_pollen from "./weather/pollen.js";
 import * as weather_rain from "./weather/rain.js";
+import * as weather_rainbow from "./weather/rainbow.js";
+import * as weather_sandstorm from "./weather/sandstorm.js";
 import * as weather_snow from "./weather/snow.js";
+import * as weather_starry_night from "./weather/starry-night.js";
+import * as weather_strong_wind from "./weather/strong-wind.js";
+import * as weather_sun_rays from "./weather/sun-rays.js";
+import * as weather_sunrise from "./weather/sunrise.js";
+import * as weather_sunset from "./weather/sunset.js";
+import * as weather_thunderstorm from "./weather/thunderstorm.js";
+import * as weather_volcanic_smoke from "./weather/volcanic-smoke.js";
+import * as weather_wind_gust from "./weather/wind-gust.js";
 import * as fx_achievement_unlock from "./fx/achievement-unlock.js";
 import * as fx_animal_feed from "./fx/animal-feed.js";
 import * as fx_animal_heart from "./fx/animal-heart.js";
@@ -1470,11 +1495,36 @@ export const effects = {
   "objects/wooden-pallet": objects_wooden_pallet,
   "objects/wooden-table": objects_wooden_table,
   "objects/workbench": objects_workbench,
+  "weather/aurora": weather_aurora,
+  "weather/blizzard": weather_blizzard,
+  "weather/cloud-shadow": weather_cloud_shadow,
   "weather/day-night": weather_day_night,
+  "weather/drifting-clouds": weather_drifting_clouds,
+  "weather/falling-ash": weather_falling_ash,
   "weather/falling-leaves": weather_falling_leaves,
   "weather/fireflies": weather_fireflies,
+  "weather/floating-dust": weather_floating_dust,
+  "weather/floating-embers": weather_floating_embers,
+  "weather/fog": weather_fog,
+  "weather/heavy-rain": weather_heavy_rain,
+  "weather/light-rain": weather_light_rain,
+  "weather/lightning-flash": weather_lightning_flash,
+  "weather/meteor-shower": weather_meteor_shower,
+  "weather/moonlight": weather_moonlight,
+  "weather/morning-mist": weather_morning_mist,
+  "weather/pollen": weather_pollen,
   "weather/rain": weather_rain,
+  "weather/rainbow": weather_rainbow,
+  "weather/sandstorm": weather_sandstorm,
   "weather/snow": weather_snow,
+  "weather/starry-night": weather_starry_night,
+  "weather/strong-wind": weather_strong_wind,
+  "weather/sun-rays": weather_sun_rays,
+  "weather/sunrise": weather_sunrise,
+  "weather/sunset": weather_sunset,
+  "weather/thunderstorm": weather_thunderstorm,
+  "weather/volcanic-smoke": weather_volcanic_smoke,
+  "weather/wind-gust": weather_wind_gust,
   "fx/achievement-unlock": fx_achievement_unlock,
   "fx/animal-feed": fx_animal_feed,
   "fx/animal-heart": fx_animal_heart,

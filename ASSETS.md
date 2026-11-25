@@ -1,6 +1,6 @@
 # FarmFX assets
 
-1118 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
+1143 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
 
 ## Characters (20)
 
@@ -400,15 +400,40 @@
 | wooden table | [`objects/wooden-table`](src/fx/objects/wooden-table.js) | — |
 | Workbench | [`objects/workbench`](src/fx/objects/workbench.js) | [GIF](docs/preview/objects-workbench.gif) |
 
-## Weather & seasons (5)
+## Weather & seasons (30)
 
 | Asset | ID | Preview |
 | --- | --- | --- |
+| aurora | [`weather/aurora`](src/fx/weather/aurora.js) | — |
+| blizzard | [`weather/blizzard`](src/fx/weather/blizzard.js) | — |
+| cloud shadow | [`weather/cloud-shadow`](src/fx/weather/cloud-shadow.js) | — |
 | Day and night | [`weather/day-night`](src/fx/weather/day-night.js) | [GIF](docs/preview/weather-day-night.gif) |
+| drifting clouds | [`weather/drifting-clouds`](src/fx/weather/drifting-clouds.js) | — |
+| falling ash | [`weather/falling-ash`](src/fx/weather/falling-ash.js) | — |
 | Falling leaves | [`weather/falling-leaves`](src/fx/weather/falling-leaves.js) | [GIF](docs/preview/weather-falling-leaves.gif) |
 | Fireflies | [`weather/fireflies`](src/fx/weather/fireflies.js) | [GIF](docs/preview/weather-fireflies.gif) |
+| floating dust | [`weather/floating-dust`](src/fx/weather/floating-dust.js) | — |
+| floating embers | [`weather/floating-embers`](src/fx/weather/floating-embers.js) | — |
+| fog | [`weather/fog`](src/fx/weather/fog.js) | — |
+| heavy rain | [`weather/heavy-rain`](src/fx/weather/heavy-rain.js) | — |
+| light rain | [`weather/light-rain`](src/fx/weather/light-rain.js) | — |
+| lightning flash | [`weather/lightning-flash`](src/fx/weather/lightning-flash.js) | — |
+| meteor shower | [`weather/meteor-shower`](src/fx/weather/meteor-shower.js) | — |
+| moonlight | [`weather/moonlight`](src/fx/weather/moonlight.js) | — |
+| morning mist | [`weather/morning-mist`](src/fx/weather/morning-mist.js) | — |
+| pollen | [`weather/pollen`](src/fx/weather/pollen.js) | — |
 | Rain | [`weather/rain`](src/fx/weather/rain.js) | [GIF](docs/preview/weather-rain.gif) |
+| rainbow | [`weather/rainbow`](src/fx/weather/rainbow.js) | — |
+| sandstorm | [`weather/sandstorm`](src/fx/weather/sandstorm.js) | — |
 | Snow | [`weather/snow`](src/fx/weather/snow.js) | [GIF](docs/preview/weather-snow.gif) |
+| starry night | [`weather/starry-night`](src/fx/weather/starry-night.js) | — |
+| strong wind | [`weather/strong-wind`](src/fx/weather/strong-wind.js) | — |
+| sun rays | [`weather/sun-rays`](src/fx/weather/sun-rays.js) | — |
+| sunrise | [`weather/sunrise`](src/fx/weather/sunrise.js) | — |
+| sunset | [`weather/sunset`](src/fx/weather/sunset.js) | — |
+| thunderstorm | [`weather/thunderstorm`](src/fx/weather/thunderstorm.js) | — |
+| volcanic smoke | [`weather/volcanic-smoke`](src/fx/weather/volcanic-smoke.js) | — |
+| wind gust | [`weather/wind-gust`](src/fx/weather/wind-gust.js) | — |
 
 ## Farm fx (81)
 
