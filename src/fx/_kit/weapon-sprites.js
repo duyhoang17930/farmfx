@@ -7,7 +7,8 @@ const groups = {
   staff:"magic-staff fire-staff ice-staff lightning-staff poison-staff magic-wand",
   thrown:"boomerang", arrow:"arrow fire-arrow ice-arrow explosive-arrow",
 };
-const nature={wooden:WOOD,stone:STEEL,copper:["#503540","#835243","#b47752","#de9962","#ffd391"],iron:STEEL,steel:STEEL,
+const nature={wooden:WOOD,stone:["#373943","#575963","#72797a","#a4a79b","#d0cdb7"],
+  copper:["#503540","#835243","#b47752","#de9962","#ffd391"],iron:["#322f3b","#55505a","#78717b","#99919a","#dbcec3"],steel:STEEL,
   golden:GOLD,crystal:WATER,obsidian:VIOLET,magic:VIOLET,fire:RED,ice:WATER,lightning:GOLD,poison:LEAF,explosive:RED};
 const details={
   sword:"An outlined blade with a beveled edge and wrapped grip.",
@@ -61,6 +62,7 @@ export function weaponSprite(id){
       p.line(-12,0,12,-23,WOOD[3]);p.line(-11,0,12,-22,WOOD[4]);
       p.poly([[9,-23],[17,-27],[14,-19],[11,-22]],C[2]);p.line(10,-23,16,-26,C[4]);
       p.line(-11,0,-11,-7,id==="arrow"?CREAM[3]:C[3]);p.line(-11,0,-4,2,id==="arrow"?CREAM[4]:C[4]);
+      if(id==="explosive-arrow"){p.ellipse(11,-21,3.4,2.7,C[1]);p.px(13,-23,GOLD[4]);}
     }else{
       p.poly([[-14,-24],[-4,-21],[4,-14],[15,-11],[13,-5],[1,-8],[-10,-15]],WOOD[1]);
       p.polyline([[-13,-23],[-4,-19],[4,-13],[14,-10]],WOOD[4]);

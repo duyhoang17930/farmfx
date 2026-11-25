@@ -9,7 +9,9 @@ const styles={
  flash:"spark light-ray shockwave-ring",
 };
 function palette(id){
-  if(/wood|dust|soil/.test(id))return WOOD;
+  if(id==="soil-clod")return ["#382d35","#594143","#805b47","#ac7e59","#d0a679"];
+  if(/^wood|^dust$/.test(id))return WOOD;
+  if(id==="metal-chip")return ["#293842","#46616b","#6d9294","#99b8b3","#e0ecd5"];
   if(/smoke|stone|metal/.test(id))return STEEL;
   if(/water|snow|crystal|steam/.test(id))return WATER;
   if(/leaf|poison|experience/.test(id))return LEAF;
@@ -26,7 +28,7 @@ export function paintParticle(p,id,x,y,C,u,a,s,opacity){
     p.tri(x-dx,y-dy,x+dx,y+dy,x+dy*.75,y-dx*.75,C[2],opacity);
     p.line(x-dx,y-dy,x+dy*.75,y-dx*.75,C[4],opacity);
   }else if(id==="shockwave-ring"){
-    p.ring(x,y,s*(1+u*3),1.8,C[4],opacity*.77);
+    p.ring(x,y,Math.min(12,s*(1+u*3)),1.8,C[4],opacity*.77);
   }else if(id==="spark"||id==="light-ray"){
     const length=id==="light-ray"?s*4:s;
     p.line(x-Math.cos(a)*length,y-Math.sin(a)*length,x,y,C[4],opacity);

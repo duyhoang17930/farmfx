@@ -34,7 +34,7 @@ export function extraWeather(id){
         if(rain)p.line(x,y,x-4,y+len,C[3+i%2],a);
         else if(drift)p.line(x-len,y,x+len,y+1,C[2+i%3],a);
         else if(id.includes("smoke"))p.disc(x,y,3+u*3,C[1],a*.42);
-        else{p.dot(x,y,C[3+i%2],a);if(id.includes("embers"))p.glow(x,y,3,C[4],a*.32);}
+        else{p.dot(x,y,C[3+i%2],a);if(id.includes("embers")||id==="pollen")p.glow(x,y,id==="pollen"?2:3,C[4],a*.32);}
       }
       if(id==="thunderstorm"){
         const flash=Math.max(0,1-Math.abs(t-.37)/.04);

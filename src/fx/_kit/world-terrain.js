@@ -11,6 +11,9 @@ export const terrainPalettes={
   crystal:["#33324e","#4d5178","#6381a1","#8badd0","#c4dce3"],
   tropical:["#254f49","#386850","#57936a","#83b577","#d0d283"],
   rock:STEEL, wood:WOOD, water:WATER,
+  metal:["#263641","#435e65","#6f8b91","#a1babb","#d5e3d9"],
+  rope:["#4e3c3a","#735746","#a17d5b","#c7a578","#e8d4aa"],
+  dirt:["#513b36","#704d40","#96684c","#ad805c","#d1a171"],
   sand:["#5a5246","#8c7758","#c8a574","#e8c193","#ffe0a7"],
   lava:["#532b41","#902f43","#ca4b47","#f47e4c","#ffc16b"],
   ice:["#354e69","#577e99","#8eb7cc","#b0dbe2","#e1f3e9"],
@@ -41,7 +44,11 @@ export function terrain(id,kind,style,under,pattern=0){
   const other=terrainPalettes[under]??WATER;
   const water=["shore","river","water","wave"].includes(kind);
   const connected=connectedTiles.has(kind);
-  const metaOptions={tileX:0,tileY:0,...(connected?{edges:kind==="river"?"NS":"ES",corners:[]}:{}),
+  const inner=id.includes("inner-corner");
+  const edges=kind==="river"?id.includes("junction")?"NEW":id.includes("corner")?"NE":"NS":
+    inner?"":id.includes("outer-corner")?"NE":id==="island-edge"||id==="farmland-edge"?"S":id.includes("wall-corner")?"EW":"ES";
+  const corners=inner||id==="farmland-corner"?["NE"]:[];
+  const metaOptions={tileX:0,tileY:0,...(connected?{edges,corners}:{}),
     ...(kind==="gate"?{open:false}:{}),...(kind==="bridge"?{facing:"east-west"}:{}),background:other};
   const result=asset({name:id.replaceAll("-"," "),desc:descriptions[kind],tags:["terrain",kind,style],size:[16,16],origin:[8,12],
     duration:water?2.5:1,fps:water?12:1,palette,options:metaOptions},(p,phase,C,o)=>{
@@ -53,6 +60,9 @@ export function terrain(id,kind,style,under,pattern=0){
       const value=n>0.95?4:n<0.08?0:fleck>0.13?3:2;
       const ripple=wave(phase,1,gx*.059+gy*.13+fleck*.26)+(n-.5)*.4;
       let color=C[value];
+      if(id==="flower-ground"&&n>0.9)color=n>.975?C[4]:B[4];
+      if(id==="deep-snow")color=C[fleck>-.1?4:3];
+      if(id==="burnt-ground")color=C[value>1?value-1:value];
       if(kind==="blend")color=d<2?B[value]:d<4?B[n>0.52?3:2]:d===4&&n>0.7?C[1]:C[value];
       else if(kind==="shore")color=d<2?B[ripple>0.75?3:1]:d<4?n>0.78?C[4]:C[1]:C[value];
       else if(kind==="cliff")color=d<1?C[0]:d<4?C[x%5===0?1:2]:d===4?C[4]:C[value];
@@ -71,22 +81,30 @@ export function terrain(id,kind,style,under,pattern=0){
         if(kind==="wall"&&d>10)color=C[value];
       }else if(kind==="shadow"){
         const a=Math.max(0,1-y/12)*0.42;
-        p.blend(x-8,y-12,C[0],a);continue;
+        p.dot(x-8,y-12,C[0],a);continue;
       }else if(kind==="bridge"||kind==="stairs"||kind==="fence"||kind==="gate"){
         const across=o.facing==="north-south"?x:y, along=o.facing==="north-south"?y:x;
         if(kind==="stairs")color=C[across%4===0?1:across%4===1?4:value];
-        else if(kind==="bridge"){if(across<1||across>14)continue;color=C[across<3||across>12?4:along%4===0?1:value];}
+        else if(kind==="bridge"){
+          if(across<1||across>14)continue;
+          if(id.includes("rope")&&(across>2&&across<13)&&along%5===0)continue;
+          color=C[across<3||across>12?4:along%(id.includes("dock")?3:4)===0?1:value];
+        }
         else {
           if(kind==="fence"&&/N|S/.test(edges)&&!/[EW]/.test(edges)){
             if(x<6||x>9)continue;
             p.px(x-8,y-12,C[x===6?4:x===9?1:2]);continue;
           }
+          if(kind==="gate"&&!o.open&&x>=6&&x<=9&&y>=7&&y<=10){
+            p.px(x-8,y-12,C[y===7?4:0]);continue;
+          }
           if(y<4||y>12||(y>6&&y<10&&x>2&&x<13)||kind==="gate"&&o.open&&x>4&&x<12)continue;
-          color=C[x<3||x>12?3:y===4||y===10?4:2];
+          color=C[style==="metal"&&x%4===3?4:x<3||x>12?3:y===4||y===10?4:2];
         }
       }
       p.px(x-8,y-12,color);
     }
   });
-  return connected?{...result,meta:{...result.meta,autotile:kind}}:result;
+  const collision=["wall","fence","cliff","gate"].includes(kind)?{width:16,height:kind==="cliff"?4:6}:undefined;
+  return {...result,meta:{...result.meta,...(connected?{autotile:kind}:{}),...(collision?{collision}:{})}};
 }

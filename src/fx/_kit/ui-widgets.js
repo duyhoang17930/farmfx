@@ -34,7 +34,9 @@ export function widget(id){
     }else if(kind==="slider"){
       p.rect(-39,-6,78,12,C[0]);p.rect(-37,-4,74,8,C[2]);
       if(id==="slider"||id==="scrollbar"){
-        const x=-34+68*value;p.circle(x,0,6,GOLD[2]);p.circle(x-1,-1,4,GOLD[4]);
+        const x=-34+68*value;
+        if(id==="scrollbar"){p.rect(x-6,-4,12,8,C[3]);p.line(x-2,-1,x+2,-1,C[4]);p.line(x-2,1,x+2,1,C[4]);}
+        else{p.circle(x,0,6,GOLD[2]);p.circle(x-1,-1,4,GOLD[4]);}
       }else{
         p.rect(-36,-3,72*value,6,id==="loading-bar"?GOLD[3]:LEAF[3]);
         if(id==="loading-bar")for(let j=-33;j<-36+72*value;j+=7)p.line(j,-2,j+2,2,GOLD[1]);
@@ -43,7 +45,8 @@ export function widget(id){
       frame(p,-72,-31,144,62,C);
       if(id==="tab"||id==="pagination"){
         for(let i=0;i<4;i++){
-          const x=-60+i*31;p.rect(x,-10,28,21,i===1?C[3]:C[1]);label(p,String(i+1),x+11,-3,1,i===1?GOLD[4]:CREAM[4]);
+          const x=-60+i*31;p.rect(x,-10,28,21,i===1?C[3]:C[1]);
+          label(p,id==="tab"?["ALL","NEW","GEAR","MAP"][i]:String(i+1),x+(id==="tab"?4:11),-3,id==="tab"?4:1,i===1?GOLD[4]:CREAM[4]);
         }
       }else{
         for(const [i,text] of [String(o.text),"SELECTED OPTION","OTHER OPTION"].entries()){

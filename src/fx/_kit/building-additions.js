@@ -4,11 +4,11 @@ import { icon } from "./farm-ui.js";
 import { groundShadow } from "./sprite.js";
 import { exhaust, vapor } from "./machine.js";
 
-const signs={blacksmith:"hammer","lumber-house":"wood","mining-house":"ore",bakery:"bread",restaurant:"soup",tavern:"coffee",
+const signs={blacksmith:"steel-ingot","lumber-house":"wood","mining-house":"ore",bakery:"bread",restaurant:"soup",tavern:"coffee",
   "fishing-hut":"fish","hunter-hut":"raw-meat","potion-shop":"small-health-potion","weapon-shop":"steel-ingot","seed-shop":"seed",
   "clothing-shop":"cloth","merchant-house":"coin-pouch","town-hall":"coin",library:"paper",museum:"fossil",temple:"magic-orb",
   shrine:"soul-shard",church:"golden-egg","bank-building":"gold-bar","factory-building":"gear","power-station":"battery",
-  warehouse:"resource-crate",laboratory:"circuit-board","animal-shelter":"animal-feed",pigsty:"trough","sheep-pen":"wool",
+  warehouse:"plank",laboratory:"circuit-board","animal-shelter":"animal-feed",pigsty:"raw-meat","sheep-pen":"wool",
   "duck-house":"egg","fish-farm":"fish","upgraded-barn":"milk","upgraded-coop":"egg",
   "upgraded-greenhouse":"seed","portal-building":"spirit-essence","abandoned-house":"bark"};
 const towers=/tower/;

@@ -5,10 +5,13 @@ export function lightAsset(id){
   const shadow=id.includes("shadow"), darkness=id.includes("darkness");
   const ambient=id==="ambient-light", window=id==="window-light";
   const live=/flicker|pulse|campfire|furnace|torch|lava/.test(id);
-  const palette=shadow||darkness?STEEL:/crystal|magic/.test(id)?VIOLET:/lava|furnace/.test(id)?RED:window?WATER:GOLD;
+  const values={"radial-light":[34,.72],"lantern-light":[24,.77],"street-light":[35,.84],"campfire-light":[32,.66],
+    "torch-light":[19,.84],"light-pulse":[28,.92],"point-light":[15,.86],"magic-light":[29,.71],"crystal-light":[21,.80]};
+  const [defaultRadius,intensity]=values[id]??[shadow?18:34,.72];
+  const palette=shadow||darkness?STEEL:/crystal|magic/.test(id)?VIOLET:/lava|furnace|campfire/.test(id)?RED:window?WATER:GOLD;
   return asset({name:id.replaceAll("-"," "),desc:`A configurable ${id.replaceAll("-"," ")} layer with adjustable radius and intensity.`,
     tags:["lighting",shadow?"shadow":darkness?"mask":"light"],size:[96,80],origin:[48,45],palette,duration:live?2.5:1,
-    fps:live?16:1,bg:"dark",options:{radius:shadow?18:34,intensity:.72}},(p,t,C,o)=>{
+    fps:live?16:1,bg:"dark",options:{radius:defaultRadius,intensity}},(p,t,C,o)=>{
     const radius=Math.max(3,Math.min(36,o.radius)), q=clamp(o.intensity);
     const glow=q*(live?.82+wave(t,id.includes("flicker")?5:2)*.15+wave(t,3)*.03:1);
     if(shadow){

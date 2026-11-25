@@ -11,7 +11,7 @@ const families={
  economy:[GOLD,{"commerce":"coin-pouch","bargaining":"paper","banking":"gold-key","coin-production":"items/special/coin",
    "cheaper-land":"treasure-map","cheaper-crafting":"plank","market-expansion":"brick","passive-income":"gold-bar"}],
  combat:[RED,{"sword-mastery":"steel-ingot","archery":"stick","defense":"defense-ring","critical-strike":"ruby","attack-speed":"speed-potion",
-   "dodge":"speed-ring","health-boost":"medium-health-potion","regeneration":"antidote"}],
+   "dodge":"speed-potion","health-boost":"medium-health-potion","regeneration":"antidote"}],
  magic:[VIOLET,{"alchemy":"small-energy-potion","enchanting":"ancient-scroll","fire-magic":"amber","ice-magic":"sapphire","lightning-magic":"fuel-cell",
    "healing-magic":"small-health-potion","teleportation":"teleport-scroll","summoning":"spirit-essence"}],
 };

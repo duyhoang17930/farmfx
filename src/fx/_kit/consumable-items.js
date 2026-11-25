@@ -40,7 +40,7 @@ const entries = {
   "luck-potion": potion("A golden luck elixir in a small vial.",GOLD,0,"cross"),
   "invisibility-potion": potion("A pale violet solution in a slim cloudy bottle.",VIOLET,0),
   "poison-potion": potion("A wide green fantasy status potion.",LEAF,2),
-  "fire-resistance-potion": potion("A warm resistance elixir with a gold lightning mark.",RED,1,"bolt"),
+  "fire-resistance-potion": potion("A warm resistance elixir with a bright lightning mark.",["#502b39","#8f473e","#c45d35","#f58a49","#ffd491"],1,"bolt"),
   antidote: potion("A mint-green healing solution in a medium flask.",LEAF,1,"cross"),
   fertilizer:["A paper sack marked with a sprouting leaf.",WOOD,(p,x,y,C)=>{
     poly(p,x,y,[[-3,-5],[3,-5],[2,-2],[5,2],[4,5],[-4,5],[-5,2],[-2,-2]],C[0]);

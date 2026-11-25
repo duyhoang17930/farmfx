@@ -36,6 +36,7 @@ export function gearSprite(id){
       p.arc(0,-23,7,2,Math.PI,Math.PI*2,C[2]);box(p,-w/2,-4,w,19,4,C);
       p.rect(-7,-15,14,9,C[1]);p.line(-6,-15,6,-15,C[4]);p.rect(-2,-13,4,4,GOLD[3]);
       p.line(-w/2+1,-22,-w/2+1,-8,C[4]);
+      if(prefix==="wooden")for(const y of [-18,-12,-8])p.line(-8,y,8,y,C[3]);
     }else if(kind==="ring"){
       p.ring(0,-13,10,3.4,GOLD[1]);p.arc(0,-13,9,1.8,0,4.4,GOLD[4]);
       p.poly([[0,-29],[6,-24],[5,-19],[-5,-19],[-6,-24]],C[1]);

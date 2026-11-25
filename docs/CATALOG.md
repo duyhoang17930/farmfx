@@ -197,8 +197,8 @@ seasonal ground, path and water tiles, cliffs, foliage and crossings.
 | Dirt path | `tiles/dirt-path` | loop 2s | 16×16 | A 16 px packed-earth path with configurable edges and seeded grit. |
 | dirt to stone | `tiles/dirt-to-stone` | loop 1s | 16×16 | Connects two ground materials with configurable edges and inside corners. |
 | Fallen log | `tiles/fallen-log` | loop 2s | 48×32 | A hollow fallen log with split bark, growth rings and small patches of moss. |
-| farmland corner | `tiles/farmland-corner` | loop 2.5s | 16×16 | A connected bank with configurable shoreline edges and inside corners. |
-| farmland edge | `tiles/farmland-edge` | loop 2.5s | 16×16 | A connected bank with configurable shoreline edges and inside corners. |
+| farmland corner | `tiles/farmland-corner` | loop 1s | 16×16 | Connects two ground materials with configurable edges and inside corners. |
+| farmland edge | `tiles/farmland-edge` | loop 1s | 16×16 | Connects two ground materials with configurable edges and inside corners. |
 | Fence and gate | `tiles/fence` | loop 3s | 32×32 | A one-tile split-rail fence or hinged gate. Orient east-west or north-south and set the gate opening. |
 | Grass | `tiles/grass` | loop 2.5s | 16×16 | A seamless 16 px ground tile with wind-stirred tufts and spring, summer, autumn or winter colors. |
 | Autumn grass | `tiles/grass-autumn` | loop 2.5s | 16×16 | The autumn grass tile with seeded ground texture and animated tufts. |
@@ -861,7 +861,7 @@ inventory icons for materials, components, gems, produce, animal products and me
 | Defense potion | `items/consumables/defense-potion` | loop 1s | 16×16 | A steel-gray tonic in a wide reinforced bottle. |
 | Experience scroll | `items/consumables/experience-scroll` | loop 1s | 16×16 | A folded scroll with a blue experience rune. |
 | Fertilizer | `items/consumables/fertilizer` | loop 1s | 16×16 | A paper sack marked with a sprouting leaf. |
-| Fire resistance potion | `items/consumables/fire-resistance-potion` | loop 1s | 16×16 | A warm resistance elixir with a gold lightning mark. |
+| Fire resistance potion | `items/consumables/fire-resistance-potion` | loop 1s | 16×16 | A warm resistance elixir with a bright lightning mark. |
 | Growth booster | `items/consumables/growth-booster` | loop 1s | 16×16 | A broad moss-green growth tonic with a bright cross. |
 | Invisibility potion | `items/consumables/invisibility-potion` | loop 1s | 16×16 | A pale violet solution in a slim cloudy bottle. |
 | Large energy potion | `items/consumables/large-energy-potion` | loop 1s | 16×16 | A wide blue flask with a lightning mark. |

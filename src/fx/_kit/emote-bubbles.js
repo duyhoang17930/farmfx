@@ -36,7 +36,13 @@ export function emoteBubble(id){
     const y=-16+Math.round(2*wave(t));
     p.ellipse(0,y,15,12,C[0]);p.ellipse(0,y-0.5,13.8,10.9,CREAM[4]);
     p.tri(-5,y+8,-8,y+15,3,y+9,C[0]);p.tri(-4,y+8,-6,y+12,1,y+9,CREAM[4]);
-    glyph(p,kind,id,y-1,C,t);
+    glyph(p,kind,id,y-1,C,id==="goodbye"?1-t:t);
     if(id==="laughing")p.line(9,y-3,11,y-6,GOLD[4]);
+    if(id==="angry")p.polyline([[-11,y-1],[-9,y-5],[-10,y-5],[-7,y-8]],RED[3]);
+    if(id==="confused")p.px(7,y-6,VIOLET[3]);
+    if(id==="crying"){p.line(-7,y+1,-8,y+4,WATER[2]);p.line(6,y+1,7,y+4,WATER[3]);}
+    if(id==="sweat")p.line(5,y-6,8,y-8,WATER[3]);
+    if(id==="celebration")p.tri(-7,y+5,-5,y-1,-1,y+2,GOLD[3]);
+    if(id==="goodbye")p.polyline([[5,y-5],[9,y-5],[7,y-7]],GOLD[2]);
   });
 }

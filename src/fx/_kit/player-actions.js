@@ -71,12 +71,12 @@ export function playerClip(id) {
     const action=mode==="combo"?Math.sin(2*Math.PI*phase)**2:pulse;
     const swing=["swing","sweep","thrust","combo"].includes(mode);
     const moving=["rush","stride","carry","push","pull","climb","swim"].includes(mode)&&id!=="idle";
-    const dip=["land","reach","scatter","hurt","recoil"].includes(mode)?3*action:0;
+    const dip=mode==="land"?4*Math.sin(Math.PI*seg(phase,0,.72)):["reach","scatter","hurt","recoil"].includes(mode)?3*action:0;
     const height=mode==="jump"?10*pulse:mode==="cheer"?4*pulse:mode==="climb"?5:mode==="swim"?-4:0;
     const x=side?direction*(mode==="rush"?12*phase:mode==="recoil"?-8*phase:0):0;
     const roll=mode==="roll"?phase*2*Math.PI:mode==="down"?ease.inQuad(seg(phase,0.15,0.76))*1.35:
       mode==="rest"?1.35:mode==="rise"?(1-ease.outCubic(phase))*1.35:0;
-    const lean=mode==="push"?2:mode==="pull"?-2:mode==="rush"?3:swing?Math.round(3*wave(phase,1,-0.1)):0;
+    const lean=mode==="push"?2:mode==="pull"||mode==="hurt"?-2:mode==="rush"?3:swing?Math.round(3*wave(phase,1,-0.1)):0;
     const prop=["watering-can","bow","rod","orb","shield","bread","milk","wood","fish","seed","gear","stone","carrot","sword","spear","greatsword","scythe"].includes(item);
     const gripY=mode==="use"?-7-6*pulse:mode==="reach"?-6+5*pulse:mode==="cheer"?-13-4*pulse:
       swing?-10-7*wave(phase):mode==="scatter"?-7-4*action:-8;
@@ -89,7 +89,11 @@ export function playerClip(id) {
     groundShadow(p,x,0,mode==="swim"?9:6.5,2,0.9-height*0.04);
     explorer(body,fit(o.palette,5),facing,{shadow:false,step:moving?Math.min(3,Math.floor(4*phase)): -1,
       bob:Math.round(dip+(id==="idle"?Math.max(0,wave(phase)):0)),lean,hand,tool:tip?item:undefined,tip});
-    if(prop)held(body,item,gripX*direction,gripY,0,phase);
+    if(prop){
+      const propPainter=new Painter(body.frame).place(body.tx,body.ty,body.fx*direction<0,Math.atan2(body.sn,body.cs));
+      propPainter.fade=body.fade;
+      held(propPainter,item,gripX,gripY,0,phase);
+    }
     if(mode==="swim")p.ellipse(0,-1,9+pulse*3,2,WATER[3],0.58);
     if(["stun","cheer","appear","vanish","cast"].includes(mode))for(let i=0;i<4;i++){
       const a=(phase+i/4)*Math.PI*2;

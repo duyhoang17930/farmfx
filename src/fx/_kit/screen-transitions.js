@@ -9,7 +9,7 @@ const families={
   flash:"teleport-transition boss-introduction boss-defeated",
 };
 function screenColor(id){
-  if(/teleport|night|biome/.test(id))return VIOLET;
+  if(/teleport|night|biome|dungeon/.test(id))return VIOLET;
   if(/day|defeated|season/.test(id))return GOLD;
   if(/death|introduction/.test(id))return RED;
   if(id.includes("island"))return LEAF;

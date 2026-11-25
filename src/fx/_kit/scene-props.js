@@ -41,7 +41,7 @@ export function sceneProp(id){
       p.rect(-w/2+3,-21,w-6,9,CREAM[3]);p.line(-w/2+4,-20,w/2-5,-20,CREAM[4]);
       p.poly([[-w/2+1,-14],[w/2-1,-14],[w/2,-4],[-w/2,-4]],C[2]);p.line(-w/2+2,-13,w/2-3,-13,C[4]);
     }else if(kind==="cabinet"){
-      shelf(p,id==="bookshelf"?19:16,id==="refrigerator"?40:35,C,o.open||id==="bookshelf");
+      shelf(p,id==="bookshelf"?19:16,id==="refrigerator"?40:id==="wardrobe"?39:id==="cabinet"?27:35,C,o.open||id==="bookshelf");
       if(id==="bookshelf")for(let x=-14;x<=14;x+=4){p.line(x,-29,x,-22,x%3?GOLD[3]:RED[3]);p.line(x,-15,x,-8,x%4?WATER[4]:LEAF[3]);}
       if(id==="refrigerator"){p.line(-9,-26,10,-26,C[4]);p.line(-8,-22,-8,-14,C[4]);}
     }else if(kind==="fire"){
@@ -49,7 +49,9 @@ export function sceneProp(id){
         post(p,0,0,id==="torch"?22:32,WOOD);
         p.poly([[-8,-27],[-5,-38],[5,-38],[8,-27],[4,-22],[-4,-22]],STEEL[1]);hot(p,-5,-35,11,11,t,o.active);
       }else{
-        box(p,-15,0,30,14,5,C);p.ellipse(0,-12,12,4,STEEL[1]);hot(p,-11,-16,22,12,t,o.active);
+        if(id==="campfire"){
+          p.beam(-11,-1,10,-11,5,WOOD[2]);p.beam(11,-1,-10,-11,5,WOOD[3]);hot(p,-8,-17,17,11,t,o.active);
+        }else{box(p,-15,0,30,14,5,C);p.ellipse(0,-12,12,4,STEEL[1]);hot(p,-11,-16,22,12,t,o.active);}
         if(id==="fireplace"){post(p,-15,0,27,C);post(p,15,0,27,C);p.rect(-18,-30,37,5,C[3]);}
         if(o.active)vapor(p,1,-17,t,o.seed,CREAM,3);
       }
@@ -60,6 +62,7 @@ export function sceneProp(id){
       p.poly([[-12,y],[14,y+wiggle*2],[17,y+12],[6,y+9],[-14,y+13]],C[0]);
       p.poly([[-11,y+1],[13,y+1+wiggle*2],[15,y+10],[5,y+8],[-12,y+11]],C[2]);
       p.poly([[0,y+2],[6,y+6],[0,y+9],[-6,y+6]],C[4]);
+      if(id==="banner"){p.line(-11,y,15,y,C[4]);p.line(10,y+7,10,y+11,C[3]);}
     }else if(kind==="wall"){
       if(id==="wall-clock"){
         round(p,0,-19,12,13,C);p.circle(0,-19,9,CREAM[3]);p.line(0,-19,0,-25,WOOD[0]);
@@ -73,6 +76,7 @@ export function sceneProp(id){
       p.rect(-15,-36,30,36,C[0]);p.rect(-12,-34,24,34,STEEL[0]);
       const open=o.open?9:24;p.rect(-12,-33,open,32,C[2]);p.line(-11,-33,-12+open,-33,C[4]);
       p.line(-9,-32,-9,-2,C[3]);p.px(-16+open,-14,GOLD[4]);
+      if(id==="metal-door")for(const y of [-30,-3])p.line(-10,y,10,y,STEEL[3]);
     }else if(kind==="nature"){
       if(id==="flower-pot"){
         p.poly([[-10,-11],[10,-11],[7,-1],[-7,-1]],RED[2]);p.ellipse(0,-11,10,3,RED[4]);
@@ -102,7 +106,8 @@ export function sceneProp(id){
     }else if(kind==="pile"){
       for(let i=0;i<5;i++){
         const x=(i%3-1)*10,y=-4-Math.floor(i/3)*9,r=5+rand(i,7,o.seed)*2;
-        if(id==="stone-pile")round(p,x,y,r,r*.75,C);
+        if(id==="wooden-pallet"){p.rect(x-6,y-3,12,5,C[1]);p.line(x-5,y-3,x+5,y-3,C[4]);}
+        else if(id==="stone-pile")round(p,x,y,r,r*.75,C);
         else {p.beam(x-r,y+1,x+r,y-3,6,C[2]);p.ellipse(x-r,y+1,3.3,3.2,C[3]);p.px(x-r,y+1,C[1]);}
       }
     }else{
@@ -112,6 +117,9 @@ export function sceneProp(id){
       p.poly([[-w/2,-14],[w/2,-14],[w/2+4,o.open?-27:-19],[-w/2+4,o.open?-27:-19]],C[2]);
       p.line(-w/2+4,o.open?-27:-19,w/2+3,o.open?-27:-19,C[4]);
       p.rect(-3,-15,7,6,GOLD[2]);p.px(0,-12,C[0]);
+      if(id==="golden-chest")p.line(-9,-6,9,-6,GOLD[4]);
+      if(id==="locked-chest"){p.rect(-5,-14,11,9,STEEL[1]);p.px(0,-9,GOLD[4]);}
+      if(id==="donation-box")p.line(-6,-18,6,-18,C[0]);
     }
   });
   return {...fx,meta:{...fx.meta,collision:{width:kind==="fabric"?0:28,height:kind==="fabric"?0:12}}};

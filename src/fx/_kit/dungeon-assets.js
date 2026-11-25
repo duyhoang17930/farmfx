@@ -43,7 +43,8 @@ export function dungeonAsset(id){
       }else if(id==="rune-floor"){
         rune(p,0,-7,C);p.glow(0,-7,9,C[3],0.18+.14*u);
       }else{
-        p.ellipse(0,-9+press,8,3.5,id==="collapsing-floor"?C[0]:C[3]);
+        if(id==="pressure-plate")p.rect(-9,-11+press,19,5,C[3]);
+        else p.ellipse(0,-9+press,8,3.5,id==="collapsing-floor"?C[0]:C[3]);
         p.line(-4,-10+press,4,-10+press,C[4]);
         if(id==="wall-button"){post(p,0,0,23,C);p.circle(0,-20,4,RED[3]);}
       }
@@ -52,12 +53,14 @@ export function dungeonAsset(id){
       p.poly([[-20,0],[-20,-25],[-15,-38],[-9,-42],[9,-42],[15,-38],[20,-25],[20,0]],STEEL[0]);
       p.polyline([[-18,0],[-18,-26],[-13,-37],[-7,-40],[7,-40],[13,-37],[18,-26],[18,0]],STEEL[3]);
       p.poly([[-13,0],[-13,-24],[-8,-33],[8,-33],[13,-24],[13,0]],o.open?STEEL[0]:C[2]);
+      if(id==="dungeon-exit"){p.tri(-5,-21,0,-28,5,-21,GOLD[4]);p.line(0,-22,0,-16,GOLD[3]);}
       if(glow){p.ellipse(0,-16,10,14,C[1]);rune(p,0,-16,C);p.glow(0,-16,10,C[3],.25);}
       if(id.includes("locked")){p.rect(-4,-15,9,8,GOLD[2]);p.px(0,-11,STEEL[0]);}
       if(id==="prison-gate")for(let x=-10;x<=10;x+=5)p.line(x,-26,x,0,STEEL[3]);
     }else if(kind==="wall"){
       for(let x=-15;x<=15;x+=5){p.beam(x,0,x,-30,3,C[1]);p.line(x-1,0,x-1,-30,C[3]);}
       p.line(-16,-21,16,-21,C[4]);p.line(-16,-4,16,-4,C[3]);
+      if(id==="prison-cell"){post(p,-18,0,35,STEEL);post(p,18,0,35,STEEL);p.line(-17,-30,17,-30,STEEL[3]);}
     }else if(kind==="trap"){
       box(p,-17,0,34,6,6,C);
       const burst=active?ease.outQuart(seg(t,0.2,0.46))*(1-seg(t,.58,.96)):0;
@@ -87,9 +90,13 @@ export function dungeonAsset(id){
       if(!isCircle)box(p,-12,-4,24,13,5,C);
       if(id==="ancient-statue"){p.beam(0,-15,0,-29,12,C[2]);round(p,0,-31,6.8,6.5,C);}
       else if(isCircle||active)rune(p,0,isCircle?-5:-18,C);
+      if(id==="sacrifice-altar"){p.line(-12,-11,11,-11,RED[2]);p.circle(0,-22,4,RED[3]);}
       if(active)for(let i=0;i<4;i++)twinkle(p,(rand(i,2,o.seed)-.5)*30,-8-((phase+i/4)%1)*23,1.9,C[3],C[4]);
     }else if(kind==="light"){
-      post(p,0,0,22,C);p.ellipse(0,-20,10,5,C[3]);hot(p,-8,-29,17,10,phase,active);if(active)vapor(p,0,-30,phase,o.seed,CREAM,3);
+      if(id==="dungeon-brazier"){for(const x of [-7,7])post(p,x,0,12,C);}
+      else post(p,0,0,22,C);
+      const y=id==="dungeon-brazier"?-12:-20;
+      p.ellipse(0,y,10,5,C[3]);hot(p,-8,y-9,17,10,phase,active);if(active)vapor(p,0,y-10,phase,o.seed,CREAM,3);
     }else if(kind==="remains"){
       if(id==="cobweb"){
         for(let i=0;i<6;i++){const a=i*TAU/6;p.line(0,-19,Math.cos(a)*20,-19+Math.sin(a)*17,CREAM[2]);}
