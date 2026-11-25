@@ -1,6 +1,6 @@
 # FarmFX assets
 
-782 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
+827 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
 
 ## Characters (20)
 
@@ -165,31 +165,76 @@
 | turkey | [`animals/turkey`](src/fx/animals/turkey.js) | — |
 | turtle | [`animals/turtle`](src/fx/animals/turtle.js) | — |
 
-## Tiles (21)
+## Tiles (66)
 
 | Asset | ID | Preview |
 | --- | --- | --- |
 | Berry bush | [`tiles/berry-bush`](src/fx/tiles/berry-bush.js) | [GIF](docs/preview/tiles-berry-bush.gif) |
+| brick floor | [`tiles/brick-floor`](src/fx/tiles/brick-floor.js) | — |
+| brick wall | [`tiles/brick-wall`](src/fx/tiles/brick-wall.js) | — |
 | Footbridge | [`tiles/bridge`](src/fx/tiles/bridge.js) | [GIF](docs/preview/tiles-bridge.gif) |
 | Cliff wall | [`tiles/cliff`](src/fx/tiles/cliff.js) | [GIF](docs/preview/tiles-cliff.gif) |
 | Cliff corner | [`tiles/cliff-corner`](src/fx/tiles/cliff-corner.js) | [GIF](docs/preview/tiles-cliff-corner.gif) |
+| cliff inner corner | [`tiles/cliff-inner-corner`](src/fx/tiles/cliff-inner-corner.js) | — |
+| cliff outer corner | [`tiles/cliff-outer-corner`](src/fx/tiles/cliff-outer-corner.js) | — |
+| crystal floor | [`tiles/crystal-floor`](src/fx/tiles/crystal-floor.js) | — |
+| deep water | [`tiles/deep-water`](src/fx/tiles/deep-water.js) | — |
 | Dirt path | [`tiles/dirt-path`](src/fx/tiles/dirt-path.js) | [GIF](docs/preview/tiles-dirt-path.gif) |
+| dirt to stone | [`tiles/dirt-to-stone`](src/fx/tiles/dirt-to-stone.js) | — |
 | Fallen log | [`tiles/fallen-log`](src/fx/tiles/fallen-log.js) | [GIF](docs/preview/tiles-fallen-log.gif) |
+| farmland corner | [`tiles/farmland-corner`](src/fx/tiles/farmland-corner.js) | — |
+| farmland edge | [`tiles/farmland-edge`](src/fx/tiles/farmland-edge.js) | — |
 | Fence and gate | [`tiles/fence`](src/fx/tiles/fence.js) | [GIF](docs/preview/tiles-fence.gif) |
 | Grass | [`tiles/grass`](src/fx/tiles/grass.js) | [GIF](docs/preview/tiles-grass.gif) |
 | Autumn grass | [`tiles/grass-autumn`](src/fx/tiles/grass-autumn.js) | [GIF](docs/preview/tiles-grass-autumn.gif) |
 | Summer grass | [`tiles/grass-summer`](src/fx/tiles/grass-summer.js) | [GIF](docs/preview/tiles-grass-summer.gif) |
+| grass to dirt | [`tiles/grass-to-dirt`](src/fx/tiles/grass-to-dirt.js) | — |
+| grass to sand | [`tiles/grass-to-sand`](src/fx/tiles/grass-to-sand.js) | — |
+| grass to snow | [`tiles/grass-to-snow`](src/fx/tiles/grass-to-snow.js) | — |
+| grass to stone | [`tiles/grass-to-stone`](src/fx/tiles/grass-to-stone.js) | — |
 | Winter grass | [`tiles/grass-winter`](src/fx/tiles/grass-winter.js) | [GIF](docs/preview/tiles-grass-winter.gif) |
+| iron fence | [`tiles/iron-fence`](src/fx/tiles/iron-fence.js) | — |
+| iron gate | [`tiles/iron-gate`](src/fx/tiles/iron-gate.js) | — |
+| island edge | [`tiles/island-edge`](src/fx/tiles/island-edge.js) | — |
+| island inner corner | [`tiles/island-inner-corner`](src/fx/tiles/island-inner-corner.js) | — |
+| island outer corner | [`tiles/island-outer-corner`](src/fx/tiles/island-outer-corner.js) | — |
+| island shadow | [`tiles/island-shadow`](src/fx/tiles/island-shadow.js) | — |
+| marble floor | [`tiles/marble-floor`](src/fx/tiles/marble-floor.js) | — |
+| metal bridge | [`tiles/metal-bridge`](src/fx/tiles/metal-bridge.js) | — |
+| metal floor | [`tiles/metal-floor`](src/fx/tiles/metal-floor.js) | — |
+| metal wall | [`tiles/metal-wall`](src/fx/tiles/metal-wall.js) | — |
+| ocean water | [`tiles/ocean-water`](src/fx/tiles/ocean-water.js) | — |
+| ocean wave | [`tiles/ocean-wave`](src/fx/tiles/ocean-wave.js) | — |
 | Pond | [`tiles/pond`](src/fx/tiles/pond.js) | [GIF](docs/preview/tiles-pond.gif) |
+| pond inner corner | [`tiles/pond-inner-corner`](src/fx/tiles/pond-inner-corner.js) | — |
+| pond outer corner | [`tiles/pond-outer-corner`](src/fx/tiles/pond-outer-corner.js) | — |
 | River | [`tiles/river`](src/fx/tiles/river.js) | [GIF](docs/preview/tiles-river.gif) |
+| river corner | [`tiles/river-corner`](src/fx/tiles/river-corner.js) | — |
+| river junction | [`tiles/river-junction`](src/fx/tiles/river-junction.js) | — |
+| river mouth | [`tiles/river-mouth`](src/fx/tiles/river-mouth.js) | — |
 | Mossy rock | [`tiles/rock`](src/fx/tiles/rock.js) | [GIF](docs/preview/tiles-rock.gif) |
+| rope bridge | [`tiles/rope-bridge`](src/fx/tiles/rope-bridge.js) | — |
 | Sand | [`tiles/sand`](src/fx/tiles/sand.js) | [GIF](docs/preview/tiles-sand.gif) |
+| sand to water | [`tiles/sand-to-water`](src/fx/tiles/sand-to-water.js) | — |
+| shallow water | [`tiles/shallow-water`](src/fx/tiles/shallow-water.js) | — |
+| snow to ice | [`tiles/snow-to-ice`](src/fx/tiles/snow-to-ice.js) | — |
+| stone bridge | [`tiles/stone-bridge`](src/fx/tiles/stone-bridge.js) | — |
+| stone fence | [`tiles/stone-fence`](src/fx/tiles/stone-fence.js) | — |
+| stone floor | [`tiles/stone-floor`](src/fx/tiles/stone-floor.js) | — |
+| stone gate | [`tiles/stone-gate`](src/fx/tiles/stone-gate.js) | — |
 | Stone path | [`tiles/stone-path`](src/fx/tiles/stone-path.js) | [GIF](docs/preview/tiles-stone-path.gif) |
+| stone stairs | [`tiles/stone-stairs`](src/fx/tiles/stone-stairs.js) | — |
+| stone wall | [`tiles/stone-wall`](src/fx/tiles/stone-wall.js) | — |
 | Stump | [`tiles/stump`](src/fx/tiles/stump.js) | [GIF](docs/preview/tiles-stump.gif) |
 | Tilled soil | [`tiles/tilled-soil`](src/fx/tiles/tilled-soil.js) | [GIF](docs/preview/tiles-tilled-soil.gif) |
 | Waterfall | [`tiles/waterfall`](src/fx/tiles/waterfall.js) | [GIF](docs/preview/tiles-waterfall.gif) |
 | Weeds | [`tiles/weeds`](src/fx/tiles/weeds.js) | [GIF](docs/preview/tiles-weeds.gif) |
 | Wildflowers | [`tiles/wildflowers`](src/fx/tiles/wildflowers.js) | [GIF](docs/preview/tiles-wildflowers.gif) |
+| wooden bridge | [`tiles/wooden-bridge`](src/fx/tiles/wooden-bridge.js) | — |
+| wooden dock | [`tiles/wooden-dock`](src/fx/tiles/wooden-dock.js) | — |
+| wooden floor | [`tiles/wooden-floor`](src/fx/tiles/wooden-floor.js) | — |
+| wooden stairs | [`tiles/wooden-stairs`](src/fx/tiles/wooden-stairs.js) | — |
+| wooden wall | [`tiles/wooden-wall`](src/fx/tiles/wooden-wall.js) | — |
 
 ## Buildings (14)
 

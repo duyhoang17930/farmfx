@@ -1,6 +1,6 @@
 # Catalog
 
-782 effects in 23 categories. Every one is a file in
+827 effects in 23 categories. Every one is a file in
 `src/fx/<category>/<name>.js`; render any of them with `node tools/render.mjs <id> --gif`.
 
 ## characters
@@ -185,26 +185,71 @@ seasonal ground, path and water tiles, cliffs, foliage and crossings.
 | effect | id | | size | what it does |
 |---|---|---|---|---|
 | Berry bush | `tiles/berry-bush` | loop 2s | 32×32 | A low, swaying bramble with optional coral berries. |
+| brick floor | `tiles/brick-floor` | loop 1s | 16×16 | A repeatable patterned floor with matching side edges. |
+| brick wall | `tiles/brick-wall` | loop 1s | 16×16 | A tiled wall segment with selectable joins. |
 | Footbridge | `tiles/bridge` | loop 2s | 48×32 | A wood plank crossing with raised rails. Water is optional in the preview. |
 | Cliff wall | `tiles/cliff` | loop 2s | 16×32 | A repeatable cliff wall with a grassy lip and vertical rock clefts. |
 | Cliff corner | `tiles/cliff-corner` | loop 2s | 16×32 | A corner segment with a raised turf lip and two shaded rock faces. |
+| cliff inner corner | `tiles/cliff-inner-corner` | loop 1s | 16×16 | A raised connected cliff edge with a fractured face. |
+| cliff outer corner | `tiles/cliff-outer-corner` | loop 1s | 16×16 | A raised connected cliff edge with a fractured face. |
+| crystal floor | `tiles/crystal-floor` | loop 1s | 16×16 | A repeatable patterned floor with matching side edges. |
+| deep water | `tiles/deep-water` | loop 2.5s | 16×16 | A flowing 16 pixel water tile. |
 | Dirt path | `tiles/dirt-path` | loop 2s | 16×16 | A 16 px packed-earth path with configurable edges and seeded grit. |
+| dirt to stone | `tiles/dirt-to-stone` | loop 1s | 16×16 | Connects two ground materials with configurable edges and inside corners. |
 | Fallen log | `tiles/fallen-log` | loop 2s | 48×32 | A hollow fallen log with split bark, growth rings and small patches of moss. |
+| farmland corner | `tiles/farmland-corner` | loop 2.5s | 16×16 | A connected bank with configurable shoreline edges and inside corners. |
+| farmland edge | `tiles/farmland-edge` | loop 2.5s | 16×16 | A connected bank with configurable shoreline edges and inside corners. |
 | Fence and gate | `tiles/fence` | loop 3s | 32×32 | A one-tile split-rail fence or hinged gate. Orient east-west or north-south and set the gate opening. |
 | Grass | `tiles/grass` | loop 2.5s | 16×16 | A seamless 16 px ground tile with wind-stirred tufts and spring, summer, autumn or winter colors. |
 | Autumn grass | `tiles/grass-autumn` | loop 2.5s | 16×16 | The autumn grass tile with seeded ground texture and animated tufts. |
 | Summer grass | `tiles/grass-summer` | loop 2.5s | 16×16 | The summer grass tile with seeded ground texture and animated tufts. |
+| grass to dirt | `tiles/grass-to-dirt` | loop 1s | 16×16 | Connects two ground materials with configurable edges and inside corners. |
+| grass to sand | `tiles/grass-to-sand` | loop 1s | 16×16 | Connects two ground materials with configurable edges and inside corners. |
+| grass to snow | `tiles/grass-to-snow` | loop 1s | 16×16 | Connects two ground materials with configurable edges and inside corners. |
+| grass to stone | `tiles/grass-to-stone` | loop 1s | 16×16 | Connects two ground materials with configurable edges and inside corners. |
 | Winter grass | `tiles/grass-winter` | loop 2.5s | 16×16 | The winter grass tile with seeded ground texture and animated tufts. |
+| iron fence | `tiles/iron-fence` | loop 1s | 16×16 | A rail panel with posts and selectable joins. |
+| iron gate | `tiles/iron-gate` | loop 1s | 16×16 | A hinged gate with a configurable opening. |
+| island edge | `tiles/island-edge` | loop 2.5s | 16×16 | A connected bank with configurable shoreline edges and inside corners. |
+| island inner corner | `tiles/island-inner-corner` | loop 2.5s | 16×16 | A connected bank with configurable shoreline edges and inside corners. |
+| island outer corner | `tiles/island-outer-corner` | loop 2.5s | 16×16 | A connected bank with configurable shoreline edges and inside corners. |
+| island shadow | `tiles/island-shadow` | loop 1s | 16×16 | A soft island-edge shadow for the water layer. |
+| marble floor | `tiles/marble-floor` | loop 1s | 16×16 | A repeatable patterned floor with matching side edges. |
+| metal bridge | `tiles/metal-bridge` | loop 1s | 16×16 | A raised bridge deck with matching plank and rail edges. |
+| metal floor | `tiles/metal-floor` | loop 1s | 16×16 | A repeatable patterned floor with matching side edges. |
+| metal wall | `tiles/metal-wall` | loop 1s | 16×16 | A tiled wall segment with selectable joins. |
+| ocean water | `tiles/ocean-water` | loop 2.5s | 16×16 | A flowing 16 pixel water tile. |
+| ocean wave | `tiles/ocean-wave` | loop 2.5s | 16×16 | A looping foam crest on water. |
 | Pond | `tiles/pond` | loop 3s | 16×16 | A rippling 16 px pond tile with configurable banks N/E/S/W. Use empty banks for deep water. |
+| pond inner corner | `tiles/pond-inner-corner` | loop 2.5s | 16×16 | A connected bank with configurable shoreline edges and inside corners. |
+| pond outer corner | `tiles/pond-outer-corner` | loop 2.5s | 16×16 | A connected bank with configurable shoreline edges and inside corners. |
 | River | `tiles/river` | loop 2.4s | 16×16 | A flowing 16 px straight reach with earthen banks; orient north-south or east-west. |
+| river corner | `tiles/river-corner` | loop 2.5s | 16×16 | Flowing water with selectable branches and inner bends. |
+| river junction | `tiles/river-junction` | loop 2.5s | 16×16 | Flowing water with selectable branches and inner bends. |
+| river mouth | `tiles/river-mouth` | loop 2.5s | 16×16 | Flowing water with selectable branches and inner bends. |
 | Mossy rock | `tiles/rock` | loop 2s | 32×32 | An angular boulder with a lit upper plane and optional moss. |
+| rope bridge | `tiles/rope-bridge` | loop 1s | 16×16 | A raised bridge deck with matching plank and rail edges. |
 | Sand | `tiles/sand` | loop 2s | 16×16 | A seamless 16 px shore tile with wind ridges and occasional pale grains. |
+| sand to water | `tiles/sand-to-water` | loop 2.5s | 16×16 | A connected bank with configurable shoreline edges and inside corners. |
+| shallow water | `tiles/shallow-water` | loop 2.5s | 16×16 | A flowing 16 pixel water tile. |
+| snow to ice | `tiles/snow-to-ice` | loop 1s | 16×16 | Connects two ground materials with configurable edges and inside corners. |
+| stone bridge | `tiles/stone-bridge` | loop 1s | 16×16 | A raised bridge deck with matching plank and rail edges. |
+| stone fence | `tiles/stone-fence` | loop 1s | 16×16 | A rail panel with posts and selectable joins. |
+| stone floor | `tiles/stone-floor` | loop 1s | 16×16 | A repeatable patterned floor with matching side edges. |
+| stone gate | `tiles/stone-gate` | loop 1s | 16×16 | A hinged gate with a configurable opening. |
 | Stone path | `tiles/stone-path` | loop 2s | 16×16 | Staggered 16 px flagstones with pale bevels and configurable path edges. |
+| stone stairs | `tiles/stone-stairs` | loop 1s | 16×16 | Broad stairs with lit step edges. |
+| stone wall | `tiles/stone-wall` | loop 1s | 16×16 | A tiled wall segment with selectable joins. |
 | Stump | `tiles/stump` | loop 2s | 32×32 | A low tree stump with three roots and a warm, ringed cut surface. |
 | Tilled soil | `tiles/tilled-soil` | loop 2.5s | 16×16 | A 16 px soil tile with dry or damp furrows. Edges N/E/S/W can join adjacent plots. |
 | Waterfall | `tiles/waterfall` | loop 2.4s | 48×64 | A layered ribbon of falling water over dark stone, with a frothy basin and rising mist. |
 | Weeds | `tiles/weeds` | loop 2s | 32×32 | A tangled clump of triangular blades, hooked broad leaves and a dry seed tuft. |
 | Wildflowers | `tiles/wildflowers` | loop 2s | 32×32 | Clusters of violet daisies with golden centers on waving stems. |
+| wooden bridge | `tiles/wooden-bridge` | loop 1s | 16×16 | A raised bridge deck with matching plank and rail edges. |
+| wooden dock | `tiles/wooden-dock` | loop 1s | 16×16 | A raised bridge deck with matching plank and rail edges. |
+| wooden floor | `tiles/wooden-floor` | loop 1s | 16×16 | A repeatable patterned floor with matching side edges. |
+| wooden stairs | `tiles/wooden-stairs` | loop 1s | 16×16 | Broad stairs with lit step edges. |
+| wooden wall | `tiles/wooden-wall` | loop 1s | 16×16 | A tiled wall segment with selectable joins. |
 
 ## buildings
 

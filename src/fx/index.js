@@ -134,26 +134,71 @@ import * as animals_tuna from "./animals/tuna.js";
 import * as animals_turkey from "./animals/turkey.js";
 import * as animals_turtle from "./animals/turtle.js";
 import * as tiles_berry_bush from "./tiles/berry-bush.js";
+import * as tiles_brick_floor from "./tiles/brick-floor.js";
+import * as tiles_brick_wall from "./tiles/brick-wall.js";
 import * as tiles_bridge from "./tiles/bridge.js";
 import * as tiles_cliff from "./tiles/cliff.js";
 import * as tiles_cliff_corner from "./tiles/cliff-corner.js";
+import * as tiles_cliff_inner_corner from "./tiles/cliff-inner-corner.js";
+import * as tiles_cliff_outer_corner from "./tiles/cliff-outer-corner.js";
+import * as tiles_crystal_floor from "./tiles/crystal-floor.js";
+import * as tiles_deep_water from "./tiles/deep-water.js";
 import * as tiles_dirt_path from "./tiles/dirt-path.js";
+import * as tiles_dirt_to_stone from "./tiles/dirt-to-stone.js";
 import * as tiles_fallen_log from "./tiles/fallen-log.js";
+import * as tiles_farmland_corner from "./tiles/farmland-corner.js";
+import * as tiles_farmland_edge from "./tiles/farmland-edge.js";
 import * as tiles_fence from "./tiles/fence.js";
 import * as tiles_grass from "./tiles/grass.js";
 import * as tiles_grass_autumn from "./tiles/grass-autumn.js";
 import * as tiles_grass_summer from "./tiles/grass-summer.js";
+import * as tiles_grass_to_dirt from "./tiles/grass-to-dirt.js";
+import * as tiles_grass_to_sand from "./tiles/grass-to-sand.js";
+import * as tiles_grass_to_snow from "./tiles/grass-to-snow.js";
+import * as tiles_grass_to_stone from "./tiles/grass-to-stone.js";
 import * as tiles_grass_winter from "./tiles/grass-winter.js";
+import * as tiles_iron_fence from "./tiles/iron-fence.js";
+import * as tiles_iron_gate from "./tiles/iron-gate.js";
+import * as tiles_island_edge from "./tiles/island-edge.js";
+import * as tiles_island_inner_corner from "./tiles/island-inner-corner.js";
+import * as tiles_island_outer_corner from "./tiles/island-outer-corner.js";
+import * as tiles_island_shadow from "./tiles/island-shadow.js";
+import * as tiles_marble_floor from "./tiles/marble-floor.js";
+import * as tiles_metal_bridge from "./tiles/metal-bridge.js";
+import * as tiles_metal_floor from "./tiles/metal-floor.js";
+import * as tiles_metal_wall from "./tiles/metal-wall.js";
+import * as tiles_ocean_water from "./tiles/ocean-water.js";
+import * as tiles_ocean_wave from "./tiles/ocean-wave.js";
 import * as tiles_pond from "./tiles/pond.js";
+import * as tiles_pond_inner_corner from "./tiles/pond-inner-corner.js";
+import * as tiles_pond_outer_corner from "./tiles/pond-outer-corner.js";
 import * as tiles_river from "./tiles/river.js";
+import * as tiles_river_corner from "./tiles/river-corner.js";
+import * as tiles_river_junction from "./tiles/river-junction.js";
+import * as tiles_river_mouth from "./tiles/river-mouth.js";
 import * as tiles_rock from "./tiles/rock.js";
+import * as tiles_rope_bridge from "./tiles/rope-bridge.js";
 import * as tiles_sand from "./tiles/sand.js";
+import * as tiles_sand_to_water from "./tiles/sand-to-water.js";
+import * as tiles_shallow_water from "./tiles/shallow-water.js";
+import * as tiles_snow_to_ice from "./tiles/snow-to-ice.js";
+import * as tiles_stone_bridge from "./tiles/stone-bridge.js";
+import * as tiles_stone_fence from "./tiles/stone-fence.js";
+import * as tiles_stone_floor from "./tiles/stone-floor.js";
+import * as tiles_stone_gate from "./tiles/stone-gate.js";
 import * as tiles_stone_path from "./tiles/stone-path.js";
+import * as tiles_stone_stairs from "./tiles/stone-stairs.js";
+import * as tiles_stone_wall from "./tiles/stone-wall.js";
 import * as tiles_stump from "./tiles/stump.js";
 import * as tiles_tilled_soil from "./tiles/tilled-soil.js";
 import * as tiles_waterfall from "./tiles/waterfall.js";
 import * as tiles_weeds from "./tiles/weeds.js";
 import * as tiles_wildflowers from "./tiles/wildflowers.js";
+import * as tiles_wooden_bridge from "./tiles/wooden-bridge.js";
+import * as tiles_wooden_dock from "./tiles/wooden-dock.js";
+import * as tiles_wooden_floor from "./tiles/wooden-floor.js";
+import * as tiles_wooden_stairs from "./tiles/wooden-stairs.js";
+import * as tiles_wooden_wall from "./tiles/wooden-wall.js";
 import * as buildings_barn from "./buildings/barn.js";
 import * as buildings_chicken_coop from "./buildings/chicken-coop.js";
 import * as buildings_farmhouse from "./buildings/farmhouse.js";
@@ -920,26 +965,71 @@ export const effects = {
   "animals/turkey": animals_turkey,
   "animals/turtle": animals_turtle,
   "tiles/berry-bush": tiles_berry_bush,
+  "tiles/brick-floor": tiles_brick_floor,
+  "tiles/brick-wall": tiles_brick_wall,
   "tiles/bridge": tiles_bridge,
   "tiles/cliff": tiles_cliff,
   "tiles/cliff-corner": tiles_cliff_corner,
+  "tiles/cliff-inner-corner": tiles_cliff_inner_corner,
+  "tiles/cliff-outer-corner": tiles_cliff_outer_corner,
+  "tiles/crystal-floor": tiles_crystal_floor,
+  "tiles/deep-water": tiles_deep_water,
   "tiles/dirt-path": tiles_dirt_path,
+  "tiles/dirt-to-stone": tiles_dirt_to_stone,
   "tiles/fallen-log": tiles_fallen_log,
+  "tiles/farmland-corner": tiles_farmland_corner,
+  "tiles/farmland-edge": tiles_farmland_edge,
   "tiles/fence": tiles_fence,
   "tiles/grass": tiles_grass,
   "tiles/grass-autumn": tiles_grass_autumn,
   "tiles/grass-summer": tiles_grass_summer,
+  "tiles/grass-to-dirt": tiles_grass_to_dirt,
+  "tiles/grass-to-sand": tiles_grass_to_sand,
+  "tiles/grass-to-snow": tiles_grass_to_snow,
+  "tiles/grass-to-stone": tiles_grass_to_stone,
   "tiles/grass-winter": tiles_grass_winter,
+  "tiles/iron-fence": tiles_iron_fence,
+  "tiles/iron-gate": tiles_iron_gate,
+  "tiles/island-edge": tiles_island_edge,
+  "tiles/island-inner-corner": tiles_island_inner_corner,
+  "tiles/island-outer-corner": tiles_island_outer_corner,
+  "tiles/island-shadow": tiles_island_shadow,
+  "tiles/marble-floor": tiles_marble_floor,
+  "tiles/metal-bridge": tiles_metal_bridge,
+  "tiles/metal-floor": tiles_metal_floor,
+  "tiles/metal-wall": tiles_metal_wall,
+  "tiles/ocean-water": tiles_ocean_water,
+  "tiles/ocean-wave": tiles_ocean_wave,
   "tiles/pond": tiles_pond,
+  "tiles/pond-inner-corner": tiles_pond_inner_corner,
+  "tiles/pond-outer-corner": tiles_pond_outer_corner,
   "tiles/river": tiles_river,
+  "tiles/river-corner": tiles_river_corner,
+  "tiles/river-junction": tiles_river_junction,
+  "tiles/river-mouth": tiles_river_mouth,
   "tiles/rock": tiles_rock,
+  "tiles/rope-bridge": tiles_rope_bridge,
   "tiles/sand": tiles_sand,
+  "tiles/sand-to-water": tiles_sand_to_water,
+  "tiles/shallow-water": tiles_shallow_water,
+  "tiles/snow-to-ice": tiles_snow_to_ice,
+  "tiles/stone-bridge": tiles_stone_bridge,
+  "tiles/stone-fence": tiles_stone_fence,
+  "tiles/stone-floor": tiles_stone_floor,
+  "tiles/stone-gate": tiles_stone_gate,
   "tiles/stone-path": tiles_stone_path,
+  "tiles/stone-stairs": tiles_stone_stairs,
+  "tiles/stone-wall": tiles_stone_wall,
   "tiles/stump": tiles_stump,
   "tiles/tilled-soil": tiles_tilled_soil,
   "tiles/waterfall": tiles_waterfall,
   "tiles/weeds": tiles_weeds,
   "tiles/wildflowers": tiles_wildflowers,
+  "tiles/wooden-bridge": tiles_wooden_bridge,
+  "tiles/wooden-dock": tiles_wooden_dock,
+  "tiles/wooden-floor": tiles_wooden_floor,
+  "tiles/wooden-stairs": tiles_wooden_stairs,
+  "tiles/wooden-wall": tiles_wooden_wall,
   "buildings/barn": buildings_barn,
   "buildings/chicken-coop": buildings_chicken_coop,
   "buildings/farmhouse": buildings_farmhouse,

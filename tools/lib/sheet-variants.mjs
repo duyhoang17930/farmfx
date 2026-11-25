@@ -43,6 +43,20 @@ export function sheetVariants(fx) {
     for (const facing of FACINGS) add(facing, { facing });
   } else if (category === "tools" && Object.hasOwn(options, "tier")) {
     for (let tier=1;tier<=8;tier++) add(`tier-${tier}`,{tier});
+  } else if (fx.meta.autotile) {
+    const mode=fx.meta.autotile;
+    for (let mask=0;mask<16;mask++) {
+      const edges=[...sides].filter((_,i)=>mask&(1<<i)).join("");
+      const name=edges.toLowerCase()||"none";
+      add(`edges-${name}`,{edges,corners:[]});
+      if (["blend","shore","cliff","river"].includes(mode)) {
+        const corners=["NE","SE","SW","NW"].filter(corner=>[...corner].every(side=>!edges.includes(side)));
+        for (let bits=1;bits<2**corners.length;bits++) {
+          const inside=corners.filter((_,i)=>bits&(1<<i));
+          add(`edges-${name}-inside-${inside.join("-").toLowerCase()}`,{edges,corners:inside});
+        }
+      }
+    }
   } else if (category === "machines" && options.facing) {
     const turns = options.turn ? ["left", "right"] : [undefined];
     for (const facing of ["north", "east", "south", "west"]) {

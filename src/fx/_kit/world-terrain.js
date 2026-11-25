@@ -43,8 +43,8 @@ export function terrain(id,kind,style,under,pattern=0){
   const connected=connectedTiles.has(kind);
   const metaOptions={tileX:0,tileY:0,...(connected?{edges:kind==="river"?"NS":"ES",corners:[]}:{}),
     ...(kind==="gate"?{open:false}:{}),...(kind==="bridge"?{facing:"east-west"}:{}),background:other};
-  return asset({name:id.replaceAll("-"," "),desc:descriptions[kind],tags:["terrain",kind,style],size:[16,16],origin:[8,12],
-    duration:water?2.5:1,fps:water?12:1,palette,options:metaOptions,...(connected?{}:{})},(p,phase,C,o)=>{
+  const result=asset({name:id.replaceAll("-"," "),desc:descriptions[kind],tags:["terrain",kind,style],size:[16,16],origin:[8,12],
+    duration:water?2.5:1,fps:water?12:1,palette,options:metaOptions},(p,phase,C,o)=>{
     const B=fit(o.background,5), edges=o.edges??"",corners=o.corners??[];
     for(let y=0;y<16;y++)for(let x=0;x<16;x++){
       const gx=x+o.tileX*16,gy=y+o.tileY*16;
@@ -66,7 +66,7 @@ export function terrain(id,kind,style,under,pattern=0){
       else if(kind==="floor"||kind==="wall"){
         const step=pattern===0?4:pattern===2?5:6;
         const seam=gy%step===0 || (gx+Math.floor(gy/step)*3)%8===0;
-        color=seam?C[1]:gy%step===1?C[4]:C[value];
+        color=d===0?C[0]:d===1?C[3]:seam?C[1]:gy%step===1?C[4]:C[value];
         if(kind==="wall"&&y>12&&!edges.includes("S"))color=C[y===13?1:0];
         if(kind==="wall"&&d>10)color=C[value];
       }else if(kind==="shadow"){
@@ -77,6 +77,10 @@ export function terrain(id,kind,style,under,pattern=0){
         if(kind==="stairs")color=C[across%4===0?1:across%4===1?4:value];
         else if(kind==="bridge"){if(across<1||across>14)continue;color=C[across<3||across>12?4:along%4===0?1:value];}
         else {
+          if(kind==="fence"&&/N|S/.test(edges)&&!/[EW]/.test(edges)){
+            if(x<6||x>9)continue;
+            p.px(x-8,y-12,C[x===6?4:x===9?1:2]);continue;
+          }
           if(y<4||y>12||(y>6&&y<10&&x>2&&x<13)||kind==="gate"&&o.open&&x>4&&x<12)continue;
           color=C[x<3||x>12?3:y===4||y===10?4:2];
         }
@@ -84,4 +88,5 @@ export function terrain(id,kind,style,under,pattern=0){
       p.px(x-8,y-12,color);
     }
   });
+  return connected?{...result,meta:{...result.meta,autotile:kind}}:result;
 }
