@@ -194,7 +194,7 @@ seasonal ground, path and water tiles, cliffs, foliage and crossings.
 | Cliff corner | `tiles/cliff-corner` | loop 2s | 16×32 | A corner segment with a raised turf lip and two shaded rock faces. |
 | cliff inner corner | `tiles/cliff-inner-corner` | loop 1s | 16×16 | A raised connected cliff edge with a fractured face. |
 | cliff outer corner | `tiles/cliff-outer-corner` | loop 1s | 16×16 | A raised connected cliff edge with a fractured face. |
-| Coastal boardwalk | `tiles/coastal-boardwalk` | loop 1s | 32×32 | A modular plank deck with grade-aligned end posts and a shaded front fascia. |
+| Coastal boardwalk | `tiles/coastal-boardwalk` | loop 1s | 32×32 | A top-down three-quarter plank deck with wide treads, recessed end posts and shallow timber fascia. |
 | Coastal wildflowers | `tiles/coastal-wildflowers` | loop 2.4s | 32×32 | Wind-bent wildflowers with four cluster shapes, three bloom colors and picked stems. |
 | crystal floor | `tiles/crystal-floor` | loop 1s | 16×16 | A repeatable patterned floor with matching side edges. |
 | deep water | `tiles/deep-water` | loop 2.5s | 16×16 | A flowing 16 pixel water tile. |
@@ -398,7 +398,7 @@ storage, furniture and props with configurable active or open states.
 | metal door | `objects/metal-door` | loop 1s | 64×64 | A top-down metal door prop with shaded surfaces. |
 | minecart | `objects/minecart` | loop 1s | 64×64 | A top-down minecart prop with shaded surfaces. |
 | minecart track | `objects/minecart-track` | loop 1s | 64×64 | A top-down minecart track prop with shaded surfaces. |
-| Mist beacon | `objects/mist-beacon` | loop 2s | 64×80 | A copper-braced weather station with a crystal chamber that lights up when restored. |
+| Mist beacon | `objects/mist-beacon` | loop 3.2s | 64×96 | A copper-braced weather station with a levitating crystal, orbiting shards and soft light when restored. |
 | notice board | `objects/notice-board` | loop 1s | 64×64 | A top-down notice board prop with shaded surfaces. |
 | painting | `objects/painting` | loop 2s | 64×64 | A top-down painting prop with shaded surfaces. |
 | quest board | `objects/quest-board` | loop 1s | 64×64 | A top-down quest board prop with shaded surfaces. |
@@ -758,9 +758,9 @@ metal ores, gemstone clusters, mineral deposits and wild gatherables.
 | Clay deposit | `resources/clay-deposit` | loop 1s | 32×32 | A low red-brown clay mound with a smooth cut face and drying cracks. |
 | Coal ore | `resources/coal-ore` | loop 1s | 32×32 | A low shale bed with broad charcoal chips and a blue-black sheen. |
 | Coastal boulder | `resources/coastal-boulder` | loop 2.8s | 48×48 | Faceted coastal stone with chipped and depleted states and four silhouettes. |
-| Coastal copper node | `resources/coastal-copper-node` | loop 2.8s | 48×48 | An angled rock hosting raised copper deposits, with chipped and depleted states. |
-| Coastal gold node | `resources/coastal-gold-node` | loop 2.8s | 48×48 | An angled rock hosting raised gold deposits, with chipped and depleted states. |
-| Coastal iron seam | `resources/coastal-iron-seam` | loop 2.8s | 48×48 | An angled rock hosting raised iron deposits, with chipped and depleted states. |
+| Coastal copper node | `resources/coastal-copper-node` | loop 2.8s | 48×48 | A fractured coastal rock with embedded copper and smaller exposed veins. |
+| Coastal gold node | `resources/coastal-gold-node` | loop 2.8s | 48×48 | A fractured coastal rock with embedded gold and smaller exposed veins. |
+| Coastal iron seam | `resources/coastal-iron-seam` | loop 2.8s | 48×48 | A fractured coastal rock with embedded iron and smaller exposed veins. |
 | Copper ore | `resources/copper-ore` | loop 1s | 32×32 | Orange copper knobs set in a weathered green split boulder. |
 | Cotton bush | `resources/cotton-bush` | loop 2.5s | 32×32 | Rust-colored stems carry five fluffy cotton bolls on a wild bush. |
 | Crystal deposit | `resources/crystal-deposit` | loop 2.5s | 32×32 | Three milky quartz prisms with pale cyan faces and a passing glint. |

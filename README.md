@@ -338,8 +338,8 @@ Event times are in seconds from the start of the animation and also appear in ex
 Run `npm run demo` and open [Trạm Sương](http://localhost:8080/demo/mist-station/). The
 [demo source](demo/mist-station/) shows a complete mobile-friendly loop from gathering and building to restoring a
 weather station. Touch an object to walk to it and interact, or use WASD and E. Progress saves in the browser.
-Open Hải đồ and select Vườn Mẫu to walk to a free preview island with harvestable plants and mineral deposits,
-fixtures and wildlife.
+Open Hải đồ and select Vườn Mẫu, Khu nông trại, Khu xưởng or Vườn cây và ao. The free preview island includes
+harvestable resources, crop growth stages, working machines and wildlife. Tap an exhibit to see its name.
 
 `npm run demo:assets` exports the Windkeeper clips, coastal props, harvest effects and shoreline to
 `sheets/mist-station/`. The output includes PNG sheets, JSON metadata and Tiled terrain sets with 47 masks per

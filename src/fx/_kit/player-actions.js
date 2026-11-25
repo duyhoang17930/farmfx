@@ -87,7 +87,8 @@ export function playerClip(id) {
     const lift=Math.round(-height-5*Math.sin(roll)**2-(mode==="roll"?14*Math.sin(roll/2)**2:0));
     const body=new Painter(p.frame).place(p.toX(x,lift),p.toY(x,lift),p.fx<0,Math.atan2(p.sn,p.cs)+direction*roll*p.fx);
     body.fade=p.fade*(mode==="vanish"?1-seg(phase,0.6,1):mode==="appear"?seg(phase,0,0.64):1);
-    groundShadow(p,x,0,mode==="swim"?9:6.5,2,0.9-height*0.04);
+    const keeper = o.outfit === "windkeeper";
+    groundShadow(p,x,keeper?1:0,mode==="swim"?9:keeper?7:6.5,2,(keeper?0.75:0.9)-height*0.04);
     explorer(body,fit(o.palette,5),facing,{shadow:false,step:moving?Math.min(3,Math.floor(4*phase)): -1,
       bob:Math.round(dip+(id==="idle"?Math.max(0,wave(phase)):0)),lean,hand,tool:tip?item:undefined,tip,outfit:o.outfit});
     if(prop){

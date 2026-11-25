@@ -18,6 +18,7 @@ import { BRIDGE, canEnter, cellX, cellY, findRoute, GARDEN_WALK, LAND_PRICE, lan
   SCENERY, START, tileX, tileY, WAYPOINTS, within } from "./islands.js";
 import { createScene } from "./scene.js";
 import { createInterface } from "./interface.js";
+import { gardenSamples } from "./garden.js";
 
 const SAVE = "farmfx-mist-station-v1";
 const REACH = 25, BUILD_REACH = 60, HOLD = 0.31;
@@ -37,7 +38,7 @@ const rules = {
   workbench: { name: "Bàn chế tạo", action: "Chế tạo", mark: "+", bounds: [32, 23] },
   forge: { name: "Lò luyện", action: "Luyện", mark: "+", bounds: [31, 31] },
   dock: { name: "Bến trao đổi", action: "Trao đổi", mark: "+", bounds: [43, 21] },
-  beacon: { name: "Trạm thời tiết", action: "Khôi phục", mark: "*", bounds: [35, 44] },
+  beacon: { name: "Trạm thời tiết", action: "Khôi phục", mark: "*", bounds: [38, 56] },
   guardian: { name: "Hộ vệ tinh thể", action: "Đánh", mark: "X", bounds: [25, 30] },
 };
 
@@ -64,10 +65,19 @@ const nodes = NODE_POSITIONS.map(([kind,x,y]) => {
   return { ...at(kind,x,y), hp: rules[kind].hp, recoil: 0, hitDirection: 1,
     visual: { shape: variety % 4, growth: variety % 3, tint: (x + y) % 3 } };
 });
+const solidDecor = new Set(["bench","crystals","showcaseBeacon","trailSign"]);
+const scenery = [
+  ...SCENERY.map(([kind,x,y,visual]) => ({ ...at(kind,x,y), visual, solid:solidDecor.has(kind) })),
+  ...gardenSamples.map(([kind,name,col,row,options = {}]) => {
+    const [width,height] = options.footprint ?? [1,1];
+    return { ...at(kind,col,row), name, width, height, solid:Boolean(options.footprint), ground:options.ground,
+      x:tileX(col)+(width-1)*8, y:tileY(row+height-1), visual:options.visual };
+  }),
+];
 const state = {
   player, guardian, fixtures: [at("dock", 12, 8), at("beacon", 20, 6)],
   structures: [at("workbench", 5, 6), ...(saved.structures ?? []).map(e => at(e.kind, e.col, e.row))],
-  nodes, scenery: SCENERY.map(([kind,x,y,visual]) => ({ ...at(kind,x,y), visual })),
+  nodes, scenery,
   inventory: { wood: 1, stone: 0, ore: 0, copper: 0, gold: 0, seed: 0, ingot: 0, coin: 0, pearl: 0, core: 0, ...saved.inventory },
   unlocked: !!saved.unlocked, restored: !!saved.restored, jobs: saved.jobs ?? [],
   effects: [], loot: [], attack: null, focus: null, placement: null,
@@ -91,7 +101,7 @@ function onSquare(e, x, y) {
 function occupied(x, y, countBridge = false) {
   return state.structures.some(e => (countBridge || e.kind !== "bridge") && onSquare(e, x, y)) ||
     state.nodes.some(e => e.hp > 0 && e.kind !== "flowers" && onSquare(e, x, y)) ||
-    state.scenery.some(e => ["bench","crystals","showcaseBeacon","trailSign"].includes(e.kind) && onSquare(e,x,y)) ||
+    state.scenery.some(e => (e.solid || countBridge && e.name) && onSquare(e,x,y)) ||
     state.fixtures.some(e => onSquare(e, x, y));
 }
 for (const node of state.nodes) {
@@ -531,6 +541,12 @@ canvas.addEventListener("pointerdown", event => {
   const target = pointerTarget(x, y);
   if (target) goTo(target);
   else {
+    const specimen = scene.inspect(x,y,state.scenery,t);
+    if (specimen) {
+      const stage = { "-1":"chu kỳ sinh trưởng", 2:"đang lớn", 4:"đã chín" }[specimen.visual?.stage];
+      ui.toast(stage ? specimen.name + " · " + stage : specimen.name);
+      return;
+    }
     goalTarget = pin = null;
     route = findRoute(cellX(player.x), cellY(player.y), cellX(x), cellY(y), passable, 0);
   }
@@ -600,7 +616,8 @@ function loop(now) {
     const blocked = place ? place.blocked.length || !place.affordable || !place.near : !focus?.near;
     const label = selection ? "Đặt" : targetRule?.action ?? "Tương tác";
     const targetName = selection ? blueprints[selection].name : targetRule?.name;
-    ui.render({ zone: land(cellX(player.x), cellY(player.y)), selection, label, targetName, blocked });
+    const row = cellY(player.y);
+    ui.render({ zone:land(cellX(player.x),row), row, selection, label, targetName, blocked });
     scene.drawTouch(blocked ? "locked" : held ? "pressed" : "ready", held ? Math.min(1, held.t / HOLD) : 0,
       selection ? "+" : targetRule?.mark ?? "·", targetRule?.clip);
     scene.draw(state, t);

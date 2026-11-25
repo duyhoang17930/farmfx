@@ -29,22 +29,22 @@ const eye = hex("#362c3b");
 
 const KEEPER_HEAD = {
   down: [
-    "........ww.....", "....oooowW.....", "...oHHHHow.....", "..oHHHHHHoo....",
-    ".oHHHHhhHHho...", "oHHHhhhhhHHhoo.", "oLLLllLLLLLllo.", ".oooBBMMBBooo..",
-    "..oBSFFFFFFo...", "..oBSeFFeFSo...", "...oFRFFRFo....", "....oSSSSo.....",
-    ".....oooo......",
+    ".........ww......", ".....oooowW......", "....oHHHHow......", "...oHHHHHHoo.....",
+    "..oHHHHHhhHho....", ".oHHHHhhhHHhho...", "oHHHhhhhhhhHHhoo.",
+    "oLLLllLLLLLLLllo.", ".oooBBMBBMBBooo..", "..oBBSFFFFFFFSo..",
+    "..oBSeFFFFeFSo...", "...oSFRFFRFFo....", "....oSSSSSSo.....", ".....oooooo......",
   ],
   up: [
-    "........ww.....", "....oooowW.....", "...oHHHHow.....", "..oHHHHHHoo....",
-    ".oHHHHhhHHho...", "oHHHhhhhhHHhoo.", "oLLLllLLLLLllo.", ".oooLllLLLooo..",
-    "..oMMLLMMBBo...", "..oBMMMMMMBo...", "...oBMRRMBo....", "....oBBBo......",
-    ".....ooo.......",
+    ".........ww......", ".....oooowW......", "....oHHHHow......", "...oHHHHHHoo.....",
+    "..oHHHHHhhHho....", ".oHHHHhhhHHhho...", "oHHHhhhhhhhHHhoo.",
+    "oLLLllLLLLLLLllo.", ".oooLLLllLLLooo..", "..oMMMLLMMMBBo...",
+    "..oBMMMMMMMMBo...", "...oBBMRRMMBo....", "....oBBBBBBo.....", ".....oooooo......",
   ],
   right: [
-    ".....ww........", "...oowW........", "..oHHowooo.....", ".oHHHHHHHho....",
-    ".oHHHHHhhhhho..", "oHHHhhhhhhhhoo.", "oLLLLllllLLLLo.", ".ooLoooBBFFoo..",
-    "..oMBBBSFFSo...", "..oBMMBSFeFo...", "...oBMBFRFSo...", "....ooBSFFo....",
-    "......oooo.....",
+    "......ww.........", "....oowW.........", "...oHHowooo......", "..oHHHHHHHHo.....",
+    ".oHHHHHHHHhhoo...", ".oHHHHHHhhhhhoo..", "oHHHhhhhhhhhhhoo.",
+    "oLLLLllllLLLLLLo.", ".ooLoooBBBFFoo...", "..oMMBBSFFFFFo...",
+    "..oBMMBBSFeFFo...", "...oMMBBSFRFSo...", "....oBBSFFFFo....", "......oooooo.....",
   ],
 };
 const KEEPER_HAT = ramp(["#615444", "#b7894f", "#d8a961", "#efd388", "#f5e5ab"]);
@@ -73,13 +73,14 @@ export function explorer(p, palette, facing, { step = -1, bob = 0, lean = 0, han
   const back = view === "up";
   const motion = WALK[step] ?? STAND;
   const yy = bob + motion.bob;
+  const upper = yy + Number(keeper);
   const x = (value) => mirrored ? -value : value;
   const rect = (left, top, w, h, color) => p.rect(x(mirrored ? left + w - 1 : left), top, w, h, color);
   const line = (a, b, color) => p.line(x(a[0]), a[1], x(b[0]), b[1], color);
   const poly = (points, color) => p.poly(points.map(([px, py]) => [x(px), py]), color);
-  const shoulder = [lean + (side ? -1 : 4), yy - 10];
+  const shoulder = [lean + (side ? -1 : 4 + Number(keeper)), upper - 10];
   const grip = hand ?? [shoulder[0] + (side ? motion.arms : 2), yy - 6 - (side ? 0 : motion.arms)];
-  const far = [lean + (side ? 3 : -4), yy - 10];
+  const far = [lean + (side ? 3 : -4 - Number(keeper)), upper - 10];
   const arm = (start, end, near) => {
     line(start, end, coat[0]);
     line([start[0] - 1, start[1]], [end[0] - 1, end[1]], coat[near ? 3 : 1]);
@@ -110,7 +111,7 @@ export function explorer(p, palette, facing, { step = -1, bob = 0, lean = 0, han
     }
   };
 
-  if (shadow) groundShadow(p, 0, 0, 6.5, 2);
+  if (shadow) groundShadow(p, 0, keeper ? 1 : 0, keeper ? 7 : 6.5, 2, keeper ? 0.75 : 1);
   arm(far, [far[0] - (side ? motion.arms : 1), yy - 6 + (side ? 0 : motion.arms)], false);
   for (let i = 0; i < 2; i++) {
     const foot = side ? -2 + i * 3 + motion.sideFeet[i] : -4 + i * 5;
@@ -119,10 +120,11 @@ export function explorer(p, palette, facing, { step = -1, bob = 0, lean = 0, han
     rect(foot + Number(side), lift - 2, side ? 4 : 3, 2, pants[0]);
     rect(foot + Number(side), lift - 2, 2, 1, WOOD[2]);
   }
-  poly([[lean - 4, yy - 12], [lean + 4, yy - 12], [lean + 5, yy - 5],
+  const shoulderWidth = keeper ? 5 : 4;
+  poly([[lean - shoulderWidth, upper - 12], [lean + shoulderWidth, upper - 12], [lean + 5, yy - 5],
     [lean + 3, yy - 3], [lean - 4, yy - 4], [lean - 5, yy - 6]], coat[0]);
-  rect(lean - 3, yy - 11, 7, 6, coat[2]);
-  rect(lean - 3, yy - 11, 2, 5, coat[3]);
+  rect(lean - 3, upper - 11, keeper ? 8 : 7, keeper ? 5 : 6, coat[2]);
+  rect(lean - 3, upper - 11, 2, keeper ? 4 : 5, coat[3]);
   if (back || side) {
     rect(lean - (side ? 5 : 3), yy - 11, 5, 6, WOOD[0]);
     rect(lean - (side ? 4 : 2), yy - 10, 3, 4, WOOD[2]);
@@ -131,9 +133,9 @@ export function explorer(p, palette, facing, { step = -1, bob = 0, lean = 0, han
     line([lean - 2, yy - 11], [lean + 2, yy - 6], WOOD[3]);
     rect(lean + 1, yy - 7, 3, 3, WOOD[1]);
   }
-  rect(lean - 4, yy - 13, 8, 3, scarf[0]);
-  rect(lean - 3, yy - 13, 7, 2, scarf[2]);
-  rect(lean - 4, yy - 11, 2, 3, scarf[1]);
+  rect(lean - 4, upper - 13, 8, 3, scarf[0]);
+  rect(lean - 3, upper - 13, 7, 2, scarf[2]);
+  rect(lean - 4, upper - 11, 2, 3, scarf[1]);
   if (keeper) {
     const tailX = lean - (side || back ? 5 : 4);
     const tailY = yy - 6 + (step === 1 ? -1 : step === 3 ? 1 : 0);
@@ -153,7 +155,7 @@ export function explorer(p, palette, facing, { step = -1, bob = 0, lean = 0, han
       w: KEEPER_FEATHER[0], W: KEEPER_FEATHER[1] }
     : { o: palette[0], h: palette[1], H: palette[2], S: palette[3], F: palette[4], e: eye, "-": palette[4] };
   const heads = keeper ? KEEPER_HEAD : HEAD;
-  const offset = keeper ? 7 : 6;
+  const offset = keeper ? 8 : 6;
   p.sprite(heads[view] ?? heads.down, colors, (mirrored ? -lean : lean) - offset, yy - (keeper ? 26 : 23), { flip: mirrored });
   if (!back || !tool) {
     if (tool) heldTool();

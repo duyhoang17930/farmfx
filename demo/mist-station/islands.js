@@ -1,10 +1,13 @@
+import { gardenSections } from "./garden.js";
+
 export const TILE = 16;
 export const WIDTH = 24;
-export const HEIGHT = 28;
+export const HEIGHT = 58;
 export const START = [6, 8];
 export const BRIDGE = [[13, 8], [14, 8]];
 export const GARDEN_WALK = [[7, 14], [7, 15]];
-export const WAYPOINTS = { cove: START, garden: [7, 18] };
+export const WAYPOINTS = { cove: START, garden: [7, 18],
+  ...Object.fromEntries(gardenSections.map(({ id, waypoint }) => [id,waypoint])) };
 export const LAND_PRICE = 3;
 
 // Inclusive columns of each land mass by row.
@@ -12,7 +15,10 @@ const cove = [null, null, [6, 8], [4, 10], [3, 11], [2, 11], [2, 12], [1, 12],
   [1, 12], [2, 12], [2, 11], [3, 10], [4, 10], [5, 8], null, null];
 const bank = [null, null, null, [19, 20], [17, 21], [16, 22], [16, 22], [15, 22],
   [15, 22], [15, 21], [16, 21], [16, 20], [17, 20], [18, 19], null, null];
-const garden = [[5,9],[4,12],[3,15],[3,17],[2,18],[2,19],[3,19],[4,18],[5,16],[7,14],[9,12]];
+const garden = [[5,9],[4,12],[3,15],[3,17],[2,18],[2,19],[3,19],[4,18],[5,16],[7,14],[9,12],
+  [8,14],[5,17],[3,20],[2,21],[2,21],[2,21],[2,21],[2,21],[2,21],[3,21],[4,20],
+  [3,20],[2,21],[2,21],[2,21],[2,21],[2,21],[2,21],[3,20],[3,19],[4,19],[4,20],
+  [3,20],[3,20],[4,20],[4,20],[5,19],[5,18],[7,16],[8,14],[9,11]];
 
 export const keyOf = (x, y) => y * WIDTH + x;
 export const tileX = x => x * TILE + 8;

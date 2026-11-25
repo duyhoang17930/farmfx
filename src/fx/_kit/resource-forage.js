@@ -18,11 +18,14 @@ export function leaf(p, x, y, tipX, tipY, C) {
 
 export function mushrooms(name, desc, palette, clusters, spots = false) {
   return forage(name, desc, palette, (p, phase, C) => {
-    groundShadow(p, 0, 0, 11, 2.5);
-    for (const [x,y,w,h] of clusters) {
+    const scale = 0.83;
+    groundShadow(p, 0, 1, 11*scale, 2.5*scale, 0.75);
+    for (const [cx,cy,width,height] of clusters) {
+      const x=Math.round(cx*scale), y=Math.round(cy*scale);
+      const w=Math.round(width*scale), h=Math.round(height*scale);
       const cap = y - h;
       const lean = Math.round(wave(phase, 1, x * 0.09) * 0.65);
-      p.poly([[x-2,y],[x-2+lean,cap],[x+2+lean,cap],[x+2,y]], CREAM[0]);
+      p.poly([[x-2,y],[x-2+lean,cap],[x+1+lean,cap],[x+1,y]], CREAM[0]);
       p.line(x-1,y-1,x-1+lean,cap,CREAM[3]);
       p.line(x,y-1,x+lean,cap,CREAM[4]);
       p.ellipse(x+lean,cap,w,2.4,C[0]);

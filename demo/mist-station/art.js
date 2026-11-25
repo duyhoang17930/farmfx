@@ -36,9 +36,13 @@ import * as dash from "../../src/fx/player/dash.js";
 import * as building from "../../src/fx/player/building.js";
 import * as hurt from "../../src/fx/player/hurt.js";
 import * as gatherFlowers from "../../src/fx/player/harvesting.js";
+import { gardenAssetIds } from "./garden.js";
+
+const gardenArt = Object.fromEntries(await Promise.all(gardenAssetIds.map(async id =>
+  [id, await import(`../../src/fx/${id}.js`)])));
 
 export const objects = { pine, stone, ore, copper, gold, flowers, forge, workbench, bridge, beacon, dock,
-  guardian, trailSign, bench, mushrooms, redMushrooms, turtle, butterfly, crystals, showcaseBeacon: beacon };
+  guardian, trailSign, bench, mushrooms, redMushrooms, turtle, butterfly, crystals, showcaseBeacon: beacon, ...gardenArt };
 const pineColors = [
   ["#31544a","#3f6e57","#59966a","#85b977","#c5d58a"],
   ["#344f45","#4a7155","#679963","#94bd78","#d0d98e"],

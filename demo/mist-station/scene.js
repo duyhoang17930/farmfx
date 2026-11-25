@@ -85,6 +85,12 @@ export function createScene(canvas, touchCanvas) {
   let frame, image, renderedUnlocked, touchKey;
   let left = 0, top = 0;
 
+  function paintSample(target, entry, t) {
+    paint(target, objects[entry.kind], t, entry.x, entry.y, {
+      seed:entry.col*3+entry.row*17, tileX:entry.col, tileY:entry.row, ...entry.visual,
+    });
+  }
+
   function renderGround(unlocked) {
     renderedUnlocked = unlocked;
     clearFrame(ground);
@@ -97,6 +103,12 @@ export function createScene(canvas, touchCanvas) {
       });
     }
     paintSea(ground);
+    for (let row = 27; row <= 53; row++) {
+      paint(ground,objects["tiles/dirt-path"],0,tileX(10),tileY(row),{
+        edges:row===27?"S":row===53?"N":"NS", tileX:10, tileY:row,
+        palette:["#a3996e","#b1a474","#b7a97a","#bcaf81","#bfb285"],
+      });
+    }
   }
 
   function resize() {
@@ -145,6 +157,10 @@ export function createScene(canvas, touchCanvas) {
         facing: "north-south", ends: index ? "end" : "start",
       });
     }
+    for (const entry of state.scenery) {
+      if (entry.ground && entry.x >= left-16 && entry.x <= left+frame.w+16 &&
+          entry.y >= top-16 && entry.y <= top+frame.h+16) paintSample(frame,entry,t);
+    }
     if (state.attack) paint(frame, telegraph, state.attack.t, state.attack.x, state.attack.y, state.attack);
 
     for (const node of state.nodes) {
@@ -172,7 +188,7 @@ export function createScene(canvas, touchCanvas) {
     }
 
     const drawables = [...state.nodes, ...state.structures, ...state.fixtures, ...state.scenery]
-      .filter(e => e.hp !== 0 && e.kind !== "bridge" && canEnter(e.island,state.unlocked));
+      .filter(e => e.hp !== 0 && !e.ground && e.kind !== "bridge" && canEnter(e.island,state.unlocked));
     drawables.push(player);
     if (state.guardian.hp > 0 && state.unlocked) drawables.push(state.guardian);
     drawables.sort((a, b) => a.y - b.y);
@@ -186,6 +202,8 @@ export function createScene(canvas, touchCanvas) {
         paint(frame, clip, player.action?.t ?? t, player.x, player.y,
           { facing: player.facing, palette: WINDKEEPER, outfit: "windkeeper",
             ...(player.action?.clip === "gatherFlowers" ? {heldItem:"flower-seed"} : {}) }, blink ? 0.49 : 1);
+      } else if (entity.name) {
+        paintSample(frame,entity,t);
       } else {
         const activity = entity.kind === "beacon" ? { active: state.restored }
           : entity.kind === "forge" ? { active: state.jobs.some(job => job.station === entity.id) } : {};
@@ -251,5 +269,21 @@ export function createScene(canvas, touchCanvas) {
     const rect = canvas.getBoundingClientRect();
     return [left + (event.clientX - rect.left) * frame.w / rect.width, top + (event.clientY - rect.top) * frame.h / rect.height];
   }
-  return { draw, drawTouch, atPointer };
+
+  function inspect(x,y,entries,t) {
+    const pixel = createFrame(1,1,Math.floor(x),Math.floor(y));
+    const layers = entries.filter(e => e.name).sort((a,b) => Number(Boolean(b.ground))-Number(Boolean(a.ground)) || a.y-b.y);
+    for (let i = layers.length-1; i >= 0; i--) {
+      const entry = layers[i];
+      const { size, origin } = objects[entry.kind].meta;
+      const dx=x-entry.x+origin[0], dy=y-entry.y+origin[1];
+      if (dx<0 || dy<0 || dx>=size[0] || dy>=size[1]) continue;
+      paintSample(pixel,entry,t);
+      if ((pixel.color[0] >>> 24) >= 160) return entry;
+      clearFrame(pixel);
+    }
+    return null;
+  }
+
+  return { draw, drawTouch, atPointer, inspect };
 }

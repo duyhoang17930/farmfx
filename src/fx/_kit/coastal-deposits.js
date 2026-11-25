@@ -23,7 +23,7 @@ export function coastalDeposit(material) {
   const metal = metals[material];
   return asset({
     name: names[material],
-    desc: metal ? `An angled rock hosting raised ${material} deposits, with chipped and depleted states.`
+    desc: metal ? `A fractured coastal rock with embedded ${material} and smaller exposed veins.`
       : "Faceted coastal stone with chipped and depleted states and four silhouettes.",
     tags: ["resource", metal ? "ore" : "stone", "coast"],
     size: [48, 48], origin: [24, 37], duration: 2.8, palette: metal ? host : slate,
@@ -37,7 +37,7 @@ export function coastalDeposit(material) {
     const at = ([x, y]) => [Math.round(x * size), Math.round(y * size)];
     const poly = (points, color) => p.poly(points.map(at), color);
     const seam = (a, b, color) => p.line(...at(a), ...at(b), color);
-    groundShadow(p, 0, 1, 13 * size, 3.6 * size, 0.78);
+    groundShadow(p, 0, 1, 12.5 * size, 3.4 * size, 0.75);
     if (o.condition === "depleted") {
       const fragments = [[-9,-2,3],[4,-3,4],[0,1,2],[10,1,2]];
       for (const [x, y, r] of fragments) {
@@ -59,9 +59,9 @@ export function coastalDeposit(material) {
     seam([-9,-3],[-6,-6], C[3]);
     seam([3,-3],[6,-1], C[3]);
     if (metal) {
-      mineralFaces(material, poly, seam, metal, d[1], shape);
+      mineralFaces(material, poly, seam, metal, C, d[1], shape);
       const glint = Math.max(0, wave(t, 1, (o.seed % 11) * 0.13)) ** 9;
-      const spark = at([material === "gold" ? 0 : 2, d[1] - 5]);
+      const spark = at([material === "gold" ? 0 : 2, d[1] - 1]);
       twinkle(p, ...spark, 2.4 * glint, metal[2], metal[3]);
     } else {
       poly([[-10,-2],[-8,-5],[-5,-3],[-3,-3],[-5,0],[-10,0]], LEAF[2]);
@@ -80,21 +80,26 @@ export function coastalDeposit(material) {
   });
 }
 
-function mineralFaces(material, poly, seam, M, crest, shape) {
-  const top = crest - 1;
+function mineralFaces(material, poly, seam, M, C, crest, shape) {
+  const top = crest + 2;
   const lean = shape % 2 === 0 ? 0 : 2;
+  // The mineral sits in a dark socket. Fractured rock lips cover its lower edges.
+  poly([[-9,top+7],[-6,top+2],[-2,top+1],[2,top-1],[7,top+1],[8,top+5],
+    [5,top+9],[0,top+8],[-4,top+12],[-8,top+12]], C[0]);
+  seam([-9,top+8],[-6,top+5], C[2]);
+  seam([-6,top+5],[-3,top+4], C[1]);
   if (material === "iron") {
     // Flat plate-like blades, with steep sides and a bright beveled edge.
-    poly([[-7,top+4],[-4,top-3],[2+lean,top-6],[5,top-3],[2,top+4],[-4,top+7]], M[0]);
-    poly([[-5,top+4],[-3,top-2],[2+lean,top-5],[2,top+3],[-3,top+6]], M[2]);
-    seam([-3,top-2],[2+lean,top-5], M[3]);
+    poly([[-7,top+6],[-4,top-2],[2+lean,top-5],[5,top-2],[2,top+6],[-4,top+9]], M[0]);
+    poly([[-5,top+6],[-3,top-1],[2+lean,top-4],[2,top+4],[-3,top+7]], M[2]);
+    seam([-3,top-1],[2+lean,top-4], M[3]);
     poly([[1,top+8],[5,top+1],[10,top+3],[8,top+8],[4,top+10]], M[0]);
     poly([[3,top+8],[5,top+2],[9,top+3],[7,top+7]], M[1]);
     seam([5,top+2],[8,top+3], M[3]);
   } else if (material === "copper") {
     // Branches emerge from a dark recess and fork toward either shoulder.
     for (const path of [
-      [[-6,top+8],[-5,top+2],[-2,top-2],[1,top-6]],
+      [[-6,top+8],[-5,top+3],[-2,top-1],[1,top-5]],
       [[-3,top+5],[1,top+1],[6,top-2]],
       [[0,top+8],[5,top+5],[9,top+5]],
     ]) {
@@ -107,11 +112,27 @@ function mineralFaces(material, poly, seam, M, crest, shape) {
     }
   } else {
     // Broad, irregular nuggets read as a distinct silhouette from the blades and branches.
-    for (const [x, y, r] of [[-5,top+2,4],[1,top-3,5],[6,top+6,4],[0,top+10,2]]) {
+    for (const [x, y, r] of [[-5,top+4,3],[1,top,4],[6,top+6,3],[0,top+9,2]]) {
       poly([[x-r,y+1],[x-r+1,y-2],[x-1,y-r],[x+r-1,y-r+1],[x+r,y+1],[x+1,y+3],[x-2,y+3]], M[0]);
       poly([[x-r+1,y],[x-1,y-r+1],[x+r-1,y-r+1],[x+r-1,y],[x+1,y+2],[x-2,y+2]], M[2]);
       seam([x-2,y-1],[x+1,y-2], M[3]);
       seam([x+1,y+2],[x+r-1,y], M[1]);
     }
   }
+  // Overlapping faces tie the crystals to the host and carry fine veins down the rock.
+  poly([[-9,top+7],[-6,top+6],[-6,top+9],[-3,top+8],[-2,top+10],[-5,top+12],[-9,top+12]], C[2]);
+  seam([-8,top+7],[-6,top+7], C[4]);
+  poly([[3,top+8],[6,top+7],[7,top+5],[10,top+5],[9,top+10],[6,top+12],[4,top+11]], C[1]);
+  seam([7,top+6],[9,top+5], C[3]);
+  const left = [[-3,Math.min(-9,top+8)],[-2,-8],[-5,-6],[-5,-4],[-8,-3]];
+  const right = [[5,Math.min(-10,top+8)],[7,-8],[6,-6],[9,-5],[9,-3]];
+  for (const path of [left,right]) {
+    for (let i = 1; i < path.length; i++) seam(path[i-1],path[i],C[0]);
+    seam(path[0],path[1],M[2]);
+    seam(path[2],path[3],M[1]);
+  }
+  seam([-5,-6],[-8,-7],C[0]);
+  seam([-8,-7],[-9,-6],M[1]);
+  seam([6,-6],[4,-5],C[0]);
+  seam([4,-5],[3,-3],M[1]);
 }

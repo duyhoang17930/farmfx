@@ -1,5 +1,6 @@
 import { spawnSync } from "node:child_process";
 import { ROOT } from "./lib/fxlib.mjs";
+import { gardenAssetIds } from "../demo/mist-station/garden.js";
 
 const assets = [
   "exploration/target-brackets", "exploration/island-shore", "exploration/coastal-shore",
@@ -19,7 +20,7 @@ const assets = [
   "player/building", "player/hurt", "player/harvesting",
 ];
 
-const result = spawnSync(process.execPath, ["tools/sheets.mjs", ...assets, "--release", "--out", "sheets/mist-station"], {
+const result = spawnSync(process.execPath, ["tools/sheets.mjs", ...new Set([...assets, ...gardenAssetIds]), "--release", "--out", "sheets/mist-station"], {
   cwd: ROOT,
   stdio: "inherit",
 });

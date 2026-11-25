@@ -1,5 +1,6 @@
 import { items, objects } from "./art.js";
 import { BRIDGE, LAND_PRICE } from "./islands.js";
+import { gardenSections } from "./garden.js";
 import { iconUrl } from "./scene.js";
 
 const img = (src, size = 28) => `<img src="${src}" width="${size}" height="${size}" alt="">`;
@@ -74,9 +75,10 @@ export function createInterface(state, actions) {
     }
     if (view === "map") {
       const bridge = state.structures.filter(s => s.kind === "bridge").length;
-      return `<div class="entries">
+      return `<p>Chạm vào mẫu vật để xem tên và giai đoạn sinh trưởng.</p><div class="entries">
         ${button("visit", "cove", "Vịnh Rêu", "Đi đến nơi xuất phát")}
         ${button("visit", "garden", "Vườn Mẫu", "Đi qua cầu phía nam · xem cây, hoa và các loại quặng")}
+        ${gardenSections.map(({id,title,detail}) => button("visit",id,title,detail)).join("")}
         <div class="entry"><span><strong>Eo Gió</strong><small>${bridge}/${BRIDGE.length} nhịp cầu</small></span><b>≈</b></div>
         <div class="entry"><span><strong>Bãi Tím</strong><small>${state.unlocked ? "Đã cấp quyền cập bờ" : "Cần 3 tín phiếu tại bến trao đổi"}</small></span><b>${state.unlocked ? "●" : "◇"}</b></div>
       </div>`;
@@ -84,14 +86,15 @@ export function createInterface(state, actions) {
     return "<p>Chạm vào cây, đá hay trạm để tự đi đến và tương tác. Giữ nút hành động để chặt hoặc đào liên tục. Chọn bản vẽ trong Xây dựng, sau đó chạm vào ô muốn đặt.</p>";
   }
 
-  function render({ zone, selection, blocked, label, targetName }) {
+  function render({ zone, row, selection, blocked, label, targetName }) {
     const hp = $$("#hearts");
     if (hp.dataset.value !== String(state.player.health)) {
       hp.dataset.value = state.player.health;
       hp.innerHTML = Array.from({ length: 4 }, (_, i) => i < state.player.health ? "♥" : '<span class="empty">♡</span>').join("");
       hp.setAttribute("aria-label", `Máu ${state.player.health} trên 4`);
     }
-    const location = ["Eo Gió","Vịnh Rêu","Bãi Tím","Vườn Mẫu"][zone];
+    const section = zone === 3 ? gardenSections.findLast(entry => row >= entry.firstRow) : null;
+    const location = section?.title ?? ["Eo Gió","Vịnh Rêu","Bãi Tím","Vườn Mẫu"][zone];
     const zoneLabel = $$("#zone");
     if (zoneLabel.textContent !== location) zoneLabel.textContent = location;
     if (actionLabel.textContent !== label) actionLabel.textContent = label;
