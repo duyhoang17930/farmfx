@@ -1,6 +1,6 @@
 # FarmFX assets
 
-451 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
+476 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
 
 ## Characters (20)
 
@@ -359,7 +359,7 @@
 | Stone cutter | [`machines/stone-cutter`](src/fx/machines/stone-cutter.js) | [GIF](docs/preview/machines-stone-cutter.gif) |
 | Teleporter | [`machines/teleporter`](src/fx/machines/teleporter.js) | [GIF](docs/preview/machines-teleporter.gif) |
 
-## Items (174)
+## Items (199)
 
 | Asset | ID | Preview |
 | --- | --- | --- |
@@ -537,3 +537,28 @@
 | Titanium ore | [`items/raw/titanium-ore`](src/fx/items/raw/titanium-ore.js) | [GIF](docs/preview/items-raw-titanium-ore.gif) |
 | Wood | [`items/raw/wood`](src/fx/items/raw/wood.js) | [GIF](docs/preview/items-raw-wood.gif) |
 | Wool | [`items/raw/wool`](src/fx/items/raw/wool.js) | [GIF](docs/preview/items-raw-wool.gif) |
+| Ancient relic | [`items/special/ancient-relic`](src/fx/items/special/ancient-relic.js) | — |
+| Ancient scroll | [`items/special/ancient-scroll`](src/fx/items/special/ancient-scroll.js) | — |
+| Ancient tablet | [`items/special/ancient-tablet`](src/fx/items/special/ancient-tablet.js) | — |
+| Artifact | [`items/special/artifact`](src/fx/items/special/artifact.js) | — |
+| Boss key | [`items/special/boss-key`](src/fx/items/special/boss-key.js) | — |
+| Bronze key | [`items/special/bronze-key`](src/fx/items/special/bronze-key.js) | — |
+| Coin | [`items/special/coin`](src/fx/items/special/coin.js) | — |
+| Coin pouch | [`items/special/coin-pouch`](src/fx/items/special/coin-pouch.js) | — |
+| Dragon scale | [`items/special/dragon-scale`](src/fx/items/special/dragon-scale.js) | — |
+| Dungeon key | [`items/special/dungeon-key`](src/fx/items/special/dungeon-key.js) | — |
+| Experience orb | [`items/special/experience-orb`](src/fx/items/special/experience-orb.js) | — |
+| Fossil | [`items/special/fossil`](src/fx/items/special/fossil.js) | — |
+| Gold bar | [`items/special/gold-bar`](src/fx/items/special/gold-bar.js) | — |
+| Gold key | [`items/special/gold-key`](src/fx/items/special/gold-key.js) | — |
+| Magic dust | [`items/special/magic-dust`](src/fx/items/special/magic-dust.js) | — |
+| Magic orb | [`items/special/magic-orb`](src/fx/items/special/magic-orb.js) | — |
+| Monster eye | [`items/special/monster-eye`](src/fx/items/special/monster-eye.js) | — |
+| Monster fang | [`items/special/monster-fang`](src/fx/items/special/monster-fang.js) | — |
+| Mystery box | [`items/special/mystery-box`](src/fx/items/special/mystery-box.js) | — |
+| Silver key | [`items/special/silver-key`](src/fx/items/special/silver-key.js) | — |
+| Skill point | [`items/special/skill-point`](src/fx/items/special/skill-point.js) | — |
+| Slime gel | [`items/special/slime-gel`](src/fx/items/special/slime-gel.js) | — |
+| Soul shard | [`items/special/soul-shard`](src/fx/items/special/soul-shard.js) | — |
+| Spirit essence | [`items/special/spirit-essence`](src/fx/items/special/spirit-essence.js) | — |
+| Treasure map | [`items/special/treasure-map`](src/fx/items/special/treasure-map.js) | — |

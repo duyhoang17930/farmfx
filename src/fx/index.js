@@ -451,6 +451,31 @@ import * as items_raw_tin_ore from "./items/raw/tin-ore.js";
 import * as items_raw_titanium_ore from "./items/raw/titanium-ore.js";
 import * as items_raw_wood from "./items/raw/wood.js";
 import * as items_raw_wool from "./items/raw/wool.js";
+import * as items_special_ancient_relic from "./items/special/ancient-relic.js";
+import * as items_special_ancient_scroll from "./items/special/ancient-scroll.js";
+import * as items_special_ancient_tablet from "./items/special/ancient-tablet.js";
+import * as items_special_artifact from "./items/special/artifact.js";
+import * as items_special_boss_key from "./items/special/boss-key.js";
+import * as items_special_bronze_key from "./items/special/bronze-key.js";
+import * as items_special_coin from "./items/special/coin.js";
+import * as items_special_coin_pouch from "./items/special/coin-pouch.js";
+import * as items_special_dragon_scale from "./items/special/dragon-scale.js";
+import * as items_special_dungeon_key from "./items/special/dungeon-key.js";
+import * as items_special_experience_orb from "./items/special/experience-orb.js";
+import * as items_special_fossil from "./items/special/fossil.js";
+import * as items_special_gold_bar from "./items/special/gold-bar.js";
+import * as items_special_gold_key from "./items/special/gold-key.js";
+import * as items_special_magic_dust from "./items/special/magic-dust.js";
+import * as items_special_magic_orb from "./items/special/magic-orb.js";
+import * as items_special_monster_eye from "./items/special/monster-eye.js";
+import * as items_special_monster_fang from "./items/special/monster-fang.js";
+import * as items_special_mystery_box from "./items/special/mystery-box.js";
+import * as items_special_silver_key from "./items/special/silver-key.js";
+import * as items_special_skill_point from "./items/special/skill-point.js";
+import * as items_special_slime_gel from "./items/special/slime-gel.js";
+import * as items_special_soul_shard from "./items/special/soul-shard.js";
+import * as items_special_spirit_essence from "./items/special/spirit-essence.js";
+import * as items_special_treasure_map from "./items/special/treasure-map.js";
 
 export { categories } from "./categories.js";
 
@@ -906,4 +931,29 @@ export const effects = {
   "items/raw/titanium-ore": items_raw_titanium_ore,
   "items/raw/wood": items_raw_wood,
   "items/raw/wool": items_raw_wool,
+  "items/special/ancient-relic": items_special_ancient_relic,
+  "items/special/ancient-scroll": items_special_ancient_scroll,
+  "items/special/ancient-tablet": items_special_ancient_tablet,
+  "items/special/artifact": items_special_artifact,
+  "items/special/boss-key": items_special_boss_key,
+  "items/special/bronze-key": items_special_bronze_key,
+  "items/special/coin": items_special_coin,
+  "items/special/coin-pouch": items_special_coin_pouch,
+  "items/special/dragon-scale": items_special_dragon_scale,
+  "items/special/dungeon-key": items_special_dungeon_key,
+  "items/special/experience-orb": items_special_experience_orb,
+  "items/special/fossil": items_special_fossil,
+  "items/special/gold-bar": items_special_gold_bar,
+  "items/special/gold-key": items_special_gold_key,
+  "items/special/magic-dust": items_special_magic_dust,
+  "items/special/magic-orb": items_special_magic_orb,
+  "items/special/monster-eye": items_special_monster_eye,
+  "items/special/monster-fang": items_special_monster_fang,
+  "items/special/mystery-box": items_special_mystery_box,
+  "items/special/silver-key": items_special_silver_key,
+  "items/special/skill-point": items_special_skill_point,
+  "items/special/slime-gel": items_special_slime_gel,
+  "items/special/soul-shard": items_special_soul_shard,
+  "items/special/spirit-essence": items_special_spirit_essence,
+  "items/special/treasure-map": items_special_treasure_map,
 };

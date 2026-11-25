@@ -1,6 +1,6 @@
 # Catalog
 
-451 effects in 17 categories. Every one is a file in
+476 effects in 17 categories. Every one is a file in
 `src/fx/<category>/<name>.js`; render any of them with `node tools/render.mjs <id> --gif`.
 
 ## characters
@@ -572,3 +572,28 @@ inventory icons for materials, components, gems, produce, animal products and me
 | Titanium ore | `items/raw/titanium-ore` | loop 1s | 16×16 | Three vivid blue veins on a dark ore fragment. |
 | Wood | `items/raw/wood` | loop 1s | 16×16 | A short brown log with a cut end. |
 | Wool | `items/raw/wool` | loop 1s | 16×16 | A cream fleece tuft with overlapping curls. |
+| Ancient relic | `items/special/ancient-relic` | loop 1s | 16×16 | A green stone relic incised with a triangular rune. |
+| Ancient scroll | `items/special/ancient-scroll` | loop 1s | 16×16 | A faded scroll covered in violet glyphs. |
+| Ancient tablet | `items/special/ancient-tablet` | loop 1s | 16×16 | A slate tablet incised with three parallel marks. |
+| Artifact | `items/special/artifact` | loop 1s | 16×16 | A red-gold artifact bearing a branching glyph. |
+| Boss key | `items/special/boss-key` | loop 1s | 16×16 | A red-gold boss key with a long ridged shank. |
+| Bronze key | `items/special/bronze-key` | loop 1s | 16×16 | A bronze key with one tooth. |
+| Coin | `items/special/coin` | loop 1s | 16×16 | A stamped round coin with a gold rim. |
+| Coin pouch | `items/special/coin-pouch` | loop 1s | 16×16 | A tied leather bag with a brass coin at the front. |
+| Dragon scale | `items/special/dragon-scale` | loop 1s | 16×16 | A red dragon scale scored along the center ridge. |
+| Dungeon key | `items/special/dungeon-key` | loop 1s | 16×16 | A dark violet dungeon key with a rune in the bow. |
+| Experience orb | `items/special/experience-orb` | loop 1s | 16×16 | A bright gold-green mote of experience. |
+| Fossil | `items/special/fossil` | loop 1s | 16×16 | A warm stone fossil with a spiral impression. |
+| Gold bar | `items/special/gold-bar` | loop 1s | 16×16 | A heavy gold bullion bar with an inset face. |
+| Gold key | `items/special/gold-key` | loop 1s | 16×16 | A gold key with three teeth. |
+| Magic dust | `items/special/magic-dust` | loop 1s | 16×16 | Scatter of violet and pale-gold magic dust. |
+| Magic orb | `items/special/magic-orb` | loop 1s | 16×16 | A violet magic orb with a crescent highlight. |
+| Monster eye | `items/special/monster-eye` | loop 1s | 16×16 | A glassy fantasy creature eye with a green iris. |
+| Monster fang | `items/special/monster-fang` | loop 1s | 16×16 | A curved ivory fang with a warm root. |
+| Mystery box | `items/special/mystery-box` | loop 1s | 16×16 | A small purple crate with a gold question mark. |
+| Silver key | `items/special/silver-key` | loop 1s | 16×16 | A silver key with two teeth. |
+| Skill point | `items/special/skill-point` | loop 1s | 16×16 | A bright four-point skill star. |
+| Slime gel | `items/special/slime-gel` | loop 1s | 16×16 | A soft green glob of gel. |
+| Soul shard | `items/special/soul-shard` | loop 1s | 16×16 | A blue shard holding a pale soul rune. |
+| Spirit essence | `items/special/spirit-essence` | loop 1s | 16×16 | A pale spirit pearl with a teal ring of light. |
+| Treasure map | `items/special/treasure-map` | loop 1s | 16×16 | A creased treasure map with a winding route and red mark. |
