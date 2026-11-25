@@ -199,17 +199,57 @@ import * as tiles_wooden_dock from "./tiles/wooden-dock.js";
 import * as tiles_wooden_floor from "./tiles/wooden-floor.js";
 import * as tiles_wooden_stairs from "./tiles/wooden-stairs.js";
 import * as tiles_wooden_wall from "./tiles/wooden-wall.js";
+import * as buildings_abandoned_house from "./buildings/abandoned-house.js";
+import * as buildings_animal_shelter from "./buildings/animal-shelter.js";
+import * as buildings_bakery from "./buildings/bakery.js";
+import * as buildings_bank_building from "./buildings/bank-building.js";
 import * as buildings_barn from "./buildings/barn.js";
+import * as buildings_blacksmith from "./buildings/blacksmith.js";
+import * as buildings_cave_entrance from "./buildings/cave-entrance.js";
 import * as buildings_chicken_coop from "./buildings/chicken-coop.js";
+import * as buildings_church from "./buildings/church.js";
+import * as buildings_clock_tower from "./buildings/clock-tower.js";
+import * as buildings_clothing_shop from "./buildings/clothing-shop.js";
+import * as buildings_duck_house from "./buildings/duck-house.js";
+import * as buildings_dungeon_entrance from "./buildings/dungeon-entrance.js";
+import * as buildings_factory_building from "./buildings/factory-building.js";
 import * as buildings_farmhouse from "./buildings/farmhouse.js";
 import * as buildings_farmhouse_deluxe from "./buildings/farmhouse-deluxe.js";
 import * as buildings_farmhouse_upgrade from "./buildings/farmhouse-upgrade.js";
+import * as buildings_fish_farm from "./buildings/fish-farm.js";
+import * as buildings_fishing_hut from "./buildings/fishing-hut.js";
 import * as buildings_greenhouse from "./buildings/greenhouse.js";
+import * as buildings_hunter_hut from "./buildings/hunter-hut.js";
+import * as buildings_laboratory from "./buildings/laboratory.js";
+import * as buildings_library from "./buildings/library.js";
+import * as buildings_lumber_house from "./buildings/lumber-house.js";
+import * as buildings_magic_tower from "./buildings/magic-tower.js";
 import * as buildings_market_stall from "./buildings/market-stall.js";
+import * as buildings_merchant_house from "./buildings/merchant-house.js";
+import * as buildings_mine_entrance from "./buildings/mine-entrance.js";
+import * as buildings_mining_house from "./buildings/mining-house.js";
+import * as buildings_museum from "./buildings/museum.js";
+import * as buildings_pigsty from "./buildings/pigsty.js";
+import * as buildings_portal_building from "./buildings/portal-building.js";
+import * as buildings_potion_shop from "./buildings/potion-shop.js";
+import * as buildings_power_station from "./buildings/power-station.js";
+import * as buildings_restaurant from "./buildings/restaurant.js";
+import * as buildings_seed_shop from "./buildings/seed-shop.js";
+import * as buildings_sheep_pen from "./buildings/sheep-pen.js";
 import * as buildings_shop from "./buildings/shop.js";
+import * as buildings_shrine from "./buildings/shrine.js";
 import * as buildings_silo from "./buildings/silo.js";
 import * as buildings_stable from "./buildings/stable.js";
 import * as buildings_storage_shed from "./buildings/storage-shed.js";
+import * as buildings_tavern from "./buildings/tavern.js";
+import * as buildings_temple from "./buildings/temple.js";
+import * as buildings_town_hall from "./buildings/town-hall.js";
+import * as buildings_upgraded_barn from "./buildings/upgraded-barn.js";
+import * as buildings_upgraded_coop from "./buildings/upgraded-coop.js";
+import * as buildings_upgraded_greenhouse from "./buildings/upgraded-greenhouse.js";
+import * as buildings_warehouse from "./buildings/warehouse.js";
+import * as buildings_watchtower from "./buildings/watchtower.js";
+import * as buildings_weapon_shop from "./buildings/weapon-shop.js";
 import * as buildings_well from "./buildings/well.js";
 import * as buildings_windmill from "./buildings/windmill.js";
 import * as buildings_workshop from "./buildings/workshop.js";
@@ -1030,17 +1070,57 @@ export const effects = {
   "tiles/wooden-floor": tiles_wooden_floor,
   "tiles/wooden-stairs": tiles_wooden_stairs,
   "tiles/wooden-wall": tiles_wooden_wall,
+  "buildings/abandoned-house": buildings_abandoned_house,
+  "buildings/animal-shelter": buildings_animal_shelter,
+  "buildings/bakery": buildings_bakery,
+  "buildings/bank-building": buildings_bank_building,
   "buildings/barn": buildings_barn,
+  "buildings/blacksmith": buildings_blacksmith,
+  "buildings/cave-entrance": buildings_cave_entrance,
   "buildings/chicken-coop": buildings_chicken_coop,
+  "buildings/church": buildings_church,
+  "buildings/clock-tower": buildings_clock_tower,
+  "buildings/clothing-shop": buildings_clothing_shop,
+  "buildings/duck-house": buildings_duck_house,
+  "buildings/dungeon-entrance": buildings_dungeon_entrance,
+  "buildings/factory-building": buildings_factory_building,
   "buildings/farmhouse": buildings_farmhouse,
   "buildings/farmhouse-deluxe": buildings_farmhouse_deluxe,
   "buildings/farmhouse-upgrade": buildings_farmhouse_upgrade,
+  "buildings/fish-farm": buildings_fish_farm,
+  "buildings/fishing-hut": buildings_fishing_hut,
   "buildings/greenhouse": buildings_greenhouse,
+  "buildings/hunter-hut": buildings_hunter_hut,
+  "buildings/laboratory": buildings_laboratory,
+  "buildings/library": buildings_library,
+  "buildings/lumber-house": buildings_lumber_house,
+  "buildings/magic-tower": buildings_magic_tower,
   "buildings/market-stall": buildings_market_stall,
+  "buildings/merchant-house": buildings_merchant_house,
+  "buildings/mine-entrance": buildings_mine_entrance,
+  "buildings/mining-house": buildings_mining_house,
+  "buildings/museum": buildings_museum,
+  "buildings/pigsty": buildings_pigsty,
+  "buildings/portal-building": buildings_portal_building,
+  "buildings/potion-shop": buildings_potion_shop,
+  "buildings/power-station": buildings_power_station,
+  "buildings/restaurant": buildings_restaurant,
+  "buildings/seed-shop": buildings_seed_shop,
+  "buildings/sheep-pen": buildings_sheep_pen,
   "buildings/shop": buildings_shop,
+  "buildings/shrine": buildings_shrine,
   "buildings/silo": buildings_silo,
   "buildings/stable": buildings_stable,
   "buildings/storage-shed": buildings_storage_shed,
+  "buildings/tavern": buildings_tavern,
+  "buildings/temple": buildings_temple,
+  "buildings/town-hall": buildings_town_hall,
+  "buildings/upgraded-barn": buildings_upgraded_barn,
+  "buildings/upgraded-coop": buildings_upgraded_coop,
+  "buildings/upgraded-greenhouse": buildings_upgraded_greenhouse,
+  "buildings/warehouse": buildings_warehouse,
+  "buildings/watchtower": buildings_watchtower,
+  "buildings/weapon-shop": buildings_weapon_shop,
   "buildings/well": buildings_well,
   "buildings/windmill": buildings_windmill,
   "buildings/workshop": buildings_workshop,

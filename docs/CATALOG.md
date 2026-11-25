@@ -1,6 +1,6 @@
 # Catalog
 
-827 effects in 23 categories. Every one is a file in
+867 effects in 23 categories. Every one is a file in
 `src/fx/<category>/<name>.js`; render any of them with `node tools/render.mjs <id> --gif`.
 
 ## characters
@@ -257,17 +257,57 @@ farmhouses, livestock shelters, workshops and market buildings.
 
 | effect | id | | size | what it does |
 |---|---|---|---|---|
+| abandoned house | `buildings/abandoned-house` | loop 3s | 96×112 | A top-down abandoned house with a selectable door and interior lights. |
+| animal shelter | `buildings/animal-shelter` | loop 3s | 96×112 | A top-down animal shelter with a selectable door and interior lights. |
+| bakery | `buildings/bakery` | loop 3s | 96×112 | A top-down bakery with a selectable door and interior lights. |
+| bank building | `buildings/bank-building` | loop 3s | 96×112 | A top-down bank building with a selectable door and interior lights. |
 | Barn | `buildings/barn` | loop 4s | 64×64 | A three-tile red barn with a gambrel roof, hayloft window and sliding doors. Pin the doors with open 0-1. |
+| blacksmith | `buildings/blacksmith` | loop 3s | 96×112 | A top-down blacksmith with a selectable door and interior lights. |
+| cave entrance | `buildings/cave-entrance` | loop 3s | 96×112 | A top-down cave entrance with a selectable door and interior lights. |
 | Chicken coop | `buildings/chicken-coop` | loop 3.5s | 48×48 | A raised cedar coop with a teal shingle roof, screened window and a hatch that lowers into a ramp. |
+| church | `buildings/church` | loop 3s | 96×112 | A top-down church with a selectable door and interior lights. |
+| clock tower | `buildings/clock-tower` | loop 3s | 96×112 | A top-down clock tower with a selectable door and interior lights. |
+| clothing shop | `buildings/clothing-shop` | loop 3s | 96×112 | A top-down clothing shop with a selectable door and interior lights. |
+| duck house | `buildings/duck-house` | loop 3s | 96×112 | A top-down duck house with a selectable door and interior lights. |
+| dungeon entrance | `buildings/dungeon-entrance` | loop 3s | 96×112 | A top-down dungeon entrance with a selectable door and interior lights. |
+| factory building | `buildings/factory-building` | loop 3s | 96×112 | A top-down factory building with a selectable door and interior lights. |
 | Farmhouse | `buildings/farmhouse` | loop 3.2s | 80×64 | A cream cottage with a red roof, brick chimney, warm windows and an opening front door. |
 | Deluxe farmhouse | `buildings/farmhouse-deluxe` | loop 3.2s | 80×80 | A second farmhouse upgrade with two dormers, a wraparound porch, flower boxes and warm shutters. |
 | Expanded farmhouse | `buildings/farmhouse-upgrade` | loop 3.2s | 80×64 | An upgraded two-storey farmhouse with a side wing, upper windows and a covered porch. |
+| fish farm | `buildings/fish-farm` | loop 3s | 96×112 | A top-down fish farm with a selectable door and interior lights. |
+| fishing hut | `buildings/fishing-hut` | loop 3s | 96×112 | A top-down fishing hut with a selectable door and interior lights. |
 | Greenhouse | `buildings/greenhouse` | loop 2s | 64×64 | A glasshouse with angled panes, dark metal ribs and warm light over its seedling benches. |
+| hunter hut | `buildings/hunter-hut` | loop 3s | 96×112 | A top-down hunter hut with a selectable door and interior lights. |
+| laboratory | `buildings/laboratory` | loop 3s | 96×112 | A top-down laboratory with a selectable door and interior lights. |
+| library | `buildings/library` | loop 3s | 96×112 | A top-down library with a selectable door and interior lights. |
+| lumber house | `buildings/lumber-house` | loop 3s | 96×112 | A top-down lumber house with a selectable door and interior lights. |
+| magic tower | `buildings/magic-tower` | loop 3s | 96×112 | A top-down magic tower with a selectable door and interior lights. |
 | Market stall | `buildings/market-stall` | loop 2s | 64×48 | A striped produce stand with baskets, pumpkins and an awning that stirs in the wind. |
+| merchant house | `buildings/merchant-house` | loop 3s | 96×112 | A top-down merchant house with a selectable door and interior lights. |
+| mine entrance | `buildings/mine-entrance` | loop 3s | 96×112 | A top-down mine entrance with a selectable door and interior lights. |
+| mining house | `buildings/mining-house` | loop 3s | 96×112 | A top-down mining house with a selectable door and interior lights. |
+| museum | `buildings/museum` | loop 3s | 96×112 | A top-down museum with a selectable door and interior lights. |
+| pigsty | `buildings/pigsty` | loop 3s | 96×112 | A top-down pigsty with a selectable door and interior lights. |
+| portal building | `buildings/portal-building` | loop 3s | 96×112 | A top-down portal building with a selectable door and interior lights. |
+| potion shop | `buildings/potion-shop` | loop 3s | 96×112 | A top-down potion shop with a selectable door and interior lights. |
+| power station | `buildings/power-station` | loop 3s | 96×112 | A top-down power station with a selectable door and interior lights. |
+| restaurant | `buildings/restaurant` | loop 3s | 96×112 | A top-down restaurant with a selectable door and interior lights. |
+| seed shop | `buildings/seed-shop` | loop 3s | 96×112 | A top-down seed shop with a selectable door and interior lights. |
+| sheep pen | `buildings/sheep-pen` | loop 3s | 96×112 | A top-down sheep pen with a selectable door and interior lights. |
 | General store | `buildings/shop` | loop 3.2s | 80×64 | A slate-roofed store with a striped canopy, display window and a swinging shop sign. |
+| shrine | `buildings/shrine` | loop 3s | 96×112 | A top-down shrine with a selectable door and interior lights. |
 | Grain silo | `buildings/silo` | loop 2s | 48×64 | A ribbed steel grain silo with a red cap, access ladder and a flickering level indicator. |
 | Stable | `buildings/stable` | loop 3.2s | 80×64 | An open timber stable with two stalls, hay racks and a wide shingled roof. |
 | Storage shed | `buildings/storage-shed` | loop 3.2s | 80×64 | A narrow plank shed with a tin roof, sliding door and stacked supply boxes. |
+| tavern | `buildings/tavern` | loop 3s | 96×112 | A top-down tavern with a selectable door and interior lights. |
+| temple | `buildings/temple` | loop 3s | 96×112 | A top-down temple with a selectable door and interior lights. |
+| town hall | `buildings/town-hall` | loop 3s | 96×112 | A top-down town hall with a selectable door and interior lights. |
+| upgraded barn | `buildings/upgraded-barn` | loop 3s | 96×112 | A top-down upgraded barn with a selectable door and interior lights. |
+| upgraded coop | `buildings/upgraded-coop` | loop 3s | 96×112 | A top-down upgraded coop with a selectable door and interior lights. |
+| upgraded greenhouse | `buildings/upgraded-greenhouse` | loop 3s | 96×112 | A top-down upgraded greenhouse with a selectable door and interior lights. |
+| warehouse | `buildings/warehouse` | loop 3s | 96×112 | A top-down warehouse with a selectable door and interior lights. |
+| watchtower | `buildings/watchtower` | loop 3s | 96×112 | A top-down watchtower with a selectable door and interior lights. |
+| weapon shop | `buildings/weapon-shop` | loop 3s | 96×112 | A top-down weapon shop with a selectable door and interior lights. |
 | Water well | `buildings/well` | loop 3.2s | 48×48 | A stone well with a wooden canopy and a bucket rising from the water. |
 | Windmill | `buildings/windmill` | loop 4s | 80×80 | A stone mill tower with four slowly turning cloth sails around a wooden hub. |
 | Workshop | `buildings/workshop` | loop 3.2s | 80×64 | A moss-roofed workshop with a wide door, a wall-mounted wrench and a smoking chimney. |

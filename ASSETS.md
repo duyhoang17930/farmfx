@@ -1,6 +1,6 @@
 # FarmFX assets
 
-827 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
+867 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
 
 ## Characters (20)
 
@@ -236,21 +236,61 @@
 | wooden stairs | [`tiles/wooden-stairs`](src/fx/tiles/wooden-stairs.js) | — |
 | wooden wall | [`tiles/wooden-wall`](src/fx/tiles/wooden-wall.js) | — |
 
-## Buildings (14)
+## Buildings (54)
 
 | Asset | ID | Preview |
 | --- | --- | --- |
+| abandoned house | [`buildings/abandoned-house`](src/fx/buildings/abandoned-house.js) | — |
+| animal shelter | [`buildings/animal-shelter`](src/fx/buildings/animal-shelter.js) | — |
+| bakery | [`buildings/bakery`](src/fx/buildings/bakery.js) | — |
+| bank building | [`buildings/bank-building`](src/fx/buildings/bank-building.js) | — |
 | Barn | [`buildings/barn`](src/fx/buildings/barn.js) | [GIF](docs/preview/buildings-barn.gif) |
+| blacksmith | [`buildings/blacksmith`](src/fx/buildings/blacksmith.js) | — |
+| cave entrance | [`buildings/cave-entrance`](src/fx/buildings/cave-entrance.js) | — |
 | Chicken coop | [`buildings/chicken-coop`](src/fx/buildings/chicken-coop.js) | [GIF](docs/preview/buildings-chicken-coop.gif) |
+| church | [`buildings/church`](src/fx/buildings/church.js) | — |
+| clock tower | [`buildings/clock-tower`](src/fx/buildings/clock-tower.js) | — |
+| clothing shop | [`buildings/clothing-shop`](src/fx/buildings/clothing-shop.js) | — |
+| duck house | [`buildings/duck-house`](src/fx/buildings/duck-house.js) | — |
+| dungeon entrance | [`buildings/dungeon-entrance`](src/fx/buildings/dungeon-entrance.js) | — |
+| factory building | [`buildings/factory-building`](src/fx/buildings/factory-building.js) | — |
 | Farmhouse | [`buildings/farmhouse`](src/fx/buildings/farmhouse.js) | [GIF](docs/preview/buildings-farmhouse.gif) |
 | Deluxe farmhouse | [`buildings/farmhouse-deluxe`](src/fx/buildings/farmhouse-deluxe.js) | [GIF](docs/preview/buildings-farmhouse-deluxe.gif) |
 | Expanded farmhouse | [`buildings/farmhouse-upgrade`](src/fx/buildings/farmhouse-upgrade.js) | [GIF](docs/preview/buildings-farmhouse-upgrade.gif) |
+| fish farm | [`buildings/fish-farm`](src/fx/buildings/fish-farm.js) | — |
+| fishing hut | [`buildings/fishing-hut`](src/fx/buildings/fishing-hut.js) | — |
 | Greenhouse | [`buildings/greenhouse`](src/fx/buildings/greenhouse.js) | [GIF](docs/preview/buildings-greenhouse.gif) |
+| hunter hut | [`buildings/hunter-hut`](src/fx/buildings/hunter-hut.js) | — |
+| laboratory | [`buildings/laboratory`](src/fx/buildings/laboratory.js) | — |
+| library | [`buildings/library`](src/fx/buildings/library.js) | — |
+| lumber house | [`buildings/lumber-house`](src/fx/buildings/lumber-house.js) | — |
+| magic tower | [`buildings/magic-tower`](src/fx/buildings/magic-tower.js) | — |
 | Market stall | [`buildings/market-stall`](src/fx/buildings/market-stall.js) | [GIF](docs/preview/buildings-market-stall.gif) |
+| merchant house | [`buildings/merchant-house`](src/fx/buildings/merchant-house.js) | — |
+| mine entrance | [`buildings/mine-entrance`](src/fx/buildings/mine-entrance.js) | — |
+| mining house | [`buildings/mining-house`](src/fx/buildings/mining-house.js) | — |
+| museum | [`buildings/museum`](src/fx/buildings/museum.js) | — |
+| pigsty | [`buildings/pigsty`](src/fx/buildings/pigsty.js) | — |
+| portal building | [`buildings/portal-building`](src/fx/buildings/portal-building.js) | — |
+| potion shop | [`buildings/potion-shop`](src/fx/buildings/potion-shop.js) | — |
+| power station | [`buildings/power-station`](src/fx/buildings/power-station.js) | — |
+| restaurant | [`buildings/restaurant`](src/fx/buildings/restaurant.js) | — |
+| seed shop | [`buildings/seed-shop`](src/fx/buildings/seed-shop.js) | — |
+| sheep pen | [`buildings/sheep-pen`](src/fx/buildings/sheep-pen.js) | — |
 | General store | [`buildings/shop`](src/fx/buildings/shop.js) | [GIF](docs/preview/buildings-shop.gif) |
+| shrine | [`buildings/shrine`](src/fx/buildings/shrine.js) | — |
 | Grain silo | [`buildings/silo`](src/fx/buildings/silo.js) | [GIF](docs/preview/buildings-silo.gif) |
 | Stable | [`buildings/stable`](src/fx/buildings/stable.js) | [GIF](docs/preview/buildings-stable.gif) |
 | Storage shed | [`buildings/storage-shed`](src/fx/buildings/storage-shed.js) | [GIF](docs/preview/buildings-storage-shed.gif) |
+| tavern | [`buildings/tavern`](src/fx/buildings/tavern.js) | — |
+| temple | [`buildings/temple`](src/fx/buildings/temple.js) | — |
+| town hall | [`buildings/town-hall`](src/fx/buildings/town-hall.js) | — |
+| upgraded barn | [`buildings/upgraded-barn`](src/fx/buildings/upgraded-barn.js) | — |
+| upgraded coop | [`buildings/upgraded-coop`](src/fx/buildings/upgraded-coop.js) | — |
+| upgraded greenhouse | [`buildings/upgraded-greenhouse`](src/fx/buildings/upgraded-greenhouse.js) | — |
+| warehouse | [`buildings/warehouse`](src/fx/buildings/warehouse.js) | — |
+| watchtower | [`buildings/watchtower`](src/fx/buildings/watchtower.js) | — |
+| weapon shop | [`buildings/weapon-shop`](src/fx/buildings/weapon-shop.js) | — |
 | Water well | [`buildings/well`](src/fx/buildings/well.js) | [GIF](docs/preview/buildings-well.gif) |
 | Windmill | [`buildings/windmill`](src/fx/buildings/windmill.js) | [GIF](docs/preview/buildings-windmill.gif) |
 | Workshop | [`buildings/workshop`](src/fx/buildings/workshop.js) | [GIF](docs/preview/buildings-workshop.gif) |
