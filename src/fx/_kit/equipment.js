@@ -1,5 +1,6 @@
 import { asset, CREAM, GOLD, LEAF, RED, STEEL, WATER, WOOD, round, wave } from "./art.js";
 import { groundShadow } from "./sprite.js";
+import { toolColors, toolTiers } from "./tool-tiers.js";
 
 function grip(p,x,y,ex,ey) {
   p.beam(x,y,ex,ey,3,WOOD[0]);p.line(x-0.6,y-1,ex-0.6,ey,WOOD[3]);p.px(x,y-1,WOOD[4]);
@@ -87,6 +88,7 @@ export const tools = {
 
 export function equipment(id,name,desc,palette,field=false){
   const size=field?[48,48]:[32,32];
-  return asset({name,desc,tags:["equipment",id],size,origin:[size[0]/2,field?38:27],palette,bg:field?"field":"dark"},
-    (p,ph,C)=>{if(field)groundShadow(p,0,0,8,2.5);tools[id](p,C,ph);});
+  return asset({name,desc,tags:["equipment",id],size,origin:[size[0]/2,field?38:27],palette,bg:field?"field":"dark",
+    options:toolTiers.has(id)?{tier:0}:{}},
+    (p,ph,C,o)=>{if(field)groundShadow(p,0,0,8,2.5);tools[id](p,toolColors(C,o.tier),ph);});
 }

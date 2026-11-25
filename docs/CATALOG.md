@@ -1,6 +1,6 @@
 # Catalog
 
-556 effects in 18 categories. Every one is a file in
+574 effects in 18 categories. Every one is a file in
 `src/fx/<category>/<name>.js`; render any of them with `node tools/render.mjs <id> --gif`.
 
 ## characters
@@ -203,17 +203,35 @@ hand tools, carried equipment and placeable farm equipment.
 
 | effect | id | | size | what it does |
 |---|---|---|---|---|
+| advanced sprinkler | `tools/advanced-sprinkler` | loop 2s | 48×48 | A rotating sprinkler with four spray arms. |
 | Axe | `tools/axe` | loop 2s | 32×32 | A wood-handled axe with a broad beveled cutting edge. |
+| backpack | `tools/backpack` | loop 1s | 48×48 | A stitched backpack with pockets and straps. |
 | Bucket | `tools/bucket` | loop 2s | 32×32 | A slatted wood bucket with an iron bail and a rippling water surface. |
+| bug net | `tools/bug-net` | loop 1s | 48×48 | A mesh ring on a wooden handle. |
+| chainsaw | `tools/chainsaw` | loop 2s | 48×48 | A motor housing and long toothed bar. |
+| compass | `tools/compass` | loop 2s | 48×48 | A brass compass with a moving needle. |
+| fishing bait | `tools/fishing-bait` | loop 2s | 48×48 | A curled red bait worm. |
+| fishing hook | `tools/fishing-hook` | loop 1s | 48×48 | A small steel hook with barbed point. |
 | Fishing rod | `tools/fishing-rod` | loop 2s | 32×32 | A bent rod with a spool, thin line and a swaying red float. |
+| golden sprinkler | `tools/golden-sprinkler` | loop 2s | 48×48 | A gold sprinkler with two wide spray arms. |
+| grappling hook | `tools/grappling-hook` | loop 1s | 48×48 | A three-pronged hook on a coil of rope. |
 | Hammer | `tools/hammer` | loop 2s | 32×32 | A carpenter's hammer with a blocky iron head and wooden handle. |
+| hand drill | `tools/hand-drill` | loop 2s | 48×48 | A compact drill with a spinning auger. |
+| hoe | `tools/hoe` | loop 1s | 48×48 | A long-handled flat-bladed hoe. |
+| irrigation pipe | `tools/irrigation-pipe` | loop 1s | 48×48 | A metal elbow pipe with a valve. |
+| jackhammer | `tools/jackhammer` | loop 2s | 48×48 | A tall impact tool with a pulsing chisel. |
 | Lantern | `tools/lantern` | loop 2s | 32×32 | An iron-framed lantern with warm glass and a flickering flame. |
+| magnifying glass | `tools/magnifying-glass` | loop 1s | 48×48 | A brass-rimmed glass lens. |
+| milking bucket | `tools/milking-bucket` | loop 1s | 48×48 | A bucket with a wire handle and white milk. |
 | Pickaxe | `tools/pickaxe` | loop 2s | 32×32 | A mining pick with a hooked iron head and a varnished handle. |
 | Scarecrow | `tools/scarecrow` | loop 2s | 48×48 | A straw-headed scarecrow in a patched coat, swaying slightly in the breeze. |
 | Scythe | `tools/scythe` | loop 2s | 32×32 | A long farm scythe with an offset grip and a curved blade. |
 | Seed bag | `tools/seed-bag` | loop 2s | 32×32 | A tied kraft pouch printed with a little green seedling. |
+| shears | `tools/shears` | loop 1s | 48×48 | Two hinged blades with red handles. |
 | Shovel | `tools/shovel` | loop 2s | 32×32 | A spade with a D-ring handle and a polished pointed blade. |
+| sickle | `tools/sickle` | loop 1s | 48×48 | A hooked steel sickle. |
 | Sprinkler | `tools/sprinkler` | loop 2s | 48×48 | A low irrigation head that spins and throws water out in a circle. |
+| treasure detector | `tools/treasure-detector` | loop 2s | 48×48 | A detector with a search coil and signal display. |
 | Watering can | `tools/watering-can` | loop 2s | 32×32 | A blue-green can with a perforated spout, fill opening and loop handle. |
 
 ## objects

@@ -138,17 +138,35 @@ import * as buildings_storage_shed from "./buildings/storage-shed.js";
 import * as buildings_well from "./buildings/well.js";
 import * as buildings_windmill from "./buildings/windmill.js";
 import * as buildings_workshop from "./buildings/workshop.js";
+import * as tools_advanced_sprinkler from "./tools/advanced-sprinkler.js";
 import * as tools_axe from "./tools/axe.js";
+import * as tools_backpack from "./tools/backpack.js";
 import * as tools_bucket from "./tools/bucket.js";
+import * as tools_bug_net from "./tools/bug-net.js";
+import * as tools_chainsaw from "./tools/chainsaw.js";
+import * as tools_compass from "./tools/compass.js";
+import * as tools_fishing_bait from "./tools/fishing-bait.js";
+import * as tools_fishing_hook from "./tools/fishing-hook.js";
 import * as tools_fishing_rod from "./tools/fishing-rod.js";
+import * as tools_golden_sprinkler from "./tools/golden-sprinkler.js";
+import * as tools_grappling_hook from "./tools/grappling-hook.js";
 import * as tools_hammer from "./tools/hammer.js";
+import * as tools_hand_drill from "./tools/hand-drill.js";
+import * as tools_hoe from "./tools/hoe.js";
+import * as tools_irrigation_pipe from "./tools/irrigation-pipe.js";
+import * as tools_jackhammer from "./tools/jackhammer.js";
 import * as tools_lantern from "./tools/lantern.js";
+import * as tools_magnifying_glass from "./tools/magnifying-glass.js";
+import * as tools_milking_bucket from "./tools/milking-bucket.js";
 import * as tools_pickaxe from "./tools/pickaxe.js";
 import * as tools_scarecrow from "./tools/scarecrow.js";
 import * as tools_scythe from "./tools/scythe.js";
 import * as tools_seed_bag from "./tools/seed-bag.js";
+import * as tools_shears from "./tools/shears.js";
 import * as tools_shovel from "./tools/shovel.js";
+import * as tools_sickle from "./tools/sickle.js";
 import * as tools_sprinkler from "./tools/sprinkler.js";
+import * as tools_treasure_detector from "./tools/treasure-detector.js";
 import * as tools_watering_can from "./tools/watering-can.js";
 import * as objects_barrel from "./objects/barrel.js";
 import * as objects_beehive from "./objects/beehive.js";
@@ -698,17 +716,35 @@ export const effects = {
   "buildings/well": buildings_well,
   "buildings/windmill": buildings_windmill,
   "buildings/workshop": buildings_workshop,
+  "tools/advanced-sprinkler": tools_advanced_sprinkler,
   "tools/axe": tools_axe,
+  "tools/backpack": tools_backpack,
   "tools/bucket": tools_bucket,
+  "tools/bug-net": tools_bug_net,
+  "tools/chainsaw": tools_chainsaw,
+  "tools/compass": tools_compass,
+  "tools/fishing-bait": tools_fishing_bait,
+  "tools/fishing-hook": tools_fishing_hook,
   "tools/fishing-rod": tools_fishing_rod,
+  "tools/golden-sprinkler": tools_golden_sprinkler,
+  "tools/grappling-hook": tools_grappling_hook,
   "tools/hammer": tools_hammer,
+  "tools/hand-drill": tools_hand_drill,
+  "tools/hoe": tools_hoe,
+  "tools/irrigation-pipe": tools_irrigation_pipe,
+  "tools/jackhammer": tools_jackhammer,
   "tools/lantern": tools_lantern,
+  "tools/magnifying-glass": tools_magnifying_glass,
+  "tools/milking-bucket": tools_milking_bucket,
   "tools/pickaxe": tools_pickaxe,
   "tools/scarecrow": tools_scarecrow,
   "tools/scythe": tools_scythe,
   "tools/seed-bag": tools_seed_bag,
+  "tools/shears": tools_shears,
   "tools/shovel": tools_shovel,
+  "tools/sickle": tools_sickle,
   "tools/sprinkler": tools_sprinkler,
+  "tools/treasure-detector": tools_treasure_detector,
   "tools/watering-can": tools_watering_can,
   "objects/barrel": objects_barrel,
   "objects/beehive": objects_beehive,

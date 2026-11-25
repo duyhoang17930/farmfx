@@ -1,6 +1,6 @@
 # FarmFX assets
 
-556 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
+574 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
 
 ## Characters (20)
 
@@ -180,21 +180,39 @@
 | Windmill | [`buildings/windmill`](src/fx/buildings/windmill.js) | [GIF](docs/preview/buildings-windmill.gif) |
 | Workshop | [`buildings/workshop`](src/fx/buildings/workshop.js) | [GIF](docs/preview/buildings-workshop.gif) |
 
-## Tools (12)
+## Tools (30)
 
 | Asset | ID | Preview |
 | --- | --- | --- |
+| advanced sprinkler | [`tools/advanced-sprinkler`](src/fx/tools/advanced-sprinkler.js) | — |
 | Axe | [`tools/axe`](src/fx/tools/axe.js) | [GIF](docs/preview/tools-axe.gif) |
+| backpack | [`tools/backpack`](src/fx/tools/backpack.js) | — |
 | Bucket | [`tools/bucket`](src/fx/tools/bucket.js) | [GIF](docs/preview/tools-bucket.gif) |
+| bug net | [`tools/bug-net`](src/fx/tools/bug-net.js) | — |
+| chainsaw | [`tools/chainsaw`](src/fx/tools/chainsaw.js) | — |
+| compass | [`tools/compass`](src/fx/tools/compass.js) | — |
+| fishing bait | [`tools/fishing-bait`](src/fx/tools/fishing-bait.js) | — |
+| fishing hook | [`tools/fishing-hook`](src/fx/tools/fishing-hook.js) | — |
 | Fishing rod | [`tools/fishing-rod`](src/fx/tools/fishing-rod.js) | [GIF](docs/preview/tools-fishing-rod.gif) |
+| golden sprinkler | [`tools/golden-sprinkler`](src/fx/tools/golden-sprinkler.js) | — |
+| grappling hook | [`tools/grappling-hook`](src/fx/tools/grappling-hook.js) | — |
 | Hammer | [`tools/hammer`](src/fx/tools/hammer.js) | [GIF](docs/preview/tools-hammer.gif) |
+| hand drill | [`tools/hand-drill`](src/fx/tools/hand-drill.js) | — |
+| hoe | [`tools/hoe`](src/fx/tools/hoe.js) | — |
+| irrigation pipe | [`tools/irrigation-pipe`](src/fx/tools/irrigation-pipe.js) | — |
+| jackhammer | [`tools/jackhammer`](src/fx/tools/jackhammer.js) | — |
 | Lantern | [`tools/lantern`](src/fx/tools/lantern.js) | [GIF](docs/preview/tools-lantern.gif) |
+| magnifying glass | [`tools/magnifying-glass`](src/fx/tools/magnifying-glass.js) | — |
+| milking bucket | [`tools/milking-bucket`](src/fx/tools/milking-bucket.js) | — |
 | Pickaxe | [`tools/pickaxe`](src/fx/tools/pickaxe.js) | [GIF](docs/preview/tools-pickaxe.gif) |
 | Scarecrow | [`tools/scarecrow`](src/fx/tools/scarecrow.js) | [GIF](docs/preview/tools-scarecrow.gif) |
 | Scythe | [`tools/scythe`](src/fx/tools/scythe.js) | [GIF](docs/preview/tools-scythe.gif) |
 | Seed bag | [`tools/seed-bag`](src/fx/tools/seed-bag.js) | [GIF](docs/preview/tools-seed-bag.gif) |
+| shears | [`tools/shears`](src/fx/tools/shears.js) | — |
 | Shovel | [`tools/shovel`](src/fx/tools/shovel.js) | [GIF](docs/preview/tools-shovel.gif) |
+| sickle | [`tools/sickle`](src/fx/tools/sickle.js) | — |
 | Sprinkler | [`tools/sprinkler`](src/fx/tools/sprinkler.js) | [GIF](docs/preview/tools-sprinkler.gif) |
+| treasure detector | [`tools/treasure-detector`](src/fx/tools/treasure-detector.js) | — |
 | Watering can | [`tools/watering-can`](src/fx/tools/watering-can.js) | [GIF](docs/preview/tools-watering-can.gif) |
 
 ## Objects (15)

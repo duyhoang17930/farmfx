@@ -35,6 +35,8 @@ export function sheetVariants(fx) {
     for (let stage = 0; stage <= 4; stage++) add(`stage-${stage}`, { stage, plot: false });
   } else if (category === "player") {
     for (const facing of FACINGS) add(facing, { facing });
+  } else if (category === "tools" && Object.hasOwn(options, "tier")) {
+    for (let tier=1;tier<=8;tier++) add(`tier-${tier}`,{tier});
   } else if (category === "machines" && options.facing) {
     const turns = options.turn ? ["left", "right"] : [undefined];
     for (const facing of ["north", "east", "south", "west"]) {
