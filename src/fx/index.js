@@ -468,6 +468,25 @@ import * as ui_dialogue_box from "./ui/dialogue-box.js";
 import * as ui_energy_bar from "./ui/energy-bar.js";
 import * as ui_health_bar from "./ui/health-bar.js";
 import * as ui_hotbar from "./ui/hotbar.js";
+import * as ui_hud_armor_bar from "./ui/hud/armor-bar.js";
+import * as ui_hud_boss_health_bar from "./ui/hud/boss-health-bar.js";
+import * as ui_hud_buff_indicator from "./ui/hud/buff-indicator.js";
+import * as ui_hud_combo_counter from "./ui/hud/combo-counter.js";
+import * as ui_hud_compass from "./ui/hud/compass.js";
+import * as ui_hud_cooldown_indicator from "./ui/hud/cooldown-indicator.js";
+import * as ui_hud_debuff_indicator from "./ui/hud/debuff-indicator.js";
+import * as ui_hud_enemy_health_bar from "./ui/hud/enemy-health-bar.js";
+import * as ui_hud_experience_bar from "./ui/hud/experience-bar.js";
+import * as ui_hud_hunger_bar from "./ui/hud/hunger-bar.js";
+import * as ui_hud_interaction_prompt from "./ui/hud/interaction-prompt.js";
+import * as ui_hud_level_indicator from "./ui/hud/level-indicator.js";
+import * as ui_hud_mana_bar from "./ui/hud/mana-bar.js";
+import * as ui_hud_minimap from "./ui/hud/minimap.js";
+import * as ui_hud_oxygen_bar from "./ui/hud/oxygen-bar.js";
+import * as ui_hud_resource_counter from "./ui/hud/resource-counter.js";
+import * as ui_hud_resource_health_bar from "./ui/hud/resource-health-bar.js";
+import * as ui_hud_skill_point_counter from "./ui/hud/skill-point-counter.js";
+import * as ui_hud_stamina_bar from "./ui/hud/stamina-bar.js";
 import * as ui_inventory_slots from "./ui/inventory-slots.js";
 import * as ui_item_icons from "./ui/item-icons.js";
 import * as ui_pickup_toast from "./ui/pickup-toast.js";
@@ -1615,6 +1634,25 @@ export const effects = {
   "ui/energy-bar": ui_energy_bar,
   "ui/health-bar": ui_health_bar,
   "ui/hotbar": ui_hotbar,
+  "ui/hud/armor-bar": ui_hud_armor_bar,
+  "ui/hud/boss-health-bar": ui_hud_boss_health_bar,
+  "ui/hud/buff-indicator": ui_hud_buff_indicator,
+  "ui/hud/combo-counter": ui_hud_combo_counter,
+  "ui/hud/compass": ui_hud_compass,
+  "ui/hud/cooldown-indicator": ui_hud_cooldown_indicator,
+  "ui/hud/debuff-indicator": ui_hud_debuff_indicator,
+  "ui/hud/enemy-health-bar": ui_hud_enemy_health_bar,
+  "ui/hud/experience-bar": ui_hud_experience_bar,
+  "ui/hud/hunger-bar": ui_hud_hunger_bar,
+  "ui/hud/interaction-prompt": ui_hud_interaction_prompt,
+  "ui/hud/level-indicator": ui_hud_level_indicator,
+  "ui/hud/mana-bar": ui_hud_mana_bar,
+  "ui/hud/minimap": ui_hud_minimap,
+  "ui/hud/oxygen-bar": ui_hud_oxygen_bar,
+  "ui/hud/resource-counter": ui_hud_resource_counter,
+  "ui/hud/resource-health-bar": ui_hud_resource_health_bar,
+  "ui/hud/skill-point-counter": ui_hud_skill_point_counter,
+  "ui/hud/stamina-bar": ui_hud_stamina_bar,
   "ui/inventory-slots": ui_inventory_slots,
   "ui/item-icons": ui_item_icons,
   "ui/pickup-toast": ui_pickup_toast,

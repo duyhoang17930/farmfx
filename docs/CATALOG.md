@@ -1,6 +1,6 @@
 # Catalog
 
-1143 effects in 25 categories. Every one is a file in
+1162 effects in 25 categories. Every one is a file in
 `src/fx/<category>/<name>.js`; render any of them with `node tools/render.mjs <id> --gif`.
 
 ## characters
@@ -561,6 +561,25 @@ pixel HUD, inventory icons, menus, dialogue and notifications.
 | Energy bar | `ui/energy-bar` | loop 2.4s | 96×32 | A blue energy meter with a lightning icon and configurable 0-to-1 fill. |
 | Health bar | `ui/health-bar` | loop 2.4s | 96×32 | A heart meter with a configurable 0-to-1 fill level. |
 | Hotbar | `ui/hotbar` | loop 2.4s | 128×32 | Six quick slots with configurable items and selection. |
+| armor bar | `ui/hud/armor-bar` | loop 1s | 128×32 | A HUD armor bar with externally supplied state. |
+| boss health bar | `ui/hud/boss-health-bar` | loop 1s | 128×32 | A HUD boss health bar with externally supplied state. |
+| buff indicator | `ui/hud/buff-indicator` | loop 1s | 128×32 | A HUD buff indicator with externally supplied state. |
+| combo counter | `ui/hud/combo-counter` | loop 1s | 128×32 | A HUD combo counter with externally supplied state. |
+| compass | `ui/hud/compass` | loop 1s | 128×32 | A HUD compass with externally supplied state. |
+| cooldown indicator | `ui/hud/cooldown-indicator` | loop 1s | 128×32 | A HUD cooldown indicator with externally supplied state. |
+| debuff indicator | `ui/hud/debuff-indicator` | loop 1s | 128×32 | A HUD debuff indicator with externally supplied state. |
+| enemy health bar | `ui/hud/enemy-health-bar` | loop 1s | 128×32 | A HUD enemy health bar with externally supplied state. |
+| experience bar | `ui/hud/experience-bar` | loop 1s | 128×32 | A HUD experience bar with externally supplied state. |
+| hunger bar | `ui/hud/hunger-bar` | loop 1s | 128×32 | A HUD hunger bar with externally supplied state. |
+| interaction prompt | `ui/hud/interaction-prompt` | loop 1s | 128×32 | A HUD interaction prompt with externally supplied state. |
+| level indicator | `ui/hud/level-indicator` | loop 1s | 128×32 | A HUD level indicator with externally supplied state. |
+| mana bar | `ui/hud/mana-bar` | loop 1s | 128×32 | A HUD mana bar with externally supplied state. |
+| minimap | `ui/hud/minimap` | loop 1s | 80×80 | A HUD minimap with externally supplied state. |
+| oxygen bar | `ui/hud/oxygen-bar` | loop 1s | 128×32 | A HUD oxygen bar with externally supplied state. |
+| resource counter | `ui/hud/resource-counter` | loop 1s | 128×32 | A HUD resource counter with externally supplied state. |
+| resource health bar | `ui/hud/resource-health-bar` | loop 1s | 128×32 | A HUD resource health bar with externally supplied state. |
+| skill point counter | `ui/hud/skill-point-counter` | loop 1s | 128×32 | A HUD skill point counter with externally supplied state. |
+| stamina bar | `ui/hud/stamina-bar` | loop 1s | 128×32 | A HUD stamina bar with externally supplied state. |
 | Inventory slots | `ui/inventory-slots` | loop 2.4s | 96×96 | A sixteen-slot backpack panel with item icons and a moving selection. |
 | Item icons | `ui/item-icons` | loop 2.4s | 112×48 | Twelve inventory icons for produce, materials and animal goods. Set item to show a single icon. |
 | Pickup toast | `ui/pickup-toast` | one-shot 1.4s | 112×48 | A short pickup notification with a configurable item, name and quantity. |

@@ -1,6 +1,6 @@
 # FarmFX assets
 
-1143 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
+1162 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
 
 ## Characters (20)
 
@@ -521,7 +521,7 @@
 | Watering droplets | [`fx/watering-droplets`](src/fx/fx/watering-droplets.js) | [GIF](docs/preview/fx-watering-droplets.gif) |
 | welding sparks | [`fx/welding-sparks`](src/fx/fx/welding-sparks.js) | — |
 
-## Ui (15)
+## Ui (34)
 
 | Asset | ID | Preview |
 | --- | --- | --- |
@@ -534,6 +534,25 @@
 | Energy bar | [`ui/energy-bar`](src/fx/ui/energy-bar.js) | [GIF](docs/preview/ui-energy-bar.gif) |
 | Health bar | [`ui/health-bar`](src/fx/ui/health-bar.js) | [GIF](docs/preview/ui-health-bar.gif) |
 | Hotbar | [`ui/hotbar`](src/fx/ui/hotbar.js) | [GIF](docs/preview/ui-hotbar.gif) |
+| armor bar | [`ui/hud/armor-bar`](src/fx/ui/hud/armor-bar.js) | — |
+| boss health bar | [`ui/hud/boss-health-bar`](src/fx/ui/hud/boss-health-bar.js) | — |
+| buff indicator | [`ui/hud/buff-indicator`](src/fx/ui/hud/buff-indicator.js) | — |
+| combo counter | [`ui/hud/combo-counter`](src/fx/ui/hud/combo-counter.js) | — |
+| compass | [`ui/hud/compass`](src/fx/ui/hud/compass.js) | — |
+| cooldown indicator | [`ui/hud/cooldown-indicator`](src/fx/ui/hud/cooldown-indicator.js) | — |
+| debuff indicator | [`ui/hud/debuff-indicator`](src/fx/ui/hud/debuff-indicator.js) | — |
+| enemy health bar | [`ui/hud/enemy-health-bar`](src/fx/ui/hud/enemy-health-bar.js) | — |
+| experience bar | [`ui/hud/experience-bar`](src/fx/ui/hud/experience-bar.js) | — |
+| hunger bar | [`ui/hud/hunger-bar`](src/fx/ui/hud/hunger-bar.js) | — |
+| interaction prompt | [`ui/hud/interaction-prompt`](src/fx/ui/hud/interaction-prompt.js) | — |
+| level indicator | [`ui/hud/level-indicator`](src/fx/ui/hud/level-indicator.js) | — |
+| mana bar | [`ui/hud/mana-bar`](src/fx/ui/hud/mana-bar.js) | — |
+| minimap | [`ui/hud/minimap`](src/fx/ui/hud/minimap.js) | — |
+| oxygen bar | [`ui/hud/oxygen-bar`](src/fx/ui/hud/oxygen-bar.js) | — |
+| resource counter | [`ui/hud/resource-counter`](src/fx/ui/hud/resource-counter.js) | — |
+| resource health bar | [`ui/hud/resource-health-bar`](src/fx/ui/hud/resource-health-bar.js) | — |
+| skill point counter | [`ui/hud/skill-point-counter`](src/fx/ui/hud/skill-point-counter.js) | — |
+| stamina bar | [`ui/hud/stamina-bar`](src/fx/ui/hud/stamina-bar.js) | — |
 | Inventory slots | [`ui/inventory-slots`](src/fx/ui/inventory-slots.js) | [GIF](docs/preview/ui-inventory-slots.gif) |
 | Item icons | [`ui/item-icons`](src/fx/ui/item-icons.js) | [GIF](docs/preview/ui-item-icons.gif) |
 | Pickup toast | [`ui/pickup-toast`](src/fx/ui/pickup-toast.js) | [GIF](docs/preview/ui-pickup-toast.gif) |
