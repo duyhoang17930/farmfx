@@ -1,9 +1,10 @@
 import { createFx } from "../../src/core/index.js";
 import * as lootFlight from "../../src/fx/fx/loot-flight.js";
 import * as telegraph from "../../src/fx/combat/ground-telegraph.js";
-import * as impact from "../../src/fx/fx/resource-hit.js";
-import * as breakRock from "../../src/fx/fx/ore-break.js";
-import * as fallTree from "../../src/fx/fx/tree-fall-dust.js";
+import * as woodImpact from "../../src/fx/fx/woodcut-impact.js";
+import * as oreImpact from "../../src/fx/fx/ore-pick-impact.js";
+import * as stoneImpact from "../../src/fx/fx/stone-pick-impact.js";
+import * as fallTree from "../../src/fx/trees/wind-pine-fall.js";
 import * as spawns from "../../src/fx/fx/resource-respawn.js";
 import * as buildFx from "../../src/fx/fx/build-placement.js";
 import * as craftFx from "../../src/fx/fx/crafting-complete.js";
@@ -18,10 +19,12 @@ import { createInterface } from "./interface.js";
 
 const SAVE = "farmfx-mist-station-v1";
 const REACH = 25, BUILD_REACH = 60, HOLD = 0.31;
+const harvestImpact = { pine: woodImpact, ore: oreImpact, stone: stoneImpact };
+const harvestSound = { pine: "chop", ore: "mine", stone: "stone" };
 const rules = {
-  pine: { name: "Thông gió", action: "Chặt", mark: "A", hp: 2, item: "wood", count: 2, clip: "axe", bounds: [27, 36] },
-  stone: { name: "Đá bờ biển", action: "Đập", mark: "P", hp: 2, item: "stone", count: 2, clip: "pick", bounds: [22, 15] },
-  ore: { name: "Mạch sắt", action: "Đào", mark: "P", hp: 2, item: "ore", count: 2, clip: "pick", bounds: [24, 19] },
+  pine: { name: "Thông gió", action: "Chặt", mark: "A", hp: 2, item: "wood", count: 2, clip: "axe", bounds: [34, 45], recoil: 0.46 },
+  stone: { name: "Đá bờ biển", action: "Đập", mark: "P", hp: 2, item: "stone", count: 2, clip: "pick", bounds: [28, 20], recoil: 0.21 },
+  ore: { name: "Mạch sắt", action: "Đào", mark: "P", hp: 2, item: "ore", count: 2, clip: "pick", bounds: [28, 20], recoil: 0.16 },
   workbench: { name: "Bàn chế tạo", action: "Chế tạo", mark: "+", bounds: [32, 23] },
   forge: { name: "Lò luyện", action: "Luyện", mark: "+", bounds: [31, 31] },
   dock: { name: "Bến trao đổi", action: "Trao đổi", mark: "+", bounds: [43, 21] },
@@ -48,7 +51,7 @@ const guardian = { ...at("guardian", 18, 8), hp: saved.guardianDefeated ? 0 : 4,
 const state = {
   player, guardian, fixtures: [at("dock", 12, 8), at("beacon", 20, 6)],
   structures: [at("workbench", 5, 6), ...(saved.structures ?? []).map(e => at(e.kind, e.col, e.row))],
-  nodes: NODE_POSITIONS.map(([kind, x, y]) => ({ ...at(kind, x, y), hp: rules[kind]?.hp ?? 1, flash: 0 })),
+  nodes: NODE_POSITIONS.map(([kind, x, y]) => ({ ...at(kind, x, y), hp: rules[kind]?.hp ?? 1, recoil: 0, hitDirection: 1 })),
   inventory: { wood: 1, stone: 0, ore: 0, ingot: 0, coin: 0, pearl: 0, core: 0, ...saved.inventory },
   unlocked: !!saved.unlocked, restored: !!saved.restored, jobs: saved.jobs ?? [],
   effects: [], loot: [], attack: null, focus: null, placement: null,
@@ -90,7 +93,8 @@ const keys = new Set();
 let route = [], pin = null, goalTarget = null, selection = null, cursor = null, dashVector = [0, 0];
 let touchVector = [0, 0], held = null, audioEnabled = false, audioContext;
 const audioFiles = {
-  chop: "exploration/chop.wav", mine: "exploration/mine.wav", pickup: "exploration/pickup.wav",
+  chop: "gathering/wood-hit.wav", mine: "gathering/ore-hit.wav", stone: "gathering/stone-hit.wav",
+  treeFall: "gathering/tree-fall.wav", pickup: "exploration/pickup.wav",
   craft: "exploration/craft-complete.wav", unlock: "exploration/land-unlock.wav",
   build: "gameplay/building-placement.wav", hit: "combat/sword-hit.wav", hurt: "combat/player-hurt.wav",
 };
@@ -258,11 +262,17 @@ function strike(target) {
   }
   const rule = rules[target.kind];
   target.hp--;
-  target.flash = 0.19;
-  sound(target.kind === "pine" ? "chop" : "mine");
-  effect(target.hp ? impact : target.kind === "pine" ? fallTree : breakRock, target.x, target.y);
+  target.recoil = rule.recoil;
+  target.hitDirection = Math.sign(target.x - player.x) || (player.facing === "left" ? -1 : 1);
+  const seed = target.col * 3 + target.row * 17;
+  sound(harvestSound[target.kind]);
+  effect(harvestImpact[target.kind], target.x, target.y, { seed, direction: target.hitDirection, heavy: target.hp === 0 });
   if (target.hp === 0) {
     target.respawn = 28;
+    if (target.kind === "pine") {
+      effect(fallTree, target.x, target.y, { seed, direction: target.hitDirection });
+      sound("treeFall");
+    }
     launch(rule.item, rule.count, target.x, target.y);
     save();
   }
@@ -440,7 +450,7 @@ function update(dt) {
   move(dt);
   moveGuardian(dt);
   for (const n of state.nodes) {
-    n.flash = Math.max(0, n.flash - dt);
+    n.recoil = Math.max(0, n.recoil - dt);
     if (n.hp !== 0 || n.respawn === undefined) continue;
     n.respawn -= dt;
     if (n.respawn > 0 || occupied(n.col, n.row, true) || distance(n, player) < 16) continue;
@@ -553,7 +563,7 @@ function loop(now) {
     const targetName = selection ? blueprints[selection].name : targetRule?.name;
     ui.render({ zone: land(cellX(player.x), cellY(player.y)), selection, label, targetName, blocked });
     scene.drawTouch(blocked ? "locked" : held ? "pressed" : "ready", held ? Math.min(1, held.t / HOLD) : 0,
-      selection ? "+" : targetRule?.mark ?? "·");
+      selection ? "+" : targetRule?.mark ?? "·", targetRule?.clip);
     scene.draw(state, t);
   }
   requestAnimationFrame(loop);

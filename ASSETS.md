@@ -1,6 +1,6 @@
 # FarmFX assets
 
-1401 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
+1410 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
 
 ## Characters (20)
 
@@ -92,7 +92,7 @@
 | Wheat | [`crops/wheat`](src/fx/crops/wheat.js) | [GIF](docs/preview/crops-wheat.gif) |
 | Yams | [`crops/yams`](src/fx/crops/yams.js) | [GIF](docs/preview/crops-yams.gif) |
 
-## Trees (17)
+## Trees (19)
 
 | Asset | ID | Preview |
 | --- | --- | --- |
@@ -113,6 +113,8 @@
 | Snow-covered tree | [`trees/snow-covered-tree`](src/fx/trees/snow-covered-tree.js) | [GIF](docs/preview/trees-snow-covered-tree.gif) |
 | Tree regrowth | [`trees/tree-regrowth`](src/fx/trees/tree-regrowth.js) | [GIF](docs/preview/trees-tree-regrowth.gif) |
 | Willow | [`trees/willow`](src/fx/trees/willow.js) | [GIF](docs/preview/trees-willow.gif) |
+| Wind pine | [`trees/wind-pine`](src/fx/trees/wind-pine.js) | — |
+| Wind pine fall | [`trees/wind-pine-fall`](src/fx/trees/wind-pine-fall.js) | — |
 
 ## Animals (46)
 
@@ -330,7 +332,7 @@
 | treasure detector | [`tools/treasure-detector`](src/fx/tools/treasure-detector.js) | — |
 | Watering can | [`tools/watering-can`](src/fx/tools/watering-can.js) | [GIF](docs/preview/tools-watering-can.gif) |
 
-## Objects (66)
+## Objects (67)
 
 | Asset | ID | Preview |
 | --- | --- | --- |
@@ -393,6 +395,7 @@
 | wardrobe | [`objects/wardrobe`](src/fx/objects/wardrobe.js) | — |
 | water pump | [`objects/water-pump`](src/fx/objects/water-pump.js) | — |
 | water tank | [`objects/water-tank`](src/fx/objects/water-tank.js) | — |
+| Weather workbench | [`objects/weather-workbench`](src/fx/objects/weather-workbench.js) | — |
 | wheelbarrow | [`objects/wheelbarrow`](src/fx/objects/wheelbarrow.js) | — |
 | window | [`objects/window`](src/fx/objects/window.js) | — |
 | wood pile | [`objects/wood-pile`](src/fx/objects/wood-pile.js) | — |
@@ -436,7 +439,7 @@
 | volcanic smoke | [`weather/volcanic-smoke`](src/fx/weather/volcanic-smoke.js) | — |
 | wind gust | [`weather/wind-gust`](src/fx/weather/wind-gust.js) | — |
 
-## Farm fx (83)
+## Farm fx (86)
 
 | Asset | ID | Preview |
 | --- | --- | --- |
@@ -497,6 +500,7 @@
 | machine steam | [`fx/machine-steam`](src/fx/fx/machine-steam.js) | — |
 | Mining impact | [`fx/mining-impact`](src/fx/fx/mining-impact.js) | [GIF](docs/preview/fx-mining-impact.gif) |
 | ore break | [`fx/ore-break`](src/fx/fx/ore-break.js) | — |
+| Ore pick impact | [`fx/ore-pick-impact`](src/fx/fx/ore-pick-impact.js) | — |
 | player shadow | [`fx/player-shadow`](src/fx/fx/player-shadow.js) | — |
 | portal swirl | [`fx/portal-swirl`](src/fx/fx/portal-swirl.js) | — |
 | power pulse | [`fx/power-pulse`](src/fx/fx/power-pulse.js) | — |
@@ -514,6 +518,7 @@
 | smelting sparks | [`fx/smelting-sparks`](src/fx/fx/smelting-sparks.js) | — |
 | Chimney smoke | [`fx/smoke`](src/fx/fx/smoke.js) | [GIF](docs/preview/fx-smoke.gif) |
 | speed trail | [`fx/speed-trail`](src/fx/fx/speed-trail.js) | — |
+| Stone pick impact | [`fx/stone-pick-impact`](src/fx/fx/stone-pick-impact.js) | — |
 | swimming splash | [`fx/swimming-splash`](src/fx/fx/swimming-splash.js) | — |
 | teleport in | [`fx/teleport-in`](src/fx/fx/teleport-in.js) | — |
 | teleport out | [`fx/teleport-out`](src/fx/fx/teleport-out.js) | — |
@@ -523,6 +528,7 @@
 | Water splash | [`fx/water-splash`](src/fx/fx/water-splash.js) | [GIF](docs/preview/fx-water-splash.gif) |
 | Watering droplets | [`fx/watering-droplets`](src/fx/fx/watering-droplets.js) | [GIF](docs/preview/fx-watering-droplets.gif) |
 | welding sparks | [`fx/welding-sparks`](src/fx/fx/welding-sparks.js) | — |
+| Woodcut impact | [`fx/woodcut-impact`](src/fx/fx/woodcut-impact.js) | — |
 
 ## Ui (131)
 
@@ -703,7 +709,7 @@
 | treasure reveal | [`exploration/treasure-reveal`](src/fx/exploration/treasure-reveal.js) | — |
 | waypoint | [`exploration/waypoint`](src/fx/exploration/waypoint.js) | — |
 
-## Resources (30)
+## Resources (32)
 
 | Asset | ID | Preview |
 | --- | --- | --- |
@@ -713,6 +719,8 @@
 | Cactus | [`resources/cactus`](src/fx/resources/cactus.js) | [GIF](docs/preview/resources-cactus.gif) |
 | Clay deposit | [`resources/clay-deposit`](src/fx/resources/clay-deposit.js) | [GIF](docs/preview/resources-clay-deposit.gif) |
 | Coal ore | [`resources/coal-ore`](src/fx/resources/coal-ore.js) | [GIF](docs/preview/resources-coal-ore.gif) |
+| Coastal boulder | [`resources/coastal-boulder`](src/fx/resources/coastal-boulder.js) | — |
+| Coastal iron seam | [`resources/coastal-iron-seam`](src/fx/resources/coastal-iron-seam.js) | — |
 | Copper ore | [`resources/copper-ore`](src/fx/resources/copper-ore.js) | [GIF](docs/preview/resources-copper-ore.gif) |
 | Cotton bush | [`resources/cotton-bush`](src/fx/resources/cotton-bush.js) | [GIF](docs/preview/resources-cotton-bush.gif) |
 | Crystal deposit | [`resources/crystal-deposit`](src/fx/resources/crystal-deposit.js) | [GIF](docs/preview/resources-crystal-deposit.gif) |
@@ -738,7 +746,7 @@
 | Tin ore | [`resources/tin-ore`](src/fx/resources/tin-ore.js) | [GIF](docs/preview/resources-tin-ore.gif) |
 | Titanium ore | [`resources/titanium-ore`](src/fx/resources/titanium-ore.js) | [GIF](docs/preview/resources-titanium-ore.gif) |
 
-## Machines (45)
+## Machines (46)
 
 | Asset | ID | Preview |
 | --- | --- | --- |
@@ -755,6 +763,7 @@
 | Blast furnace | [`machines/blast-furnace`](src/fx/machines/blast-furnace.js) | [GIF](docs/preview/machines-blast-furnace.gif) |
 | Brewing station | [`machines/brewing-station`](src/fx/machines/brewing-station.js) | [GIF](docs/preview/machines-brewing-station.gif) |
 | Charcoal kiln | [`machines/charcoal-kiln`](src/fx/machines/charcoal-kiln.js) | [GIF](docs/preview/machines-charcoal-kiln.gif) |
+| Coastal kiln | [`machines/coastal-kiln`](src/fx/machines/coastal-kiln.js) | — |
 | Coin mint | [`machines/coin-mint`](src/fx/machines/coin-mint.js) | [GIF](docs/preview/machines-coin-mint.gif) |
 | Conveyor belt | [`machines/conveyor-belt`](src/fx/machines/conveyor-belt.js) | [GIF](docs/preview/machines-conveyor-belt.gif) |
 | Conveyor corner | [`machines/conveyor-corner`](src/fx/machines/conveyor-corner.js) | [GIF](docs/preview/machines-conveyor-corner.gif) |

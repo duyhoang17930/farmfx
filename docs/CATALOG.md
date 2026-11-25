@@ -1,6 +1,6 @@
 # Catalog
 
-1401 effects in 30 categories. Every one is a file in
+1410 effects in 30 categories. Every one is a file in
 `src/fx/<category>/<name>.js`; render any of them with `node tools/render.mjs <id> --gif`.
 
 ## characters
@@ -124,6 +124,8 @@ woodland and fantasy trees, saplings, regrowth stages and a chopping animation.
 | Snow-covered tree | `trees/snow-covered-tree` | loop 3s | 64×64 | A layered evergreen with broad snow caps and exposed needle tips. |
 | Tree regrowth | `trees/tree-regrowth` | loop 6s | 64×64 | Four selectable stages from cut stump to sapling, young tree and mature maple. |
 | Willow | `trees/willow` | loop 3s | 64×64 | A slanted trunk under a spreading canopy with hanging green fronds. |
+| Wind pine | `trees/wind-pine` | loop 2.5s | 48×64 | A coastal conifer with sunlit needle clusters, a flexible crown and a cut stump. |
+| Wind pine fall | `trees/wind-pine-fall` | one-shot 0.78s | 144×96 | The wind pine tips from its cut base, settles near the ground and fades into a dust puff. |
 
 ## animals
 
@@ -414,6 +416,7 @@ storage, furniture and props with configurable active or open states.
 | wardrobe | `objects/wardrobe` | loop 1s | 64×64 | A top-down wardrobe prop with shaded surfaces. |
 | water pump | `objects/water-pump` | loop 2s | 64×64 | A top-down water pump prop with shaded surfaces. |
 | water tank | `objects/water-tank` | loop 2s | 64×64 | A top-down water tank prop with shaded surfaces. |
+| Weather workbench | `objects/weather-workbench` | loop 1s | 48×32 | A carpenter's station with a brass gauge, tool rack and a cyan chart on the worktop. |
 | wheelbarrow | `objects/wheelbarrow` | loop 1s | 64×64 | A top-down wheelbarrow prop with shaded surfaces. |
 | window | `objects/window` | loop 2s | 64×64 | A top-down window prop with shaded surfaces. |
 | wood pile | `objects/wood-pile` | loop 1s | 64×64 | A top-down wood pile prop with shaded surfaces. |
@@ -522,6 +525,7 @@ dust, splashes, impact debris, growth and pickup feedback.
 | machine steam | `fx/machine-steam` | loop 2s | 80×64 | A pixel-art machine steam effect with configurable color and seed. |
 | Mining impact | `fx/mining-impact` | one-shot 0.86s | 48×48 | Sharp fragments, a pale strike flash and dust mark a pick hitting stone. |
 | ore break | `fx/ore-break` | one-shot 1.15s | 80×64 | A pixel-art ore break effect with configurable color and seed. |
+| Ore pick impact | `fx/ore-pick-impact` | one-shot 0.37s | 48×48 | A short spray of warm metal sparks follows the pick, with heavier ore chips on the finishing strike. |
 | player shadow | `fx/player-shadow` | loop 2s | 80×64 | A pixel-art player shadow effect with configurable color and seed. |
 | portal swirl | `fx/portal-swirl` | loop 2s | 80×64 | A pixel-art portal swirl effect with configurable color and seed. |
 | power pulse | `fx/power-pulse` | one-shot 1.15s | 80×64 | A pixel-art power pulse effect with configurable color and seed. |
@@ -539,6 +543,7 @@ dust, splashes, impact debris, growth and pickup feedback.
 | smelting sparks | `fx/smelting-sparks` | one-shot 1.15s | 80×64 | A pixel-art smelting sparks effect with configurable color and seed. |
 | Chimney smoke | `fx/smoke` | loop 3.2s | 48×48 | A slow continuous plume of pale smoke rises, widens and fades. |
 | speed trail | `fx/speed-trail` | one-shot 1.15s | 80×64 | A pixel-art speed trail effect with configurable color and seed. |
+| Stone pick impact | `fx/stone-pick-impact` | one-shot 0.45s | 48×48 | Chalky chips tumble out of a compact dust puff when the pick strikes bare stone. |
 | swimming splash | `fx/swimming-splash` | one-shot 1.15s | 80×64 | A pixel-art swimming splash effect with configurable color and seed. |
 | teleport in | `fx/teleport-in` | one-shot 1.15s | 80×64 | A pixel-art teleport in effect with configurable color and seed. |
 | teleport out | `fx/teleport-out` | one-shot 1.15s | 80×64 | A pixel-art teleport out effect with configurable color and seed. |
@@ -548,6 +553,7 @@ dust, splashes, impact debris, growth and pickup feedback.
 | Water splash | `fx/water-splash` | one-shot 0.9s | 48×48 | A shallow crown of water with arcing drops and two spreading rings. |
 | Watering droplets | `fx/watering-droplets` | one-shot 1.15s | 48×48 | A short arc of irrigation droplets lands in staggered twinkles. |
 | welding sparks | `fx/welding-sparks` | one-shot 1.15s | 80×64 | A pixel-art welding sparks effect with configurable color and seed. |
+| Woodcut impact | `fx/woodcut-impact` | one-shot 0.49s | 48×48 | Pale splinters fan out at the axe contact while two loose needles flutter down. |
 
 ## ui
 
@@ -744,6 +750,8 @@ metal ores, gemstone clusters, mineral deposits and wild gatherables.
 | Cactus | `resources/cactus` | loop 1s | 32×32 | A ribbed desert cactus with two side arms and a small coral flower. |
 | Clay deposit | `resources/clay-deposit` | loop 1s | 32×32 | A low red-brown clay mound with a smooth cut face and drying cracks. |
 | Coal ore | `resources/coal-ore` | loop 1s | 32×32 | A low shale bed with broad charcoal chips and a blue-black sheen. |
+| Coastal boulder | `resources/coastal-boulder` | loop 2.8s | 48×32 | A sunlit boulder with split faces, moss and two loose chips. |
+| Coastal iron seam | `resources/coastal-iron-seam` | loop 2.8s | 48×32 | An iron node with angled rock faces and warm metallic veins. |
 | Copper ore | `resources/copper-ore` | loop 1s | 32×32 | Orange copper knobs set in a weathered green split boulder. |
 | Cotton bush | `resources/cotton-bush` | loop 2.5s | 32×32 | Rust-colored stems carry five fluffy cotton bolls on a wild bush. |
 | Crystal deposit | `resources/crystal-deposit` | loop 2.5s | 32×32 | Three milky quartz prisms with pale cyan faces and a passing glint. |
@@ -788,6 +796,7 @@ crafting stations, industrial machinery, power, automation and conveyors.
 | Blast furnace | `machines/blast-furnace` | loop 2s | 64×80 | A tall steel tower with a hot inspection slot, banded shell and side air pipes. |
 | Brewing station | `machines/brewing-station` | loop 2s | 64×64 | A wooden cask feeds a copper tap over a row of bottles and a drip tray. |
 | Charcoal kiln | `machines/charcoal-kiln` | loop 2s | 64×64 | A low clay charcoal oven with a blackened flue, split logs and cooling smoke. |
+| Coastal kiln | `machines/coastal-kiln` | loop 2s | 48×64 | A stone kiln with a sea-glass flue cap and a firebox that glows when working. |
 | Coin mint | `machines/coin-mint` | loop 2s | 64×64 | A gold-trimmed stamping press drops currency into a front tray. |
 | Conveyor belt | `machines/conveyor-belt` | loop 2s | 16×16 | A straight 16 px roller belt with traveling link highlights. |
 | Conveyor corner | `machines/conveyor-corner` | loop 2s | 16×16 | A quarter-turn belt with interchangeable left and right bends. |

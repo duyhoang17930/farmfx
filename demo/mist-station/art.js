@@ -1,9 +1,9 @@
-import * as pine from "../../src/fx/trees/pine.js";
-import * as stone from "../../src/fx/tiles/rock.js";
-import * as ore from "../../src/fx/resources/iron-ore.js";
+import * as pine from "../../src/fx/trees/wind-pine.js";
+import * as stone from "../../src/fx/resources/coastal-boulder.js";
+import * as ore from "../../src/fx/resources/coastal-iron-seam.js";
 import * as flowers from "../../src/fx/tiles/wildflowers.js";
-import * as forge from "../../src/fx/machines/forge.js";
-import * as workbench from "../../src/fx/objects/workbench.js";
+import * as forge from "../../src/fx/machines/coastal-kiln.js";
+import * as workbench from "../../src/fx/objects/weather-workbench.js";
 import * as bridge from "../../src/fx/tiles/wooden-bridge.js";
 import * as beacon from "../../src/fx/objects/mist-beacon.js";
 import * as dock from "../../src/fx/exploration/boat-dock.js";

@@ -12,6 +12,8 @@ export const { meta, draw } = asset({
   const alpha = o.state === "distant" ? 0.72 : 1;
   for (const dx of [-1, 1]) for (const dy of [-1, 1]) {
     const x = dx * half, y = dy === -1 ? -h : 3;
+    p.line(x, y + 1, x - dx * 5, y + 1, C[0], alpha);
+    p.line(x + dx, y, x + dx, y - dy * 5, C[0], alpha);
     p.line(x, y, x - dx * 5, y, C[4], alpha);
     p.line(x, y, x, y - dy * 5, C[3], alpha);
     p.px(x - dx, y - dy, C[1]);

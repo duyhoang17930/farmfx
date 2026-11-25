@@ -1,8 +1,10 @@
 import { FACINGS } from "../../src/fx/_kit/person.js";
+import { WINDKEEPER } from "../../src/fx/_kit/island-explorer.js";
 import { frameDuration, spriteSheet } from "./fxlib.mjs";
 
 const sides = "NESW";
 const diagonals = ["NE", "SE", "SW", "NW"];
+const keeperClips = new Set(["idle", "walk", "axe-swing", "pickaxe-swing", "sword-attack", "dash", "building", "hurt"]);
 const terrain = {
   "tiles/dirt-path": { option: "edges", connected: true },
   "tiles/stone-path": { option: "edges", connected: true },
@@ -42,6 +44,9 @@ export function sheetVariants(fx) {
     for (let stage = 0; stage <= 4; stage++) add(`stage-${stage}`, { stage, plot: false });
   } else if (category === "player") {
     for (const facing of FACINGS) add(facing, { facing });
+    if (keeperClips.has(fx.id.split("/")[1])) {
+      for (const facing of FACINGS) add(`windkeeper-${facing}`, { facing, outfit: "windkeeper", palette: WINDKEEPER });
+    }
   } else if (category === "tools" && Object.hasOwn(options, "tier")) {
     for (let tier=1;tier<=8;tier++) add(`tier-${tier}`,{tier});
   } else if (fx.id === "exploration/target-brackets") {
@@ -58,6 +63,15 @@ export function sheetVariants(fx) {
     add("pressed", { state: "pressed" });
     add("hold", { state: "pressed", progress: 0.65 });
     add("locked", { state: "locked" });
+    add("axe", { tool: "axe" });
+    add("pick", { tool: "pick" });
+  } else if (fx.id === "trees/wind-pine") {
+    add("stump", { stump: true });
+  } else if (fx.id === "trees/wind-pine-fall" || fx.id === "fx/woodcut-impact") {
+    add("left", { direction: -1 });
+    add("right", { direction: 1 });
+  } else if (fx.id === "fx/ore-pick-impact" || fx.id === "fx/stone-pick-impact") {
+    add("finishing-hit", { heavy: true });
   } else if (fx.id === "objects/mist-beacon") {
     add("restored", { active: true });
     add("dormant", { active: false });

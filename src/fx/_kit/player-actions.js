@@ -60,7 +60,7 @@ export function playerClip(id) {
     ...(["swing","sweep","combo","thrust","shoot","cast"].includes(mode)&&hit!==undefined?{damage:duration*hit}:{}),
     ...(mode==="combo"?{secondContact:duration*0.59}: {})};
   const meta={name:id.replaceAll("-"," "),desc:`Island explorer ${id.replaceAll("-"," ")} in four directions.`,
-    size:[64,64],origin:[32,48],duration,fps:15,loop,bg:"field",tags:["player",mode],options:{facing:"down",palette:HOOD},
+    size:[64,64],origin:[32,48],duration,fps:15,loop,bg:"field",tags:["player",mode],options:{facing:"down",palette:HOOD,outfit:"standard"},
     collision:{width:12,height:8},...(events?{events,omitTerminalFrame:true}:{})};
   function draw(p,t,o){
     if(!loop&&t>=duration)return;
@@ -88,7 +88,7 @@ export function playerClip(id) {
     body.fade=p.fade*(mode==="vanish"?1-seg(phase,0.6,1):mode==="appear"?seg(phase,0,0.64):1);
     groundShadow(p,x,0,mode==="swim"?9:6.5,2,0.9-height*0.04);
     explorer(body,fit(o.palette,5),facing,{shadow:false,step:moving?Math.min(3,Math.floor(4*phase)): -1,
-      bob:Math.round(dip+(id==="idle"?Math.max(0,wave(phase)):0)),lean,hand,tool:tip?item:undefined,tip});
+      bob:Math.round(dip+(id==="idle"?Math.max(0,wave(phase)):0)),lean,hand,tool:tip?item:undefined,tip,outfit:o.outfit});
     if(prop){
       const propPainter=new Painter(body.frame).place(body.tx,body.ty,body.fx*direction<0,Math.atan2(body.sn,body.cs));
       propPainter.fade=body.fade;

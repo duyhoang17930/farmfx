@@ -1,6 +1,6 @@
 # farmfx.
 
-**<!-- count -->1401<!-- /count --> pixel art assets and animations for farming games, every one a small piece of
+**<!-- count -->1410<!-- /count --> pixel art assets and animations for farming games, every one a small piece of
 code.** Crops that grow from seed to harvest, animals going about their day, tilled and watered soil, weather and
 seasons, and a farmer who hoes, waters, sows and harvests. Play them live, recolor them for another season, drop
 them into a browser game, or export sprite sheets for any engine.
@@ -36,18 +36,18 @@ system, with a library made for farms instead of fights.
 | **portraits** | 20 | arlo portrait, ash portrait, bram portrait, clove portrait, cog portrait, farmer portrait… |
 | **farming** | 4 | harvest, hoe, sow, water |
 | **crops** | 26 | apples, bananas, barley, cabbages, carrot, cassava… |
-| **trees** | 17 | bamboo tree, birch, burnt tree, crystal tree, dead tree, falling tree… |
+| **trees** | 19 | bamboo tree, birch, burnt tree, crystal tree, dead tree, falling tree… |
 | **animals** | 46 | bee, butterfly, calf, cat, chick, chicken… |
 | **tiles** | 66 | berry bush, brick floor, brick wall, footbridge, cliff wall, cliff corner… |
 | **buildings** | 54 | abandoned house, animal shelter, bakery, bank building, barn, blacksmith… |
 | **tools** | 30 | advanced sprinkler, axe, backpack, bucket, bug net, chainsaw… |
-| **objects** | 66 | banner, barrel, bed, beehive, bench, bookshelf… |
+| **objects** | 67 | banner, barrel, bed, beehive, bench, bookshelf… |
 | **weather & seasons** | 30 | aurora, blizzard, cloud shadow, day and night, drifting clouds, falling ash… |
-| **farm fx** | 83 | achievement unlock, animal feed, animal heart, animal product drop, blueprint unlock, buff activate… |
+| **farm fx** | 86 | achievement unlock, animal feed, animal heart, animal product drop, blueprint unlock, buff activate… |
 | **ui** | 131 | calendar, achievement card, button, checkbox, circular progress, confirmation dialog… |
 | **island exploration** | 38 | artifact discovery, boat, boat dock, buried treasure, cave discovery, exploration flag… |
-| **resources** | 30 | amethyst deposit, bamboo, bone pile, cactus, clay deposit, coal ore… |
-| **machines** | 45 | advanced furnace, alchemy station, anvil, assembly machine, auto collector, auto feeder… |
+| **resources** | 32 | amethyst deposit, bamboo, bone pile, cactus, clay deposit, coal ore… |
+| **machines** | 46 | advanced furnace, alchemy station, anvil, assembly machine, auto collector, auto feeder… |
 | **items** | 229 | animal feed, beeswax, butter, cheese, cream, egg… |
 | **player** | 50 | axe swing, bow aim, bow shoot, building, celebration, climbing… |
 | **weapons** | 31 | arrow, battle axe, boomerang, copper sword, crossbow, crystal shield… |
@@ -339,8 +339,9 @@ Run `npm run demo` and open [Trạm Sương](http://localhost:8080/demo/mist-sta
 [demo source](demo/mist-station/) shows a complete mobile-friendly loop from gathering and building to restoring a
 weather station. Touch an object to walk to it and interact, or use WASD and E. Progress saves in the browser.
 
-`npm run demo:assets` exports the six new assets and the animated shoreline to `sheets/mist-station/`.
-The output includes PNG sheets, JSON metadata and a Tiled mixed terrain set for the 47 shoreline masks.
+`npm run demo:assets` exports the Windkeeper clips, coastal props, harvest effects and animated shoreline
+to `sheets/mist-station/`. The output includes PNG sheets, JSON metadata and a Tiled mixed terrain set for
+the 47 shoreline masks.
 The moving loot target, building ghost and hit detection are driven by game state in the demo.
 
 ## adventure assets and audio

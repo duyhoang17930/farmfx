@@ -87,6 +87,8 @@ import * as trees_sapling from "./trees/sapling.js";
 import * as trees_snow_covered_tree from "./trees/snow-covered-tree.js";
 import * as trees_tree_regrowth from "./trees/tree-regrowth.js";
 import * as trees_willow from "./trees/willow.js";
+import * as trees_wind_pine from "./trees/wind-pine.js";
+import * as trees_wind_pine_fall from "./trees/wind-pine-fall.js";
 import * as animals_bee from "./animals/bee.js";
 import * as animals_butterfly from "./animals/butterfly.js";
 import * as animals_calf from "./animals/calf.js";
@@ -342,6 +344,7 @@ import * as objects_wall_clock from "./objects/wall-clock.js";
 import * as objects_wardrobe from "./objects/wardrobe.js";
 import * as objects_water_pump from "./objects/water-pump.js";
 import * as objects_water_tank from "./objects/water-tank.js";
+import * as objects_weather_workbench from "./objects/weather-workbench.js";
 import * as objects_wheelbarrow from "./objects/wheelbarrow.js";
 import * as objects_window from "./objects/window.js";
 import * as objects_wood_pile from "./objects/wood-pile.js";
@@ -436,6 +439,7 @@ import * as fx_machine_smoke from "./fx/machine-smoke.js";
 import * as fx_machine_steam from "./fx/machine-steam.js";
 import * as fx_mining_impact from "./fx/mining-impact.js";
 import * as fx_ore_break from "./fx/ore-break.js";
+import * as fx_ore_pick_impact from "./fx/ore-pick-impact.js";
 import * as fx_player_shadow from "./fx/player-shadow.js";
 import * as fx_portal_swirl from "./fx/portal-swirl.js";
 import * as fx_power_pulse from "./fx/power-pulse.js";
@@ -453,6 +457,7 @@ import * as fx_skill_unlock from "./fx/skill-unlock.js";
 import * as fx_smelting_sparks from "./fx/smelting-sparks.js";
 import * as fx_smoke from "./fx/smoke.js";
 import * as fx_speed_trail from "./fx/speed-trail.js";
+import * as fx_stone_pick_impact from "./fx/stone-pick-impact.js";
 import * as fx_swimming_splash from "./fx/swimming-splash.js";
 import * as fx_teleport_in from "./fx/teleport-in.js";
 import * as fx_teleport_out from "./fx/teleport-out.js";
@@ -462,6 +467,7 @@ import * as fx_water_ripple from "./fx/water-ripple.js";
 import * as fx_water_splash from "./fx/water-splash.js";
 import * as fx_watering_droplets from "./fx/watering-droplets.js";
 import * as fx_welding_sparks from "./fx/welding-sparks.js";
+import * as fx_woodcut_impact from "./fx/woodcut-impact.js";
 import * as ui_calendar from "./ui/calendar.js";
 import * as ui_components_achievement_card from "./ui/components/achievement-card.js";
 import * as ui_components_button from "./ui/components/button.js";
@@ -637,6 +643,8 @@ import * as resources_bone_pile from "./resources/bone-pile.js";
 import * as resources_cactus from "./resources/cactus.js";
 import * as resources_clay_deposit from "./resources/clay-deposit.js";
 import * as resources_coal_ore from "./resources/coal-ore.js";
+import * as resources_coastal_boulder from "./resources/coastal-boulder.js";
+import * as resources_coastal_iron_seam from "./resources/coastal-iron-seam.js";
 import * as resources_copper_ore from "./resources/copper-ore.js";
 import * as resources_cotton_bush from "./resources/cotton-bush.js";
 import * as resources_crystal_deposit from "./resources/crystal-deposit.js";
@@ -674,6 +682,7 @@ import * as machines_battery_station from "./machines/battery-station.js";
 import * as machines_blast_furnace from "./machines/blast-furnace.js";
 import * as machines_brewing_station from "./machines/brewing-station.js";
 import * as machines_charcoal_kiln from "./machines/charcoal-kiln.js";
+import * as machines_coastal_kiln from "./machines/coastal-kiln.js";
 import * as machines_coin_mint from "./machines/coin-mint.js";
 import * as machines_conveyor_belt from "./machines/conveyor-belt.js";
 import * as machines_conveyor_corner from "./machines/conveyor-corner.js";
@@ -1492,6 +1501,8 @@ export const effects = {
   "trees/snow-covered-tree": trees_snow_covered_tree,
   "trees/tree-regrowth": trees_tree_regrowth,
   "trees/willow": trees_willow,
+  "trees/wind-pine": trees_wind_pine,
+  "trees/wind-pine-fall": trees_wind_pine_fall,
   "animals/bee": animals_bee,
   "animals/butterfly": animals_butterfly,
   "animals/calf": animals_calf,
@@ -1747,6 +1758,7 @@ export const effects = {
   "objects/wardrobe": objects_wardrobe,
   "objects/water-pump": objects_water_pump,
   "objects/water-tank": objects_water_tank,
+  "objects/weather-workbench": objects_weather_workbench,
   "objects/wheelbarrow": objects_wheelbarrow,
   "objects/window": objects_window,
   "objects/wood-pile": objects_wood_pile,
@@ -1841,6 +1853,7 @@ export const effects = {
   "fx/machine-steam": fx_machine_steam,
   "fx/mining-impact": fx_mining_impact,
   "fx/ore-break": fx_ore_break,
+  "fx/ore-pick-impact": fx_ore_pick_impact,
   "fx/player-shadow": fx_player_shadow,
   "fx/portal-swirl": fx_portal_swirl,
   "fx/power-pulse": fx_power_pulse,
@@ -1858,6 +1871,7 @@ export const effects = {
   "fx/smelting-sparks": fx_smelting_sparks,
   "fx/smoke": fx_smoke,
   "fx/speed-trail": fx_speed_trail,
+  "fx/stone-pick-impact": fx_stone_pick_impact,
   "fx/swimming-splash": fx_swimming_splash,
   "fx/teleport-in": fx_teleport_in,
   "fx/teleport-out": fx_teleport_out,
@@ -1867,6 +1881,7 @@ export const effects = {
   "fx/water-splash": fx_water_splash,
   "fx/watering-droplets": fx_watering_droplets,
   "fx/welding-sparks": fx_welding_sparks,
+  "fx/woodcut-impact": fx_woodcut_impact,
   "ui/calendar": ui_calendar,
   "ui/components/achievement-card": ui_components_achievement_card,
   "ui/components/button": ui_components_button,
@@ -2042,6 +2057,8 @@ export const effects = {
   "resources/cactus": resources_cactus,
   "resources/clay-deposit": resources_clay_deposit,
   "resources/coal-ore": resources_coal_ore,
+  "resources/coastal-boulder": resources_coastal_boulder,
+  "resources/coastal-iron-seam": resources_coastal_iron_seam,
   "resources/copper-ore": resources_copper_ore,
   "resources/cotton-bush": resources_cotton_bush,
   "resources/crystal-deposit": resources_crystal_deposit,
@@ -2079,6 +2096,7 @@ export const effects = {
   "machines/blast-furnace": machines_blast_furnace,
   "machines/brewing-station": machines_brewing_station,
   "machines/charcoal-kiln": machines_charcoal_kiln,
+  "machines/coastal-kiln": machines_coastal_kiln,
   "machines/coin-mint": machines_coin_mint,
   "machines/conveyor-belt": machines_conveyor_belt,
   "machines/conveyor-corner": machines_conveyor_corner,

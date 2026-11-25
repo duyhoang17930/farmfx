@@ -24,7 +24,7 @@ export const meta = {
   tags: ["player", "chop", "mine", "axe", "pickaxe"], size: [48, 48], origin: [24, 36],
   duration: 0.6, fps: 15, loop: false, bg: "field", omitTerminalFrame: true,
   events: { contact: 4 / 15 },
-  options: { facing: "right", tool: "pickaxe", palette: HOOD },
+  options: { facing: "right", tool: "pickaxe", palette: HOOD, outfit: "standard" },
 };
 
 export function draw(p, t, o) {
@@ -32,5 +32,5 @@ export function draw(p, t, o) {
   if (frame >= FRAME_POSE.length) return;
   const poses = POSES[o.facing === "left" ? "right" : o.facing] ?? POSES.right;
   const [lean, bob, hx, hy, tx, ty] = poses[FRAME_POSE[frame]];
-  explorer(p, fit(o.palette, 5), o.facing, { lean, bob, hand: [hx, hy], tip: [tx, ty], tool: o.tool });
+  explorer(p, fit(o.palette, 5), o.facing, { lean, bob, hand: [hx, hy], tip: [tx, ty], tool: o.tool, outfit: o.outfit });
 }

@@ -1,4 +1,5 @@
-import { clearFrame, composite, createFrame, painterFor, ramp } from "../../src/core/index.js";
+import { clearFrame, composite, createFrame, painterFor, ramp, rand } from "../../src/core/index.js";
+import { WINDKEEPER } from "../../src/fx/_kit/island-explorer.js";
 import * as shore from "../../src/fx/exploration/island-shore.js";
 import * as brackets from "../../src/fx/exploration/target-brackets.js";
 import * as footprint from "../../src/fx/fx/build-footprint.js";
@@ -8,11 +9,15 @@ import * as lootFlight from "../../src/fx/fx/loot-flight.js";
 import { blueprints, clips, items, objects } from "./art.js";
 import { BRIDGE, coast, HEIGHT, land, tileX, tileY, TILE, WIDTH } from "./islands.js";
 
-const water = ramp(["#203941", "#26454d", "#315a60", "#4b7775", "#7ba397"]);
-const cove = ["#324e3f", "#45604b", "#577450", "#77945a", "#a7ac69"];
-const bank = ["#383d55", "#494d64", "#595a73", "#777d92", "#a5a5ab"];
-const fog = ramp(["#514e67", "#62637c", "#8f8ba2", "#b2a5b4", "#d6bdc3"]);
-const outfit = ["#172e38", "#254553", "#306e76", "#75b2a8", "#d5e6bf"];
+const water = ramp(["#3d8296", "#509bad", "#64adba", "#8bc4c4", "#c7e9d9"]);
+const cove = ["#528258", "#76a366", "#8eb56d", "#9fc377", "#d1db8a"];
+const bank = ["#6b6a83", "#8d88a2", "#a198b0", "#ada8bf", "#d6c8cf"];
+const beaches = [
+  ["#7e7861", "#ab9267", "#c5a778", "#e5c993"],
+  ["#706582", "#9786a2", "#b8a0b4", "#d1b6c3"],
+];
+const fog = ramp(["#697797", "#8499ac", "#adc1ca", "#d4d9dc", "#f1e6e6"]);
+const groundDetails = [ramp(["#adc981", "#e1d89a"]), ramp(["#b7acc4", "#d8c7d1"])];
 const W = WIDTH * TILE, H = HEIGHT * TILE;
 const TAU = Math.PI * 2;
 
@@ -39,6 +44,34 @@ export function iconUrl(module) {
   return canvas.toDataURL();
 }
 
+function paintSea(frame) {
+  const { w, h, color } = frame;
+  const step = new Uint8Array(w * h);
+  for (let i = 0; i < step.length; i++) step[i] = color[i] ? 0 : 35;
+  for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
+    const i = y * w + x;
+    if (x) step[i] = Math.min(step[i], step[i - 1] + 3);
+    if (y) {
+      step[i] = Math.min(step[i], step[i - w] + 3);
+      if (x) step[i] = Math.min(step[i], step[i - w - 1] + 4);
+      if (x < w - 1) step[i] = Math.min(step[i], step[i - w + 1] + 4);
+    }
+  }
+  for (let y = h - 1; y >= 0; y--) for (let x = w - 1; x >= 0; x--) {
+    const i = y * w + x;
+    if (x < w - 1) step[i] = Math.min(step[i], step[i + 1] + 3);
+    if (y < h - 1) {
+      step[i] = Math.min(step[i], step[i + w] + 3);
+      if (x) step[i] = Math.min(step[i], step[i + w - 1] + 4);
+      if (x < w - 1) step[i] = Math.min(step[i], step[i + w + 1] + 4);
+    }
+    if (!step[i]) continue;
+    const ripple = Math.sin(x * 0.19 + y * 0.15) * 2;
+    const depth = step[i] + ripple;
+    color[i] = water[depth < 5 && (x + y * 2) % 19 < 12 ? 4 : depth < 16 ? 3 : depth < 27 ? 2 : 1];
+  }
+}
+
 export function createScene(canvas, touchCanvas) {
   const ctx = canvas.getContext("2d", { alpha: false });
   const touchCtx = touchCanvas.getContext("2d");
@@ -50,26 +83,26 @@ export function createScene(canvas, touchCanvas) {
 
   function renderGround(unlocked) {
     renderedUnlocked = unlocked;
-    const p = painterFor(ground);
-    p.rect(0, 0, W, H, water[1]);
-    for (let i = 0; i < 680; i++) {
-      const x = (i * 127 + Math.floor(i / 8) * 3) % W;
-      const y = (i * 71 + Math.floor(i / 11)) % H;
-      p.line(x, y, x + 1 + i % 6, y, water[i % 7 ? 0 : 2], 0.58);
-    }
+    clearFrame(ground);
     for (let y = 0; y < HEIGHT; y++) for (let x = 0; x < WIDTH; x++) {
       const island = land(x, y);
       if (!island) continue;
       paint(ground, shore, 0, tileX(x), tileY(y), {
         ...coast(x, y), tileX: x, tileY: y,
-        palette: island === 1 ? cove : bank,
-        ...(island === 2 ? { bank: ["#39334c", "#57506d", "#756983", "#92849b"] } : {}),
+        palette: island === 1 ? cove : bank, bank: beaches[island - 1], meadow: true,
       });
-      if (island === 2 && !unlocked) {
-        const overlay = painterFor(ground);
-        overlay.rect(x * TILE + 2, y * TILE + 2, 12, 12, fog[1], 0.42);
+      if (island === 1 || unlocked) {
+        const detail = painterFor(ground);
+        const seed = rand(x, y, 74);
+        const wx = x * TILE + 5 + Math.floor(seed * 6), wy = y * TILE + 8;
+        if (seed < 0.2) {
+          const color = groundDetails[island - 1];
+          detail.px(wx, wy, color[1]);
+          detail.line(wx + 2, wy + 2, wx + 3, wy + 2, color[0]);
+        }
       }
     }
+    paintSea(ground);
   }
 
   function resize() {
@@ -100,11 +133,11 @@ export function createScene(canvas, touchCanvas) {
     }
 
     const p = painterFor(frame);
-    for (let i = 0; i < 220; i++) {
+    for (let i = 0; i < 175; i++) {
       const wx = (i * 83 + Math.floor(t * (2 + i % 3))) % W;
       const wy = (i * 59) % H;
       if (!land(Math.floor(wx / TILE), Math.floor(wy / TILE))) {
-        p.line(wx, wy, wx + 2 + i % 5, wy, water[2 + (i % 11 === 0 ? 1 : 0)], 0.66);
+        p.line(wx, wy, wx + 2 + i % 5, wy, water[i % 8 === 0 ? 4 : 3], 0.66);
       }
     }
 
@@ -112,6 +145,12 @@ export function createScene(canvas, touchCanvas) {
       paint(frame, objects.bridge, t, entry.x, entry.y, { edges: "EW", facing: "east" });
     }
     if (state.attack) paint(frame, telegraph, state.attack.t, state.attack.x, state.attack.y, state.attack);
+
+    for (const node of state.nodes) {
+      if (node.kind !== "pine" || node.hp || !node.respawn || (node.island === 2 && !state.unlocked)) continue;
+      if (state.structures.some(entry => node.col >= entry.col && node.col < entry.col + entry.width && node.row === entry.row)) continue;
+      paint(frame, objects.pine, t, node.x, node.y, { stump: true });
+    }
 
     if (state.placement) {
       const { col, row, kind, blocked, affordable } = state.placement;
@@ -140,15 +179,21 @@ export function createScene(canvas, touchCanvas) {
       if (entity === player) {
         const clip = clips[player.action?.clip ?? (player.moving ? "walk" : "idle")];
         const blink = player.invulnerable > 0 && Math.floor(t * 14) % 2 === 0;
-        paint(frame, clip, player.action?.t ?? t, player.x, player.y, { facing: player.facing, palette: outfit }, blink ? 0.49 : 1);
+        paint(frame, clip, player.action?.t ?? t, player.x, player.y,
+          { facing: player.facing, palette: WINDKEEPER, outfit: "windkeeper" }, blink ? 0.49 : 1);
       } else {
         const activity = entity.kind === "beacon" ? { active: state.restored }
           : entity.kind === "forge" ? { active: state.jobs.some(job => job.station === entity.id) } : {};
         const seed = entity.col * 3 + entity.row * 17;
-        const sway = entity.flash > 0 ? Math.round(Math.sin(entity.flash * 61) * entity.flash * 10) : 0;
-        const x = entity.x + sway;
-        paint(frame, objects[entity.kind], t, x, entity.y, { ...activity, seed, facing: entity.facing ?? "down",
-          state: entity.kind === "guardian" && state.attack ? "attack" : entity.moving ? "move" : "idle" });
+        const recoil = entity.recoil ?? 0;
+        const sway = Math.round(Math.sin(recoil * 48) * recoil * 13 * (entity.hitDirection ?? 1));
+        const x = entity.x + (entity.kind === "pine" ? 0 : sway);
+        const blocksPlayer = entity.kind === "pine" && player.y < entity.y &&
+          entity.y - player.y < 40 && Math.abs(player.x - x) < 15;
+        paint(frame, objects[entity.kind], t, x, entity.y, {
+          ...activity, seed, bend: sway, facing: entity.facing ?? "down",
+          state: entity.kind === "guardian" && state.attack ? "attack" : entity.moving ? "move" : "idle",
+        }, blocksPlayer ? 0.54 : 1);
       }
     }
 
@@ -168,23 +213,25 @@ export function createScene(canvas, touchCanvas) {
     }
     if (!state.unlocked) {
       const fogPainter = painterFor(frame);
-      for (let i = 0; i < 14; i++) {
-        const phase = t * (0.2 + i % 4 * 0.026) + i;
-        const x = 263 + i * 8 + 13 * Math.cos(phase);
+      for (let i = 0; i < 18; i++) {
+        const phase = t * (0.16 + i % 4 * 0.018) + i;
+        const x = 265 + (i * 29) % 100 + 14 * Math.cos(phase);
         const y = 64 + (i * 37) % 131 + 7 * Math.sin(phase * 2);
-        fogPainter.disc(x, y, 8 + i % 6, fog[3], 0.14);
+        for (let j = -1; j <= 1; j++) {
+          fogPainter.disc(x + j * 8, y + j * 2, 6 + i % 4, fog[3], d => 0.29 * (1 - d));
+        }
       }
     }
     composite(frame, image.data);
     ctx.putImageData(image, 0, 0);
   }
 
-  function drawTouch(state, progress, mark) {
+  function drawTouch(state, progress, mark, tool) {
     const step = Math.round(progress * 32);
-    const key = [state, step, mark].join("/");
+    const key = [state, step, mark, tool].join("/");
     if (key === touchKey) return;
     touchKey = key;
-    paint(clearFrame(touchFrame), touchAction, 0, 24, 24, { state, progress: step / 32, mark });
+    paint(clearFrame(touchFrame), touchAction, 0, 24, 24, { state, progress: step / 32, mark, tool });
     composite(touchFrame, touchImage.data);
     touchCtx.putImageData(touchImage, 0, 0);
   }
