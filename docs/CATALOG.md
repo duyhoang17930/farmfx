@@ -1,6 +1,6 @@
 # Catalog
 
-690 effects in 22 categories. Every one is a file in
+720 effects in 22 categories. Every one is a file in
 `src/fx/<category>/<name>.js`; render any of them with `node tools/render.mjs <id> --gif`.
 
 ## characters
@@ -133,20 +133,50 @@ farm livestock, pets, pond animals and flying wildlife.
 |---|---|---|---|---|
 | Bee | `animals/bee` | loop 2.4s | 48×48 | A striped bee buzzing in a short figure eight, facing right; flip for left. |
 | Butterfly | `animals/butterfly` | loop 2.4s | 48×48 | A violet butterfly flapping over a drifting path, viewed from above and facing up. |
+| calf | `animals/calf` | loop 1.25s | 48×48 | A top-down calf with selectable animation states. |
 | Cat | `animals/cat` | loop 3.2s | 48×48 | An orange tabby with pointed ears, whiskers and an upright tail, animated in four directions. |
+| chick | `animals/chick` | loop 1.25s | 48×48 | A top-down chick with selectable animation states. |
 | Chicken | `animals/chicken` | loop 3.2s | 48×48 | A hen, side-facing (flip for left), top-down 3/4: three grains land around her feet, she pecks each up, flaps, drops a feather, jerks her head about and blinks. |
 | Cow | `animals/cow` | loop 3.2s | 48×48 | A spotted dairy cow with four facings, a swishing tail and idle, walk and graze loops. |
+| crab | `animals/crab` | loop 1.25s | 48×48 | A top-down crab with selectable animation states. |
 | Crow | `animals/crow` | loop 2.4s | 48×48 | A charcoal crow hops, dips its beak to peck and flicks its tail. Faces right; flip for left. |
+| deer | `animals/deer` | loop 1.25s | 48×48 | A top-down deer with selectable animation states. |
 | Dog | `animals/dog` | loop 3.2s | 48×48 | A cream and brown dog with floppy ears and a wagging tail, animated in four directions. |
+| donkey | `animals/donkey` | loop 1.25s | 48×48 | A top-down donkey with selectable animation states. |
+| dragonfly | `animals/dragonfly` | loop 1.25s | 48×48 | A top-down dragonfly with selectable animation states. |
 | Duck | `animals/duck` | loop 2.4s | 48×48 | A mallard paddling and dipping its beak, facing right; flip for left. |
+| duckling | `animals/duckling` | loop 1.25s | 48×48 | A top-down duckling with selectable animation states. |
+| eagle | `animals/eagle` | loop 1.25s | 48×48 | A top-down eagle with selectable animation states. |
+| firefly | `animals/firefly` | loop 1.25s | 48×48 | A top-down firefly with selectable animation states. |
 | Pond fish | `animals/fish` | loop 2.4s | 48×48 | An orange fish with a fanned tail and optional water ripples, facing right; flip for left. |
+| fox | `animals/fox` | loop 1.25s | 48×48 | A top-down fox with selectable animation states. |
 | Frog | `animals/frog` | loop 2.4s | 48×48 | A pond frog blinking, squatting and springing onto a lily pad, facing down. |
 | Goat | `animals/goat` | loop 3.2s | 48×48 | A cream goat with curved horns and a small beard, animated in four directions. |
+| goose | `animals/goose` | loop 1.25s | 48×48 | A top-down goose with selectable animation states. |
 | Horse | `animals/horse` | loop 3.2s | 48×48 | A chestnut horse with a dark mane and long legs, animated in four directions. |
+| jellyfish | `animals/jellyfish` | loop 1.25s | 48×48 | A top-down jellyfish with selectable animation states. |
+| koi fish | `animals/koi-fish` | loop 1.25s | 48×48 | A top-down koi fish with selectable animation states. |
+| ladybug | `animals/ladybug` | loop 1.25s | 48×48 | A top-down ladybug with selectable animation states. |
+| lamb | `animals/lamb` | loop 1.25s | 48×48 | A top-down lamb with selectable animation states. |
+| lobster | `animals/lobster` | loop 1.25s | 48×48 | A top-down lobster with selectable animation states. |
+| octopus | `animals/octopus` | loop 1.25s | 48×48 | A top-down octopus with selectable animation states. |
+| owl | `animals/owl` | loop 1.25s | 48×48 | A top-down owl with selectable animation states. |
+| parrot | `animals/parrot` | loop 1.25s | 48×48 | A top-down parrot with selectable animation states. |
+| penguin | `animals/penguin` | loop 1.25s | 48×48 | A top-down penguin with selectable animation states. |
 | Pig | `animals/pig` | loop 3.2s | 48×48 | A pink pig with a curled tail, round snout and four-direction idle, walk and graze loops. |
+| piglet | `animals/piglet` | loop 1.25s | 48×48 | A top-down piglet with selectable animation states. |
+| pufferfish | `animals/pufferfish` | loop 1.25s | 48×48 | A top-down pufferfish with selectable animation states. |
 | Rabbit | `animals/rabbit` | loop 2.4s | 48×48 | A round brown rabbit with long ears, a white tail and a short hop, facing right; flip for left. |
+| raccoon | `animals/raccoon` | loop 1.25s | 48×48 | A top-down raccoon with selectable animation states. |
+| rooster | `animals/rooster` | loop 1.25s | 48×48 | A top-down rooster with selectable animation states. |
+| salmon | `animals/salmon` | loop 1.25s | 48×48 | A top-down salmon with selectable animation states. |
 | Sheep | `animals/sheep` | loop 3.2s | 32×32 | A woolly sheep with a charcoal face, four facings and idle, walk and graze loops. |
+| snail | `animals/snail` | loop 1.25s | 48×48 | A top-down snail with selectable animation states. |
 | Songbird | `animals/songbird` | loop 2.4s | 48×48 | A small blue songbird that hops, flutters and pecks, facing right; flip for left. |
+| squirrel | `animals/squirrel` | loop 1.25s | 48×48 | A top-down squirrel with selectable animation states. |
+| tuna | `animals/tuna` | loop 1.25s | 48×48 | A top-down tuna with selectable animation states. |
+| turkey | `animals/turkey` | loop 1.25s | 48×48 | A top-down turkey with selectable animation states. |
+| turtle | `animals/turtle` | loop 1.25s | 48×48 | A top-down turtle with selectable animation states. |
 
 ## tiles
 

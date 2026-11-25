@@ -1,6 +1,6 @@
 # FarmFX assets
 
-690 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
+720 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
 
 ## Characters (20)
 
@@ -114,26 +114,56 @@
 | Tree regrowth | [`trees/tree-regrowth`](src/fx/trees/tree-regrowth.js) | [GIF](docs/preview/trees-tree-regrowth.gif) |
 | Willow | [`trees/willow`](src/fx/trees/willow.js) | [GIF](docs/preview/trees-willow.gif) |
 
-## Animals (16)
+## Animals (46)
 
 | Asset | ID | Preview |
 | --- | --- | --- |
 | Bee | [`animals/bee`](src/fx/animals/bee.js) | [GIF](docs/preview/animals-bee.gif) |
 | Butterfly | [`animals/butterfly`](src/fx/animals/butterfly.js) | [GIF](docs/preview/animals-butterfly.gif) |
+| calf | [`animals/calf`](src/fx/animals/calf.js) | — |
 | Cat | [`animals/cat`](src/fx/animals/cat.js) | [GIF](docs/preview/animals-cat.gif) |
+| chick | [`animals/chick`](src/fx/animals/chick.js) | — |
 | Chicken | [`animals/chicken`](src/fx/animals/chicken.js) | [GIF](docs/preview/animals-chicken.gif) |
 | Cow | [`animals/cow`](src/fx/animals/cow.js) | [GIF](docs/preview/animals-cow.gif) |
+| crab | [`animals/crab`](src/fx/animals/crab.js) | — |
 | Crow | [`animals/crow`](src/fx/animals/crow.js) | [GIF](docs/preview/animals-crow.gif) |
+| deer | [`animals/deer`](src/fx/animals/deer.js) | — |
 | Dog | [`animals/dog`](src/fx/animals/dog.js) | [GIF](docs/preview/animals-dog.gif) |
+| donkey | [`animals/donkey`](src/fx/animals/donkey.js) | — |
+| dragonfly | [`animals/dragonfly`](src/fx/animals/dragonfly.js) | — |
 | Duck | [`animals/duck`](src/fx/animals/duck.js) | [GIF](docs/preview/animals-duck.gif) |
+| duckling | [`animals/duckling`](src/fx/animals/duckling.js) | — |
+| eagle | [`animals/eagle`](src/fx/animals/eagle.js) | — |
+| firefly | [`animals/firefly`](src/fx/animals/firefly.js) | — |
 | Pond fish | [`animals/fish`](src/fx/animals/fish.js) | [GIF](docs/preview/animals-fish.gif) |
+| fox | [`animals/fox`](src/fx/animals/fox.js) | — |
 | Frog | [`animals/frog`](src/fx/animals/frog.js) | [GIF](docs/preview/animals-frog.gif) |
 | Goat | [`animals/goat`](src/fx/animals/goat.js) | [GIF](docs/preview/animals-goat.gif) |
+| goose | [`animals/goose`](src/fx/animals/goose.js) | — |
 | Horse | [`animals/horse`](src/fx/animals/horse.js) | [GIF](docs/preview/animals-horse.gif) |
+| jellyfish | [`animals/jellyfish`](src/fx/animals/jellyfish.js) | — |
+| koi fish | [`animals/koi-fish`](src/fx/animals/koi-fish.js) | — |
+| ladybug | [`animals/ladybug`](src/fx/animals/ladybug.js) | — |
+| lamb | [`animals/lamb`](src/fx/animals/lamb.js) | — |
+| lobster | [`animals/lobster`](src/fx/animals/lobster.js) | — |
+| octopus | [`animals/octopus`](src/fx/animals/octopus.js) | — |
+| owl | [`animals/owl`](src/fx/animals/owl.js) | — |
+| parrot | [`animals/parrot`](src/fx/animals/parrot.js) | — |
+| penguin | [`animals/penguin`](src/fx/animals/penguin.js) | — |
 | Pig | [`animals/pig`](src/fx/animals/pig.js) | [GIF](docs/preview/animals-pig.gif) |
+| piglet | [`animals/piglet`](src/fx/animals/piglet.js) | — |
+| pufferfish | [`animals/pufferfish`](src/fx/animals/pufferfish.js) | — |
 | Rabbit | [`animals/rabbit`](src/fx/animals/rabbit.js) | [GIF](docs/preview/animals-rabbit.gif) |
+| raccoon | [`animals/raccoon`](src/fx/animals/raccoon.js) | — |
+| rooster | [`animals/rooster`](src/fx/animals/rooster.js) | — |
+| salmon | [`animals/salmon`](src/fx/animals/salmon.js) | — |
 | Sheep | [`animals/sheep`](src/fx/animals/sheep.js) | [GIF](docs/preview/animals-sheep.gif) |
+| snail | [`animals/snail`](src/fx/animals/snail.js) | — |
 | Songbird | [`animals/songbird`](src/fx/animals/songbird.js) | [GIF](docs/preview/animals-songbird.gif) |
+| squirrel | [`animals/squirrel`](src/fx/animals/squirrel.js) | — |
+| tuna | [`animals/tuna`](src/fx/animals/tuna.js) | — |
+| turkey | [`animals/turkey`](src/fx/animals/turkey.js) | — |
+| turtle | [`animals/turtle`](src/fx/animals/turtle.js) | — |
 
 ## Tiles (21)
 

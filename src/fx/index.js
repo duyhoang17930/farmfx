@@ -89,20 +89,50 @@ import * as trees_tree_regrowth from "./trees/tree-regrowth.js";
 import * as trees_willow from "./trees/willow.js";
 import * as animals_bee from "./animals/bee.js";
 import * as animals_butterfly from "./animals/butterfly.js";
+import * as animals_calf from "./animals/calf.js";
 import * as animals_cat from "./animals/cat.js";
+import * as animals_chick from "./animals/chick.js";
 import * as animals_chicken from "./animals/chicken.js";
 import * as animals_cow from "./animals/cow.js";
+import * as animals_crab from "./animals/crab.js";
 import * as animals_crow from "./animals/crow.js";
+import * as animals_deer from "./animals/deer.js";
 import * as animals_dog from "./animals/dog.js";
+import * as animals_donkey from "./animals/donkey.js";
+import * as animals_dragonfly from "./animals/dragonfly.js";
 import * as animals_duck from "./animals/duck.js";
+import * as animals_duckling from "./animals/duckling.js";
+import * as animals_eagle from "./animals/eagle.js";
+import * as animals_firefly from "./animals/firefly.js";
 import * as animals_fish from "./animals/fish.js";
+import * as animals_fox from "./animals/fox.js";
 import * as animals_frog from "./animals/frog.js";
 import * as animals_goat from "./animals/goat.js";
+import * as animals_goose from "./animals/goose.js";
 import * as animals_horse from "./animals/horse.js";
+import * as animals_jellyfish from "./animals/jellyfish.js";
+import * as animals_koi_fish from "./animals/koi-fish.js";
+import * as animals_ladybug from "./animals/ladybug.js";
+import * as animals_lamb from "./animals/lamb.js";
+import * as animals_lobster from "./animals/lobster.js";
+import * as animals_octopus from "./animals/octopus.js";
+import * as animals_owl from "./animals/owl.js";
+import * as animals_parrot from "./animals/parrot.js";
+import * as animals_penguin from "./animals/penguin.js";
 import * as animals_pig from "./animals/pig.js";
+import * as animals_piglet from "./animals/piglet.js";
+import * as animals_pufferfish from "./animals/pufferfish.js";
 import * as animals_rabbit from "./animals/rabbit.js";
+import * as animals_raccoon from "./animals/raccoon.js";
+import * as animals_rooster from "./animals/rooster.js";
+import * as animals_salmon from "./animals/salmon.js";
 import * as animals_sheep from "./animals/sheep.js";
+import * as animals_snail from "./animals/snail.js";
 import * as animals_songbird from "./animals/songbird.js";
+import * as animals_squirrel from "./animals/squirrel.js";
+import * as animals_tuna from "./animals/tuna.js";
+import * as animals_turkey from "./animals/turkey.js";
+import * as animals_turtle from "./animals/turtle.js";
 import * as tiles_berry_bush from "./tiles/berry-bush.js";
 import * as tiles_bridge from "./tiles/bridge.js";
 import * as tiles_cliff from "./tiles/cliff.js";
@@ -783,20 +813,50 @@ export const effects = {
   "trees/willow": trees_willow,
   "animals/bee": animals_bee,
   "animals/butterfly": animals_butterfly,
+  "animals/calf": animals_calf,
   "animals/cat": animals_cat,
+  "animals/chick": animals_chick,
   "animals/chicken": animals_chicken,
   "animals/cow": animals_cow,
+  "animals/crab": animals_crab,
   "animals/crow": animals_crow,
+  "animals/deer": animals_deer,
   "animals/dog": animals_dog,
+  "animals/donkey": animals_donkey,
+  "animals/dragonfly": animals_dragonfly,
   "animals/duck": animals_duck,
+  "animals/duckling": animals_duckling,
+  "animals/eagle": animals_eagle,
+  "animals/firefly": animals_firefly,
   "animals/fish": animals_fish,
+  "animals/fox": animals_fox,
   "animals/frog": animals_frog,
   "animals/goat": animals_goat,
+  "animals/goose": animals_goose,
   "animals/horse": animals_horse,
+  "animals/jellyfish": animals_jellyfish,
+  "animals/koi-fish": animals_koi_fish,
+  "animals/ladybug": animals_ladybug,
+  "animals/lamb": animals_lamb,
+  "animals/lobster": animals_lobster,
+  "animals/octopus": animals_octopus,
+  "animals/owl": animals_owl,
+  "animals/parrot": animals_parrot,
+  "animals/penguin": animals_penguin,
   "animals/pig": animals_pig,
+  "animals/piglet": animals_piglet,
+  "animals/pufferfish": animals_pufferfish,
   "animals/rabbit": animals_rabbit,
+  "animals/raccoon": animals_raccoon,
+  "animals/rooster": animals_rooster,
+  "animals/salmon": animals_salmon,
   "animals/sheep": animals_sheep,
+  "animals/snail": animals_snail,
   "animals/songbird": animals_songbird,
+  "animals/squirrel": animals_squirrel,
+  "animals/tuna": animals_tuna,
+  "animals/turkey": animals_turkey,
+  "animals/turtle": animals_turtle,
   "tiles/berry-bush": tiles_berry_bush,
   "tiles/bridge": tiles_bridge,
   "tiles/cliff": tiles_cliff,
