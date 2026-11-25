@@ -34,6 +34,11 @@ export const { meta, draw } = asset({
   const at=([x,z])=>[Math.round(x*stem),Math.round(z*stem)+y];
   const polygon=(points,c)=>p.poly(points.map(at),c);
   const line=(a,b,c)=>p.line(...at(a),...at(b),c);
+  const stalk=(x,tip,h,width)=>{
+    polygon([[x-width,0],[x-width,-4],[tip-1,-h],[tip+1,-h],
+      [x+width,-4],[x+width,0]],C[0]);
+    line([x,0],[tip,-h+1],C[2]);
+  };
   const leaf=(x,z,sx,sy,side)=>{
     const pts=[[x,z],[x+side*3,z+sy+2],[x+side*sx,z+sy+1],[x+side*(sx+2),z+sy-2],
       [x+side*(sx-1),z+sy-4],[x+side*3,z+sy-3]];
@@ -48,12 +53,24 @@ export const { meta, draw } = asset({
     p.line(xx-Math.max(1,rx*.4),yy-1,xx,yy-1,F[2]);
   };
   const type=o.crop;
+  if(stage===1){
+    const blade=type==="wheat"||type==="rice"||type==="corn";
+    if(blade){
+      polygon([[-5,-2],[-7,-13],[-3,-10],[0,-5],[2,-14],[5,-19],[5,-9],[3,-2]],C[0]);
+      line([-3,-3],[-5,-11],C[2]);line([1,-3],[4,-15],C[3]);
+    }else{
+      const low=type==="melon"||type==="cabbage";
+      stalk(0,0,low?5:8,2);
+      leaf(0,-3,7,low?-2:-5,-1);
+      leaf(0,-4,6,low?-2:-6,1);
+    }
+    return;
+  }
   if(type==="wheat"||type==="rice"||type==="corn"){
     const corn=type==="corn", rice=type==="rice";
     for(const [x,h] of corn?[[0,23]]:[[-4,15],[0,20],[4,16]]) {
       const tip=x+wind+(rice?2:0);
-      line([x,1],[tip,-h],C[0]);
-      line([x+1,0],[tip+1,-h+2],C[2]);
+      stalk(x,tip,h,corn?2:1);
       leaf(x,-5,corn?7:4,-4,x>0?1:-1);
       if(stage>=3){
         if(rice){
@@ -89,8 +106,9 @@ export const { meta, draw } = asset({
     if(tall){
       const height=vine?19:16;
       if(vine){line([-4,1],[-3,-height-2],WOOD[2]);line([-4,-height],[4,-height],WOOD[4]);}
-      line([0,0],[wind,-height],C[1]);
+      stalk(0,wind,height,2);
       leaf(0,-5,6,-4,-1);leaf(0,-8,6,-4,1);leaf(wind,-12,5,-4,-1);
+      if(stage===2)leaf(wind,-11,4,-5,1);
       if(stage>=3){
         if(type==="grape")for(const [x,z] of [[3,-13],[6,-12],[3,-10],[6,-9],[4,-7]])fruit(type,x,z,2.5,2.5);
         else if(type==="bean"){
@@ -102,11 +120,8 @@ export const { meta, draw } = asset({
         }
       }
     } else {
-      line([0,0],[wind,-8],C[1]);
-      if(stage>=3) {
-        polygon([[-4,-3],[-5,-10],[-1,-11],[0,-14],[3,-12],[4,-6],[1,-2]],C[0]);
-        polygon([[-3,-4],[-4,-9],[-1,-10],[0,-12],[2,-9],[2,-5]],C[2]);
-      }
+      polygon([[-4,-3],[-5,-10],[-1,-11],[wind,-14],[3,-12],[4,-6],[1,-2]],C[0]);
+      polygon([[-3,-4],[-4,-9],[-1,-10],[wind,-12],[2,-9],[2,-5]],C[2]);
       leaf(0,-1,5,-7,-1);leaf(wind,-2,5,-9,1);leaf(0,-3,3,-11,-1);
       if(stage>=3){
         if(type==="carrot"){

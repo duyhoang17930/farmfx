@@ -48,7 +48,7 @@ const KEEPER_HEAD = {
   ],
 };
 const KEEPER_HAT = ramp(["#615444", "#b7894f", "#d8a961", "#efd388", "#f5e5ab"]);
-const KEEPER_COAT = ramp(["#344e55", "#406e78", "#548f99", "#76b0b0", "#b3d8c6"]);
+const KEEPER_COAT = ramp(["#304850", "#3c6473", "#508990", "#80b9b6", "#b3d8c6"]);
 const KEEPER_PANTS = ramp(["#3b3849", "#54566b", "#70798e"]);
 const KEEPER_SCARF = ramp(["#683a52", "#a25067", "#dd746c", "#ffa284"]);
 const KEEPER_FEATHER = ramp(["#527d79", "#dcf5d9"]);
@@ -125,10 +125,19 @@ export function explorer(p, palette, facing, { step = -1, bob = 0, lean = 0, han
     [lean + 3, yy - 3], [lean - 4, yy - 4], [lean - coatWidth, yy - 6]], coat[0]);
   rect(lean - 3, upper - 11, keeper ? 9 : 7, keeper ? 5 : 6, coat[2]);
   rect(lean - 3, upper - 11, 2, keeper ? 4 : 5, coat[3]);
+  if (keeper) {
+    rect(lean + 4, upper - 10, 1, 4, coat[1]);
+    rect(lean - 2, yy - 5, 4, 1, coat[1]);
+    if (!side && !back) {
+      rect(lean - 3, yy - 8, 2, 2, coat[1]);
+      rect(lean - 3, yy - 8, 2, 1, coat[3]);
+    }
+  }
   if (back || side) {
     rect(lean - (side ? 5 : 3), yy - 11, 5, 6, WOOD[0]);
     rect(lean - (side ? 4 : 2), yy - 10, 3, 4, WOOD[2]);
     rect(lean - (side ? 4 : 2), yy - 10, 3, 1, WOOD[4]);
+    if (keeper) rect(lean - (side ? 3 : 1), yy - 8, 1, 1, WOOD[4]);
   } else {
     line([lean - 2, yy - 11], [lean + 2, yy - 6], WOOD[3]);
     rect(lean + 1, yy - 7, 3, 3, WOOD[1]);

@@ -3,14 +3,14 @@ import { asset, GOLD, wave } from "../_kit/art.js";
 import { groundShadow } from "../_kit/sprite.js";
 
 const fur = {
-  chicken: ["#453649","#806978","#c9aeb3","#f0ddd5","#fff0d5"],
+  chicken: ["#453649","#765e70","#c3a3aa","#f0ddd5","#fff0d5"],
   chick: ["#76524a","#aa724d","#deaa58","#f4ce7b","#fff0bb"],
-  duck: ["#464555","#786c68","#ac967f","#d5b89a","#eddbb6"],
+  duck: ["#464555","#716164","#ad927b","#dcc09b","#f3dfb6"],
   cow: ["#443947","#746170","#b9a49d","#e7d1bd","#fae6cc"],
   calf: ["#443947","#746170","#b9a49d","#e7d1bd","#fae6cc"],
-  sheep: ["#493b50","#7a657b","#bea5ab","#e7d2c5","#f5e5d2"],
-  lamb: ["#493b50","#7a657b","#bea5ab","#e7d2c5","#f5e5d2"],
-  rabbit: ["#614f56","#927770","#bb978c","#dcba9e","#f3d8b0"],
+  sheep: ["#493b50","#745c73","#b698a4","#e9d0be","#f8e6d1"],
+  lamb: ["#493b50","#745c73","#b698a4","#e9d0be","#f8e6d1"],
+  rabbit: ["#584651","#86666b","#b68b80","#dfb799","#f5d8ab"],
   fox: ["#604756","#9a605a","#c67d63","#e5a076","#f4d5a6"],
   pig: ["#704e5d","#9c6e78","#ca9292","#e5b2a7","#f8d4bc"],
   goat: ["#56515e","#857782","#bdb0ab","#dfd2bd","#f7e6c7"],
@@ -128,6 +128,7 @@ export const { meta, draw } = asset({
   }
   p.px(at(hx+1),hy-1,C[0]);
   if(species==="rabbit"){
+    stroke(-3,y-3,-1,y-4,C[4]);
     disc(hx+headR-1,hy+1,1.7,1.3,C[4]);
     p.px(at(hx+headR),hy+1,C[0]);
   }

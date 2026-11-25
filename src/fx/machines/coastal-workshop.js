@@ -27,17 +27,26 @@ export const { meta, draw } = asset({
   palette:STEEL,options:{ machine:"saw", active:true },
 },(p,t,C,o)=>{
   if(o.machine==="belt"){
-    p.rect(-8,-9,16,14,WOOD[0]);
-    p.rect(-8,-8,16,10,C[1]);
-    p.line(-8,-9,7,-9,WOOD[4]);
-    p.line(-8,2,7,2,WOOD[3]);
+    p.rect(-8,-9,16,15,WOOD[0]);
+    p.rect(-8,-7,16,9,C[0]);
     const step=o.active?Math.floor(t*16)%4:0;
     for(let x=-8;x<8;x++){
-      if((x-step+16)%4!==0)continue;
-      p.line(x,-7,x,0,C[2]);
-      p.px(x,-5,C[3]);
+      const phase=(x-step+16)%4;
+      if(phase===0)p.line(x,-6,x,1,C[2]);
+      if(phase===1){
+        p.line(x,-6,x,1,C[1]);
+        p.line(x,-5,x,-1,C[3]);
+      }
     }
-    p.line(-8,4,7,4,WOOD[2]);
+    p.line(-8,-9,7,-9,WOOD[4]);
+    p.line(-8,-8,7,-8,WOOD[2]);
+    p.line(-8,2,7,2,WOOD[4]);
+    p.rect(-8,3,16,2,WOOD[2]);
+    for(const x of [-6,2]){
+      p.rect(x,3,4,2,C[0]);
+      p.line(x,3,x+2,3,C[2]);
+      p.px(x+1,4,C[3]);
+    }
     return;
   }
   groundShadow(p,1,1,20,4,.75);

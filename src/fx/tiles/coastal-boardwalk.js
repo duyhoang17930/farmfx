@@ -1,4 +1,4 @@
-import { asset, GOLD, WOOD } from "../_kit/art.js";
+import { asset, WOOD } from "../_kit/art.js";
 
 export const { meta, draw } = asset({
   name: "Coastal boardwalk",
@@ -39,16 +39,29 @@ export const { meta, draw } = asset({
     p.line(x,y+h,x+w-1,y+h,C[1]);
     p.line(x+1,y+h+1,x+w-1,y+h+1,C[2]);
   }
+  // Dark vertical rail faces frame the warmer treads, with a narrow lit cap.
+  for (const edge of [0,1]) {
+    if (alongY) {
+      const rail = x-1+edge*(w+1);
+      const offset = edge ? 0 : 1;
+      p.line(rail,y-3+offset,rail,y+h-4+offset,C[0]);
+      p.line(rail-1,y-3+offset,rail-1,y+h-4+offset,C[3]);
+    } else {
+      const rail = y+edge*(h-1)-4;
+      p.rect(x,rail,w,3,C[0]);
+      p.line(x,rail,x+w-1,rail,edge?C[3]:C[4]);
+    }
+  }
   for (const [end, delta] of [["start",1],["end",14]]) {
     if (o.ends !== "both" && o.ends !== end) continue;
     for (const edge of [0,1]) {
       const px = alongY ? x-1+edge*(w+1) : x+delta;
       const py = alongY ? y+delta : y+edge*(h-1);
-      const top = py - (edge ? 3 : 4);
+      const top = py - (alongY ? 4 : 5);
       if(edge) p.rect(px-1,py+1,3,3,C[0]);
       p.rect(px-1,top,3,py-top+2,C[0]);
-      p.line(px,top+1,px,py,C[2]);
-      p.px(px,top,GOLD[3]);
+      p.line(px-1,top+1,px-1,py,C[2]);
+      p.line(px-1,top,px,top,C[4]);
     }
   }
 });
