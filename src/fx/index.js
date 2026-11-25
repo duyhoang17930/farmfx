@@ -143,6 +143,8 @@ import * as tiles_cliff from "./tiles/cliff.js";
 import * as tiles_cliff_corner from "./tiles/cliff-corner.js";
 import * as tiles_cliff_inner_corner from "./tiles/cliff-inner-corner.js";
 import * as tiles_cliff_outer_corner from "./tiles/cliff-outer-corner.js";
+import * as tiles_coastal_boardwalk from "./tiles/coastal-boardwalk.js";
+import * as tiles_coastal_wildflowers from "./tiles/coastal-wildflowers.js";
 import * as tiles_crystal_floor from "./tiles/crystal-floor.js";
 import * as tiles_deep_water from "./tiles/deep-water.js";
 import * as tiles_dirt_path from "./tiles/dirt-path.js";
@@ -297,6 +299,9 @@ import * as objects_campfire from "./objects/campfire.js";
 import * as objects_carpet from "./objects/carpet.js";
 import * as objects_chair from "./objects/chair.js";
 import * as objects_chest from "./objects/chest.js";
+import * as objects_coastal_bench from "./objects/coastal-bench.js";
+import * as objects_coastal_dock from "./objects/coastal-dock.js";
+import * as objects_coastal_waypost from "./objects/coastal-waypost.js";
 import * as objects_cooking_pot from "./objects/cooking-pot.js";
 import * as objects_crafting_table from "./objects/crafting-table.js";
 import * as objects_crate from "./objects/crate.js";
@@ -467,6 +472,7 @@ import * as fx_water_ripple from "./fx/water-ripple.js";
 import * as fx_water_splash from "./fx/water-splash.js";
 import * as fx_watering_droplets from "./fx/watering-droplets.js";
 import * as fx_welding_sparks from "./fx/welding-sparks.js";
+import * as fx_wildflower_pick from "./fx/wildflower-pick.js";
 import * as fx_woodcut_impact from "./fx/woodcut-impact.js";
 import * as ui_calendar from "./ui/calendar.js";
 import * as ui_components_achievement_card from "./ui/components/achievement-card.js";
@@ -604,6 +610,7 @@ import * as exploration_boat from "./exploration/boat.js";
 import * as exploration_boat_dock from "./exploration/boat-dock.js";
 import * as exploration_buried_treasure from "./exploration/buried-treasure.js";
 import * as exploration_cave_discovery from "./exploration/cave-discovery.js";
+import * as exploration_coastal_shore from "./exploration/coastal-shore.js";
 import * as exploration_exploration_flag from "./exploration/exploration-flag.js";
 import * as exploration_fast_travel_point from "./exploration/fast-travel-point.js";
 import * as exploration_fishing_spot from "./exploration/fishing-spot.js";
@@ -644,6 +651,8 @@ import * as resources_cactus from "./resources/cactus.js";
 import * as resources_clay_deposit from "./resources/clay-deposit.js";
 import * as resources_coal_ore from "./resources/coal-ore.js";
 import * as resources_coastal_boulder from "./resources/coastal-boulder.js";
+import * as resources_coastal_copper_node from "./resources/coastal-copper-node.js";
+import * as resources_coastal_gold_node from "./resources/coastal-gold-node.js";
 import * as resources_coastal_iron_seam from "./resources/coastal-iron-seam.js";
 import * as resources_copper_ore from "./resources/copper-ore.js";
 import * as resources_cotton_bush from "./resources/cotton-bush.js";
@@ -1557,6 +1566,8 @@ export const effects = {
   "tiles/cliff-corner": tiles_cliff_corner,
   "tiles/cliff-inner-corner": tiles_cliff_inner_corner,
   "tiles/cliff-outer-corner": tiles_cliff_outer_corner,
+  "tiles/coastal-boardwalk": tiles_coastal_boardwalk,
+  "tiles/coastal-wildflowers": tiles_coastal_wildflowers,
   "tiles/crystal-floor": tiles_crystal_floor,
   "tiles/deep-water": tiles_deep_water,
   "tiles/dirt-path": tiles_dirt_path,
@@ -1711,6 +1722,9 @@ export const effects = {
   "objects/carpet": objects_carpet,
   "objects/chair": objects_chair,
   "objects/chest": objects_chest,
+  "objects/coastal-bench": objects_coastal_bench,
+  "objects/coastal-dock": objects_coastal_dock,
+  "objects/coastal-waypost": objects_coastal_waypost,
   "objects/cooking-pot": objects_cooking_pot,
   "objects/crafting-table": objects_crafting_table,
   "objects/crate": objects_crate,
@@ -1881,6 +1895,7 @@ export const effects = {
   "fx/water-splash": fx_water_splash,
   "fx/watering-droplets": fx_watering_droplets,
   "fx/welding-sparks": fx_welding_sparks,
+  "fx/wildflower-pick": fx_wildflower_pick,
   "fx/woodcut-impact": fx_woodcut_impact,
   "ui/calendar": ui_calendar,
   "ui/components/achievement-card": ui_components_achievement_card,
@@ -2018,6 +2033,7 @@ export const effects = {
   "exploration/boat-dock": exploration_boat_dock,
   "exploration/buried-treasure": exploration_buried_treasure,
   "exploration/cave-discovery": exploration_cave_discovery,
+  "exploration/coastal-shore": exploration_coastal_shore,
   "exploration/exploration-flag": exploration_exploration_flag,
   "exploration/fast-travel-point": exploration_fast_travel_point,
   "exploration/fishing-spot": exploration_fishing_spot,
@@ -2058,6 +2074,8 @@ export const effects = {
   "resources/clay-deposit": resources_clay_deposit,
   "resources/coal-ore": resources_coal_ore,
   "resources/coastal-boulder": resources_coastal_boulder,
+  "resources/coastal-copper-node": resources_coastal_copper_node,
+  "resources/coastal-gold-node": resources_coastal_gold_node,
   "resources/coastal-iron-seam": resources_coastal_iron_seam,
   "resources/copper-ore": resources_copper_ore,
   "resources/cotton-bush": resources_cotton_bush,

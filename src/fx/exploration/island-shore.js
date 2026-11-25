@@ -1,4 +1,4 @@
-import { fit, rand } from "../../core/index.js";
+import { fit, noise2, rand } from "../../core/index.js";
 import { draw as grass, meta as grassMeta } from "../tiles/grass.js";
 
 const EDGES = "NESW";
@@ -10,7 +10,7 @@ export const meta = {
   desc: "A 16 px grass-to-water transition with outer edges and inside corners. The water remains transparent.",
   tags: ["island", "shore", "coast", "terrain", "tile"], size: [16, 16], origin: [8, 12],
   duration: grassMeta.duration, fps: grassMeta.fps, loop: true, bg: "field",
-  options: { ...grassMeta.options, edges: "ES", corners: [], bank: BANK },
+  options: { ...grassMeta.options, edges: "ES", corners: [], bank: BANK, irregular: false },
 };
 
 export function draw(p, t, o) {
@@ -30,6 +30,21 @@ export function draw(p, t, o) {
         const corner = distances[i] + distances[(i + 1) % 4];
         if (edges.includes(a) && edges.includes(b)) d = Math.min(d, corner - 2);
         if (!edges.includes(a) && !edges.includes(b) && corners.has(CORNERS[i])) d = Math.min(d, corner);
+      }
+      if (o.irregular && d < 6) {
+        const wx = o.tileX * 16 + x, wy = o.tileY * 16 + y;
+        const contour = noise2(wx / 6, wy / 6, o.seed + 49);
+        const cut = contour > 0.45 ? 1 : contour < -0.42 ? -1 : 0;
+        if (d < 2 + cut) return;
+        const shore = d - cut;
+        const front = edges.includes("S") && distances[2] <= d + 1;
+        if (shore <= (front ? 4 : 3)) {
+          const lit = noise2(wx / 4, wy / 4, o.seed + 18) > 0.1;
+          p.px(gx, gy, bank[shore === 2 ? front ? 0 : 1 : lit ? 3 : 2]);
+        } else {
+          p.px(gx, gy, color);
+        }
+        return;
       }
       if (d < 2) return;
       if (d < 5) {

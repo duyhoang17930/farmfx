@@ -4,6 +4,7 @@ import * as telegraph from "../../src/fx/combat/ground-telegraph.js";
 import * as woodImpact from "../../src/fx/fx/woodcut-impact.js";
 import * as oreImpact from "../../src/fx/fx/ore-pick-impact.js";
 import * as stoneImpact from "../../src/fx/fx/stone-pick-impact.js";
+import * as flowerImpact from "../../src/fx/fx/wildflower-pick.js";
 import * as fallTree from "../../src/fx/trees/wind-pine-fall.js";
 import * as spawns from "../../src/fx/fx/resource-respawn.js";
 import * as buildFx from "../../src/fx/fx/build-placement.js";
@@ -12,19 +13,27 @@ import * as landFx from "../../src/fx/exploration/island-unlock-reveal.js";
 import * as restoreFx from "../../src/fx/fx/power-pulse.js";
 import * as swordFx from "../../src/fx/combat/sword-slash.js";
 import * as hitFx from "../../src/fx/combat/enemy-hit.js";
-import { blueprints, clips, items, recipes } from "./art.js";
-import { BRIDGE, cellX, cellY, findRoute, LAND_PRICE, land, NODE_POSITIONS, START, tileX, tileY, within } from "./islands.js";
+import { blueprints, clips, items, recipes, treePalette } from "./art.js";
+import { BRIDGE, canEnter, cellX, cellY, findRoute, GARDEN_WALK, LAND_PRICE, land, NODE_POSITIONS,
+  SCENERY, START, tileX, tileY, WAYPOINTS, within } from "./islands.js";
 import { createScene } from "./scene.js";
 import { createInterface } from "./interface.js";
 
 const SAVE = "farmfx-mist-station-v1";
 const REACH = 25, BUILD_REACH = 60, HOLD = 0.31;
-const harvestImpact = { pine: woodImpact, ore: oreImpact, stone: stoneImpact };
-const harvestSound = { pine: "chop", ore: "mine", stone: "stone" };
+const harvestImpact = { pine: woodImpact, ore: oreImpact, stone: stoneImpact, copper: oreImpact, gold: oreImpact, flowers: flowerImpact };
+const harvestSound = { pine: "chop", ore: "mine", stone: "stone", copper: "mine", gold: "mine", flowers: "flower" };
+const strikePalettes = {
+  ore: ["#425367","#627e90","#8ca9b5","#b9d6da","#eef5e0"],
+  copper: ["#6b514d","#a8614f","#d58a63","#f9b582","#ffeac1"],
+};
 const rules = {
-  pine: { name: "Thông gió", action: "Chặt", mark: "A", hp: 2, item: "wood", count: 2, clip: "axe", bounds: [34, 45], recoil: 0.46 },
+  pine: { name: "Thông gió", action: "Chặt", mark: "A", hp: 2, item: "wood", count: 2, clip: "axe", bounds: [34, 49], recoil: 0.46 },
   stone: { name: "Đá bờ biển", action: "Đập", mark: "P", hp: 2, item: "stone", count: 2, clip: "pick", bounds: [28, 20], recoil: 0.21 },
-  ore: { name: "Mạch sắt", action: "Đào", mark: "P", hp: 2, item: "ore", count: 2, clip: "pick", bounds: [28, 20], recoil: 0.16 },
+  ore: { name: "Mạch sắt", action: "Đào", mark: "P", hp: 2, item: "ore", count: 2, clip: "pick", bounds: [28, 29], recoil: 0.16 },
+  copper: { name: "Mạch đồng", action: "Đào", mark: "P", hp: 2, item: "copper", count: 2, clip: "pick", bounds: [29, 29], recoil: 0.16 },
+  gold: { name: "Mạch vàng", action: "Đào", mark: "P", hp: 2, item: "gold", count: 2, clip: "pick", bounds: [29, 32], recoil: 0.16 },
+  flowers: { name: "Hoa dại", action: "Hái", mark: "*", hp: 1, item: "seed", count: 1, clip: "gatherFlowers", bounds: [19, 14], recoil: 0.23 },
   workbench: { name: "Bàn chế tạo", action: "Chế tạo", mark: "+", bounds: [32, 23] },
   forge: { name: "Lò luyện", action: "Luyện", mark: "+", bounds: [31, 31] },
   dock: { name: "Bến trao đổi", action: "Trao đổi", mark: "+", bounds: [43, 21] },
@@ -48,11 +57,18 @@ function at(kind, col, row, id = kind + "-" + col + "-" + row) {
 const player = { kind: "player", x: tileX(START[0]), y: tileY(START[1]),
   health: 4, facing: "down", moving: false, invulnerable: 0, action: null };
 const guardian = { ...at("guardian", 18, 8), hp: saved.guardianDefeated ? 0 : 4, cooldown: 0.8, facing: "left" };
+const varietyCount = {};
+const nodes = NODE_POSITIONS.map(([kind,x,y]) => {
+  const variety = varietyCount[kind] ?? 0;
+  varietyCount[kind] = variety + 1;
+  return { ...at(kind,x,y), hp: rules[kind].hp, recoil: 0, hitDirection: 1,
+    visual: { shape: variety % 4, growth: variety % 3, tint: (x + y) % 3 } };
+});
 const state = {
   player, guardian, fixtures: [at("dock", 12, 8), at("beacon", 20, 6)],
   structures: [at("workbench", 5, 6), ...(saved.structures ?? []).map(e => at(e.kind, e.col, e.row))],
-  nodes: NODE_POSITIONS.map(([kind, x, y]) => ({ ...at(kind, x, y), hp: rules[kind]?.hp ?? 1, recoil: 0, hitDirection: 1 })),
-  inventory: { wood: 1, stone: 0, ore: 0, ingot: 0, coin: 0, pearl: 0, core: 0, ...saved.inventory },
+  nodes, scenery: SCENERY.map(([kind,x,y,visual]) => ({ ...at(kind,x,y), visual })),
+  inventory: { wood: 1, stone: 0, ore: 0, copper: 0, gold: 0, seed: 0, ingot: 0, coin: 0, pearl: 0, core: 0, ...saved.inventory },
   unlocked: !!saved.unlocked, restored: !!saved.restored, jobs: saved.jobs ?? [],
   effects: [], loot: [], attack: null, focus: null, placement: null,
 };
@@ -75,6 +91,7 @@ function onSquare(e, x, y) {
 function occupied(x, y, countBridge = false) {
   return state.structures.some(e => (countBridge || e.kind !== "bridge") && onSquare(e, x, y)) ||
     state.nodes.some(e => e.hp > 0 && e.kind !== "flowers" && onSquare(e, x, y)) ||
+    state.scenery.some(e => ["bench","crystals","showcaseBeacon","trailSign"].includes(e.kind) && onSquare(e,x,y)) ||
     state.fixtures.some(e => onSquare(e, x, y));
 }
 for (const node of state.nodes) {
@@ -83,7 +100,8 @@ for (const node of state.nodes) {
 function passable(x, y) {
   const island = land(x, y);
   const hasBridge = state.structures.some(e => e.kind === "bridge" && onSquare(e, x, y));
-  return within(x, y) && (hasBridge || island === 1 || (island === 2 && state.unlocked)) &&
+  const hasWalkway = GARDEN_WALK.some(([col,row]) => x === col && y === row);
+  return within(x, y) && (hasBridge || hasWalkway || canEnter(island,state.unlocked)) &&
     (!occupied(x, y) || state.fixtures.some(e => e.kind === "dock" && onSquare(e, x, y)));
 }
 
@@ -94,7 +112,7 @@ let route = [], pin = null, goalTarget = null, selection = null, cursor = null, 
 let touchVector = [0, 0], held = null, audioEnabled = false, audioContext;
 const audioFiles = {
   chop: "gathering/wood-hit.wav", mine: "gathering/ore-hit.wav", stone: "gathering/stone-hit.wav",
-  treeFall: "gathering/tree-fall.wav", pickup: "exploration/pickup.wav",
+  treeFall: "gathering/tree-fall.wav", flower: "farming/seed-plant.wav", pickup: "exploration/pickup.wav",
   craft: "exploration/craft-complete.wav", unlock: "exploration/land-unlock.wav",
   build: "gameplay/building-placement.wav", hit: "combat/sword-hit.wav", hurt: "combat/player-hurt.wav",
 };
@@ -173,6 +191,15 @@ const ui = createInterface(state, {
     return audioEnabled;
   },
   closeBuild() { selection = cursor = null; refreshFocus(); },
+  visit(id) {
+    const destination = WAYPOINTS[id];
+    if (!destination) return;
+    pin = goalTarget = null;
+    const [x,y] = destination;
+    if (cellX(player.x) === x && cellY(player.y) === y) return;
+    route = findRoute(cellX(player.x),cellY(player.y),x,y,passable,0);
+    if (!route.length) ui.toast("Lối đi đến điểm này đang bị chặn.");
+  },
   dash: startDash,
 });
 
@@ -200,7 +227,7 @@ function evaluatePlacement(kind, col, row) {
   for (let i = 0; i < entry.width * entry.height; i++) {
     const x = col + i % entry.width, y = row + Math.floor(i / entry.width);
     const terrain = kind === "bridge" ? BRIDGE.some(([bx, by]) => x === bx && y === by)
-      : land(x, y) === 1 || land(x, y) === 2 && state.unlocked;
+      : canEnter(land(x,y),state.unlocked);
     const feet = cellX(player.x) === x && cellY(player.y) === y;
     const guard = guardian.hp > 0 && state.unlocked && cellX(guardian.x) === x && cellY(guardian.y) === y;
     if (!terrain || occupied(x, y, true) || feet || guard) blocked.push(i);
@@ -220,7 +247,7 @@ function refreshFocus() {
     state.placement = null;
     const entity = pin ?? nearest();
     if (entity) {
-      const [width, height] = rules[entity.kind].bounds;
+      const [width, height] = targetBounds(entity);
       state.focus = { entity, width, height, near: distance(player, entity) <= REACH };
     } else state.focus = null;
   }
@@ -266,11 +293,17 @@ function strike(target) {
   target.hitDirection = Math.sign(target.x - player.x) || (player.facing === "left" ? -1 : 1);
   const seed = target.col * 3 + target.row * 17;
   sound(harvestSound[target.kind]);
-  effect(harvestImpact[target.kind], target.x, target.y, { seed, direction: target.hitDirection, heavy: target.hp === 0 });
+  effect(harvestImpact[target.kind], target.x, target.y, {
+    seed, direction: target.hitDirection, heavy: target.hp === 0,
+    ...(strikePalettes[target.kind] ? { palette: strikePalettes[target.kind] } : {}),
+  });
   if (target.hp === 0) {
     target.respawn = 28;
     if (target.kind === "pine") {
-      effect(fallTree, target.x, target.y, { seed, direction: target.hitDirection });
+      effect(fallTree, target.x, target.y, {
+        seed, direction: target.hitDirection, shape: target.visual.shape, growth: target.visual.growth,
+        palette: treePalette(target.island,target.visual.tint),
+      });
       sound("treeFall");
     }
     launch(rule.item, rule.count, target.x, target.y);
@@ -323,10 +356,16 @@ function goTo(entity) {
   if (!route.length) { goalTarget = null; ui.toast("Chưa có đường tới mục tiêu."); }
 }
 
+function targetBounds(entity) {
+  const [width,height] = rules[entity.kind].bounds;
+  const scale = entity.visual ? [0.83,1,1.15][entity.visual.growth] : 1;
+  return [width*scale,height*scale];
+}
+
 function pointerTarget(x, y) {
-  const score = e => Math.abs(x - e.x) + Math.abs(y - (e.y - rules[e.kind].bounds[1] / 3)) * 0.35;
+  const score = e => Math.abs(x - e.x) + Math.abs(y - (e.y - targetBounds(e)[1] / 3)) * 0.35;
   return targets().filter(e => {
-    const [w, h] = rules[e.kind].bounds;
+    const [w, h] = targetBounds(e);
     return Math.abs(x - e.x) < w / 2 + 4 && y <= e.y + 6 && y >= e.y - h;
   }).sort((a, b) => score(a) - score(b) || b.y - a.y)[0];
 }

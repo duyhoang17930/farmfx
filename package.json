@@ -17,7 +17,7 @@
     "check": "node tools/check.mjs",
     "gallery": "node tools/serve.mjs",
     "demo": "node tools/serve.mjs 8080 demo",
-    "demo:assets": "node tools/sheets.mjs exploration/target-brackets fx/build-footprint fx/loot-flight combat/ground-telegraph ui/components/touch-action objects/mist-beacon exploration/island-shore trees/wind-pine trees/wind-pine-fall resources/coastal-iron-seam resources/coastal-boulder fx/woodcut-impact fx/ore-pick-impact fx/stone-pick-impact machines/coastal-kiln objects/weather-workbench player/idle player/walk player/axe-swing player/pickaxe-swing player/sword-attack player/dash player/building player/hurt --release --out sheets/mist-station"
+    "demo:assets": "node tools/demo-assets.mjs"
   },
   "devDependencies": {
     "esbuild": "^0.25.10"

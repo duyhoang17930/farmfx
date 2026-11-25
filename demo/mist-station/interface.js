@@ -46,6 +46,7 @@ export function createInterface(state, actions) {
     if (command === "craft") actions.craft(id, station);
     if (command === "trade") actions.trade();
     if (command === "unlock") actions.unlock();
+    if (command === "visit") actions.visit(id);
   });
 
   const costText = cost => Object.entries(cost).map(([id, count]) => count + " " + items[id].name.toLowerCase()).join(" · ");
@@ -74,7 +75,8 @@ export function createInterface(state, actions) {
     if (view === "map") {
       const bridge = state.structures.filter(s => s.kind === "bridge").length;
       return `<div class="entries">
-        <div class="entry"><span><strong>Vịnh Rêu</strong><small>Đảo xuất phát · bàn chế tạo và bến trao đổi</small></span><b>●</b></div>
+        ${button("visit", "cove", "Vịnh Rêu", "Đi đến nơi xuất phát")}
+        ${button("visit", "garden", "Vườn Mẫu", "Đi qua cầu phía nam · xem cây, hoa và các loại quặng")}
         <div class="entry"><span><strong>Eo Gió</strong><small>${bridge}/${BRIDGE.length} nhịp cầu</small></span><b>≈</b></div>
         <div class="entry"><span><strong>Bãi Tím</strong><small>${state.unlocked ? "Đã cấp quyền cập bờ" : "Cần 3 tín phiếu tại bến trao đổi"}</small></span><b>${state.unlocked ? "●" : "◇"}</b></div>
       </div>`;
@@ -89,7 +91,7 @@ export function createInterface(state, actions) {
       hp.innerHTML = Array.from({ length: 4 }, (_, i) => i < state.player.health ? "♥" : '<span class="empty">♡</span>').join("");
       hp.setAttribute("aria-label", `Máu ${state.player.health} trên 4`);
     }
-    const location = zone === 2 ? "Bãi Tím" : zone === 1 ? "Vịnh Rêu" : "Eo Gió";
+    const location = ["Eo Gió","Vịnh Rêu","Bãi Tím","Vườn Mẫu"][zone];
     const zoneLabel = $$("#zone");
     if (zoneLabel.textContent !== location) zoneLabel.textContent = location;
     if (actionLabel.textContent !== label) actionLabel.textContent = label;

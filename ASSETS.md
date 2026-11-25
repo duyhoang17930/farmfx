@@ -1,6 +1,6 @@
 # FarmFX assets
 
-1410 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
+1419 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
 
 ## Characters (20)
 
@@ -167,7 +167,7 @@
 | turkey | [`animals/turkey`](src/fx/animals/turkey.js) | — |
 | turtle | [`animals/turtle`](src/fx/animals/turtle.js) | — |
 
-## Tiles (66)
+## Tiles (68)
 
 | Asset | ID | Preview |
 | --- | --- | --- |
@@ -179,6 +179,8 @@
 | Cliff corner | [`tiles/cliff-corner`](src/fx/tiles/cliff-corner.js) | [GIF](docs/preview/tiles-cliff-corner.gif) |
 | cliff inner corner | [`tiles/cliff-inner-corner`](src/fx/tiles/cliff-inner-corner.js) | — |
 | cliff outer corner | [`tiles/cliff-outer-corner`](src/fx/tiles/cliff-outer-corner.js) | — |
+| Coastal boardwalk | [`tiles/coastal-boardwalk`](src/fx/tiles/coastal-boardwalk.js) | — |
+| Coastal wildflowers | [`tiles/coastal-wildflowers`](src/fx/tiles/coastal-wildflowers.js) | — |
 | crystal floor | [`tiles/crystal-floor`](src/fx/tiles/crystal-floor.js) | — |
 | deep water | [`tiles/deep-water`](src/fx/tiles/deep-water.js) | — |
 | Dirt path | [`tiles/dirt-path`](src/fx/tiles/dirt-path.js) | [GIF](docs/preview/tiles-dirt-path.gif) |
@@ -332,7 +334,7 @@
 | treasure detector | [`tools/treasure-detector`](src/fx/tools/treasure-detector.js) | — |
 | Watering can | [`tools/watering-can`](src/fx/tools/watering-can.js) | [GIF](docs/preview/tools-watering-can.gif) |
 
-## Objects (67)
+## Objects (70)
 
 | Asset | ID | Preview |
 | --- | --- | --- |
@@ -348,6 +350,9 @@
 | carpet | [`objects/carpet`](src/fx/objects/carpet.js) | — |
 | chair | [`objects/chair`](src/fx/objects/chair.js) | — |
 | Storage chest | [`objects/chest`](src/fx/objects/chest.js) | [GIF](docs/preview/objects-chest.gif) |
+| Coastal bench | [`objects/coastal-bench`](src/fx/objects/coastal-bench.js) | — |
+| Coastal dock | [`objects/coastal-dock`](src/fx/objects/coastal-dock.js) | — |
+| Coastal waypost | [`objects/coastal-waypost`](src/fx/objects/coastal-waypost.js) | — |
 | Cooking pot | [`objects/cooking-pot`](src/fx/objects/cooking-pot.js) | [GIF](docs/preview/objects-cooking-pot.gif) |
 | Crafting table | [`objects/crafting-table`](src/fx/objects/crafting-table.js) | [GIF](docs/preview/objects-crafting-table.gif) |
 | Crate | [`objects/crate`](src/fx/objects/crate.js) | [GIF](docs/preview/objects-crate.gif) |
@@ -439,7 +444,7 @@
 | volcanic smoke | [`weather/volcanic-smoke`](src/fx/weather/volcanic-smoke.js) | — |
 | wind gust | [`weather/wind-gust`](src/fx/weather/wind-gust.js) | — |
 
-## Farm fx (86)
+## Farm fx (87)
 
 | Asset | ID | Preview |
 | --- | --- | --- |
@@ -528,6 +533,7 @@
 | Water splash | [`fx/water-splash`](src/fx/fx/water-splash.js) | [GIF](docs/preview/fx-water-splash.gif) |
 | Watering droplets | [`fx/watering-droplets`](src/fx/fx/watering-droplets.js) | [GIF](docs/preview/fx-watering-droplets.gif) |
 | welding sparks | [`fx/welding-sparks`](src/fx/fx/welding-sparks.js) | — |
+| Wildflower pick | [`fx/wildflower-pick`](src/fx/fx/wildflower-pick.js) | — |
 | Woodcut impact | [`fx/woodcut-impact`](src/fx/fx/woodcut-impact.js) | — |
 
 ## Ui (131)
@@ -666,7 +672,7 @@
 | Shop interface | [`ui/shop-interface`](src/fx/ui/shop-interface.js) | [GIF](docs/preview/ui-shop-interface.gif) |
 | Item tooltip | [`ui/tooltip`](src/fx/ui/tooltip.js) | [GIF](docs/preview/ui-tooltip.gif) |
 
-## Island exploration (38)
+## Island exploration (39)
 
 | Asset | ID | Preview |
 | --- | --- | --- |
@@ -675,6 +681,7 @@
 | boat dock | [`exploration/boat-dock`](src/fx/exploration/boat-dock.js) | — |
 | buried treasure | [`exploration/buried-treasure`](src/fx/exploration/buried-treasure.js) | — |
 | cave discovery | [`exploration/cave-discovery`](src/fx/exploration/cave-discovery.js) | — |
+| Coastal shoreline | [`exploration/coastal-shore`](src/fx/exploration/coastal-shore.js) | — |
 | exploration flag | [`exploration/exploration-flag`](src/fx/exploration/exploration-flag.js) | — |
 | fast travel point | [`exploration/fast-travel-point`](src/fx/exploration/fast-travel-point.js) | — |
 | fishing spot | [`exploration/fishing-spot`](src/fx/exploration/fishing-spot.js) | — |
@@ -709,7 +716,7 @@
 | treasure reveal | [`exploration/treasure-reveal`](src/fx/exploration/treasure-reveal.js) | — |
 | waypoint | [`exploration/waypoint`](src/fx/exploration/waypoint.js) | — |
 
-## Resources (32)
+## Resources (34)
 
 | Asset | ID | Preview |
 | --- | --- | --- |
@@ -720,6 +727,8 @@
 | Clay deposit | [`resources/clay-deposit`](src/fx/resources/clay-deposit.js) | [GIF](docs/preview/resources-clay-deposit.gif) |
 | Coal ore | [`resources/coal-ore`](src/fx/resources/coal-ore.js) | [GIF](docs/preview/resources-coal-ore.gif) |
 | Coastal boulder | [`resources/coastal-boulder`](src/fx/resources/coastal-boulder.js) | — |
+| Coastal copper node | [`resources/coastal-copper-node`](src/fx/resources/coastal-copper-node.js) | — |
+| Coastal gold node | [`resources/coastal-gold-node`](src/fx/resources/coastal-gold-node.js) | — |
 | Coastal iron seam | [`resources/coastal-iron-seam`](src/fx/resources/coastal-iron-seam.js) | — |
 | Copper ore | [`resources/copper-ore`](src/fx/resources/copper-ore.js) | [GIF](docs/preview/resources-copper-ore.gif) |
 | Cotton bush | [`resources/cotton-bush`](src/fx/resources/cotton-bush.js) | [GIF](docs/preview/resources-cotton-bush.gif) |

@@ -4,7 +4,8 @@ import { frameDuration, spriteSheet } from "./fxlib.mjs";
 
 const sides = "NESW";
 const diagonals = ["NE", "SE", "SW", "NW"];
-const keeperClips = new Set(["idle", "walk", "axe-swing", "pickaxe-swing", "sword-attack", "dash", "building", "hurt"]);
+const keeperClips = new Set(["idle", "walk", "axe-swing", "pickaxe-swing", "sword-attack", "dash", "building", "hurt", "harvesting"]);
+const coastalDeposits = new Set(["resources/coastal-boulder","resources/coastal-iron-seam","resources/coastal-copper-node","resources/coastal-gold-node"]);
 const terrain = {
   "tiles/dirt-path": { option: "edges", connected: true },
   "tiles/stone-path": { option: "edges", connected: true },
@@ -45,7 +46,8 @@ export function sheetVariants(fx) {
   } else if (category === "player") {
     for (const facing of FACINGS) add(facing, { facing });
     if (keeperClips.has(fx.id.split("/")[1])) {
-      for (const facing of FACINGS) add(`windkeeper-${facing}`, { facing, outfit: "windkeeper", palette: WINDKEEPER });
+      const held = fx.id === "player/harvesting" ? { heldItem: "flower-seed" } : {};
+      for (const facing of FACINGS) add(`windkeeper-${facing}`, { facing, outfit: "windkeeper", palette: WINDKEEPER, ...held });
     }
   } else if (category === "tools" && Object.hasOwn(options, "tier")) {
     for (let tier=1;tier<=8;tier++) add(`tier-${tier}`,{tier});
@@ -65,8 +67,24 @@ export function sheetVariants(fx) {
     add("locked", { state: "locked" });
     add("axe", { tool: "axe" });
     add("pick", { tool: "pick" });
-  } else if (fx.id === "trees/wind-pine") {
-    add("stump", { stump: true });
+  } else if (fx.id === "trees/wind-pine" || fx.id === "tiles/coastal-wildflowers" || coastalDeposits.has(fx.id)) {
+    for (const [shape,growth] of [[0,0],[1,1],[2,2],[3,1]]) {
+      add(`shape-${shape+1}`, { seed: shape+1, shape, growth, tint: shape%3 });
+    }
+    if (fx.id === "trees/wind-pine") {
+      add("chipped", { chipped: true });
+      add("stump", { stump: true });
+    } else if (fx.id === "tiles/coastal-wildflowers") {
+      add("damaged", { condition: "damaged" });
+      add("picked", { condition: "picked" });
+    } else {
+      add("chipped", { condition: "chipped" });
+      add("depleted", { condition: "depleted" });
+    }
+  } else if (fx.id === "tiles/coastal-boardwalk") {
+    for (const facing of ["east-west","north-south"]) {
+      for (const ends of ["start","none","end"]) add(`${facing}-${ends}`, { facing, ends });
+    }
   } else if (fx.id === "trees/wind-pine-fall" || fx.id === "fx/woodcut-impact") {
     add("left", { direction: -1 });
     add("right", { direction: 1 });
@@ -112,7 +130,7 @@ export function sheetVariants(fx) {
     for (const facing of FACINGS) {
       for (const tool of ["axe", "pickaxe"]) add(`${facing}-${tool}`, { facing, tool });
     }
-  } else if (fx.id === "exploration/island-shore") {
+  } else if (fx.id === "exploration/island-shore" || fx.id === "exploration/coastal-shore") {
     for (let mask = 0; mask < 16; mask++) {
       const edges = [...sides].filter((_, i) => mask & (1 << i)).join("");
       const available = ["NE", "SE", "SW", "NW"].filter((corner) => [...corner].every((side) => !edges.includes(side)));

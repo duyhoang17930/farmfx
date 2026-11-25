@@ -1,6 +1,6 @@
 # Catalog
 
-1410 effects in 30 categories. Every one is a file in
+1419 effects in 30 categories. Every one is a file in
 `src/fx/<category>/<name>.js`; render any of them with `node tools/render.mjs <id> --gif`.
 
 ## characters
@@ -124,7 +124,7 @@ woodland and fantasy trees, saplings, regrowth stages and a chopping animation.
 | Snow-covered tree | `trees/snow-covered-tree` | loop 3s | 64×64 | A layered evergreen with broad snow caps and exposed needle tips. |
 | Tree regrowth | `trees/tree-regrowth` | loop 6s | 64×64 | Four selectable stages from cut stump to sapling, young tree and mature maple. |
 | Willow | `trees/willow` | loop 3s | 64×64 | A slanted trunk under a spreading canopy with hanging green fronds. |
-| Wind pine | `trees/wind-pine` | loop 2.5s | 48×64 | A coastal conifer with sunlit needle clusters, a flexible crown and a cut stump. |
+| Wind pine | `trees/wind-pine` | loop 2.5s | 64×80 | A coastal conifer with sunlit needle clusters, a flexible crown and a cut stump. |
 | Wind pine fall | `trees/wind-pine-fall` | one-shot 0.78s | 144×96 | The wind pine tips from its cut base, settles near the ground and fades into a dust puff. |
 
 ## animals
@@ -194,6 +194,8 @@ seasonal ground, path and water tiles, cliffs, foliage and crossings.
 | Cliff corner | `tiles/cliff-corner` | loop 2s | 16×32 | A corner segment with a raised turf lip and two shaded rock faces. |
 | cliff inner corner | `tiles/cliff-inner-corner` | loop 1s | 16×16 | A raised connected cliff edge with a fractured face. |
 | cliff outer corner | `tiles/cliff-outer-corner` | loop 1s | 16×16 | A raised connected cliff edge with a fractured face. |
+| Coastal boardwalk | `tiles/coastal-boardwalk` | loop 1s | 32×32 | A modular plank deck with grade-aligned end posts and a shaded front fascia. |
+| Coastal wildflowers | `tiles/coastal-wildflowers` | loop 2.4s | 32×32 | Wind-bent wildflowers with four cluster shapes, three bloom colors and picked stems. |
 | crystal floor | `tiles/crystal-floor` | loop 1s | 16×16 | A repeatable patterned floor with matching side edges. |
 | deep water | `tiles/deep-water` | loop 2.5s | 16×16 | A flowing 16 pixel water tile. |
 | Dirt path | `tiles/dirt-path` | loop 2s | 16×16 | A 16 px packed-earth path with configurable edges and seeded grit. |
@@ -369,6 +371,9 @@ storage, furniture and props with configurable active or open states.
 | carpet | `objects/carpet` | loop 2s | 64×64 | A top-down carpet prop with shaded surfaces. |
 | chair | `objects/chair` | loop 1s | 64×64 | A top-down chair prop with shaded surfaces. |
 | Storage chest | `objects/chest` | loop 2s | 48×48 | A metal-strapped chest with a hinged lid and a glint of treasure. |
+| Coastal bench | `objects/coastal-bench` | loop 1s | 48×32 | A bench with a broad plank seat and a receding side and rear legs in top-down three-quarter view. |
+| Coastal dock | `objects/coastal-dock` | loop 1s | 48×48 | A raised trading platform with a deep deck, bollards and a small painted flag. |
+| Coastal waypost | `objects/coastal-waypost` | loop 1s | 48×32 | A small carved direction sign with a bevel, visible upper face and shaded side. |
 | Cooking pot | `objects/cooking-pot` | loop 2s | 48×48 | An iron pot above a brazier with optional steam and simmering broth. |
 | Crafting table | `objects/crafting-table` | loop 2s | 48×48 | A workshop table with a green cutting mat, plans and a shallow drawer. |
 | Crate | `objects/crate` | loop 2s | 48×48 | A braced wooden crate with visible slats and nail heads. |
@@ -393,7 +398,7 @@ storage, furniture and props with configurable active or open states.
 | metal door | `objects/metal-door` | loop 1s | 64×64 | A top-down metal door prop with shaded surfaces. |
 | minecart | `objects/minecart` | loop 1s | 64×64 | A top-down minecart prop with shaded surfaces. |
 | minecart track | `objects/minecart-track` | loop 1s | 64×64 | A top-down minecart track prop with shaded surfaces. |
-| Mist beacon | `objects/mist-beacon` | loop 2s | 48×64 | A copper-braced weather station with a crystal chamber that lights up when restored. |
+| Mist beacon | `objects/mist-beacon` | loop 2s | 64×80 | A copper-braced weather station with a crystal chamber that lights up when restored. |
 | notice board | `objects/notice-board` | loop 1s | 64×64 | A top-down notice board prop with shaded surfaces. |
 | painting | `objects/painting` | loop 2s | 64×64 | A top-down painting prop with shaded surfaces. |
 | quest board | `objects/quest-board` | loop 1s | 64×64 | A top-down quest board prop with shaded surfaces. |
@@ -416,7 +421,7 @@ storage, furniture and props with configurable active or open states.
 | wardrobe | `objects/wardrobe` | loop 1s | 64×64 | A top-down wardrobe prop with shaded surfaces. |
 | water pump | `objects/water-pump` | loop 2s | 64×64 | A top-down water pump prop with shaded surfaces. |
 | water tank | `objects/water-tank` | loop 2s | 64×64 | A top-down water tank prop with shaded surfaces. |
-| Weather workbench | `objects/weather-workbench` | loop 1s | 48×32 | A carpenter's station with a brass gauge, tool rack and a cyan chart on the worktop. |
+| Weather workbench | `objects/weather-workbench` | loop 1s | 48×48 | A carpenter's station with a brass gauge, tool rack and a cyan chart on the worktop. |
 | wheelbarrow | `objects/wheelbarrow` | loop 1s | 64×64 | A top-down wheelbarrow prop with shaded surfaces. |
 | window | `objects/window` | loop 2s | 64×64 | A top-down window prop with shaded surfaces. |
 | wood pile | `objects/wood-pile` | loop 1s | 64×64 | A top-down wood pile prop with shaded surfaces. |
@@ -553,6 +558,7 @@ dust, splashes, impact debris, growth and pickup feedback.
 | Water splash | `fx/water-splash` | one-shot 0.9s | 48×48 | A shallow crown of water with arcing drops and two spreading rings. |
 | Watering droplets | `fx/watering-droplets` | one-shot 1.15s | 48×48 | A short arc of irrigation droplets lands in staggered twinkles. |
 | welding sparks | `fx/welding-sparks` | one-shot 1.15s | 80×64 | A pixel-art welding sparks effect with configurable color and seed. |
+| Wildflower pick | `fx/wildflower-pick` | one-shot 0.55s | 48×48 | Loose petals and seeds lift from the stems then flutter quietly back toward the ground. |
 | Woodcut impact | `fx/woodcut-impact` | one-shot 0.49s | 48×48 | Pale splinters fan out at the axe contact while two loose needles flutter down. |
 
 ## ui
@@ -704,6 +710,7 @@ an original player, gathering animations, ore, and island expansion.
 | boat dock | `exploration/boat-dock` | loop 2.5s | 64×64 | A top-down boat dock visual for island exploration. |
 | buried treasure | `exploration/buried-treasure` | loop 2.5s | 64×64 | A top-down buried treasure visual for island exploration. |
 | cave discovery | `exploration/cave-discovery` | one-shot 1.25s | 64×64 | A top-down cave discovery visual for island exploration. |
+| Coastal shoreline | `exploration/coastal-shore` | loop 2.5s | 16×16 | A quiet coastal tile with wind-swept grass and an irregular shore with a broader south-facing bank. |
 | exploration flag | `exploration/exploration-flag` | loop 2.5s | 64×64 | A top-down exploration flag visual for island exploration. |
 | fast travel point | `exploration/fast-travel-point` | loop 2.5s | 64×64 | A top-down fast travel point visual for island exploration. |
 | fishing spot | `exploration/fishing-spot` | loop 2.5s | 64×64 | A top-down fishing spot visual for island exploration. |
@@ -732,7 +739,7 @@ an original player, gathering animations, ore, and island expansion.
 | sailing boat | `exploration/sailing-boat` | loop 2.5s | 64×64 | A top-down sailing boat visual for island exploration. |
 | secret door | `exploration/secret-door` | loop 2.5s | 64×64 | A top-down secret door visual for island exploration. |
 | secret island | `exploration/secret-island` | loop 2.5s | 64×64 | A top-down secret island visual for island exploration. |
-| Target brackets | `exploration/target-brackets` | loop 1s | 64×64 | Four animated pixel brackets with ready, distant, and hostile states. |
+| Target brackets | `exploration/target-brackets` | loop 1s | 80×80 | Four animated pixel brackets with ready, distant, and hostile states. |
 | teleport gate | `exploration/teleport-gate` | loop 2.5s | 64×64 | A top-down teleport gate visual for island exploration. |
 | treasure dig | `exploration/treasure-dig` | one-shot 1.25s | 64×64 | A top-down treasure dig visual for island exploration. |
 | treasure reveal | `exploration/treasure-reveal` | one-shot 1.25s | 64×64 | A top-down treasure reveal visual for island exploration. |
@@ -750,8 +757,10 @@ metal ores, gemstone clusters, mineral deposits and wild gatherables.
 | Cactus | `resources/cactus` | loop 1s | 32×32 | A ribbed desert cactus with two side arms and a small coral flower. |
 | Clay deposit | `resources/clay-deposit` | loop 1s | 32×32 | A low red-brown clay mound with a smooth cut face and drying cracks. |
 | Coal ore | `resources/coal-ore` | loop 1s | 32×32 | A low shale bed with broad charcoal chips and a blue-black sheen. |
-| Coastal boulder | `resources/coastal-boulder` | loop 2.8s | 48×32 | A sunlit boulder with split faces, moss and two loose chips. |
-| Coastal iron seam | `resources/coastal-iron-seam` | loop 2.8s | 48×32 | An iron node with angled rock faces and warm metallic veins. |
+| Coastal boulder | `resources/coastal-boulder` | loop 2.8s | 48×48 | Faceted coastal stone with chipped and depleted states and four silhouettes. |
+| Coastal copper node | `resources/coastal-copper-node` | loop 2.8s | 48×48 | An angled rock hosting raised copper deposits, with chipped and depleted states. |
+| Coastal gold node | `resources/coastal-gold-node` | loop 2.8s | 48×48 | An angled rock hosting raised gold deposits, with chipped and depleted states. |
+| Coastal iron seam | `resources/coastal-iron-seam` | loop 2.8s | 48×48 | An angled rock hosting raised iron deposits, with chipped and depleted states. |
 | Copper ore | `resources/copper-ore` | loop 1s | 32×32 | Orange copper knobs set in a weathered green split boulder. |
 | Cotton bush | `resources/cotton-bush` | loop 2.5s | 32×32 | Rust-colored stems carry five fluffy cotton bolls on a wild bush. |
 | Crystal deposit | `resources/crystal-deposit` | loop 2.5s | 32×32 | Three milky quartz prisms with pale cyan faces and a passing glint. |

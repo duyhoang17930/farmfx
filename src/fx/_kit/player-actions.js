@@ -60,7 +60,8 @@ export function playerClip(id) {
     ...(["swing","sweep","combo","thrust","shoot","cast"].includes(mode)&&hit!==undefined?{damage:duration*hit}:{}),
     ...(mode==="combo"?{secondContact:duration*0.59}: {})};
   const meta={name:id.replaceAll("-"," "),desc:`Island explorer ${id.replaceAll("-"," ")} in four directions.`,
-    size:[64,64],origin:[32,48],duration,fps:15,loop,bg:"field",tags:["player",mode],options:{facing:"down",palette:HOOD,outfit:"standard"},
+    size:[64,64],origin:[32,48],duration,fps:15,loop,bg:"field",tags:["player",mode],
+    options:{facing:"down",palette:HOOD,outfit:"standard",...(id==="harvesting"?{heldItem:item}:{})},
     collision:{width:12,height:8},...(events?{events,omitTerminalFrame:true}:{})};
   function draw(p,t,o){
     if(!loop&&t>=duration)return;
@@ -92,7 +93,7 @@ export function playerClip(id) {
     if(prop){
       const propPainter=new Painter(body.frame).place(body.tx,body.ty,body.fx*direction<0,Math.atan2(body.sn,body.cs));
       propPainter.fade=body.fade;
-      held(propPainter,item,gripX,gripY,0,phase);
+      held(propPainter,o.heldItem ?? item,gripX,gripY,0,phase);
     }
     if(mode==="swim")p.ellipse(0,-1,9+pulse*3,2,WATER[3],0.58);
     if(["stun","cheer","appear","vanish","cast"].includes(mode))for(let i=0;i<4;i++){

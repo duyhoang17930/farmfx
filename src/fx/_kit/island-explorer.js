@@ -47,8 +47,8 @@ const KEEPER_HEAD = {
     "......oooo.....",
   ],
 };
-const KEEPER_HAT = ramp(["#66503f", "#c48645", "#e6ae5b", "#f9d786", "#fff0b7"]);
-const KEEPER_COAT = ramp(["#243c53", "#326075", "#448e9f", "#6bb6ba", "#a7dbcb"]);
+const KEEPER_HAT = ramp(["#615444", "#b7894f", "#d8a961", "#efd388", "#f5e5ab"]);
+const KEEPER_COAT = ramp(["#344e55", "#406e78", "#548f99", "#76b0b0", "#b3d8c6"]);
 const KEEPER_PANTS = ramp(["#3b3849", "#54566b", "#70798e"]);
 const KEEPER_SCARF = ramp(["#683a52", "#a25067", "#dd746c", "#ffa284"]);
 const KEEPER_FEATHER = ramp(["#527d79", "#dcf5d9"]);

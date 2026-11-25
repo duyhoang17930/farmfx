@@ -1,23 +1,27 @@
-import { clearFrame, composite, createFrame, painterFor, ramp, rand } from "../../src/core/index.js";
+import { clearFrame, composite, createFrame, painterFor, ramp } from "../../src/core/index.js";
 import { WINDKEEPER } from "../../src/fx/_kit/island-explorer.js";
-import * as shore from "../../src/fx/exploration/island-shore.js";
+import * as shore from "../../src/fx/exploration/coastal-shore.js";
 import * as brackets from "../../src/fx/exploration/target-brackets.js";
 import * as footprint from "../../src/fx/fx/build-footprint.js";
 import * as telegraph from "../../src/fx/combat/ground-telegraph.js";
 import * as touchAction from "../../src/fx/ui/components/touch-action.js";
 import * as lootFlight from "../../src/fx/fx/loot-flight.js";
-import { blueprints, clips, items, objects } from "./art.js";
-import { BRIDGE, coast, HEIGHT, land, tileX, tileY, TILE, WIDTH } from "./islands.js";
+import { blueprints, clips, items, objects, treePalette } from "./art.js";
+import { BRIDGE, canEnter, coast, GARDEN_WALK, HEIGHT, land, tileX, tileY, TILE, WIDTH } from "./islands.js";
 
 const water = ramp(["#3d8296", "#509bad", "#64adba", "#8bc4c4", "#c7e9d9"]);
-const cove = ["#528258", "#76a366", "#8eb56d", "#9fc377", "#d1db8a"];
-const bank = ["#6b6a83", "#8d88a2", "#a198b0", "#ada8bf", "#d6c8cf"];
+const surfaces = [
+  shore.meta.options.palette,
+  ["#4d4d74", "#665681", "#786694", "#866fa4", "#afa0cc"],
+  ["#577e55", "#8fa969", "#9bb572", "#a8bd7e", "#d3d992"],
+];
 const beaches = [
-  ["#7e7861", "#ab9267", "#c5a778", "#e5c993"],
-  ["#706582", "#9786a2", "#b8a0b4", "#d1b6c3"],
+  shore.meta.options.bank,
+  ["#4f496b", "#76668b", "#9986aa", "#b5a0bd"],
+  ["#81765d", "#a98b68", "#c8ad7b", "#e1c995"],
 ];
 const fog = ramp(["#697797", "#8499ac", "#adc1ca", "#d4d9dc", "#f1e6e6"]);
-const groundDetails = [ramp(["#adc981", "#e1d89a"]), ramp(["#b7acc4", "#d8c7d1"])];
+const crystalColors = ["#40547c","#56789a","#78b5bd","#a0ddd5","#dbf4df"];
 const W = WIDTH * TILE, H = HEIGHT * TILE;
 const TAU = Math.PI * 2;
 
@@ -68,7 +72,7 @@ function paintSea(frame) {
     if (!step[i]) continue;
     const ripple = Math.sin(x * 0.19 + y * 0.15) * 2;
     const depth = step[i] + ripple;
-    color[i] = water[depth < 5 && (x + y * 2) % 19 < 12 ? 4 : depth < 16 ? 3 : depth < 27 ? 2 : 1];
+    color[i] = water[depth < 4 && (x + y * 2) % 19 < 8 ? 4 : depth < 11 + ripple ? 3 : depth < 24 ? 2 : 1];
   }
 }
 
@@ -89,27 +93,17 @@ export function createScene(canvas, touchCanvas) {
       if (!island) continue;
       paint(ground, shore, 0, tileX(x), tileY(y), {
         ...coast(x, y), tileX: x, tileY: y,
-        palette: island === 1 ? cove : bank, bank: beaches[island - 1], meadow: true,
+        palette: surfaces[island - 1], bank: beaches[island - 1],
       });
-      if (island === 1 || unlocked) {
-        const detail = painterFor(ground);
-        const seed = rand(x, y, 74);
-        const wx = x * TILE + 5 + Math.floor(seed * 6), wy = y * TILE + 8;
-        if (seed < 0.2) {
-          const color = groundDetails[island - 1];
-          detail.px(wx, wy, color[1]);
-          detail.line(wx + 2, wy + 2, wx + 3, wy + 2, color[0]);
-        }
-      }
     }
     paintSea(ground);
   }
 
   function resize() {
     const box = canvas.getBoundingClientRect();
-    const scale = Math.max(1.48, box.height / H, box.width / W);
-    const w = Math.min(W, Math.max(1, Math.round(box.width / scale)));
-    const h = Math.min(H, Math.max(1, Math.round(box.height / scale)));
+    const scale = Math.max(1.48, box.height / 256, box.width / 384);
+    const w = Math.min(384, Math.max(1, Math.round(box.width / scale)));
+    const h = Math.min(256, Math.max(1, Math.round(box.height / scale)));
     if (frame?.w === w && frame?.h === h) return;
     canvas.width = w;
     canvas.height = h;
@@ -133,7 +127,7 @@ export function createScene(canvas, touchCanvas) {
     }
 
     const p = painterFor(frame);
-    for (let i = 0; i < 175; i++) {
+    for (let i = 0; i < 275; i++) {
       const wx = (i * 83 + Math.floor(t * (2 + i % 3))) % W;
       const wy = (i * 59) % H;
       if (!land(Math.floor(wx / TILE), Math.floor(wy / TILE))) {
@@ -141,15 +135,25 @@ export function createScene(canvas, touchCanvas) {
       }
     }
 
-    for (const entry of state.structures.filter(s => s.kind === "bridge")) {
-      paint(frame, objects.bridge, t, entry.x, entry.y, { edges: "EW", facing: "east" });
+    const placed = state.structures.filter(s => s.kind === "bridge");
+    for (const [index,[col,row]] of BRIDGE.entries()) {
+      const entry = placed.find(e => e.col === col && e.row === row);
+      if (entry) paint(frame, objects.bridge, t, entry.x, entry.y, { ends: index ? "end" : "start" });
+    }
+    for (const [index,[col,row]] of GARDEN_WALK.entries()) {
+      paint(frame, objects.bridge, t, tileX(col),tileY(row), {
+        facing: "north-south", ends: index ? "end" : "start",
+      });
     }
     if (state.attack) paint(frame, telegraph, state.attack.t, state.attack.x, state.attack.y, state.attack);
 
     for (const node of state.nodes) {
-      if (node.kind !== "pine" || node.hp || !node.respawn || (node.island === 2 && !state.unlocked)) continue;
-      if (state.structures.some(entry => node.col >= entry.col && node.col < entry.col + entry.width && node.row === entry.row)) continue;
-      paint(frame, objects.pine, t, node.x, node.y, { stump: true });
+      if (node.hp || node.respawn === undefined || !canEnter(node.island,state.unlocked)) continue;
+      if (node.x < left-24 || node.x > left+frame.w+24 || node.y < top-18 || node.y > top+frame.h+24) continue;
+      if (state.structures.some(entry => node.col >= entry.col && node.col < entry.col+entry.width && node.row === entry.row)) continue;
+      paint(frame, objects[node.kind],t,node.x,node.y, {
+        ...node.visual, stump: true, condition: node.kind === "flowers" ? "picked" : "depleted",
+      });
     }
 
     if (state.placement) {
@@ -167,8 +171,8 @@ export function createScene(canvas, touchCanvas) {
       });
     }
 
-    const drawables = [...state.nodes, ...state.structures, ...state.fixtures]
-      .filter(e => e.hp !== 0 && e.kind !== "bridge" && (state.unlocked || e.island !== 2));
+    const drawables = [...state.nodes, ...state.structures, ...state.fixtures, ...state.scenery]
+      .filter(e => e.hp !== 0 && e.kind !== "bridge" && canEnter(e.island,state.unlocked));
     drawables.push(player);
     if (state.guardian.hp > 0 && state.unlocked) drawables.push(state.guardian);
     drawables.sort((a, b) => a.y - b.y);
@@ -180,18 +184,25 @@ export function createScene(canvas, touchCanvas) {
         const clip = clips[player.action?.clip ?? (player.moving ? "walk" : "idle")];
         const blink = player.invulnerable > 0 && Math.floor(t * 14) % 2 === 0;
         paint(frame, clip, player.action?.t ?? t, player.x, player.y,
-          { facing: player.facing, palette: WINDKEEPER, outfit: "windkeeper" }, blink ? 0.49 : 1);
+          { facing: player.facing, palette: WINDKEEPER, outfit: "windkeeper",
+            ...(player.action?.clip === "gatherFlowers" ? {heldItem:"flower-seed"} : {}) }, blink ? 0.49 : 1);
       } else {
         const activity = entity.kind === "beacon" ? { active: state.restored }
           : entity.kind === "forge" ? { active: state.jobs.some(job => job.station === entity.id) } : {};
+        const styling = entity.kind === "pine" ? {
+          palette: treePalette(entity.island,entity.visual.tint), chipped: entity.hp === 1,
+        } : entity.kind === "crystals" ? { palette: crystalColors }
+          : entity.kind === "flowers" && entity.island === 2 ? { tint: 1 }
+          : entity.kind === "trailSign" ? { label: entity.island === 3 ? "VINH" : "VUON", pointing: "left" } : {};
         const seed = entity.col * 3 + entity.row * 17;
         const recoil = entity.recoil ?? 0;
         const sway = Math.round(Math.sin(recoil * 48) * recoil * 13 * (entity.hitDirection ?? 1));
         const x = entity.x + (entity.kind === "pine" ? 0 : sway);
         const blocksPlayer = entity.kind === "pine" && player.y < entity.y &&
-          entity.y - player.y < 40 && Math.abs(player.x - x) < 15;
+          entity.y - player.y < 50 && Math.abs(player.x - x) < 16;
         paint(frame, objects[entity.kind], t, x, entity.y, {
-          ...activity, seed, bend: sway, facing: entity.facing ?? "down",
+          condition: entity.hp === 1 && entity.kind !== "flowers" ? "chipped" : "fresh", ...entity.visual, ...activity,
+          ...styling, seed, bend: sway, facing: entity.facing ?? (entity.kind === "turtle" ? "right" : "down"),
           state: entity.kind === "guardian" && state.attack ? "attack" : entity.moving ? "move" : "idle",
         }, blocksPlayer ? 0.54 : 1);
       }
@@ -200,7 +211,7 @@ export function createScene(canvas, touchCanvas) {
     if (state.placement) {
       const { x, y, kind, blocked } = state.placement;
       paint(frame, objects[kind], t, x, y,
-        { active: false, ...(kind === "bridge" ? { edges: "EW", facing: "east" } : {}) }, blocked.length ? 0.34 : 0.63);
+        { active: false }, blocked.length ? 0.34 : 0.63);
     } else if (state.focus) {
       const { entity, near, width, height } = state.focus;
       paint(frame, brackets, t, entity.x, entity.y, { width, height, state: near ? entity.kind === "guardian" ? "hostile" : "ready" : "distant" });

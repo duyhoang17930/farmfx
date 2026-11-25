@@ -1,8 +1,10 @@
 export const TILE = 16;
 export const WIDTH = 24;
-export const HEIGHT = 16;
+export const HEIGHT = 28;
 export const START = [6, 8];
 export const BRIDGE = [[13, 8], [14, 8]];
+export const GARDEN_WALK = [[7, 14], [7, 15]];
+export const WAYPOINTS = { cove: START, garden: [7, 18] };
 export const LAND_PRICE = 3;
 
 // Inclusive columns of each land mass by row.
@@ -10,6 +12,7 @@ const cove = [null, null, [6, 8], [4, 10], [3, 11], [2, 11], [2, 12], [1, 12],
   [1, 12], [2, 12], [2, 11], [3, 10], [4, 10], [5, 8], null, null];
 const bank = [null, null, null, [19, 20], [17, 21], [16, 22], [16, 22], [15, 22],
   [15, 22], [15, 21], [16, 21], [16, 20], [17, 20], [18, 19], null, null];
+const garden = [[5,9],[4,12],[3,15],[3,17],[2,18],[2,19],[3,19],[4,18],[5,16],[7,14],[9,12]];
 
 export const keyOf = (x, y) => y * WIDTH + x;
 export const tileX = x => x * TILE + 8;
@@ -21,8 +24,12 @@ export const within = (x, y) => x >= 0 && x < WIDTH && y >= 0 && y < HEIGHT;
 export function land(x, y) {
   if (cove[y] && x >= cove[y][0] && x <= cove[y][1]) return 1;
   if (bank[y] && x >= bank[y][0] && x <= bank[y][1]) return 2;
+  const row = garden[y - 16];
+  if (row && x >= row[0] && x <= row[1]) return 3;
   return 0;
 }
+
+export const canEnter = (island, unlocked) => island > 0 && (island !== 2 || unlocked);
 
 export function coast(x, y) {
   const sides = [[0,-1,"N"],[1,0,"E"],[0,1,"S"],[-1,0,"W"]];
@@ -43,6 +50,22 @@ export const NODE_POSITIONS = [
   ["pine", 17, 6], ["pine", 21, 7], ["pine", 19, 11], ["ore", 17, 9],
   ["flowers", 7, 5], ["flowers", 4, 8], ["flowers", 8, 9], ["flowers", 5, 12],
   ["flowers", 7, 3], ["flowers", 11, 9], ["flowers", 17, 7], ["flowers", 19, 10],
+  ["copper", 18, 5], ["gold", 20, 11],
+  ["pine", 4, 18], ["pine", 10, 17], ["pine", 3, 21], ["pine", 5, 24],
+  ["stone", 4, 19], ["stone", 5, 22], ["stone", 10, 24],
+  ["ore", 11, 19], ["copper", 14, 19], ["gold", 16, 20],
+  ["ore", 12, 23], ["copper", 15, 23], ["gold", 17, 22], ["copper", 14, 22], ["gold", 12, 25],
+  ["flowers", 5, 17], ["flowers", 10, 18], ["flowers", 8, 20], ["flowers", 8, 23],
+  ["flowers", 4, 22], ["flowers", 10, 25], ["flowers", 15, 24], ["flowers", 18, 21],
+];
+
+export const SCENERY = [
+  ["trailSign",8,13], ["trailSign",6,17], ["bench",6,20], ["bench",12,22],
+  ["mushrooms",3,20], ["mushrooms",6,23], ["redMushrooms",10,22], ["redMushrooms",9,25],
+  ["turtle",6,24], ["butterfly",9,20], ["butterfly",16,22],
+  ["crystals",18,4], ["crystals",21,8], ["crystals",16,10],
+  ["crystals",17,24], ["showcaseBeacon",13,21],
+  ["flowers",5,20,{ shape: 2, condition: "damaged" }], ["flowers",7,21,{ shape: 1, condition: "picked" }],
 ];
 
 const directions = [[1,0],[-1,0],[0,1],[0,-1]];

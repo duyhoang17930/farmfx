@@ -18,19 +18,33 @@ export const meta = {
 export function draw(p, t, o) {
   const C = fit(o.palette ?? SEASONS[o.season] ?? SEASONS.spring, 5);
   const x0 = o.tileX * 16, y0 = o.tileY * 16;
+  if (o.meadow) {
+    // Broad color changes and occasional clumps leave quiet space around sprites.
+    for (let y = 0; y < 16; y++) for (let x = 0; x < 16; x++) {
+      const n = noise2((x0 + x) / 30, (y0 + y) / 27, o.seed);
+      p.px(x - 8, y - 12, C[n < -0.37 ? 1 : n > 0.36 ? 3 : 2]);
+    }
+    if (rand(o.tileX, o.tileY, o.seed + 82) < 0.52) {
+      const x = -5 + Math.floor(rand(o.tileX, o.tileY, o.seed + 16) * 10);
+      const y = -8 + Math.floor(rand(o.tileX, o.tileY, o.seed + 33) * 8);
+      const bend = Math.sin(t / meta.duration * TAU) >= 0 ? 1 : 0;
+      for (const [dx, dy, shade] of [[-1,0,1],[0,0,1],[-1,-1,3],[bend,-2,4],[1,-1,3]]) {
+        p.px(x + dx, y + dy, C[shade]);
+      }
+    }
+    return;
+  }
   for (let y = 0; y < 16; y++) {
     for (let x = 0; x < 16; x++) {
       const wx = x0 + x, wy = y0 + y;
-      const n = o.meadow ? noise2(wx / 20, wy / 15, o.seed) : noise2(wx / 7, wy / 5, o.seed);
+      const n = noise2(wx / 7, wy / 5, o.seed);
       const speck = rand(wx, wy, o.seed + 5);
-      const shade = o.meadow ? speck < 0.027 ? 1 : n > 0.23 && speck > 0.25 ? 3 : n < -0.32 ? 1 : 2
-        : speck < 0.09 ? 0 : n < 0 ? 1 : 2;
+      const shade = speck < 0.09 ? 0 : n < 0 ? 1 : 2;
       p.px(x - 8, y - 12, C[shade]);
     }
   }
   const gust = Math.sin(t / meta.duration * TAU);
-  const tufts = o.meadow ? (rand(o.tileX, o.tileY, o.seed) < 0.75 ? 2 : 1) : 5;
-  for (let i = 0; i < tufts; i++) {
+  for (let i = 0; i < 5; i++) {
     const x = -6 + Math.floor(rand(i + x0, y0, o.seed) * 12);
     const y = -9 + Math.floor(rand(x0, i + y0, o.seed + 7) * 12);
     const flick = Math.sin(i * 1.7 + gust * 1.15) > 0 ? 1 : -1;
