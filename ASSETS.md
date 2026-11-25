@@ -1,6 +1,6 @@
 # FarmFX assets
 
-1047 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
+1118 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
 
 ## Characters (20)
 
@@ -410,20 +410,91 @@
 | Rain | [`weather/rain`](src/fx/weather/rain.js) | [GIF](docs/preview/weather-rain.gif) |
 | Snow | [`weather/snow`](src/fx/weather/snow.js) | [GIF](docs/preview/weather-snow.gif) |
 
-## Farm fx (10)
+## Farm fx (81)
 
 | Asset | ID | Preview |
 | --- | --- | --- |
+| achievement unlock | [`fx/achievement-unlock`](src/fx/fx/achievement-unlock.js) | — |
+| animal feed | [`fx/animal-feed`](src/fx/fx/animal-feed.js) | — |
+| animal heart | [`fx/animal-heart`](src/fx/fx/animal-heart.js) | — |
+| animal product drop | [`fx/animal-product-drop`](src/fx/fx/animal-product-drop.js) | — |
+| blueprint unlock | [`fx/blueprint-unlock`](src/fx/fx/blueprint-unlock.js) | — |
+| buff activate | [`fx/buff-activate`](src/fx/fx/buff-activate.js) | — |
+| buff expire | [`fx/buff-expire`](src/fx/fx/buff-expire.js) | — |
+| build complete | [`fx/build-complete`](src/fx/fx/build-complete.js) | — |
+| build placement | [`fx/build-placement`](src/fx/fx/build-placement.js) | — |
+| build preview | [`fx/build-preview`](src/fx/fx/build-preview.js) | — |
+| building demolish | [`fx/building-demolish`](src/fx/fx/building-demolish.js) | — |
+| building upgrade | [`fx/building-upgrade`](src/fx/fx/building-upgrade.js) | — |
 | Chopping impact | [`fx/chopping-impact`](src/fx/fx/chopping-impact.js) | [GIF](docs/preview/fx-chopping-impact.gif) |
+| coin burst | [`fx/coin-burst`](src/fx/fx/coin-burst.js) | — |
+| coin collect | [`fx/coin-collect`](src/fx/fx/coin-collect.js) | — |
+| coin drop | [`fx/coin-drop`](src/fx/fx/coin-drop.js) | — |
+| confetti | [`fx/confetti`](src/fx/fx/confetti.js) | — |
+| construction dust | [`fx/construction-dust`](src/fx/fx/construction-dust.js) | — |
+| crafting complete | [`fx/crafting-complete`](src/fx/fx/crafting-complete.js) | — |
+| crafting progress | [`fx/crafting-progress`](src/fx/fx/crafting-progress.js) | — |
+| crafting start | [`fx/crafting-start`](src/fx/fx/crafting-start.js) | — |
+| crop growth | [`fx/crop-growth`](src/fx/fx/crop-growth.js) | — |
+| crop harvest | [`fx/crop-harvest`](src/fx/fx/crop-harvest.js) | — |
+| crop wither | [`fx/crop-wither`](src/fx/fx/crop-wither.js) | — |
+| crystal break | [`fx/crystal-break`](src/fx/fx/crystal-break.js) | — |
+| dash trail | [`fx/dash-trail`](src/fx/fx/dash-trail.js) | — |
 | Dust puff | [`fx/dust`](src/fx/fx/dust.js) | [GIF](docs/preview/fx-dust.gif) |
+| electric spark | [`fx/electric-spark`](src/fx/fx/electric-spark.js) | — |
+| energy restore | [`fx/energy-restore`](src/fx/fx/energy-restore.js) | — |
+| experience collect | [`fx/experience-collect`](src/fx/fx/experience-collect.js) | — |
+| experience drop | [`fx/experience-drop`](src/fx/fx/experience-drop.js) | — |
+| falling leaf burst | [`fx/falling-leaf-burst`](src/fx/fx/falling-leaf-burst.js) | — |
+| fertilizer sparkle | [`fx/fertilizer-sparkle`](src/fx/fx/fertilizer-sparkle.js) | — |
+| fishing bite | [`fx/fishing-bite`](src/fx/fx/fishing-bite.js) | — |
+| fishing catch | [`fx/fishing-catch`](src/fx/fx/fishing-catch.js) | — |
+| fishing ripple | [`fx/fishing-ripple`](src/fx/fx/fishing-ripple.js) | — |
+| floating text | [`fx/floating-text`](src/fx/fx/floating-text.js) | — |
 | Footsteps | [`fx/footsteps`](src/fx/fx/footsteps.js) | [GIF](docs/preview/fx-footsteps.gif) |
 | Harvest sparkle | [`fx/harvest-sparkle`](src/fx/fx/harvest-sparkle.js) | [GIF](docs/preview/fx-harvest-sparkle.gif) |
+| heal | [`fx/heal`](src/fx/fx/heal.js) | — |
+| hunger warning | [`fx/hunger-warning`](src/fx/fx/hunger-warning.js) | — |
+| item bounce | [`fx/item-bounce`](src/fx/fx/item-bounce.js) | — |
+| item collect | [`fx/item-collect`](src/fx/fx/item-collect.js) | — |
+| item drop | [`fx/item-drop`](src/fx/fx/item-drop.js) | — |
+| item glow | [`fx/item-glow`](src/fx/fx/item-glow.js) | — |
+| item magnet | [`fx/item-magnet`](src/fx/fx/item-magnet.js) | — |
 | Item pickup | [`fx/item-pickup`](src/fx/fx/item-pickup.js) | [GIF](docs/preview/fx-item-pickup.gif) |
+| legendary item drop | [`fx/legendary-item-drop`](src/fx/fx/legendary-item-drop.js) | — |
+| level up | [`fx/level-up`](src/fx/fx/level-up.js) | — |
+| low energy warning | [`fx/low-energy-warning`](src/fx/fx/low-energy-warning.js) | — |
+| machine overheat | [`fx/machine-overheat`](src/fx/fx/machine-overheat.js) | — |
+| machine smoke | [`fx/machine-smoke`](src/fx/fx/machine-smoke.js) | — |
+| machine steam | [`fx/machine-steam`](src/fx/fx/machine-steam.js) | — |
 | Mining impact | [`fx/mining-impact`](src/fx/fx/mining-impact.js) | [GIF](docs/preview/fx-mining-impact.gif) |
+| ore break | [`fx/ore-break`](src/fx/fx/ore-break.js) | — |
+| player shadow | [`fx/player-shadow`](src/fx/fx/player-shadow.js) | — |
+| portal swirl | [`fx/portal-swirl`](src/fx/fx/portal-swirl.js) | — |
+| power pulse | [`fx/power-pulse`](src/fx/fx/power-pulse.js) | — |
+| rare item drop | [`fx/rare-item-drop`](src/fx/fx/rare-item-drop.js) | — |
+| recipe unlock | [`fx/recipe-unlock`](src/fx/fx/recipe-unlock.js) | — |
+| resource break | [`fx/resource-break`](src/fx/fx/resource-break.js) | — |
+| resource crack | [`fx/resource-crack`](src/fx/fx/resource-crack.js) | — |
+| resource hit | [`fx/resource-hit`](src/fx/fx/resource-hit.js) | — |
+| resource respawn | [`fx/resource-respawn`](src/fx/fx/resource-respawn.js) | — |
+| resource spawn | [`fx/resource-spawn`](src/fx/fx/resource-spawn.js) | — |
+| rock break | [`fx/rock-break`](src/fx/fx/rock-break.js) | — |
+| screen flash | [`fx/screen-flash`](src/fx/fx/screen-flash.js) | — |
 | Seed sprout pop | [`fx/seed-pop`](src/fx/fx/seed-pop.js) | [GIF](docs/preview/fx-seed-pop.gif) |
+| skill unlock | [`fx/skill-unlock`](src/fx/fx/skill-unlock.js) | — |
+| smelting sparks | [`fx/smelting-sparks`](src/fx/fx/smelting-sparks.js) | — |
 | Chimney smoke | [`fx/smoke`](src/fx/fx/smoke.js) | [GIF](docs/preview/fx-smoke.gif) |
+| speed trail | [`fx/speed-trail`](src/fx/fx/speed-trail.js) | — |
+| swimming splash | [`fx/swimming-splash`](src/fx/fx/swimming-splash.js) | — |
+| teleport in | [`fx/teleport-in`](src/fx/fx/teleport-in.js) | — |
+| teleport out | [`fx/teleport-out`](src/fx/fx/teleport-out.js) | — |
+| tree fall dust | [`fx/tree-fall-dust`](src/fx/fx/tree-fall-dust.js) | — |
+| tree shake | [`fx/tree-shake`](src/fx/fx/tree-shake.js) | — |
+| water ripple | [`fx/water-ripple`](src/fx/fx/water-ripple.js) | — |
 | Water splash | [`fx/water-splash`](src/fx/fx/water-splash.js) | [GIF](docs/preview/fx-water-splash.gif) |
 | Watering droplets | [`fx/watering-droplets`](src/fx/fx/watering-droplets.js) | [GIF](docs/preview/fx-watering-droplets.gif) |
+| welding sparks | [`fx/welding-sparks`](src/fx/fx/welding-sparks.js) | — |
 
 ## Ui (15)
 

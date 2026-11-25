@@ -1,6 +1,6 @@
 # Catalog
 
-1047 effects in 25 categories. Every one is a file in
+1118 effects in 25 categories. Every one is a file in
 `src/fx/<category>/<name>.js`; render any of them with `node tools/render.mjs <id> --gif`.
 
 ## characters
@@ -439,16 +439,87 @@ dust, splashes, impact debris, growth and pickup feedback.
 
 | effect | id | | size | what it does |
 |---|---|---|---|---|
+| achievement unlock | `fx/achievement-unlock` | one-shot 1.15s | 80×64 | A pixel-art achievement unlock effect with configurable color and seed. |
+| animal feed | `fx/animal-feed` | one-shot 1.15s | 80×64 | A pixel-art animal feed effect with configurable color and seed. |
+| animal heart | `fx/animal-heart` | one-shot 1.15s | 80×64 | A pixel-art animal heart effect with configurable color and seed. |
+| animal product drop | `fx/animal-product-drop` | one-shot 1.15s | 80×64 | A pixel-art animal product drop effect with configurable color and seed. |
+| blueprint unlock | `fx/blueprint-unlock` | one-shot 1.15s | 80×64 | A pixel-art blueprint unlock effect with configurable color and seed. |
+| buff activate | `fx/buff-activate` | one-shot 1.15s | 80×64 | A pixel-art buff activate effect with configurable color and seed. |
+| buff expire | `fx/buff-expire` | one-shot 1.15s | 80×64 | A pixel-art buff expire effect with configurable color and seed. |
+| build complete | `fx/build-complete` | one-shot 1.15s | 80×64 | A pixel-art build complete effect with configurable color and seed. |
+| build placement | `fx/build-placement` | one-shot 1.15s | 80×64 | A pixel-art build placement effect with configurable color and seed. |
+| build preview | `fx/build-preview` | loop 2s | 80×64 | A pixel-art build preview effect with configurable color and seed. |
+| building demolish | `fx/building-demolish` | one-shot 1.15s | 80×64 | A pixel-art building demolish effect with configurable color and seed. |
+| building upgrade | `fx/building-upgrade` | one-shot 1.15s | 80×64 | A pixel-art building upgrade effect with configurable color and seed. |
 | Chopping impact | `fx/chopping-impact` | one-shot 0.8s | 48×48 | A quick edge flash kicks out sapwood chips and a little sawdust. |
+| coin burst | `fx/coin-burst` | one-shot 1.15s | 80×64 | A pixel-art coin burst effect with configurable color and seed. |
+| coin collect | `fx/coin-collect` | one-shot 1.15s | 80×64 | A pixel-art coin collect effect with configurable color and seed. |
+| coin drop | `fx/coin-drop` | one-shot 1.15s | 80×64 | A pixel-art coin drop effect with configurable color and seed. |
+| confetti | `fx/confetti` | one-shot 1.15s | 80×64 | A pixel-art confetti effect with configurable color and seed. |
+| construction dust | `fx/construction-dust` | one-shot 1.15s | 80×64 | A pixel-art construction dust effect with configurable color and seed. |
+| crafting complete | `fx/crafting-complete` | one-shot 1.15s | 80×64 | A pixel-art crafting complete effect with configurable color and seed. |
+| crafting progress | `fx/crafting-progress` | loop 2s | 80×64 | A pixel-art crafting progress effect with configurable color and seed. |
+| crafting start | `fx/crafting-start` | one-shot 1.15s | 80×64 | A pixel-art crafting start effect with configurable color and seed. |
+| crop growth | `fx/crop-growth` | one-shot 1.15s | 80×64 | A pixel-art crop growth effect with configurable color and seed. |
+| crop harvest | `fx/crop-harvest` | one-shot 1.15s | 80×64 | A pixel-art crop harvest effect with configurable color and seed. |
+| crop wither | `fx/crop-wither` | one-shot 1.15s | 80×64 | A pixel-art crop wither effect with configurable color and seed. |
+| crystal break | `fx/crystal-break` | one-shot 1.15s | 80×64 | A pixel-art crystal break effect with configurable color and seed. |
+| dash trail | `fx/dash-trail` | one-shot 1.15s | 80×64 | A pixel-art dash trail effect with configurable color and seed. |
 | Dust puff | `fx/dust` | one-shot 0.85s | 48×48 | A low, translucent puff of dry earth that spreads and clears. |
+| electric spark | `fx/electric-spark` | one-shot 1.15s | 80×64 | A pixel-art electric spark effect with configurable color and seed. |
+| energy restore | `fx/energy-restore` | one-shot 1.15s | 80×64 | A pixel-art energy restore effect with configurable color and seed. |
+| experience collect | `fx/experience-collect` | one-shot 1.15s | 80×64 | A pixel-art experience collect effect with configurable color and seed. |
+| experience drop | `fx/experience-drop` | one-shot 1.15s | 80×64 | A pixel-art experience drop effect with configurable color and seed. |
+| falling leaf burst | `fx/falling-leaf-burst` | one-shot 1.15s | 80×64 | A pixel-art falling leaf burst effect with configurable color and seed. |
+| fertilizer sparkle | `fx/fertilizer-sparkle` | one-shot 1.15s | 80×64 | A pixel-art fertilizer sparkle effect with configurable color and seed. |
+| fishing bite | `fx/fishing-bite` | one-shot 1.15s | 80×64 | A pixel-art fishing bite effect with configurable color and seed. |
+| fishing catch | `fx/fishing-catch` | one-shot 1.15s | 80×64 | A pixel-art fishing catch effect with configurable color and seed. |
+| fishing ripple | `fx/fishing-ripple` | one-shot 1.15s | 80×64 | A pixel-art fishing ripple effect with configurable color and seed. |
+| floating text | `fx/floating-text` | one-shot 1.15s | 80×64 | A pixel-art floating text effect with configurable color and seed. |
 | Footsteps | `fx/footsteps` | one-shot 1.2s | 48×48 | Two alternating little boot prints that fade against the ground. |
 | Harvest sparkle | `fx/harvest-sparkle` | one-shot 0.8s | 48×48 | Gold and ivory stars pop outward to signal a ripe or collected crop. |
+| heal | `fx/heal` | one-shot 1.15s | 80×64 | A pixel-art heal effect with configurable color and seed. |
+| hunger warning | `fx/hunger-warning` | one-shot 1.15s | 80×64 | A pixel-art hunger warning effect with configurable color and seed. |
+| item bounce | `fx/item-bounce` | one-shot 1.15s | 80×64 | A pixel-art item bounce effect with configurable color and seed. |
+| item collect | `fx/item-collect` | one-shot 1.15s | 80×64 | A pixel-art item collect effect with configurable color and seed. |
+| item drop | `fx/item-drop` | one-shot 1.15s | 80×64 | A pixel-art item drop effect with configurable color and seed. |
+| item glow | `fx/item-glow` | loop 2s | 80×64 | A pixel-art item glow effect with configurable color and seed. |
+| item magnet | `fx/item-magnet` | one-shot 1.15s | 80×64 | A pixel-art item magnet effect with configurable color and seed. |
 | Item pickup | `fx/item-pickup` | one-shot 0.84s | 48×48 | A small golden token arcs up through a neat burst of pickup glints. |
+| legendary item drop | `fx/legendary-item-drop` | one-shot 1.15s | 80×64 | A pixel-art legendary item drop effect with configurable color and seed. |
+| level up | `fx/level-up` | one-shot 1.15s | 80×64 | A pixel-art level up effect with configurable color and seed. |
+| low energy warning | `fx/low-energy-warning` | one-shot 1.15s | 80×64 | A pixel-art low energy warning effect with configurable color and seed. |
+| machine overheat | `fx/machine-overheat` | loop 2s | 80×64 | A pixel-art machine overheat effect with configurable color and seed. |
+| machine smoke | `fx/machine-smoke` | loop 2s | 80×64 | A pixel-art machine smoke effect with configurable color and seed. |
+| machine steam | `fx/machine-steam` | loop 2s | 80×64 | A pixel-art machine steam effect with configurable color and seed. |
 | Mining impact | `fx/mining-impact` | one-shot 0.86s | 48×48 | Sharp fragments, a pale strike flash and dust mark a pick hitting stone. |
+| ore break | `fx/ore-break` | one-shot 1.15s | 80×64 | A pixel-art ore break effect with configurable color and seed. |
+| player shadow | `fx/player-shadow` | loop 2s | 80×64 | A pixel-art player shadow effect with configurable color and seed. |
+| portal swirl | `fx/portal-swirl` | loop 2s | 80×64 | A pixel-art portal swirl effect with configurable color and seed. |
+| power pulse | `fx/power-pulse` | one-shot 1.15s | 80×64 | A pixel-art power pulse effect with configurable color and seed. |
+| rare item drop | `fx/rare-item-drop` | one-shot 1.15s | 80×64 | A pixel-art rare item drop effect with configurable color and seed. |
+| recipe unlock | `fx/recipe-unlock` | one-shot 1.15s | 80×64 | A pixel-art recipe unlock effect with configurable color and seed. |
+| resource break | `fx/resource-break` | one-shot 1.15s | 80×64 | A pixel-art resource break effect with configurable color and seed. |
+| resource crack | `fx/resource-crack` | one-shot 1.15s | 80×64 | A pixel-art resource crack effect with configurable color and seed. |
+| resource hit | `fx/resource-hit` | one-shot 1.15s | 80×64 | A pixel-art resource hit effect with configurable color and seed. |
+| resource respawn | `fx/resource-respawn` | one-shot 1.15s | 80×64 | A pixel-art resource respawn effect with configurable color and seed. |
+| resource spawn | `fx/resource-spawn` | one-shot 1.15s | 80×64 | A pixel-art resource spawn effect with configurable color and seed. |
+| rock break | `fx/rock-break` | one-shot 1.15s | 80×64 | A pixel-art rock break effect with configurable color and seed. |
+| screen flash | `fx/screen-flash` | one-shot 1.15s | 320×180 | A pixel-art screen flash effect with configurable color and seed. |
 | Seed sprout pop | `fx/seed-pop` | one-shot 0.9s | 48×48 | A two-leaf sprout springs out of a little scattering of dry soil. |
+| skill unlock | `fx/skill-unlock` | one-shot 1.15s | 80×64 | A pixel-art skill unlock effect with configurable color and seed. |
+| smelting sparks | `fx/smelting-sparks` | one-shot 1.15s | 80×64 | A pixel-art smelting sparks effect with configurable color and seed. |
 | Chimney smoke | `fx/smoke` | loop 3.2s | 48×48 | A slow continuous plume of pale smoke rises, widens and fades. |
+| speed trail | `fx/speed-trail` | one-shot 1.15s | 80×64 | A pixel-art speed trail effect with configurable color and seed. |
+| swimming splash | `fx/swimming-splash` | one-shot 1.15s | 80×64 | A pixel-art swimming splash effect with configurable color and seed. |
+| teleport in | `fx/teleport-in` | one-shot 1.15s | 80×64 | A pixel-art teleport in effect with configurable color and seed. |
+| teleport out | `fx/teleport-out` | one-shot 1.15s | 80×64 | A pixel-art teleport out effect with configurable color and seed. |
+| tree fall dust | `fx/tree-fall-dust` | one-shot 1.15s | 80×64 | A pixel-art tree fall dust effect with configurable color and seed. |
+| tree shake | `fx/tree-shake` | one-shot 1.15s | 80×64 | A pixel-art tree shake effect with configurable color and seed. |
+| water ripple | `fx/water-ripple` | one-shot 1.15s | 80×64 | A pixel-art water ripple effect with configurable color and seed. |
 | Water splash | `fx/water-splash` | one-shot 0.9s | 48×48 | A shallow crown of water with arcing drops and two spreading rings. |
 | Watering droplets | `fx/watering-droplets` | one-shot 1.15s | 48×48 | A short arc of irrigation droplets lands in staggered twinkles. |
+| welding sparks | `fx/welding-sparks` | one-shot 1.15s | 80×64 | A pixel-art welding sparks effect with configurable color and seed. |
 
 ## ui
 

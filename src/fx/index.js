@@ -353,16 +353,87 @@ import * as weather_falling_leaves from "./weather/falling-leaves.js";
 import * as weather_fireflies from "./weather/fireflies.js";
 import * as weather_rain from "./weather/rain.js";
 import * as weather_snow from "./weather/snow.js";
+import * as fx_achievement_unlock from "./fx/achievement-unlock.js";
+import * as fx_animal_feed from "./fx/animal-feed.js";
+import * as fx_animal_heart from "./fx/animal-heart.js";
+import * as fx_animal_product_drop from "./fx/animal-product-drop.js";
+import * as fx_blueprint_unlock from "./fx/blueprint-unlock.js";
+import * as fx_buff_activate from "./fx/buff-activate.js";
+import * as fx_buff_expire from "./fx/buff-expire.js";
+import * as fx_build_complete from "./fx/build-complete.js";
+import * as fx_build_placement from "./fx/build-placement.js";
+import * as fx_build_preview from "./fx/build-preview.js";
+import * as fx_building_demolish from "./fx/building-demolish.js";
+import * as fx_building_upgrade from "./fx/building-upgrade.js";
 import * as fx_chopping_impact from "./fx/chopping-impact.js";
+import * as fx_coin_burst from "./fx/coin-burst.js";
+import * as fx_coin_collect from "./fx/coin-collect.js";
+import * as fx_coin_drop from "./fx/coin-drop.js";
+import * as fx_confetti from "./fx/confetti.js";
+import * as fx_construction_dust from "./fx/construction-dust.js";
+import * as fx_crafting_complete from "./fx/crafting-complete.js";
+import * as fx_crafting_progress from "./fx/crafting-progress.js";
+import * as fx_crafting_start from "./fx/crafting-start.js";
+import * as fx_crop_growth from "./fx/crop-growth.js";
+import * as fx_crop_harvest from "./fx/crop-harvest.js";
+import * as fx_crop_wither from "./fx/crop-wither.js";
+import * as fx_crystal_break from "./fx/crystal-break.js";
+import * as fx_dash_trail from "./fx/dash-trail.js";
 import * as fx_dust from "./fx/dust.js";
+import * as fx_electric_spark from "./fx/electric-spark.js";
+import * as fx_energy_restore from "./fx/energy-restore.js";
+import * as fx_experience_collect from "./fx/experience-collect.js";
+import * as fx_experience_drop from "./fx/experience-drop.js";
+import * as fx_falling_leaf_burst from "./fx/falling-leaf-burst.js";
+import * as fx_fertilizer_sparkle from "./fx/fertilizer-sparkle.js";
+import * as fx_fishing_bite from "./fx/fishing-bite.js";
+import * as fx_fishing_catch from "./fx/fishing-catch.js";
+import * as fx_fishing_ripple from "./fx/fishing-ripple.js";
+import * as fx_floating_text from "./fx/floating-text.js";
 import * as fx_footsteps from "./fx/footsteps.js";
 import * as fx_harvest_sparkle from "./fx/harvest-sparkle.js";
+import * as fx_heal from "./fx/heal.js";
+import * as fx_hunger_warning from "./fx/hunger-warning.js";
+import * as fx_item_bounce from "./fx/item-bounce.js";
+import * as fx_item_collect from "./fx/item-collect.js";
+import * as fx_item_drop from "./fx/item-drop.js";
+import * as fx_item_glow from "./fx/item-glow.js";
+import * as fx_item_magnet from "./fx/item-magnet.js";
 import * as fx_item_pickup from "./fx/item-pickup.js";
+import * as fx_legendary_item_drop from "./fx/legendary-item-drop.js";
+import * as fx_level_up from "./fx/level-up.js";
+import * as fx_low_energy_warning from "./fx/low-energy-warning.js";
+import * as fx_machine_overheat from "./fx/machine-overheat.js";
+import * as fx_machine_smoke from "./fx/machine-smoke.js";
+import * as fx_machine_steam from "./fx/machine-steam.js";
 import * as fx_mining_impact from "./fx/mining-impact.js";
+import * as fx_ore_break from "./fx/ore-break.js";
+import * as fx_player_shadow from "./fx/player-shadow.js";
+import * as fx_portal_swirl from "./fx/portal-swirl.js";
+import * as fx_power_pulse from "./fx/power-pulse.js";
+import * as fx_rare_item_drop from "./fx/rare-item-drop.js";
+import * as fx_recipe_unlock from "./fx/recipe-unlock.js";
+import * as fx_resource_break from "./fx/resource-break.js";
+import * as fx_resource_crack from "./fx/resource-crack.js";
+import * as fx_resource_hit from "./fx/resource-hit.js";
+import * as fx_resource_respawn from "./fx/resource-respawn.js";
+import * as fx_resource_spawn from "./fx/resource-spawn.js";
+import * as fx_rock_break from "./fx/rock-break.js";
+import * as fx_screen_flash from "./fx/screen-flash.js";
 import * as fx_seed_pop from "./fx/seed-pop.js";
+import * as fx_skill_unlock from "./fx/skill-unlock.js";
+import * as fx_smelting_sparks from "./fx/smelting-sparks.js";
 import * as fx_smoke from "./fx/smoke.js";
+import * as fx_speed_trail from "./fx/speed-trail.js";
+import * as fx_swimming_splash from "./fx/swimming-splash.js";
+import * as fx_teleport_in from "./fx/teleport-in.js";
+import * as fx_teleport_out from "./fx/teleport-out.js";
+import * as fx_tree_fall_dust from "./fx/tree-fall-dust.js";
+import * as fx_tree_shake from "./fx/tree-shake.js";
+import * as fx_water_ripple from "./fx/water-ripple.js";
 import * as fx_water_splash from "./fx/water-splash.js";
 import * as fx_watering_droplets from "./fx/watering-droplets.js";
+import * as fx_welding_sparks from "./fx/welding-sparks.js";
 import * as ui_calendar from "./ui/calendar.js";
 import * as ui_crafting_menu from "./ui/crafting-menu.js";
 import * as ui_currency from "./ui/currency.js";
@@ -1404,16 +1475,87 @@ export const effects = {
   "weather/fireflies": weather_fireflies,
   "weather/rain": weather_rain,
   "weather/snow": weather_snow,
+  "fx/achievement-unlock": fx_achievement_unlock,
+  "fx/animal-feed": fx_animal_feed,
+  "fx/animal-heart": fx_animal_heart,
+  "fx/animal-product-drop": fx_animal_product_drop,
+  "fx/blueprint-unlock": fx_blueprint_unlock,
+  "fx/buff-activate": fx_buff_activate,
+  "fx/buff-expire": fx_buff_expire,
+  "fx/build-complete": fx_build_complete,
+  "fx/build-placement": fx_build_placement,
+  "fx/build-preview": fx_build_preview,
+  "fx/building-demolish": fx_building_demolish,
+  "fx/building-upgrade": fx_building_upgrade,
   "fx/chopping-impact": fx_chopping_impact,
+  "fx/coin-burst": fx_coin_burst,
+  "fx/coin-collect": fx_coin_collect,
+  "fx/coin-drop": fx_coin_drop,
+  "fx/confetti": fx_confetti,
+  "fx/construction-dust": fx_construction_dust,
+  "fx/crafting-complete": fx_crafting_complete,
+  "fx/crafting-progress": fx_crafting_progress,
+  "fx/crafting-start": fx_crafting_start,
+  "fx/crop-growth": fx_crop_growth,
+  "fx/crop-harvest": fx_crop_harvest,
+  "fx/crop-wither": fx_crop_wither,
+  "fx/crystal-break": fx_crystal_break,
+  "fx/dash-trail": fx_dash_trail,
   "fx/dust": fx_dust,
+  "fx/electric-spark": fx_electric_spark,
+  "fx/energy-restore": fx_energy_restore,
+  "fx/experience-collect": fx_experience_collect,
+  "fx/experience-drop": fx_experience_drop,
+  "fx/falling-leaf-burst": fx_falling_leaf_burst,
+  "fx/fertilizer-sparkle": fx_fertilizer_sparkle,
+  "fx/fishing-bite": fx_fishing_bite,
+  "fx/fishing-catch": fx_fishing_catch,
+  "fx/fishing-ripple": fx_fishing_ripple,
+  "fx/floating-text": fx_floating_text,
   "fx/footsteps": fx_footsteps,
   "fx/harvest-sparkle": fx_harvest_sparkle,
+  "fx/heal": fx_heal,
+  "fx/hunger-warning": fx_hunger_warning,
+  "fx/item-bounce": fx_item_bounce,
+  "fx/item-collect": fx_item_collect,
+  "fx/item-drop": fx_item_drop,
+  "fx/item-glow": fx_item_glow,
+  "fx/item-magnet": fx_item_magnet,
   "fx/item-pickup": fx_item_pickup,
+  "fx/legendary-item-drop": fx_legendary_item_drop,
+  "fx/level-up": fx_level_up,
+  "fx/low-energy-warning": fx_low_energy_warning,
+  "fx/machine-overheat": fx_machine_overheat,
+  "fx/machine-smoke": fx_machine_smoke,
+  "fx/machine-steam": fx_machine_steam,
   "fx/mining-impact": fx_mining_impact,
+  "fx/ore-break": fx_ore_break,
+  "fx/player-shadow": fx_player_shadow,
+  "fx/portal-swirl": fx_portal_swirl,
+  "fx/power-pulse": fx_power_pulse,
+  "fx/rare-item-drop": fx_rare_item_drop,
+  "fx/recipe-unlock": fx_recipe_unlock,
+  "fx/resource-break": fx_resource_break,
+  "fx/resource-crack": fx_resource_crack,
+  "fx/resource-hit": fx_resource_hit,
+  "fx/resource-respawn": fx_resource_respawn,
+  "fx/resource-spawn": fx_resource_spawn,
+  "fx/rock-break": fx_rock_break,
+  "fx/screen-flash": fx_screen_flash,
   "fx/seed-pop": fx_seed_pop,
+  "fx/skill-unlock": fx_skill_unlock,
+  "fx/smelting-sparks": fx_smelting_sparks,
   "fx/smoke": fx_smoke,
+  "fx/speed-trail": fx_speed_trail,
+  "fx/swimming-splash": fx_swimming_splash,
+  "fx/teleport-in": fx_teleport_in,
+  "fx/teleport-out": fx_teleport_out,
+  "fx/tree-fall-dust": fx_tree_fall_dust,
+  "fx/tree-shake": fx_tree_shake,
+  "fx/water-ripple": fx_water_ripple,
   "fx/water-splash": fx_water_splash,
   "fx/watering-droplets": fx_watering_droplets,
+  "fx/welding-sparks": fx_welding_sparks,
   "ui/calendar": ui_calendar,
   "ui/crafting-menu": ui_crafting_menu,
   "ui/currency": ui_currency,
