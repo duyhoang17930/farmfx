@@ -1,6 +1,6 @@
 # Catalog
 
-574 effects in 18 categories. Every one is a file in
+605 effects in 19 categories. Every one is a file in
 `src/fx/<category>/<name>.js`; render any of them with `node tools/render.mjs <id> --gif`.
 
 ## characters
@@ -702,3 +702,41 @@ island explorer movement and action clips.
 | waking up | `player/waking-up` | one-shot 0.87s | 64×64 | Island explorer waking up in four directions. |
 | walk | `player/walk` | loop 0.8s | 64×64 | Island explorer walk in four directions. |
 | watering | `player/watering` | one-shot 1.13s | 64×64 | Island explorer watering in four directions. |
+
+## weapons
+
+fantasy weapon and shield sprites.
+
+| effect | id | | size | what it does |
+|---|---|---|---|---|
+| arrow | `weapons/arrow` | loop 1s | 48×48 | A fletched game arrow with a colored tip. |
+| battle axe | `weapons/battle-axe` | loop 1s | 48×48 | A two-handed pole weapon with an outlined steel head. |
+| boomerang | `weapons/boomerang` | loop 1s | 48×48 | A curved wooden boomerang with capped tips. |
+| copper sword | `weapons/copper-sword` | loop 1s | 48×48 | An outlined blade with a beveled edge and wrapped grip. |
+| crossbow | `weapons/crossbow` | loop 1s | 48×48 | A curved game bow with a taut string and grip. |
+| crystal shield | `weapons/crystal-shield` | loop 1s | 48×48 | A beveled shield with a colored crest and riveted rim. |
+| crystal sword | `weapons/crystal-sword` | loop 1s | 48×48 | An outlined blade with a beveled edge and wrapped grip. |
+| dagger | `weapons/dagger` | loop 1s | 48×48 | An outlined blade with a beveled edge and wrapped grip. |
+| explosive arrow | `weapons/explosive-arrow` | loop 1s | 48×48 | A fletched game arrow with a colored tip. |
+| fire arrow | `weapons/fire-arrow` | loop 1s | 48×48 | A fletched game arrow with a colored tip. |
+| fire staff | `weapons/fire-staff` | loop 1s | 48×48 | A fantasy casting implement with a faceted focus. |
+| golden shield | `weapons/golden-shield` | loop 1s | 48×48 | A beveled shield with a colored crest and riveted rim. |
+| golden sword | `weapons/golden-sword` | loop 1s | 48×48 | An outlined blade with a beveled edge and wrapped grip. |
+| greatsword | `weapons/greatsword` | loop 1s | 48×48 | An outlined blade with a beveled edge and wrapped grip. |
+| ice arrow | `weapons/ice-arrow` | loop 1s | 48×48 | A fletched game arrow with a colored tip. |
+| ice staff | `weapons/ice-staff` | loop 1s | 48×48 | A fantasy casting implement with a faceted focus. |
+| iron shield | `weapons/iron-shield` | loop 1s | 48×48 | A beveled shield with a colored crest and riveted rim. |
+| iron sword | `weapons/iron-sword` | loop 1s | 48×48 | An outlined blade with a beveled edge and wrapped grip. |
+| lightning staff | `weapons/lightning-staff` | loop 1s | 48×48 | A fantasy casting implement with a faceted focus. |
+| longbow | `weapons/longbow` | loop 1s | 48×48 | A curved game bow with a taut string and grip. |
+| magic bow | `weapons/magic-bow` | loop 1s | 48×48 | A curved game bow with a taut string and grip. |
+| magic staff | `weapons/magic-staff` | loop 1s | 48×48 | A fantasy casting implement with a faceted focus. |
+| magic wand | `weapons/magic-wand` | loop 1s | 48×48 | A fantasy casting implement with a faceted focus. |
+| obsidian sword | `weapons/obsidian-sword` | loop 1s | 48×48 | An outlined blade with a beveled edge and wrapped grip. |
+| poison staff | `weapons/poison-staff` | loop 1s | 48×48 | A fantasy casting implement with a faceted focus. |
+| spear | `weapons/spear` | loop 1s | 48×48 | A two-handed pole weapon with an outlined steel head. |
+| steel sword | `weapons/steel-sword` | loop 1s | 48×48 | An outlined blade with a beveled edge and wrapped grip. |
+| stone sword | `weapons/stone-sword` | loop 1s | 48×48 | An outlined blade with a beveled edge and wrapped grip. |
+| wooden bow | `weapons/wooden-bow` | loop 1s | 48×48 | A curved game bow with a taut string and grip. |
+| wooden shield | `weapons/wooden-shield` | loop 1s | 48×48 | A beveled shield with a colored crest and riveted rim. |
+| wooden sword | `weapons/wooden-sword` | loop 1s | 48×48 | An outlined blade with a beveled edge and wrapped grip. |

@@ -1,6 +1,6 @@
 # farmfx.
 
-**<!-- count -->574<!-- /count --> pixel art assets and animations for farming games, every one a small piece of
+**<!-- count -->605<!-- /count --> pixel art assets and animations for farming games, every one a small piece of
 code.** Crops that grow from seed to harvest, animals going about their day, tilled and watered soil, weather and
 seasons, and a farmer who hoes, waters, sows and harvests. Play them live, recolor them for another season, drop
 them into a browser game, or export sprite sheets for any engine.
@@ -50,6 +50,7 @@ system, with a library made for farms instead of fights.
 | **machines** | 45 | advanced furnace, alchemy station, anvil, assembly machine, auto collector, auto feeder… |
 | **items** | 229 | animal feed, beeswax, butter, cheese, cream, egg… |
 | **player** | 50 | axe swing, bow aim, bow shoot, building, celebration, climbing… |
+| **weapons** | 31 | arrow, battle axe, boomerang, copper sword, crossbow, crystal shield… |
 <!-- /catalog -->
 
 The [asset index](ASSETS.md) links to every source file and available GIF preview. The [catalog](docs/CATALOG.md)

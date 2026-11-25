@@ -1,6 +1,6 @@
 # FarmFX assets
 
-574 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
+605 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
 
 ## Characters (20)
 
@@ -665,3 +665,39 @@
 | waking up | [`player/waking-up`](src/fx/player/waking-up.js) | — |
 | walk | [`player/walk`](src/fx/player/walk.js) | — |
 | watering | [`player/watering`](src/fx/player/watering.js) | — |
+
+## Weapons (31)
+
+| Asset | ID | Preview |
+| --- | --- | --- |
+| arrow | [`weapons/arrow`](src/fx/weapons/arrow.js) | — |
+| battle axe | [`weapons/battle-axe`](src/fx/weapons/battle-axe.js) | — |
+| boomerang | [`weapons/boomerang`](src/fx/weapons/boomerang.js) | — |
+| copper sword | [`weapons/copper-sword`](src/fx/weapons/copper-sword.js) | — |
+| crossbow | [`weapons/crossbow`](src/fx/weapons/crossbow.js) | — |
+| crystal shield | [`weapons/crystal-shield`](src/fx/weapons/crystal-shield.js) | — |
+| crystal sword | [`weapons/crystal-sword`](src/fx/weapons/crystal-sword.js) | — |
+| dagger | [`weapons/dagger`](src/fx/weapons/dagger.js) | — |
+| explosive arrow | [`weapons/explosive-arrow`](src/fx/weapons/explosive-arrow.js) | — |
+| fire arrow | [`weapons/fire-arrow`](src/fx/weapons/fire-arrow.js) | — |
+| fire staff | [`weapons/fire-staff`](src/fx/weapons/fire-staff.js) | — |
+| golden shield | [`weapons/golden-shield`](src/fx/weapons/golden-shield.js) | — |
+| golden sword | [`weapons/golden-sword`](src/fx/weapons/golden-sword.js) | — |
+| greatsword | [`weapons/greatsword`](src/fx/weapons/greatsword.js) | — |
+| ice arrow | [`weapons/ice-arrow`](src/fx/weapons/ice-arrow.js) | — |
+| ice staff | [`weapons/ice-staff`](src/fx/weapons/ice-staff.js) | — |
+| iron shield | [`weapons/iron-shield`](src/fx/weapons/iron-shield.js) | — |
+| iron sword | [`weapons/iron-sword`](src/fx/weapons/iron-sword.js) | — |
+| lightning staff | [`weapons/lightning-staff`](src/fx/weapons/lightning-staff.js) | — |
+| longbow | [`weapons/longbow`](src/fx/weapons/longbow.js) | — |
+| magic bow | [`weapons/magic-bow`](src/fx/weapons/magic-bow.js) | — |
+| magic staff | [`weapons/magic-staff`](src/fx/weapons/magic-staff.js) | — |
+| magic wand | [`weapons/magic-wand`](src/fx/weapons/magic-wand.js) | — |
+| obsidian sword | [`weapons/obsidian-sword`](src/fx/weapons/obsidian-sword.js) | — |
+| poison staff | [`weapons/poison-staff`](src/fx/weapons/poison-staff.js) | — |
+| spear | [`weapons/spear`](src/fx/weapons/spear.js) | — |
+| steel sword | [`weapons/steel-sword`](src/fx/weapons/steel-sword.js) | — |
+| stone sword | [`weapons/stone-sword`](src/fx/weapons/stone-sword.js) | — |
+| wooden bow | [`weapons/wooden-bow`](src/fx/weapons/wooden-bow.js) | — |
+| wooden shield | [`weapons/wooden-shield`](src/fx/weapons/wooden-shield.js) | — |
+| wooden sword | [`weapons/wooden-sword`](src/fx/weapons/wooden-sword.js) | — |

@@ -574,6 +574,37 @@ import * as player_teleport from "./player/teleport.js";
 import * as player_waking_up from "./player/waking-up.js";
 import * as player_walk from "./player/walk.js";
 import * as player_watering from "./player/watering.js";
+import * as weapons_arrow from "./weapons/arrow.js";
+import * as weapons_battle_axe from "./weapons/battle-axe.js";
+import * as weapons_boomerang from "./weapons/boomerang.js";
+import * as weapons_copper_sword from "./weapons/copper-sword.js";
+import * as weapons_crossbow from "./weapons/crossbow.js";
+import * as weapons_crystal_shield from "./weapons/crystal-shield.js";
+import * as weapons_crystal_sword from "./weapons/crystal-sword.js";
+import * as weapons_dagger from "./weapons/dagger.js";
+import * as weapons_explosive_arrow from "./weapons/explosive-arrow.js";
+import * as weapons_fire_arrow from "./weapons/fire-arrow.js";
+import * as weapons_fire_staff from "./weapons/fire-staff.js";
+import * as weapons_golden_shield from "./weapons/golden-shield.js";
+import * as weapons_golden_sword from "./weapons/golden-sword.js";
+import * as weapons_greatsword from "./weapons/greatsword.js";
+import * as weapons_ice_arrow from "./weapons/ice-arrow.js";
+import * as weapons_ice_staff from "./weapons/ice-staff.js";
+import * as weapons_iron_shield from "./weapons/iron-shield.js";
+import * as weapons_iron_sword from "./weapons/iron-sword.js";
+import * as weapons_lightning_staff from "./weapons/lightning-staff.js";
+import * as weapons_longbow from "./weapons/longbow.js";
+import * as weapons_magic_bow from "./weapons/magic-bow.js";
+import * as weapons_magic_staff from "./weapons/magic-staff.js";
+import * as weapons_magic_wand from "./weapons/magic-wand.js";
+import * as weapons_obsidian_sword from "./weapons/obsidian-sword.js";
+import * as weapons_poison_staff from "./weapons/poison-staff.js";
+import * as weapons_spear from "./weapons/spear.js";
+import * as weapons_steel_sword from "./weapons/steel-sword.js";
+import * as weapons_stone_sword from "./weapons/stone-sword.js";
+import * as weapons_wooden_bow from "./weapons/wooden-bow.js";
+import * as weapons_wooden_shield from "./weapons/wooden-shield.js";
+import * as weapons_wooden_sword from "./weapons/wooden-sword.js";
 
 export { categories } from "./categories.js";
 
@@ -1152,4 +1183,35 @@ export const effects = {
   "player/waking-up": player_waking_up,
   "player/walk": player_walk,
   "player/watering": player_watering,
+  "weapons/arrow": weapons_arrow,
+  "weapons/battle-axe": weapons_battle_axe,
+  "weapons/boomerang": weapons_boomerang,
+  "weapons/copper-sword": weapons_copper_sword,
+  "weapons/crossbow": weapons_crossbow,
+  "weapons/crystal-shield": weapons_crystal_shield,
+  "weapons/crystal-sword": weapons_crystal_sword,
+  "weapons/dagger": weapons_dagger,
+  "weapons/explosive-arrow": weapons_explosive_arrow,
+  "weapons/fire-arrow": weapons_fire_arrow,
+  "weapons/fire-staff": weapons_fire_staff,
+  "weapons/golden-shield": weapons_golden_shield,
+  "weapons/golden-sword": weapons_golden_sword,
+  "weapons/greatsword": weapons_greatsword,
+  "weapons/ice-arrow": weapons_ice_arrow,
+  "weapons/ice-staff": weapons_ice_staff,
+  "weapons/iron-shield": weapons_iron_shield,
+  "weapons/iron-sword": weapons_iron_sword,
+  "weapons/lightning-staff": weapons_lightning_staff,
+  "weapons/longbow": weapons_longbow,
+  "weapons/magic-bow": weapons_magic_bow,
+  "weapons/magic-staff": weapons_magic_staff,
+  "weapons/magic-wand": weapons_magic_wand,
+  "weapons/obsidian-sword": weapons_obsidian_sword,
+  "weapons/poison-staff": weapons_poison_staff,
+  "weapons/spear": weapons_spear,
+  "weapons/steel-sword": weapons_steel_sword,
+  "weapons/stone-sword": weapons_stone_sword,
+  "weapons/wooden-bow": weapons_wooden_bow,
+  "weapons/wooden-shield": weapons_wooden_shield,
+  "weapons/wooden-sword": weapons_wooden_sword,
 };
