@@ -567,6 +567,24 @@ import * as ui_menus_skill_tree from "./ui/menus/skill-tree.js";
 import * as ui_menus_trade_menu from "./ui/menus/trade-menu.js";
 import * as ui_menus_upgrade_menu from "./ui/menus/upgrade-menu.js";
 import * as ui_menus_world_map from "./ui/menus/world-map.js";
+import * as ui_notifications_achievement_toast from "./ui/notifications/achievement-toast.js";
+import * as ui_notifications_building_complete_toast from "./ui/notifications/building-complete-toast.js";
+import * as ui_notifications_crafting_complete_toast from "./ui/notifications/crafting-complete-toast.js";
+import * as ui_notifications_error_toast from "./ui/notifications/error-toast.js";
+import * as ui_notifications_insufficient_gold_toast from "./ui/notifications/insufficient-gold-toast.js";
+import * as ui_notifications_insufficient_resource_toast from "./ui/notifications/insufficient-resource-toast.js";
+import * as ui_notifications_inventory_full_toast from "./ui/notifications/inventory-full-toast.js";
+import * as ui_notifications_island_unlock_toast from "./ui/notifications/island-unlock-toast.js";
+import * as ui_notifications_level_up_toast from "./ui/notifications/level-up-toast.js";
+import * as ui_notifications_new_biome_toast from "./ui/notifications/new-biome-toast.js";
+import * as ui_notifications_quest_complete_toast from "./ui/notifications/quest-complete-toast.js";
+import * as ui_notifications_quest_start_toast from "./ui/notifications/quest-start-toast.js";
+import * as ui_notifications_rare_item_toast from "./ui/notifications/rare-item-toast.js";
+import * as ui_notifications_recipe_unlock_toast from "./ui/notifications/recipe-unlock-toast.js";
+import * as ui_notifications_save_success_toast from "./ui/notifications/save-success-toast.js";
+import * as ui_notifications_skill_unlock_toast from "./ui/notifications/skill-unlock-toast.js";
+import * as ui_notifications_tutorial_popup from "./ui/notifications/tutorial-popup.js";
+import * as ui_notifications_warning_toast from "./ui/notifications/warning-toast.js";
 import * as ui_pickup_toast from "./ui/pickup-toast.js";
 import * as ui_quest_marker from "./ui/quest-marker.js";
 import * as ui_shop_interface from "./ui/shop-interface.js";
@@ -1811,6 +1829,24 @@ export const effects = {
   "ui/menus/trade-menu": ui_menus_trade_menu,
   "ui/menus/upgrade-menu": ui_menus_upgrade_menu,
   "ui/menus/world-map": ui_menus_world_map,
+  "ui/notifications/achievement-toast": ui_notifications_achievement_toast,
+  "ui/notifications/building-complete-toast": ui_notifications_building_complete_toast,
+  "ui/notifications/crafting-complete-toast": ui_notifications_crafting_complete_toast,
+  "ui/notifications/error-toast": ui_notifications_error_toast,
+  "ui/notifications/insufficient-gold-toast": ui_notifications_insufficient_gold_toast,
+  "ui/notifications/insufficient-resource-toast": ui_notifications_insufficient_resource_toast,
+  "ui/notifications/inventory-full-toast": ui_notifications_inventory_full_toast,
+  "ui/notifications/island-unlock-toast": ui_notifications_island_unlock_toast,
+  "ui/notifications/level-up-toast": ui_notifications_level_up_toast,
+  "ui/notifications/new-biome-toast": ui_notifications_new_biome_toast,
+  "ui/notifications/quest-complete-toast": ui_notifications_quest_complete_toast,
+  "ui/notifications/quest-start-toast": ui_notifications_quest_start_toast,
+  "ui/notifications/rare-item-toast": ui_notifications_rare_item_toast,
+  "ui/notifications/recipe-unlock-toast": ui_notifications_recipe_unlock_toast,
+  "ui/notifications/save-success-toast": ui_notifications_save_success_toast,
+  "ui/notifications/skill-unlock-toast": ui_notifications_skill_unlock_toast,
+  "ui/notifications/tutorial-popup": ui_notifications_tutorial_popup,
+  "ui/notifications/warning-toast": ui_notifications_warning_toast,
   "ui/pickup-toast": ui_pickup_toast,
   "ui/quest-marker": ui_quest_marker,
   "ui/shop-interface": ui_shop_interface,

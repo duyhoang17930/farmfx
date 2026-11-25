@@ -1,6 +1,6 @@
 # Catalog
 
-1240 effects in 25 categories. Every one is a file in
+1258 effects in 25 categories. Every one is a file in
 `src/fx/<category>/<name>.js`; render any of them with `node tools/render.mjs <id> --gif`.
 
 ## characters
@@ -660,6 +660,24 @@ pixel HUD, inventory icons, menus, dialogue and notifications.
 | trade menu | `ui/menus/trade-menu` | loop 1s | 192×144 | A configurable trade menu panel with selection and display data. |
 | upgrade menu | `ui/menus/upgrade-menu` | loop 1s | 192×144 | A configurable upgrade menu panel with selection and display data. |
 | world map | `ui/menus/world-map` | loop 1s | 192×144 | A configurable world map panel with selection and display data. |
+| achievement toast | `ui/notifications/achievement-toast` | one-shot 2.4s | 192×72 | A one-shot achievement toast with editable message and icon. |
+| building complete toast | `ui/notifications/building-complete-toast` | one-shot 2.4s | 192×72 | A one-shot building complete toast with editable message and icon. |
+| crafting complete toast | `ui/notifications/crafting-complete-toast` | one-shot 2.4s | 192×72 | A one-shot crafting complete toast with editable message and icon. |
+| error toast | `ui/notifications/error-toast` | one-shot 2.4s | 192×72 | A one-shot error toast with editable message and icon. |
+| insufficient gold toast | `ui/notifications/insufficient-gold-toast` | one-shot 2.4s | 192×72 | A one-shot insufficient gold toast with editable message and icon. |
+| insufficient resource toast | `ui/notifications/insufficient-resource-toast` | one-shot 2.4s | 192×72 | A one-shot insufficient resource toast with editable message and icon. |
+| inventory full toast | `ui/notifications/inventory-full-toast` | one-shot 2.4s | 192×72 | A one-shot inventory full toast with editable message and icon. |
+| island unlock toast | `ui/notifications/island-unlock-toast` | one-shot 2.4s | 192×72 | A one-shot island unlock toast with editable message and icon. |
+| level up toast | `ui/notifications/level-up-toast` | one-shot 2.4s | 192×72 | A one-shot level up toast with editable message and icon. |
+| new biome toast | `ui/notifications/new-biome-toast` | one-shot 2.4s | 192×72 | A one-shot new biome toast with editable message and icon. |
+| quest complete toast | `ui/notifications/quest-complete-toast` | one-shot 2.4s | 192×72 | A one-shot quest complete toast with editable message and icon. |
+| quest start toast | `ui/notifications/quest-start-toast` | one-shot 2.4s | 192×72 | A one-shot quest start toast with editable message and icon. |
+| rare item toast | `ui/notifications/rare-item-toast` | one-shot 2.4s | 192×72 | A one-shot rare item toast with editable message and icon. |
+| recipe unlock toast | `ui/notifications/recipe-unlock-toast` | one-shot 2.4s | 192×72 | A one-shot recipe unlock toast with editable message and icon. |
+| save success toast | `ui/notifications/save-success-toast` | one-shot 2.4s | 192×72 | A one-shot save success toast with editable message and icon. |
+| skill unlock toast | `ui/notifications/skill-unlock-toast` | one-shot 2.4s | 192×72 | A one-shot skill unlock toast with editable message and icon. |
+| tutorial popup | `ui/notifications/tutorial-popup` | one-shot 2.4s | 192×72 | A one-shot tutorial popup with editable message and icon. |
+| warning toast | `ui/notifications/warning-toast` | one-shot 2.4s | 192×72 | A one-shot warning toast with editable message and icon. |
 | Pickup toast | `ui/pickup-toast` | one-shot 1.4s | 112×48 | A short pickup notification with a configurable item, name and quantity. |
 | Quest marker | `ui/quest-marker` | loop 2.4s | 32×32 | A bobbing quest pin that can display a new quest, a hint or a completed check. |
 | Shop interface | `ui/shop-interface` | loop 2.4s | 128×96 | A shop panel with editable stock, prices, gold total and highlighted row. |

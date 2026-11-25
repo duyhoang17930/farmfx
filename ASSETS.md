@@ -1,6 +1,6 @@
 # FarmFX assets
 
-1240 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
+1258 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
 
 ## Characters (20)
 
@@ -521,7 +521,7 @@
 | Watering droplets | [`fx/watering-droplets`](src/fx/fx/watering-droplets.js) | [GIF](docs/preview/fx-watering-droplets.gif) |
 | welding sparks | [`fx/welding-sparks`](src/fx/fx/welding-sparks.js) | — |
 
-## Ui (112)
+## Ui (130)
 
 | Asset | ID | Preview |
 | --- | --- | --- |
@@ -633,6 +633,24 @@
 | trade menu | [`ui/menus/trade-menu`](src/fx/ui/menus/trade-menu.js) | — |
 | upgrade menu | [`ui/menus/upgrade-menu`](src/fx/ui/menus/upgrade-menu.js) | — |
 | world map | [`ui/menus/world-map`](src/fx/ui/menus/world-map.js) | — |
+| achievement toast | [`ui/notifications/achievement-toast`](src/fx/ui/notifications/achievement-toast.js) | — |
+| building complete toast | [`ui/notifications/building-complete-toast`](src/fx/ui/notifications/building-complete-toast.js) | — |
+| crafting complete toast | [`ui/notifications/crafting-complete-toast`](src/fx/ui/notifications/crafting-complete-toast.js) | — |
+| error toast | [`ui/notifications/error-toast`](src/fx/ui/notifications/error-toast.js) | — |
+| insufficient gold toast | [`ui/notifications/insufficient-gold-toast`](src/fx/ui/notifications/insufficient-gold-toast.js) | — |
+| insufficient resource toast | [`ui/notifications/insufficient-resource-toast`](src/fx/ui/notifications/insufficient-resource-toast.js) | — |
+| inventory full toast | [`ui/notifications/inventory-full-toast`](src/fx/ui/notifications/inventory-full-toast.js) | — |
+| island unlock toast | [`ui/notifications/island-unlock-toast`](src/fx/ui/notifications/island-unlock-toast.js) | — |
+| level up toast | [`ui/notifications/level-up-toast`](src/fx/ui/notifications/level-up-toast.js) | — |
+| new biome toast | [`ui/notifications/new-biome-toast`](src/fx/ui/notifications/new-biome-toast.js) | — |
+| quest complete toast | [`ui/notifications/quest-complete-toast`](src/fx/ui/notifications/quest-complete-toast.js) | — |
+| quest start toast | [`ui/notifications/quest-start-toast`](src/fx/ui/notifications/quest-start-toast.js) | — |
+| rare item toast | [`ui/notifications/rare-item-toast`](src/fx/ui/notifications/rare-item-toast.js) | — |
+| recipe unlock toast | [`ui/notifications/recipe-unlock-toast`](src/fx/ui/notifications/recipe-unlock-toast.js) | — |
+| save success toast | [`ui/notifications/save-success-toast`](src/fx/ui/notifications/save-success-toast.js) | — |
+| skill unlock toast | [`ui/notifications/skill-unlock-toast`](src/fx/ui/notifications/skill-unlock-toast.js) | — |
+| tutorial popup | [`ui/notifications/tutorial-popup`](src/fx/ui/notifications/tutorial-popup.js) | — |
+| warning toast | [`ui/notifications/warning-toast`](src/fx/ui/notifications/warning-toast.js) | — |
 | Pickup toast | [`ui/pickup-toast`](src/fx/ui/pickup-toast.js) | [GIF](docs/preview/ui-pickup-toast.gif) |
 | Quest marker | [`ui/quest-marker`](src/fx/ui/quest-marker.js) | [GIF](docs/preview/ui-quest-marker.gif) |
 | Shop interface | [`ui/shop-interface`](src/fx/ui/shop-interface.js) | [GIF](docs/preview/ui-shop-interface.gif) |
