@@ -1,0 +1,722 @@
+[
+  {
+    "id": "gathering/wood-hit",
+    "path": "gathering/wood-hit.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 0.25002267573696146,
+    "loop": false
+  },
+  {
+    "id": "gathering/tree-fall",
+    "path": "gathering/tree-fall.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 1.4500226757369614,
+    "loop": false
+  },
+  {
+    "id": "gathering/stone-hit",
+    "path": "gathering/stone-hit.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 0.22,
+    "loop": false
+  },
+  {
+    "id": "gathering/stone-break",
+    "path": "gathering/stone-break.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 0.54,
+    "loop": false
+  },
+  {
+    "id": "gathering/ore-hit",
+    "path": "gathering/ore-hit.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 0.32,
+    "loop": false
+  },
+  {
+    "id": "gathering/ore-break",
+    "path": "gathering/ore-break.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 0.62,
+    "loop": false
+  },
+  {
+    "id": "gathering/crystal-break",
+    "path": "gathering/crystal-break.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 0.6500226757369615,
+    "loop": false
+  },
+  {
+    "id": "gathering/digging",
+    "path": "gathering/digging.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 0.4,
+    "loop": false
+  },
+  {
+    "id": "gathering/item-drop",
+    "path": "gathering/item-drop.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 0.24,
+    "loop": false
+  },
+  {
+    "id": "gathering/item-pickup",
+    "path": "gathering/item-pickup.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 0.25002267573696146,
+    "loop": false
+  },
+  {
+    "id": "farming/hoe-hit",
+    "path": "farming/hoe-hit.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 0.28,
+    "loop": false
+  },
+  {
+    "id": "farming/watering",
+    "path": "farming/watering.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 0.76,
+    "loop": false
+  },
+  {
+    "id": "farming/seed-plant",
+    "path": "farming/seed-plant.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 0.19002267573696144,
+    "loop": false
+  },
+  {
+    "id": "farming/crop-harvest",
+    "path": "farming/crop-harvest.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 0.34,
+    "loop": false
+  },
+  {
+    "id": "farming/animal-feed",
+    "path": "farming/animal-feed.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 0.42,
+    "loop": false
+  },
+  {
+    "id": "farming/fishing-cast",
+    "path": "farming/fishing-cast.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 0.5,
+    "loop": false
+  },
+  {
+    "id": "farming/fishing-bite",
+    "path": "farming/fishing-bite.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 0.3,
+    "loop": false
+  },
+  {
+    "id": "farming/fishing-catch",
+    "path": "farming/fishing-catch.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 0.48,
+    "loop": false
+  },
+  {
+    "id": "machines/furnace-loop",
+    "path": "machines/furnace-loop.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 2.2,
+    "loop": true
+  },
+  {
+    "id": "machines/sawmill-loop",
+    "path": "machines/sawmill-loop.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 2.2500226757369615,
+    "loop": true
+  },
+  {
+    "id": "machines/hammer-metal",
+    "path": "machines/hammer-metal.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 0.43002267573696146,
+    "loop": false
+  },
+  {
+    "id": "machines/machine-start",
+    "path": "machines/machine-start.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 0.7500226757369615,
+    "loop": false
+  },
+  {
+    "id": "machines/machine-stop",
+    "path": "machines/machine-stop.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 0.58,
+    "loop": false
+  },
+  {
+    "id": "machines/machine-working",
+    "path": "machines/machine-working.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 1.8,
+    "loop": true
+  },
+  {
+    "id": "machines/electric-hum",
+    "path": "machines/electric-hum.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 2,
+    "loop": true
+  },
+  {
+    "id": "machines/crafting-complete",
+    "path": "machines/crafting-complete.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 0.66,
+    "loop": false
+  },
+  {
+    "id": "combat/sword-swing",
+    "path": "combat/sword-swing.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 0.23002267573696145,
+    "loop": false
+  },
+  {
+    "id": "combat/sword-hit",
+    "path": "combat/sword-hit.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 0.32,
+    "loop": false
+  },
+  {
+    "id": "combat/arrow-shot",
+    "path": "combat/arrow-shot.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 0.22,
+    "loop": false
+  },
+  {
+    "id": "combat/arrow-hit",
+    "path": "combat/arrow-hit.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 0.28,
+    "loop": false
+  },
+  {
+    "id": "combat/shield-block",
+    "path": "combat/shield-block.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 0.4,
+    "loop": false
+  },
+  {
+    "id": "combat/critical-hit",
+    "path": "combat/critical-hit.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 0.5699773242630386,
+    "loop": false
+  },
+  {
+    "id": "combat/player-hurt",
+    "path": "combat/player-hurt.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 0.34,
+    "loop": false
+  },
+  {
+    "id": "combat/enemy-hurt",
+    "path": "combat/enemy-hurt.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 0.26,
+    "loop": false
+  },
+  {
+    "id": "combat/enemy-death",
+    "path": "combat/enemy-death.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 0.5900226757369614,
+    "loop": false
+  },
+  {
+    "id": "combat/explosion",
+    "path": "combat/explosion.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 1.1,
+    "loop": false
+  },
+  {
+    "id": "combat/magic-cast",
+    "path": "combat/magic-cast.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 0.78,
+    "loop": false
+  },
+  {
+    "id": "combat/boss-roar",
+    "path": "combat/boss-roar.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 1.36,
+    "loop": false
+  },
+  {
+    "id": "gameplay/footstep-grass",
+    "path": "gameplay/footstep-grass.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 0.17002267573696145,
+    "loop": false
+  },
+  {
+    "id": "gameplay/footstep-dirt",
+    "path": "gameplay/footstep-dirt.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 0.18,
+    "loop": false
+  },
+  {
+    "id": "gameplay/footstep-stone",
+    "path": "gameplay/footstep-stone.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 0.17002267573696145,
+    "loop": false
+  },
+  {
+    "id": "gameplay/footstep-sand",
+    "path": "gameplay/footstep-sand.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 0.19002267573696144,
+    "loop": false
+  },
+  {
+    "id": "gameplay/footstep-snow",
+    "path": "gameplay/footstep-snow.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 0.24,
+    "loop": false
+  },
+  {
+    "id": "gameplay/footstep-wood",
+    "path": "gameplay/footstep-wood.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 0.16,
+    "loop": false
+  },
+  {
+    "id": "gameplay/coin-pickup",
+    "path": "gameplay/coin-pickup.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 0.32,
+    "loop": false
+  },
+  {
+    "id": "gameplay/experience-pickup",
+    "path": "gameplay/experience-pickup.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 0.26,
+    "loop": false
+  },
+  {
+    "id": "gameplay/level-up",
+    "path": "gameplay/level-up.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 0.86,
+    "loop": false
+  },
+  {
+    "id": "gameplay/skill-unlock",
+    "path": "gameplay/skill-unlock.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 0.6500226757369615,
+    "loop": false
+  },
+  {
+    "id": "gameplay/island-unlock",
+    "path": "gameplay/island-unlock.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 1.06,
+    "loop": false
+  },
+  {
+    "id": "gameplay/chest-open",
+    "path": "gameplay/chest-open.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 0.47002267573696144,
+    "loop": false
+  },
+  {
+    "id": "gameplay/door-open",
+    "path": "gameplay/door-open.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 0.6899773242630386,
+    "loop": false
+  },
+  {
+    "id": "gameplay/building-placement",
+    "path": "gameplay/building-placement.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 0.36,
+    "loop": false
+  },
+  {
+    "id": "gameplay/teleport",
+    "path": "gameplay/teleport.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 0.6899773242630386,
+    "loop": false
+  },
+  {
+    "id": "gameplay/achievement",
+    "path": "gameplay/achievement.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 1.12,
+    "loop": false
+  },
+  {
+    "id": "ui/button-click",
+    "path": "ui/button-click.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 0.09501133786848072,
+    "loop": false
+  },
+  {
+    "id": "ui/button-hover",
+    "path": "ui/button-hover.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 0.10498866213151928,
+    "loop": false
+  },
+  {
+    "id": "ui/menu-open",
+    "path": "ui/menu-open.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 0.22,
+    "loop": false
+  },
+  {
+    "id": "ui/menu-close",
+    "path": "ui/menu-close.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 0.22,
+    "loop": false
+  },
+  {
+    "id": "ui/item-select",
+    "path": "ui/item-select.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 0.12,
+    "loop": false
+  },
+  {
+    "id": "ui/item-equip",
+    "path": "ui/item-equip.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 0.22,
+    "loop": false
+  },
+  {
+    "id": "ui/item-unequip",
+    "path": "ui/item-unequip.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 0.21002267573696146,
+    "loop": false
+  },
+  {
+    "id": "ui/notification",
+    "path": "ui/notification.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 0.4,
+    "loop": false
+  },
+  {
+    "id": "ui/success",
+    "path": "ui/success.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 0.43002267573696146,
+    "loop": false
+  },
+  {
+    "id": "ui/error",
+    "path": "ui/error.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 0.3300226757369614,
+    "loop": false
+  },
+  {
+    "id": "ambience/forest",
+    "path": "ambience/forest.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 7,
+    "loop": true
+  },
+  {
+    "id": "ambience/birds",
+    "path": "ambience/birds.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 6,
+    "loop": true
+  },
+  {
+    "id": "ambience/ocean",
+    "path": "ambience/ocean.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 8,
+    "loop": true
+  },
+  {
+    "id": "ambience/river",
+    "path": "ambience/river.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 6,
+    "loop": true
+  },
+  {
+    "id": "ambience/rain",
+    "path": "ambience/rain.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 6,
+    "loop": true
+  },
+  {
+    "id": "ambience/thunder",
+    "path": "ambience/thunder.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 8,
+    "loop": true
+  },
+  {
+    "id": "ambience/wind",
+    "path": "ambience/wind.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 7,
+    "loop": true
+  },
+  {
+    "id": "ambience/desert",
+    "path": "ambience/desert.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 8,
+    "loop": true
+  },
+  {
+    "id": "ambience/snowstorm",
+    "path": "ambience/snowstorm.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 7,
+    "loop": true
+  },
+  {
+    "id": "ambience/swamp",
+    "path": "ambience/swamp.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 8,
+    "loop": true
+  },
+  {
+    "id": "ambience/cave",
+    "path": "ambience/cave.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 7,
+    "loop": true
+  },
+  {
+    "id": "ambience/nighttime",
+    "path": "ambience/nighttime.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 8,
+    "loop": true
+  },
+  {
+    "id": "music/main-menu",
+    "path": "music/main-menu.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 10,
+    "loop": true
+  },
+  {
+    "id": "music/grassland",
+    "path": "music/grassland.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 8.727256235827664,
+    "loop": true
+  },
+  {
+    "id": "music/desert",
+    "path": "music/desert.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 9.056598639455782,
+    "loop": true
+  },
+  {
+    "id": "music/snowland",
+    "path": "music/snowland.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 12.1518820861678,
+    "loop": true
+  },
+  {
+    "id": "music/graveyard",
+    "path": "music/graveyard.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 13.333333333333334,
+    "loop": true
+  },
+  {
+    "id": "music/volcanic",
+    "path": "music/volcanic.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 8.275873015873016,
+    "loop": true
+  },
+  {
+    "id": "music/swamp",
+    "path": "music/swamp.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 11.16281179138322,
+    "loop": true
+  },
+  {
+    "id": "music/crystal-island",
+    "path": "music/crystal-island.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 10.549433106575965,
+    "loop": true
+  },
+  {
+    "id": "music/tropical-island",
+    "path": "music/tropical-island.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 8.571428571428571,
+    "loop": true
+  },
+  {
+    "id": "music/dungeon",
+    "path": "music/dungeon.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 11.428571428571429,
+    "loop": true
+  },
+  {
+    "id": "music/combat",
+    "path": "music/combat.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 7.164172335600907,
+    "loop": true
+  },
+  {
+    "id": "music/boss-battle",
+    "path": "music/boss-battle.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 7.5,
+    "loop": true
+  },
+  {
+    "id": "music/nighttime",
+    "path": "music/nighttime.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 12.97297052154195,
+    "loop": true
+  },
+  {
+    "id": "music/victory",
+    "path": "music/victory.wav",
+    "sampleRate": 22050,
+    "channels": 1,
+    "seconds": 7.619047619047619,
+    "loop": true
+  }
+]

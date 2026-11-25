@@ -333,6 +333,24 @@ Event times are in seconds from the start of the animation and also appear in ex
 `meta.farmfx.events`. Hoe exposes `contact`, sow exposes `release`, harvest exposes `pull`, and water exposes
 `pourStart` and `pourEnd`. Create a new effect instance to start another action.
 
+## adventure assets and audio
+
+The [catalog](docs/CATALOG.md) includes player clips, enemies, bosses, terrain, buildings, dungeon props, UI, and
+gameplay effects. Import the assets by their catalog IDs, or export PNG sprite sheets and GIF previews.
+
+```bash
+node tools/sheets.mjs player enemies bosses --release --out sheets/adventure
+node tools/render.mjs player/axe-swing combat/fireball transitions/circle-open --gif
+```
+
+Player sheets export four facings. Creature sheets export their state clips under each facing. See the sheet
+metadata for timing events and collision sizes. Connected tiles expose `edges` and `corners`, with matching
+named sheets where supported. For tiered tools, use `tier` from 1 through 8 to choose a material, or 0 for
+the default art.
+
+The [audio index](audio/game-audio.json) lists 90 original mono WAV files for gameplay, UI, ambience, and music.
+Use its `loop` flag to identify continuous cues. Run `node tools/game-audio.mjs` to regenerate the WAV files.
+
 ## make your own.
 
 ```bash
