@@ -1,6 +1,6 @@
 # Catalog
 
-1258 effects in 25 categories. Every one is a file in
+1306 effects in 26 categories. Every one is a file in
 `src/fx/<category>/<name>.js`; render any of them with `node tools/render.mjs <id> --gif`.
 
 ## characters
@@ -1435,3 +1435,58 @@ animated combat hits, spells, projectiles and status effects.
 | sword double slash | `combat/sword-double-slash` | one-shot 0.8s | 164×108 | A down cut, then an up cut that crosses it: the moment the X closes both strokes flash white, the crossing bursts with light and sparks, and a dotted X lingers. |
 | sword slash | `combat/sword-slash` | one-shot 0.75s | 136×104 | A tilted crescent whips round in two frames, cools from white to deep blue as it trails off, glints at the tip and throws sparks. |
 | sword spin | `combat/sword-spin` | one-shot 0.8s | 208×104 | The blade whirls once round the waist on a tilted plane, behind the body and back in front; the closed ring flares white, dissolves into a dotted trace and throws sparks. |
+
+## skills
+
+skill icons grouped by progression branch.
+
+| effect | id | | size | what it does |
+|---|---|---|---|---|
+| archery | `skills/combat/archery` | loop 1s | 32×32 | An inventory-scale emblem for the archery skill. |
+| attack speed | `skills/combat/attack-speed` | loop 1s | 32×32 | An inventory-scale emblem for the attack speed skill. |
+| critical strike | `skills/combat/critical-strike` | loop 1s | 32×32 | An inventory-scale emblem for the critical strike skill. |
+| defense | `skills/combat/defense` | loop 1s | 32×32 | An inventory-scale emblem for the defense skill. |
+| dodge | `skills/combat/dodge` | loop 1s | 32×32 | An inventory-scale emblem for the dodge skill. |
+| health boost | `skills/combat/health-boost` | loop 1s | 32×32 | An inventory-scale emblem for the health boost skill. |
+| regeneration | `skills/combat/regeneration` | loop 1s | 32×32 | An inventory-scale emblem for the regeneration skill. |
+| sword mastery | `skills/combat/sword-mastery` | loop 1s | 32×32 | An inventory-scale emblem for the sword mastery skill. |
+| banking | `skills/economy/banking` | loop 1s | 32×32 | An inventory-scale emblem for the banking skill. |
+| bargaining | `skills/economy/bargaining` | loop 1s | 32×32 | An inventory-scale emblem for the bargaining skill. |
+| cheaper crafting | `skills/economy/cheaper-crafting` | loop 1s | 32×32 | An inventory-scale emblem for the cheaper crafting skill. |
+| cheaper land | `skills/economy/cheaper-land` | loop 1s | 32×32 | An inventory-scale emblem for the cheaper land skill. |
+| coin production | `skills/economy/coin-production` | loop 1s | 32×32 | An inventory-scale emblem for the coin production skill. |
+| commerce | `skills/economy/commerce` | loop 1s | 32×32 | An inventory-scale emblem for the commerce skill. |
+| market expansion | `skills/economy/market-expansion` | loop 1s | 32×32 | An inventory-scale emblem for the market expansion skill. |
+| passive income | `skills/economy/passive-income` | loop 1s | 32×32 | An inventory-scale emblem for the passive income skill. |
+| agriculture | `skills/farming/agriculture` | loop 1s | 32×32 | An inventory-scale emblem for the agriculture skill. |
+| animal husbandry | `skills/farming/animal-husbandry` | loop 1s | 32×32 | An inventory-scale emblem for the animal husbandry skill. |
+| cooking | `skills/farming/cooking` | loop 1s | 32×32 | An inventory-scale emblem for the cooking skill. |
+| crop growth | `skills/farming/crop-growth` | loop 1s | 32×32 | An inventory-scale emblem for the crop growth skill. |
+| crop yield | `skills/farming/crop-yield` | loop 1s | 32×32 | An inventory-scale emblem for the crop yield skill. |
+| fertilization | `skills/farming/fertilization` | loop 1s | 32×32 | An inventory-scale emblem for the fertilization skill. |
+| fishing | `skills/farming/fishing` | loop 1s | 32×32 | An inventory-scale emblem for the fishing skill. |
+| irrigation | `skills/farming/irrigation` | loop 1s | 32×32 | An inventory-scale emblem for the irrigation skill. |
+| double drop | `skills/gathering/double-drop` | loop 1s | 32×32 | An inventory-scale emblem for the double drop skill. |
+| foraging | `skills/gathering/foraging` | loop 1s | 32×32 | An inventory-scale emblem for the foraging skill. |
+| gathering speed | `skills/gathering/gathering-speed` | loop 1s | 32×32 | An inventory-scale emblem for the gathering speed skill. |
+| mining | `skills/gathering/mining` | loop 1s | 32×32 | An inventory-scale emblem for the mining skill. |
+| rare resource | `skills/gathering/rare-resource` | loop 1s | 32×32 | An inventory-scale emblem for the rare resource skill. |
+| resource magnet | `skills/gathering/resource-magnet` | loop 1s | 32×32 | An inventory-scale emblem for the resource magnet skill. |
+| resource regrowth | `skills/gathering/resource-regrowth` | loop 1s | 32×32 | An inventory-scale emblem for the resource regrowth skill. |
+| woodcutting | `skills/gathering/woodcutting` | loop 1s | 32×32 | An inventory-scale emblem for the woodcutting skill. |
+| automation | `skills/industry/automation` | loop 1s | 32×32 | An inventory-scale emblem for the automation skill. |
+| crafting | `skills/industry/crafting` | loop 1s | 32×32 | An inventory-scale emblem for the crafting skill. |
+| electricity | `skills/industry/electricity` | loop 1s | 32×32 | An inventory-scale emblem for the electricity skill. |
+| engineering | `skills/industry/engineering` | loop 1s | 32×32 | An inventory-scale emblem for the engineering skill. |
+| mass production | `skills/industry/mass-production` | loop 1s | 32×32 | An inventory-scale emblem for the mass production skill. |
+| metallurgy | `skills/industry/metallurgy` | loop 1s | 32×32 | An inventory-scale emblem for the metallurgy skill. |
+| robotics | `skills/industry/robotics` | loop 1s | 32×32 | An inventory-scale emblem for the robotics skill. |
+| smelting | `skills/industry/smelting` | loop 1s | 32×32 | An inventory-scale emblem for the smelting skill. |
+| alchemy | `skills/magic/alchemy` | loop 1s | 32×32 | An inventory-scale emblem for the alchemy skill. |
+| enchanting | `skills/magic/enchanting` | loop 1s | 32×32 | An inventory-scale emblem for the enchanting skill. |
+| fire magic | `skills/magic/fire-magic` | loop 1s | 32×32 | An inventory-scale emblem for the fire magic skill. |
+| healing magic | `skills/magic/healing-magic` | loop 1s | 32×32 | An inventory-scale emblem for the healing magic skill. |
+| ice magic | `skills/magic/ice-magic` | loop 1s | 32×32 | An inventory-scale emblem for the ice magic skill. |
+| lightning magic | `skills/magic/lightning-magic` | loop 1s | 32×32 | An inventory-scale emblem for the lightning magic skill. |
+| summoning | `skills/magic/summoning` | loop 1s | 32×32 | An inventory-scale emblem for the summoning skill. |
+| teleportation | `skills/magic/teleportation` | loop 1s | 32×32 | An inventory-scale emblem for the teleportation skill. |

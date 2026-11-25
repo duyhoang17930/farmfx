@@ -1,6 +1,6 @@
 # FarmFX assets
 
-1258 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
+1306 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
 
 ## Characters (20)
 
@@ -1384,3 +1384,56 @@
 | sword double slash | [`combat/sword-double-slash`](src/fx/combat/sword-double-slash.js) | — |
 | sword slash | [`combat/sword-slash`](src/fx/combat/sword-slash.js) | — |
 | sword spin | [`combat/sword-spin`](src/fx/combat/sword-spin.js) | — |
+
+## Skills (48)
+
+| Asset | ID | Preview |
+| --- | --- | --- |
+| archery | [`skills/combat/archery`](src/fx/skills/combat/archery.js) | — |
+| attack speed | [`skills/combat/attack-speed`](src/fx/skills/combat/attack-speed.js) | — |
+| critical strike | [`skills/combat/critical-strike`](src/fx/skills/combat/critical-strike.js) | — |
+| defense | [`skills/combat/defense`](src/fx/skills/combat/defense.js) | — |
+| dodge | [`skills/combat/dodge`](src/fx/skills/combat/dodge.js) | — |
+| health boost | [`skills/combat/health-boost`](src/fx/skills/combat/health-boost.js) | — |
+| regeneration | [`skills/combat/regeneration`](src/fx/skills/combat/regeneration.js) | — |
+| sword mastery | [`skills/combat/sword-mastery`](src/fx/skills/combat/sword-mastery.js) | — |
+| banking | [`skills/economy/banking`](src/fx/skills/economy/banking.js) | — |
+| bargaining | [`skills/economy/bargaining`](src/fx/skills/economy/bargaining.js) | — |
+| cheaper crafting | [`skills/economy/cheaper-crafting`](src/fx/skills/economy/cheaper-crafting.js) | — |
+| cheaper land | [`skills/economy/cheaper-land`](src/fx/skills/economy/cheaper-land.js) | — |
+| coin production | [`skills/economy/coin-production`](src/fx/skills/economy/coin-production.js) | — |
+| commerce | [`skills/economy/commerce`](src/fx/skills/economy/commerce.js) | — |
+| market expansion | [`skills/economy/market-expansion`](src/fx/skills/economy/market-expansion.js) | — |
+| passive income | [`skills/economy/passive-income`](src/fx/skills/economy/passive-income.js) | — |
+| agriculture | [`skills/farming/agriculture`](src/fx/skills/farming/agriculture.js) | — |
+| animal husbandry | [`skills/farming/animal-husbandry`](src/fx/skills/farming/animal-husbandry.js) | — |
+| cooking | [`skills/farming/cooking`](src/fx/skills/farming/cooking.js) | — |
+| crop growth | [`skills/farming/crop-growth`](src/fx/skills/farming/crop-growth.js) | — |
+| crop yield | [`skills/farming/crop-yield`](src/fx/skills/farming/crop-yield.js) | — |
+| fertilization | [`skills/farming/fertilization`](src/fx/skills/farming/fertilization.js) | — |
+| fishing | [`skills/farming/fishing`](src/fx/skills/farming/fishing.js) | — |
+| irrigation | [`skills/farming/irrigation`](src/fx/skills/farming/irrigation.js) | — |
+| double drop | [`skills/gathering/double-drop`](src/fx/skills/gathering/double-drop.js) | — |
+| foraging | [`skills/gathering/foraging`](src/fx/skills/gathering/foraging.js) | — |
+| gathering speed | [`skills/gathering/gathering-speed`](src/fx/skills/gathering/gathering-speed.js) | — |
+| mining | [`skills/gathering/mining`](src/fx/skills/gathering/mining.js) | — |
+| rare resource | [`skills/gathering/rare-resource`](src/fx/skills/gathering/rare-resource.js) | — |
+| resource magnet | [`skills/gathering/resource-magnet`](src/fx/skills/gathering/resource-magnet.js) | — |
+| resource regrowth | [`skills/gathering/resource-regrowth`](src/fx/skills/gathering/resource-regrowth.js) | — |
+| woodcutting | [`skills/gathering/woodcutting`](src/fx/skills/gathering/woodcutting.js) | — |
+| automation | [`skills/industry/automation`](src/fx/skills/industry/automation.js) | — |
+| crafting | [`skills/industry/crafting`](src/fx/skills/industry/crafting.js) | — |
+| electricity | [`skills/industry/electricity`](src/fx/skills/industry/electricity.js) | — |
+| engineering | [`skills/industry/engineering`](src/fx/skills/industry/engineering.js) | — |
+| mass production | [`skills/industry/mass-production`](src/fx/skills/industry/mass-production.js) | — |
+| metallurgy | [`skills/industry/metallurgy`](src/fx/skills/industry/metallurgy.js) | — |
+| robotics | [`skills/industry/robotics`](src/fx/skills/industry/robotics.js) | — |
+| smelting | [`skills/industry/smelting`](src/fx/skills/industry/smelting.js) | — |
+| alchemy | [`skills/magic/alchemy`](src/fx/skills/magic/alchemy.js) | — |
+| enchanting | [`skills/magic/enchanting`](src/fx/skills/magic/enchanting.js) | — |
+| fire magic | [`skills/magic/fire-magic`](src/fx/skills/magic/fire-magic.js) | — |
+| healing magic | [`skills/magic/healing-magic`](src/fx/skills/magic/healing-magic.js) | — |
+| ice magic | [`skills/magic/ice-magic`](src/fx/skills/magic/ice-magic.js) | — |
+| lightning magic | [`skills/magic/lightning-magic`](src/fx/skills/magic/lightning-magic.js) | — |
+| summoning | [`skills/magic/summoning`](src/fx/skills/magic/summoning.js) | — |
+| teleportation | [`skills/magic/teleportation`](src/fx/skills/magic/teleportation.js) | — |

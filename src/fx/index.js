@@ -1258,6 +1258,54 @@ import * as combat_stun_stars from "./combat/stun-stars.js";
 import * as combat_sword_double_slash from "./combat/sword-double-slash.js";
 import * as combat_sword_slash from "./combat/sword-slash.js";
 import * as combat_sword_spin from "./combat/sword-spin.js";
+import * as skills_combat_archery from "./skills/combat/archery.js";
+import * as skills_combat_attack_speed from "./skills/combat/attack-speed.js";
+import * as skills_combat_critical_strike from "./skills/combat/critical-strike.js";
+import * as skills_combat_defense from "./skills/combat/defense.js";
+import * as skills_combat_dodge from "./skills/combat/dodge.js";
+import * as skills_combat_health_boost from "./skills/combat/health-boost.js";
+import * as skills_combat_regeneration from "./skills/combat/regeneration.js";
+import * as skills_combat_sword_mastery from "./skills/combat/sword-mastery.js";
+import * as skills_economy_banking from "./skills/economy/banking.js";
+import * as skills_economy_bargaining from "./skills/economy/bargaining.js";
+import * as skills_economy_cheaper_crafting from "./skills/economy/cheaper-crafting.js";
+import * as skills_economy_cheaper_land from "./skills/economy/cheaper-land.js";
+import * as skills_economy_coin_production from "./skills/economy/coin-production.js";
+import * as skills_economy_commerce from "./skills/economy/commerce.js";
+import * as skills_economy_market_expansion from "./skills/economy/market-expansion.js";
+import * as skills_economy_passive_income from "./skills/economy/passive-income.js";
+import * as skills_farming_agriculture from "./skills/farming/agriculture.js";
+import * as skills_farming_animal_husbandry from "./skills/farming/animal-husbandry.js";
+import * as skills_farming_cooking from "./skills/farming/cooking.js";
+import * as skills_farming_crop_growth from "./skills/farming/crop-growth.js";
+import * as skills_farming_crop_yield from "./skills/farming/crop-yield.js";
+import * as skills_farming_fertilization from "./skills/farming/fertilization.js";
+import * as skills_farming_fishing from "./skills/farming/fishing.js";
+import * as skills_farming_irrigation from "./skills/farming/irrigation.js";
+import * as skills_gathering_double_drop from "./skills/gathering/double-drop.js";
+import * as skills_gathering_foraging from "./skills/gathering/foraging.js";
+import * as skills_gathering_gathering_speed from "./skills/gathering/gathering-speed.js";
+import * as skills_gathering_mining from "./skills/gathering/mining.js";
+import * as skills_gathering_rare_resource from "./skills/gathering/rare-resource.js";
+import * as skills_gathering_resource_magnet from "./skills/gathering/resource-magnet.js";
+import * as skills_gathering_resource_regrowth from "./skills/gathering/resource-regrowth.js";
+import * as skills_gathering_woodcutting from "./skills/gathering/woodcutting.js";
+import * as skills_industry_automation from "./skills/industry/automation.js";
+import * as skills_industry_crafting from "./skills/industry/crafting.js";
+import * as skills_industry_electricity from "./skills/industry/electricity.js";
+import * as skills_industry_engineering from "./skills/industry/engineering.js";
+import * as skills_industry_mass_production from "./skills/industry/mass-production.js";
+import * as skills_industry_metallurgy from "./skills/industry/metallurgy.js";
+import * as skills_industry_robotics from "./skills/industry/robotics.js";
+import * as skills_industry_smelting from "./skills/industry/smelting.js";
+import * as skills_magic_alchemy from "./skills/magic/alchemy.js";
+import * as skills_magic_enchanting from "./skills/magic/enchanting.js";
+import * as skills_magic_fire_magic from "./skills/magic/fire-magic.js";
+import * as skills_magic_healing_magic from "./skills/magic/healing-magic.js";
+import * as skills_magic_ice_magic from "./skills/magic/ice-magic.js";
+import * as skills_magic_lightning_magic from "./skills/magic/lightning-magic.js";
+import * as skills_magic_summoning from "./skills/magic/summoning.js";
+import * as skills_magic_teleportation from "./skills/magic/teleportation.js";
 
 export { categories } from "./categories.js";
 
@@ -2520,4 +2568,52 @@ export const effects = {
   "combat/sword-double-slash": combat_sword_double_slash,
   "combat/sword-slash": combat_sword_slash,
   "combat/sword-spin": combat_sword_spin,
+  "skills/combat/archery": skills_combat_archery,
+  "skills/combat/attack-speed": skills_combat_attack_speed,
+  "skills/combat/critical-strike": skills_combat_critical_strike,
+  "skills/combat/defense": skills_combat_defense,
+  "skills/combat/dodge": skills_combat_dodge,
+  "skills/combat/health-boost": skills_combat_health_boost,
+  "skills/combat/regeneration": skills_combat_regeneration,
+  "skills/combat/sword-mastery": skills_combat_sword_mastery,
+  "skills/economy/banking": skills_economy_banking,
+  "skills/economy/bargaining": skills_economy_bargaining,
+  "skills/economy/cheaper-crafting": skills_economy_cheaper_crafting,
+  "skills/economy/cheaper-land": skills_economy_cheaper_land,
+  "skills/economy/coin-production": skills_economy_coin_production,
+  "skills/economy/commerce": skills_economy_commerce,
+  "skills/economy/market-expansion": skills_economy_market_expansion,
+  "skills/economy/passive-income": skills_economy_passive_income,
+  "skills/farming/agriculture": skills_farming_agriculture,
+  "skills/farming/animal-husbandry": skills_farming_animal_husbandry,
+  "skills/farming/cooking": skills_farming_cooking,
+  "skills/farming/crop-growth": skills_farming_crop_growth,
+  "skills/farming/crop-yield": skills_farming_crop_yield,
+  "skills/farming/fertilization": skills_farming_fertilization,
+  "skills/farming/fishing": skills_farming_fishing,
+  "skills/farming/irrigation": skills_farming_irrigation,
+  "skills/gathering/double-drop": skills_gathering_double_drop,
+  "skills/gathering/foraging": skills_gathering_foraging,
+  "skills/gathering/gathering-speed": skills_gathering_gathering_speed,
+  "skills/gathering/mining": skills_gathering_mining,
+  "skills/gathering/rare-resource": skills_gathering_rare_resource,
+  "skills/gathering/resource-magnet": skills_gathering_resource_magnet,
+  "skills/gathering/resource-regrowth": skills_gathering_resource_regrowth,
+  "skills/gathering/woodcutting": skills_gathering_woodcutting,
+  "skills/industry/automation": skills_industry_automation,
+  "skills/industry/crafting": skills_industry_crafting,
+  "skills/industry/electricity": skills_industry_electricity,
+  "skills/industry/engineering": skills_industry_engineering,
+  "skills/industry/mass-production": skills_industry_mass_production,
+  "skills/industry/metallurgy": skills_industry_metallurgy,
+  "skills/industry/robotics": skills_industry_robotics,
+  "skills/industry/smelting": skills_industry_smelting,
+  "skills/magic/alchemy": skills_magic_alchemy,
+  "skills/magic/enchanting": skills_magic_enchanting,
+  "skills/magic/fire-magic": skills_magic_fire_magic,
+  "skills/magic/healing-magic": skills_magic_healing_magic,
+  "skills/magic/ice-magic": skills_magic_ice_magic,
+  "skills/magic/lightning-magic": skills_magic_lightning_magic,
+  "skills/magic/summoning": skills_magic_summoning,
+  "skills/magic/teleportation": skills_magic_teleportation,
 };

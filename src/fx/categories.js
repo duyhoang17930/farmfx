@@ -26,4 +26,5 @@ export const categories = [
   { id: "biomes", name: "biomes", blurb: "terrain and props for eight island biomes" },
   { id: "dungeons", name: "dungeons", blurb: "dungeon terrain, switches, traps and props" },
   { id: "combat", name: "combat", blurb: "animated combat hits, spells, projectiles and status effects" },
+  { id: "skills", name: "skills", blurb: "skill icons grouped by progression branch" },
 ];
