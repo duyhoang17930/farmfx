@@ -720,6 +720,68 @@ import * as bosses_sand_worm_queen from "./bosses/sand-worm-queen.js";
 import * as bosses_skeleton_king from "./bosses/skeleton-king.js";
 import * as bosses_slime_king from "./bosses/slime-king.js";
 import * as bosses_stone_titan from "./bosses/stone-titan.js";
+import * as biomes_crystal_crystal_cliff from "./biomes/crystal/crystal-cliff.js";
+import * as biomes_crystal_crystal_cluster from "./biomes/crystal/crystal-cluster.js";
+import * as biomes_crystal_crystal_grass from "./biomes/crystal/crystal-grass.js";
+import * as biomes_crystal_crystal_ground from "./biomes/crystal/crystal-ground.js";
+import * as biomes_crystal_crystal_rock from "./biomes/crystal/crystal-rock.js";
+import * as biomes_crystal_crystal_shore from "./biomes/crystal/crystal-shore.js";
+import * as biomes_crystal_crystal_water from "./biomes/crystal/crystal-water.js";
+import * as biomes_crystal_glowing_flower from "./biomes/crystal/glowing-flower.js";
+import * as biomes_desert_cracked_sand from "./biomes/desert/cracked-sand.js";
+import * as biomes_desert_desert_cliff from "./biomes/desert/desert-cliff.js";
+import * as biomes_desert_desert_ground from "./biomes/desert/desert-ground.js";
+import * as biomes_desert_desert_shore from "./biomes/desert/desert-shore.js";
+import * as biomes_desert_dried_bush from "./biomes/desert/dried-bush.js";
+import * as biomes_desert_oasis from "./biomes/desert/oasis.js";
+import * as biomes_desert_sand_dune from "./biomes/desert/sand-dune.js";
+import * as biomes_desert_sandstone_rock from "./biomes/desert/sandstone-rock.js";
+import * as biomes_grassland_dirt_ground from "./biomes/grassland/dirt-ground.js";
+import * as biomes_grassland_flower_ground from "./biomes/grassland/flower-ground.js";
+import * as biomes_grassland_grass_cliff from "./biomes/grassland/grass-cliff.js";
+import * as biomes_grassland_grass_ground from "./biomes/grassland/grass-ground.js";
+import * as biomes_grassland_grass_shore from "./biomes/grassland/grass-shore.js";
+import * as biomes_grassland_tall_grass from "./biomes/grassland/tall-grass.js";
+import * as biomes_graveyard_cracked_ground from "./biomes/graveyard/cracked-ground.js";
+import * as biomes_graveyard_dark_cliff from "./biomes/graveyard/dark-cliff.js";
+import * as biomes_graveyard_dark_ground from "./biomes/graveyard/dark-ground.js";
+import * as biomes_graveyard_dark_shore from "./biomes/graveyard/dark-shore.js";
+import * as biomes_graveyard_grave from "./biomes/graveyard/grave.js";
+import * as biomes_graveyard_graveyard_gate from "./biomes/graveyard/graveyard-gate.js";
+import * as biomes_graveyard_iron_fence from "./biomes/graveyard/iron-fence.js";
+import * as biomes_graveyard_tombstone from "./biomes/graveyard/tombstone.js";
+import * as biomes_snowland_deep_snow from "./biomes/snowland/deep-snow.js";
+import * as biomes_snowland_frozen_pond from "./biomes/snowland/frozen-pond.js";
+import * as biomes_snowland_ice_cliff from "./biomes/snowland/ice-cliff.js";
+import * as biomes_snowland_ice_ground from "./biomes/snowland/ice-ground.js";
+import * as biomes_snowland_icicle from "./biomes/snowland/icicle.js";
+import * as biomes_snowland_snow_ground from "./biomes/snowland/snow-ground.js";
+import * as biomes_snowland_snow_rock from "./biomes/snowland/snow-rock.js";
+import * as biomes_snowland_snow_shore from "./biomes/snowland/snow-shore.js";
+import * as biomes_swamp_lily_pad from "./biomes/swamp/lily-pad.js";
+import * as biomes_swamp_mud_ground from "./biomes/swamp/mud-ground.js";
+import * as biomes_swamp_swamp_cliff from "./biomes/swamp/swamp-cliff.js";
+import * as biomes_swamp_swamp_grass from "./biomes/swamp/swamp-grass.js";
+import * as biomes_swamp_swamp_rock from "./biomes/swamp/swamp-rock.js";
+import * as biomes_swamp_swamp_shore from "./biomes/swamp/swamp-shore.js";
+import * as biomes_swamp_swamp_vines from "./biomes/swamp/swamp-vines.js";
+import * as biomes_swamp_swamp_water from "./biomes/swamp/swamp-water.js";
+import * as biomes_tropical_beach_sand from "./biomes/tropical/beach-sand.js";
+import * as biomes_tropical_coral from "./biomes/tropical/coral.js";
+import * as biomes_tropical_tropical_cliff from "./biomes/tropical/tropical-cliff.js";
+import * as biomes_tropical_tropical_flower from "./biomes/tropical/tropical-flower.js";
+import * as biomes_tropical_tropical_grass from "./biomes/tropical/tropical-grass.js";
+import * as biomes_tropical_tropical_ground from "./biomes/tropical/tropical-ground.js";
+import * as biomes_tropical_tropical_rock from "./biomes/tropical/tropical-rock.js";
+import * as biomes_tropical_tropical_shore from "./biomes/tropical/tropical-shore.js";
+import * as biomes_volcanic_burnt_ground from "./biomes/volcanic/burnt-ground.js";
+import * as biomes_volcanic_lava_river from "./biomes/volcanic/lava-river.js";
+import * as biomes_volcanic_lava_shore from "./biomes/volcanic/lava-shore.js";
+import * as biomes_volcanic_lava_tile from "./biomes/volcanic/lava-tile.js";
+import * as biomes_volcanic_lava_waterfall from "./biomes/volcanic/lava-waterfall.js";
+import * as biomes_volcanic_volcanic_cliff from "./biomes/volcanic/volcanic-cliff.js";
+import * as biomes_volcanic_volcanic_ground from "./biomes/volcanic/volcanic-ground.js";
+import * as biomes_volcanic_volcanic_rock from "./biomes/volcanic/volcanic-rock.js";
 
 export { categories } from "./categories.js";
 
@@ -1444,4 +1506,66 @@ export const effects = {
   "bosses/skeleton-king": bosses_skeleton_king,
   "bosses/slime-king": bosses_slime_king,
   "bosses/stone-titan": bosses_stone_titan,
+  "biomes/crystal/crystal-cliff": biomes_crystal_crystal_cliff,
+  "biomes/crystal/crystal-cluster": biomes_crystal_crystal_cluster,
+  "biomes/crystal/crystal-grass": biomes_crystal_crystal_grass,
+  "biomes/crystal/crystal-ground": biomes_crystal_crystal_ground,
+  "biomes/crystal/crystal-rock": biomes_crystal_crystal_rock,
+  "biomes/crystal/crystal-shore": biomes_crystal_crystal_shore,
+  "biomes/crystal/crystal-water": biomes_crystal_crystal_water,
+  "biomes/crystal/glowing-flower": biomes_crystal_glowing_flower,
+  "biomes/desert/cracked-sand": biomes_desert_cracked_sand,
+  "biomes/desert/desert-cliff": biomes_desert_desert_cliff,
+  "biomes/desert/desert-ground": biomes_desert_desert_ground,
+  "biomes/desert/desert-shore": biomes_desert_desert_shore,
+  "biomes/desert/dried-bush": biomes_desert_dried_bush,
+  "biomes/desert/oasis": biomes_desert_oasis,
+  "biomes/desert/sand-dune": biomes_desert_sand_dune,
+  "biomes/desert/sandstone-rock": biomes_desert_sandstone_rock,
+  "biomes/grassland/dirt-ground": biomes_grassland_dirt_ground,
+  "biomes/grassland/flower-ground": biomes_grassland_flower_ground,
+  "biomes/grassland/grass-cliff": biomes_grassland_grass_cliff,
+  "biomes/grassland/grass-ground": biomes_grassland_grass_ground,
+  "biomes/grassland/grass-shore": biomes_grassland_grass_shore,
+  "biomes/grassland/tall-grass": biomes_grassland_tall_grass,
+  "biomes/graveyard/cracked-ground": biomes_graveyard_cracked_ground,
+  "biomes/graveyard/dark-cliff": biomes_graveyard_dark_cliff,
+  "biomes/graveyard/dark-ground": biomes_graveyard_dark_ground,
+  "biomes/graveyard/dark-shore": biomes_graveyard_dark_shore,
+  "biomes/graveyard/grave": biomes_graveyard_grave,
+  "biomes/graveyard/graveyard-gate": biomes_graveyard_graveyard_gate,
+  "biomes/graveyard/iron-fence": biomes_graveyard_iron_fence,
+  "biomes/graveyard/tombstone": biomes_graveyard_tombstone,
+  "biomes/snowland/deep-snow": biomes_snowland_deep_snow,
+  "biomes/snowland/frozen-pond": biomes_snowland_frozen_pond,
+  "biomes/snowland/ice-cliff": biomes_snowland_ice_cliff,
+  "biomes/snowland/ice-ground": biomes_snowland_ice_ground,
+  "biomes/snowland/icicle": biomes_snowland_icicle,
+  "biomes/snowland/snow-ground": biomes_snowland_snow_ground,
+  "biomes/snowland/snow-rock": biomes_snowland_snow_rock,
+  "biomes/snowland/snow-shore": biomes_snowland_snow_shore,
+  "biomes/swamp/lily-pad": biomes_swamp_lily_pad,
+  "biomes/swamp/mud-ground": biomes_swamp_mud_ground,
+  "biomes/swamp/swamp-cliff": biomes_swamp_swamp_cliff,
+  "biomes/swamp/swamp-grass": biomes_swamp_swamp_grass,
+  "biomes/swamp/swamp-rock": biomes_swamp_swamp_rock,
+  "biomes/swamp/swamp-shore": biomes_swamp_swamp_shore,
+  "biomes/swamp/swamp-vines": biomes_swamp_swamp_vines,
+  "biomes/swamp/swamp-water": biomes_swamp_swamp_water,
+  "biomes/tropical/beach-sand": biomes_tropical_beach_sand,
+  "biomes/tropical/coral": biomes_tropical_coral,
+  "biomes/tropical/tropical-cliff": biomes_tropical_tropical_cliff,
+  "biomes/tropical/tropical-flower": biomes_tropical_tropical_flower,
+  "biomes/tropical/tropical-grass": biomes_tropical_tropical_grass,
+  "biomes/tropical/tropical-ground": biomes_tropical_tropical_ground,
+  "biomes/tropical/tropical-rock": biomes_tropical_tropical_rock,
+  "biomes/tropical/tropical-shore": biomes_tropical_tropical_shore,
+  "biomes/volcanic/burnt-ground": biomes_volcanic_burnt_ground,
+  "biomes/volcanic/lava-river": biomes_volcanic_lava_river,
+  "biomes/volcanic/lava-shore": biomes_volcanic_lava_shore,
+  "biomes/volcanic/lava-tile": biomes_volcanic_lava_tile,
+  "biomes/volcanic/lava-waterfall": biomes_volcanic_lava_waterfall,
+  "biomes/volcanic/volcanic-cliff": biomes_volcanic_volcanic_cliff,
+  "biomes/volcanic/volcanic-ground": biomes_volcanic_volcanic_ground,
+  "biomes/volcanic/volcanic-rock": biomes_volcanic_volcanic_rock,
 };

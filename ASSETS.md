@@ -1,6 +1,6 @@
 # FarmFX assets
 
-720 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
+782 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
 
 ## Characters (20)
 
@@ -831,3 +831,70 @@
 | skeleton king | [`bosses/skeleton-king`](src/fx/bosses/skeleton-king.js) | — |
 | slime king | [`bosses/slime-king`](src/fx/bosses/slime-king.js) | — |
 | stone titan | [`bosses/stone-titan`](src/fx/bosses/stone-titan.js) | — |
+
+## Biomes (62)
+
+| Asset | ID | Preview |
+| --- | --- | --- |
+| crystal cliff | [`biomes/crystal/crystal-cliff`](src/fx/biomes/crystal/crystal-cliff.js) | — |
+| crystal cluster | [`biomes/crystal/crystal-cluster`](src/fx/biomes/crystal/crystal-cluster.js) | — |
+| crystal grass | [`biomes/crystal/crystal-grass`](src/fx/biomes/crystal/crystal-grass.js) | — |
+| crystal ground | [`biomes/crystal/crystal-ground`](src/fx/biomes/crystal/crystal-ground.js) | — |
+| crystal rock | [`biomes/crystal/crystal-rock`](src/fx/biomes/crystal/crystal-rock.js) | — |
+| crystal shore | [`biomes/crystal/crystal-shore`](src/fx/biomes/crystal/crystal-shore.js) | — |
+| crystal water | [`biomes/crystal/crystal-water`](src/fx/biomes/crystal/crystal-water.js) | — |
+| glowing flower | [`biomes/crystal/glowing-flower`](src/fx/biomes/crystal/glowing-flower.js) | — |
+| cracked sand | [`biomes/desert/cracked-sand`](src/fx/biomes/desert/cracked-sand.js) | — |
+| desert cliff | [`biomes/desert/desert-cliff`](src/fx/biomes/desert/desert-cliff.js) | — |
+| desert ground | [`biomes/desert/desert-ground`](src/fx/biomes/desert/desert-ground.js) | — |
+| desert shore | [`biomes/desert/desert-shore`](src/fx/biomes/desert/desert-shore.js) | — |
+| dried bush | [`biomes/desert/dried-bush`](src/fx/biomes/desert/dried-bush.js) | — |
+| oasis | [`biomes/desert/oasis`](src/fx/biomes/desert/oasis.js) | — |
+| sand dune | [`biomes/desert/sand-dune`](src/fx/biomes/desert/sand-dune.js) | — |
+| sandstone rock | [`biomes/desert/sandstone-rock`](src/fx/biomes/desert/sandstone-rock.js) | — |
+| dirt ground | [`biomes/grassland/dirt-ground`](src/fx/biomes/grassland/dirt-ground.js) | — |
+| flower ground | [`biomes/grassland/flower-ground`](src/fx/biomes/grassland/flower-ground.js) | — |
+| grass cliff | [`biomes/grassland/grass-cliff`](src/fx/biomes/grassland/grass-cliff.js) | — |
+| grass ground | [`biomes/grassland/grass-ground`](src/fx/biomes/grassland/grass-ground.js) | — |
+| grass shore | [`biomes/grassland/grass-shore`](src/fx/biomes/grassland/grass-shore.js) | — |
+| tall grass | [`biomes/grassland/tall-grass`](src/fx/biomes/grassland/tall-grass.js) | — |
+| cracked ground | [`biomes/graveyard/cracked-ground`](src/fx/biomes/graveyard/cracked-ground.js) | — |
+| dark cliff | [`biomes/graveyard/dark-cliff`](src/fx/biomes/graveyard/dark-cliff.js) | — |
+| dark ground | [`biomes/graveyard/dark-ground`](src/fx/biomes/graveyard/dark-ground.js) | — |
+| dark shore | [`biomes/graveyard/dark-shore`](src/fx/biomes/graveyard/dark-shore.js) | — |
+| grave | [`biomes/graveyard/grave`](src/fx/biomes/graveyard/grave.js) | — |
+| graveyard gate | [`biomes/graveyard/graveyard-gate`](src/fx/biomes/graveyard/graveyard-gate.js) | — |
+| iron fence | [`biomes/graveyard/iron-fence`](src/fx/biomes/graveyard/iron-fence.js) | — |
+| tombstone | [`biomes/graveyard/tombstone`](src/fx/biomes/graveyard/tombstone.js) | — |
+| deep snow | [`biomes/snowland/deep-snow`](src/fx/biomes/snowland/deep-snow.js) | — |
+| frozen pond | [`biomes/snowland/frozen-pond`](src/fx/biomes/snowland/frozen-pond.js) | — |
+| ice cliff | [`biomes/snowland/ice-cliff`](src/fx/biomes/snowland/ice-cliff.js) | — |
+| ice ground | [`biomes/snowland/ice-ground`](src/fx/biomes/snowland/ice-ground.js) | — |
+| icicle | [`biomes/snowland/icicle`](src/fx/biomes/snowland/icicle.js) | — |
+| snow ground | [`biomes/snowland/snow-ground`](src/fx/biomes/snowland/snow-ground.js) | — |
+| snow rock | [`biomes/snowland/snow-rock`](src/fx/biomes/snowland/snow-rock.js) | — |
+| snow shore | [`biomes/snowland/snow-shore`](src/fx/biomes/snowland/snow-shore.js) | — |
+| lily pad | [`biomes/swamp/lily-pad`](src/fx/biomes/swamp/lily-pad.js) | — |
+| mud ground | [`biomes/swamp/mud-ground`](src/fx/biomes/swamp/mud-ground.js) | — |
+| swamp cliff | [`biomes/swamp/swamp-cliff`](src/fx/biomes/swamp/swamp-cliff.js) | — |
+| swamp grass | [`biomes/swamp/swamp-grass`](src/fx/biomes/swamp/swamp-grass.js) | — |
+| swamp rock | [`biomes/swamp/swamp-rock`](src/fx/biomes/swamp/swamp-rock.js) | — |
+| swamp shore | [`biomes/swamp/swamp-shore`](src/fx/biomes/swamp/swamp-shore.js) | — |
+| swamp vines | [`biomes/swamp/swamp-vines`](src/fx/biomes/swamp/swamp-vines.js) | — |
+| swamp water | [`biomes/swamp/swamp-water`](src/fx/biomes/swamp/swamp-water.js) | — |
+| beach sand | [`biomes/tropical/beach-sand`](src/fx/biomes/tropical/beach-sand.js) | — |
+| coral | [`biomes/tropical/coral`](src/fx/biomes/tropical/coral.js) | — |
+| tropical cliff | [`biomes/tropical/tropical-cliff`](src/fx/biomes/tropical/tropical-cliff.js) | — |
+| tropical flower | [`biomes/tropical/tropical-flower`](src/fx/biomes/tropical/tropical-flower.js) | — |
+| tropical grass | [`biomes/tropical/tropical-grass`](src/fx/biomes/tropical/tropical-grass.js) | — |
+| tropical ground | [`biomes/tropical/tropical-ground`](src/fx/biomes/tropical/tropical-ground.js) | — |
+| tropical rock | [`biomes/tropical/tropical-rock`](src/fx/biomes/tropical/tropical-rock.js) | — |
+| tropical shore | [`biomes/tropical/tropical-shore`](src/fx/biomes/tropical/tropical-shore.js) | — |
+| burnt ground | [`biomes/volcanic/burnt-ground`](src/fx/biomes/volcanic/burnt-ground.js) | — |
+| lava river | [`biomes/volcanic/lava-river`](src/fx/biomes/volcanic/lava-river.js) | — |
+| lava shore | [`biomes/volcanic/lava-shore`](src/fx/biomes/volcanic/lava-shore.js) | — |
+| lava tile | [`biomes/volcanic/lava-tile`](src/fx/biomes/volcanic/lava-tile.js) | — |
+| lava waterfall | [`biomes/volcanic/lava-waterfall`](src/fx/biomes/volcanic/lava-waterfall.js) | — |
+| volcanic cliff | [`biomes/volcanic/volcanic-cliff`](src/fx/biomes/volcanic/volcanic-cliff.js) | — |
+| volcanic ground | [`biomes/volcanic/volcanic-ground`](src/fx/biomes/volcanic/volcanic-ground.js) | — |
+| volcanic rock | [`biomes/volcanic/volcanic-rock`](src/fx/biomes/volcanic/volcanic-rock.js) | — |

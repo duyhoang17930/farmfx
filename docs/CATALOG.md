@@ -1,6 +1,6 @@
 # Catalog
 
-720 effects in 22 categories. Every one is a file in
+782 effects in 23 categories. Every one is a file in
 `src/fx/<category>/<name>.js`; render any of them with `node tools/render.mjs <id> --gif`.
 
 ## characters
@@ -876,3 +876,72 @@ large encounters with attack, phase and reward clips.
 | skeleton king | `bosses/skeleton-king` | loop 1.25s | 96×96 | A top-down skeleton king with selectable animation states. |
 | slime king | `bosses/slime-king` | loop 1.25s | 96×96 | A top-down slime king with selectable animation states. |
 | stone titan | `bosses/stone-titan` | loop 1.25s | 96×96 | A top-down stone titan with selectable animation states. |
+
+## biomes
+
+terrain and props for eight island biomes.
+
+| effect | id | | size | what it does |
+|---|---|---|---|---|
+| crystal cliff | `biomes/crystal/crystal-cliff` | loop 1s | 16×16 | A raised connected cliff edge with a fractured face. |
+| crystal cluster | `biomes/crystal/crystal-cluster` | loop 2.5s | 48×48 | A crystal cluster sprite for the crystal biome. |
+| crystal grass | `biomes/crystal/crystal-grass` | loop 2.5s | 48×48 | A crystal grass sprite for the crystal biome. |
+| crystal ground | `biomes/crystal/crystal-ground` | loop 1s | 16×16 | A seamless ground tile with seeded texture. |
+| crystal rock | `biomes/crystal/crystal-rock` | loop 1s | 48×48 | A crystal rock sprite for the crystal biome. |
+| crystal shore | `biomes/crystal/crystal-shore` | loop 2.5s | 16×16 | A connected bank with configurable shoreline edges and inside corners. |
+| crystal water | `biomes/crystal/crystal-water` | loop 2.5s | 16×16 | A flowing 16 pixel water tile. |
+| glowing flower | `biomes/crystal/glowing-flower` | loop 2.5s | 48×48 | A glowing flower sprite for the crystal biome. |
+| cracked sand | `biomes/desert/cracked-sand` | loop 1s | 16×16 | A seamless ground tile crossed by branching seams. |
+| desert cliff | `biomes/desert/desert-cliff` | loop 1s | 16×16 | A raised connected cliff edge with a fractured face. |
+| desert ground | `biomes/desert/desert-ground` | loop 1s | 16×16 | A seamless ground tile with seeded texture. |
+| desert shore | `biomes/desert/desert-shore` | loop 2.5s | 16×16 | A connected bank with configurable shoreline edges and inside corners. |
+| dried bush | `biomes/desert/dried-bush` | loop 2.5s | 48×48 | A dried bush sprite for the desert biome. |
+| oasis | `biomes/desert/oasis` | loop 1s | 48×48 | A oasis sprite for the desert biome. |
+| sand dune | `biomes/desert/sand-dune` | loop 1s | 48×48 | A sand dune sprite for the desert biome. |
+| sandstone rock | `biomes/desert/sandstone-rock` | loop 1s | 48×48 | A sandstone rock sprite for the desert biome. |
+| dirt ground | `biomes/grassland/dirt-ground` | loop 1s | 16×16 | A seamless ground tile with seeded texture. |
+| flower ground | `biomes/grassland/flower-ground` | loop 1s | 16×16 | A seamless ground tile with seeded texture. |
+| grass cliff | `biomes/grassland/grass-cliff` | loop 1s | 16×16 | A raised connected cliff edge with a fractured face. |
+| grass ground | `biomes/grassland/grass-ground` | loop 1s | 16×16 | A seamless ground tile with seeded texture. |
+| grass shore | `biomes/grassland/grass-shore` | loop 2.5s | 16×16 | A connected bank with configurable shoreline edges and inside corners. |
+| tall grass | `biomes/grassland/tall-grass` | loop 2.5s | 48×48 | A tall grass sprite for the grassland biome. |
+| cracked ground | `biomes/graveyard/cracked-ground` | loop 1s | 16×16 | A seamless ground tile crossed by branching seams. |
+| dark cliff | `biomes/graveyard/dark-cliff` | loop 1s | 16×16 | A raised connected cliff edge with a fractured face. |
+| dark ground | `biomes/graveyard/dark-ground` | loop 1s | 16×16 | A seamless ground tile with seeded texture. |
+| dark shore | `biomes/graveyard/dark-shore` | loop 2.5s | 16×16 | A connected bank with configurable shoreline edges and inside corners. |
+| grave | `biomes/graveyard/grave` | loop 1s | 48×48 | A grave sprite for the graveyard biome. |
+| graveyard gate | `biomes/graveyard/graveyard-gate` | loop 2.5s | 48×48 | A graveyard gate sprite for the graveyard biome. |
+| iron fence | `biomes/graveyard/iron-fence` | loop 1s | 48×48 | A iron fence sprite for the graveyard biome. |
+| tombstone | `biomes/graveyard/tombstone` | loop 2.5s | 48×48 | A tombstone sprite for the graveyard biome. |
+| deep snow | `biomes/snowland/deep-snow` | loop 1s | 16×16 | A seamless ground tile with seeded texture. |
+| frozen pond | `biomes/snowland/frozen-pond` | loop 2.5s | 16×16 | A connected bank with configurable shoreline edges and inside corners. |
+| ice cliff | `biomes/snowland/ice-cliff` | loop 1s | 16×16 | A raised connected cliff edge with a fractured face. |
+| ice ground | `biomes/snowland/ice-ground` | loop 1s | 16×16 | A seamless ground tile with seeded texture. |
+| icicle | `biomes/snowland/icicle` | loop 2.5s | 48×48 | A icicle sprite for the snowland biome. |
+| snow ground | `biomes/snowland/snow-ground` | loop 1s | 16×16 | A seamless ground tile with seeded texture. |
+| snow rock | `biomes/snowland/snow-rock` | loop 1s | 48×48 | A snow rock sprite for the snowland biome. |
+| snow shore | `biomes/snowland/snow-shore` | loop 2.5s | 16×16 | A connected bank with configurable shoreline edges and inside corners. |
+| lily pad | `biomes/swamp/lily-pad` | loop 2.5s | 48×48 | A lily pad sprite for the swamp biome. |
+| mud ground | `biomes/swamp/mud-ground` | loop 1s | 16×16 | A seamless ground tile with seeded texture. |
+| swamp cliff | `biomes/swamp/swamp-cliff` | loop 1s | 16×16 | A raised connected cliff edge with a fractured face. |
+| swamp grass | `biomes/swamp/swamp-grass` | loop 2.5s | 48×48 | A swamp grass sprite for the swamp biome. |
+| swamp rock | `biomes/swamp/swamp-rock` | loop 1s | 48×48 | A swamp rock sprite for the swamp biome. |
+| swamp shore | `biomes/swamp/swamp-shore` | loop 2.5s | 16×16 | A connected bank with configurable shoreline edges and inside corners. |
+| swamp vines | `biomes/swamp/swamp-vines` | loop 2.5s | 48×48 | A swamp vines sprite for the swamp biome. |
+| swamp water | `biomes/swamp/swamp-water` | loop 2.5s | 16×16 | A flowing 16 pixel water tile. |
+| beach sand | `biomes/tropical/beach-sand` | loop 1s | 16×16 | A seamless ground tile with seeded texture. |
+| coral | `biomes/tropical/coral` | loop 1s | 48×48 | A coral sprite for the tropical biome. |
+| tropical cliff | `biomes/tropical/tropical-cliff` | loop 1s | 16×16 | A raised connected cliff edge with a fractured face. |
+| tropical flower | `biomes/tropical/tropical-flower` | loop 2.5s | 48×48 | A tropical flower sprite for the tropical biome. |
+| tropical grass | `biomes/tropical/tropical-grass` | loop 2.5s | 48×48 | A tropical grass sprite for the tropical biome. |
+| tropical ground | `biomes/tropical/tropical-ground` | loop 1s | 16×16 | A seamless ground tile with seeded texture. |
+| tropical rock | `biomes/tropical/tropical-rock` | loop 1s | 48×48 | A tropical rock sprite for the tropical biome. |
+| tropical shore | `biomes/tropical/tropical-shore` | loop 2.5s | 16×16 | A connected bank with configurable shoreline edges and inside corners. |
+| burnt ground | `biomes/volcanic/burnt-ground` | loop 1s | 16×16 | A seamless ground tile with seeded texture. |
+| lava river | `biomes/volcanic/lava-river` | loop 2.5s | 16×16 | Flowing water with selectable branches and inner bends. |
+| lava shore | `biomes/volcanic/lava-shore` | loop 2.5s | 16×16 | A connected bank with configurable shoreline edges and inside corners. |
+| lava tile | `biomes/volcanic/lava-tile` | loop 2.5s | 16×16 | A flowing 16 pixel water tile. |
+| lava waterfall | `biomes/volcanic/lava-waterfall` | loop 2.5s | 48×48 | A lava waterfall sprite for the volcanic biome. |
+| volcanic cliff | `biomes/volcanic/volcanic-cliff` | loop 1s | 16×16 | A raised connected cliff edge with a fractured face. |
+| volcanic ground | `biomes/volcanic/volcanic-ground` | loop 1s | 16×16 | A seamless ground tile with seeded texture. |
+| volcanic rock | `biomes/volcanic/volcanic-rock` | loop 1s | 48×48 | A volcanic rock sprite for the volcanic biome. |
