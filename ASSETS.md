@@ -1,6 +1,6 @@
 # FarmFX assets
 
-1331 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
+1356 assets grouped by category. See the [catalog](docs/CATALOG.md) for dimensions, timing, and descriptions.
 
 ## Characters (20)
 
@@ -1467,3 +1467,33 @@
 | thinking | [`emotes/thinking`](src/fx/emotes/thinking.js) | — |
 | thirsty | [`emotes/thirsty`](src/fx/emotes/thirsty.js) | — |
 | tired | [`emotes/tired`](src/fx/emotes/tired.js) | — |
+
+## Particles (25)
+
+| Asset | ID | Preview |
+| --- | --- | --- |
+| coin | [`particles/coin`](src/fx/particles/coin.js) | — |
+| crystal shard | [`particles/crystal-shard`](src/fx/particles/crystal-shard.js) | — |
+| dust | [`particles/dust`](src/fx/particles/dust.js) | — |
+| ember | [`particles/ember`](src/fx/particles/ember.js) | — |
+| experience orb | [`particles/experience-orb`](src/fx/particles/experience-orb.js) | — |
+| flame | [`particles/flame`](src/fx/particles/flame.js) | — |
+| glowing pixel | [`particles/glowing-pixel`](src/fx/particles/glowing-pixel.js) | — |
+| heart | [`particles/heart`](src/fx/particles/heart.js) | — |
+| leaf | [`particles/leaf`](src/fx/particles/leaf.js) | — |
+| light ray | [`particles/light-ray`](src/fx/particles/light-ray.js) | — |
+| magic dust | [`particles/magic-dust`](src/fx/particles/magic-dust.js) | — |
+| magic orb | [`particles/magic-orb`](src/fx/particles/magic-orb.js) | — |
+| metal chip | [`particles/metal-chip`](src/fx/particles/metal-chip.js) | — |
+| poison drop | [`particles/poison-drop`](src/fx/particles/poison-drop.js) | — |
+| shockwave ring | [`particles/shockwave-ring`](src/fx/particles/shockwave-ring.js) | — |
+| smoke | [`particles/smoke`](src/fx/particles/smoke.js) | — |
+| snowflake | [`particles/snowflake`](src/fx/particles/snowflake.js) | — |
+| soil clod | [`particles/soil-clod`](src/fx/particles/soil-clod.js) | — |
+| spark | [`particles/spark`](src/fx/particles/spark.js) | — |
+| star | [`particles/star`](src/fx/particles/star.js) | — |
+| steam | [`particles/steam`](src/fx/particles/steam.js) | — |
+| stone chip | [`particles/stone-chip`](src/fx/particles/stone-chip.js) | — |
+| water bubble | [`particles/water-bubble`](src/fx/particles/water-bubble.js) | — |
+| water drop | [`particles/water-drop`](src/fx/particles/water-drop.js) | — |
+| wood chip | [`particles/wood-chip`](src/fx/particles/wood-chip.js) | — |

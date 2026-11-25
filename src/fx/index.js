@@ -1331,6 +1331,31 @@ import * as emotes_sweat from "./emotes/sweat.js";
 import * as emotes_thinking from "./emotes/thinking.js";
 import * as emotes_thirsty from "./emotes/thirsty.js";
 import * as emotes_tired from "./emotes/tired.js";
+import * as particles_coin from "./particles/coin.js";
+import * as particles_crystal_shard from "./particles/crystal-shard.js";
+import * as particles_dust from "./particles/dust.js";
+import * as particles_ember from "./particles/ember.js";
+import * as particles_experience_orb from "./particles/experience-orb.js";
+import * as particles_flame from "./particles/flame.js";
+import * as particles_glowing_pixel from "./particles/glowing-pixel.js";
+import * as particles_heart from "./particles/heart.js";
+import * as particles_leaf from "./particles/leaf.js";
+import * as particles_light_ray from "./particles/light-ray.js";
+import * as particles_magic_dust from "./particles/magic-dust.js";
+import * as particles_magic_orb from "./particles/magic-orb.js";
+import * as particles_metal_chip from "./particles/metal-chip.js";
+import * as particles_poison_drop from "./particles/poison-drop.js";
+import * as particles_shockwave_ring from "./particles/shockwave-ring.js";
+import * as particles_smoke from "./particles/smoke.js";
+import * as particles_snowflake from "./particles/snowflake.js";
+import * as particles_soil_clod from "./particles/soil-clod.js";
+import * as particles_spark from "./particles/spark.js";
+import * as particles_star from "./particles/star.js";
+import * as particles_steam from "./particles/steam.js";
+import * as particles_stone_chip from "./particles/stone-chip.js";
+import * as particles_water_bubble from "./particles/water-bubble.js";
+import * as particles_water_drop from "./particles/water-drop.js";
+import * as particles_wood_chip from "./particles/wood-chip.js";
 
 export { categories } from "./categories.js";
 
@@ -2666,4 +2691,29 @@ export const effects = {
   "emotes/thinking": emotes_thinking,
   "emotes/thirsty": emotes_thirsty,
   "emotes/tired": emotes_tired,
+  "particles/coin": particles_coin,
+  "particles/crystal-shard": particles_crystal_shard,
+  "particles/dust": particles_dust,
+  "particles/ember": particles_ember,
+  "particles/experience-orb": particles_experience_orb,
+  "particles/flame": particles_flame,
+  "particles/glowing-pixel": particles_glowing_pixel,
+  "particles/heart": particles_heart,
+  "particles/leaf": particles_leaf,
+  "particles/light-ray": particles_light_ray,
+  "particles/magic-dust": particles_magic_dust,
+  "particles/magic-orb": particles_magic_orb,
+  "particles/metal-chip": particles_metal_chip,
+  "particles/poison-drop": particles_poison_drop,
+  "particles/shockwave-ring": particles_shockwave_ring,
+  "particles/smoke": particles_smoke,
+  "particles/snowflake": particles_snowflake,
+  "particles/soil-clod": particles_soil_clod,
+  "particles/spark": particles_spark,
+  "particles/star": particles_star,
+  "particles/steam": particles_steam,
+  "particles/stone-chip": particles_stone_chip,
+  "particles/water-bubble": particles_water_bubble,
+  "particles/water-drop": particles_water_drop,
+  "particles/wood-chip": particles_wood_chip,
 };

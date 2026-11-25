@@ -28,4 +28,5 @@ export const categories = [
   { id: "combat", name: "combat", blurb: "animated combat hits, spells, projectiles and status effects" },
   { id: "skills", name: "skills", blurb: "skill icons grouped by progression branch" },
   { id: "emotes", name: "emotes", blurb: "expressive character reaction bubbles" },
+  { id: "particles", name: "particles", blurb: "reusable particles with seeded motion" },
 ];

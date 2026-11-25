@@ -1,6 +1,6 @@
 # Catalog
 
-1331 effects in 27 categories. Every one is a file in
+1356 effects in 28 categories. Every one is a file in
 `src/fx/<category>/<name>.js`; render any of them with `node tools/render.mjs <id> --gif`.
 
 ## characters
@@ -1522,3 +1522,35 @@ expressive character reaction bubbles.
 | thinking | `emotes/thinking` | loop 2.4s | 48×48 | A floating thinking emote with a transparent background. |
 | thirsty | `emotes/thirsty` | loop 2.4s | 48×48 | A floating thirsty emote with a transparent background. |
 | tired | `emotes/tired` | loop 2.4s | 48×48 | A floating tired emote with a transparent background. |
+
+## particles
+
+reusable particles with seeded motion.
+
+| effect | id | | size | what it does |
+|---|---|---|---|---|
+| coin | `particles/coin` | loop 2s | 80×64 | A reusable seeded coin particle with adjustable count and scale. |
+| crystal shard | `particles/crystal-shard` | loop 2s | 80×64 | A reusable seeded crystal shard particle with adjustable count and scale. |
+| dust | `particles/dust` | loop 2s | 80×64 | A reusable seeded dust particle with adjustable count and scale. |
+| ember | `particles/ember` | loop 2s | 80×64 | A reusable seeded ember particle with adjustable count and scale. |
+| experience orb | `particles/experience-orb` | loop 2s | 80×64 | A reusable seeded experience orb particle with adjustable count and scale. |
+| flame | `particles/flame` | loop 2s | 80×64 | A reusable seeded flame particle with adjustable count and scale. |
+| glowing pixel | `particles/glowing-pixel` | loop 2s | 80×64 | A reusable seeded glowing pixel particle with adjustable count and scale. |
+| heart | `particles/heart` | loop 2s | 80×64 | A reusable seeded heart particle with adjustable count and scale. |
+| leaf | `particles/leaf` | loop 2s | 80×64 | A reusable seeded leaf particle with adjustable count and scale. |
+| light ray | `particles/light-ray` | loop 2s | 80×64 | A reusable seeded light ray particle with adjustable count and scale. |
+| magic dust | `particles/magic-dust` | loop 2s | 80×64 | A reusable seeded magic dust particle with adjustable count and scale. |
+| magic orb | `particles/magic-orb` | loop 2s | 80×64 | A reusable seeded magic orb particle with adjustable count and scale. |
+| metal chip | `particles/metal-chip` | loop 2s | 80×64 | A reusable seeded metal chip particle with adjustable count and scale. |
+| poison drop | `particles/poison-drop` | loop 2s | 80×64 | A reusable seeded poison drop particle with adjustable count and scale. |
+| shockwave ring | `particles/shockwave-ring` | loop 2s | 80×64 | A reusable seeded shockwave ring particle with adjustable count and scale. |
+| smoke | `particles/smoke` | loop 2s | 80×64 | A reusable seeded smoke particle with adjustable count and scale. |
+| snowflake | `particles/snowflake` | loop 2s | 80×64 | A reusable seeded snowflake particle with adjustable count and scale. |
+| soil clod | `particles/soil-clod` | loop 2s | 80×64 | A reusable seeded soil clod particle with adjustable count and scale. |
+| spark | `particles/spark` | loop 2s | 80×64 | A reusable seeded spark particle with adjustable count and scale. |
+| star | `particles/star` | loop 2s | 80×64 | A reusable seeded star particle with adjustable count and scale. |
+| steam | `particles/steam` | loop 2s | 80×64 | A reusable seeded steam particle with adjustable count and scale. |
+| stone chip | `particles/stone-chip` | loop 2s | 80×64 | A reusable seeded stone chip particle with adjustable count and scale. |
+| water bubble | `particles/water-bubble` | loop 2s | 80×64 | A reusable seeded water bubble particle with adjustable count and scale. |
+| water drop | `particles/water-drop` | loop 2s | 80×64 | A reusable seeded water drop particle with adjustable count and scale. |
+| wood chip | `particles/wood-chip` | loop 2s | 80×64 | A reusable seeded wood chip particle with adjustable count and scale. |
