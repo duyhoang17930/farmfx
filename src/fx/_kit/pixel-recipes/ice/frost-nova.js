@@ -51,8 +51,8 @@ function frost(p, C, x0, x1, reach, a, edge) {
     const d = Math.abs(x + 0.5), q = d / reach, k = clamp((a * 1.15 - q) / 0.15);
     if (k <= 0) continue;
     const h = rand(x, 17), fresh = edge > 0 && d > edge - 3, tuft = h < 0.45 ? Math.round((1 + rand(x, 5) * 3) * (1 - q * 0.6)) : 0, D = (4 + rand(x, 11) * 4) * (1 - q * 0.5);
-    p.dot(x, 0, fresh || h < 0.25 ? WHITE : C[6], k);
-    for (let j = 1; j <= tuft; j++) p.dot(x, -j, j === tuft ? WHITE : C[5], k);
+    p.dot(x, 0, fresh || h < 0.25 ? C[6] : C[5], k);
+    for (let j = 1; j <= tuft; j++) p.dot(x, -j, j === tuft ? C[6] : C[5], k);
     if (tuft > 1 && rand(x, 9) < 0.5) p.dot(x + (rand(x, 3) < 0.5 ? -1 : 1), -tuft + 1, C[6], k);
     for (let j = 1; j <= D; j++) {
       const v = j / D;
@@ -74,7 +74,7 @@ function snowflake(p, C, x, y, L, spin, k) {
       }
   }
   p.px(x, y, WHITE);
-  p.glow(x, y, 10 + L * 3, C[5], 0.35 + 0.5 * k);
+  p.glow(x, y, 7 + L * 2, C[5], 0.18 + 0.27 * k);
 }
 
 export function create(o) {
@@ -135,8 +135,8 @@ export function create(o) {
       }
       if (t >= CHARGE && !released) {
         released = true;
-        lights.add(0, CORE_Y, 84, C[4], 0.8, 0.55);
-        lights.add(0, CORE_Y, 45, WHITE, 0.7, 0.12);
+        lights.add(0, CORE_Y, 59, C[4], 0.37, 0.55);
+        lights.add(0, CORE_Y, 30, C[6], 0.34, 0.12);
         for (let i = 0; i < 22; i++) {
           const a = R.range(-Math.PI, 0.25), sp = R.range(110, 280);
           bits.add({ kind: B.SHARD, x: R.range(-3, 3), y: CORE_Y, vx: Math.cos(a) * sp, vy: Math.sin(a) * sp, g: 0.7, drag: 0.6, bounce: 0.3, life: R.range(0.9, 1.5), a: R.range(0, TAU), va: R.range(-20, 20), s: R.range(1.5, 3.5), c: R.pick([C[7], C[6], C[5]]) });
@@ -200,7 +200,7 @@ export function create(o) {
       } else if (t < CHARGE + 0.22) {
         const a = (t - CHARGE) / 0.22;
         flare(p, 0, CORE_Y, 36 * Math.pow(1 - a, 1.5), 1 - a, C);
-        p.glow(0, CORE_Y, 46, WHITE, 0.6 * (1 - a));
+        p.glow(0, CORE_Y, 32, C[6], 0.28 * (1 - a));
       }
       // the frosted floor gives off a cold light while the ice stands
       if (t > CHARGE) {

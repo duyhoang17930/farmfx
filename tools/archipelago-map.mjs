@@ -16,6 +16,7 @@ import { rasterText } from "../src/core/font.js";
 import { ROOT, allIds, loadEffect, save, upscale } from "./lib/fxlib.mjs";
 import { encodePNG } from "./lib/png.mjs";
 import { SEA_COLORS } from "../src/fx/tiles/coastal-pond.js";
+import { terrainPalettes } from "../src/fx/_kit/world-terrain.js";
 
 const args = process.argv.slice(2);
 const flag = (k, d) => { const i = args.indexOf("--" + k); return i < 0 ? d : args[i + 1]; };
@@ -61,6 +62,7 @@ function paint(frame, m, t, x, y, o, fade = 1) {
   const p = painterFor(frame);
   p.place(Math.round(x), Math.round(y));
   p.fade = fade;
+  p.lightK = o.light ?? 1;
   m.drawBack?.(p, t, o);
   m.draw(p, t, o);
 }
@@ -94,14 +96,14 @@ const islands = [
   { name: "Thị Trấn", rect: [48, 1, 84, 30], ground: `${GL}/grass-ground`, shore: `${GL}/grass-shore`, weather: ["weather/sun-rays"] },
   { name: "Nghĩa Địa", rect: [87, 1, 110, 27], ground: "biomes/graveyard/dark-ground", shore: "biomes/graveyard/dark-shore", weather: ["weather/fog"] },
   { name: "Rừng Già", rect: [1, 31, 26, 64], ground: `${GL}/grass-ground`, shore: `${GL}/grass-shore`, weather: ["weather/falling-leaves"] },
-  { name: "Nông Trại", rect: [29, 31, 70, 66], ground: "tiles/grass", shore: "exploration/coastal-shore", weather: ["weather/pollen"] },
-  { name: "Khu Công Nghiệp", rect: [73, 30, 110, 63], ground: `${GL}/dirt-ground`, shore: `${GL}/grass-shore`, weather: ["weather/cloud-shadow"] },
+  { name: "Nông Trại", rect: [29, 31, 70, 66], ground: "tiles/grass", shore: "exploration/coastal-shore", groundOptions: { meadow: true, palette: null }, weather: ["weather/pollen"] },
+  { name: "Khu Công Nghiệp", rect: [73, 30, 110, 63], ground: `${GL}/dirt-ground`, shore: `${GL}/grass-shore`, groundOptions: { palette: terrainPalettes.dirt }, weather: ["weather/cloud-shadow"] },
   { name: "Đảo Nhiệt Đới", rect: [2, 68, 20, 97], ground: "biomes/tropical/tropical-ground", shore: "biomes/tropical/tropical-shore", weather: ["weather/rainbow"] },
   { name: "Sa Mạc", rect: [24, 69, 43, 97], ground: "biomes/desert/desert-ground", shore: "biomes/desert/desert-shore", weather: ["weather/floating-dust"] },
   { name: "Đầm Lầy", rect: [46, 69, 63, 97], ground: "biomes/swamp/mud-ground", shore: "biomes/swamp/swamp-shore", weather: ["weather/fireflies"] },
   { name: "Núi Lửa", rect: [66, 67, 85, 97], ground: "biomes/volcanic/volcanic-ground", shore: "biomes/volcanic/lava-shore", weather: ["weather/floating-embers"] },
   { name: "Hầm Ngục", rect: [88, 66, 110, 97], ground: "biomes/graveyard/cracked-ground", shore: "biomes/graveyard/dark-shore", weather: [] },
-  { name: "Chợ Phiên", rect: [2, 101, 109, 125], ground: "tiles/grass-summer", shore: "exploration/coastal-shore", weather: [] },
+  { name: "Chợ Phiên", rect: [2, 101, 109, 125], ground: "tiles/grass-summer", shore: "exploration/coastal-shore", groundOptions: { meadow: true, palette: null, season: "summer" }, weather: [] },
 ];
 
 const landAt = new Int8Array(MW * MH).fill(-1);
@@ -137,7 +139,7 @@ patch("tiles/grass-to-snow", 4, 20, 8, 20, { edges: "N", corners: [] });
 patch("tiles/snow-to-ice", 13, 18, 13, 22, { edges: "E", corners: [] });
 patch("biomes/snowland/ice-cliff", 3, 13, 10, 13, { edges: "S", corners: [] }, { block: true });
 zone([2, 2, 23, 27], [
-  "bosses/frost-dragon", "bosses/ice-giant", "buildings/watchtower", ["trees/snow-covered-tree", {}, 6],
+  "bosses/frost-dragon", "bosses/ice-giant", ["buildings/watchtower", { snow: true }], ["trees/snow-covered-tree", {}, 6],
   ["trees/pine", { season: "winter" }, 3], ["biomes/snowland/icicle", {}, 3], ["biomes/snowland/snow-rock", {}, 3],
   ["animals/penguin", {}, 3], "enemies/snow-wolf", "enemies/ice-golem", "enemies/ice-elemental", "player/sleeping",
   "objects/lamp", "tools/grappling-hook",
@@ -287,7 +289,7 @@ zone([75, 49, 92, 62], ["bosses/stone-titan", "enemies/stone-golem", "objects/wo
 // ---- Tropical: sand, a pier, the sea creatures off shore
 patch("biomes/tropical/beach-sand", 3, 86, 19, 96);
 patch("tiles/sand", 4, 84, 17, 85);
-patch("tiles/grass-to-sand", 4, 83, 17, 83, { edges: "S", corners: [] });
+patch("tiles/grass-to-sand", 4, 83, 17, 83, { edges: "S", corners: [], palette: terrainPalettes.tropical });
 patch("biomes/tropical/tropical-cliff", 4, 79, 9, 79, { edges: "S", corners: [] }, { block: true });
 patch("tiles/wooden-dock", 20, 80, 22, 80, { facing: "east-west" });
 zone([3, 69, 19, 82], ["buildings/fish-farm", "buildings/fishing-hut", "trees/palm", ["trees/palm", {}, 2],
@@ -325,7 +327,7 @@ zone([47, 70, 62, 96], ["bosses/slime-king", "bosses/giant-spider", "buildings/p
 
 // ---- Volcano: lava river and the fire bosses
 patch("biomes/volcanic/burnt-ground", 68, 70, 74, 76);
-patch("biomes/volcanic/lava-river", 76, 72, 77, 94, {}, { edges: "rim", block: true });
+patch("biomes/volcanic/lava-river", 76, 72, 76, 94, { edges: "NS" }, { block: true });
 patch("biomes/volcanic/lava-tile", 70, 88, 73, 91, {}, { block: true });
 patch("biomes/volcanic/volcanic-cliff", 79, 71, 84, 71, { edges: "S", corners: [] }, { block: true });
 zone([75, 67, 79, 72], ["biomes/volcanic/lava-waterfall"], "grid");
@@ -533,7 +535,10 @@ function paintSea(frame) {
 
 async function tile(frame, id, x, y, o, px, py) {
   const m = await mod(id);
-  paint(frame, m, stillTime(m, id, 0.3), px ?? tx(x), py ?? ty(y), { ...m.meta.options, tileX: x, tileY: y, seed: x * 7 + y * 13, ...o });
+  const facing = o.facing ?? m.meta.options.facing;
+  paint(frame, m, stillTime(m, id, 0.3), px ?? tx(x), py ?? ty(y), {
+    ...m.meta.options, tileX: x, tileY: y, tileOffset: facing === "east-west" ? x : y, ...o,
+  });
 }
 
 async function paintGround(frame) {
@@ -541,8 +546,8 @@ async function paintGround(frame) {
     const k = land(x, y);
     if (k < 0) continue;
     const isl = islands[k], rim = rimOf((a, b) => land(a, b) === k, x, y);
-    if (rim.edges || rim.corners.length) await tile(frame, isl.shore, x, y, rim);
-    else await tile(frame, isl.ground, x, y, { edges: "", corners: [] });
+    if (rim.edges || rim.corners.length) await tile(frame, isl.shore, x, y, { ...rim, ...isl.groundOptions });
+    else await tile(frame, isl.ground, x, y, { edges: "", corners: [], ...isl.groundOptions });
   }
   for (const pt of patches) {
     const [x0, y0, x1, y1] = pt.r, inside = (a, b) => a >= x0 && a <= x1 && b >= y0 && b <= y1;
@@ -662,8 +667,9 @@ async function overlay(id, x, y, extra = {}) {
   const m = await mod(id);
   if (m.meta.size[0] >= 300) return false; // full-screen effects do not belong on a map
   try {
-    // light reads as a soft pool, not a bloom over the pixel art
-    paint(frame, m, stillTime(m, id), x, y, stillOptions(m, id, { actor: stockActor(), ...extra }), id.startsWith("lighting/") ? 0.65 : 1);
+    const lighting = id.startsWith("lighting/");
+    paint(frame, m, stillTime(m, id), x, y,
+      stillOptions(m, id, { actor: stockActor(), light: lighting ? 1 : 0.48, ...extra }), lighting ? 0.65 : 1);
   } catch (err) {
     missed.push(`${id} (overlay failed: ${err.message})`);
     return false;

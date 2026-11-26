@@ -1,10 +1,12 @@
-import { clamp, fit, noise2, rand } from "../../core/index.js";
+import { clamp, fit, mix, noise2, rand } from "../../core/index.js";
 import { asset, cacheArt, LEAF, RED, STEEL, WOOD, round, wave } from "./art.js";
 import { groundShadow } from "./sprite.js";
+import { waterGlint } from "./world-terrain.js";
 
 export function pathTile(name, desc, palette, stone = false) {
   return asset({name, desc, tags: ["tile","path"], size:[16,16], origin:[8,12], palette, options:{edges:"EW",tileX:0,tileY:0}}, (p, _ph, C, o) => {
     const sides = o.edges.toUpperCase();
+    const mortar = mix(C[2],C[1],.44), lip = mix(C[2],C[3],.32), light = mix(C[2],C[4],.24);
     for (let y = 0; y < 16; y++) {
       for (let x = 0; x < 16; x++) {
         const X = x + o.tileX * 16, Y = y + o.tileY * 16;
@@ -13,8 +15,8 @@ export function pathTile(name, desc, palette, stone = false) {
         const v = rand(X,Y,o.seed), edge = v > 0.8 ? 1 : 0;
         if (margin < edge) continue;
         const row = Math.floor(Y / 4), joint = (X + 3 * (row & 1)) % 7 === 0;
-        const shade = stone ? (Y % 4 === 3 || joint ? 1 : v > 0.8 ? 4 : Y % 4 === 0 ? 3 : 2) : v > 0.91 ? 4 : v < 0.12 ? 1 : 2;
-        p.px(x-8,y-12,C[margin === edge ? 1 : shade]);
+        const color = stone ? (Y % 4 === 3 || joint ? mortar : Y % 4 === 0 ? lip : C[2]) : v > 0.96 ? light : v < 0.05 ? mortar : C[2];
+        p.px(x-8,y-12,margin === edge ? C[1] : color);
       }
     }
   });
@@ -90,8 +92,8 @@ export function stream(p, ph, C, o) {
       const meander=wave((a+0.5)/16,1)*0.8;
       if (d < 0.7 - meander) continue;
       if (d<2) {p.px(x-8,y-12,S[d===0?3:1]);continue;}
-      const ripple=wave(ph+(a*0.084+across*0.061),1) + noise2(a/6,across/4,o.seed);
-      p.px(x-8,y-12,C[d===2 ? (ripple>0.55?4:2) : ripple>0.93?3:d<5?2:1]);
+      const crest=waterGlint(across,a,ph,o.seed);
+      p.px(x-8,y-12,C[d===2 ? 1 : crest ? 3 : 2]);
     }
   }
 }

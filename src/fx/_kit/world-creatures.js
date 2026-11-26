@@ -6,6 +6,7 @@ const palettes={green:LEAF,blue:WATER,red:RED,poison:["#36434a","#4b6652","#7195
   crystal:["#38445f","#526c99","#719cbe","#aae0dd","#eff4dc"],bone:CREAM,ghost:VIOLET,stone:STEEL,fire:RED,
   ice:WATER,lightning:GOLD,wood:WOOD,amber:GOLD,pink:RED,dark:["#2d253e","#463651","#644c68","#8b6e8d","#d1a3b7"]};
 const layer=new Layer(48,48);
+const lavaStone=fit(["#24232d","#393540","#514654","#76616b","#aa8784"],5);
 const tails=new Set(["fox","squirrel","raccoon","wolf","snow-wolf","angry-boar","donkey","deer","mini-dragon","frost-dragon","fire-dragon"]);
 export function roster(source){
   return Object.fromEntries(source.trim().split(String.fromCharCode(10)).flatMap(line=>{
@@ -17,17 +18,34 @@ function eyes(p,x,y,side,C){
   p.rect(x-4,y-1,2,2,C[0]);p.px(x-4,y-2,C[4]);
   if(!side){p.rect(x+3,y-1,2,2,C[0]);p.px(x+3,y-2,C[4]);}
 }
-function humanoid(p,id,C,side,back,family,step,beat){
+function humanoid(p,id,C,side,back,spec,step,beat){
+  const {family,palette}=spec;
   const stone=family==="golem", skeleton=family==="bone", tall=family==="treant"||family==="demon";
+  const frost=stone&&palette==="ice", crystal=stone&&palette==="crystal", lava=stone&&palette==="fire";
+  const body=lava?lavaStone:C;
   const w=stone||tall?11:8,y=-23+step-3*beat, head=side*2;
   for(const a of [-1,1]){
-    p.beam(a*5,-9,a*(5+step),-2,stone?7:4,C[0]);p.line(a*5,-7,a*(5+step),-3,C[3]);
-    p.beam(a*(w-1),-18+step,a*(w+2+4*beat),-8+step,stone?7:4,C[1]);
+    p.beam(a*5,-9,a*(5+step),-2,stone?7:4,body[0]);p.line(a*5,-7,a*(5+step),-3,body[3]);
+    p.beam(a*(w-1),-18+step,a*(w+2+4*beat),-8+step,stone?7:4,body[1]);
+    if(crystal){
+      const x=a*(w-1),top=-28+step+(a===side?3:0);
+      p.poly([[x-a*4,top+10],[x,top],[x+a*4,top+5],[x+a*6,top+15],[x,top+17]],C[0]);
+      p.poly([[x-a*2,top+10],[x,top+2],[x+a*3,top+6],[x+a*4,top+13],[x,top+15]],C[3]);
+      p.line(x,top+2,x,top+14,C[4]);
+    }
+    if(lava)p.polyline([[a*w,-16+step],[a*(w+2),-13+step],[a*(w+1),-10+step]],GOLD[3]);
   }
-  p.poly([[-w,-19+step],[w,-19+step],[w-2,-9+step],[3,-6+step],[-w+2,-8+step]],C[0]);
-  p.rect(-w+2,-17+step,w*2-4,7,C[skeleton?1:2]);p.line(-w+2,-15+step,w-3,-15+step,C[3]);
-  round(p,head,y,stone?9:8,7.5,C);
-  if(!back)eyes(p,head,y+1,side,C);
+  p.poly([[-w,-19+step],[w,-19+step],[w-2,-9+step],[3,-6+step],[-w+2,-8+step]],body[0]);
+  p.rect(-w+2,-17+step,w*2-4,7,body[skeleton?1:2]);p.line(-w+2,-15+step,w-3,-15+step,body[3]);
+  if(stone){
+    const top=y-(frost?13:crystal?11:7);
+    p.poly([[head-9,y+4],[head-9,y-4],[head-(frost?3:7),top],[head+3,top],[head+9,y-4],[head+8,y+5],[head-4,y+8]],body[0]);
+    p.poly([[head-7,y+3],[head-7,y-4],[head-(frost?2:6),top+2],[head+2,top+2],[head+7,y-3],[head+6,y+4],[head-4,y+6]],body[2]);
+    p.poly([[head-7,y-4],[head-(frost?2:6),top+2],[head+2,top+2],[head+5,y-4],[head-2,y-2]],body[3]);
+    p.line(head-7,y-3,head-(frost?2:6),top+2,body[4]);
+    if(lava)p.polyline([[head+5,y-5],[head+2,y-2],[head+3,y+1],[head+1,y+3]],GOLD[3]);
+  }else round(p,head,y,8,7.5,C);
+  if(!back)eyes(p,head,y+1,side,lava?GOLD:C);
   if(skeleton){p.line(-3,y+4,3,y+4,C[0]);for(let j=-2;j<=2;j+=2)p.px(j,y+5,C[4]);}
   if(family==="folk"||tall)for(const a of [-1,1]){
     p.tri(head+a*5,y-3,head+a*12,y-9,head+a*7,y+1,C[1]);p.line(head+a*6,y-3,head+a*11,y-8,C[3]);
@@ -37,7 +55,8 @@ function humanoid(p,id,C,side,back,family,step,beat){
     p.poly([[-8,y-3],[-6,y-11],[0,y-7],[6,y-11],[8,y-3]],GOLD[2]);p.line(-7,y-4,7,y-4,GOLD[4]);
   }
   if(id.includes("archer")||family==="wizard"){p.arc(13,-11,7,1.8,-1.35,1.25,WOOD[3]);p.line(14,-17,14,-5,CREAM[3]);}
-  if(stone||tall)p.polyline([[-5,-13],[1,-15],[4,-13],[1,-10]],family==="treant"?LEAF[3]:C[4]);
+  if(crystal)p.poly([[0,-17+step],[4,-13+step],[0,-9+step],[-4,-13+step]],C[4]);
+  else if(stone||tall)p.polyline([[-5,-13+step],[1,-15+step],[4,-13+step],[1,-10+step]],lava?GOLD[3]:family==="treant"?LEAF[3]:C[4]);
 }
 function creature(p,spec,id,C,phase,state,facing){
   const side=facing==="left"?-1:facing==="right"?1:0,back=facing==="up",wind=wave(phase);
@@ -56,7 +75,7 @@ function creature(p,spec,id,C,phase,state,facing){
     p.line(2,y+4,7,y+3,C[1]);if(!back)eyes(p,side*2,y,side,C);
     if(id.includes("crystal"))p.poly([[-2,y-8],[2,y-13],[5,y-7],[2,y-4]],C[4]);
   }else if(["folk","bone","golem","treant","demon","mummy","wizard"].includes(family)){
-    humanoid(p,id,C,side,back,family,step,beat);
+    humanoid(p,id,C,side,back,spec,step,beat);
   }else if(["ghost","elemental","jelly","snail","plant","mimic","mushroom","worm"].includes(family)){
     const y=-16+Math.round(2*wind)-3*beat+(family==="jelly"?bite:0);
     if(family==="mimic"){

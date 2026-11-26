@@ -80,10 +80,10 @@ function motes(p, C, t, S, far) {
 export function drawBack(p, t, o) {
   const C = fit(o.palette, 8), pulse = 0.85 + 0.15 * Math.sin((t / D) * TAU * 4);
   // the floor glows under the circle, and a soft light stands over it
-  p.glow(0, 0, R * 1.4, C[4], 0.24 * pulse);
-  for (const s of [-1, 1]) p.glow(s * R * 0.55, 1, R * 0.7, C[5], 0.12 * pulse);
+  p.glow(0, 0, R * 1.15, C[4], 0.13 * pulse);
+  for (const s of [-1, 1]) p.glow(s * R * 0.55, 1, R * 0.6, C[5], 0.07 * pulse);
   // a soft column of light standing over it, fading as it rises
-  for (let h = 0; h < 66; h += 6) p.glow(0, -h, 26, C[4], 0.11 * pulse * (1 - h / 80));
+  for (let h = 0; h < 66; h += 12) p.glow(0, -h, 19, C[4], 0.06 * pulse * (1 - h / 80));
   circle(p, C, t, true);
   motes(p, C, t, o.seed, true);
 }

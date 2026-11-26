@@ -10,13 +10,13 @@ const watercourse = cacheArt(48,64,-24,-50,(p,C)=>{
 export const { meta, draw } = asset({name:"Waterfall",desc:"A layered ribbon of falling water over dark stone, with a frothy basin and rising mist.",
   tags:["fall","water","cliff"],size:[48,64],origin:[24,50],palette:WATER,duration:2.4},(p,ph,C,o)=>{
   watercourse(p,C);
-  for(let i=0;i<21;i++){
+  for(let i=0;i<13;i++){
     const x=-8+16*rand(i,2,o.seed),y=-40+32*wrap(ph*(i%2+1)+rand(i,3,o.seed),1);
-    p.line(x,y,x+wave(ph+i)*0.55,y+3+i%3,C[(i%3===0)?4:3],0.75);
+    p.line(x,y,Math.round(x),y+2+i%3,C[3],0.75);
   }
-  for(let i=0;i<10;i++){
+  for(let i=0;i<7;i++){
     const k=wrap(ph+rand(i,4,o.seed),1),x=(rand(i,3,o.seed)-0.5)*(13+17*k);
-    p.disc(x,-5-6*k,1.4+2*k,C[4],0.65*(1-k));
-    p.dot(x,-3+wave(ph+i)*2.8,C[4],(1-k)*0.7);
+    p.dot(x,-5-6*k,C[3],0.65*(1-k));
+    p.dot(x,-3+wave(ph+i)*2.8,C[i%3===0?4:3],(1-k)*0.7);
   }
 });

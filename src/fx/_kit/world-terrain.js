@@ -1,4 +1,4 @@
-import { fit, noise2, rand } from "../../core/index.js";
+import { fit, mix, noise2, rand } from "../../core/index.js";
 import { asset, LEAF, STEEL, WATER, WOOD, wave } from "./art.js";
 
 export const terrainPalettes={
@@ -6,8 +6,11 @@ export const terrainPalettes={
   desert:["#5c473b","#9b744f","#c99965","#e9bd80","#f9daa0"],
   snowland:["#536a82","#7f99ae","#a9c3d0","#c8e2e2","#f5f5e9"],
   graveyard:["#292a3d","#4b424f","#665461","#85737c","#aa9699"],
-  volcanic:["#352b3b","#553947","#85504e","#c96e49","#f8ac66"],
+  volcanic:["#20212b","#34323e","#45434e","#635761","#8b7371"],
+  brick:["#3e2b32","#6c4242","#9d593f","#c47754","#e99b68"],
+  "dungeon-floor":["#2e2837","#514655","#685e6d","#827787","#b2a3b1"],
   swamp:["#263d3c","#3d5241","#566d4a","#7a8b55","#acaf66"],
+  "swamp-water":["#233833","#344a3f","#425d50","#607969","#91a585"],
   crystal:["#33324e","#4d5178","#6381a1","#8badd0","#c4dce3"],
   tropical:["#254f49","#386850","#57936a","#83b577","#d0d283"],
   rock:STEEL, wood:WOOD, water:WATER,
@@ -19,6 +22,44 @@ export const terrainPalettes={
   ice:["#354e69","#577e99","#8eb7cc","#b0dbe2","#e1f3e9"],
 };
 const sides="NESW", diagonals=["NE","SE","SW","NW"];
+const surfaces={
+  grassland:(x,y,s)=>noise2(x/9,y/7,s),
+  tropical:(x,y,s)=>noise2((x+y*.4)/12,y/5,s),
+  snowland:(x,y,s)=>noise2((x-y*.3)/22,y/8,s),
+  ice:(x,y,s)=>noise2((x+y*.5)/24,y/5,s),
+  desert:(x,y,s)=>noise2(x/21,(y+x*.17)/3.5,s),
+  sand:(x,y,s)=>noise2(x/18,(y+x*.13)/4,s),
+  dirt:(x,y,s)=>noise2(x/7,y/6,s),
+  swamp:(x,y,s)=>noise2(x/16,(y+noise2(x/20,y/16,s)*5)/6,s),
+  graveyard:(x,y,s)=>noise2(x/9,y/11,s),
+  crystal:(x,y,s)=>noise2((x+y)/10,(y-x)/6,s),
+  volcanic:(x,y,s)=>noise2((x-y*.7)/7,(y+x*.25)/9,s),
+};
+
+export function groundTones(C, base=C[2]){
+  return [mix(base,C[1],.27),base,mix(base,C[3],.27)];
+}
+
+function surfaceTones(style,C,id){
+  const snow=style==="snowland";
+  const base=id==="deep-snow"?mix(C[3],C[4],.27):id==="burnt-ground"?mix(C[1],C[2],.35):
+    snow?mix(C[2],C[3],.63):style==="desert"||style==="sand"?mix(C[2],C[3],.82):C[2];
+  if(snow)return [mix(base,C[2],.36),base,mix(base,C[4],.15)];
+  const tones=groundTones(C,base);
+  if(base!==C[2])tones[2]=mix(base,C[4],.13);
+  return tones;
+}
+
+function groundColor(texture,tones,x,y,seed){
+  const n=texture(x,y,seed);
+  return tones[n<-.57?0:n>.57?2:1];
+}
+
+// Short, broken crests leave room for sprites and connect in world coordinates.
+export function waterGlint(x,y,phase,seed){
+  const n=noise2(x/12,y/6,seed);
+  return n>.08&&wave(phase,1,x*.028+y*.16+n*.2)>.84;
+}
 export const connectedTiles=new Set(["blend","shore","cliff","river","wall","fence","floor"]);
 const descriptions={blend:"Connects two ground materials with configurable edges and inside corners.",
   shore:"A connected bank with configurable shoreline edges and inside corners.", cliff:"A raised connected cliff edge with a fractured face.",
@@ -48,38 +89,60 @@ export function terrain(id,kind,style,under,pattern=0){
   const edges=kind==="river"?id.includes("junction")?"NEW":id.includes("corner")?"NE":"NS":
     inner?"":id.includes("outer-corner")?"NE":id==="island-edge"||id==="farmland-edge"?"S":id.includes("wall-corner")?"EW":"ES";
   const corners=inner||id==="farmland-corner"?["NE"]:[];
+  const texture=surfaces[style]??surfaces.graveyard;
+  const backgroundTexture=surfaces[under]??surfaces.graveyard;
   const metaOptions={tileX:0,tileY:0,...(connected?{edges,corners}:{}),
     ...(kind==="gate"?{open:false}:{}),...(kind==="bridge"?{facing:"east-west"}:{}),background:other};
   const result=asset({name:id.replaceAll("-"," "),desc:descriptions[kind],tags:["terrain",kind,style],size:[16,16],origin:[8,12],
     duration:water?2.5:1,fps:water?12:1,palette,options:metaOptions},(p,phase,C,o)=>{
     const B=fit(o.background,5), edges=o.edges??"",corners=o.corners??[];
+    const tones=surfaceTones(style,C,id), background=surfaceTones(under,B);
+    const floorMortar=mix(C[2],C[1],.38), floorLip=mix(C[2],C[3],.23);
+    const lightWater=mix(C[2],C[3],.42), lava=style==="lava";
     for(let y=0;y<16;y++)for(let x=0;x<16;x++){
       const gx=x+o.tileX*16,gy=y+o.tileY*16;
       const n=rand(gx,gy,o.seed), d=distance(x,y,edges,corners);
       const fleck=noise2(gx*0.17,gy*0.18,o.seed);
-      // broad two-tone patches with a rare fleck: the ground sits behind the props instead of competing with them
       const value=n>0.988?3:n<0.012?1:fleck>0.13?3:2;
-      const ripple=wave(phase,1,gx*.059+gy*.13+fleck*.26)+(n-.5)*.4;
-      let color=C[value];
-      if(id==="flower-ground"&&n>0.9)color=n>.975?C[4]:B[4];
-      if(id==="deep-snow")color=C[fleck>-.1?4:3];
-      if(id==="burnt-ground")color=C[value>1?value-1:value];
-      if(kind==="blend")color=d<2?B[value]:d<4?B[n>0.52?3:2]:d===4&&n>0.7?C[1]:C[value];
-      else if(kind==="shore")color=d<2?B[ripple>0.75?3:1]:d<4?n>0.78?C[4]:C[1]:C[value];
-      else if(kind==="cliff")color=d<1?C[0]:d<4?C[x%5===0?1:2]:d===4?C[4]:C[value];
+      let color=groundColor(texture,tones,gx,gy,o.seed);
+      if(id==="flower-ground"&&n>.987)color=n>.997?C[4]:C[3];
+      if(kind==="blend"){
+        const boundary=5+Math.round(fleck*2);
+        if(d<boundary)color=groundColor(backgroundTexture,background,gx,gy,o.seed);
+        else if(d===boundary)color=mix(tones[1],background[1],.48);
+      }
+      else if(kind==="shore"){
+        const bank=3+Math.round(fleck);
+        color=d<2?B[under==="lava"?3:2]:d<bank?tones[0]:color;
+      }
+      else if(kind==="cliff")color=d<1?C[0]:d<4?C[x%5===0?1:2]:d===4?C[4]:color;
       else if(kind==="river"){
-        const cx=Math.abs(x-7.5),cy=Math.abs(y-7.5);
+        const bend=lava&&edges==="NS"?Math.round(2*noise2(gy/19,0,o.seed+5)):0;
+        const cx=Math.abs(x-7.5-bend),cy=Math.abs(y-7.5);
         const route=cx<4.6&&cy<4.6||edges.includes("N")&&cx<4.6&&y<8||edges.includes("S")&&cx<4.6&&y>7||
           edges.includes("W")&&cy<4.6&&x<8||edges.includes("E")&&cy<4.6&&x>7||d<2&&corners.length>0;
-        color=route?C[ripple>0.74?3:1]:B[value];
-      }else if(kind==="water"||kind==="wave")color=C[ripple>(kind==="wave"?.67:.86)?4:ripple>0.5?3:n>0.27?2:1];
-      else if(kind==="crack")color=(Math.abs((gx+Math.floor(fleck*4))%9)<=0.8 || gy%7===1&&n>0.25)?C[0]:C[value];
-      else if(kind==="floor"||kind==="wall"){
-        const step=pattern===0?4:pattern===2?5:6;
-        const seam=gy%step===0 || (gx+Math.floor(gy/step)*3)%8===0;
-        color=d===0?C[0]:d===1?C[3]:seam?C[1]:gy%step===1&&n>0.5?C[3]:C[value];
-        if(kind==="wall"&&y>12&&!edges.includes("S"))color=C[y===13?1:0];
-        if(kind==="wall"&&d>10)color=C[value];
+        color=route?(waterGlint(gx,gy,phase,o.seed)?lightWater:C[2]):groundColor(backgroundTexture,background,gx,gy,o.seed);
+        if(route&&lava){
+          const bank=cx>3.5&&cy>3.5||cx>3.5&&!/[EW]/.test(edges)||cy>3.5&&!/[NS]/.test(edges);
+          color=bank?C[1]:waterGlint(gx,gy,phase,o.seed)?C[4]:C[2];
+        }
+      }else if(kind==="water"||kind==="wave"){
+        const crest=waterGlint(gx,gy,phase,o.seed);
+        color=lava?(crest?C[4]:fleck>.28?C[1]:C[2]):crest?(kind==="wave"?C[3]:lightWater):C[2];
+      }else if(kind==="crack"&&id!=="cracked-floor"){
+        const seam=noise2((gx+gy*.38)/14,gy/11,o.seed);
+        if(Math.abs(seam)<.038&&fleck>-.18)color=mix(tones[1],C[0],.32);
+      }
+      else if(kind==="floor"||kind==="wall"||id==="cracked-floor"){
+        const height=pattern===0?4:8, width=pattern===0?32:16;
+        const row=Math.floor(gy/height), offset=gx+(row&1)*width/2;
+        const seam=gy%height===0||offset%width===0;
+        const tint=rand(Math.floor(offset/width),row,o.seed);
+        if(kind!=="wall"){
+          color=d===0?C[1]:d===1||seam?floorMortar:gy%height===1?floorLip:tones[tint<.17?0:tint>.83?2:1];
+          if(id==="cracked-floor"&&tint<.56&&Math.abs(noise2(gx/10,gy/8,o.seed+11))<.045)color=C[1];
+        }
+        else color=d===0||y>13&&!edges.includes("S")?C[0]:d===1||gy%height===1?C[3]:seam?C[1]:C[2];
       }else if(kind==="shadow"){
         const a=Math.max(0,1-y/12)*0.42;
         p.dot(x-8,y-12,C[0],a);continue;

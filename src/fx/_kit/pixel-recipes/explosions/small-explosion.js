@@ -65,8 +65,8 @@ export function create(o) {
   // the fireball
   flashes.push({ r: RAD * 1.05, life: 0.06, max: 0.06 });
   rings.push({ r0: RAD * 0.45, r1: RAD * 2.7, life: 0.34, max: 0.34, thick: 3, c: F[5] }, { r0: RAD * 0.3, r1: RAD * 1.6, life: 0.22, max: 0.22, thick: 1.8, c: F[3] });
-  lights.add(0, Y, RAD * 3.4, WARM, 0.6 * POWER, 0.7);
-  lights.add(0, Y, RAD * 1.6, WHITE, 0.6, 0.08);
+  lights.add(0, Y, RAD * 2.5, WARM, 0.34 * POWER, 0.7);
+  lights.add(0, Y, RAD * 1.25, F[6], 0.35, 0.08);
   for (let i = 0; i < 5; i++) ps.spawn(P.FIRE, R.range(-2.5, 2.5), Y + R.range(-2.5, 2.5), R.range(-20, 20), R.range(-40, -10), R.range(0.18, 0.3), 0, R.range(RAD * 0.4, RAD * 0.55));
   for (let i = 0; i < Math.round(28 * POWER); i++) {
     const a = R.range(0, TAU), d = R.range(0, RAD * 0.55), sp = R.range(40, 210) * POWER;

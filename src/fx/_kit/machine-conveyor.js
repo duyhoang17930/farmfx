@@ -43,12 +43,13 @@ function conveyor(kind, name, desc, facing) {
           if (!central && distance>=5) {
             color = C[0];
           } else if (!central && distance>=4) {
-            color = rails[(Math.floor(along)%4===1) ? 2 : 1];
+            const lit = across * (a * (fx + fy) + b * (fy - fx)) < 0;
+            color = rails[lit ? (Math.floor(along)%4===1 ? 2 : 1) : 0];
           } else {
             const groove = track&3;
             const highlight = distance<2 && groove===3-Math.floor(distance);
             color = C[groove===0 ? 1 : highlight ? 4 : 2];
-            if (distance>=3 && (track&3)===1) color=C[3];
+            if (distance>=3) color=C[groove===1?3:1];
           }
         }
         if (!color && Math.abs(u)<6 && Math.abs(v)<6) color = Math.abs(u)<5 && Math.abs(v)<5 ? rails[0] : C[0];

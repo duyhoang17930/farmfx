@@ -67,9 +67,9 @@ export function extraBuilding(id){
   const W=mode==="tower"?18:mode==="gate"?29:widths[shape];
   const size=[96,112],origin=[48,96];
   const fx=asset({name:id.replaceAll("-"," "),desc:`A top-down ${id.replaceAll("-"," ")} with a selectable door and interior lights.`,
-    tags:["building",mode,shape],size,origin,palette,duration:3,fps:12,options:{open:false,active:true}},(p,t,C,o)=>{
+    tags:["building",mode,shape],size,origin,palette,duration:3,fps:12,options:{open:false,active:true,...(id==="watchtower"?{snow:false}:{})}},(p,t,C,o)=>{
     groundShadow(p,0,0,W+5,6);
-    const wall=mode==="industry"||mode==="civic"||mode==="gate"?STEEL:WOOD;
+    const wall=mode==="industry"||mode==="civic"||mode==="gate"||id==="magic-tower"?STEEL:WOOD;
     let signY=null,signX=0;
     if(shape==="gate"){
       const magic=id.includes("portal"),dungeon=id.includes("dungeon");
@@ -94,6 +94,10 @@ export function extraBuilding(id){
         for(let x=-W-4;x<W+4;x+=6)p.rect(x,-71,4,5,wall[2]);
         p.line(-W+4,-50,W-4,-50,wall[1]);post(p,-W+3,-66,10,WOOD);post(p,W-3,-66,10,WOOD);
         p.rect(-W+5,-79,W*2-10,4,C[2]);p.line(0,-79,0,-90,WOOD[1]);p.poly([[1,-90],[9,-87],[1,-84]],RED[3]);
+        if(o.snow){
+          for(let x=-W-4;x<W+4;x+=6){p.rect(x,-72,4,2,STEEL[4]);p.px(x+2,-70,STEEL[3]);}
+          p.line(-W+5,-79,W-6,-79,STEEL[4]);p.line(-W+6,-78,W-9,-78,STEEL[3]);
+        }
       }else{
         const peak=mage?-89:-83;
         p.poly([[-W-5,-54],[-12,-68],[0,peak],[16,-66],[W+4,-54],[W,-50],[-W,-50]],C[0]);

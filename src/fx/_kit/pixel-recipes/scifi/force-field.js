@@ -243,7 +243,7 @@ function drawFoot(p, t, C, R, near) {
 
 export function drawBack(p, t, o) {
   const C = fit(o.palette, 8), R = o.radius;
-  for (let x = -R; x <= R; x += R / 3) p.glow(x, -1, 22, C[3], 0.1);
+  for (let x = -R; x <= R; x += R / 3) p.glow(x, -1, 15, C[3], 0.06);
   drawFoot(p, t, C, R, false);
   drawShell(p, t, o, C, false);
 }
@@ -290,6 +290,6 @@ export function draw(p, t, o) {
   }
   // the dome's own light, and what glances off
   const a0 = since(t, SHOTS[0].t, D);
-  p.glow(0, -R * 0.45, R * 1.3, C[3], 0.11 + 0.1 * Math.max(0, 1 - a0 * 2));
+  p.glow(0, -R * 0.45, R, C[3], 0.06 + 0.06 * Math.max(0, 1 - a0 * 2));
   ghosts(o, C, R).at(t).draw(p);
 }

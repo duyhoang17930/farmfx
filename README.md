@@ -358,6 +358,9 @@ on the sprites they belong to. It writes `records/mist-station/toan-canh-quan-da
 of what was placed and what was left out (UI, portraits, skills, transitions and most weather are screen overlays,
 not map content). Pass `--labels` for island names and `--no-weather` to leave out the weather.
 
+Review items, weapons, equipment and tools on a neutral background at [native scale](docs/preview/item-icons.png)
+or [2x nearest-neighbor](docs/preview/item-icons@2x.png). To regenerate both previews, run `node tools/item-preview.mjs`.
+
 ## adventure assets and audio
 
 The [catalog](docs/CATALOG.md) includes player clips, enemies, bosses, terrain, buildings, dungeon props, UI, and

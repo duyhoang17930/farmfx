@@ -21,7 +21,7 @@ function rune(p,x,y,C,a=1){
 }
 export function dungeonAsset(id){
   const kind=Object.keys(props).find(k=>props[k].split(" ").includes(id));
-  if(kind==="floor"&&id!=="collapsing-floor"&&id!=="rune-floor")return terrain(id,id==="cracked-floor"?"crack":"floor","graveyard");
+  if(kind==="floor"&&id!=="collapsing-floor"&&id!=="rune-floor")return terrain(id,id==="cracked-floor"?"crack":"floor","dungeon-floor");
   if(id==="dungeon-wall"||id==="dungeon-wall-corner")return terrain(id,"wall","graveyard");
   if(id==="dungeon-stairs")return terrain(id,"stairs","graveyard");
   const magic=/boss|mana|rune|magic|receiver|emitter|summon/.test(id);
@@ -64,13 +64,22 @@ export function dungeonAsset(id){
     }else if(kind==="trap"){
       box(p,-17,0,34,6,6,C);
       const burst=active?ease.outQuart(seg(t,0.2,0.46))*(1-seg(t,.58,.96)):0;
-      if(id==="spike-trap")for(let x=-12;x<16;x+=6)p.tri(x-2,-7,x,-7-burst*15,x+2,-7,C[4]);
+      if(id==="spike-trap")for(let x=-12;x<16;x+=6){
+        p.ellipse(x,-7,2.5,1.5,C[0]);
+        if(burst>.08){p.tri(x-2,-7,x,-7-burst*15,x+2,-7,C[3]);p.line(x-1,-8,x,-8-burst*14,C[4]);}
+      }
       else if(id==="arrow-trap"){
         box(p,-15,0,9,23,4,C);for(let i=0;i<3;i++){const x=-8+t*27;if(burst>0.09)p.line(x-3,-12+i*3,x+5,-12+i*3,C[4],burst);}
       }else if(id==="falling-rock-trap")round(p,1,-28+burst*18,8,7,C);
       else if(id==="swinging-blade-trap"){
         post(p,0,0,33,C);const x=u*16;p.line(0,-31,x,-9-Math.abs(x)/4,C[3]);p.arc(x,-9-Math.abs(x)/4,7,3,0.1,3,C[4]);
-      }else if(id==="poison-trap"){if(burst>0.01)for(let i=0;i<6;i++)p.disc(i*5-12,-8-burst*(3+i%3*3),4,LEAF[3],burst*.48);}
+      }else if(id==="poison-trap"){
+        for(let i=0;i<5;i++){
+          const x=i*6-12;
+          p.ellipse(x,-7,2.5,1.5,C[0]);p.px(x,-8,LEAF[3]);
+          if(burst>.12)p.circle(x,-9-burst*(4+i%3*3),1+i%2,LEAF[3],burst*.55);
+        }
+      }
       else if(burst>0.08)hot(p,-13,-23,26,17,t,true);
     }else if(kind==="block"){
       const h=id==="dungeon-pillar"?35:id==="rune-block"?19:15;

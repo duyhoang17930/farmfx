@@ -229,9 +229,9 @@ export function create(o) {
         p.circle(0, -1, r + 0.5, C[5]);
         p.circle(0, -1, r * 0.65, WHITE);
         if (s.a < 0.07) sparkle(p, 0, -2, Math.round(12 * s.k * (1 - s.a / 0.07)), C[6], C[4], 0.25);
-        p.glow(0, -16, 96, C[3], 0.42 * s.k);
-        p.glow(0, -3, 22, C[5], 0.3 * s.k);
-        if (hero) p.glow(X0 * 0.5, -110, 170, C[3], 0.3);
+        p.glow(0, -16, 64, C[3], 0.19 * s.k);
+        p.glow(0, -3, 16, C[5], 0.22 * s.k);
+        if (hero) p.glow(X0 * 0.5, -110, 100, C[3], 0.10);
       } else if (s) {
         const crumble = s.i === STROKES.length - 1, cool = clamp((s.a - 0.23) / 0.45), tr = chan(s.i);
         for (let i = 0; i < tr.length - 1; i++) {

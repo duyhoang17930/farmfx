@@ -1,5 +1,6 @@
-import { noise2, ramp } from "../../core/index.js";
-import { asset, wave } from "../_kit/art.js";
+import { mix, noise2, ramp } from "../../core/index.js";
+import { asset } from "../_kit/art.js";
+import { waterGlint } from "../_kit/world-terrain.js";
 
 export const SEA_COLORS=["#3d8296","#509bad","#64adba","#8bc4c4","#c7e9d9"];
 const mud=ramp(["#887554","#a99066","#c8ad7b"]);
@@ -11,6 +12,7 @@ export const { meta, draw } = asset({
   options:{ banks:"ES", corners:[], tileX:0, tileY:0 },
 },(p,t,C,o)=>{
   const inner=new Set(o.corners);
+  const crest=mix(C[1],C[2],.6);
   for(let y=0;y<16;y++)for(let x=0;x<16;x++){
     const ds=[y,15-x,15-y,x];
     const wx=o.tileX*16+x, wy=o.tileY*16+y;
@@ -23,9 +25,8 @@ export const { meta, draw } = asset({
       if(inner.has(corner)) depth=Math.min(depth,d+next);
     }
     if(depth<1+(n<-.25?1:0))continue;
-    const ripple=wave(t,1,wx*.065+wy*.11+n*.32);
     const color=depth<3.6?mud[depth<1.9?2:depth<2.8?1:0]
-      :depth<7?C[n>.16?2:1]:C[ripple>.75&&n>.12?2:1];
+      :depth<7&&n>.16?crest:waterGlint(wx,wy,t,o.seed)?crest:C[1];
     p.px(x-8,y-12,color);
   }
 });

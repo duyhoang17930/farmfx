@@ -4,7 +4,7 @@ const pairs={
   "grass-to-stone":["grassland","rock"],"grass-to-snow":["grassland","snowland"],
   "dirt-to-stone":["dirt","rock"],"snow-to-ice":["snowland","ice"],
 };
-const styles={wooden:"wood",rope:"rope",stone:"rock",brick:"volcanic",marble:"snowland",metal:"metal",iron:"metal",crystal:"crystal"};
+const styles={wooden:"wood",rope:"rope",stone:"rock",brick:"brick",marble:"snowland",metal:"metal",iron:"metal",crystal:"crystal"};
 export function newTile(id){
   if(Object.hasOwn(pairs,id))return terrain(id,"blend",...pairs[id]);
   const [a,b]=id.split("-");

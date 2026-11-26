@@ -11,7 +11,7 @@ export const meta = {
   fps: 30,
   bg: "ground",
   options: {
-    palette: ["#0e0816", "#24123a", "#3e2056", "#5a3a62", "#6a6a3a", "#96aa30", "#cce040", "#f4ffa0"],
+    palette: ["#181521", "#282038", "#383047", "#514959", "#5e6743", "#79894f", "#a3b76a", "#d0d88d"],
     spread: 1,
     seed: 3,
   },
@@ -99,18 +99,18 @@ function specks(p, C, E, t, seed) {
     const a = Math.min(1, u * 5) * Math.min(1, (1 - u) * 3) * (0.6 + 0.4 * Math.sin(age * R.range(6, 10) + R.next() * TAU));
     if (a < 0.1) return;
     p.dot(x, y, a > 0.7 ? C[7] : C[6], a * 1.3);
-    p.glow(x, y, 4, C[6], 0.3 * a);
+    p.glow(x, y, 3, C[6], 0.12 * a);
   });
 }
 
 export function drawBack(p, t, o) {
   const C = fit(o.palette, 8), E = 96 * o.spread, pulse = 0.85 + 0.15 * Math.sin((TAU * t * 2) / D);
   // lit from within, low down: a soft line of light along the floor under it all
-  for (let x = -E; x <= E; x += 22) p.glow(x, -3, 30, C[5], 0.14 * pulse * (1 - Math.abs(x) / (E * 1.3)));
+  for (let x = -E; x <= E; x += 22) p.glow(x, -3, 22, C[5], 0.08 * pulse * (1 - Math.abs(x) / (E * 1.3)));
   // pockets of light wandering inside it, low down
   for (let i = 0; i < 6; i++) {
     const R = rng(o.seed, i, 7), x = Math.sin((TAU * t) / D + R.range(0, TAU)) * E * R.range(0.2, 0.7) + R.range(-0.3, 0.3) * E, k = 0.6 + 0.4 * Math.sin((TAU * t * 3) / D + i);
-    p.glow(x, -R.range(4, 10), R.range(14, 22), C[6], 0.2 * k);
+    p.glow(x, -R.range(4, 10), R.range(10, 16), C[6], 0.1 * k);
   }
   SHEETS.forEach((sh, i) => sh.back && sheet(p, C, sh, i, E, t, o.seed));
 }
@@ -120,5 +120,5 @@ export function draw(p, t, o) {
   plumes(p, C, E, t, o.seed * 7 + 2);
   SHEETS.forEach((sh, i) => !sh.back && sheet(p, C, sh, i, E, t, o.seed));
   specks(p, C, E, t, o.seed * 11 + 5);
-  p.glow(0, -6, E * 0.9, C[5], 0.1);
+  p.glow(0, -6, E * 0.65, C[5], 0.06);
 }
