@@ -57,7 +57,8 @@ export function terrain(id,kind,style,under,pattern=0){
       const gx=x+o.tileX*16,gy=y+o.tileY*16;
       const n=rand(gx,gy,o.seed), d=distance(x,y,edges,corners);
       const fleck=noise2(gx*0.17,gy*0.18,o.seed);
-      const value=n>0.95?4:n<0.08?0:fleck>0.13?3:2;
+      // broad two-tone patches with a rare fleck: the ground sits behind the props instead of competing with them
+      const value=n>0.988?3:n<0.012?1:fleck>0.13?3:2;
       const ripple=wave(phase,1,gx*.059+gy*.13+fleck*.26)+(n-.5)*.4;
       let color=C[value];
       if(id==="flower-ground"&&n>0.9)color=n>.975?C[4]:B[4];
@@ -76,7 +77,7 @@ export function terrain(id,kind,style,under,pattern=0){
       else if(kind==="floor"||kind==="wall"){
         const step=pattern===0?4:pattern===2?5:6;
         const seam=gy%step===0 || (gx+Math.floor(gy/step)*3)%8===0;
-        color=d===0?C[0]:d===1?C[3]:seam?C[1]:gy%step===1?C[4]:C[value];
+        color=d===0?C[0]:d===1?C[3]:seam?C[1]:gy%step===1&&n>0.5?C[3]:C[value];
         if(kind==="wall"&&y>12&&!edges.includes("S"))color=C[y===13?1:0];
         if(kind==="wall"&&d>10)color=C[value];
       }else if(kind==="shadow"){

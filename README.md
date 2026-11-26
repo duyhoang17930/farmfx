@@ -347,6 +347,17 @@ Tap an exhibit to see its name.
 shoreline. Natural assets include named shape and harvest state variants.
 The moving loot target, building ghost and hit detection are driven by game state in the demo.
 
+## archipelago overview map
+
+![The whole library on one archipelago map](docs/preview/archipelago-map.png)
+
+`npm run map` lays most of the library out on one archipelago (1792 x 2032 px): snow, crystal, town, graveyard,
+forest, farm, industry, tropical, desert, swamp, volcano and dungeon islands, plus a bazaar that shows every item,
+weapon, piece of equipment and tool, and a board of terrain swatches. Effects, shadows, glows and emote bubbles sit
+on the sprites they belong to. It writes `records/mist-station/toan-canh-quan-dao.png`, a 2x copy and a JSON report
+of what was placed and what was left out (UI, portraits, skills, transitions and most weather are screen overlays,
+not map content). Pass `--labels` for island names and `--no-weather` to leave out the weather.
+
 ## adventure assets and audio
 
 The [catalog](docs/CATALOG.md) includes player clips, enemies, bosses, terrain, buildings, dungeon props, UI, and

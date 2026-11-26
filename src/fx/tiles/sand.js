@@ -5,6 +5,6 @@ export const { meta, draw } = asset({name:"Sand",desc:"A seamless 16 px shore ti
   for(let y=0;y<16;y++) for(let x=0;x<16;x++){
     const X=x+o.tileX*16,Y=y+o.tileY*16, n=noise2(X/9,Y/6,o.seed), f=rand(X,Y,o.seed+4);
     const ridge=wave((Y+n*2+X*0.16)/5)>0.8;
-    p.px(x-8,y-12,C[f>0.95 ? (wave(ph+f)>0.75?4:3) : f<0.07 ? 1 : ridge ? 3 : 2]);
+    p.px(x-8,y-12,C[f>0.988 ? (wave(ph+f)>0.75?4:3) : f<0.012 ? 1 : ridge ? 3 : 2]);
   }
 });

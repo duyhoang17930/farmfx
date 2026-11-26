@@ -17,7 +17,8 @@
     "check": "node tools/check.mjs",
     "gallery": "node tools/serve.mjs",
     "demo": "node tools/serve.mjs 8080 demo",
-    "demo:assets": "node tools/demo-assets.mjs"
+    "demo:assets": "node tools/demo-assets.mjs",
+    "map": "node tools/archipelago-map.mjs"
   },
   "devDependencies": {
     "esbuild": "^0.25.10"
