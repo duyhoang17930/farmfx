@@ -220,7 +220,7 @@ function drawShell(p, t, o, C, near) {
       // the glass: thin face-on, thicker toward the rim, a lit top-left edge on every plate
       const a = 0.05 + 0.34 * ff * q.rim + 0.1 * q.e ** 4 + (q.bevel ? 0.12 + 0.2 * ff : 0) + 0.35 * gl + 0.1 * sc + 0.3 * rp + 0.6 * hot;
       const c = hot > 0.6 ? WHITE : hot > 0.3 || gl > 0.5 ? C[6] : rp > 0.4 || q.bevel ? C[5] : ff > 0.5 ? C[4] : C[3];
-      p.blend(q.x + 0.5, q.y + 0.5, c, clamp(a));
+      p.blend(q.x + 0.5, q.y + 0.5, c, clamp(a) * 0.62);
       if (rp > 0.1 || hot > 0 || gl > 0) p.light(q.x, q.y, C[4], 0.06 * (rp + hot + gl));
     }
   }
@@ -237,7 +237,7 @@ function drawFoot(p, t, C, R, near) {
     p.px(x - 1, y, C[2]);
     p.px(x + 1, y, C[2]);
     p.px(x, y, k > 0.6 ? WHITE : C[5]);
-    p.glow(x, y, 6 + 4 * k, C[4], (near ? 0.25 : 0.15) * (0.4 + k));
+    p.glow(x, y, 4 + 3 * k, C[4], (near ? 0.15 : 0.09) * (0.4 + k));
   }
 }
 
@@ -284,9 +284,9 @@ export function draw(p, t, o) {
     }
     // the impact: a white star, light that flares and dies
     if (age < 0.14) sparkle(p, hx, hy, (7 * (1 - age / 0.14) + 1) * n, C[6], C[5], 0.4);
-    flash(p, t, s.t, hx, hy, 56 * n, C[4], 0.45, 0.45);
-    flash(p, t, s.t, hx, hy, 12, WHITE, 0.5 * n, 0.08);
-    flash(p, t, s.t, hx + 3, hy, 22, SP[1], 0.4 * n, 0.15);
+    flash(p, t, s.t, hx, hy, 32 * n, C[4], 0.24, 0.40);
+    flash(p, t, s.t, hx, hy, 9, C[6], 0.28 * n, 0.08);
+    flash(p, t, s.t, hx + 3, hy, 15, SP[1], 0.22 * n, 0.15);
   }
   // the dome's own light, and what glances off
   const a0 = since(t, SHOTS[0].t, D);

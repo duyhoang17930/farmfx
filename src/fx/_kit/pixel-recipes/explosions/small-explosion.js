@@ -138,7 +138,8 @@ export function create(o) {
         const k2 = f.life / f.max, r = f.r * (0.8 + 0.2 * k2);
         p.circle(0, Y, r + 1.2, F[2]);
         p.circle(0, Y, r, k2 > 0.45 ? F[6] : F[5]);
-        p.circle(0, Y, r * 0.6, k2 > 0.45 ? WHITE : F[6]);
+        p.circle(0, Y, r * 0.6, F[6]);
+        if(k2>.45)p.circle(0,Y-1,r*.28,WHITE);
       }
       for (const r of rings) {
         const k2 = r.life / r.max, e = 1 - Math.pow(k2, 3);

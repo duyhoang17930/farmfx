@@ -22,6 +22,17 @@ export const terrainPalettes={
   ice:["#354e69","#577e99","#8eb7cc","#b0dbe2","#e1f3e9"],
 };
 const sides="NESW", diagonals=["NE","SE","SW","NW"];
+const neighbors=[[0,-1],[1,0],[0,1],[-1,0]];
+
+/** Outside faces and missing diagonals of a tile in a connected material. */
+export function terrainRim(inside,x,y){
+  const edges=neighbors.map(([dx,dy],i)=>inside(x+dx,y+dy)?"":sides[i]).join("");
+  const corners=neighbors.flatMap(([dx,dy],i)=>{
+    const [ax,ay]=neighbors[(i+1)%4], corner=diagonals[i];
+    return !edges.includes(corner[0])&&!edges.includes(corner[1])&&!inside(x+dx+ax,y+dy+ay)?[corner]:[];
+  });
+  return {edges,corners};
+}
 const surfaces={
   grassland:(x,y,s)=>noise2(x/9,y/7,s),
   tropical:(x,y,s)=>noise2((x+y*.4)/12,y/5,s),
@@ -80,14 +91,33 @@ function distance(x,y,edges,corners){
   }
   return near;
 }
+
+function roundedDistance(x,y,edges,corners){
+  const d=[y,15-x,15-y,x];
+  let near=16;
+  for(let i=0;i<4;i++){
+    const corner=diagonals[i], a=d[i], b=d[(i+1)%4];
+    if(edges.includes(sides[i]))near=Math.min(near,a);
+    if(corners.includes(corner))near=Math.min(near,Math.hypot(a+.5,b+.5));
+    if(edges.includes(corner[0])&&edges.includes(corner[1])){
+      near=Math.min(near,11-Math.hypot(Math.max(0,11-a),Math.max(0,11-b)));
+    }
+  }
+  return near;
+}
+
+const transitionWidths={"snow-to-ice":6,"ice-ground":4,"frozen-pond":4,"grass-to-sand":7,"beach-sand":6,"lava-tile":4,"swamp-water":5};
+
 export function terrain(id,kind,style,under,pattern=0){
   const palette=terrainPalettes[style]??terrainPalettes.grassland;
   const other=terrainPalettes[under]??WATER;
   const water=["shore","river","water","wave"].includes(kind);
-  const connected=connectedTiles.has(kind);
+  const transition=transitionWidths[id];
+  const connected=connectedTiles.has(kind)||Boolean(transition);
   const inner=id.includes("inner-corner");
   const edges=kind==="river"?id.includes("junction")?"NEW":id.includes("corner")?"NE":"NS":
-    inner?"":id.includes("outer-corner")?"NE":id==="island-edge"||id==="farmland-edge"?"S":id.includes("wall-corner")?"EW":"ES";
+    inner||transition&&(kind==="ground"||kind==="water")?"":id.includes("outer-corner")?"NE":
+    id==="island-edge"||id==="farmland-edge"?"S":id.includes("wall-corner")?"EW":"ES";
   const corners=inner||id==="farmland-corner"?["NE"]:[];
   const texture=surfaces[style]??surfaces.graveyard;
   const backgroundTexture=surfaces[under]??surfaces.graveyard;
@@ -97,6 +127,9 @@ export function terrain(id,kind,style,under,pattern=0){
     duration:water?2.5:1,fps:water?12:1,palette,options:metaOptions},(p,phase,C,o)=>{
     const B=fit(o.background,5), edges=o.edges??"",corners=o.corners??[];
     const tones=surfaceTones(style,C,id), background=surfaceTones(under,B);
+    const hasRim=transition&&(edges.length||corners.length);
+    const middle=mix(tones[1],background[1],.5);
+    const border=style==="lava"?mix(B[0],C[1],.5):style==="swamp-water"?mix(B[1],C[1],.5):mix(tones[0],background[1],.26);
     const floorMortar=mix(C[2],C[1],.38), floorLip=mix(C[2],C[3],.23);
     const lightWater=mix(C[2],C[3],.42), lava=style==="lava";
     for(let y=0;y<16;y++)for(let x=0;x<16;x++){
@@ -106,7 +139,19 @@ export function terrain(id,kind,style,under,pattern=0){
       const value=n>0.988?3:n<0.012?1:fleck>0.13?3:2;
       let color=groundColor(texture,tones,gx,gy,o.seed);
       if(id==="flower-ground"&&n>.987)color=n>.997?C[4]:C[3];
-      if(kind==="blend"){
+      if(transition){
+        if(kind==="water"){
+          const crest=waterGlint(gx,gy,phase,o.seed);
+          color=lava?(crest?C[4]:fleck>.28?C[1]:C[2]):crest?lightWater:C[2];
+        }
+        if(hasRim){
+          const contour=noise2(gx/15,gy/15,o.seed+31);
+          const depth=roundedDistance(x,y,edges,corners)-transition-contour*3;
+          if(depth<0)color=groundColor(backgroundTexture,background,gx,gy,o.seed);
+          else if(depth<1.4)color=style==="lava"||style==="swamp-water"?border:middle;
+          else if(depth<3.1)color=style==="lava"?C[1]:style==="swamp-water"?mix(C[2],B[2],.22):border;
+        }
+      }else if(kind==="blend"){
         const boundary=5+Math.round(fleck*2);
         if(d<boundary)color=groundColor(backgroundTexture,background,gx,gy,o.seed);
         else if(d===boundary)color=mix(tones[1],background[1],.48);
@@ -170,5 +215,5 @@ export function terrain(id,kind,style,under,pattern=0){
     }
   });
   const collision=["wall","fence","cliff","gate"].includes(kind)?{width:16,height:kind==="cliff"?4:6}:undefined;
-  return {...result,meta:{...result.meta,...(connected?{autotile:kind}:{}),...(collision?{collision}:{})}};
+  return {...result,meta:{...result.meta,...(connected?{autotile:connectedTiles.has(kind)?kind:"blend"}:{}),...(collision?{collision}:{})}};
 }

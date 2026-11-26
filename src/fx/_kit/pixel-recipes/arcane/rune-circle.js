@@ -55,14 +55,13 @@ function circle(p, C, t, far) {
   for (const [k, g] of gs) {
     const [x, y] = at(g, RR), hot = lit(g, 0.2), bob = Math.sin(ph * TAU * 4 + 4 * g) * 0.5;
     glyph(p, [0, 3, 5][k % 3], x, y - 1 + bob, hot ? WHITE : far ? C[5] : C[6], 1, hot ? C[5] : far ? C[2] : C[3]);
-    p.glow(x, y - 3, hot ? 10 : 6, C[5], hot ? 0.5 : far ? 0.12 : 0.22);
-    p.glow(x, y, 5, C[4], 0.15);
+    if(hot)p.glow(x, y - 3, 5, C[5], 0.2);
   }
 }
 
 // motes rising off the circle on a slow helix round its axis, swaying in; twinkles hanging over it
 function motes(p, C, t, S, far) {
-  cycle(t, D, 76, S * 5 + 1, (g) => g.range(1.1, 1.9), (age, life, r) => {
+  cycle(t, D, 38, S * 5 + 1, (g) => g.range(1.1, 1.9), (age, life, r) => {
     const g0 = r.range(0, TAU), r0 = r.pick([R, R, RR, RR, RI]), q = age / life, g = g0 + q * r.range(0.6, 1.4);
     if (Math.sin(g) < 0 !== far) return;
     const rr = r0 * (1 - 0.35 * q), h = 2 + ease.outQuad(q) * r.range(26, 52), x = Math.cos(g) * rr, y = Math.sin(g) * rr * SY - h;
@@ -96,6 +95,6 @@ export function draw(p, t, o) {
   for (const g of [chase, chase + Math.PI]) {
     const [x, y] = at(g, R);
     sparkle(p, x, y, 2.5 + Math.sin(t * 30) * 0.8, C[6], C[5], 0.5);
-    p.glow(x, y, 14, C[5], 0.4);
+    p.glow(x, y, 7, C[5], 0.18);
   }
 }

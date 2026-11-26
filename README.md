@@ -135,6 +135,12 @@ node tools/render.mjs crops/wheat --gif --opts '{"palette": ["#2a1a08","#5c3a10"
 
 Give the terrain tiles their map coordinates as `tileX` and `tileY` and use the same `seed` across a map
 for continuous texture. A 16 px terrain tile goes at `x = 16 * tileX + 8`, `y = 16 * tileY + 12`.
+
+For snow and ice, grass and sand, basalt and lava, and swamp banks, set `edges` to the sides facing the
+surrounding material and `corners` to diagonals with both side neighbors present. Use empty values for a center
+tile, one exposed side for an edge and two adjacent exposed sides for an outer corner. An inner corner has a
+missing diagonal. The exported `terrainRim(inside, tileX, tileY)` helper in
+`farmfx/fx/_kit/world-terrain` computes both options from a map's material mask.
 The defaults for soil wetness, gate opening, and building doors or hatches cycle in previews. Set those
 options explicitly to match your game's state.
 

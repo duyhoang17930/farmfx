@@ -1,3 +1,5 @@
+import { terrainRim } from "../../src/fx/_kit/world-terrain.js";
+
 const farm = [
   ["buildings/coastal-farmstead","Chuồng gà",3,29,{ footprint:[3,3], visual:{ style:"coop" } }],
   ["buildings/coastal-farmstead","Nhà kính",12,29,{ footprint:[4,3], visual:{ style:"greenhouse" } }],
@@ -68,14 +70,8 @@ const woodland = [
 const pondCells = [[14,49],[15,49],[13,50],[14,50],[15,50],[16,50],[12,51],[13,51],[14,51],[15,51],
   [16,51],[12,52],[13,52],[14,52],[15,52],[13,53],[14,53]];
 const pondAt = (x,y) => pondCells.some(([a,b])=>a===x&&b===y);
-const sides = [[0,-1,"N"],[1,0,"E"],[0,1,"S"],[-1,0,"W"]];
-const diagonals = ["NE","SE","SW","NW"];
 const pond = pondCells.map(([x,y]) => {
-  const banks = sides.filter(([dx,dy])=>!pondAt(x+dx,y+dy)).map(([, ,dir])=>dir).join("");
-  const corners = sides.flatMap(([dx,dy,dir],i)=>{
-    const [ax,ay,other]=sides[(i+1)%4];
-    return !banks.includes(dir)&&!banks.includes(other)&&!pondAt(x+dx+ax,y+dy+ay)?[diagonals[i]]:[];
-  });
+  const { edges: banks, corners } = terrainRim(pondAt,x,y);
   return ["tiles/coastal-pond","Ao nhỏ",x,y,{ footprint:[1,1], ground:true, visual:{ banks,corners,seed:19 } }];
 });
 

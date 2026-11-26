@@ -2,7 +2,7 @@ import { ease, fit, rand, TAU } from "../../core/index.js";
 import { CREAM, GOLD, LEAF, RED, STEEL, VIOLET, WATER, WOOD, round, wave } from "./art.js";
 import { groundShadow, Layer, twinkle } from "./sprite.js";
 
-const palettes={green:LEAF,blue:WATER,red:RED,poison:["#36434a","#4b6652","#719557","#a8bb62","#e7df93"],
+const palettes={green:LEAF,blue:WATER,red:RED,poison:["#272d39","#435341","#83a05f","#b0bd72","#e7df93"],
   crystal:["#38445f","#526c99","#719cbe","#aae0dd","#eff4dc"],bone:CREAM,ghost:VIOLET,stone:STEEL,fire:RED,
   ice:WATER,lightning:GOLD,wood:WOOD,amber:GOLD,pink:RED,dark:["#2d253e","#463651","#644c68","#8b6e8d","#d1a3b7"]};
 const layer=new Layer(48,48);
@@ -50,6 +50,15 @@ function humanoid(p,id,C,side,back,spec,step,beat){
   if(family==="folk"||tall)for(const a of [-1,1]){
     p.tri(head+a*5,y-3,head+a*12,y-9,head+a*7,y+1,C[1]);p.line(head+a*6,y-3,head+a*11,y-8,C[3]);
   }
+  if(id==="swamp-monster")for(const a of [-1,1]){
+    p.polyline([[a*5,-17+step],[a*12,-15+step],[a*11,-8+step],[a*15,-5+step]],C[0]);
+    p.line(a*6,-17+step,a*10,-14+step,C[3]);
+  }
+  if(id==="lava-titan"||id==="stone-titan")for(const a of [-1,1]){
+    const top=-27+step+(a===1?2:0), x=a*13;
+    p.poly([[x-a*3,top+10],[x+a*2,top],[x+a*7,top+7],[x+a*5,top+13],[x,top+14]],body[0]);
+    p.polyline([[x-a,top+9],[x+a*2,top+2],[x+a*4,top+5]],lava?GOLD[2]:body[4]);
+  }
   if(family==="mummy")for(const dy of [-5,-1,3])p.line(-7,y+dy,7,y+dy+1,C[1]);
   if(family==="wizard"||/king|pharaoh|knight/.test(id)){
     p.poly([[-8,y-3],[-6,y-11],[0,y-7],[6,y-11],[8,y-3]],GOLD[2]);p.line(-7,y-4,7,y-4,GOLD[4]);
@@ -74,6 +83,12 @@ function creature(p,spec,id,C,phase,state,facing){
     p.ellipse(0,y,r,9-a,C[0]);p.ellipse(-0.4,y-1,r-1,8-a,C[2]);p.line(-6,y-4,-1,y-6+a,C[4]);
     p.line(2,y+4,7,y+3,C[1]);if(!back)eyes(p,side*2,y,side,C);
     if(id.includes("crystal"))p.poly([[-2,y-8],[2,y-13],[5,y-7],[2,y-4]],C[4]);
+    if(id==="poison-slime")for(const [x,dy] of [[-5,2],[3,3],[7,-2]])p.px(x,y+dy,C[3]);
+    if(id==="slime-king"){
+      p.poly([[-7,y-6],[-8,y-13],[-3,y-10],[0,y-15],[3,y-10],[8,y-13],[7,y-6]],C[0]);
+      p.poly([[-5,y-7],[-6,y-11],[-3,y-8],[0,y-13],[3,y-8],[6,y-11],[5,y-7]],C[3]);
+      p.px(0,y-9,RED[3]);
+    }
   }else if(["folk","bone","golem","treant","demon","mummy","wizard"].includes(family)){
     humanoid(p,id,C,side,back,spec,step,beat);
   }else if(["ghost","elemental","jelly","snail","plant","mimic","mushroom","worm"].includes(family)){
@@ -152,7 +167,8 @@ export function worldCreature(id,kind,spec){
     const attack=state.startsWith("attack"),side=o.facing==="left"?-1:1,scale=spec.scale*(kind==="boss"?1.9:1);
     const shift=(state==="hurt"?3:attack?(state==="attack-heavy"?8:4):0)*Math.sin(phase*Math.PI)*side;
     const depth=state==="sleep"?4:0;
-    groundShadow(p,shift,0,Math.min(21,12*scale),3.8,visibility*0.85);
+    const flying=["bird","bat","bee","dragon","insect","ghost"].includes(spec.family);
+    groundShadow(p,shift,flying?2:0,Math.min(21,12*scale)*(flying?.86:1),flying?2.7:3.8,visibility*(flying?.58:.85));
     creature(layer.begin(-24,-40),spec,id,C,phase,state,o.facing);
     const bounds=kind==="boss"?46:23;
     p.shade(-bounds,-origin[1]+1,bounds,10,(x,y,v)=>{

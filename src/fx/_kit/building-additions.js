@@ -1,4 +1,4 @@
-import { rand } from "../../core/index.js";
+import { ramp, rand } from "../../core/index.js";
 import { asset, CREAM, GOLD, LEAF, RED, STEEL, VIOLET, WATER, WOOD, box, post, wave } from "./art.js";
 import { icon } from "./farm-ui.js";
 import { groundShadow } from "./sprite.js";
@@ -17,6 +17,8 @@ const factories=/factory|power|warehouse|laboratory|smith/;
 const animal=/shelter|pigsty|pen|duck|fish-farm|barn|coop|greenhouse/;
 const civic=/hall|library|museum|temple|shrine|church|bank/;
 const roofs=[RED,LEAF,WATER,WOOD,VIOLET,STEEL];
+const thatch=ramp(["#443e2d","#77633d","#a7904e","#c9b375","#e3d69d"]);
+const rotwood=ramp(["#282d2c","#3f4440","#5d5948","#76745a","#a6a27b"]);
 
 // Each building gets its own outline, so they read apart before the sign or roof colour does.
 const shapes={
@@ -33,6 +35,7 @@ const widths={store:28,tall:26,ruin:27,dome:33,portico:33,temple:32,steeple:27,p
 
 function window(p,x,y,C,active){
   p.rect(x-5,y-6,11,13,WOOD[0]);p.rect(x-4,y-5,9,11,active?GOLD[3]:WATER[2]);
+  p.line(x-4,y-5,x+4,y-5,active?GOLD[2]:WATER[1]);p.line(x+4,y-4,x+4,y+5,WOOD[1]);
   p.line(x,y-5,x,y+5,WOOD[2]);p.line(x-4,y,x+4,y,WOOD[2]);p.line(x-5,y+6,x+5,y+6,C[4]);
 }
 function doorway(p,x,y,w,h,C,open){
@@ -67,9 +70,11 @@ export function extraBuilding(id){
   const W=mode==="tower"?18:mode==="gate"?29:widths[shape];
   const size=[96,112],origin=[48,96];
   const fx=asset({name:id.replaceAll("-"," "),desc:`A top-down ${id.replaceAll("-"," ")} with a selectable door and interior lights.`,
-    tags:["building",mode,shape],size,origin,palette,duration:3,fps:12,options:{open:false,active:true,...(id==="watchtower"?{snow:false}:{})}},(p,t,C,o)=>{
+    tags:["building",mode,shape],size,origin,palette,duration:3,fps:12,
+    options:{open:false,active:true,...(id==="watchtower"?{snow:false}:id==="fishing-hut"?{thatch:false}:id==="potion-shop"?{weathered:false}:{})}},(p,t,C,o)=>{
     groundShadow(p,0,0,W+5,6);
-    const wall=mode==="industry"||mode==="civic"||mode==="gate"||id==="magic-tower"?STEEL:WOOD;
+    const weathered=id==="potion-shop"&&o.weathered;
+    const wall=weathered?rotwood:mode==="industry"||mode==="civic"||mode==="gate"||id==="magic-tower"?STEEL:WOOD;
     let signY=null,signX=0;
     if(shape==="gate"){
       const magic=id.includes("portal"),dungeon=id.includes("dungeon");
@@ -83,7 +88,13 @@ export function extraBuilding(id){
       }
       p.poly([[-15,0],[-15,-24],[-10,-34],[4,-36],[14,-27],[15,0]],STEEL[0]);
       p.polyline([[-15,0],[-15,-24],[-10,-34],[4,-36],[14,-27],[15,0]],C[4]);
-      if(magic&&o.active){p.ellipse(0,-18,11,15,VIOLET[2]);p.arc(0,-19,10,2,-Math.PI+t*6.28,t*6.28,VIOLET[4]);p.glow(0,-18,13,VIOLET[3],.32);}
+      if(magic){
+        for(const x of [-21,20]) {
+          p.poly([[x-3,-25],[x,-34],[x+4,-25],[x,-22]],VIOLET[1]);
+          p.line(x,-32,x,-25,WATER[4]);
+        }
+        if(o.active){p.ellipse(0,-18,11,15,VIOLET[2]);p.arc(0,-19,10,2,-Math.PI+t*6.28,t*6.28,VIOLET[4]);p.glow(0,-18,10,VIOLET[3],.17);}
+      }
       if(id.includes("mine")){p.line(-19,-4,18,-4,WOOD[4]);p.line(-7,1,-4,-23,STEEL[3]);p.line(7,1,4,-23,STEEL[3]);}
       if(dungeon)for(const x of [-21,21]){p.line(x,-10,x,-20,WOOD[1]);p.rect(x-1,-23,3,3,GOLD[3]);if(o.active)p.glow(x,-23,5,GOLD[4],.28);}
     }else if(shape==="tower"){
@@ -95,8 +106,11 @@ export function extraBuilding(id){
         p.line(-W+4,-50,W-4,-50,wall[1]);post(p,-W+3,-66,10,WOOD);post(p,W-3,-66,10,WOOD);
         p.rect(-W+5,-79,W*2-10,4,C[2]);p.line(0,-79,0,-90,WOOD[1]);p.poly([[1,-90],[9,-87],[1,-84]],RED[3]);
         if(o.snow){
-          for(let x=-W-4;x<W+4;x+=6){p.rect(x,-72,4,2,STEEL[4]);p.px(x+2,-70,STEEL[3]);}
-          p.line(-W+5,-79,W-6,-79,STEEL[4]);p.line(-W+6,-78,W-9,-78,STEEL[3]);
+          p.poly([[-W+4,-79],[-11,-82],[1,-81],[W-5,-79],[W-8,-76],[-3,-77],[-8,-76],[-W+5,-77]],STEEL[4]);
+          p.line(-W+6,-77,-8,-77,STEEL[3]);p.line(-1,-77,W-8,-77,STEEL[3]);
+          for(let x=-W-4;x<W+4;x+=6){p.rect(x,-72,4,3,STEEL[4]);p.px(x+2,-69,STEEL[3]);}
+          p.polyline([[-W-3,-63],[-11,-63],[-9,-62],[-5,-62]],STEEL[3]);
+          p.line(-5,-34,5,-34,STEEL[4]);
         }
       }else{
         const peak=mage?-89:-83;
@@ -106,16 +120,21 @@ export function extraBuilding(id){
         if(mage){
           for(let i=0;i<3;i++)p.line(-W+4+i*6,-56-i*9,W-4-i*4,-58-i*10,GOLD[3]);
           const bob=Math.round(wave(t,1)*2);p.circle(0,peak+1+bob,3,VIOLET[3]);p.px(0,peak+bob,CREAM[4]);
-          if(o.active)p.glow(0,peak+1+bob,6,VIOLET[4],.35);
+          if(o.active)p.glow(0,peak+1+bob,5,VIOLET[4],.19);
+          for(const x of [-11,11])p.polyline([[x,-29],[x-3,-24],[x,-20],[x+3,-24],[x,-29]],VIOLET[3]);
         }
       }
       doorway(p,0,0,7,20,wall,o.open);
       if(id==="clock-tower"){p.circle(0,-46,9,GOLD[2]);p.circle(0,-46,7,CREAM[3]);p.line(0,-46,3,-48,STEEL[0]);p.line(0,-46,0,-51,STEEL[0]);}
       else window(p,0,-40,C,o.active);
     }else if(shape==="store"){
-      const h=33;box(p,-W,0,W*2,h,8,wall);siding(p,W,h,wall);gable(p,W,h,-54,C);
+      const h=33;box(p,-W,0,W*2,h,8,wall);siding(p,W,h,wall);gable(p,W,h,-54,weathered?rotwood:C);
       exhaust(p,W-11,-52,7,15,WOOD);
-      awning(p,-W+1,W-1,-25,[RED,LEAF,WATER,VIOLET,GOLD][index%5]);
+      if(weathered){
+        p.polyline([[-W,-32],[-16,-32],[-13,-29],[-5,-31],[4,-31],[7,-28],[16,-30],[W,-30]],LEAF[2]);
+        for(const [x,y] of [[-20,-31],[11,-31],[23,-20]])p.polyline([[x,y],[x+1,y+7],[x-2,y+10]],LEAF[1]);
+        for(const x of [-22,22])p.polyline([[x,-8],[x-2,-5],[x+1,-3],[x,0]],wall[0]);
+      }else awning(p,-W+1,W-1,-25,[RED,LEAF,WATER,VIOLET,GOLD][index%5]);
       shopWindow(p,-W+4,-14,14,o.active);shopWindow(p,W-18,-14,14,o.active);
       doorway(p,0,0,7,18,wall,o.open);signY=-h+10;
     }else if(shape==="tall"){
@@ -132,7 +151,8 @@ export function extraBuilding(id){
       doorway(p,0,0,8,21,wall,true);signY=-h+10;
     }else if(shape==="dome"){
       const h=34;
-      p.ellipse(4,-h-8,W-7,17,C[0]);p.ellipse(4,-h-8,W-9,15,C[2]);p.ellipse(-2,-h-14,8,6,C[3]);
+      p.ellipse(4,-h-8,W-7,17,C[0]);p.ellipse(4,-h-8,W-9,15,C[2]);
+      p.arc(4,-h-8,W-12,13,-3.05,-.1,C[3]);p.arc(4,-h-8,12,14,-2.8,-.3,C[1]);
       p.rect(1,-h-30,6,8,C[1]);p.px(4,-h-31,GOLD[4]);
       box(p,-W,0,W*2,h,8,wall);
       p.rect(-W-2,-h+1,W*2+4,4,CREAM[3]);
@@ -226,10 +246,17 @@ export function extraBuilding(id){
       p.rect(-13,-26,26,26,CREAM[4]);p.rect(-12,-25,24,25,o.open?STEEL[0]:RED[2]);
       if(!o.open){p.line(-12,-25,11,-1,CREAM[4]);p.line(11,-25,-12,-1,CREAM[4]);}signY=-h-3;
     }else if(shape==="stilts"){
-      const fish=id==="fishing-hut";
+      const fish=id==="fishing-hut", tropical=fish&&o.thatch, timber=tropical?thatch:WOOD;
       if(fish){p.ellipse(0,2,W+8,8,WATER[2]);p.ellipse(0,2,W+5,6,WATER[3]);}
-      for(let x=-W+4;x<W;x+=12)post(p,x,0,14,WOOD);
-      box(p,-W+2,-12,(W-2)*2,24,7,WOOD);siding(p,W-2,24,WOOD);gable(p,W-2,36,-56,C);
+      for(let x=-W+4;x<W;x+=12)post(p,x,0,14,timber);
+      box(p,-W+2,-12,(W-2)*2,24,7,timber);siding(p,W-2,24,timber);gable(p,W-2,36,-56,tropical?thatch:C);
+      if(tropical){
+        for(let x=-18;x<20;x+=5) {
+          p.line(Math.round(x*.56),-43-Math.round((20-Math.abs(x))*.25),x,-36,thatch[x<0?3:1]);
+          p.line(x,-36,x+1,-32+(x%3===0?2:0),thatch[2]);
+        }
+        for(let x=-W+6;x<W-4;x+=6){p.line(x,-31,x,-13,thatch[1]);p.px(x-1,-16,thatch[4]);}
+      }
       p.line(0,-12,10,0,WOOD[3]);p.line(1,-12,11,0,WOOD[1]);for(let i=0;i<4;i++)p.px(2+i*2,-10+i*3,WOOD[4]);
       window(p,-12,-24,C,o.active);doorway(p,4,-12,5,13,WOOD,o.open);
       if(fish){p.line(W-2,-30,W+8,-10,WOOD[1]);for(let i=0;i<4;i++)p.line(W+2+i*2,-22+i*4,W-4+i*2,-18+i*4,CREAM[2]);}

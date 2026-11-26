@@ -408,17 +408,20 @@ export function coin3d(L, p, x, y, r, th, theta, C, { a = 1, white = false } = {
   return flash;
 }
 
+const contactColor = hex("#272435");
 /**
  * A top-down contact shadow: a truly translucent ellipse on the ground under whatever stands there, centered at
  * (x, y), half-width rx, half-height ry (rx / 2 to rx / 4 for the 3/4 view), darkest in the middle. k scales it: shrink
  * rx and k as the thing above lifts off the ground.
  */
-export function groundShadow(p, x, y, rx, ry = rx / 3, k = 1, c = hex("#1a1230")) {
-  if (rx < 0.8 || k <= 0) return;
+export function groundShadow(p, x, y, rx, ry = rx / 3, k = 1, c = contactColor) {
+  if (rx < 0.8 || ry < 0.5 || k <= 0) return;
+  x += Math.min(2, rx * 0.09);
+  y += 0.35;
   for (let j = Math.floor(y - ry); j <= Math.ceil(y + ry); j++)
     for (let i = Math.floor(x - rx); i <= Math.ceil(x + rx); i++) {
       const u = (i + 0.5 - x) / rx, v = (j + 0.5 - y) / ry, d = u * u + v * v;
       if (d > 1) continue;
-      p.blend(i, j, c, k * (d < 0.45 ? 0.38 : 0.24));
+      p.blend(i, j, c, k * (d < 0.38 ? 0.34 : d < 0.72 ? 0.21 : 0.11));
     }
 }

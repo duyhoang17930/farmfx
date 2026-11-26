@@ -160,10 +160,13 @@ export const assemblyMachine = machine("Assembly machine","An enclosed assembly 
   p.rect(-13,-28,24,16,C[0]);
   p.rect(-12,-27,22,13,WATER[1]);
   p.line(-10,-25,-4,-25,WATER[3]);
-  const down=Math.round(4*wave(t,2));
-  p.rect(-4,-26,8,9+down,STEEL[2]);
-  p.line(-3,-24,-3,-18+down,STEEL[4]);
-  p.line(-15,-9,21,-9,STEEL[4]);
+  const down=o.active?Math.round(4*wave(t,2)):0;
+  p.rect(-5,-28,10,7,STEEL[1]);p.line(-4,-27,3,-27,STEEL[3]);
+  p.rect(-2,-22,4,8+down,STEEL[3]);p.line(-2,-21,-2,-15+down,STEEL[4]);
+  p.rect(-5,-15+down,10,3,C[0]);p.line(-4,-14+down,3,-14+down,STEEL[3]);
+  box(p,-24,-3,46,4,4,STEEL);
+  for(const x of [-21,-17,14,18])p.line(x,-9,x+1,-7,STEEL[1]);
+  p.line(-23,-9,-15,-9,GOLD[2]);p.line(13,-9,21,-9,GOLD[2]);
   box(p,-11+Math.round(5*wave(t)),-9,8,4,2,GOLD);
   lamp(p,15,-26,o.active,LEAF);
   boltHeads(p,[[-17,-15],[15,-15],[-17,-29]]);

@@ -115,7 +115,7 @@ export function create(o) {
     const u = clamp((t - CHARGE) / (SPREAD + 0.15));
     if (u >= 1) return;
     band(p, 0, 0, front(t) + 2, 0.16, Math.max(2, 10 * Math.pow(1 - u, 0.7)), u < 0.75 ? 1 : (1 - u) / 0.25, C, (g) => Math.sin(g) < 0 === back, t - CHARGE < 0.1);
-    if (!back) for (const s of [-1, 1]) p.glow(s * (front(t) + 2), -2, 22, C[5], 0.55 * (1 - u));
+    if (!back) for (const s of [-1, 1]) p.glow(s * (front(t) + 2), -2, 13, C[5], 0.26 * (1 - u));
   };
 
   return {

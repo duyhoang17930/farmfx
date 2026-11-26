@@ -74,7 +74,7 @@ function sigil(p, t, C, k, near) {
     const pulse = 0.6 + 0.4 * Math.sin(t * (10 + 30 * k));
     p.px(0, 0, k > 0.5 ? WHITE : C[6]);
     for (const [dx, dy] of [[1, 0], [-1, 0], [0, -1]]) p.px(dx, dy, C[5]);
-    p.glow(0, -1, 10 + 10 * k, C[5], 0.3 + 0.4 * k * pulse);
+    p.glow(0, -1, 8 + 6 * k, C[5], 0.16 + 0.24 * k * pulse);
   }
 }
 
@@ -118,8 +118,8 @@ export function create(o) {
         if (struck >= i || t < s.t) continue;
         struck = i;
         const k = s.k;
-        lights.add(0, -50, 120, C[4], 0.55 * k, 0.4);
-        lights.add(0, -3, 24, WHITE, 0.5 * k, 0.1);
+        lights.add(0, -38, 66, C[4], 0.24 * k, 0.28);
+        lights.add(0, -3, 16, C[6], 0.33 * k, 0.1);
         for (let j = 0; j < Math.round(44 * k); j++) {
           const a = -Math.PI / 2 + R.range(-1.3, 1.3), sp = R.range(110, 320) * (0.65 + 0.35 * k);
           ps.spawn(P.SPARK, R.range(-1.5, 1.5), -2, Math.cos(a) * sp, Math.sin(a) * sp, R.range(0.2, 0.55));
@@ -168,7 +168,7 @@ export function create(o) {
             p.dot(x, y + 1, SOOT, fade);
             p.dot(x, y, c, fade);
             if (br.w >= 1 && d < 9) p.dot(x, y + 2, SOOT, fade);
-            if ((fresh || elec > 0.3) && (Math.round(d) & 3) === 0) p.glow(x, y, 7, C[5], 0.4);
+            if ((fresh || elec > 0.3) && (Math.round(d) & 3) === 0) p.glow(x, y, 4, C[5], 0.22);
             else if (T > 0.2 && (Math.round(d) & 3) === 0) p.glow(x, y, 5, c, 0.2 * T);
           }
         scorch(p, 0, 0, 12, T0, fade);
@@ -187,7 +187,7 @@ export function create(o) {
           const a = r.range(0, TAU), x = Math.cos(a) * RX, y = Math.sin(a) * RX * SY;
           crackle(p, zigzag(r, x, y, x + r.range(-2.5, 2.5), y - r.range(4, 9) * (0.6 + k), 0.45, 0.3), 0.45 + 0.4 * k, C, 0.3);
         }
-        p.glow(0, -2, 36, C[4], 0.12 + 0.3 * k);
+        p.glow(0, -2, 24, C[4], 0.07 + 0.17 * k);
       }
       // the stepped leader feels down from above; a streamer climbs out of the sigil to meet it
       if (t >= LEAD0 && t < S1) {

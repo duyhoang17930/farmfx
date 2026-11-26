@@ -11,7 +11,8 @@ export function biomeSprite(path){
   if(id.includes("shore"))return terrain(id,"shore",biome,biome==="volcanic"?"lava":biome==="snowland"?"ice":"water");
   if(id.includes("ground")||id==="cracked-sand"||id==="deep-snow"||id==="beach-sand"){
     const style=id==="ice-ground"?"ice":id==="beach-sand"?"sand":id==="dirt-ground"?"dirt":biome;
-    return terrain(id,id.includes("cracked")?"crack":"ground",style);
+    const bank=id==="ice-ground"?"snowland":id==="beach-sand"?"tropical":undefined;
+    return terrain(id,id.includes("cracked")?"crack":"ground",style,bank);
   }
   if(/water|pond|river|lava-tile/.test(id)&&id!=="lava-waterfall"){
     const style=biome==="volcanic"?"lava":biome==="snowland"?"ice":biome==="crystal"?"crystal":biome==="swamp"?"swamp-water":"water";
@@ -50,17 +51,25 @@ export function biomeSprite(path){
       const wide=id.includes("fence")||id.includes("gate");
       if(wide)for(let i=-14;i<=14;i+=4){p.line(i,-16,i,0,C[1]);p.px(i,-17,C[4]);}
       else {
-        p.poly([[-10,0],[-10,-15],[-6,-22],[6,-22],[10,-15],[10,0]],C[0]);
-        p.poly([[-8,-2],[-8,-15],[-5,-20],[4,-20],[7,-15],[7,-2]],C[3]);
-        p.line(-7,-15,-4,-20,C[4]);p.polyline([[5,-18],[3,-16],[5,-14]],C[1]);p.line(-7,-2,-3,-3,LEAF[1]);
+        p.poly([[-10,0],[-10,-15],[-6,-22],[4,-22],[4,-19],[8,-18],[11,-15],[11,0]],C[0]);
+        p.poly([[-8,-2],[-8,-15],[-5,-20],[3,-20],[2,-18],[6,-16],[7,-2]],C[3]);
+        p.poly([[6,-16],[9,-15],[10,-2],[7,-2]],C[1]);
+        p.line(-7,-15,-4,-20,C[4]);p.polyline([[5,-17],[2,-15],[5,-12]],C[1]);p.line(-7,-2,-3,-3,LEAF[1]);
       }
       p.line(-10,-6,10,-6,C[3]);p.line(0,-13,0,-3,C[4]);
       if(id==="graveyard-gate"){p.arc(0,-12,14,2,Math.PI,Math.PI*2,C[4]);p.line(-1,-12,-1,0,C[3]);}
     }else{
-      const stone=id==="snow-rock"?fit(["#485e77","#698397","#8faebf","#bbd4db","#e5f0eb"],5):C;
-      for(const [x,y,rx,ry] of [[-7,-2,8,6],[7,-3,8,7],[0,-8,10,9]])round(p,x,y,rx,ry,stone);
-      p.polyline([[-9,-8],[-4,-12],[3,-13],[7,-10]],stone[4]);
-      if(id==="volcanic-rock")p.polyline([[-5,-8],[-1,-5],[-3,-2],[1,0]],fit(terrainPalettes.lava,5)[2]);
+      const stone=id==="snow-rock"?fit(["#374c65","#5c7691","#8faebf","#bbd4db","#e5f0eb"],5):C;
+      if(id==="volcanic-rock"){
+        const summit=-17-Math.round(rand(9,3,o.seed)*8), shoulder=rand(2,3,o.seed)>.5?5:-4;
+        p.poly([[-15,-1],[-13,-12],[shoulder,summit],[11,-17],[15,-6],[8,1]],C[0]);
+        p.poly([[-13,-2],[-11,-11],[shoulder,summit+2],[10,-16],[12,-6],[7,-1]],C[2]);
+        p.line(-11,-11,shoulder,summit+2,C[3]);
+        p.polyline([[shoulder,-15],[1,-11],[-2,-8],[1,-4],[5,-3]],fit(terrainPalettes.lava,5)[2]);
+      }else{
+        for(const [x,y,rx,ry] of [[-7,-2,8,6],[7,-3,8,7],[0,-8,10,9]])round(p,x,y,rx,ry,stone);
+        p.polyline([[-9,-8],[-4,-12],[3,-13],[7,-10]],stone[4]);
+      }
     }
   });
 }

@@ -16,7 +16,7 @@ import { rasterText } from "../src/core/font.js";
 import { ROOT, allIds, loadEffect, save, upscale } from "./lib/fxlib.mjs";
 import { encodePNG } from "./lib/png.mjs";
 import { SEA_COLORS } from "../src/fx/tiles/coastal-pond.js";
-import { terrainPalettes } from "../src/fx/_kit/world-terrain.js";
+import { terrainPalettes, terrainRim } from "../src/fx/_kit/world-terrain.js";
 
 const args = process.argv.slice(2);
 const flag = (k, d) => { const i = args.indexOf("--" + k); return i < 0 ? d : args[i + 1]; };
@@ -74,12 +74,16 @@ async function boundsOf(key, id, o, t) {
   const m = await mod(id), [w, h] = m.meta.size, [ox, oy] = m.meta.origin, pad = 24;
   const f = createFrame(w + pad * 2, h + pad * 2);
   paint(f, m, t, ox + pad, oy + pad, o);
+  const hasContact = f.color.some((pixel, i) => {
+    const row = Math.floor(i / f.w) - oy - pad, alpha = pixel >>> 24;
+    return row >= -4 && row <= 7 && alpha > 0 && alpha < 128;
+  });
   let x0 = 1e9, y0 = 1e9, x1 = -1e9, y1 = -1e9;
   for (let y = 0; y < f.h; y++) for (let x = 0; x < f.w; x++) {
     if ((f.color[y * f.w + x] >>> 24) < 40) continue;
     if (x < x0) x0 = x; if (x > x1) x1 = x; if (y < y0) y0 = y; if (y > y1) y1 = y;
   }
-  const b = x1 < 0 ? null : { x0: x0 - ox - pad, y0: y0 - oy - pad, x1: x1 - ox - pad + 1, y1: y1 - oy - pad + 1 };
+  const b = x1 < 0 ? null : { x0: x0 - ox - pad, y0: y0 - oy - pad, x1: x1 - ox - pad + 1, y1: y1 - oy - pad + 1, hasContact };
   bounds.set(key, b);
   return b;
 }
@@ -132,11 +136,12 @@ const used = new Set();
 
 // ---- Snow
 patch("biomes/snowland/deep-snow", 4, 5, 9, 8);
-patch("biomes/snowland/ice-ground", 14, 18, 20, 22);
-patch("biomes/snowland/frozen-pond", 14, 5, 19, 8, {}, { edges: "rim", block: true });
+patch("biomes/snowland/ice-ground", 13, 18, 20, 22, {},
+  { edges: "rim", mask: (x, y) => x >= [16, 14, 13, 14, 16][y - 18] && x <= [19, 20, 20, 19, 18][y - 18] });
+patch("biomes/snowland/frozen-pond", 14, 5, 20, 9, {},
+  { edges: "rim", block: true, mask: (x, y) => x >= [16, 15, 14, 15, 16][y - 5] && x <= [18, 19, 20, 19, 17][y - 5] });
 patch("tiles/grass-winter", 4, 21, 8, 24);
 patch("tiles/grass-to-snow", 4, 20, 8, 20, { edges: "N", corners: [] });
-patch("tiles/snow-to-ice", 13, 18, 13, 22, { edges: "E", corners: [] });
 patch("biomes/snowland/ice-cliff", 3, 13, 10, 13, { edges: "S", corners: [] }, { block: true });
 zone([2, 2, 23, 27], [
   "bosses/frost-dragon", "bosses/ice-giant", ["buildings/watchtower", { snow: true }], ["trees/snow-covered-tree", {}, 6],
@@ -173,8 +178,7 @@ zone([49, 1, 65, 11], ["buildings/tavern", "buildings/clock-tower", "buildings/t
   "buildings/library", "buildings/museum"], "grid", 2);
 zone([67, 1, 83, 11], ["buildings/bakery", "buildings/restaurant", "buildings/clothing-shop", "buildings/seed-shop",
   "buildings/merchant-house", "buildings/shop"], "grid", 3);
-zone([62, 13, 70, 18], ["objects/fountain", "objects/statue", "objects/bench", "objects/coastal-bench", "objects/flag",
-  "objects/banner"], "grid", 3);
+zone([62, 13, 70, 18], ["objects/fountain", "objects/statue", "objects/bench", "objects/coastal-bench"], "grid", 3);
 zone([49, 13, 61, 19], ["buildings/blacksmith", "buildings/weapon-shop", "buildings/well", "objects/notice-board",
   "objects/quest-board"], "grid", 2);
 zone([71, 13, 83, 20], ["machines/bank", "machines/coin-mint", "objects/donation-box", "objects/trash-bin",
@@ -183,6 +187,7 @@ zone([71, 13, 83, 20], ["machines/bank", "machines/coin-mint", "objects/donation
 zone([52, 21, 64, 28], ids("characters/").slice(0, 10), "scatter", 3);
 zone([68, 21, 80, 28], ids("characters/").slice(10), "scatter", 3);
 zone([49, 21, 83, 29], ["animals/cat", "animals/dog", "animals/songbird", "objects/street-lamp"], "scatter", 2);
+zone([49, 13, 83, 29], ["objects/flag", "objects/banner"], "scatter", 2);
 
 // ---- Graveyard
 patch("biomes/graveyard/dark-ground", 95, 10, 104, 18);
@@ -258,10 +263,11 @@ zone([30, 56, 48, 65], [
   "animals/cow", "animals/calf", "animals/horse", "animals/donkey", "animals/goat", "animals/sheep", "animals/lamb",
   "animals/pig", "animals/piglet", "animals/chicken", "animals/chick", "animals/rooster", "animals/turkey",
   "animals/duck", "animals/duckling", "animals/goose", "animals/coastal-livestock", "objects/beehive",
-  "objects/hay-bale", "objects/feeding-trough", "objects/shipping-bin", "objects/wheelbarrow", "objects/barrel",
+  "objects/hay-bale", "objects/feeding-trough", "objects/shipping-bin", "objects/barrel",
   "objects/crate", ["tiles/fence", {}, 3], "tiles/stone-fence",
   "player/item-carry", "tools/milking-bucket", "tools/shears", "player/idle", "player/walk",
 ]);
+zone([30, 35, 69, 64], ["objects/wheelbarrow"], "scatter", 2);
 
 // ---- Industry: factory floor with a conveyor line, a quarry, the big buildings
 patch("tiles/metal-floor", 75, 32, 108, 46, {}, { edges: "rim" });
@@ -287,12 +293,12 @@ zone([75, 49, 92, 62], ["bosses/stone-titan", "enemies/stone-golem", "objects/wo
   "player/pulling", "objects/crafting-table", "player/crafting"]);
 
 // ---- Tropical: sand, a pier, the sea creatures off shore
-patch("biomes/tropical/beach-sand", 3, 86, 19, 96);
-patch("tiles/sand", 4, 84, 17, 85);
-patch("tiles/grass-to-sand", 4, 83, 17, 83, { edges: "S", corners: [], palette: terrainPalettes.tropical });
+const beachStarts = [85, 85, 84, 84, 83, 83, 84, 84, 85, 85, 86, 85, 85, 84, 84, 83, 83, 84, 84];
+patch("biomes/tropical/beach-sand", 2, 83, 20, 97, {},
+  { edges: "rim", mask: (x, y) => y >= beachStarts[x - 2], preserveCoast: true });
 patch("biomes/tropical/tropical-cliff", 4, 79, 9, 79, { edges: "S", corners: [] }, { block: true });
 patch("tiles/wooden-dock", 20, 80, 22, 80, { facing: "east-west" });
-zone([3, 69, 19, 82], ["buildings/fish-farm", "buildings/fishing-hut", "trees/palm", ["trees/palm", {}, 2],
+zone([3, 69, 19, 82], ["buildings/fish-farm", ["buildings/fishing-hut", { thatch: true }], "trees/palm", ["trees/palm", {}, 2],
   "trees/bamboo-tree", "biomes/tropical/tropical-flower", ["biomes/tropical/tropical-grass", {}, 2],
   "biomes/tropical/tropical-rock", "animals/parrot", "objects/coastal-waypost", "objects/coastal-bench",
   "machines/fish-trap"]);
@@ -316,10 +322,11 @@ zone([25, 70, 42, 96], ["bosses/desert-pharaoh", "bosses/sand-worm-queen", "buil
   "player/sprint"]);
 
 // ---- Swamp
-patch("biomes/swamp/swamp-water", 49, 80, 55, 86, {}, { block: true });
+patch("biomes/swamp/swamp-water", 49, 80, 55, 86, {},
+  { edges: "rim", block: true, mask: (x, y) => x >= [51, 50, 49, 49, 50, 51, 52][y - 80] && x <= [53, 54, 54, 55, 55, 54, 53][y - 80] });
 patch("biomes/swamp/swamp-cliff", 50, 74, 58, 74, { edges: "S", corners: [] }, { block: true });
 zone([49, 80, 55, 86], [["biomes/swamp/lily-pad", {}, 3], "animals/frog"], "sea", 2);
-zone([47, 70, 62, 96], ["bosses/slime-king", "bosses/giant-spider", "buildings/potion-shop",
+zone([47, 70, 62, 96], ["bosses/slime-king", "bosses/giant-spider", ["buildings/potion-shop", { weathered: true }],
   ["biomes/swamp/swamp-grass", {}, 3], ["biomes/swamp/swamp-vines", {}, 2], "biomes/swamp/swamp-rock",
   "enemies/swamp-monster", "enemies/poison-slime", "enemies/poison-spider", "enemies/spider", "enemies/blue-slime",
   "enemies/red-slime", "machines/brewing-station", "trees/willow", "animals/firefly", "player/stunned", "player/hurt",
@@ -328,11 +335,13 @@ zone([47, 70, 62, 96], ["bosses/slime-king", "bosses/giant-spider", "buildings/p
 // ---- Volcano: lava river and the fire bosses
 patch("biomes/volcanic/burnt-ground", 68, 70, 74, 76);
 patch("biomes/volcanic/lava-river", 76, 72, 76, 94, { edges: "NS" }, { block: true });
-patch("biomes/volcanic/lava-tile", 70, 88, 73, 91, {}, { block: true });
+patch("biomes/volcanic/lava-tile", 69, 87, 74, 92, {},
+  { edges: "rim", block: true, mask: (x, y) => x >= [72, 70, 69, 69, 70, 71][y - 87] && x <= [73, 74, 74, 73, 73, 72][y - 87] });
 patch("biomes/volcanic/volcanic-cliff", 79, 71, 84, 71, { edges: "S", corners: [] }, { block: true });
 zone([75, 67, 79, 72], ["biomes/volcanic/lava-waterfall"], "grid");
 zone([67, 68, 84, 96], ["bosses/fire-dragon", "bosses/lava-titan", "bosses/ancient-demon",
-  ["biomes/volcanic/volcanic-rock", {}, 3], "resources/obsidian-deposit", "resources/sulfur-deposit", "trees/burnt-tree",
+  ["biomes/volcanic/volcanic-rock", { seed: 1 }], ["biomes/volcanic/volcanic-rock", { seed: 6 }], ["biomes/volcanic/volcanic-rock", { seed: 11 }],
+  "resources/obsidian-deposit", "resources/sulfur-deposit", "trees/burnt-tree",
   "enemies/fire-elemental", "enemies/lava-golem", "enemies/mini-dragon", "enemies/demon", "machines/blast-furnace",
   "machines/advanced-furnace", "machines/forge", "machines/smelter", "machines/charcoal-kiln", "objects/brazier",
   "objects/furnace", "player/shield-block", "player/dodge-roll"]);
@@ -383,7 +392,7 @@ const swatches = ["tiles/grass", "tiles/sand", "tiles/cliff", "tiles/cliff-corne
   "tiles/pond-inner-corner", "tiles/pond-outer-corner", "tiles/river-corner", "tiles/river-junction",
   "tiles/stone-path", "tiles/dirt-path", "tiles/metal-bridge", "tiles/rope-bridge", "tiles/stone-bridge",
   "tiles/coastal-boardwalk", "tiles/bridge", "dungeons/rune-floor", "dungeons/collapsing-floor", "dungeons/wall-button",
-  "exploration/island-shore", "exploration/coastal-shore"];
+  "exploration/island-shore", "exploration/coastal-shore", "tiles/snow-to-ice", "tiles/grass-to-sand"];
 patch("tiles/stone-floor", 94, 103, 107, 123, {}, { edges: "rim" });
 const SW = [];
 swatches.forEach((id, i) => SW.push([id, 95 + (i % 4) * 3, 104 + Math.floor(i / 4) * 2.6]));
@@ -402,7 +411,7 @@ const bridges = [
 ];
 
 // ---------------------------------------------------------------- effects, light and weather
-// [anchor sprite, effect, dx, dy]: the effect plays over the first sprite of that id.
+// [anchor sprite, effect, dx, dy, options]: the effect plays near the first sprite of that id.
 const moments = [
   // farm
   ["crops/carrot", "fx/crop-growth"], ["crops/tomatoes", "fx/harvest-sparkle"], ["crops/corn", "fx/fertilizer-sparkle"],
@@ -465,7 +474,7 @@ const moments = [
   ["dungeons/mana-fountain", "combat/regeneration-aura"], ["dungeons/boss-summoning-circle", "combat/magic-circle"],
   ["dungeons/falling-rock-trap", "combat/rock-projectile"], ["dungeons/fire-trap", "combat/burning"], ["dungeons/poison-trap", "combat/poison-cloud"],
   ["bosses/fire-dragon", "combat/fireball", 0, 20], ["enemies/demon", "combat/fireball-impact"], ["bosses/frost-dragon", "combat/ice-ball", 0, 20],
-  ["bosses/ice-giant", "combat/ice-explosion", 30, 0], ["enemies/ice-elemental", "combat/ice-shard"], ["enemies/snow-wolf", "combat/frozen"],
+  ["bosses/ice-giant", "combat/ice-explosion", 42, 10, { reach: 62, light: 0.36 }], ["enemies/ice-elemental", "combat/ice-shard"], ["enemies/snow-wolf", "combat/frozen"],
   ["enemies/ice-golem", "combat/ice-arrow-impact"], ["enemies/lava-golem", "combat/fire-arrow-impact"], ["bosses/lava-titan", "combat/large-explosion", 30, 10],
   ["bosses/stone-titan", "combat/ground-slam", 0, 10], ["bosses/goblin-king", "combat/ground-crack", 0, 12], ["bosses/ancient-tree-guardian", "combat/shockwave"],
   ["enemies/lightning-elemental", "combat/chain-lightning"], ["bosses/dark-wizard", "combat/lightning-bolt", 30, 0], ["bosses/ancient-demon", "combat/magic-explosion", 30, 0],
@@ -491,15 +500,7 @@ const glows = { "objects/campfire": "lighting/campfire-light", "objects/street-l
 
 // ---------------------------------------------------------------- terrain
 const water = ramp(SEA_COLORS);
-const SIDES = [[0, -1, "N"], [1, 0, "E"], [0, 1, "S"], [-1, 0, "W"]], DIAG = ["NE", "SE", "SW", "NW"];
-function rimOf(test, x, y) {
-  const edges = SIDES.filter(([dx, dy]) => !test(x + dx, y + dy)).map((s) => s[2]).join("");
-  const corners = SIDES.flatMap(([dx, dy, a], i) => {
-    const [nx, ny, b] = SIDES[(i + 1) % 4];
-    return !edges.includes(a) && !edges.includes(b) && !test(x + dx + nx, y + dy + ny) ? [DIAG[i]] : [];
-  });
-  return { edges, corners };
-}
+const SIDES = [[0, -1, "N"], [1, 0, "E"], [0, 1, "S"], [-1, 0, "W"]];
 
 function paintSea(frame) {
   const { w, h, color } = frame, step = new Uint8Array(w * h);
@@ -545,20 +546,27 @@ async function paintGround(frame) {
   for (let y = 0; y < MH; y++) for (let x = 0; x < MW; x++) {
     const k = land(x, y);
     if (k < 0) continue;
-    const isl = islands[k], rim = rimOf((a, b) => land(a, b) === k, x, y);
-    if (rim.edges || rim.corners.length) await tile(frame, isl.shore, x, y, { ...rim, ...isl.groundOptions });
+    const isl = islands[k], rim = terrainRim((a, b) => land(a, b) === k, x, y);
+    const shore = isl.ground === "biomes/tropical/tropical-ground" && y >= beachStarts[x - 2] ? "tiles/sand-to-water" : isl.shore;
+    if (rim.edges || rim.corners.length) await tile(frame, shore, x, y, { ...rim, ...isl.groundOptions });
     else await tile(frame, isl.ground, x, y, { edges: "", corners: [], ...isl.groundOptions });
   }
   for (const pt of patches) {
-    const [x0, y0, x1, y1] = pt.r, inside = (a, b) => a >= x0 && a <= x1 && b >= y0 && b <= y1;
+    const [x0, y0, x1, y1] = pt.r;
+    const inside = (a, b) => a >= x0 && a <= x1 && b >= y0 && b <= y1 && (!pt.mask || pt.mask(a, b));
     for (let y = y0; y <= y1; y++) for (let x = x0; x <= x1; x++) {
-      if (land(x, y) < 0) continue;
+      const k = land(x, y);
+      if (k < 0 || !inside(x, y)) continue;
+      if (pt.preserveCoast) {
+        const rim = terrainRim((a, b) => land(a, b) === k, x, y);
+        if (rim.edges || rim.corners.length) continue;
+      }
       let o = {};
       const links = SIDES.filter(([dx, dy]) => inside(x + dx, y + dy)).map((s) => s[2]).join("");
-      if (pt.edges === "rim") o = rimOf(inside, x, y);
+      if (pt.edges === "rim") o = terrainRim(inside, x, y);
       else if (pt.edges === "links") o = { edges: links };
       else if (pt.edges === "joins") o = { joins: links };
-      else if (pt.edges === "banks") { const r = rimOf(inside, x, y); o = { banks: r.edges, corners: r.corners }; }
+      else if (pt.edges === "banks") { const r = terrainRim(inside, x, y); o = { banks: r.edges, corners: r.corners }; }
       await tile(frame, pt.id, x, y, { ...pt.o, ...o });
       if (pt.block) blocked[y * MW + x] = 1;
     }
@@ -570,8 +578,10 @@ async function paintGround(frame) {
     if (!HAVE.has(id)) continue;
     const m = await mod(id), [w, h] = m.meta.size;
     const n = w > 16 ? 1 : 2; // a prop wider than a tile is shown once
-    for (let j = 0; j < n; j++) for (let i = 0; i < n; i++)
-      await tile(frame, id, 200 + i, 200 + j, { edges: "", corners: [] }, sx * T + (n === 1 ? 16 : 8 + i * w), sy * T + (n === 1 ? 26 : 12 + j * Math.min(h, 16)));
+    for (let j = 0; j < n; j++) for (let i = 0; i < n; i++) {
+      const edges = id === "tiles/snow-to-ice" || id === "tiles/grass-to-sand" ? (j === 1 ? "S" : "") : "";
+      await tile(frame, id, 200 + i, 200 + j, { edges, corners: [] }, sx * T + (n === 1 ? 16 : 8 + i * w), sy * T + (n === 1 ? 26 : 12 + j * Math.min(h, 16)));
+    }
     for (let i = 0; i < 2 * T; i++) for (let j = 0; j < 2 * T; j++) blocked[Math.floor(sy + j / T) * MW + Math.floor(sx + i / T)] = 1;
     used.add(id);
   }
@@ -584,7 +594,7 @@ async function paintGround(frame) {
 }
 
 // ---------------------------------------------------------------- placement
-const boxes = [], placed = [], missed = [];
+const boxes = [], placed = [], missed = [], overflow = [];
 const hit = (a, b) => a.x0 < b.x1 && b.x0 < a.x1 && a.y0 < b.y1 && b.y0 < a.y1;
 
 async function placeZone(z) {
@@ -609,7 +619,8 @@ async function placeZone(z) {
         const c = Math.floor(fx / T);
         for (const fy of [py + b.y1 - 2, py + b.y1 - Math.min(8, bh)]) {
           const r = Math.floor(fy / T), k = land(c, r);
-          const ok = z.mode === "sea" ? (k < 0 || blocked[r * MW + c]) : k >= 0 && !blocked[r * MW + c];
+          const ok = z.mode === "sea" ? (k < 0 || blocked[r * MW + c])
+            : k >= 0 && (z.island === undefined || k === z.island) && !blocked[r * MW + c];
           if (!ok) return null;
         }
       }
@@ -629,7 +640,13 @@ async function placeZone(z) {
         if (box) spot = [px, py, box];
       }
     }
-    if (!spot) { missed.push(`${it.id} (no room in ${z.rect.join(",")})`); continue; }
+    if (!spot) {
+      const island = land(Math.floor((c0 + c1) / 2), Math.floor((r0 + r1) / 2));
+      if (z.mode !== "sea" && z.island === undefined && island >= 0) {
+        overflow.push({ rect: islands[island].rect, entries: [[it.id, o, 1, t]], mode: "grid", gap: z.gap, island });
+      } else missed.push(`${it.id} (no room in ${z.rect.join(",")})`);
+      continue;
+    }
     boxes.push(spot[2]);
     const e = { id: it.id, m, o, t, x: spot[0], y: spot[1], b, box: spot[2] };
     placed.push(e);
@@ -660,6 +677,7 @@ async function placeZone(z) {
 const frame = createFrame(W, H);
 await paintGround(frame);
 for (const z of zones) await placeZone(z);
+for (const z of overflow) await placeZone(z);
 placed.sort((a, b) => a.y - b.y || a.x - b.x);
 
 async function overlay(id, x, y, extra = {}) {
@@ -680,13 +698,15 @@ async function overlay(id, x, y, extra = {}) {
 
 for (const e of placed) {
   const shadow = Object.entries(under).find(([pre]) => e.id.startsWith(pre))?.[1];
-  if (shadow && !/falling|regrowth|sapling/.test(e.id)) await overlay(shadow, e.x, e.y);
+  if (shadow && !e.b.hasContact && !/falling|regrowth|sapling/.test(e.id)) {
+    await overlay(shadow, e.x, e.y, { radius: Math.max(5, (e.b.x1 - e.b.x0) * 0.4) });
+  }
 }
 for (const e of placed) paint(frame, e.m, e.t, e.x, e.y, e.o);
 for (const e of placed) if (glows[e.id]) await overlay(glows[e.id], e.x, e.y - 4);
-for (const [anchor, fx, dx = 0, dy = 0] of moments) {
+for (const [anchor, fx, dx = 0, dy = 0, options] of moments) {
   const e = placed.find((p) => p.id === anchor);
-  if (e) await overlay(fx, e.x + dx, e.y + dy);
+  if (e) await overlay(fx, e.x + dx, e.y + dy, options);
 }
 // mood bubbles over the cast
 const people = placed.filter((e) => e.id.startsWith("characters/"));

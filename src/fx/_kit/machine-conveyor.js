@@ -38,13 +38,14 @@ function conveyor(kind, name, desc, facing) {
           const distance = Math.abs(across);
           if (along<0 || along<=best || distance>=6) continue;
           best = along;
-          const track = Math.floor(out*along)-scroll;
+          const roller = Math.floor(out*along);
+          const track = roller-scroll;
           if (central && distance>=4) continue;
+          const lit = across * (a * (fx + fy) + b * (fy - fx)) < 0;
           if (!central && distance>=5) {
-            color = C[0];
+            color = lit||along>6||((roller&3)!==1)?C[0]:C[1];
           } else if (!central && distance>=4) {
-            const lit = across * (a * (fx + fy) + b * (fy - fx)) < 0;
-            color = rails[lit ? (Math.floor(along)%4===1 ? 2 : 1) : 0];
+            color = (roller&3)===1?rails[lit?2:1]:rails[lit?1:0];
           } else {
             const groove = track&3;
             const highlight = distance<2 && groove===3-Math.floor(distance);

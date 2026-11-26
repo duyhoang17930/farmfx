@@ -1,5 +1,6 @@
 import { clamp, rand } from "../../core/index.js";
 import { asset, CREAM, GOLD, RED, STEEL, VIOLET, WATER, wave } from "./art.js";
+import { groundShadow } from "./sprite.js";
 
 export function lightAsset(id){
   const shadow=id.includes("shadow"), darkness=id.includes("darkness");
@@ -17,8 +18,7 @@ export function lightAsset(id){
     if(shadow){
       const width=id==="character-shadow"?radius*.52:id==="building-shadow"?radius*1.1:radius;
       const depth=id==="tree-shadow"?6:id==="character-shadow"?3:7;
-      if(id==="building-shadow"){p.rect(-width,0,width*2,depth+1,C[0],q*.64);p.ellipse(width*.24,depth,width,depth,C[0],q*.3);}
-      else {p.ellipse(4,1,width,depth,C[0],q*.4);p.ellipse(3,0,width*.8,depth*.73,C[1],q*.63);}
+      groundShadow(p,0,0,Math.min(width,44),depth,q,C[0]);
     }else if(darkness||ambient){
       p.shade(-48,-45,48,35,(x,y,v)=>{
         if(x>=48||y>=35)return;

@@ -60,7 +60,8 @@ function sheet(p, C, sh, si, E, t, seed) {
     for (let y = top; y <= 1; y++) {
       const v = clamp(-y / H), streak = 0.7 + 0.3 * tileNoise(x * 0.05 - ph * sh.flow * Math.sign(x || 1), y * 0.55, sh.flow, 0, seed + 9 + si);
       const lv = v - (streak - 0.7) * 0.6, c = y === top ? C[Math.max(1, 4 - d)] : lv < 0.16 ? C[6 - d] : lv < 0.42 ? C[5 - d] : lv < 0.68 ? C[4 - d] : C[Math.max(1, 3 - d)];
-      p.blend(x, y, c, sh.a * (y === top ? 0.65 : (0.6 + 0.4 * (1 - v)) * streak));
+      if(y===top&&streak>.72)p.dot(x,y,c,.72);
+      else p.blend(x,y,c,sh.a*(sh.back?.8:.54)*(1-.44*v));
     }
   }
   // the tongues' leading edges roll over in curls as they creep forward
@@ -73,7 +74,7 @@ function sheet(p, C, sh, si, E, t, seed) {
       const rr = r * (1 - a * 0.12), px = cx + g.s * Math.cos(spin + a) * rr, py = cy + Math.sin(spin + a) * rr, w = 1.6 * (1 - a / 6);
       for (let o = -w; o <= w; o += 0.8) {
         const qx = px + g.s * Math.cos(spin + a) * o, qy = py + Math.sin(spin + a) * o;
-        p.blend(qx, qy, o > w * 0.4 ? C[5 - d] : C[4 - d], sh.a * 0.75 * k * (1 - a / 5.5));
+        p.dot(qx,qy,o>w*.4?C[5-d]:C[4-d],sh.a*.6*k*(1-a/5.5));
       }
     }
   }
