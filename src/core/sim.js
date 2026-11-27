@@ -191,7 +191,8 @@ export class Particles {
           const age = 1 - k, heat = Math.min(0.999, Math.pow(age, 0.62) + (q.seed % 1) * 0.1), F = FIRE_RAMP, n = F.length;
           const idx = Math.min(n - 2, Math.floor(heat * (n - 1)));
           const r = q.size * (0.55 + 0.45 * Math.min(1, age * 7)) * (1 - age * 0.55), c = F[idx];
-          if (idx >= n - 2) p.disc(x, y, r, c, Math.min(1, k * 3) * 0.85);
+          // past orange it is no longer flame: a translucent puff sliding into the smoke ramp, never a hard red disc
+          if (idx >= n - 3) p.disc(x, y, r, mix(c, SMOKE_RAMP[idx >= n - 2 ? 2 : 1], idx >= n - 2 ? 0.6 : 0.35), Math.min(1, k * 3) * (idx >= n - 2 ? 0.55 : 0.75));
           else {
             p.circle(x, y, r, F[Math.min(n - 1, idx + 2)]);
             p.circle(x - r * 0.16, y - r * 0.22, r * 0.78, c);

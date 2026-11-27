@@ -12,7 +12,7 @@
 import { join } from "node:path";
 import { writeFileSync } from "node:fs";
 import { createFrame, createFx, painterFor, composite, ramp, stockActor } from "../src/core/index.js";
-import { rasterText } from "../src/core/font.js";
+import { rasterText, textWidth } from "../src/core/font.js";
 import { ROOT, allIds, loadEffect, save, upscale } from "./lib/fxlib.mjs";
 import { encodePNG } from "./lib/png.mjs";
 import { SEA_COLORS } from "../src/fx/tiles/coastal-pond.js";
@@ -94,6 +94,8 @@ const rnd = () => ((rs = (Math.imul(rs, 1103515245) + 12345) >>> 0) / 4294967296
 // ---------------------------------------------------------------- islands
 // rect is in tiles, inclusive. ground paints the inside, shore the rim (edges and corners face the sea).
 const GL = "biomes/grassland";
+// the dungeon's cold blue-grey stone, so it doesn't read as the graveyard's warm violet
+const DUNGEON_STONE = ["#232a38", "#3a4558", "#526073", "#6f7f92", "#a3b3c2"];
 const islands = [
   { name: "Đảo Tuyết", rect: [1, 1, 24, 28], ground: "biomes/snowland/snow-ground", shore: "biomes/snowland/snow-shore", weather: ["weather/snow"] },
   { name: "Đảo Pha Lê", rect: [27, 1, 45, 25], ground: "biomes/crystal/crystal-ground", shore: "biomes/crystal/crystal-shore", weather: ["weather/starry-night"] },
@@ -106,7 +108,7 @@ const islands = [
   { name: "Sa Mạc", rect: [24, 69, 43, 97], ground: "biomes/desert/desert-ground", shore: "biomes/desert/desert-shore", weather: ["weather/floating-dust"] },
   { name: "Đầm Lầy", rect: [46, 69, 63, 97], ground: "biomes/swamp/mud-ground", shore: "biomes/swamp/swamp-shore", weather: ["weather/fireflies"] },
   { name: "Núi Lửa", rect: [66, 67, 85, 97], ground: "biomes/volcanic/volcanic-ground", shore: "biomes/volcanic/lava-shore", weather: ["weather/floating-embers"] },
-  { name: "Hầm Ngục", rect: [88, 66, 110, 97], ground: "biomes/graveyard/cracked-ground", shore: "biomes/graveyard/dark-shore", weather: [] },
+  { name: "Hầm Ngục", rect: [88, 66, 110, 97], ground: "biomes/graveyard/cracked-ground", shore: "biomes/graveyard/dark-shore", groundOptions: { palette: DUNGEON_STONE }, weather: [] },
   { name: "Chợ Phiên", rect: [2, 101, 109, 125], ground: "tiles/grass-summer", shore: "exploration/coastal-shore", groundOptions: { meadow: true, palette: null, season: "summer" }, weather: [] },
 ];
 
@@ -135,13 +137,10 @@ const ids = (prefix) => ALL.filter((id) => id.startsWith(prefix));
 const used = new Set();
 
 // ---- Snow
-patch("biomes/snowland/deep-snow", 4, 5, 9, 8);
 patch("biomes/snowland/ice-ground", 13, 18, 20, 22, {},
   { edges: "rim", mask: (x, y) => x >= [16, 14, 13, 14, 16][y - 18] && x <= [19, 20, 20, 19, 18][y - 18] });
 patch("biomes/snowland/frozen-pond", 14, 5, 20, 9, {},
   { edges: "rim", block: true, mask: (x, y) => x >= [16, 15, 14, 15, 16][y - 5] && x <= [18, 19, 20, 19, 17][y - 5] });
-patch("tiles/grass-winter", 4, 21, 8, 24);
-patch("tiles/grass-to-snow", 4, 20, 8, 20, { edges: "N", corners: [] });
 patch("biomes/snowland/ice-cliff", 3, 13, 10, 13, { edges: "S", corners: [] }, { block: true });
 zone([2, 2, 23, 27], [
   "bosses/frost-dragon", "bosses/ice-giant", ["buildings/watchtower", { snow: true }], ["trees/snow-covered-tree", {}, 6],
@@ -347,10 +346,10 @@ zone([67, 68, 84, 96], ["bosses/fire-dragon", "bosses/lava-titan", "bosses/ancie
   "objects/furnace", "player/shield-block", "player/dodge-roll"]);
 
 // ---- Dungeon: walled floor full of traps, puzzles and the last bosses
-patch("dungeons/dungeon-floor", 91, 70, 108, 94, {}, { edges: "rim" });
+patch("dungeons/dungeon-floor", 91, 70, 108, 94, { palette: DUNGEON_STONE }, { edges: "rim" });
 patch("dungeons/dungeon-wall", 91, 69, 108, 69, {}, { edges: "links" });
 patch("dungeons/dungeon-wall-corner", 90, 69, 90, 69);
-patch("dungeons/cracked-floor", 94, 88, 98, 92);
+patch("dungeons/cracked-floor", 94, 88, 98, 92, { palette: DUNGEON_STONE });
 patch("dungeons/dungeon-stairs", 106, 92, 107, 93);
 zone([91, 70, 108, 94], ["buildings/dungeon-entrance", "bosses/dark-wizard",
   ...ids("dungeons/").filter((id) => !/floor$|wall$|stairs|cracked-floor|magic-crystal|ancient-statue|skeleton-remains|cobweb|wall-corner/.test(id)),
@@ -392,10 +391,11 @@ const swatches = ["tiles/grass", "tiles/sand", "tiles/cliff", "tiles/cliff-corne
   "tiles/pond-inner-corner", "tiles/pond-outer-corner", "tiles/river-corner", "tiles/river-junction",
   "tiles/stone-path", "tiles/dirt-path", "tiles/metal-bridge", "tiles/rope-bridge", "tiles/stone-bridge",
   "tiles/coastal-boardwalk", "tiles/bridge", "dungeons/rune-floor", "dungeons/collapsing-floor", "dungeons/wall-button",
-  "exploration/island-shore", "exploration/coastal-shore", "tiles/snow-to-ice", "tiles/grass-to-sand"];
+  "exploration/island-shore", "exploration/coastal-shore", "tiles/snow-to-ice", "tiles/grass-to-sand", "tiles/grass-winter",
+  "tiles/grass-to-snow", "biomes/snowland/deep-snow"];
 patch("tiles/stone-floor", 94, 103, 107, 123, {}, { edges: "rim" });
 const SW = [];
-swatches.forEach((id, i) => SW.push([id, 95 + (i % 4) * 3, 104 + Math.floor(i / 4) * 2.6]));
+swatches.forEach((id, i) => SW.push([id, 95 + (i % 5) * 2.5, 104 + Math.floor(i / 5) * 2.6]));
 
 // links between islands
 const bridges = [
@@ -463,7 +463,7 @@ const moments = [
   ["player/drinking", "fx/heal"], ["player/eating", "fx/energy-restore"], ["player/level-up", "fx/level-up"],
   ["player/celebration", "fx/buff-activate"], ["player/hurt", "fx/buff-expire"], ["player/waking-up", "fx/hunger-warning"],
   ["player/sleeping", "fx/low-energy-warning"], ["player/dash", "fx/dash-trail"], ["player/sprint", "fx/speed-trail"],
-  ["player/landing", "particles/shockwave-ring"], ["player/item-pickup", "fx/floating-text"],
+  ["player/landing", "particles/shockwave-ring"],
   // combat
   ["player/sword-attack", "combat/sword-slash", 12, 0], ["player/sword-combo", "combat/sword-double-slash", 12, 0],
   ["player/heavy-attack", "combat/heavy-slash", 12, 0], ["player/spear-attack", "combat/spear-thrust", 14, 0],
@@ -473,22 +473,24 @@ const moments = [
   ["player/run", "combat/speed-aura"], ["enemies/dark-knight", "combat/strength-aura"], ["dungeons/healing-fountain", "combat/healing-aura"],
   ["dungeons/mana-fountain", "combat/regeneration-aura"], ["dungeons/boss-summoning-circle", "combat/magic-circle"],
   ["dungeons/falling-rock-trap", "combat/rock-projectile"], ["dungeons/fire-trap", "combat/burning"], ["dungeons/poison-trap", "combat/poison-cloud"],
-  ["bosses/fire-dragon", "combat/fireball", 0, 20], ["enemies/demon", "combat/fireball-impact"], ["bosses/frost-dragon", "combat/ice-ball", 0, 20],
-  ["bosses/ice-giant", "combat/ice-explosion", 42, 10, { reach: 62, light: 0.36 }], ["enemies/ice-elemental", "combat/ice-shard"], ["enemies/snow-wolf", "combat/frozen"],
+  ["bosses/fire-dragon", "combat/fireball", 0, 20], ["enemies/demon", "combat/fireball-impact"], ["bosses/frost-dragon", "combat/ice-ball", 46, 6],
+  ["bosses/ice-giant", "combat/ice-explosion", 42, 10, { reach: 62, light: 0.36 }], ["enemies/ice-elemental", "combat/ice-shard", 60, 30], ["enemies/snow-wolf", "combat/frozen"],
   ["enemies/ice-golem", "combat/ice-arrow-impact"], ["enemies/lava-golem", "combat/fire-arrow-impact"], ["bosses/lava-titan", "combat/large-explosion", 30, 10],
   ["bosses/stone-titan", "combat/ground-slam", 0, 10], ["bosses/goblin-king", "combat/ground-crack", 0, 12], ["bosses/ancient-tree-guardian", "combat/shockwave"],
   ["enemies/lightning-elemental", "combat/chain-lightning"], ["bosses/dark-wizard", "combat/lightning-bolt", 30, 0], ["bosses/ancient-demon", "combat/magic-explosion", 30, 0],
   ["enemies/crystal-guardian", "combat/magic-shield"], ["bosses/slime-king", "combat/poison-hit"], ["bosses/giant-spider", "combat/ground-telegraph", 0, 16],
   ["bosses/skeleton-king", "combat/boss-warning"], ["bosses/sand-worm-queen", "combat/bomb-explosion", 30, 0], ["enemies/skeleton-knight", "combat/parry"],
   ["enemies/goblin-warrior", "combat/shield-break"], ["enemies/zombie", "combat/enemy-hit"], ["enemies/skeleton", "combat/enemy-death"],
-  ["enemies/goblin", "combat/melee-hit"], ["enemies/skeleton-archer", "combat/ranged-hit"], ["enemies/mummy", "combat/damage-number"],
-  ["enemies/scorpion", "combat/critical-number"], ["enemies/angry-boar", "combat/critical-hit"], ["enemies/corrupted-tree", "combat/axe-cleave"],
+  ["enemies/goblin", "combat/melee-hit"], ["enemies/skeleton-archer", "combat/ranged-hit"], 
+  ["enemies/angry-boar", "combat/critical-hit"], ["enemies/corrupted-tree", "combat/axe-cleave"],
   ["enemies/goblin-archer", "combat/arrow-impact", 24, 0], ["enemies/poison-spider", "combat/poison-hit"], ["bosses/crystal-golem", "combat/ice-shard", 30, 0],
   ["bosses/desert-pharaoh", "particles/flame"], ["enemies/fire-elemental", "combat/burning"], ["enemies/stone-golem", "particles/stone-chip"],
 ];
 // light: shadows go under the sprites, glows over them
 const under = { "trees/": "lighting/tree-shadow", "buildings/": "lighting/building-shadow", "characters/": "lighting/character-shadow",
-  "bosses/": "lighting/soft-shadow" };
+};
+// bosses draw their own ground shadow; a soft-shadow under one that big reads as a dark box
+// numbers and words floating over heads (damage, crits, pickup text) belong to the HUD, so the map leaves them out
 const glows = { "objects/campfire": "lighting/campfire-light", "objects/street-lamp": "lighting/street-light",
   "objects/torch": "lighting/torch-light", "objects/lamp": "lighting/lantern-light", "objects/brazier": "lighting/light-flicker",
   "machines/blast-furnace": "lighting/furnace-light", "biomes/volcanic/lava-waterfall": "lighting/lava-light",
@@ -579,7 +581,7 @@ async function paintGround(frame) {
     const m = await mod(id), [w, h] = m.meta.size;
     const n = w > 16 ? 1 : 2; // a prop wider than a tile is shown once
     for (let j = 0; j < n; j++) for (let i = 0; i < n; i++) {
-      const edges = id === "tiles/snow-to-ice" || id === "tiles/grass-to-sand" ? (j === 1 ? "S" : "") : "";
+      const edges = id === "tiles/snow-to-ice" || id === "tiles/grass-to-sand" ? (j === 1 ? "S" : "") : id === "tiles/grass-to-snow" ? (j === 0 ? "N" : "") : "";
       await tile(frame, id, 200 + i, 200 + j, { edges, corners: [] }, sx * T + (n === 1 ? 16 : 8 + i * w), sy * T + (n === 1 ? 26 : 12 + j * Math.min(h, 16)));
     }
     for (let i = 0; i < 2 * T; i++) for (let j = 0; j < 2 * T; j++) blocked[Math.floor(sy + j / T) * MW + Math.floor(sx + i / T)] = 1;
@@ -680,14 +682,42 @@ for (const z of zones) await placeZone(z);
 for (const z of overflow) await placeZone(z);
 placed.sort((a, b) => a.y - b.y || a.x - b.x);
 
+/** Run draw(target) against a copy of the island's rectangle, then put back only what lands on the island or the
+ *  tile of sea round it: an effect painted for one island can't streak across the sea onto the next one or off the
+ *  edge of the map. */
+function clipped(k, draw) {
+  if (k < 0) return draw(frame);
+  const [x0, y0, x1, y1] = islands[k].rect;
+  const X0 = Math.max(0, (x0 - 1) * T), Y0 = Math.max(0, (y0 - 1) * T), X1 = Math.min(W, (x1 + 2) * T), Y1 = Math.min(H, (y1 + 2) * T);
+  const w = X1 - X0, h = Y1 - Y0, sub = createFrame(w, h, X0, Y0);
+  for (let r = 0; r < h; r++) {
+    const from = (Y0 + r) * W + X0;
+    sub.color.set(frame.color.subarray(from, from + w), r * w);
+    sub.light.set(frame.light.subarray(from, from + w), r * w);
+  }
+  const out = draw(sub);
+  const near = (c, r) => { for (let dy = -1; dy <= 1; dy++) for (let dx = -1; dx <= 1; dx++) if (land(c + dx, r + dy) === k) return true; return false; };
+  const keep = new Map();
+  for (let r = 0; r < h; r++) for (let c = 0; c < w; c++) {
+    const tc = Math.floor((X0 + c) / T), tr = Math.floor((Y0 + r) / T), key = tr * MW + tc;
+    if (!keep.has(key)) keep.set(key, near(tc, tr));
+    if (!keep.get(key)) continue;
+    const i = (Y0 + r) * W + X0 + c;
+    frame.color[i] = sub.color[r * w + c];
+    frame.light[i] = sub.light[r * w + c];
+  }
+  return out;
+}
+const islandAt = (x, y) => land(Math.floor(x / T), Math.floor(y / T));
+
 async function overlay(id, x, y, extra = {}) {
   if (!HAVE.has(id)) return false;
   const m = await mod(id);
   if (m.meta.size[0] >= 300) return false; // full-screen effects do not belong on a map
   try {
     const lighting = id.startsWith("lighting/");
-    paint(frame, m, stillTime(m, id), x, y,
-      stillOptions(m, id, { actor: stockActor(), light: lighting ? 1 : 0.48, ...extra }), lighting ? 0.65 : 1);
+    clipped(islandAt(x, y), (target) => paint(target, m, stillTime(m, id), x, y,
+      stillOptions(m, id, { actor: stockActor(), light: lighting ? 1 : 0.48, ...extra }), lighting ? 0.65 : 1));
   } catch (err) {
     missed.push(`${id} (overlay failed: ${err.message})`);
     return false;
@@ -715,22 +745,22 @@ for (const [i, id] of ids("emotes/").entries()) {
   if (who) await overlay(id, who.x + (i >= people.length ? 12 : 0), who.y + who.b.y0 + 2);
 }
 // one patch of weather over the middle of each island
-if (WEATHER) for (const isl of islands) for (const id of isl.weather) {
+if (WEATHER) for (const [k, isl] of islands.entries()) for (const id of isl.weather) {
   if (!HAVE.has(id)) continue;
   const m = await mod(id), [w, h] = m.meta.size, [ox, oy] = m.meta.origin, [x0, y0, x1, y1] = isl.rect;
   const x = Math.round(((x0 + x1 + 1) * T - w) / 2), y = Math.round(((y0 + y1 + 1) * T - h) / 2);
-  paint(frame, m, stillTime(m, id), x + ox, y + oy, stillOptions(m, id), 0.9);
+  clipped(k, (target) => paint(target, m, stillTime(m, id), x + ox, y + oy, stillOptions(m, id), 0.9));
   used.add(id);
 }
 
 const rgba = composite(frame, new Uint8ClampedArray(W * H * 4), null);
 
 if (LABELS) {
-  const plain = (s) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/đ/g, "d").replace(/Đ/g, "D").toUpperCase();
+  // Vietnamese names keep their diacritics: the pixel font stacks accents above (up to 3 rows) and dots below.
   for (const isl of islands) {
-    const s = plain(isl.name), [x0, y0, x1] = isl.rect, tw = s.length * 6 + 6;
-    const px = Math.round(((x0 + x1 + 1) * T - tw) / 2), py = y0 * T + 6;
-    for (let y = py - 3; y < py + 9; y++) for (let x = px - 3; x < px + tw; x++) rgba.set([24, 28, 38, 255], (y * W + x) * 4);
+    const s = isl.name.toUpperCase(), [x0, y0, x1] = isl.rect, tw = textWidth(s, "mini");
+    const px = Math.round(((x0 + x1 + 1) * T - tw) / 2), py = y0 * T + 8;
+    for (let y = py - 6; y < py + 9; y++) for (let x = px - 4; x < px + tw + 4; x++) rgba.set([24, 28, 38, 255], (y * W + x) * 4);
     rasterText(s, "mini", (x, y) => rgba.set([255, 244, 214, 255], ((py + y) * W + px + x) * 4));
   }
 }

@@ -214,7 +214,7 @@ export function createScene(canvas, touchCanvas) {
           palette: treePalette(entity.island,entity.visual.tint), chipped: entity.hp === 1, mist:entity.island===2,
         } : entity.kind === "crystals" ? { palette: crystalColors }
           : entity.kind === "flowers" && entity.island === 2 ? { tint: 1 }
-          : entity.kind === "trailSign" ? { label: entity.island === 3 ? "VINH" : "VUON", pointing: "left" } : {};
+          : entity.kind === "trailSign" ? { label: entity.island === 3 ? "VỊNH" : "VƯỜN", pointing: "left" } : {};
         const seed = entity.col * 3 + entity.row * 17;
         const recoil = entity.recoil ?? 0;
         const sway = Math.round(Math.sin(recoil * 48) * recoil * 13 * (entity.hitDirection ?? 1));
@@ -249,8 +249,14 @@ export function createScene(canvas, touchCanvas) {
         const phase = t * (0.16 + i % 4 * 0.018) + i;
         const x = 265 + (i * 29) % 100 + 14 * Math.cos(phase);
         const y = 64 + (i * 37) % 131 + 7 * Math.sin(phase * 2);
+        // a pixel cloud bank: three lobes, each a hard-edged ellipse in three dithered layers (shadowed base, body,
+        // lit cap from the top-left), so the fog reads as drawn mist, not a blur
+        const r = 6 + i % 4;
         for (let j = -1; j <= 1; j++) {
-          fogPainter.disc(x + j * 8, y + j * 2, 6 + i % 4, fog[3], d => 0.29 * (1 - d));
+          const lx = Math.round(x + j * 8), ly = Math.round(y + j * 2), rx = r + (j ? 0 : 2), ry = Math.round(rx * 0.55);
+          fogPainter.ellipse(lx, ly + 1, rx + 1, ry + 1, fog[2], 0.4);
+          fogPainter.ellipse(lx, ly, rx - 1, ry - 1, fog[3], 0.88);
+          fogPainter.ellipse(lx - 2, ly - 2, Math.max(2, rx - 4), Math.max(1, ry - 2), fog[4], 1);
         }
       }
     }

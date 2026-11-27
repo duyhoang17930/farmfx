@@ -9,6 +9,16 @@ import { rasterText, textWidth, FONTS } from "./font.js";
 // 4x4 ordered (Bayer) thresholds: a pixel at alpha a is drawn when a is above its cell's threshold.
 const BAYER = [0, 8, 2, 10, 12, 4, 14, 6, 3, 11, 1, 9, 15, 7, 13, 5].map((v) => (v + 0.5) / 16);
 const OUT = { c: 0, a: 1, l: 0, k: 0 };
+// Light falloff in 4 hard steps, dithered between neighbours: blooms read as pixel rings, not airbrush.
+const LIGHT_STEPS = 4;
+// The faint tail under the first step stays continuous: dithering it up to a full step would throw hard light far
+// past where the glow fades out.
+const stepped = (v, sx, sy) => {
+  const q = v * LIGHT_STEPS, lo = Math.floor(q);
+  if (lo === 0) return v;
+  // biased down: a pixel only steps up past halfway to the next level, so a glow is never much brighter than smooth
+  return (q - lo > 0.5 + 0.5 * BAYER[((sy & 3) << 2) | (sx & 3)] ? lo + 1 : lo) / LIGHT_STEPS;
+};
 const sprites = new WeakMap();
 const call = (v, ...args) => (typeof v === "function" ? v(...args) : v);
 
@@ -262,7 +272,7 @@ export class Painter {
         const dx = (sx + 0.5 - cx) / r, d = dx * dx + dy * dy;
         if (d >= 1) continue;
         const f = 1 - Math.sqrt(d);
-        this.add(sx, sy, c, f * f * k);
+        this.add(sx, sy, c, stepped(f * f, sx, sy) * k);
       }
     }
   }
@@ -279,7 +289,7 @@ export class Painter {
         const ex = ax + dx * u - px, ey = ay + dy * u - py, d = Math.sqrt(ex * ex + ey * ey) / r;
         if (d >= 1) continue;
         const f = 1 - d;
-        this.add(sx, sy, c, f * f * k);
+        this.add(sx, sy, c, stepped(f * f, sx, sy) * k);
       }
   }
   /** Glow hugging a circle of radius R (a shockwave's light), falling off over width r. */
@@ -291,7 +301,7 @@ export class Painter {
         const d = Math.abs(Math.hypot(sx + 0.5 - cx, sy + 0.5 - cy) - R) / r;
         if (d >= 1) continue;
         const f = 1 - d;
-        this.add(sx, sy, c, f * f * k);
+        this.add(sx, sy, c, stepped(f * f, sx, sy) * k);
       }
   }
 

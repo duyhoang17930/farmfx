@@ -152,7 +152,7 @@ export function create(o) {
       if (dark > 0.01)
         for (let y = -228; y < 36; y++)
           for (let x = -W; x < W; x++) {
-            const d = Math.hypot(x / W, (y + 96) / 132), a = dark * (1 - smooth(0.55, 1, d));
+            const d = Math.hypot(x / W, (y + 96) / 132), a = dark * Math.ceil(3 * (1 - smooth(0.55, 1, d))) / 3; // 3 bands
             if (a > 0.01) p.blend(x + 0.5, y + 0.5, NIGHT, a);
           }
       sigil(p, t, C, charge(), false);

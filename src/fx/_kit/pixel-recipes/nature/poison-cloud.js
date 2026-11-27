@@ -2,7 +2,7 @@ import { cycle, fit, rng, smooth, clamp, TAU, WHITE, tileNoise } from "../../../
 
 export const meta = {
   name: "Poison cloud",
-  desc: "A miasma hugging the floor: ragged sheets of gas lit yellow-green from within, fading to violet, creep out in tongues that curl over at their tips; plumes twist up as ribbons.",
+  desc: "A miasma hugging the floor: violet sheets of gas with an acid-lit crest creep out in curling tongues; plumes twist up and bubbles well up through it and pop.",
   tags: ["nature", "poison", "gas", "cloud", "miasma", "toxic", "area", "ground", "loop"],
   size: [256, 100],
   origin: [128, 86],
@@ -11,7 +11,7 @@ export const meta = {
   fps: 30,
   bg: "ground",
   options: {
-    palette: ["#181521", "#282038", "#383047", "#514959", "#5e6743", "#79894f", "#a3b76a", "#d0d88d"],
+    palette: ["#181521", "#2c1d44", "#46296a", "#6a4790", "#5e6743", "#8aa04f", "#b8d063", "#e6f59a"],
     spread: 1,
     seed: 3,
   },
@@ -40,7 +40,8 @@ function tongues(sh, si, E, ph) {
 // noise that flows outward, raised behind each tongue's front
 function height(sh, si, E, x, ph, T, seed) {
   const ax = Math.abs(x), env = 1 - smooth(0.5, 1, ax / (E * sh.e)), r = tileNoise(ax * 0.07 - ph * sh.flow, si * 3.7, sh.flow, 0, seed + si);
-  let h = sh.h * env * (0.55 + 0.45 * r);
+  const breathe = 1 + 0.2 * Math.sin(TAU * ph * 2 + si * 2.1 + x * 0.02);
+  let h = sh.h * breathe * env * (0.55 + 0.45 * r);
   for (const g of T) {
     const behind = g.s * (g.x - x);
     if (behind < -1.5 || behind > 30) continue;
@@ -60,8 +61,11 @@ function sheet(p, C, sh, si, E, t, seed) {
     for (let y = top; y <= 1; y++) {
       const v = clamp(-y / H), streak = 0.7 + 0.3 * tileNoise(x * 0.05 - ph * sh.flow * Math.sign(x || 1), y * 0.55, sh.flow, 0, seed + 9 + si);
       const lv = v - (streak - 0.7) * 0.6, c = y === top ? C[Math.max(1, 4 - d)] : lv < 0.16 ? C[6 - d] : lv < 0.42 ? C[5 - d] : lv < 0.68 ? C[4 - d] : C[Math.max(1, 3 - d)];
-      if(y===top&&streak>.72)p.dot(x,y,c,.72);
-      else p.blend(x,y,c,sh.a*(sh.back?.8:.54)*(1-.44*v));
+      // a hard rim: lit acid along the front sheet's crest, a dark violet line on the back ones, so the cloud has
+      // a silhouette on any ground; the body below is denser violet up high, thinner where it's lit near the floor
+      if (y === top) p.dot(x, y, sh.back ? C[1] : streak > 0.7 ? C[7] : C[6], sh.back ? 0.8 : 0.95);
+      else if (y === top + 1 && !sh.back) p.dot(x, y, C[5], 0.7);
+      else p.blend(x, y, c, sh.a * (sh.back ? 1.05 : 0.72) * (1 - 0.38 * v));
     }
   }
   // the tongues' leading edges roll over in curls as they creep forward
@@ -104,6 +108,23 @@ function specks(p, C, E, t, seed) {
   });
 }
 
+// bubbles welling up out of the floor through the gas: a 1 px ring with a glint, that pops into four droplets
+function bubbles(p, C, E, t, seed) {
+  cycle(t, D, 9, seed, (g) => g.range(1.1, 1.7), (age, L, R) => {
+    const u = age / L, x = R.range(-0.75, 0.75) * E, rise = R.range(10, 22), r = R.range(1.6, 3.2), pop = 0.82;
+    const y = -2 - rise * Math.min(u, pop) / pop;
+    if (u < pop) {
+      const rr = r * (0.5 + 0.5 * Math.min(1, u * 4));
+      p.ring(x, y, rr + 0.5, 1, C[6]);
+      p.dot(x - rr * 0.4, y - rr * 0.4, C[7]);
+      p.glow(x, y, rr + 3, C[6], 0.1);
+    } else {
+      const k = (u - pop) / (1 - pop), d = r + 1 + k * 4;
+      for (const [dx, dy] of [[-1, -1], [1, -1], [-1, 0.6], [1, 0.6]]) p.dot(x + dx * d, y + dy * d + k * k * 3, k < 0.5 ? C[7] : C[6], 1 - k);
+    }
+  });
+}
+
 export function drawBack(p, t, o) {
   const C = fit(o.palette, 8), E = 96 * o.spread, pulse = 0.85 + 0.15 * Math.sin((TAU * t * 2) / D);
   // lit from within, low down: a soft line of light along the floor under it all
@@ -120,6 +141,7 @@ export function draw(p, t, o) {
   const C = fit(o.palette, 8), E = 96 * o.spread;
   plumes(p, C, E, t, o.seed * 7 + 2);
   SHEETS.forEach((sh, i) => !sh.back && sheet(p, C, sh, i, E, t, o.seed));
+  bubbles(p, C, E, t, o.seed * 5 + 1);
   specks(p, C, E, t, o.seed * 11 + 5);
   p.glow(0, -6, E * 0.65, C[5], 0.06);
 }

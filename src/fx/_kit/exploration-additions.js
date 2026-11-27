@@ -7,14 +7,18 @@ const animations=/reveal|emerge|expand|construction|respawn|dig|discovery/;
 const footprints={"boat-dock":{width:40,height:10},"secret-door":{width:36,height:8}};
 function plot(p,C,t,id,opacity){
   const y=id==="island-emerge"?-12*(1-ease.outCubic(t)):0,w=id==="island-expand"?14+8*ease.outCubic(t):id==="secret-island"?17:22;
-  const points=[[-w,y-10],[0,y-21],[w,y-10],[0,y+3]];
-  p.polyline([...points,points[0]],C[4],opacity);
+  // a top-down 3/4 plot, like the island tiles: a flat top face with clipped corners and, for solid land, a
+  // front face of earth under it. No isometric diamond: the ground is a plan seen from above.
+  const top=y-19,bot=y-2;
+  const rim=[[-w+2,top],[w-2,top],[w,top+2],[w,bot-2],[w-2,bot],[-w+2,bot],[-w,bot-2],[-w,top+2]];
   if(/emerge|preview|reveal|expand|locked|secret/.test(id)){
-    p.poly([[-w,y-10],[0,y+3],[w,y-10],[w,y-6],[0,y+7],[-w,y-5]],WOOD[2],opacity);
-    p.poly(points,C[2],opacity*.85);
-    p.line(-19,y-10,0,y-19,C[4],opacity);
-    if(id==="secret-island"){p.tri(-4,y-10,0,y-18,4,y-10,LEAF[4],opacity);p.line(0,y-12,0,y-8,WOOD[4],opacity);}
+    p.poly([[-w,bot-2],[-w+2,bot],[w-2,bot],[w,bot-2],[w,bot+3],[w-2,bot+5],[-w+2,bot+5],[-w,bot+3]],WOOD[2],opacity);
+    p.line(-w+2,bot+5,w-2,bot+5,WOOD[1],opacity);
+    p.poly(rim,C[2],opacity*.85);
+    p.line(-w+2,top+1,w-3,top+1,C[4],opacity);
+    if(id==="secret-island"){const c=y-10;p.tri(-4,c,0,c-8,4,c,LEAF[4],opacity);p.line(0,c-2,0,c+2,WOOD[4],opacity);}
   }
+  p.polyline([...rim,rim[0]],C[4],opacity);
 }
 export function explorationAddition(id){
   const animated=animations.test(id), island=id.startsWith("island")||id==="secret-island";

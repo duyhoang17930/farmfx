@@ -5,7 +5,7 @@ export const { meta, draw } = asset({
   name: "Coastal waypost",
   desc: "A small carved direction sign with a bevel, visible upper face and shaded side.",
   tags: ["signpost", "wood", "coast"], size: [48,32], origin: [24,25],
-  duration: 1, fps: 1, palette: WOOD, options: { label: "VUON", pointing: "right" },
+  duration: 1, fps: 1, palette: WOOD, options: { label: "VƯỜN", pointing: "right" },
 }, (p,_t,C,o) => {
   const dir = o.pointing === "left" ? -1 : 1;
   const shape = (points,color) => p.poly(points.map(([x,y])=>[x*dir,y]),color);
@@ -17,6 +17,6 @@ export const { meta, draw } = asset({
   shape([[-11,-21],[7,-21],[13,-16],[7,-12],[-11,-12]],C[2]);
   shape([[-11,-21],[7,-21],[9,-19],[-11,-19]],C[4]);
   shape([[7,-12],[13,-16],[14,-16],[8,-10],[-11,-10],[-11,-12]],C[1]);
-  p.text(String(o.label).slice(0,4),0,-18,C[0],{font:"mini",align:"center"});
+  p.text([...String(o.label).normalize("NFC")].slice(0,4).join(""),0,-18,C[0],{font:"mini",align:"center"});
   p.px(-10,-15,C[4]);
 });

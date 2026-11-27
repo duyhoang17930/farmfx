@@ -8,8 +8,21 @@ genre conventions are fine; never copy a specific game's sprites, characters, pa
 ## The grid
 
 - **One tile is 16 x 16 px.** Everything is sized in tiles. A crop fills one tile, a bush one, a tree 2 x 3 (trunk on
-  one tile, canopy spilling over the ones around it), a chicken about one tile, a cow 2 x 2, a person 1 wide and 2 tall
-  (about 16 x 32), a small building 3 x 3 to 5 x 4.
+  one tile, canopy spilling over the ones around it), a chicken about one tile, a cow 2 x 2, a person about 1 wide and
+  1.5 tall, a small building 3 x 3 to 5 x 4.
+- **The reference body is the player.** `player/idle` inks 13 x 23 px (hat included); the bare stock actor
+  (`stockActor()`, k = 1) is 12 x 19. Measure new people, animals and props against it, not against a number in a doc:
+
+  | thing | ink size (px) | in tiles |
+  |---|---|---|
+  | player, villager (`player/*`, `characters/*`) | 12-13 x 19-25 | 1 x 1.5 |
+  | pine, oak | ~30 x 48 | 2 x 3 |
+  | cow | ~39 x 30 | 2.5 x 2 |
+
+- **Effects are authored at 2x.** Effects with `actor: 2` are drawn round a 24 x 38 stock actor, twice the world
+  scale, so a spell reads in a preview. On the 1x map or in the demo they look oversized next to the player (a shield
+  dome three bodies tall). Until effects take a `scale` option, place them on a 1x scene only where the oversize is
+  wanted (bosses), and compare previews against the 1x player, not the 2x stock actor.
 - **Canvases are whole tiles**: 16, 32, 48, 64... wide and tall, with room for what pokes out of the footprint (a
   canopy, a raised wing, flying soil).
 - **The origin is where the thing stands on the ground**: x in the middle of its footprint, y = 0 where its base meets
@@ -47,6 +60,26 @@ genre conventions are fine; never copy a specific game's sprites, characters, pa
   only for translucent things (water, mist, shadows) or big soft surfaces.
 - **Light buffer sparingly.** Farm daylight is mostly color. Keep glow for things that really glow: sparkles,
   fireflies, lanterns, magic, the ripe twinkle.
+
+## Effects: one way to render
+
+Every effect mixes three things: opaque pixels, translucent volumes and light. Keep each in its lane so a sheet of
+effects reads as one set.
+
+- **Light falls off in steps.** `glow`, `glowLine` and `glowRing` quantize their falloff into 4 levels (the faint
+  tail under the first level stays smooth) and dither
+  between them (4 x 4 Bayer), so a flash or a bloom is a few hard rings, never a smooth airbrushed gradient. Don't
+  rebuild a smooth glow by stacking many small ones.
+- **Veils and darkening are banded too.** A screen-darkening veil or a big soft area picks its alpha from 2 or 3
+  levels, not a continuous ramp.
+- **Translucent volumes** (smoke, gas, vapour, mist) use `blend`/`disc` with a flat alpha per puff; their edges come
+  from overlapping puffs, and each volume needs a readable silhouette: a lit rim or a darker outline row, not just
+  a fade.
+- **Cooling fire leaves the fire ramp.** Flame puffs past orange turn translucent and drift into the smoke ramp;
+  they never linger as hard saturated red discs.
+- **One pixel size.** Detail is 1 px at the effect's scale. No 2 x 2 or larger "fat pixels" mixed in with 1 px ones.
+- **Contrast with the ground it sits on.** An effect drawn on the floor must read on grass, sand and stone; check
+  it on the `field` backdrop, not only on `ground`. Gas on grass needs a hue the grass doesn't have.
 
 ## Motion
 
