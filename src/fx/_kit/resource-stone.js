@@ -21,13 +21,32 @@ function rock(p, profile, C, scale = 1, x = 0, y = 0) {
   p.poly([...ridge.slice(1, 5), peak, [x - 8 * scale, y - 8 * scale]], C[3]);
   p.line(...ridge[2], ...ridge[3], C[4]);
   p.line(...peak, x + 3 * scale, y - 5 * scale, C[0]);
+  // texture: speckles of the next ramp steps across the faces, a couple of cracks, grit and pebbles at the foot
+  p.poly(face, (px, py) => {
+    const r = rand(Math.floor(px), Math.floor(py), 17);
+    return r < 0.07 ? C[1] : r > 0.95 && py < y - 6 * scale ? C[4] : 0;
+  });
+  const seedX = Math.round(x);
+  p.polyline([[x - 6 * scale, y - 9 * scale], [x - 4 * scale, y - 6 * scale], [x - 5 * scale, y - 3 * scale]], C[0]);
+  p.polyline([[x + 6 * scale, y - 10 * scale], [x + 8 * scale, y - 7 * scale]], C[1]);
+  for (const [dx, r] of [[-14, 1.6], [13, 2], [-10, 1.1]]) {
+    const px = x + dx * scale, py = y + 1;
+    p.ellipse(px, py, r + 0.6, r * 0.75 + 0.6, C[0]); p.ellipse(px - 0.3, py - 0.3, r, r * 0.7, C[2]); p.px(px - 0.5, py - 0.8, C[3]);
+  }
+  for (let i = 0; i < 5; i++) p.px(x + (rand(i, seedX, 3) - 0.5) * 26 * scale, y + 1 + rand(i, 2, seedX) * 2, C[i & 1 ? 1 : 2]);
 }
 
+// an ore nugget set in the rock: a dark socket, a faceted lump lit on its upper-left facet, shaded lower-right,
+// a bright metallic sheen and a catch-light
 function nugget(p, x, y, w, h, C) {
-  p.poly([[x-w,y],[x-w+1,y-h+1],[x,y-h],[x+w-1,y-h+1],[x+w,y+1],[x,y+2]], C[0]);
+  const out = [[x-w-0.5,y+0.5],[x-w+0.5,y-h+0.5],[x,y-h-0.5],[x+w-0.5,y-h+0.5],[x+w+0.5,y+1.5],[x,y+2.5]];
+  p.poly(out, C[0]);
   p.poly([[x-w+1,y],[x-w+2,y-h+1],[x,y-h+1],[x+w-1,y-h+1],[x+w-1,y],[x,y+1]], C[2]);
-  p.line(x-w+2,y-h+1,x+w-2,y-h+1,C[4]);
-  p.px(x-w+1,y,C[3]);
+  p.poly([[x-w+1,y],[x-w+2,y-h+1],[x,y-h+1],[x,y-h/2]], C[3]);
+  p.poly([[x+w-1,y-h/2],[x+w-1,y],[x,y+1],[x+1,y-h/3]], C[1]);
+  p.line(x-w+2,y-h+1,x-1,y-h+1,C[4]);
+  if (w >= 3 && h >= 3) p.px(x-w+2,y-h+2,C[4]);
+  p.px(x+w-1,y+1,C[0]);
 }
 
 export function ore(name, desc, palette, profile, nuggets, host = STEEL) {

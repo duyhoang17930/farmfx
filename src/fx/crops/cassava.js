@@ -7,6 +7,7 @@ export const { meta, draw } = crop({
   produce: ["#452a29", "#714638", "#9b6749", "#be8b61", "#e1b789"],
   wood: ["#4f2e35", "#6d413d", "#95544a", "#b87359", "#d98c61"],
   drawPlant(b, { C, W, ripe }) {
+    b.bush(0, -5, 6, 4, C, 8, 7);
     b.stem(0, 0, 1, -23, 2.4, W);
     for (const [x, y, size] of [[-5, -12, 0.78], [5, -17, 0.83], [-2, -23, 1]]) {
       b.line(1, y + 5, x, y, W[3]);

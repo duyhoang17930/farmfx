@@ -151,7 +151,7 @@ function brush(p, scale, lean, ox = 0, oy = 0) {
   const Y = (y) => oy + y * scale;
   const points = (coords) => coords.map(([x, y]) => [X(x, y), Y(y)]);
   const line = (x, y, ex, ey, c) => p.line(X(x, y), Y(y), X(ex, ey), Y(ey), c);
-  return {
+  const api = {
     dot(x, y, c) { p.px(X(x, y), Y(y), c); },
     line,
     stem(x, y, ex, ey, width, C) {
@@ -191,5 +191,19 @@ function brush(p, scale, lean, ox = 0, oy = 0) {
       p.ellipse(cx - rx * scale * 0.22, cy - ry * scale * 0.30, rx * scale * 0.59, ry * scale * 0.50, C[3]);
       if (rx * scale > 2.5 && ry * scale > 2.1) p.px(cx - rx * scale * 0.34, cy - ry * scale * 0.45, C[4]);
     },
+    // A full mound of foliage: a dark core, then leaves fanning out round it, shadowed below and lit up top-left.
+    // Goes behind a plant's own leaves so a mature crop reads as a full, healthy plant instead of a few sprigs.
+    bush(cx, cy, rx, ry, C, n = 11, seed = 1) {
+      const R = Math.max(1, scale);
+      p.ellipse(X(cx, cy), Y(cy), rx * R * 0.55 + 1, ry * R * 0.55 + 1, C[0]);
+      p.ellipse(X(cx, cy), Y(cy), rx * R * 0.55, ry * R * 0.55, C[1]);
+      for (let i = 0; i < n; i++) {
+        const a = Math.PI * (0.95 + 1.1 * i / (n - 1)) + (rand(i, 3, seed) - 0.5) * 0.3, k = 0.8 + 0.25 * rand(i, 5, seed);
+        const ex = cx + Math.cos(a) * rx * k, ey = cy + Math.sin(a) * ry * k;
+        api.leaf(cx + Math.cos(a) * rx * 0.25, cy + Math.sin(a) * ry * 0.25, ex, ey, Math.min(rx, ry) * 0.38, C, Math.cos(a) > 0.2);
+      }
+      for (const [dx, dy] of [[-0.35, 0.2], [0.35, 0.25]]) api.leaf(cx, cy, cx + dx * rx * 2.2, cy + dy * ry * 2, Math.min(rx, ry) * 0.33, C, dx > 0);
+    },
   };
+  return api;
 }

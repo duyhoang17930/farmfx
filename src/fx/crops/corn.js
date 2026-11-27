@@ -23,6 +23,9 @@ export const { meta, draw } = crop({
     b.leaf(0, -10, 8, -15, 2.5, C);
     b.leaf(1, -20, -8, -23, 2.3, C);
     b.leaf(1, -23, 7, -25, 1.9, C, true);
+    b.leaf(0, -3, 9, -5, 2.4, C, true);
+    b.leaf(1, -15, -9, -16, 2.4, C);
+    b.leaf(0, -2, -7, -1, 2, C);
     for (const x of [-3, 1, 5]) b.line(1, -27, x, -33, ripe > 0.35 ? F[3] : C[3]);
     if (ripe > 0) {
       ear(b, -3, -11, ripe * 0.7, C, F);

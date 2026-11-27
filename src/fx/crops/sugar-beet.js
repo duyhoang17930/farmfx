@@ -12,7 +12,8 @@ export const { meta, draw } = crop({
   tags: ["beet", "root", "sugar"], method: "dig", sparkleAt: [5, -8],
   produce: ["#554141", "#897461", "#b8a382", "#decaa2", "#f8e7bd"],
   drawPlant(b, { C, F, ripe }) {
-    if (ripe > 0) b.orb(0, -1, 4.8 * ripe, 2.8 * ripe, F);
+    b.bush(0, -8, 8, 6.5, C, 12, 8);
+    if (ripe > 0) b.orb(0, -1, 5.8 * ripe, 3.4 * ripe, F);
     for (const [x, y, w] of [[-8, -9, 2.4], [6, -11, 2.8], [1, -16, 3], [-4, -13, 2.6], [5, -5, 2.4]]) {
       b.leaf(0, -2 - ripe, x, y, w, C);
       b.line(0, -3 - ripe, x * 0.68, y * 0.75, C[4]);

@@ -18,6 +18,7 @@ export const { meta, draw } = crop({
   tags: ["tuber", "vegetable"], method: "dig", sparkleAt: [7, -9],
   produce: ["#4a3328", "#845739", "#ae7641", "#cf9a57", "#efd18a"],
   drawPlant(b, { C, F, ripe }) {
+    b.bush(0, -8, 9, 6.5, C, 13, 10);
     for (const [x, y] of [[-8, -8], [7, -9], [-5, -13], [3, -15], [1, -9]]) {
       b.stem(0, 0, x * 0.65, y + 2, 1.5, C);
       b.leaf(x * 0.65, y + 2, x, y, 2.9, C, x > 0);

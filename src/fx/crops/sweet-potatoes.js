@@ -17,6 +17,7 @@ export const { meta, draw } = crop({
   wood: ["#3c2d44", "#643653", "#895064", "#a66a72", "#c98288"],
   produce: ["#552d49", "#7d405b", "#ab5270", "#ce6a7e", "#eea090"],
   drawPlant(b, { C, W, ripe }) {
+    b.bush(0, -5, 10, 5.5, C, 13, 6);
     for (const [x, y, dir, n] of [[-8, -4, -1, 0.9], [8, -6, 1, 0.92], [1, -11, 1, 1], [-4, -8, -1, 0.8]]) {
       b.line(0, -1, x, y, W[3]);
       b.leaf(x, y, x + dir * 3.8 * n, y - 3 * n, 1.7 * n, C);

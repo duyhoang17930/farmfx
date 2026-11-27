@@ -17,7 +17,8 @@ export const { meta, draw } = crop({
   produce: ["#345447", "#547459", "#7d9d6c", "#a7bd79", "#d8db9a"],
   drawPlant(b, { C, F, ripe }) {
     for (const [x, y, w] of [[-9, -5, 3], [8, -4, 3], [5, -10, 2.9], [-6, -10, 3], [0, -12, 3.3]]) b.leaf(0, -2, x, y, w, C, x > 0);
-    if (ripe > 0) head(b, 0, -4, ripe, F);
+    b.bush(0, -5, 9, 5.5, C, 12, 11);
+    if (ripe > 0) head(b, 0, -5, ripe * 1.2, F);
     b.leaf(-1, -2, -7, 0, 2.1, C);
     b.leaf(1, -2, 7, 0, 2.1, C, true);
   },

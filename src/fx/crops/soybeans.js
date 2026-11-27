@@ -13,6 +13,7 @@ export const { meta, draw } = crop({
   tags: ["legume", "soy"], sparkleAt: [5, -7],
   produce: ["#514725", "#7b682f", "#9f893c", "#c4ac57", "#ead489"],
   drawPlant(b, { C, F, ripe }) {
+    b.bush(0, -9, 8, 7, C, 12, 4);
     b.stem(0, 0, 0, -17, 1.8, C);
     for (const [x, y, dir] of [[4, -10, 1], [-4, -8, -1], [-2, -15, -1], [2, -17, 1]]) {
       b.line(0, y + 4, x, y, C[2]);
@@ -24,6 +25,8 @@ export const { meta, draw } = crop({
       pod(b, -4, -6, ripe * 0.85, F);
       pod(b, 4, -7, ripe, F);
       pod(b, 1, -11, ripe * 0.74, F);
+      pod(b, -6, -11, ripe * 0.8, F);
+      pod(b, 6, -13, ripe * 0.7, F);
     }
   },
   drawHarvest(b, { F }) { pod(b, -2, 0, 1, F); pod(b, 2, -2, 1, F); },

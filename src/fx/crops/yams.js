@@ -14,6 +14,7 @@ export const { meta, draw } = crop({
   tags: ["yam", "vine", "tuber"], method: "dig", sparkleAt: [7, -14],
   produce: ["#46302d", "#724837", "#966146", "#b78157", "#d7a87a"],
   drawPlant(b, { C, W, ripe }) {
+    b.bush(0, -8, 7, 6, C, 9, 5);
     b.stem(2, 0, 2, -25, 2.1, W);
     b.line(2, -3, -4, -8, C[2]);
     b.line(-4, -8, 4, -13, C[3]);

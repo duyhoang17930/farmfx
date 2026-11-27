@@ -17,6 +17,7 @@ export const { meta, draw } = crop({
   palette: ["#213b27", "#365a34", "#4a7b41", "#75a04e", "#aecc65"],
   produce: ["#163b32", "#285d3d", "#397d42", "#63a94b", "#b0d55a"],
   drawPlant(b, { C, F, ripe }) {
+    b.bush(-2, -4, 10, 4.5, C, 13, 9);
     b.line(0, 0, -5, -4, C[2]);
     b.line(-5, -4, -9, -2, C[3]);
     b.line(0, -2, 8, -6, C[2]);
@@ -25,7 +26,7 @@ export const { meta, draw } = crop({
       b.leaf(x, y, x + dx, y + dy, 2.5, C);
       b.leaf(x, y, x - dx * 0.4, y + dy + 1, 1.6, C, true);
     }
-    if (ripe > 0) melon(b, 3, -3 - ripe, ripe, F);
+    if (ripe > 0) melon(b, 3, -3 - ripe, ripe * 1.25, F);
   },
   drawHarvest(b, { F }) { melon(b, 0, 0, 1.07, F); },
 });

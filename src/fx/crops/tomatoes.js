@@ -14,6 +14,7 @@ export const { meta, draw } = crop({
   tags: ["tomato", "fruit", "vine"], sparkleAt: [6, -8],
   produce: ["#542532", "#962b37", "#c43c34", "#e85a3d", "#ffa471"],
   drawPlant(b, { C, F, W, ripe }) {
+    b.bush(0, -12, 8, 8, C, 12, 2);
     b.stem(2, 0, 2, -22, 2.1, W);
     b.stem(0, 0, -2, -18, 1.6, C);
     b.line(-2, -11, 3, -12, W[4]);
@@ -22,9 +23,11 @@ export const { meta, draw } = crop({
       b.leaf(x * 0.52, y + 0.8, x * 0.85, y - 2.5, 1.2, C);
     }
     if (ripe > 0) {
-      tomato(b, -5, -7, ripe, C, F);
-      tomato(b, 4, -9, ripe * 0.9, C, F);
-      tomato(b, 0, -14, ripe * 0.7, C, F);
+      tomato(b, -5, -7, ripe * 1.1, C, F);
+      tomato(b, 4, -9, ripe, C, F);
+      tomato(b, 0, -14, ripe * 0.85, C, F);
+      tomato(b, -3, -17, ripe * 0.7, C, F);
+      tomato(b, 6, -16, ripe * 0.75, C, F);
     }
   },
   drawHarvest(b, { C, F }) { tomato(b, 0, 0, 1.24, C, F); },

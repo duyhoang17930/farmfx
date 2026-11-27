@@ -3,6 +3,7 @@
 //
 //   node tools/triage-sheet.mjs trees --out records/triage --scale 2
 //   node tools/triage-sheet.mjs items/raw --at 0.5
+//   node tools/triage-sheet.mjs crops --opts '{"stage":4}'                 options for every asset
 //   node tools/triage-sheet.mjs "objects/*chest*" objects/trash-bin --name chests     several patterns on one sheet
 //
 // Each cell shows the asset at a representative moment (a loop at --at of its duration, a one-shot at 55%) on the
@@ -17,10 +18,11 @@ import { rasterText, textWidth } from "../src/core/font.js";
 
 const args = process.argv.slice(2), flags = {}, groups = [];
 for (let i = 0; i < args.length; i++) args[i].startsWith("--") ? (flags[args[i].slice(2)] = args[++i]) : groups.push(args[i]);
+const EXTRA = flags.opts ? JSON.parse(flags.opts) : {};
 const SCALE = +(flags.scale ?? 2), AT = +(flags.at ?? 0.35), OUT = flags.out ?? join(ROOT, "records", "triage"), COLS = +(flags.cols ?? 8);
 
 function still(m, t, frame, x, y) {
-  const o = { ...m.meta.options };
+  const o = { ...m.meta.options, ...EXTRA };
   if (m.meta.actor) o.actor = stockActor(m.meta.actor === 2 ? 2 : 1);
   if (typeof o.facing === "string") o.facing = "down";
   if (!m.draw) {
