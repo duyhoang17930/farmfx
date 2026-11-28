@@ -1,5 +1,5 @@
 import { fit, noise2, rand, TAU } from "../../core/index.js";
-import { groundTones } from "../_kit/world-terrain.js";
+import { groundDecal, groundTones } from "../_kit/world-terrain.js";
 
 const SEASONS = {
   spring: ["#315335", "#406a36", "#527c3d", "#71a143", "#94bd57"],
@@ -16,15 +16,20 @@ export const meta = {
   options: { season: "spring", palette: null, seed: 1, tileX: 0, tileY: 0, meadow: false },
 };
 
+// slow patches a few tiles wide: a field has lush and worn drifts instead of one even texture
+const macro = (x, y, s) => noise2(x / 72, y / 58, s + 77) * 0.55 + noise2(x / 31, y / 37, s + 91) * 0.2;
+
 export function draw(p, t, o) {
   const C = fit(o.palette ?? SEASONS[o.season] ?? SEASONS.spring, 5);
   const tones = groundTones(C);
   const x0 = o.tileX * 16, y0 = o.tileY * 16;
+  // clover, pebbles, bare hollows and short tufts scattered off the tile grid
+  const decal = (wx, wy) => groundDecal("grassland", tones, C, wx, wy, o.seed + 13);
   if (o.meadow) {
     // Broad color changes and occasional clumps leave quiet space around sprites.
     for (let y = 0; y < 16; y++) for (let x = 0; x < 16; x++) {
-      const n = noise2((x0 + x) / 30, (y0 + y) / 27, o.seed);
-      p.px(x - 8, y - 12, tones[n < -.57 ? 0 : n > .57 ? 2 : 1]);
+      const n = noise2((x0 + x) / 30, (y0 + y) / 27, o.seed) + macro(x0 + x, y0 + y, o.seed);
+      p.px(x - 8, y - 12, decal(x0 + x, y0 + y) || tones[n < -.57 ? 0 : n > .57 ? 2 : 1]);
     }
     if (rand(o.tileX, o.tileY, o.seed + 82) < 0.4) {
       const x = -5 + Math.floor(rand(o.tileX, o.tileY, o.seed + 16) * 10);
@@ -39,8 +44,8 @@ export function draw(p, t, o) {
   for (let y = 0; y < 16; y++) {
     for (let x = 0; x < 16; x++) {
       const wx = x0 + x, wy = y0 + y;
-      const n = noise2(wx / 7, wy / 5, o.seed);
-      p.px(x - 8, y - 12, tones[n < -.57 ? 0 : n > .57 ? 2 : 1]);
+      const n = noise2(wx / 7, wy / 5, o.seed) + macro(wx, wy, o.seed);
+      p.px(x - 8, y - 12, decal(wx, wy) || tones[n < -.57 ? 0 : n > .57 ? 2 : 1]);
     }
   }
   const gust = Math.sin(t / meta.duration * TAU);

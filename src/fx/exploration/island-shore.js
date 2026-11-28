@@ -4,6 +4,7 @@ import { draw as grass, meta as grassMeta } from "../tiles/grass.js";
 const EDGES = "NESW";
 const CORNERS = ["NE", "SE", "SW", "NW"];
 const BANK = ["#514638", "#765a40", "#a38254", "#c6a76e"];
+const FOAM = fit(["#d9f2ee"], 1)[0];
 
 export const meta = {
   name: "Island shoreline",
@@ -25,18 +26,22 @@ export function draw(p, t, o) {
       for (let i = 0; i < EDGES.length; i++) {
         if (edges.includes(EDGES[i])) d = Math.min(d, distances[i]);
       }
+      // outer corners round off (radius 11) and inside corners curve, so the coast reads as one line
       for (let i = 0; i < CORNERS.length; i++) {
-        const [a, b] = CORNERS[i];
-        const corner = distances[i] + distances[(i + 1) % 4];
-        if (edges.includes(a) && edges.includes(b)) d = Math.min(d, corner - 2);
-        if (!edges.includes(a) && !edges.includes(b) && corners.has(CORNERS[i])) d = Math.min(d, corner);
+        const [a, b] = CORNERS[i], da = distances[i], db = distances[(i + 1) % 4];
+        if (edges.includes(a) && edges.includes(b)) d = Math.min(d, 11 - Math.hypot(Math.max(0, 11 - da), Math.max(0, 11 - db)));
+        if (!edges.includes(a) && !edges.includes(b) && corners.has(CORNERS[i])) d = Math.min(d, Math.hypot(da + 0.5, db + 0.5));
       }
-      if (o.irregular && d < 6) {
+      if (o.irregular && d < 8) {
         const wx = o.tileX * 16 + x, wy = o.tileY * 16 + y;
-        const contour = noise2(wx / 6, wy / 6, o.seed + 49);
-        const cut = contour > 0.45 ? 1 : contour < -0.42 ? -1 : 0;
-        if (d < 2 + cut) return;
-        const shore = d - cut;
+        // the waterline wanders in world space (joins across tiles), with a 1 px foam line riding just outside it
+        const contour = noise2(wx / 11, wy / 11, o.seed + 17) * 2.4 + noise2(wx / 4, wy / 4, o.seed + 3) * 0.7;
+        const e = d - contour;
+        if (e < 2) {
+          if (e >= 1 && (wx + wy * 3) % 5) p.px(gx, gy, FOAM);
+          return;
+        }
+        const shore = Math.round(e);
         const front = edges.includes("S") && distances[2] <= d + 1;
         if (shore <= (front ? 4 : 3)) {
           const lit = noise2(wx / 4, wy / 4, o.seed + 18) > 0.1;

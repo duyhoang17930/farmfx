@@ -70,6 +70,7 @@ Seen in the close-ups and not yet a numbered rule: island coasts step in whole t
 | 2: pixel VFX | 5 | 15 | 0 | 0 | 12 | 0 | 12 | 26 |
 | 3: outline + shadow | 5 | 13 | 0 | 0 | 8 | 0 | 0 | 26 |
 | 4: readability | 4 | 13 | 0 | 0 | 8 | 0 | 0 | 27 |
+| 5: terrain | 4 | 13 | 0 | 0 | 8 | 0 | 0 | 9 |
 
 Phase 1 (mixel): `drawScale` on the painter (effects authored at 2x land at 1x with 1 px detail), material detail in
 big fills (`_kit/surface-detail.js`: bosses and enemies, buildings, machines, gear), 1 px plate outlines for armor,
@@ -99,3 +100,10 @@ replaced by `tiles/display-mat` slate with a name plate per group, and map reada
 | Nghĩa Địa (graveyard) | 10 / 33 | 5 / 33 |
 | Đảo Pha Lê (crystal) | 7 / 35 | 7 / 35 |
 | Chợ Phiên (bazaar) | 55 / 329 on brown mats (L*) | 32 / 329 |
+
+Phase 5 (terrain): organic coasts (rounded corners, wandering waterline, foam, transparent water side, south bank
+face) for both coast families (`terrain()` shores and `exploration/island-shore`), macro tone drift and scattered
+decals on every open floor, worn slabs on paved floors, damp hollows in tilled soil, and path tiles with wandering
+verges, rounded turns and filleted crossings. The wallpaper rule now compares tiles' mean tone (the median hid
+drift on discrete palettes): 22 tiles before, 9 after. The 9 left are the dark floors Phase 4 keeps quiet on
+purpose, tilled soil (furrows) and dungeon slabs; the 11 "repeats" are walls, fences and gates.

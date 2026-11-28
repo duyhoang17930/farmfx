@@ -80,8 +80,37 @@ function rawTones(style,C,id){
 }
 
 function groundColor(texture,tones,x,y,seed){
-  const n=texture(x,y,seed);
+  // large slow patches (a few tiles across) tip the balance between the darker and lighter tones, so a wide
+  // field has drifts and worn areas instead of one even texture repeated tile after tile
+  const macro=noise2(x/72,y/58,seed+77)*.55+noise2(x/31,y/37,seed+91)*.2;
+  const n=texture(x,y,seed)+macro;
   return tones[n<-.57?0:n>.57?2:1];
+}
+/**
+ * Scattered ground detail for one pixel of an open floor, or 0: a pebble with its shadow, a short crack, a tuft or
+ * a small hollow, placed by a hash per 12 x 12 px cell, so the floor gets 3-5 kinds of variation that don't line up
+ * with the tile grid.
+ */
+export function groundDecal(style,tones,C,gx,gy,seed){
+  const cx=Math.floor(gx/12),cy=Math.floor(gy/12),h=rand(cx,cy,seed+401);
+  if(h>.42)return 0;
+  const ox=cx*12+2+Math.floor(rand(cx,cy,seed+402)*8),oy=cy*12+2+Math.floor(rand(cx,cy,seed+403)*8),u=gx-ox,v=gy-oy;
+  const kind=Math.floor(rand(cx,cy,seed+404)*4);
+  const light=mix(tones[2],C[4],.35),dark=mix(tones[0],C[0],.35);
+  if(kind===0){ // pebbles
+    if(u===0&&v===0||u===2&&v===1)return light;
+    if(u===0&&v===1||u===2&&v===2||u===1&&v===1)return dark;
+  }else if(kind===1){ // a short crack
+    if(v===0&&u>=0&&u<3||v===1&&u>=2&&u<4||v===2&&u===4)return dark;
+  }else if(kind===2){ // a tuft or a ridge, by biome
+    const tuft=/grassland|tropical|swamp/.test(style);
+    if(tuft?(u===0&&v>=0&&v<2||u===2&&v>=-1&&v<2||u===1&&v===1):v===0&&u>=-1&&u<4)return tuft?mix(tones[2],C[3],.5):light;
+    if(!tuft&&v===1&&u>=0&&u<4)return dark;
+  }else{ // a hollow: a dark rim over a lit lip
+    const r=(u-1.5)**2/4+(v-.5)**2;
+    if(r<1.1)return v<=0?dark:mix(tones[1],tones[0],.5);
+  }
+  return 0;
 }
 
 // Short, broken crests leave room for sprites and connect in world coordinates.
@@ -156,6 +185,7 @@ export function terrain(id,kind,style,under,pattern=0){
       const fleck=noise2(gx*0.17,gy*0.18,o.seed);
       const value=n>0.988?3:n<0.012?1:fleck>0.13?3:2;
       let color=groundColor(texture,tones,gx,gy,o.seed);
+      if((kind==="ground"||kind==="crack")&&!water&&style!=="lava"){const dec=groundDecal(style,tones,C,gx,gy,o.seed);if(dec)color=dec;}
       if(id==="flower-ground"&&n>.987)color=n>.997?C[4]:C[3];
       if(transition){
         if(kind==="water"){
@@ -175,8 +205,18 @@ export function terrain(id,kind,style,under,pattern=0){
         else if(d===boundary)color=mix(tones[1],background[1],.48);
       }
       else if(kind==="shore"){
-        const bank=3+Math.round(fleck);
-        color=d<2?B[under==="lava"?3:2]:d<bank?tones[0]:color;
+        // an organic coast: the waterline wanders with a world-space contour and rounds the outer corners, so
+        // neighbouring tiles join into one shore instead of stepping tile by tile; a 1 px foam line rides it, and
+        // a coast facing the camera (south) shows a short earth face under its lip
+        const contour=noise2(gx/11,gy/11,o.seed+17)*2.4+noise2(gx/4,gy/4,o.seed+3)*.7;
+        const dd=roundedDistance(x,y,edges,corners)-contour, south=edges.includes("S")&&15-y<=d+.5;
+        const sea=B[under==="lava"?3:2], foam=under==="lava"?B[4]:mix(B[4],0xffffffff,.35);
+        // the water side is left clear: a coast tile lies over the water layer, which shows through its curve
+        if(dd<1.6)color=under==="lava"?sea:0;
+        else if(dd<2.6)color=under==="lava"||(gx+gy*3+Math.floor(phase*6))%5?foam:sea;
+        else if(south&&dd<5.6)color=dd<3.6?mix(tones[0],C[0],.5):(x+Math.round(contour))%3?tones[0]:mix(tones[0],C[0],.35);
+        else if(dd<3.6+fleck)color=tones[0];
+        else if(dd<4.6+fleck&&!south)color=mix(tones[0],color,.5);
       }
       else if(kind==="cliff")color=d<1?C[0]:d<4?C[x%5===0?1:2]:d===4?C[4]:color;
       else if(kind==="river"){
@@ -202,7 +242,10 @@ export function terrain(id,kind,style,under,pattern=0){
         const seam=gy%height===0||offset%width===0;
         const tint=rand(Math.floor(offset/width),row,o.seed);
         if(kind!=="wall"){
-          color=d===0?C[1]:d===1||seam?floorMortar:gy%height===1?floorLip:tones[tint<.17?0:tint>.83?2:1];
+          // slabs drift in tone over wide areas (worn lanes, darker corners), and some carry a chip or a crack
+          const wear=tint+noise2(gx/80,gy/64,o.seed+77)*.4;
+          color=d===0?C[1]:d===1||seam?floorMortar:gy%height===1?floorLip:tones[wear<.2?0:wear>.8?2:1];
+          if(d>1&&!seam&&gy%height!==1){const dec=groundDecal("floor",tones,C,gx,gy,o.seed+5);if(dec&&rand(Math.floor(gx/12),Math.floor(gy/12),o.seed+9)<.55)color=dec;}
           if(id==="cracked-floor"&&tint<.56&&Math.abs(noise2(gx/10,gy/8,o.seed+11))<.045)color=C[1];
         }
         else color=d===0||y>13&&!edges.includes("S")?C[0]:d===1||gy%height===1?C[3]:seam?C[1]:C[2];

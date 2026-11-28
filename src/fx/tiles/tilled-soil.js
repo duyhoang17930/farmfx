@@ -1,4 +1,4 @@
-import { clamp, ease, fit, rand, TAU } from "../../core/index.js";
+import { clamp, ease, fit, noise2, rand, TAU } from "../../core/index.js";
 
 const DRY = ["#392620", "#593823", "#775031", "#93623b", "#ae7a4d"];
 const WET = ["#2d2528", "#46312b", "#5f422f", "#77533a", "#b18b5d"];
@@ -23,7 +23,9 @@ export function draw(p, t, o) {
       if ((top || bottom) && (west || east)) continue;
       const wx = x + 16 * o.tileX, wy = y + 16 * o.tileY;
       const noise = rand(wx, wy, o.seed);
-      const C = rand(wx, wy, o.seed + 2) < wetness ? wet : dry;
+      // the field holds water unevenly: damp hollows a few tiles wide stay darker than the drier rises
+      const hollow = noise2(wx / 56, wy / 44, o.seed + 77);
+      const C = rand(wx, wy, o.seed + 2) < clamp(wetness + hollow * 0.35) ? wet : dry;
       const ridge = [3, 2, 1, 2][y % 4];
       const color = top ? C[3] : bottom || west || east ? C[0] : C[clamp(ridge + Number(noise > 0.84) - Number(noise < 0.11), 0, 4)];
       p.px(x - 8, y - 12, color);

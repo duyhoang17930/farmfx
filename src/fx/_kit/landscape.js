@@ -4,19 +4,29 @@ import { groundShadow } from "./sprite.js";
 import { waterGlint } from "./world-terrain.js";
 
 export function pathTile(name, desc, palette, stone = false) {
-  return asset({name, desc, tags: ["tile","path"], size:[16,16], origin:[8,12], palette, options:{edges:"EW",tileX:0,tileY:0}}, (p, _ph, C, o) => {
-    const sides = o.edges.toUpperCase();
+  return asset({name, desc: desc + " Wandering verges, rounded turns, filleted crossings.",
+    tags: ["tile","path"], size:[16,16], origin:[8,12], palette, options:{edges:"EW",tileX:0,tileY:0}}, (p, _ph, C, o) => {
+    const sides = o.edges.toUpperCase(), open = (k) => sides.includes(k);
     const mortar = mix(C[2],C[1],.44), lip = mix(C[2],C[3],.32), light = mix(C[2],C[4],.24);
+    const R = 6, F = 4; // turn radius, crossing fillet
     for (let y = 0; y < 16; y++) {
       for (let x = 0; x < 16; x++) {
         const X = x + o.tileX * 16, Y = y + o.tileY * 16;
-        const margin = Math.min(sides.includes("N") ? 16 : y, sides.includes("S") ? 16 : 15-y,
-          sides.includes("E") ? 16 : 15-x, sides.includes("W") ? 16 : x);
-        const v = rand(X,Y,o.seed), edge = v > 0.8 ? 1 : 0;
-        if (margin < edge) continue;
-        const row = Math.floor(Y / 4), joint = (X + 3 * (row & 1)) % 7 === 0;
+        const d = { N: y, S: 15 - y, E: 15 - x, W: x };
+        // distance to the closed sides, rounded where two closed sides meet (the outside of a turn)
+        let margin = 16;
+        for (const k of "NESW") if (!open(k)) margin = Math.min(margin, d[k]);
+        for (const [a, b] of [["N","E"],["E","S"],["S","W"],["W","N"]]) {
+          if (!open(a) && !open(b) && d[a] < R && d[b] < R) margin = Math.min(margin, R - Math.hypot(R - d[a], R - d[b]));
+          // the inside of a turn or a crossing: both sides open, so the grass corner gets a quarter-round fillet
+          if (open(a) && open(b) && d[a] < F && d[b] < F) margin = Math.min(margin, F + 1.2 - Math.hypot(F - d[a], F - d[b]));
+        }
+        // a worn, wandering verge instead of a ruled line
+        const wob = noise2(X / 7, Y / 7, o.seed + 5) * 1.2 + (rand(X, Y, o.seed) > 0.8 ? 0.6 : 0);
+        if (margin < 0.6 + wob) continue;
+        const row = Math.floor(Y / 4), joint = (X + 3 * (row & 1)) % 7 === 0, v = rand(X, Y, o.seed);
         const color = stone ? (Y % 4 === 3 || joint ? mortar : Y % 4 === 0 ? lip : C[2]) : v > 0.96 ? light : v < 0.05 ? mortar : C[2];
-        p.px(x-8,y-12,margin === edge ? C[1] : color);
+        p.px(x-8, y-12, margin < 1.6 + wob ? C[1] : color);
       }
     }
   });

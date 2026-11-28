@@ -55,7 +55,7 @@ for (const id of ids) {
         for (const c of frame.color) s = (Math.imul(s, 31) + c) | 0;
         seen.add(s);
         const sp = spread(frame.color, frame.color.length);
-        means.push(sp.med);
+        means.push(sp.mean);
         for (const c of frame.color) all.push(c);
       }
       const block = Uint32Array.from(all), mm = means.reduce((a, b) => a + b, 0) / means.length;

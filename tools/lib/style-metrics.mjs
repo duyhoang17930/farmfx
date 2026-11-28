@@ -160,10 +160,10 @@ export function measure(color, w, h, origin, light) {
 export function spread(color, n, pick = (i) => color[i] >>> 24) {
   const L = [];
   for (let i = 0; i < n; i++) if (pick(i)) L.push(lightness(color[i]));
-  if (!L.length) return { p5: 0, med: 0, p95: 0, sd: 0, n: 0 };
+  if (!L.length) return { p5: 0, med: 0, mean: 0, p95: 0, sd: 0, n: 0 };
   L.sort((a, b) => a - b);
   const mean = L.reduce((s, v) => s + v, 0) / L.length, q = (f) => L[Math.min(L.length - 1, Math.floor(L.length * f))];
-  return { p5: +q(0.05).toFixed(1), med: +q(0.5).toFixed(1), p95: +q(0.95).toFixed(1),
+  return { p5: +q(0.05).toFixed(1), med: +q(0.5).toFixed(1), mean: +mean.toFixed(2), p95: +q(0.95).toFixed(1),
     sd: +Math.sqrt(L.reduce((s, v) => s + (v - mean) ** 2, 0) / L.length).toFixed(1), n: L.length };
 }
 

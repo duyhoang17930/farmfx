@@ -40,6 +40,18 @@ genre conventions are fine; never copy a specific game's sprites, characters, pa
 - **Depth sorts by y.** Anything that stands is drawn so its ground contact is at y = 0 and taller parts go up from
   there; a game draws things in order of their y.
 
+## Terrain
+
+- **Coasts are one line.** Shore tiles round their outer corners (radius 11), curve the inner ones, let the
+  waterline wander 2-3 px in world space and ride it with a 1 px foam line; the water side is transparent, so the
+  water layer (the map's sea with its shallows) shows through the curve. A coast facing the camera shows a short
+  earth face under its lip.
+- **Big floors drift.** Every open floor mixes a slow noise a few tiles across into its tone choice, and scatters
+  3-5 kinds of 1 px detail (pebbles, cracks, tufts or ridges, hollows) on a 12 px hash grid that ignores tile seams:
+  `groundDecal()` in `_kit/world-terrain.js`. Floors of slabs drift slab by slab.
+- **Roads bend.** Path tiles wander at the verge, round the outside of a turn (radius 6) and fillet the grass
+  corners of a crossing (radius 4), so roads never meet at a ruled right angle.
+
 ## The view
 
 - **Ground is a plan.** Soil, water, paths, puddles, wet patches and furrows lie flat: they're shapes on the floor,
