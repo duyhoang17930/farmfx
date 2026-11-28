@@ -32,22 +32,26 @@ export class Painter {
   reset() {
     const f = this.frame;
     this.w = f.w; this.h = f.h; this.ox = f.ox | 0; this.oy = f.oy | 0; this.C = f.color; this.L = f.light;
-    this.tx = 0; this.ty = 0; this.fx = 1; this.cs = 1; this.sn = 0;
+    this.tx = 0; this.ty = 0; this.fx = 1; this.cs = 1; this.sn = 0; this.sc = 1;
     this.fade = 1; this.lightK = 1; this.layer = "front";
     return this;
   }
 
-  /** Put the effect's origin at (x, y) in frame space, mirrored if flip, rotated by angle (radians). */
-  place(x, y, flip = false, angle = 0) {
-    this.tx = x; this.ty = y; this.fx = flip ? -1 : 1; this.cs = Math.cos(angle); this.sn = Math.sin(angle);
+  /**
+   * Put the effect's origin at (x, y) in frame space, mirrored if flip, rotated by angle (radians), drawn at scale
+   * (0.5: an effect authored at 2x drawn at world size). Shapes are rasterised again at the new size, one screen
+   * pixel per pixel, never resampled, so a scaled effect keeps 1 px detail.
+   */
+  place(x, y, flip = false, angle = 0, scale = 1) {
+    this.tx = x; this.ty = y; this.fx = flip ? -1 : 1; this.cs = Math.cos(angle); this.sn = Math.sin(angle); this.sc = scale;
     return this;
   }
 
   // ---- transforms: local (effect) space <-> screen (frame) space
-  toX(x, y) { return this.tx + x * this.fx * this.cs - y * this.sn; }
-  toY(x, y) { return this.ty + x * this.fx * this.sn + y * this.cs; }
-  fromX(sx, sy) { const dx = sx - this.tx, dy = sy - this.ty; return (dx * this.cs + dy * this.sn) * this.fx; }
-  fromY(sx, sy) { const dx = sx - this.tx, dy = sy - this.ty; return -dx * this.sn + dy * this.cs; }
+  toX(x, y) { return this.tx + (x * this.fx * this.cs - y * this.sn) * this.sc; }
+  toY(x, y) { return this.ty + (x * this.fx * this.sn + y * this.cs) * this.sc; }
+  fromX(sx, sy) { const dx = (sx - this.tx) / this.sc, dy = (sy - this.ty) / this.sc; return (dx * this.cs + dy * this.sn) * this.fx; }
+  fromY(sx, sy) { const dx = (sx - this.tx) / this.sc, dy = (sy - this.ty) / this.sc; return -dx * this.sn + dy * this.cs; }
   // the screen pixel of the local pixel cell holding (x, y): mirrors and rotations land on whole cells
   cellX(x, y) { return Math.floor(this.toX(Math.floor(x) + 0.5, Math.floor(y) + 0.5)); }
   cellY(x, y) { return Math.floor(this.toY(Math.floor(x) + 0.5, Math.floor(y) + 0.5)); }
@@ -232,7 +236,7 @@ export class Painter {
   }
   /** Filled rectangle. */
   rect(x, y, w, h, c, a = 1) {
-    if (this.sn === 0) {
+    if (this.sn === 0 && this.sc === 1) {
       const X0 = Math.round(x), Y0 = Math.round(y), X1 = Math.round(x + w), Y1 = Math.round(y + h);
       for (let yy = Y0; yy < Y1; yy++) for (let xx = X0; xx < X1; xx++) this.put(this.cellX(xx, yy), this.cellY(xx, yy), c, a);
       return;

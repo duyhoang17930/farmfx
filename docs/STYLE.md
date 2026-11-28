@@ -19,10 +19,18 @@ genre conventions are fine; never copy a specific game's sprites, characters, pa
   | pine, oak | ~30 x 48 | 2 x 3 |
   | cow | ~39 x 30 | 2.5 x 2 |
 
-- **Effects are authored at 2x.** Effects with `actor: 2` are drawn round a 24 x 38 stock actor, twice the world
-  scale, so a spell reads in a preview. On the 1x map or in the demo they look oversized next to the player (a shield
-  dome three bodies tall). Until effects take a `scale` option, place them on a 1x scene only where the oversize is
-  wanted (bosses), and compare previews against the 1x player, not the 2x stock actor.
+- **Effects are authored at 2x, placed at 1x.** Effects with `actor: 2` are drawn round a 24 x 38 stock actor, twice
+  the world scale, so a spell reads in a preview. In a 1x scene, give them the 2x actor and `drawScale: 0.5`: the
+  painter rasterises their shapes again at half size, one screen pixel per pixel (never a resample), so they sit at
+  the player's size with 1 px detail. `drawScale` is a placement option like `x`, `y`, `flip`; effects can't use it.
+- **Inventory icons are half the hand-held size.** Weapons, equipment and tools are drawn to be held (20-30 px).
+  Where they sit beside items (a shop shelf, a bag), draw them at `drawScale: 0.5`, about 12 x 15 px, the size of
+  the 10 x 10 item icons.
+- **Big means more detail, not bigger blocks.** A sprite drawn bigger (a boss at 1.9x, a cave mouth, a town hall)
+  must keep the texel density of the small sprites round it: no area wider than 5 x 5 px of one flat color.
+  Creatures get this from `detailSlabs()` (material per family: cracks, grain, scales, facets, bubbles, folds,
+  wraps); buildings, machines and gear from `withSurfaceDetail()` (material picked from the fill's color), both in
+  `_kit/surface-detail.js`.
 - **Canvases are whole tiles**: 16, 32, 48, 64... wide and tall, with room for what pokes out of the footprint (a
   canopy, a raised wing, flying soil).
 - **The origin is where the thing stands on the ground**: x in the middle of its footprint, y = 0 where its base meets
@@ -54,7 +62,8 @@ genre conventions are fine; never copy a specific game's sprites, characters, pa
 - **Warm, saturated, friendly colors**, 3 to 5 shades per material, hue-shifted: shadows lean cooler and towards
   purple or blue, highlights warmer and towards yellow. Avoid pure black and pure grey.
 - **Colored outlines.** A 1 px outline one or two steps darker than the color it wraps (dark brown round soil and
-  wood, dark green round leaves), never flat black. Inner detail lines are softer still. Drop the outline where a
+  wood, dark green round leaves), never flat black. Don't make a rim by drawing a dark shape and a lighter one 2 px
+  inside it (that rim is 2 px); fill the shape and stroke it, as `plate()` in `_kit/art.js` does. Inner detail lines are softer still. Drop the outline where a
   highlight touches the edge.
 - **Clean shapes at 1x.** No anti-aliasing noise, no lone pixels inside shapes, no gradients: hard ramp steps. Dither
   only for translucent things (water, mist, shadows) or big soft surfaces.

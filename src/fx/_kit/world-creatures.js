@@ -2,6 +2,21 @@ import { ease, fit, hex, rand, TAU } from "../../core/index.js";
 import { drawCreature } from "./creature-art.js";
 import { CREAM, GOLD, LEAF, RED, STEEL, VIOLET, WATER, WOOD, round, wave } from "./art.js";
 import { groundShadow, Layer, twinkle } from "./sprite.js";
+import { detailSlabs } from "./surface-detail.js";
+
+/** The surface a family is made of, for the detail worked into its big flat areas. */
+function materialOf(spec){
+  const {family:f,palette:pal}=spec;
+  if(f==="golem")return pal==="crystal"||pal==="ice"?"facets":"cracks";
+  if(f==="elemental")return pal==="ice"?"facets":"bubbles";
+  if(f==="treant"||f==="plant"||f==="mimic")return "grain";
+  if(["dragon","worm","spider","demon","fish","crab"].includes(f))return "scales";
+  if(f==="slime"||f==="jelly"||f==="octopus")return "bubbles";
+  if(f==="mummy")return "wraps";
+  if(f==="wizard"||f==="folk"||f==="ghost")return "folds";
+  if(f==="bone")return "cracks";
+  return "mottle";
+}
 
 const palettes={green:LEAF,blue:WATER,red:RED,poison:["#272d39","#435341","#83a05f","#b0bd72","#e7df93"],
   crystal:["#38445f","#526c99","#719cbe","#aae0dd","#eff4dc"],bone:CREAM,ghost:VIOLET,stone:STEEL,fire:RED,
@@ -55,6 +70,9 @@ export function worldCreature(id,kind,spec){
     groundShadow(p,shift,flying?2:0,Math.min(21,12*scale)*(flying?.86:1),flying?2.7:3.8,visibility*(flying?.58:.85));
     const layer=layers[kind], L=layer.f.w;
     drawCreature(new Scaled(layer.begin(-L/2,-L+12),scale),spec,id,C,{phase,state,facing:o.facing,tails});
+    // a creature drawn big gets fills to match: 1 px material detail in every slab, so it has the texel density
+    // of the small sprites round it
+    detailSlabs(layer.f,materialOf(spec),{min:kind==="boss"?36:scale>=1.1?56:80,seed:o.seed});
     const bounds=Math.min(L/2,size[0]/2)-1;
     p.shade(-bounds,-origin[1]+1,bounds,10,(x,y,v)=>{
       const color=layer.get(x-shift,y-depth);

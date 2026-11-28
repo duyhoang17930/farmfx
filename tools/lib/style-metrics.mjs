@@ -77,19 +77,27 @@ export function measure(color, w, h, origin, light) {
       thick += inner[1] < body2 - 8 && Math.abs(inner[1] - inner[0]) < 5 ? 2 : 1;
     }
   }
-  // the biggest slab of one flat color: a big sprite drawn with big flat shapes reads as coarser art than its
-  // neighbours even when its pixels are 1 px (the "mixel" look of an enlarged boss)
+  // the biggest bare area: pixels whose whole 5 x 5 neighbourhood is one flat color, joined up. A big sprite drawn
+  // with big flat fills reads as coarser art than its neighbours even when its pixels are 1 px (the "mixel" look
+  // of an enlarged boss); sparse 1 px detail breaks a bare area up even though the fill stays one region.
   let maxFlat = 0;
-  const done = new Uint8Array(w * h), stack = [];
+  const bare = new Uint8Array(w * h), done = new Uint8Array(w * h), stack = [];
+  for (let y = 2; y < h - 2; y++) for (let x = 2; x < w - 2; x++) {
+    const i = y * w + x, c = color[i];
+    if (A(i) !== SOLID) continue;
+    let same = true;
+    for (let dy = -2; dy <= 2 && same; dy++) for (let dx = -2; dx <= 2; dx++) if (color[i + dy * w + dx] !== c) { same = false; break; }
+    bare[i] = same ? 1 : 0;
+  }
   for (let s = 0; s < w * h; s++) {
-    if (done[s] || A(s) !== SOLID) continue;
+    if (!bare[s] || done[s]) continue;
     let n = 0;
     stack.push(s); done[s] = 1;
     while (stack.length) {
-      const i = stack.pop(), x = i % w, c = color[i];
+      const i = stack.pop(), x = i % w;
       n++;
       for (const j of [x > 0 ? i - 1 : -1, x < w - 1 ? i + 1 : -1, i - w, i + w])
-        if (j >= 0 && j < w * h && !done[j] && A(j) === SOLID && color[j] === c) { done[j] = 1; stack.push(j); }
+        if (j >= 0 && j < w * h && bare[j] && !done[j] && color[j] === color[i]) { done[j] = 1; stack.push(j); }
     }
     if (n > maxFlat) maxFlat = n;
   }
@@ -172,8 +180,8 @@ export function judge(id, meta, m) {
   if (m.runs >= 60 && m.singles < 0.06 && m.even > 0.75) notes.push(`fat pixels: ${(m.even * 100).toFixed(0)}% of color runs are even and only ${(m.singles * 100).toFixed(1)}% are 1 px (drawn big and scaled up?)`);
   if (m.black > 0.15) notes.push(`black outline: ${(m.black * 100).toFixed(0)}% of the silhouette is near-black, use a dark tone of the color it wraps`);
   if ((STANDING.has(cat) || ICON.has(cat)) && m.outlineW >= 1.75 && m.outlined > 0.4) notes.push(`thick outline: ${m.outlineW} px on average (rule: 1 px)`);
-  const flatCap = CREATURE.has(cat) ? 200 : 600;
-  if ((STANDING.has(cat) || ICON.has(cat)) && m.maxFlat > flatCap) notes.push(`flat slab: ${m.maxFlat} px of one flat color (cap ${flatCap}); reads coarser than the sprites round it`);
+  const flatCap = CREATURE.has(cat) ? 40 : 160;
+  if ((STANDING.has(cat) || ICON.has(cat)) && m.maxFlat > flatCap) notes.push(`flat slab: ${m.maxFlat} px with no detail within 2 px (cap ${flatCap}); reads coarser than the sprites round it`);
   if ((STANDING.has(cat) || ICON.has(cat)) && m.edges > 30 && m.outlined < 0.3) notes.push(`no outline: only ${(m.outlined * 100).toFixed(0)}% of the silhouette is darker than the body`);
   if (STANDING.has(cat) && !AIRBORNE.test(id) && cat !== "crops" && m.solid > 30 && !m.contact) notes.push("no contact shadow under it");
   if (m.alphaLevels > 6 && m.soft > 40) notes.push(`soft alpha: ${m.alphaLevels} alpha levels over ${m.soft} px (rule: 2-3 flat levels per volume)`);

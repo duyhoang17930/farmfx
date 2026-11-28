@@ -1,6 +1,7 @@
 import { rand } from "../../core/index.js";
 import { asset, CREAM, GOLD, STEEL, WOOD, box, post, round, wave } from "./art.js";
 import { groundShadow } from "./sprite.js";
+import { withSurfaceDetail } from "./surface-detail.js";
 
 export const BRASS = ["#3c3340","#73503e","#a57445","#ceaa62","#f0d790"];
 export const INDUSTRIAL = ["#273945","#3c5660","#57767b","#83a39f","#c3d2b6"];
@@ -9,13 +10,13 @@ export const COPPER = ["#432e40","#704649","#a46351","#d18c64","#f3bf8c"];
 export const COAL = ["#302938","#4a3d50","#655566","#8a7481","#b79d9e"];
 
 export function machine(name, desc, palette, draw, { size = [64,64], origin = [size[0]/2,size[1]-12], moving = true } = {}) {
-  return asset({
+  return withSurfaceDetail(asset({
     name, desc, tags: ["machine", "station", name.toLowerCase()], size, origin, palette,
     duration: moving ? 2 : 1, fps: moving ? 12 : 1, options: moving ? { active: true } : {},
   }, (p, phase, C, o) => {
     groundShadow(p, 0, 0, Math.min(size[0]/2-4, 22), 4.6);
     draw(p, C, o.active ? phase : 0, o);
-  });
+  }));
 }
 
 export function bench(p, C, w = 34, h = 12) {

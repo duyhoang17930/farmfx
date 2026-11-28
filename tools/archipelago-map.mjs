@@ -63,7 +63,7 @@ function paint(frame, m, t, x, y, o, fade = 1) {
     return;
   }
   const p = painterFor(frame);
-  p.place(Math.round(x), Math.round(y));
+  p.place(Math.round(x), Math.round(y), false, 0, o.drawScale ?? 1);
   p.fade = fade;
   p.lightK = o.light ?? 1;
   m.drawBack?.(p, t, o);
@@ -371,12 +371,15 @@ families.forEach((f, i) => {
   zone([x, y, x + 7, y + 7], ids(`items/${f}/`), "grid", 3);
 });
 patch("tiles/marble-floor", 51, 102, 62, 112, {}, { edges: "rim" });
-zone([51, 102, 62, 112], ids("weapons/"), "grid", 1);
+// the armoury and the tool rack are shop shelves: shown as inventory icons (half size, re-rasterised at 1 px), the
+// size of the item mats beside them, instead of at the 2x hand-held size that made them read as another art set
+const asIcon = (list) => list.map((id) => [id, { drawScale: 0.5 }]);
+zone([51, 102, 62, 112], asIcon(ids("weapons/")), "grid", 2);
 patch("tiles/marble-floor", 51, 113, 62, 123, {}, { edges: "rim" });
-zone([51, 113, 62, 123], ids("equipment/"), "grid", 1);
+zone([51, 113, 62, 123], asIcon(ids("equipment/")), "grid", 2);
 patch("tiles/wooden-floor", 64, 114, 72, 121, {}, { edges: "rim" });
 zone([64, 114, 72, 121], ["axe", "backpack", "bucket", "hammer", "hand-drill", "hoe", "jackhammer", "lantern",
-  "pickaxe", "scythe", "seed-bag", "shovel", "sickle", "watering-can"].map((t) => "tools/" + t), "grid", 3);
+  "pickaxe", "scythe", "seed-bag", "shovel", "sickle", "watering-can"].map((t) => ["tools/" + t, { drawScale: 0.5 }]), "grid", 3);
 zone([64, 102, 74, 112], ["buildings/market-stall", "buildings/coastal-trades", "objects/market-cart",
   "objects/cooking-pot", "objects/weather-workbench", "objects/banner"], "grid", 3);
 // the plot for sale: a floating test patch and every island-building marker
@@ -715,6 +718,10 @@ function clipped(k, draw) {
 }
 const islandAt = (x, y) => land(Math.floor(x / T), Math.floor(y / T));
 
+/** Effects authored at 2x (meta.actor 2) are drawn round the 2x stand-in and then at half size, so they land at
+ *  the 1x player's size with 1 px detail, instead of twice the world's scale. */
+const atWorldScale = (m) => m.meta.actor === 2 ? { actor: stockActor(2), drawScale: 0.5 } : { actor: stockActor() };
+
 async function overlay(id, x, y, extra = {}) {
   if (!HAVE.has(id)) return false;
   const m = await mod(id);
@@ -722,7 +729,7 @@ async function overlay(id, x, y, extra = {}) {
   try {
     const lighting = id.startsWith("lighting/");
     clipped(islandAt(x, y), (target) => paint(target, m, stillTime(m, id), x, y,
-      stillOptions(m, id, { actor: stockActor(), light: lighting ? 1 : 0.48, ...extra }), lighting ? 0.65 : 1));
+      stillOptions(m, id, { ...atWorldScale(m), light: lighting ? 1 : 0.48, ...extra }), lighting ? 0.65 : 1));
   } catch (err) {
     missed.push(`${id} (overlay failed: ${err.message})`);
     return false;

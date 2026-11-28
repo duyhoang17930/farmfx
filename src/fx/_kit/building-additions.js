@@ -3,6 +3,7 @@ import { asset, CREAM, GOLD, LEAF, RED, STEEL, VIOLET, WATER, WOOD, box, post, w
 import { icon } from "./farm-ui.js";
 import { groundShadow } from "./sprite.js";
 import { exhaust, vapor } from "./machine.js";
+import { withSurfaceDetail } from "./surface-detail.js";
 
 const signs={blacksmith:"steel-ingot","lumber-house":"wood","mining-house":"ore",bakery:"bread",restaurant:"soup",tavern:"coffee",
   "fishing-hut":"fish","hunter-hut":"raw-meat","potion-shop":"small-health-potion","weapon-shop":"steel-ingot","seed-shop":"seed",
@@ -79,8 +80,8 @@ export function extraBuilding(id){
     if(shape==="gate"){
       const magic=id.includes("portal"),dungeon=id.includes("dungeon");
       const rock=dungeon?STEEL:wall;
-      p.poly([[-W,0],[-W,-29],[-19,-48],[-11,-61],[12,-58],[23,-48],[W,-26],[W,0]],rock[0]);
-      p.poly([[-W+2,-1],[-W+2,-28],[-18,-46],[-10,-59],[10,-56],[22,-47],[W-2,-26],[W-2,-1]],dungeon?STEEL[1]:C[2]);
+      const face=[[-W,0],[-W,-29],[-19,-48],[-11,-61],[12,-58],[23,-48],[W,-26],[W,0]];
+      p.poly(face,dungeon?STEEL[1]:C[2]);p.polyline([...face,face[0]],rock[0]);
       p.polyline([[-25,-25],[-15,-47],[-8,-56],[9,-54]],dungeon?STEEL[3]:C[4]);
       if(dungeon){ // cut stone courses and a keystone
         for(let y=-6;y>-46;y-=6)for(let x=-W+3+((y/6)%2?4:0);x<W-3;x+=9)p.line(x,y,x+6,y,STEEL[2]);
@@ -313,5 +314,6 @@ export function extraBuilding(id){
     }
     if(mode!=="tower"&&mode!=="gate")for(let i=0;i<4;i++)if(rand(i,3,o.seed)>0.31)p.px(-W+3+i*3,-2,wall[4]);
   });
-  return {...fx,meta:{...fx.meta,collision:{width:W*2,height:mode==="tower"?18:22}}};
+  // big walls, roofs and rock faces get worked surfaces instead of flat slabs
+  return withSurfaceDetail({...fx,meta:{...fx.meta,collision:{width:W*2,height:mode==="tower"?18:22}}});
 }

@@ -60,3 +60,15 @@ Map readability (sprites whose rim and body are both within 15 L* of the ground 
 
 Seen in the close-ups and not yet a numbered rule: island coasts step in whole tiles, the brazier's
 `light-flicker` leaves a hard dark box on the volcano, and a boss attack leaves a soft dark ellipse on the floor.
+
+## Progress
+
+| phase | flat slab | thick outline | soft alpha | smooth glow | no outline | black outline | no shadow | wallpaper |
+|---|---|---|---|---|---|---|---|---|
+| baseline | 37 | 47 | 62 | 57 | 13 | 11 | 12 | 26 |
+| 1: pixel scale | 5 | 15 | 62 | 57 | 12 | 11 | 12 | 26 |
+
+Phase 1 (mixel): `drawScale` on the painter (effects authored at 2x land at 1x with 1 px detail), material detail in
+big fills (`_kit/surface-detail.js`: bosses and enemies, buildings, machines, gear), 1 px plate outlines for armor,
+helmets, boots, capes, shields, staffs, rings and rock gates, and the bazaar's armoury and tool rack shown as
+half-size inventory icons.

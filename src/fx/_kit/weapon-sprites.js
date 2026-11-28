@@ -1,4 +1,4 @@
-import { asset, CREAM, GOLD, LEAF, RED, STEEL, VIOLET, WATER, WOOD, round } from "./art.js";
+import { asset, CREAM, GOLD, LEAF, RED, STEEL, VIOLET, WATER, WOOD, plate, round } from "./art.js";
 
 const groups = {
   sword:"wooden-sword stone-sword copper-sword iron-sword steel-sword golden-sword crystal-sword obsidian-sword dagger greatsword",
@@ -19,7 +19,7 @@ const details={
   thrown:"A curved wooden boomerang with capped tips.",
   arrow:"A fletched game arrow with a colored tip.",
 };
-function shaft(p,x,y,ex,ey,C=WOOD){p.beam(x,y,ex,ey,4,C[0]);p.line(x-1,y,ex-1,ey,C[3]);}
+function shaft(p,x,y,ex,ey,C=WOOD){p.beam(x,y,ex,ey,3,C[0]);p.line(x,y,ex,ey,C[2]);p.line(x-1,y,ex-1,ey,C[3]);}
 export function weaponSprite(id){
   const kind=Object.keys(groups).find(k=>groups[k].split(" ").includes(id));
   const palette=nature[id.split("-")[0]]??STEEL;
@@ -48,15 +48,16 @@ export function weaponSprite(id){
       if(id==="crossbow"){shaft(p,-13,y+3,12,y-1,WOOD);p.line(-10,y+1,17,y-3,C[3]);}
       if(id==="magic-bow"){p.px(r-3,y,C[4]);p.glow(r-2,y,5,C[3],0.3);}
     }else if(kind==="shield"){
-      p.poly([[-14,-24],[0,-31],[14,-24],[13,-12],[8,-6],[0,0],[-8,-6],[-13,-12]],C[0]);
-      p.poly([[-12,-23],[0,-28],[12,-23],[11,-12],[7,-7],[0,-2],[-7,-7],[-11,-12]],C[2]);
-      p.polyline([[-11,-23],[0,-28],[12,-23]],C[4]);
+      plate(p,[[-13,-24],[0,-30],[13,-24],[12,-12],[7,-6],[0,-1],[-7,-6],[-12,-12]],C);
+      p.polyline([[-12,-23],[0,-29],[11,-24]],C[4]);
+      plate(p,[[-10,-22],[0,-26],[10,-22],[9,-12],[5,-8],[0,-4],[-5,-8],[-9,-12]],C,1);
+      for(const [x,y] of [[-10,-21],[10,-21],[-8,-11],[8,-11],[0,-27]])p.px(x,y,C[4]);
       p.poly([[0,-23],[6,-17],[0,-9],[-6,-17]],GOLD[3]);p.line(0,-22,0,-10,GOLD[4]);
     }else if(kind==="staff"){
       const y=id==="magic-wand"?-21:-31;
       shaft(p,-9,1,5,y);
-      p.poly([[5,y-5],[11,y-1],[8,y+5],[3,y+6],[0,y]],C[1]);
-      p.poly([[5,y-4],[9,y-1],[5,y+4],[2,y]],C[3]);p.px(4,y-2,C[4]);
+      plate(p,[[5,y-5],[11,y-1],[8,y+5],[3,y+6],[0,y]],C,3);
+      p.line(5,y-3,3,y+3,C[2]);p.px(4,y-3,C[4]);p.px(3,y-2,C[4]);
       p.glow(5,y,5,C[3],0.25);
     }else if(kind==="arrow"){
       p.line(-12,0,12,-23,WOOD[3]);p.line(-11,0,12,-22,WOOD[4]);

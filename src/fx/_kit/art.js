@@ -20,6 +20,18 @@ export function asset({ name, desc, tags, size = [32, 32], origin = [size[0] / 2
   return { meta, draw };
 }
 
+/**
+ * A flat plate (armor, helmet, shield, cape): the shape filled with a lit left band and a shaded right band, then a
+ * 1 px outline round it in the darkest step, so the rim is one pixel however the shape is scaled.
+ */
+export function plate(p, pts, C, tone = 2) {
+  let lo = Infinity, hi = -Infinity;
+  for (const [x] of pts) { if (x < lo) lo = x; if (x > hi) hi = x; }
+  const w = hi - lo || 1;
+  p.poly(pts, (x) => { const u = (x - lo) / w; return u < 0.3 ? C[Math.min(4, tone + 1)] : u > 0.74 ? C[Math.max(1, tone - 1)] : C[tone]; });
+  p.polyline([...pts, pts[0]], C[0]);
+}
+
 export function round(p, x, y, rx, ry, C) {
   p.ellipse(x, y, rx, ry, C[0]);
   p.ellipse(x - 0.2, y - 0.25, rx * 0.87, ry * 0.84, C[2]);
