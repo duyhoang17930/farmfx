@@ -336,7 +336,9 @@ zone([47, 70, 62, 96], ["bosses/slime-king", "bosses/giant-spider", ["buildings/
   "player/knockback"]);
 
 // ---- Volcano: lava river and the fire bosses
-patch("biomes/volcanic/burnt-ground", 68, 70, 74, 76);
+// burnt ground as a ragged scorch, not a square: rows of different spans (a hard-edged block read as a dark box)
+patch("biomes/volcanic/burnt-ground", 68, 70, 74, 76, {},
+  { mask: (x, y) => x >= [71, 70, 69, 68, 69, 70, 72][y - 70] && x <= [72, 73, 74, 74, 73, 73, 72][y - 70] });
 patch("biomes/volcanic/lava-river", 76, 72, 76, 94, { edges: "NS" }, { block: true });
 patch("biomes/volcanic/lava-tile", 69, 87, 74, 92, {},
   { edges: "rim", block: true, mask: (x, y) => x >= [72, 70, 69, 69, 70, 71][y - 87] && x <= [73, 74, 74, 73, 73, 72][y - 87] });
@@ -722,8 +724,10 @@ const islandAt = (x, y) => land(Math.floor(x / T), Math.floor(y / T));
  *  the 1x player's size with 1 px detail, instead of twice the world's scale. */
 const atWorldScale = (m) => m.meta.actor === 2 ? { actor: stockActor(2), drawScale: 0.5 } : { actor: stockActor() };
 
+// --skip REGEX leaves matching overlays out (for tracking down which effect leaves a mark on the map)
+const SKIP = flag("skip", null) ? new RegExp(flag("skip")) : null;
 async function overlay(id, x, y, extra = {}) {
-  if (!HAVE.has(id)) return false;
+  if (!HAVE.has(id) || SKIP?.test(id)) return false;
   const m = await mod(id);
   if (m.meta.size[0] >= 300) return false; // full-screen effects do not belong on a map
   try {

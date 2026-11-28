@@ -1,0 +1,10 @@
+import { loadEffect, upscale, save } from "./lib/fxlib.mjs";
+import { encodePNG } from "./lib/png.mjs";
+import { createFrame, createFx, composite, backdrop, stockActor } from "../src/core/index.js";
+const [out, id, at] = process.argv.slice(2);
+const { mod } = await loadEffect(id), W = 260, H = 200, f = createFrame(W, H);
+const inst = createFx(mod, { seed: 1, actor: stockActor(2), drawScale: 0.5, x: 130, y: 120, light: 0.48 });
+for (let t = 0; t < +at; t += 1 / 30) inst.update(1 / 30);
+inst.draw(f);
+const rgba = composite(f, new Uint8ClampedArray(W * H * 4), backdrop("ground", W, H, 120, 130));
+save(out, encodePNG(W * 2, H * 2, upscale(rgba, W, H, 2)));

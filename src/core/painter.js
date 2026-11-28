@@ -19,6 +19,25 @@ const stepped = (v, sx, sy) => {
   // biased down: a pixel only steps up past halfway to the next level, so a glow is never much brighter than smooth
   return (q - lo > 0.5 + 0.5 * BAYER[((sy & 3) << 2) | (sx & 3)] ? lo + 1 : lo) / LIGHT_STEPS;
 };
+// Translucency in flat steps: a puff of smoke, a shadow or a veil is a few hard alpha levels, and anything fainter
+// than the first level is dithered, so no volume fades through a smooth alpha ramp (the airbrushed look).
+const ALPHA_STEPS = 6;
+const alphaStep = (a, sx, sy) => {
+  const q = a * ALPHA_STEPS, lo = Math.floor(q);
+  return (q - lo > BAYER[((sy & 3) << 2) | (sx & 3)] ? lo + 1 : lo) / ALPHA_STEPS;
+};
+// Added light in steps of 1/16 of its color, dithered between them: overlapping glows and continuous light
+// amounts still land on a few hard levels. The faint tail under the first step stays continuous (dithering it up
+// would throw specks of hard light past where a glow fades out).
+const LIGHT_QUANT = 16;
+// No pure black: a color darker than this floor is lifted to it, channel by channel, so the darkest ink is a deep
+// cool violet that keeps the hue of what it outlines (STYLE: outlines and shadows never flat #000).
+const FLOOR = [22, 17, 30];
+const lift = (c) => {
+  const r = c & 255, g = (c >>> 8) & 255, b = (c >>> 16) & 255;
+  if (r >= FLOOR[0] && g >= FLOOR[1] && b >= FLOOR[2]) return c;
+  return ((c & 0xff000000) | (Math.max(b, FLOOR[2]) << 16) | (Math.max(g, FLOOR[1]) << 8) | Math.max(r, FLOOR[0])) >>> 0;
+};
 const sprites = new WeakMap();
 const call = (v, ...args) => (typeof v === "function" ? v(...args) : v);
 
@@ -63,11 +82,13 @@ export class Painter {
     if (a < 1 && a <= BAYER[((sy & 3) << 2) | (sx & 3)]) return;
     const x = sx - this.ox, y = sy - this.oy;
     if (x < 0 || y < 0 || x >= this.w || y >= this.h) return;
-    this.C[y * this.w + x] = c;
+    this.C[y * this.w + x] = lift(c);
   }
   add(sx, sy, c, k = 1) {
     k *= this.fade * this.lightK;
     if (k <= 0.004) return;
+    { const q = k * LIGHT_QUANT, lo = Math.floor(q); if (lo) k = (q - lo > BAYER[((sy & 3) << 2) | (sx & 3)] ? lo + 1 : lo) / LIGHT_QUANT; }
+    if (k <= 0) return;
     const x = sx - this.ox, y = sy - this.oy;
     if (x < 0 || y < 0 || x >= this.w || y >= this.h) return;
     const i = y * this.w + x, d = this.L[i];
@@ -85,7 +106,10 @@ export class Painter {
     if (!c || a <= 0.004) return;
     const x = sx - this.ox, y = sy - this.oy;
     if (x < 0 || y < 0 || x >= this.w || y >= this.h) return;
-    const i = y * this.w + x, d = this.C[i], da = (d >>> 24) / 255, oa = a + da * (1 - a), k = a / oa;
+    a = alphaStep(Math.min(1, a), sx, sy);
+    if (a <= 0) return;
+    c = lift(c);
+    const i = y * this.w + x, d = this.C[i], da = (d >>> 24) / 255, oa = Math.min(1, Math.round((a + da * (1 - a)) * ALPHA_STEPS) / ALPHA_STEPS), k = Math.min(1, a / oa);
     const ch = (s) => ((((c >>> s) & 255) * k + ((d >>> s) & 255) * (1 - k)) & 255);
     this.C[i] = (((oa * 255) & 255) << 24) | (ch(16) << 16) | (ch(8) << 8) | ch(0);
   }

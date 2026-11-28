@@ -45,7 +45,7 @@ export const act = {
   dust: [{ t: 0.32, x: 10, n: 6, dir: 1 }, { t: 0.32, x: -10, n: 6, dir: -1 }],
 };
 
-const SY = 0.2, CHARGE = 0.32, SPREAD = 0.75, SOOT = hex("#0d0a12"), SOOT2 = hex("#17121d"), WARM = rgb(255, 176, 96);
+const SY = 0.2, CHARGE = 0.32, SPREAD = 0.75, SOOT = hex("#2a1e26"), SOOT2 = hex("#3a2a2e"), WARM = rgb(255, 176, 96);
 // the dying flames: deep orange and red, no white heart
 const EMBER_LAYERS = [[1, 1, 7], [0.7, 0.8, 6], [0.4, 0.55, 5]];
 
@@ -96,7 +96,7 @@ export function create(o) {
           p.light(x, y, H[4], 0.3 * hot);
           continue;
         }
-        p.blend(x, y, h < 0.5 ? SOOT : SOOT2, Math.min(1, since * 3) * (0.55 - (d / REACH) * 0.25) * end);
+        p.blend(x, y, h < 0.5 ? SOOT : SOOT2, Math.min(1, since * 3) * (0.42 - (d / REACH) * 0.22) * end);
       }
   };
   const ring = (p, back) => {

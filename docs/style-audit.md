@@ -21,8 +21,8 @@ The measurements live in [tools/lib/style-metrics.mjs](../tools/lib/style-metric
 | thick outline | silhouette step-down that keeps the same tone one more pixel in | average < 1.75 px |
 | no outline | share of the silhouette darker than the body behind it | >= 30% (standing things, icons) |
 | no contact shadow | translucent pixels in the rows round the ground line | some, for anything standing that does not fly or swim |
-| soft alpha | distinct alpha values in one still | <= 6 |
-| smooth glow | distinct light strengths | <= 10 |
+| soft alpha | share of neighbouring translucent pixels whose alpha differs by a sliver (< 20 / 255) | <= 12% |
+| smooth glow | share of neighbouring lit pixels whose light differs by under 5% | <= 15% |
 | repeats / wallpaper | distinct tiles in an 8 x 8 block / spread of the tiles' mean tone | >= 3 / >= 0.6 L* |
 | readability (map) | max(rim, body) vs ground lightness | >= 15 L* |
 
@@ -67,8 +67,15 @@ Seen in the close-ups and not yet a numbered rule: island coasts step in whole t
 |---|---|---|---|---|---|---|---|---|
 | baseline | 37 | 47 | 62 | 57 | 13 | 11 | 12 | 26 |
 | 1: pixel scale | 5 | 15 | 62 | 57 | 12 | 11 | 12 | 26 |
+| 2: pixel VFX | 5 | 15 | 0 | 0 | 12 | 0 | 12 | 26 |
 
 Phase 1 (mixel): `drawScale` on the painter (effects authored at 2x land at 1x with 1 px detail), material detail in
 big fills (`_kit/surface-detail.js`: bosses and enemies, buildings, machines, gear), 1 px plate outlines for armor,
 helmets, boots, capes, shields, staffs, rings and rock gates, and the bazaar's armoury and tool rack shown as
 half-size inventory icons.
+
+Phase 2 (VFX): the painter steps translucency (1/6) and added light (1/16, Bayer-dithered), and lifts any color
+under `#161122` to that floor, so smoke, auras, magic circles and glows render as hard bands and dither, and soot
+is never flat black. Measured with the smoothness rules above, before the change soft alpha hit 62 assets and
+smooth glow 12 (the counts in the baseline row use the older level-count rules). On the map the volcano's dark box
+was a square `burnt-ground` patch, now a ragged scorch.

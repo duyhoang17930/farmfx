@@ -80,7 +80,13 @@ effects reads as one set.
   between them (4 x 4 Bayer), so a flash or a bloom is a few hard rings, never a smooth airbrushed gradient. Don't
   rebuild a smooth glow by stacking many small ones.
 - **Veils and darkening are banded too.** A screen-darkening veil or a big soft area picks its alpha from 2 or 3
-  levels, not a continuous ramp.
+  levels, not a continuous ramp. The painter enforces it: `blend`/`disc` alpha lands on steps of 1/6 (fainter than
+  the first step is dithered), added light on steps of 1/16 of its color with Bayer dither between steps, so no
+  effect can airbrush, whatever amounts it asks for.
+- **No pure black, enforced.** Any color darker than `#161122` per channel is lifted to that floor (a deep cool
+  violet) by the painter. Soot, scorch and shadow colors should still be picked warm-dark or violet-dark on purpose.
+- **Glow belongs to the engine.** The `light` buffer is separate from color: in a game, feed it to the engine's
+  lights or bloom (Unity URP 2D lights, Godot Light2D) instead of baking it in. Previews and the map composite it.
 - **Translucent volumes** (smoke, gas, vapour, mist) use `blend`/`disc` with a flat alpha per puff; their edges come
   from overlapping puffs, and each volume needs a readable silhouette: a lit rim or a darker outline row, not just
   a fade.

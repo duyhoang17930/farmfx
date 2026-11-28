@@ -106,11 +106,33 @@ export function measure(color, w, h, origin, light) {
   if (origin) for (let y = Math.max(0, origin[1] - 4); y <= Math.min(h - 1, origin[1] + 7); y++)
     for (let x = 0; x < w; x++) { const a = A(y * w + x); if (a > 0 && a < 128) contact++; }
   // light: how many distinct strengths a glow uses, and how much of the frame it covers
-  let lit = 0;
-  const levels = new Set();
+  let lit = 0, litPairs = 0, smoothPairs = 0, softPairs = 0, rampPairs = 0;
+  const levels = new Set(), lv = (i) => { const l = light[i]; return Math.max(l & 255, (l >>> 8) & 255, (l >>> 16) & 255); };
   if (light) for (let i = 0; i < light.length; i++) {
-    const l = light[i], v = Math.max(l & 255, (l >>> 8) & 255, (l >>> 16) & 255);
-    if (v > 6) { lit++; levels.add(v >> 2); }
+    const v = lv(i);
+    if (v <= 6) continue;
+    lit++; levels.add(v >> 2);
+    // a smooth ramp: neighbours that differ, but by only a sliver (stepped light jumps or stays level)
+    for (const j of [i % w < w - 1 ? i + 1 : -1, i + w < light.length ? i + w : -1]) {
+      if (j < 0) continue;
+      const u = lv(j);
+      if (u <= 6) continue;
+      litPairs++;
+      const d = Math.abs(u - v);
+      if (d > 0 && d / Math.max(u, v) < 0.05) smoothPairs++;
+    }
+  }
+  // the same for translucency: neighbouring translucent pixels whose alpha differs by a sliver
+  for (let i = 0; i < color.length; i++) {
+    const a = color[i] >>> 24;
+    if (!a || a === 255) continue;
+    for (const j of [i % w < w - 1 ? i + 1 : -1, i + w < color.length ? i + w : -1]) {
+      if (j < 0) continue;
+      const b = color[j] >>> 24;
+      if (!b || b === 255) continue;
+      softPairs++;
+      if (a !== b && Math.abs(a - b) < 20) rampPairs++;
+    }
   }
   return {
     ink: x1 < 0 ? [0, 0] : [x1 - x0 + 1, y1 - y0 + 1],
@@ -120,7 +142,8 @@ export function measure(color, w, h, origin, light) {
     edges, outlined: judged ? +(outlined / judged).toFixed(3) : 0, outlineW: outlined ? +(thick / outlined).toFixed(2) : 0,
     outlineL: outlined ? +(outlineL / outlined).toFixed(1) : 0, black: edges ? +(black / edges).toFixed(3) : 0,
     soft: nSoft, softShare: nSolid + nSoft ? +(nSoft / (nSolid + nSoft)).toFixed(3) : 0, alphaLevels: alphas.size,
-    contact, lit, lightLevels: levels.size,
+    contact, lit, lightLevels: levels.size, glowRamp: litPairs ? +(smoothPairs / litPairs).toFixed(3) : 0,
+    alphaRamp: softPairs ? +(rampPairs / softPairs).toFixed(3) : 0,
   };
 }
 
@@ -184,7 +207,7 @@ export function judge(id, meta, m) {
   if ((STANDING.has(cat) || ICON.has(cat)) && m.maxFlat > flatCap) notes.push(`flat slab: ${m.maxFlat} px with no detail within 2 px (cap ${flatCap}); reads coarser than the sprites round it`);
   if ((STANDING.has(cat) || ICON.has(cat)) && m.edges > 30 && m.outlined < 0.3) notes.push(`no outline: only ${(m.outlined * 100).toFixed(0)}% of the silhouette is darker than the body`);
   if (STANDING.has(cat) && !AIRBORNE.test(id) && cat !== "crops" && m.solid > 30 && !m.contact) notes.push("no contact shadow under it");
-  if (m.alphaLevels > 6 && m.soft > 40) notes.push(`soft alpha: ${m.alphaLevels} alpha levels over ${m.soft} px (rule: 2-3 flat levels per volume)`);
-  if (m.lightLevels > 10 && m.lit > 200) notes.push(`smooth glow: ${m.lightLevels} light strengths over ${m.lit} px (rule: 4 stepped levels)`);
+  if (m.alphaRamp > 0.12 && m.soft > 40) notes.push(`soft alpha: ${(m.alphaRamp * 100).toFixed(0)}% of translucent neighbours ramp smoothly (${m.alphaLevels} alpha levels; rule: flat stepped levels, dither below the first)`);
+  if (m.glowRamp > 0.15 && m.lit > 200) notes.push(`smooth glow: ${(m.glowRamp * 100).toFixed(0)}% of lit neighbours ramp smoothly (rule: stepped, dithered falloff)`);
   return notes;
 }
