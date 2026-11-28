@@ -22,6 +22,9 @@ const args = process.argv.slice(2);
 const flag = (k, d) => { const i = args.indexOf("--" + k); return i < 0 ? d : args[i + 1]; };
 const SCALE = +flag("scale", 2), LABELS = args.includes("--labels"), WEATHER = !args.includes("--no-weather");
 const OUT = flag("out", join(ROOT, "records", "mist-station", "toan-canh-quan-dao"));
+// --crops DIR: one close-up per island (nearest-neighbour, --crop-scale, default 3); --readability: how well each
+// sprite stands off the ground under it, and how busy each island's floor is (OUT.readability.json)
+const CROPS = flag("crops", null), CROP_SCALE = +flag("crop-scale", 3), READABILITY = args.includes("--readability");
 
 const T = 16, MW = 112, MH = 127, W = MW * T, H = MH * T;
 const tx = (c) => c * T + 8, ty = (r) => r * T + 12;
@@ -83,7 +86,8 @@ async function boundsOf(key, id, o, t) {
     if ((f.color[y * f.w + x] >>> 24) < 40) continue;
     if (x < x0) x0 = x; if (x > x1) x1 = x; if (y < y0) y0 = y; if (y > y1) y1 = y;
   }
-  const b = x1 < 0 ? null : { x0: x0 - ox - pad, y0: y0 - oy - pad, x1: x1 - ox - pad + 1, y1: y1 - oy - pad + 1, hasContact };
+  const b = x1 < 0 ? null : { x0: x0 - ox - pad, y0: y0 - oy - pad, x1: x1 - ox - pad + 1, y1: y1 - oy - pad + 1, hasContact,
+    still: { color: f.color, w: f.w, h: f.h, ox: ox + pad, oy: oy + pad } };
   bounds.set(key, b);
   return b;
 }
@@ -678,6 +682,7 @@ async function placeZone(z) {
 // ---------------------------------------------------------------- render
 const frame = createFrame(W, H);
 await paintGround(frame);
+const groundOnly = READABILITY ? frame.color.slice() : null;
 for (const z of zones) await placeZone(z);
 for (const z of overflow) await placeZone(z);
 placed.sort((a, b) => a.y - b.y || a.x - b.x);
@@ -767,6 +772,61 @@ if (LABELS) {
 
 save(OUT + ".png", encodePNG(W, H, rgba));
 if (SCALE > 1) save(`${OUT}@${SCALE}x.png`, encodePNG(W * SCALE, H * SCALE, upscale(rgba, W, H, SCALE)));
+
+if (CROPS) {
+  const slug = (s) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/đ/gi, "d").toLowerCase().replace(/[^a-z0-9]+/g, "-");
+  for (const isl of islands) {
+    const [x0, y0, x1, y1] = isl.rect, X0 = Math.max(0, (x0 - 1) * T), Y0 = Math.max(0, (y0 - 1) * T);
+    const cw = Math.min(W, (x1 + 2) * T) - X0, ch = Math.min(H, (y1 + 2) * T) - Y0, crop = new Uint8ClampedArray(cw * ch * 4);
+    for (let r = 0; r < ch; r++) crop.set(rgba.subarray(((Y0 + r) * W + X0) * 4, ((Y0 + r) * W + X0 + cw) * 4), r * cw * 4);
+    save(join(CROPS, `${slug(isl.name)}@${CROP_SCALE}x.png`), encodePNG(cw * CROP_SCALE, ch * CROP_SCALE, upscale(crop, cw, ch, CROP_SCALE)));
+  }
+  console.log(`crops: ${islands.length} islands -> ${CROPS}`);
+}
+
+if (READABILITY) {
+  // each sprite: its rim (the outermost ring of opaque pixels) against the ground in a 1-3 px ring round it
+  const { lightness, saturation, spread } = await import("./lib/style-metrics.mjs");
+  const med = (a) => { const s = [...a].sort((x, y) => x - y); return s.length ? s[s.length >> 1] : 0; };
+  const sprites = [];
+  for (const e of placed) {
+    const s = e.b.still, k = islandAt(e.x, e.y);
+    if (k < 0 || !s) continue;
+    const at = (x, y) => x >= 0 && y >= 0 && x < s.w && y < s.h ? s.color[y * s.w + x] >>> 24 : 0;
+    const rim = [], body = [], ground = [], ring = new Set();
+    for (let y = 0; y < s.h; y++) for (let x = 0; x < s.w; x++) {
+      if (at(x, y) < 255) continue;
+      const L = lightness(s.color[y * s.w + x]);
+      body.push(L);
+      if (at(x + 1, y) < 40 || at(x - 1, y) < 40 || at(x, y + 1) < 40 || at(x, y - 1) < 40) {
+        rim.push(L);
+        for (let d = 1; d <= 3; d++) for (const [dx, dy] of [[d, 0], [-d, 0], [0, d], [0, -d]])
+          if (at(x + dx, y + dy) < 40) ring.add((y + dy) * s.w + x + dx);
+      }
+    }
+    for (const j of ring) {
+      const mx = e.x + (j % s.w) - s.ox, my = e.y + Math.floor(j / s.w) - s.oy;
+      if (mx >= 0 && my >= 0 && mx < W && my < H && land(Math.floor(mx / T), Math.floor(my / T)) === k) ground.push(lightness(groundOnly[my * W + mx]));
+    }
+    if (rim.length < 8 || ground.length < 8) continue;
+    const g = med(ground), dRim = Math.abs(med(rim) - g), dBody = Math.abs(med(body) - g);
+    sprites.push({ id: e.id, island: islands[k].name, x: e.x, y: e.y, ground: +g.toFixed(1), rim: +med(rim).toFixed(1),
+      body: +med(body).toFixed(1), dRim: +dRim.toFixed(1), dBody: +dBody.toFixed(1), low: Math.max(dRim, dBody) < 15 });
+  }
+  const floors = islands.map((isl, k) => {
+    const pick = (i) => { const x = i % W, y = (i / W) | 0; return land(Math.floor(x / T), Math.floor(y / T)) === k; };
+    const sp = spread(groundOnly, groundOnly.length, pick);
+    let n = 0, sat = 0, changes = 0;
+    for (let i = 0; i < groundOnly.length - 1; i++) if (pick(i)) { n++; sat += saturation(groundOnly[i]); if (groundOnly[i] !== groundOnly[i + 1]) changes++; }
+    const mine = sprites.filter((s) => s.island === isl.name);
+    return { island: isl.name, floor: { ...sp, sat: +(sat / n).toFixed(3), detail: +(changes / n).toFixed(3) },
+      sprites: mine.length, lowContrast: mine.filter((s) => s.low).length, medianRimContrast: +med(mine.map((s) => s.dRim)).toFixed(1),
+      worst: mine.sort((a, b) => Math.max(a.dRim, a.dBody) - Math.max(b.dRim, b.dBody)).slice(0, 8).map((s) => `${s.id} (${Math.max(s.dRim, s.dBody)})`) };
+  });
+  writeFileSync(OUT + ".readability.json", JSON.stringify({ rule: "sprite rim or body differs from the ground round it by >= 15 L*", floors, sprites }, null, 1));
+  console.log("readability (island: floor L p5..p95 sd, sat, detail | sprites under 15 L* contrast):");
+  for (const f of floors) console.log(`  ${f.island.padEnd(16)} ${f.floor.p5}..${f.floor.p95} sd ${f.floor.sd}  sat ${f.floor.sat}  detail ${f.floor.detail} | ${f.lowContrast}/${f.sprites}  ${f.worst.slice(0, 3).join(", ")}`);
+}
 
 // ---------------------------------------------------------------- report
 const left = ALL.filter((id) => !used.has(id));

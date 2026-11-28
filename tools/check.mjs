@@ -4,13 +4,18 @@
 //
 //   node tools/check.mjs              every effect
 //   node tools/check.mjs fire ui/level-up
+//   node tools/check.mjs --style      also the art-direction rules of tools/audit-style.mjs, as warnings
+//                                     (--style=strict: as failures)
 
 import { readFileSync } from "node:fs";
 import { shortfall } from "../src/core/rig.js";
 import { resolveIds, allIds, loadEffect } from "./lib/fxlib.mjs";
+import { measure, judge, renderStill, stillOptions } from "./lib/style-metrics.mjs";
 import { createFrame, clearFrame, painterFor, createFx, createAct, poseAt, stockActor, resolveOptions, Painter, BACKDROPS } from "../src/core/index.js";
 
-const ids = process.argv.slice(2).length ? resolveIds(process.argv.slice(2)) : allIds();
+const argv = process.argv.slice(2), STYLE = argv.find((a) => a.startsWith("--style"));
+const STYLE_STRICT = STYLE === "--style=strict", patterns = argv.filter((a) => !a.startsWith("--"));
+const ids = patterns.length ? resolveIds(patterns) : allIds();
 const M = 24; // margin around the canvas, to catch pixels drawn outside it
 let fails = 0, warns = 0;
 
@@ -203,6 +208,11 @@ for (const id of ids) {
       }
       ms.sort((x, y) => x - y);
       if (ms[ms.length >> 1] > 4) notes.push(`slow: ${ms[ms.length >> 1].toFixed(1)} ms a frame`);
+    }
+    if (STYLE && meta.size[0] < 300) {
+      const { frame, origin } = renderStill(mod, stillOptions(meta, id, { seed: 1 }), meta.duration * 0.5);
+      const style = judge(id, meta, measure(frame.color, frame.w, frame.h, origin, frame.light)).map((s) => "style: " + s);
+      (STYLE_STRICT ? errs : notes).push(...style);
     }
   } catch (e) {
     errs.push(String(e.message ?? e).split("\n")[0]);
