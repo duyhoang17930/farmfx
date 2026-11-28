@@ -364,6 +364,20 @@ on the sprites they belong to. It writes `records/mist-station/toan-canh-quan-da
 of what was placed and what was left out (UI, portraits, skills, transitions and most weather are screen overlays,
 not map content). Pass `--labels` for island names and `--no-weather` to leave out the weather.
 
+Pass `--crops DIR` for a nearest-neighbour close-up of every island and `--readability` for a report of how well
+each sprite stands off the ground under it.
+
+## showcase
+
+![The cast at one scale](docs/preview/cast@2x.png)
+
+![A boss fight at game resolution](docs/preview/mockup-dungeon@2x.png) ![A farm morning at game resolution](docs/preview/mockup-farm@2x.png)
+
+`node tools/showcase.mjs` renders the cast on the 16 px grid (the player beside every boss for scale) and two
+320 x 180 mock-ups with the HUD, enlarged nearest-neighbour (`--scale`, default 4). How the set is held to one
+style is in [docs/STYLE.md](docs/STYLE.md); `node tools/audit-style.mjs` measures it, see
+[docs/style-audit.md](docs/style-audit.md).
+
 Review items, weapons, equipment and tools on a neutral background at [native scale](docs/preview/item-icons.png)
 or [2x nearest-neighbor](docs/preview/item-icons@2x.png). To regenerate both previews, run `node tools/item-preview.mjs`.
 

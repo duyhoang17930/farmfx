@@ -10,6 +10,7 @@ How farmfx measures itself against [STYLE.md](STYLE.md), and where the style pas
 | `node tools/check.mjs --style` | the same rules as warnings next to the usual checks (`--style=strict`: as failures) |
 | `node tools/archipelago-map.mjs --readability` | per sprite: its rim and body against the ground right under it; per island: how busy the floor is (`*.readability.json`) |
 | `node tools/archipelago-map.mjs --crops DIR [--crop-scale 3]` | one nearest-neighbour close-up per island |
+| `node tools/showcase.mjs [--out DIR] [--scale 4]` | the cast at one scale on the tile grid, and two 320 x 180 game mock-ups with the HUD (dungeon boss fight, farm morning) |
 
 The measurements live in [tools/lib/style-metrics.mjs](../tools/lib/style-metrics.mjs):
 
@@ -107,3 +108,7 @@ decals on every open floor, worn slabs on paved floors, damp hollows in tilled s
 verges, rounded turns and filleted crossings. The wallpaper rule now compares tiles' mean tone (the median hid
 drift on discrete palettes): 22 tiles before, 9 after. The 9 left are the dark floors Phase 4 keeps quiet on
 purpose, tilled soil (furrows) and dungeon slabs; the 11 "repeats" are walls, fences and gates.
+
+Phase 6 (presentation): `tools/showcase.mjs` renders the cast sheet (player, villagers, livestock, every enemy and
+boss on the 16 px grid, the player repeated beside the bosses for scale) and two game-resolution mock-ups with the
+HUD; `--crops` on the archipelago map gives a close-up per island. All enlarged nearest-neighbour from 1x.
