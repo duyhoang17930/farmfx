@@ -51,7 +51,25 @@ export function groundTones(C, base=C[2]){
   return [mix(base,C[1],.27),base,mix(base,C[3],.27)];
 }
 
+// Dark biomes are where fights happen: their floors step back (closer tones, less color, a little darker) so
+// creatures, chests and traps stand off them, instead of a busy floor as contrasty as what stands on it.
+// Each steps back the way its cast needs: the dungeon and the swamp darker (their props are light stone and
+// green), the graveyard into a pale fog and the volcano into grey ash (their cast is bats, iron, obsidian,
+// charred wood and dark-red demons, which a darker floor would swallow).
+const CALM={graveyard:[.5,4,1.4],volcanic:[.45,4,1.6],"dungeon-floor":[.55,0,.5],crystal:[.4,0,.45],swamp:[.35,0,.5]};
+const greyOf=(c)=>{const v=Math.round((c&255)*.3+((c>>>8)&255)*.59+((c>>>16)&255)*.11);return (c&0xff000000)|(v<<16)|(v<<8)|v;};
+function calm(tones,[k,toward,amount],C){
+  const mid=tones[1];
+  return tones.map((t,i)=>{
+    const near=i===1?t:mix(t,mid,k);
+    return mix(mix(near,greyOf(near),k*.45),C[toward],k*amount);
+  });
+}
 function surfaceTones(style,C,id){
+  const tones=rawTones(style,C,id);
+  return CALM[style]&&!/cliff|wall|stairs|shore/.test(id??"")?calm(tones,CALM[style],C):tones;
+}
+function rawTones(style,C,id){
   const snow=style==="snowland";
   const base=id==="deep-snow"?mix(C[3],C[4],.27):id==="burnt-ground"?mix(C[1],C[2],.35):
     snow?mix(C[2],C[3],.63):style==="desert"||style==="sand"?mix(C[2],C[3],.82):C[2];

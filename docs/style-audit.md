@@ -24,7 +24,7 @@ The measurements live in [tools/lib/style-metrics.mjs](../tools/lib/style-metric
 | soft alpha | share of neighbouring translucent pixels whose alpha differs by a sliver (< 20 / 255) | <= 12% |
 | smooth glow | share of neighbouring lit pixels whose light differs by under 5% | <= 15% |
 | repeats / wallpaper | distinct tiles in an 8 x 8 block / spread of the tiles' mean tone | >= 3 / >= 0.6 L* |
-| readability (map) | max(rim, body) vs ground lightness | >= 15 L* |
+| readability (map) | max(rim, body) vs the ground round the sprite, CIE76 delta E | >= 20 |
 
 ## Baseline (before the style pass)
 
@@ -69,6 +69,7 @@ Seen in the close-ups and not yet a numbered rule: island coasts step in whole t
 | 1: pixel scale | 5 | 15 | 62 | 57 | 12 | 11 | 12 | 26 |
 | 2: pixel VFX | 5 | 15 | 0 | 0 | 12 | 0 | 12 | 26 |
 | 3: outline + shadow | 5 | 13 | 0 | 0 | 8 | 0 | 0 | 26 |
+| 4: readability | 4 | 13 | 0 | 0 | 8 | 0 | 0 | 27 |
 
 Phase 1 (mixel): `drawScale` on the painter (effects authored at 2x land at 1x with 1 px detail), material detail in
 big fills (`_kit/surface-detail.js`: bosses and enemies, buildings, machines, gear), 1 px plate outlines for armor,
@@ -85,3 +86,16 @@ Phase 3 (outline, shadow): `outlineRim()` inks a 1 px colored rim where a sprite
 dungeon and exploration props); the map gives every standing category a contact shadow when the sprite lacks one;
 flat, wall-hung, flying and swimming things are exempt. The 8 left without an outline are threads (hooks, bait,
 track) and glowing or underwater animals.
+
+Phase 4 (readability): dark floors calmed per biome, creature rim light, lighter lava-stone ramps, the bazaar's mats
+replaced by `tiles/display-mat` slate with a name plate per group, and map readability measured as color difference
+(delta E) instead of lightness alone. Sprites under delta E 20 from the ground, Phase 3 -> Phase 4:
+
+| island | before | after |
+|---|---|---|
+| Hầm Ngục (dungeon) | 17 / 60 | 9 / 60 |
+| Đầm Lầy (swamp) | 7 / 25 | 1 / 25 |
+| Núi Lửa (volcano) | 14 / 23 | 3 / 23 |
+| Nghĩa Địa (graveyard) | 10 / 33 | 5 / 33 |
+| Đảo Pha Lê (crystal) | 7 / 35 | 7 / 35 |
+| Chợ Phiên (bazaar) | 55 / 329 on brown mats (L*) | 32 / 329 |

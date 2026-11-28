@@ -73,6 +73,12 @@ genre conventions are fine; never copy a specific game's sprites, characters, pa
   underwater things are the exceptions.
 - **Clean shapes at 1x.** No anti-aliasing noise, no lone pixels inside shapes, no gradients: hard ramp steps. Dither
   only for translucent things (water, mist, shadows) or big soft surfaces.
+- **Dark biomes step back.** Where fights happen (dungeon, graveyard, volcano, swamp, crystal caves) the floor's
+  tones sit close together with little color, so the cast stands off it: dungeon and swamp floors go darker,
+  graveyard and volcano floors go to pale fog and grey ash (their cast is dark). `CALM` in `_kit/world-terrain.js`.
+  Enemies and bosses get a rim light on their lit edges (`rimLight()`), so they read on any floor.
+- **Goods on slate.** Item icons are shown on a neutral cool slate (`tiles/display-mat`, `#262b38`), not on wood or
+  brick: brown swallows wood, leather, copper and soil icons.
 - **Light buffer sparingly.** Farm daylight is mostly color. Keep glow for things that really glow: sparkles,
   fireflies, lanterns, magic, the ripe twinkle.
 

@@ -367,20 +367,28 @@ zone([91, 70, 108, 94], ["buildings/dungeon-entrance", "bosses/dark-wizard",
 
 // ---- Bazaar: one mat per item family, the armoury, the tool rack, the stalls, a plot for sale, terrain swatches
 const families = ["raw", "seeds", "produce", "food", "processed", "components", "gems", "animal", "consumables", "special"];
+const FAMILY_NAMES = { raw: "Nguyên liệu", seeds: "Hạt giống", produce: "Nông sản", food: "Thực phẩm", processed: "Chế biến",
+  components: "Linh kiện", gems: "Đá quý", animal: "Sản phẩm thú", consumables: "Thuốc", special: "Đặc biệt" };
+const shelves = []; // [name, x0, y0, x1] in tiles: every display mat gets a name plate
 families.forEach((f, i) => {
   const x = 5 + (i % 5) * 9, y = i < 5 ? 103 : 113;
-  patch(i % 2 ? "tiles/brick-floor" : "tiles/wooden-floor", x, y, x + 7, y + 7, {}, { edges: "rim" });
-  zone([x, y, x + 7, y + 7], ids(`items/${f}/`), "grid", 3);
+  // neutral dark slate, not brown: wood, leather, copper and soil icons sank into the old wooden mats
+  patch("tiles/display-mat", x, y, x + 7, y + 7, {}, { edges: "rim" });
+  shelves.push([FAMILY_NAMES[f], x, y, x + 7]);
+  zone([x, y + 1, x + 7, y + 7], ids(`items/${f}/`), "grid", 3);
 });
-patch("tiles/marble-floor", 51, 102, 62, 112, {}, { edges: "rim" });
+patch("tiles/display-mat", 51, 102, 62, 112, {}, { edges: "rim" });
+shelves.push(["Vũ khí", 51, 102, 62]);
 // the armoury and the tool rack are shop shelves: shown as inventory icons (half size, re-rasterised at 1 px), the
 // size of the item mats beside them, instead of at the 2x hand-held size that made them read as another art set
 const asIcon = (list) => list.map((id) => [id, { drawScale: 0.5 }]);
-zone([51, 102, 62, 112], asIcon(ids("weapons/")), "grid", 2);
-patch("tiles/marble-floor", 51, 113, 62, 123, {}, { edges: "rim" });
-zone([51, 113, 62, 123], asIcon(ids("equipment/")), "grid", 2);
-patch("tiles/wooden-floor", 64, 114, 72, 121, {}, { edges: "rim" });
-zone([64, 114, 72, 121], ["axe", "backpack", "bucket", "hammer", "hand-drill", "hoe", "jackhammer", "lantern",
+zone([51, 103, 62, 112], asIcon(ids("weapons/")), "grid", 2);
+patch("tiles/display-mat", 51, 113, 62, 123, {}, { edges: "rim" });
+shelves.push(["Trang bị", 51, 113, 62]);
+zone([51, 114, 62, 123], asIcon(ids("equipment/")), "grid", 2);
+patch("tiles/display-mat", 64, 114, 72, 121, {}, { edges: "rim" });
+shelves.push(["Dụng cụ", 64, 114, 72]);
+zone([64, 115, 72, 121], ["axe", "backpack", "bucket", "hammer", "hand-drill", "hoe", "jackhammer", "lantern",
   "pickaxe", "scythe", "seed-bag", "shovel", "sickle", "watering-can"].map((t) => ["tools/" + t, { drawScale: 0.5 }]), "grid", 3);
 zone([64, 102, 74, 112], ["buildings/market-stall", "buildings/coastal-trades", "objects/market-cart",
   "objects/cooking-pot", "objects/weather-workbench", "objects/banner"], "grid", 3);
@@ -786,6 +794,14 @@ if (LABELS) {
   }
 }
 
+// name plates over the bazaar's mats, so the goods read as groups (weapons, armor, materials, food, potions...)
+for (const [name, x0, y0, x1] of shelves) {
+  const s = name.toUpperCase(), tw = textWidth(s, "mini"), px = Math.round(((x0 + x1 + 1) * T - tw) / 2), py = y0 * T + 5;
+  for (let y = py - 4; y < py + 8; y++) for (let x = px - 3; x < px + tw + 3; x++)
+    rgba.set(y === py - 4 || y === py + 7 || x === px - 3 || x === px + tw + 2 ? [58, 66, 86, 255] : [27, 31, 42, 255], (y * W + x) * 4);
+  rasterText(s, "mini", (x, y) => rgba.set([226, 232, 240, 255], ((py + y) * W + px + x) * 4));
+}
+
 save(OUT + ".png", encodePNG(W, H, rgba));
 if (SCALE > 1) save(`${OUT}@${SCALE}x.png`, encodePNG(W * SCALE, H * SCALE, upscale(rgba, W, H, SCALE)));
 
@@ -802,8 +818,9 @@ if (CROPS) {
 
 if (READABILITY) {
   // each sprite: its rim (the outermost ring of opaque pixels) against the ground in a 1-3 px ring round it
-  const { lightness, saturation, spread } = await import("./lib/style-metrics.mjs");
+  const { lightness, saturation, spread, lab, deltaE } = await import("./lib/style-metrics.mjs");
   const med = (a) => { const s = [...a].sort((x, y) => x - y); return s.length ? s[s.length >> 1] : 0; };
+  const medLab = (list) => [0, 1, 2].map((k) => med(list.map((v) => v[k])));
   const sprites = [];
   for (const e of placed) {
     const s = e.b.still, k = islandAt(e.x, e.y);
@@ -812,22 +829,23 @@ if (READABILITY) {
     const rim = [], body = [], ground = [], ring = new Set();
     for (let y = 0; y < s.h; y++) for (let x = 0; x < s.w; x++) {
       if (at(x, y) < 255) continue;
-      const L = lightness(s.color[y * s.w + x]);
-      body.push(L);
+      const c = lab(s.color[y * s.w + x]);
+      body.push(c);
       if (at(x + 1, y) < 40 || at(x - 1, y) < 40 || at(x, y + 1) < 40 || at(x, y - 1) < 40) {
-        rim.push(L);
+        rim.push(c);
         for (let d = 1; d <= 3; d++) for (const [dx, dy] of [[d, 0], [-d, 0], [0, d], [0, -d]])
           if (at(x + dx, y + dy) < 40) ring.add((y + dy) * s.w + x + dx);
       }
     }
     for (const j of ring) {
       const mx = e.x + (j % s.w) - s.ox, my = e.y + Math.floor(j / s.w) - s.oy;
-      if (mx >= 0 && my >= 0 && mx < W && my < H && land(Math.floor(mx / T), Math.floor(my / T)) === k) ground.push(lightness(groundOnly[my * W + mx]));
+      if (mx >= 0 && my >= 0 && mx < W && my < H && land(Math.floor(mx / T), Math.floor(my / T)) === k) ground.push(lab(groundOnly[my * W + mx]));
     }
     if (rim.length < 8 || ground.length < 8) continue;
-    const g = med(ground), dRim = Math.abs(med(rim) - g), dBody = Math.abs(med(body) - g);
-    sprites.push({ id: e.id, island: islands[k].name, x: e.x, y: e.y, ground: +g.toFixed(1), rim: +med(rim).toFixed(1),
-      body: +med(body).toFixed(1), dRim: +dRim.toFixed(1), dBody: +dBody.toFixed(1), low: Math.max(dRim, dBody) < 15 });
+    // how far the sprite's rim and its body stand from the ground round it, as perceived color difference
+    const g = medLab(ground), dRim = deltaE(medLab(rim), g), dBody = deltaE(medLab(body), g);
+    sprites.push({ id: e.id, island: islands[k].name, x: e.x, y: e.y, ground: +g[0].toFixed(1), rim: +medLab(rim)[0].toFixed(1),
+      body: +medLab(body)[0].toFixed(1), dRim: +dRim.toFixed(1), dBody: +dBody.toFixed(1), low: Math.max(dRim, dBody) < 20 });
   }
   const floors = islands.map((isl, k) => {
     const pick = (i) => { const x = i % W, y = (i / W) | 0; return land(Math.floor(x / T), Math.floor(y / T)) === k; };
@@ -839,8 +857,8 @@ if (READABILITY) {
       sprites: mine.length, lowContrast: mine.filter((s) => s.low).length, medianRimContrast: +med(mine.map((s) => s.dRim)).toFixed(1),
       worst: mine.sort((a, b) => Math.max(a.dRim, a.dBody) - Math.max(b.dRim, b.dBody)).slice(0, 8).map((s) => `${s.id} (${Math.max(s.dRim, s.dBody)})`) };
   });
-  writeFileSync(OUT + ".readability.json", JSON.stringify({ rule: "sprite rim or body differs from the ground round it by >= 15 L*", floors, sprites }, null, 1));
-  console.log("readability (island: floor L p5..p95 sd, sat, detail | sprites under 15 L* contrast):");
+  writeFileSync(OUT + ".readability.json", JSON.stringify({ rule: "sprite rim or body differs from the ground round it by delta E >= 20", floors, sprites }, null, 1));
+  console.log("readability (island: floor L p5..p95 sd, sat, detail | sprites under delta E 20 from the ground):");
   for (const f of floors) console.log(`  ${f.island.padEnd(16)} ${f.floor.p5}..${f.floor.p95} sd ${f.floor.sd}  sat ${f.floor.sat}  detail ${f.floor.detail} | ${f.lowContrast}/${f.sprites}  ${f.worst.slice(0, 3).join(", ")}`);
 }
 

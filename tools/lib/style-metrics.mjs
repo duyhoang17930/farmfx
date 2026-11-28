@@ -14,6 +14,15 @@ export function lightness(c) {
   const Y = 0.2126 * LUT[c & 255] + 0.7152 * LUT[(c >>> 8) & 255] + 0.0722 * LUT[(c >>> 16) & 255];
   return Y > 0.008856 ? 116 * Math.cbrt(Y) - 16 : 903.3 * Y;
 }
+/** CIE Lab of a packed color. */
+export function lab(c) {
+  const r = LUT[c & 255], g = LUT[(c >>> 8) & 255], b = LUT[(c >>> 16) & 255];
+  const f = (t) => (t > 0.008856 ? Math.cbrt(t) : 7.787 * t + 16 / 116);
+  const X = f((0.4124 * r + 0.3576 * g + 0.1805 * b) / 0.95047), Y = f(0.2126 * r + 0.7152 * g + 0.0722 * b), Z = f((0.0193 * r + 0.1192 * g + 0.9505 * b) / 1.08883);
+  return [116 * Y - 16, 500 * (X - Y), 200 * (Y - Z)];
+}
+/** Color difference (CIE76 delta E) between two Lab colors. */
+export const deltaE = (p, q) => Math.hypot(p[0] - q[0], p[1] - q[1], p[2] - q[2]);
 /** HSV saturation (0..1) of a packed color. */
 export function saturation(c) {
   const [r, g, b] = rgbOf(c), mx = Math.max(r, g, b), mn = Math.min(r, g, b);

@@ -59,7 +59,7 @@ function humanoid(p, id, f, C, side, back, step, beat) {
   const wizard = f === "wizard", lava = id.includes("lava"), crystal = id.includes("crystal"), ice = id.includes("ice");
   const knight = id.includes("knight"), king = /king|pharaoh/.test(id), archer = id.includes("archer");
   const big = golem || treant ? 1.25 : demon ? 1.12 : 1;
-  const body = lava ? [c$("#1e1d26"), c$("#33303b"), c$("#4a4250"), c$("#6c5c66"), c$("#a08480")] : C;
+  const body = lava ? [c$("#2a2731"), c$("#433c49"), c$("#5e5161"), c$("#836e78"), c$("#b8958f")] : C;
   const skin = bone ? BONE : C;
   const W = 7 * big, top = -21 * big + step - 2 * beat, hy = top - (golem ? 3 : 5.5), hx = side * 2;
   // a cape or a robe hangs behind everything

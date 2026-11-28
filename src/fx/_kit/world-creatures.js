@@ -2,7 +2,7 @@ import { ease, fit, hex, rand, TAU } from "../../core/index.js";
 import { drawCreature } from "./creature-art.js";
 import { CREAM, GOLD, LEAF, RED, STEEL, VIOLET, WATER, WOOD, round, wave } from "./art.js";
 import { groundShadow, Layer, twinkle } from "./sprite.js";
-import { detailSlabs } from "./surface-detail.js";
+import { detailSlabs, rimLight } from "./surface-detail.js";
 
 /** The surface a family is made of, for the detail worked into its big flat areas. */
 function materialOf(spec){
@@ -40,7 +40,7 @@ class Scaled{
   ring(x,y,r,w,c,a){const k=this.k;this.p.ring(x*k,y*k,r*k,Math.max(1,w*k),c,a);}
   arc(x,y,r,w,a0,a1,c,a){const k=this.k;this.p.arc(x*k,y*k,r*k,typeof w==="function"?(u)=>Math.max(1,w(u)*k):Math.max(1,w*k),a0,a1,c,a);}
 }
-const lavaStone=fit(["#24232d","#393540","#514654","#76616b","#aa8784"],5);
+const lavaStone=fit(["#2c2933","#463f4c","#615463","#85707a","#b8958f"],5);
 const tails=new Set(["fox","squirrel","raccoon","wolf","snow-wolf","angry-boar","donkey","deer","mini-dragon","frost-dragon","fire-dragon"]);
 export function roster(source){
   return Object.fromEntries(source.trim().split(String.fromCharCode(10)).flatMap(line=>{
@@ -73,6 +73,8 @@ export function worldCreature(id,kind,spec){
     // a creature drawn big gets fills to match: 1 px material detail in every slab, so it has the texel density
     // of the small sprites round it
     detailSlabs(layer.f,materialOf(spec),{min:kind==="boss"?36:scale>=1.1?56:80,seed:o.seed});
+    // and a rim light on the lit edges, so it stands off dark floors
+    if(kind!=="animal")rimLight(layer.f);
     const bounds=Math.min(L/2,size[0]/2)-1;
     p.shade(-bounds,-origin[1]+1,bounds,10,(x,y,v)=>{
       const color=layer.get(x-shift,y-depth);

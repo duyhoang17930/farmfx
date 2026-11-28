@@ -181,6 +181,31 @@ export function outlineRim(f) {
   }
   color.set(out);
 }
+/**
+ * A rim light along the lit (top and left) edges: the pixel just inside the outline goes a step lighter, so a
+ * creature stands off a dark floor without a halo. Pixels already among the lightest are left as they are.
+ */
+export function rimLight(f) {
+  const { w, h, color } = f, A = (i) => (i >= 0 && i < w * h ? color[i] >>> 24 : 0);
+  const palette = [...new Set(Array.from(color).filter((c) => c >>> 24 === 255))];
+  const out = color.slice(), lights = new Map();
+  for (let i = 0; i < w * h; i++) {
+    if (A(i) !== 255) continue;
+    const x = i % w, c = color[i], L = lightness(c);
+    let lit = false;
+    for (const [step, ok] of [[-w, i >= 2 * w], [-1, x >= 2]]) {
+      const o = i + step, oo = o + step;
+      // the neighbour toward the light is an outline pixel (darker, with open space beyond it)
+      if (!ok || A(o) !== 255 || A(oo) >= 40) continue;
+      if (lightness(color[o]) < L - 8) { lit = true; break; }
+    }
+    if (!lit || L > 80) continue;
+    let up = lights.get(c);
+    if (up === undefined) lights.set(c, (up = neighbour(c, palette, 1)));
+    out[i] = up;
+  }
+  color.set(out);
+}
 /** The outline color for c: the sprite's own color well darker than c near its hue, else a violet-dark mix. */
 function darkInk(c, palette) {
   const L = lightness(c), H = hueOf(c);
@@ -203,7 +228,7 @@ function darkInk(c, palette) {
  */
 export function withSurfaceDetail(fx, material = materialByColor, { min = 48, outline = false, detail = true } = {}) {
   const [w, h] = fx.meta.size, [ox, oy] = fx.meta.origin, pad = 8;
-  const f = createFrame(w + pad * 2, h + pad * 2, -ox - pad, -oy - pad), q = new Painter(f);
+  const f = createFrame(w + pad * 2, h + pad * 2, -ox - pad, -oy - pad), q = new Painter(f), cache = new Map();
   function draw(p, t, o) {
     // drawn at another size (an inventory icon at half size): rasterise the shapes straight at that size; the
     // detail is made for 1:1 and would only be thinned out by a resample
@@ -213,8 +238,19 @@ export function withSurfaceDetail(fx, material = materialByColor, { min = 48, ou
     q.reset().place(0, 0);
     q.layer = p.layer;
     fx.draw(q, t, o);
-    if (detail) detailSlabs(f, material, { min, seed: o.seed ?? 1 });
-    if (outline) outlineRim(f);
+    // the passes are slow next to the drawing, and an animation shows the same few frames over and over: keep
+    // the worked result of each distinct drawing
+    let hsh = 2166136261 ^ (o.seed ?? 1);
+    const raw = f.color;
+    for (let i = 0; i < raw.length; i++) hsh = Math.imul(hsh ^ raw[i], 16777619);
+    const hit = cache.get(hsh);
+    if (hit) raw.set(hit);
+    else {
+      if (detail) detailSlabs(f, material, { min, seed: o.seed ?? 1 });
+      if (outline) outlineRim(f);
+      if (cache.size >= 64) cache.delete(cache.keys().next().value);
+      cache.set(hsh, raw.slice());
+    }
     const C = f.color, Lb = f.light, W = f.w;
     for (let i = 0; i < C.length; i++) {
       const c = C[i], a = c >>> 24, l = Lb[i] & 0xffffff;
