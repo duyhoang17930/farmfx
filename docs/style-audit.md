@@ -68,6 +68,7 @@ Seen in the close-ups and not yet a numbered rule: island coasts step in whole t
 | baseline | 37 | 47 | 62 | 57 | 13 | 11 | 12 | 26 |
 | 1: pixel scale | 5 | 15 | 62 | 57 | 12 | 11 | 12 | 26 |
 | 2: pixel VFX | 5 | 15 | 0 | 0 | 12 | 0 | 12 | 26 |
+| 3: outline + shadow | 5 | 13 | 0 | 0 | 8 | 0 | 0 | 26 |
 
 Phase 1 (mixel): `drawScale` on the painter (effects authored at 2x land at 1x with 1 px detail), material detail in
 big fills (`_kit/surface-detail.js`: bosses and enemies, buildings, machines, gear), 1 px plate outlines for armor,
@@ -79,3 +80,8 @@ under `#161122` to that floor, so smoke, auras, magic circles and glows render a
 is never flat black. Measured with the smoothness rules above, before the change soft alpha hit 62 assets and
 smooth glow 12 (the counts in the baseline row use the older level-count rules). On the map the volcano's dark box
 was a square `burnt-ground` patch, now a ragged scorch.
+
+Phase 3 (outline, shadow): `outlineRim()` inks a 1 px colored rim where a sprite has none (buildings, machines,
+dungeon and exploration props); the map gives every standing category a contact shadow when the sprite lacks one;
+flat, wall-hung, flying and swimming things are exempt. The 8 left without an outline are threads (hooks, bait,
+track) and glowing or underwater animals.

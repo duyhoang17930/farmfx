@@ -2,6 +2,7 @@ import { ease, rand, seg, TAU } from "../../core/index.js";
 import { asset, CREAM, GOLD, LEAF, RED, STEEL, VIOLET, WATER, WOOD, box, post, round, wave } from "./art.js";
 import { glints, puff } from "./farm-feedback.js";
 import { groundShadow, twinkle } from "./sprite.js";
+import { withSurfaceDetail } from "./surface-detail.js";
 
 const animations=/reveal|emerge|expand|construction|respawn|dig|discovery/;
 const footprints={"boat-dock":{width:40,height:10},"secret-door":{width:36,height:8}};
@@ -98,5 +99,7 @@ export function explorationAddition(id){
     }
   });
   const collision=footprints[id];
-  return {...fx,meta:{...fx.meta,...(collision?{collision}:{}),...(animated?{events:{completion:fx.meta.duration}}:{})}};
+  const out={...fx,meta:{...fx.meta,...(collision?{collision}:{}),...(animated?{events:{completion:fx.meta.duration}}:{})}};
+  // markers and overlays are UI on the ground; things that stand (boats, doors, flags, chests) get the outline
+  return /marker|waypoint|fog|border|highlight|respawn|preview|overlay|bracket|reveal|expand|emerge|construction|unlock|spot/.test(id)?out:withSurfaceDetail(out,undefined,{outline:true,detail:false});
 }

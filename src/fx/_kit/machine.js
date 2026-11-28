@@ -16,7 +16,7 @@ export function machine(name, desc, palette, draw, { size = [64,64], origin = [s
   }, (p, phase, C, o) => {
     groundShadow(p, 0, 0, Math.min(size[0]/2-4, 22), 4.6);
     draw(p, C, o.active ? phase : 0, o);
-  }));
+  }), undefined, { outline: true });
 }
 
 export function bench(p, C, w = 34, h = 12) {

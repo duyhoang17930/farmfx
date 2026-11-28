@@ -3,6 +3,7 @@ import { asset, CREAM, GOLD, LEAF, RED, STEEL, VIOLET, WATER, WOOD, box, post, r
 import { hot, vapor } from "./machine.js";
 import { groundShadow, twinkle } from "./sprite.js";
 import { terrain } from "./world-terrain.js";
+import { withSurfaceDetail } from "./surface-detail.js";
 
 const props={
   floor:"dungeon-floor cracked-floor collapsing-floor rune-floor",
@@ -121,6 +122,7 @@ export function dungeonAsset(id){
         p.rect(-4,-16,8,6,GOLD[3]);p.px(0,-13,C[0]);}
     }
   });
-  return {...fx,meta:{...fx.meta,collision:{width:kind==="portal"?22:kind==="wall"?30:kind==="block"?26:0,height:10},
-    ...(isTrap?{events:{contact:fx.meta.duration*.46,damage:fx.meta.duration*.5}}:{})}};
+  // props you walk up to get the colored outline and worked surfaces of the rest of the set
+  return withSurfaceDetail({...fx,meta:{...fx.meta,collision:{width:kind==="portal"?22:kind==="wall"?30:kind==="block"?26:0,height:10},
+    ...(isTrap?{events:{contact:fx.meta.duration*.46,damage:fx.meta.duration*.5}}:{})}},undefined,{outline:true,min:40});
 }

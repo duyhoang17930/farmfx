@@ -49,7 +49,8 @@ genre conventions are fine; never copy a specific game's sprites, characters, pa
 - **Round things on the ground are flattened.** A circle on the floor is an ellipse about twice as wide as it is tall
   (ry = rx / 2): rings, shadows, ripples, splashes, the mound of a crop.
 - **Contact shadows, not cast shadows.** Under anything that stands, a soft dark ellipse (about the footprint's width,
-  a quarter as tall), darker in the middle. When something jumps, its shadow stays on the ground and shrinks.
+  a quarter as tall), darker in the middle, nudged 1-2 px right (light from the top-left): `groundShadow()`. Flat
+  things (rugs, tracks, wall hangings) and things that fly or swim have none. When something jumps, its shadow stays on the ground and shrinks.
 - **Animals and people face four ways**: down (towards the camera), up (away), and sideways (draw right, flip for
   left). An asset that only does one direction says so in its `desc` and faces down or right.
 - **Things fall towards the bottom of the screen** in screen space, but particles that land do so on the ground near
@@ -65,6 +66,11 @@ genre conventions are fine; never copy a specific game's sprites, characters, pa
   wood, dark green round leaves), never flat black. Don't make a rim by drawing a dark shape and a lighter one 2 px
   inside it (that rim is 2 px); fill the shape and stroke it, as `plate()` in `_kit/art.js` does. Inner detail lines are softer still. Drop the outline where a
   highlight touches the edge.
+- **Who gets an outline.** Anything you can walk up to (people, creatures, chests, traps, altars, buildings,
+  machines, boats, doors) has the 1 px colored outline; `outlineRim()` in `_kit/surface-detail.js` inks the rim of
+  a finished sprite where it is missing (buildings, machines, dungeon and exploration props go through it). Ground
+  (floors, grass, paths, water) has none, so the two layers never merge. Threads (lines, hooks) and glowing or
+  underwater things are the exceptions.
 - **Clean shapes at 1x.** No anti-aliasing noise, no lone pixels inside shapes, no gradients: hard ramp steps. Dither
   only for translucent things (water, mist, shadows) or big soft surfaces.
 - **Light buffer sparingly.** Farm daylight is mostly color. Keep glow for things that really glow: sparkles,

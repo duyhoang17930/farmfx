@@ -195,7 +195,7 @@ export const ICON = new Set(["items", "weapons", "equipment", "tools"]);
 export const CREATURE = new Set(["animals", "bosses", "characters", "enemies", "player"]);
 export const isGround = (id, meta) => meta.tags?.includes("ground") || meta.tags?.includes("terrain") || meta.tags?.includes("tile") && meta.size[0] === 16 && meta.size[1] === 16;
 /** Things that fly or swim, so a missing contact shadow is right. */
-export const AIRBORNE = /fish|jelly|octopus|puffer|salmon|tuna|lobster|koi|butterfly|bee|dragonfly|firefly|bird|eagle|owl|crow|parrot|bat|ghost|spirit|elemental|swimming|lily|boat|raft|sailing/;
+export const AIRBORNE = /duck|frog|conveyor|carpet|rug|painting|window|wall-clock|coastal-dock|minecart-track|fish|jelly|octopus|puffer|salmon|tuna|lobster|koi|butterfly|bee|dragonfly|firefly|bird|eagle|owl|crow|parrot|bat|ghost|spirit|elemental|swimming|lily|boat|raft|sailing/;
 
 /** The style problems one asset's measurements show, as short notes. */
 export function judge(id, meta, m) {

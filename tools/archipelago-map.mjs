@@ -496,8 +496,13 @@ const moments = [
   ["bosses/desert-pharaoh", "particles/flame"], ["enemies/fire-elemental", "combat/burning"], ["enemies/stone-golem", "particles/stone-chip"],
 ];
 // light: shadows go under the sprites, glows over them
+// every standing thing gets a contact shadow, if it doesn't draw its own (one light, from the top-left)
 const under = { "trees/": "lighting/tree-shadow", "buildings/": "lighting/building-shadow", "characters/": "lighting/character-shadow",
+  "enemies/": "lighting/character-shadow", "animals/": "lighting/character-shadow", "player/": "lighting/character-shadow",
+  "objects/": "lighting/soft-shadow", "machines/": "lighting/building-shadow", "resources/": "lighting/soft-shadow",
+  "dungeons/": "lighting/soft-shadow", "exploration/": "lighting/soft-shadow",
 };
+const FLAT = /rug|carpet|painting|window|wall-clock|track|door|marker|waypoint|fog|border|highlight|spot|floor|button|plate|fish|jelly|octopus|puffer|salmon|tuna|lobster|koi|butterfly|bee|dragonfly|firefly|eagle|owl|crow|parrot|bat|ghost|spirit|swimming|lily|boat|raft|sailing/;
 // bosses draw their own ground shadow; a soft-shadow under one that big reads as a dark box
 // numbers and words floating over heads (damage, crits, pickup text) belong to the HUD, so the map leaves them out
 const glows = { "objects/campfire": "lighting/campfire-light", "objects/street-lamp": "lighting/street-light",
@@ -744,7 +749,7 @@ async function overlay(id, x, y, extra = {}) {
 
 for (const e of placed) {
   const shadow = Object.entries(under).find(([pre]) => e.id.startsWith(pre))?.[1];
-  if (shadow && !e.b.hasContact && !/falling|regrowth|sapling/.test(e.id)) {
+  if (shadow && !e.b.hasContact && !/falling|regrowth|sapling/.test(e.id) && !FLAT.test(e.id)) {
     await overlay(shadow, e.x, e.y, { radius: Math.max(5, (e.b.x1 - e.b.x0) * 0.4) });
   }
 }

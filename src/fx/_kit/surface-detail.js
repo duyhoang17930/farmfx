@@ -154,10 +154,54 @@ export function materialByColor(c) {
 }
 
 /**
+ * Give a finished layer the colored 1 px outline the style asks of anything you can walk up to: every silhouette
+ * pixel that isn't already darker than the body behind it is inked a dark step of its own color. Edges facing the
+ * light (top, left) that are highlights stay as they are, and 1 px threads (a fishing line, a wire) are left alone.
+ */
+export function outlineRim(f) {
+  const { w, h, color } = f, n = w * h, A = (i) => color[i] >>> 24;
+  const palette = [...new Set(Array.from(color).filter((c) => c >>> 24 === 255))];
+  const out = color.slice(), inks = new Map();
+  for (let i = 0; i < n; i++) {
+    if (A(i) !== 255) continue;
+    const x = i % w, y = (i / w) | 0, c = color[i];
+    for (const [dx, dy] of [[0, -1], [-1, 0], [1, 0], [0, 1]]) {
+      const ox = x + dx, oy = y + dy;
+      if (ox >= 0 && oy >= 0 && ox < w && oy < h && A(oy * w + ox) >= 40) continue;
+      const ix = x - dx, iy = y - dy;
+      if (ix < 0 || iy < 0 || ix >= w || iy >= h || A(iy * w + ix) !== 255) break; // a thread: leave it
+      const L = lightness(c);
+      if (L < lightness(color[iy * w + ix]) - 8) break; // already outlined
+      if ((dx < 0 || dy < 0) && L > 68) break; // a highlight on the lit side
+      let ink = inks.get(c);
+      if (ink === undefined) inks.set(c, (ink = darkInk(c, palette)));
+      out[i] = ink;
+      break;
+    }
+  }
+  color.set(out);
+}
+/** The outline color for c: the sprite's own color well darker than c near its hue, else a violet-dark mix. */
+function darkInk(c, palette) {
+  const L = lightness(c), H = hueOf(c);
+  let best = 0, score = Infinity;
+  for (const q of palette) {
+    const d = L - lightness(q);
+    if (d < 14 || d > 50) continue;
+    const dh = Math.min(Math.abs(hueOf(q) - H), 360 - Math.abs(hueOf(q) - H));
+    const sc = Math.abs(d - 26) + dh * 0.5;
+    if (sc < score) { score = sc; best = q; }
+  }
+  if (best && score < 40) return best;
+  const m = (v, t) => Math.round(v + (t - v) * 0.6);
+  return ((c & 0xff000000) | (m((c >>> 16) & 255, 52) << 16) | (m((c >>> 8) & 255, 28) << 8) | m(c & 255, 40)) >>> 0;
+}
+
+/**
  * Wrap an asset ({ meta, draw }) so its big flat fills get material detail: it draws into a layer, the layer's
  * slabs are worked, and the result goes onto the painter (translucent pixels and light kept, mirroring honoured).
  */
-export function withSurfaceDetail(fx, material = materialByColor, { min = 48 } = {}) {
+export function withSurfaceDetail(fx, material = materialByColor, { min = 48, outline = false, detail = true } = {}) {
   const [w, h] = fx.meta.size, [ox, oy] = fx.meta.origin, pad = 8;
   const f = createFrame(w + pad * 2, h + pad * 2, -ox - pad, -oy - pad), q = new Painter(f);
   function draw(p, t, o) {
@@ -169,7 +213,8 @@ export function withSurfaceDetail(fx, material = materialByColor, { min = 48 } =
     q.reset().place(0, 0);
     q.layer = p.layer;
     fx.draw(q, t, o);
-    detailSlabs(f, material, { min, seed: o.seed ?? 1 });
+    if (detail) detailSlabs(f, material, { min, seed: o.seed ?? 1 });
+    if (outline) outlineRim(f);
     const C = f.color, Lb = f.light, W = f.w;
     for (let i = 0; i < C.length; i++) {
       const c = C[i], a = c >>> 24, l = Lb[i] & 0xffffff;

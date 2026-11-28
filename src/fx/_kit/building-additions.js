@@ -315,5 +315,5 @@ export function extraBuilding(id){
     if(mode!=="tower"&&mode!=="gate")for(let i=0;i<4;i++)if(rand(i,3,o.seed)>0.31)p.px(-W+3+i*3,-2,wall[4]);
   });
   // big walls, roofs and rock faces get worked surfaces instead of flat slabs
-  return withSurfaceDetail({...fx,meta:{...fx.meta,collision:{width:W*2,height:mode==="tower"?18:22}}});
+  return withSurfaceDetail({...fx,meta:{...fx.meta,collision:{width:W*2,height:mode==="tower"?18:22}}},undefined,{outline:true});
 }
